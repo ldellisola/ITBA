@@ -1,6 +1,6 @@
 # Función de Variable Aleatoria
 
-Una funcion de variables aleatorias es una nueva variable aleatoria compuesta por una o mas variables aleatorias.
+Una funcion de variables aleatorias es una nueva variable aleatoria compuesta por una o mas variables aleatorias. Basicamente funciona como una funcion compuesta.
 
 ### Ejemplo
 
@@ -19,3 +19,20 @@ $$
 	3\\x
 \end{pmatrix} = 3
 $$
+
+- $X\sim N(0,1)$
+
+$$
+E[Y]=E[x^2]= E[x^2]-E[x]^2 = \sigma^2=1
+$$
+
+$$
+f_Y(y)=
+\left\{
+	\begin{array}{ll}
+	0\ \ ,\ \ y < 0\\
+	P(x^2\leq y) = P(\sqrt y \leq x \leq \sqrt y) = 1\ .\ \Phi(\sqrt y) -1\ \ ,\ \ y\geq 0
+	\end{array}
+	\right.
+$$
+
