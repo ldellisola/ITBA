@@ -24,7 +24,7 @@ Los cuartiles se obtienen ordenando la muestra y dividiéndola en 2 partes, de l
 
 - Rango: es la diferencia entre el primer valor y el segundo.
 - Rango Intercuartil: es la diferencia entre el primer cuartil ($q_1$) y el segundo cuartil ($q_2$).
-- Desvio Estandar Muestral $(std)$: Indica que tan separados estan los datos.
+- Desvio Estandar Muestral $(std)(\sigma)$: Indica que tan separados estan los datos.
 - Varianza Muestral: es el cuadrado del desvio estandar muestral ${(std)}^2$.
 - Curtosis $(k)$: Mide que tan distribuidos estan los valores a lo largo de la seleccion de valores, funciona bien si $n$ es grande.
 

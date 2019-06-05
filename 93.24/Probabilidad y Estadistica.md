@@ -5,5 +5,6 @@
 1. [Experimento Aleatorio](01 - Experimento Aleatorio.md)
 2. [Estadistica Descriptiva](02 - Estadistica Descriptiva.md)
 3. [Calculo de Probabilidad](03 - Calculo de Probabilidad.md)
-4. 
+4. [Variables Aleatorias](04 - Variables Aleatorias.md)
+5. 
 
