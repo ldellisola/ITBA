@@ -6,18 +6,18 @@ Una **variable aleatoria** (VA) es una función que va del espacio muestral haci
 
 El **recorrido** $(R)$ de la variable discreta es la Imagen de $X$. Este puede ser continuo o discreto.
 
-Las VAs tienen dos funciones características, una llamada **función de masa de probabilidad**$(P_x(k))$, que mide la probabilidad individual de cada elemento, y luego esta **función de probabilidad** $(F_x(k) = P(X\leq k))$, que mide la probabilidad acumulada.
+Las VAs tienen dos funciones características, una llamada **función de densidad de probabilidad**$(P_x(k))$, que mide la probabilidad individual de cada elemento, y luego esta **función de probabilidad acumulada** $(F_x(k) = P(X\leq k))$, que mide la probabilidad acumulada.
 
 Tambien tienen funciones como el **valor esperado**, el **momento**, el **valor medio o media**, los **momentos centrales** y la **varianza**.
 
 ### Propiedades 
 
-#### Función de Masa
+#### Función de Densidad
 
 1. $0\leq P_x(k)\leq1$
 2. $\sum_{k\ \in\ R_x} P_x(k) = 1$
 
-#### Función de Probabilidad
+#### Función de Probabilidad Acumulada
 
 1. $\lim_{k\rightarrow -\inf} F_x(k) =  0$
 2. $\lim_{k\rightarrow \inf} F_x(k) =  1$
@@ -25,7 +25,7 @@ Tambien tienen funciones como el **valor esperado**, el **momento**, el **valor 
 4. $lim_{k\rightarrow k_0} F_X(k) = F_X(k_0)$
 5. $P(A<X\leq B) = F_X(B) - F_X(A)$ 
 
-## Variables Aleatorias Discretas
+# Variables Aleatorias Discretas
 
 ### Definición
 
@@ -142,10 +142,100 @@ $$
 Binomial(n,p) \sim Poisson(n\ .\ p)
 $$
 
+# Variables Aleatorias Continuas
+
+En este tipo de VACs buscamos la probabilidad que que ocurra un intervalo, por lo que se redefinen las siguientes funciones:
+
+- Funcion de densidad:
+
+$$
+f_x(y)
+$$
 
 
 
+- Funcion de probabilidad acumulada:
 
+$$
+sea~ P(a\leq X\leq b) = \int_a^bf_x(y)dy
+$$
+
+## Distribucion Uniforme
+
+$$
+X\sim U(a,b)\\
+f_x=
+\left\{
+	\begin{array}{ll}
+	\frac{1}{b-a}\ \ ,\ \ x\in (a,b)\\
+	0\ \ ,\ \ x\notin(a,b)
+	\end{array}
+\right.
+\ \ ,\ \ 
+F_x=
+\left\{
+	\begin{array}{ll}
+	0\ \ ,\ \ x \lt a\\
+	\frac{x-a}{b-a}\ \ ,\ \ x\in (a,b)\\
+	1\ \ ,\ \ x \gt b
+	\end{array}
+\right.\\
+\mu = \frac{a+b}{2}\ \ ,\ \ \sigma^2=\frac{(b-a)^2}{12}
+$$
+
+
+
+## Distribucion Exponencial
+
+Sirve cuando se trata de tiempos.
+$$
+X\sim e(\lambda)
+\\
+f_t(x)=
+\left\{
+	\begin{array}{ll}
+		0\ \ ,\ \ x\lt 0\\
+		\lambda\ .\ e^{-\lambda\ .\ x}\ \ ,\ \ x>0
+	\end{array}
+\right.
+\ \ ,\ \ 
+F_t(x)=
+\left\{
+	\begin{array}{ll}
+		0\ \ ,\ \ x\lt 0\\
+		1- e^{-\lambda\ .\ x}\ \ ,\ \ x>0
+	\end{array}
+\right.
+\\
+\mu=\frac{1}{\lambda}\ \ ,\ \ \sigma^2=\frac{1}{\lambda^2}
+$$
+
+## Distribucion Normal (Gaussiana)
+
+$$
+X\sim N(\mu,\sigma)\ \ ,\ \ \sigma \gt0\\
+f_X(x)=\frac{e^{\frac{-(x-\mu)^2}{2\ .\ \sigma^2}}}{\sqrt{2\ .\ \pi\ .\ \sigma^2}}
+\ \ ,\ \ 
+F_X(x) = \int_{-\infty}^{x}{f_X(y)dy}
+$$
+
+## Distribucion Normal Standard
+
+Es igual a la distribucion normal $(X)$ pero se realiza un cambio de variable. No es necesario calcularlo siempre con la formula ya que existe una [tabla](Resources/TablaNormal.pdf) para cualcularlo.
+$$
+Z=\frac{X-\mu}{\sigma}\\
+f_Z(x)=\frac{1}{\sqrt{2\ .\ \pi}}\times e^{\frac{Z^2}{2}}\\
+\Phi(Z) = F_Z(x)=\int_{-\infty}^{x}f_Z(y)dy\\
+\Phi(-Z)=1-\Phi(Z)\\
+\mu = 0\ \ ,\ \ \sigma=0
+$$
+
+### Inversa
+
+Tambien existe una [tabla inversa]() para poder calcular con facilidad la inversa de esta funcion.
+$$
+Z_\alpha = \Phi(\alpha)^{-1}
+$$
 
 
 
