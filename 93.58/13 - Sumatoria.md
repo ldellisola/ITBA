@@ -46,13 +46,13 @@ $$
 \sum_{k=1}^{n} k  =\frac {n(n+1)} 2
 $$
 
-#### Suma Geometrica
+#### Suma Geométrica
 
 $$
 \sum_{k=1}^{n}x^k = \frac {1-x^{n+1}} {1-x}~~~~~~x\neq1
 $$
 
-## Sumatorias Multiples
+## Sumatorias Múltiples
 
 ### Notación
 

@@ -1,6 +1,6 @@
 # Función de Variable Aleatoria
 
-Una funcion de variables aleatorias es una nueva variable aleatoria compuesta por una o mas variables aleatorias. Basicamente funciona como una funcion compuesta.
+Una función de variables aleatorias es una nueva variable aleatoria compuesta por una o mas variables aleatorias. Básicamente funciona como una función compuesta.
 
 ### Ejemplo
 

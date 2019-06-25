@@ -2,13 +2,13 @@ Calculo de Probabilidad
 
 ## Regla de Laplace
 
-### Hipotesis
+### Hipótesis
 
 Sean:
 
 - $S=\{S_1,S_2,\dots,S_n\}\ \ \#S=n $   (Es un espacio finito)
 - $P(S_i)=p$      (Todos los casos son igual de probables)
-- $A=\bigcup_{j\ \in\  J} (S_j)\ \ \#A=\#J $  (Un suceso es la union de algunos resultados)
+- $A=\bigcup_{j\ \in\  J} (S_j)\ \ \#A=\#J $  (Un suceso es la unión de algunos resultados)
 
 ### Teorema
 
@@ -28,20 +28,20 @@ $$
 
 #### Ejemplo
 
-Se tienen 3 dados y se quiere saber la probabilidad de que al tirarlos salgan al menos 2 numeros iguales.
+Se tienen 3 dados y se quiere saber la probabilidad de que al tirarlos salgan al menos 2 números iguales.
 
 Tenemos los siguientes sucesos:
 
-- $A$: Todos los numeros son distintos. $(A = 120)$
-- $B$: Exactamente 2 numeros son iguales. $( B = 90)$
-- $C$: Todos los los numeros son iguales. $( C = 6 )$
+- $A$: Todos los números son distintos. $(A = 120)$
+- $B$: Exactamente 2 números son iguales. $( B = 90)$
+- $C$: Todos los los números son iguales. $( C = 6 )$
 - $S = (A\cup B\cup C) = 216$
 
-Tengo que buscar cuando caigan exactamente 2 numeros iguales $(B)$ o 3 numeros iguales $(C)$ $\Rightarrow $ quiero calcular $B\cup C$.
+Tengo que buscar cuando caigan exactamente 2 números iguales $(B)$ o 3 números iguales $(C)$ $\Rightarrow $ quiero calcular $B\cup C$.
 $$
 P(B\cup C)=1-P(A) = 1-\frac{120}{216} = 0.4444
 $$
-Calculo $P(A)$ en vez de $P(B\cup C)$ por que es mas facil de calcular.
+Calculo $P(A)$ en vez de $P(B\cup C)$ por que es mas fácil de calcular.
 
 ## Probabilidad Condicional
 
@@ -67,13 +67,13 @@ $$
 
 Se tiran 2 dados, calcular la probabilidad de que <u>la suma de los dados sea menor a 8</u> $(A)$ dado que <u>la suma de los dados es impar</u> $(B)$.
 
-Calculos Auxiliares:
+Cálculos Auxiliares:
 $$
 P(A)=\frac{21}{36} \ \ -\ \ P(B)=\frac{18}{36}\ \ -\ \ P(A\cap B)=\frac{12}{36} \\
 P(A/B) = \frac{P(A\cap B)}{P(A)}=\frac{\frac{12}{36}}{\frac{18}{36}} = \frac{12}{18} = 0.6667
 $$
 
-## Diagrama de Arbol
+## Diagrama de Árbol
 
 <img src="Resources\ProbabilityTree.png" style="zoom:50%" />
 
@@ -90,7 +90,7 @@ $$
 
 Sea:
 
-- $A_i$ una particion, $A_i \neq\phi$
+- $A_i$ una partición, $A_i \neq\phi$
 
 - $A_i \cap A_j = \phi ,\ \ i\neq j$
 

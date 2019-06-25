@@ -6,7 +6,7 @@ El espacio muestral $(S)$ de un experimento son todos los posibles resultados de
 
 ## Sucesos
 
-### Definicion
+### Definición
 
 Un Suceso $(A)$ es el conjunto de resultados posibles, un subconjunto del espacio muestral $(A \subset S)$.
 
@@ -29,12 +29,12 @@ Dos sucesos son mutuamente excluyentes $\Leftrightarrow A\cap B=\phi$.
 
 ## Frecuencia Relativa de un Suceso
 
-### Definicion
+### Definición
 
 Sean:
 
 - $m$ la cantidad de veces que se repite el experimento.
-- $m_A$ : la cantidad de veces que ocurrio el suceso $A$.
+- $m_A$ : la cantidad de veces que ocurrió el suceso $A$.
 
 Entonces:
 $$

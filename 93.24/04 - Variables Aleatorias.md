@@ -21,7 +21,7 @@ Tambien tienen funciones como el **valor esperado**, el **momento**, el **valor 
 
 1. $\lim_{k\rightarrow -\inf} F_x(k) =  0$
 2. $\lim_{k\rightarrow \inf} F_x(k) =  1$
-3. $F_X(k)$ es monotona creciente.
+3. $F_X(k)$ es monótona creciente.
 4. $lim_{k\rightarrow k_0} F_X(k) = F_X(k_0)$
 5. $P(A<X\leq B) = F_X(B) - F_X(A)$ 
 
@@ -86,9 +86,9 @@ Y\left\{
 p_0 = q = 1-p\ \ ,\ \ p_1=p\ \ ,\ \ \mu = p\ \ ,\ \ \sigma^2=p\ .\ q
 $$
 
-#### Aproximacion
+#### Aproximación
 
-- La variable aleatoria de bernoulli se puede aproximar a una binomial de la siguiente forma:
+- La variable aleatoria de Bernoulli se puede aproximar a una binomial de la siguiente forma:
 
 $$
 Y\sim Bernoulli(p) \rightarrow\ Y\sim Binomial(1,p)
@@ -100,7 +100,7 @@ $$
 X\sim Binomial(n,p)
 $$
 
-Se repite un experimento **n** veces, cada experimento es **independiente** de los demas y la probabilidad de exito en cada experimento es **p**.
+Se repite un experimento **n** veces, cada experimento es **independiente** de los demás y la probabilidad de éxito en cada experimento es **p**.
 
 - $x = \#\ de\ exitos\ en\ los~n~experimentos $.
 
@@ -108,12 +108,12 @@ Se repite un experimento **n** veces, cada experimento es **independiente** de l
 - $\mu = n\ .\ p$
 - $\sigma^2=q\ .\ n\ .\ p$
 
-### Aproximacion
+### Aproximación
 
-- La VAD binomial se aproxima a la VAD bernoulli de la siguente forma
+- La VAD binomial se aproxima a la VAD Bernoulli de la siguiente forma
 
 $$
-X \sim Bernoulli(p) \rightarrow X \sim Binomial(1,p) 
+X \sim Bernoulli(p) \rightarrow X \sim Binomial(1,p)
 $$
 
 - La VAD binomial se puede aproximar a la VAD de Poisson de la siguiente forma cuando $n$ es **grande**, $p$ es **chico** y $k\sim p\ .\ n$ :
@@ -134,7 +134,7 @@ Las VADs de Poisson se suelen cuando se trata de contar al tiempo.
 - $\mu = \lambda$
 - $\sigma^2 = \lambda$
 
-### Aproximacion
+### Aproximación
 
 - La VAD Poisson se puede aproximar a la VAD de binomial  de la siguiente forma cuando $n$ es **grande**, $p$ es **chico** y $k\sim p\ .\ n$ :
 
@@ -146,7 +146,7 @@ $$
 
 En este tipo de VACs buscamos la probabilidad que que ocurra un intervalo, por lo que se redefinen las siguientes funciones:
 
-- Funcion de densidad:
+- Función de densidad:
 
 $$
 f_x(y)
@@ -154,13 +154,13 @@ $$
 
 
 
-- Funcion de probabilidad acumulada:
+- Función de probabilidad acumulada:
 
 $$
 sea~ P(a\leq X\leq b) = \int_a^bf_x(y)dy
 $$
 
-## Distribucion Uniforme
+## Distribución Uniforme
 
 $$
 X\sim U(a,b)\\
@@ -185,7 +185,7 @@ $$
 
 
 
-## Distribucion Exponencial
+## Distribución Exponencial
 
 Sirve cuando se trata de tiempos.
 $$
@@ -210,7 +210,7 @@ F_t(x)=
 \mu=\frac{1}{\lambda}\ \ ,\ \ \sigma^2=\frac{1}{\lambda^2}
 $$
 
-## Distribucion Normal (Gaussiana)
+## Distribución Normal (Gaussiana)
 
 $$
 X\sim N(\mu,\sigma)\ \ ,\ \ \sigma \gt0\\
@@ -219,9 +219,9 @@ f_X(x)=\frac{e^{\frac{-(x-\mu)^2}{2\ .\ \sigma^2}}}{\sqrt{2\ .\ \pi\ .\ \sigma^2
 F_X(x) = \int_{-\infty}^{x}{f_X(y)dy}
 $$
 
-## Distribucion Normal Standard
+## Distribución Normal Standard
 
-Es igual a la distribucion normal $(X)$ pero se realiza un cambio de variable. No es necesario calcularlo siempre con la formula ya que existe una [tabla](Resources/TablaNormal.pdf) para cualcularlo.
+Es igual a la distribución normal $(X)$ pero se realiza un cambio de variable. No es necesario calcularlo siempre con la formula ya que existe una [tabla](Resources/TablaNormal.pdf) para calcularlo.
 $$
 Z=\frac{X-\mu}{\sigma}\\
 f_Z(x)=\frac{1}{\sqrt{2\ .\ \pi}}\times e^{\frac{Z^2}{2}}\\
@@ -232,7 +232,7 @@ $$
 
 ### Inversa
 
-Tambien existe una [tabla inversa]() para poder calcular con facilidad la inversa de esta funcion.
+Tambien existe una [tabla inversa](Resources/TablaNormalInversa.pdf) para poder calcular con facilidad la inversa de esta función.
 $$
 Z_\alpha = \Phi(\alpha)^{-1}
 $$

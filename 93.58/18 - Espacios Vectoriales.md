@@ -113,7 +113,7 @@ E_n=
 \end{pmatrix}
 
 \right\}
-
+
 $$
 
 - Base Canónica de $\mathbb K^{n\times m}$
@@ -219,7 +219,7 @@ $$
 \{w_1,w_2,\dots,w_m\}~~es~LD
 $$
 
-- Demostracion
+- Demostración
 
 Como cada $w_i \in S$ y $B$ es Base, entonces $\exist \alpha_i^q \in \mathbb K$ tal que:
 $$

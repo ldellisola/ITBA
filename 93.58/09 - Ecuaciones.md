@@ -2,7 +2,7 @@
 
 ## Ecuación Diofantica
 
-### Definicion
+### Definición
 
 $$
 ax+by = c~~~~~~~~a,b\in \Z-\{0\}~~c\in\Z
@@ -15,9 +15,9 @@ $$
 (x,y) = (x_0,y_0) + k\ .\ (-b',a') ~~~k\in\Z
 $$
 
-### Demostracion
+### Demostración
 
-1. La ecuacion tiene solucion $\Leftrightarrow (a:b)|c$
+1. La ecuación tiene solucion $\Leftrightarrow (a:b)|c$
 
 **IDA: La ecuación tiene solución $\Rightarrow (a:b)|c$**
 

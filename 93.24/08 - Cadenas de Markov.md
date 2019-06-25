@@ -10,7 +10,7 @@ P_{i,j}^{(t)}(n)=P(X_{n+1}=e_j~|~X_n=e_i)
 $$
 Siendo $e_k$ los estados posibles.
 
-## Representacion Matricial
+## Representación Matricial
 
 Para facilitar el calculo, se puede representar a las cadenas de Márkov como matrices:
 $$
@@ -45,9 +45,9 @@ Entonces la nueva matriz $\mathbb P^{~t}$ dice las probabilidades de llegar desd
 
 ## Cadenas Regulares
 
-### Definicion 
+### Definición 
 
-Se dice que una cadena de Markov es regular $\Leftrightarrow$ Existe un $t$ tal que $\mathbb P ^{~t}$ tiene todos sus elementos mayores a 0, es decir, es posible ir de un estado a cualquier otro en alguna cantidad de pasos.
+Se dice que una cadena de Márkov es regular $\Leftrightarrow$ Existe un $t$ tal que $\mathbb P ^{~t}$ tiene todos sus elementos mayores a 0, es decir, es posible ir de un estado a cualquier otro en alguna cantidad de pasos.
 
 ### Teorema
 
@@ -67,11 +67,11 @@ Siendo el vector $[a_1,a_2,\dots,a_n]$ las condiciones iniciales del sistema.
 
 ### Como verificar si una cadena es regular
 
-#### Metodo 1 (Calculadora programable)
+#### Método 1 (Calculadora programable)
 
 Simplemente multiplica a la matriz con sigo misma para verifica que eventualmente llega a un valor estacionario. Si alguno de los elementos de esa nueva matriz es igual al 0, entonces la cadena no es regular.
 
-#### Metodo 2 (Analitico)
+#### Método 2 (Analítico)
 
 ==Acá hay algo raro. Tengo que preguntar==
 
@@ -86,7 +86,6 @@ $$
 $$
 Por lo que nos quedaría el siguiente sistema de ecuaciones
 $$
-
 \left\{
 
 \begin{array}{ll}
@@ -103,5 +102,5 @@ $$
     a+b+\dots+c =1
 
 \end{array}
-\right.
+\right.
 $$
