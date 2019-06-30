@@ -2,8 +2,6 @@
 
 La **estimación** es el proceso por el cual intentamos de aproximar una cantidad desconocida a partir de los datos de una muestra.
 
-
-
 ### Definiciones
 
 - Estimador: Es una variable aleatoria. Es una función de la muestra que intenta de aproximar una cantidad o valor desconocido.
