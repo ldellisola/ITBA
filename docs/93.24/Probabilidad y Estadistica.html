@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>Probabilidad y Estadistica</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>Probabilidad y Estadistica</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
 #write.first-line-indent p { text-indent: 2em; }
 #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
@@ -22,14 +22,15 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
   .CodeMirror-gutters { display: none !important; }
 }
-#write li > figure:first-child { margin-top: -20px; }
+#write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
 img { max-width: 100%; vertical-align: middle; }
-button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
 h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
 p { orphans: 4; }
 h1 { font-size: 2rem; }
@@ -87,7 +88,6 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
   html.blink-to-pdf { font-size: 13px; }
   .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
   .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0px; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -136,12 +136,12 @@ a.md-print-anchor { white-space: pre !important; border-width: initial !importan
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
 .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
-.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
 .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
-[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
 [lang="mermaid"] .node text { font-size: 1rem; }
 table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
@@ -194,7 +194,7 @@ code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
 @media print {
   html { font-size: 13px; }
   table, pre { break-inside: avoid; }
-  pre { word-wrap: break-word; }
+  pre { overflow-wrap: break-word; }
 }
 .md-fences { background-color: rgb(248, 248, 248); }
 #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
@@ -219,14 +219,10 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 #md-notification .btn { border: 0px; }
 .dropdown-menu .divider { border-color: rgb(229, 229, 229); }
 
-
-
-
-
  .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name='header-n0' class='md-header-anchor '></a>Probabilidad y Estadística</h1><h2><a name='header-n2' class='md-header-anchor '></a>Índice</h2><ol start='' ><li><a href='01%20-%20Experimento%20Aleatorio.html'>Experimento Aleatorio</a></li><li><a href='02%20-%20Estadistica%20Descriptiva.html'>Estadistica Descriptiva</a></li><li><a href='03%20-%20Calculo%20de%20Probabilidad.html'>Calculo de Probabilidad</a></li><li><a href='04%20-%20Variables%20Aleatorias.html'>Variables Aleatorias</a></li><li><a href='05%20-%20Funcion%20de%20Variable%20Aleatoria.html'>Funcion de Variable Aleatoria</a></li><li><a href='06%20-%20Variables%20Aleatorias%20Bidimensionales.html'>Variables Aleatorias Bidimensionales</a></li><li><a href='07%20-%20Procesos%20Estocasticos'>Procesos Estocasticos</a></li><li><a href='08%20-%20Cadenas%20de%20Markov'>Cadenas de Markov</a></li></ol><p>&nbsp;</p><p>&nbsp;</p></div>
+<div  id='write'  class = 'is-node'><h1><a name="probabilidad-y-estad%C3%ADstica" class="md-header-anchor"></a><span>Probabilidad y Estadística</span></h1><h2><a name="%C3%ADndice" class="md-header-anchor"></a><span>Índice</span></h2><ol start='' ><li><p><a href='01%20-%20Experimento%20Aleatorio.html'><span>Experimento Aleatorio</span></a></p><ul><li><p><span>Sucesos</span></p><ul><li><span>Operaciones</span></li><li><span>Propiedades</span></li></ul></li><li><p><span>Frecuencia Relativa</span></p><ul><li><span>Definicion</span></li><li><span>Propiedades</span></li></ul></li><li><p><span>Propiedad de un Suceso</span></p><ul><li><span>Axiomas de Kolmogorov</span></li></ul></li></ul></li><li><p><a href='02%20-%20Estadistica%20Descriptiva.html'><span>Estadistica Descriptiva</span></a></p><ul><li><p><span>Operaciones</span></p><ul><li><span>Promedio</span></li><li><span>Mediana</span></li><li><span>Cuartil</span></li></ul></li><li><p><span>Variabilidad</span></p><ul><li><span>Definiciones</span></li></ul></li></ul></li><li><p><a href='03%20-%20Calculo%20de%20Probabilidad.html'><span>Calculo de Probabilidad</span></a></p><ul><li><p><span>Regla de Laplace</span></p><ul><li><span>Axiomas del Calculo de Propiedades</span></li></ul></li><li><p><span>Probabilidad Condicional</span></p><ul><li><span>Propiedades</span></li></ul></li><li><p><span>Diagrama de Arbol</span></p></li><li><p><span>Particiones</span></p><ul><li><span>Teorema de la Probabilidad Total</span></li><li><span>Teorema de Bayes</span></li></ul></li></ul></li><li><p><a href='04%20-%20Variables%20Aleatorias.html'><span>Variables Aleatorias</span></a></p><ul><li><p><span>Definicion</span></p></li><li><p><span>Propiedades</span></p><ul><li><span>Funcion de Densidad</span></li><li><span>Funcion de Probabilidad Acumulada</span></li></ul></li><li><p><span>Variables Aleatorias Discretas</span></p><ul><li><span>Berrnoulli</span></li><li><span>Binomial</span></li><li><span>Poisson</span></li></ul></li><li><p><span>Variables Aleatorias Continuas</span></p><ul><li><p><span>Uniforme</span></p></li><li><p><span>Exponencial</span></p></li><li><p><span>Normal</span></p></li><li><p><span>Normal Standard</span></p><ul><li><span>Inversa</span></li></ul></li></ul></li></ul></li><li><p><a href='05%20-%20Funcion%20de%20Variable%20Aleatoria.html'><span>Funcion de Variable Aleatoria</span></a></p><ul><li><span>Definicion</span></li><li><span>Ejemplo</span></li></ul></li><li><p><a href='06%20-%20Variables%20Aleatorias%20Bidimensionales.html'><span>Variables Aleatorias Bidimensionales</span></a></p><ul><li><p><span>Independencia</span></p></li><li><p><span>Covarianza</span></p></li><li><p><span>Coeficiente de Correlacion</span></p></li><li><p><span>Variables Aleatorias Bidimensionales Discretas</span></p><ul><li><span>Probabilidad Condicional</span></li><li><span>Probabilidad Conjunta</span></li><li><span>Probabilidad Marginal</span></li><li><span>Valor Esperado</span></li></ul></li><li><p><span>Variables Aleatorias Bidimensionales Continuas</span></p><ul><li><span>Probabilidad Condicional</span></li><li><span>Probabilidad Marginal</span></li><li><span>Probabilidad Conjunta</span></li><li><span>Valor Esperado</span></li></ul></li></ul></li><li><p><a href='07%20-%20Procesos%20Estocasticos'><span>Procesos Estocasticos</span></a></p><ul><li><p><span>Definicion</span></p></li><li><p><span>Proceso Estocastico Estacionario</span></p></li><li><p><span>Proceso de Conteo</span></p></li><li><p><span>Procesos de Markov</span></p><ul><li><span>Ecuacion de Chapman-Kolmogorov</span></li></ul></li><li><p><span>Proceso de Poisson</span></p></li></ul></li><li><p><a href='08%20-%20Cadenas%20de%20Markov'><span>Cadenas de Markov</span></a></p><ul><li><p><span>Representacion Matricial</span></p></li><li><p><span>Cadenas Regulares</span></p><ul><li><span>Definicion</span></li><li><span>Verificacion</span></li></ul></li></ul></li><li><p><a href='09%20-%20Suma%20de%20Variables%20Aleatorias%20Independientes.html'><span>Suma de Variables Aleatorias Independientes</span></a></p><ul><li><span>Suma de Bernoulli</span></li><li><span>Suma de Binomiales</span></li><li><span>Suma de Poisson</span></li><li><span>Suma de Exponenciales</span></li><li><span>Suma de Normales</span></li></ul></li><li><p><a href='10%20-%20Desigualdades.html'><span>Desigualdades</span></a></p><ul><li><span>Desigualdad de Markov</span></li><li><span>Desigualdad de Chebyshev</span></li></ul></li><li><p><a href='11%20-%20Teorema%20Central%20del%20Limite.html'><span>Teorema Central del Limite</span></a></p><ul><li><span>Definicion</span></li><li><span>Ejemplos</span></li><li><span>Correccion por Continuidad</span></li></ul></li><li><p><a href='12%20-%20Estimador.html'><span>Estimador</span></a></p><ul><li><span>Definiciones</span></li><li><span>Error Cuadratico Medio</span></li><li><span>Estimador Insesgado</span></li></ul></li><li><p><a href='13%20-%20Intervalos%20de%20Confianza.html'><span>Intervalos de Confianza</span></a></p><ul><li><span>Intervalos de Confianza Bilaterales</span></li><li><span>Intervalos de Confianza Unilaterales</span></li><li><span>Generalizacion a Variables Aleatorias no Normales</span></li><li><span>Proporcion de una Piblacion</span></li><li><span>Intervalos de Confianza con </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.329ex" height="1.41ex" viewBox="0 -504.6 572 607.1" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E2595-MJMATHI-3C3" d="M184 -11Q116 -11 74 34T31 147Q31 247 104 333T274 430Q275 431 414 431H552Q553 430 555 429T559 427T562 425T565 422T567 420T569 416T570 412T571 407T572 401Q572 357 507 357Q500 357 490 357T476 358H416L421 348Q439 310 439 263Q439 153 359 71T184 -11ZM361 278Q361 358 276 358Q152 358 115 184Q114 180 114 178Q106 141 106 117Q106 67 131 47T188 26Q242 26 287 73Q316 103 334 153T356 233T361 278Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E2595-MJMATHI-3C3" x="0" y="0"></use></g></svg></span><script type="math/tex">\sigma</script><span> desconocida</span></li></ul></li><li><p><a href='14%20-%20Prueba%20de%20Hipotesis.html'><span>Prueba de Hipotesis</span></a></p></li></ol><p>&nbsp;</p><p>&nbsp;</p></div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-Calculo de Probabilidad
+# Calculo de Probabilidad
 
 ## Regla de Laplace
 
