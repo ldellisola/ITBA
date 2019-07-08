@@ -4,28 +4,28 @@
    - Operaciones
    - Propiedades
    - Leyes de Morgan
-   - Diferencia Simetrica
+   - Diferencia Simétrica
    - Familias de Subconjuntos
      - Operaciones
 
 1. [Relaciones](02 - Relaciones.html)
-   - Representacion
+   - Representación
      - Diagramas de Venn
      - Ejes Cartesianos
      - Matricial
-   - Relacion Inversa
+   - Relación Inversa
    - Particiones
    - Relaciones de un Conjunto a su mismo
      - Propiedades
-     - Relacion de Orden
-     - Relacion de Equivalencia
+     - Relación de Orden
+     - Relación de Equivalencia
        - Clases de Equivalencia
-2. [Funciones](02 - Funciones.html)
+2. [Funciones](03 - Funciones.html)
    - Inyectividad
    - Sobreyectividad
    - Biyectividad
-   - Funcion Inversible
-   - Funcion Caracteristica
+   - Función Inversible
+   - Función Característica
 3. [Conteo](04 - Conteo.html)
    - Principios de Conteo
    - Variaciones
@@ -38,11 +38,11 @@
    - Propiedades
    - Divisibilidad
      - Propiedades
-     - Algoritmo de Division en $\Z$
+     - Algoritmo de División en $\Z$
    - Congruencia
 5. [MCD y Combinacion Entera](06 - MCD y Combinacion Entera.html)
-   - Maximo Comun Divisor
-   - Combinacion Entera
+   - Máximo Común Divisor
+   - Combinación Entera
      - Algoritmo de Euclides
      - Propiedades
 6. [Numeros Coprimos](07 - Numeros Coprimos.html)
@@ -52,53 +52,53 @@
    - Teorema Fundamental Algebraico
      - Consecuencias del TFA
        - Cantidad de Divisores
-       - Maximo Comun Divisor
-       - Minimo Comun Divisor
-       - Funcion $v_p$
+       - Máximo Común Divisor
+       - Mínimo Común Divisor
+       - Función $v_p$
        - Aplicaciones
 
 1. [Ecuaciones de Congruencia y Diofanticas](09 - Ecuaciones.html)
-   - Ecuacion Diofantica
-     - Definicion
-     - Demostracion
-   - Ecuacion de Congruencia
-     - Definicion
-     - Demostracion
+   - Ecuación Diofantica
+     - Definición
+     - Demostración
+   - Ecuación de Congruencia
+     - Definición
+     - Demostración
 2. [Inverso Multiplicativo](10 - Inverso Multiplicativo.html)
-   - Definicion
+   - Definición
    - Propiedad Conmutativa
 3. [Teorema Chino del Resto](11 - Teorema Chino del Resto.html)
-   - Definicion
+   - Definición
    - Ejemplo
 4. [Teorema de Fermat](12 - Teorema de Fermat.html)
-   - Definicion
-   - Demostracion
+   - Definición
+   - Demostración
 5. [Sumatoria](13 - Sumatoria.html)
    - Sumas Simples
      - Propiedades
      - Sumas Famosas
-   - Sumatorias Multiples
+   - Sumatorias Múltiples
 6. [Relaciones de Recurrencia](14 - Relaciones de Recurrencia.html)
    - Relaciones de Recurrencia Lineales
-     - Solucion Homogenea
+     - Solucion Homogénea
      - Solucion Particular
      - Solucion General
    - Aplicaciones
-     - Interes Financiero
+     - Interés Financiero
      - Subconjuntos
-   - Metodo de Determinacion de Contantes
+   - Método de Determinación de Contantes
 7. [Sistemas de Ecuaciones Lineales](15 - Sistemas de Ecuaciones Lineales.html)
    - Matrices Asociadas al Sistema
-   - Metodo de Eliminacion de Gauss
+   - Método de Eliminación de Gauss
    - Equivalencia de Matrices
-     - Aplicacion a Sistemas de Ecuaciones
+     - Aplicación a Sistemas de Ecuaciones
    - Matrices Escalonadas y Reducidas
    - Rango de una Matriz
 
 1. [Matrices](16 - Matrices.html)
    - Matrices Especiales
    - Operaciones
-     - Transposicion
+     - Transposición
      - Inversa
      - Suma
      - Producto Escalar
@@ -115,8 +115,8 @@
    - Propiedades
    - Subespacios Vectoriales
      - Bases de un Subespacio
-       - Bases Canonicas
-     - Dimension de un Subespacio
+       - Bases Canónicas
+     - Dimensión de un Subespacio
      - Espacio Nulo de una Matriz
        - Propiedades
 
