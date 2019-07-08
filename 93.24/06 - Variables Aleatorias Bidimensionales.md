@@ -32,7 +32,7 @@ $$
 ### Valor Esperado
 
 $$
-E[g(x,y)]-\sum_{x\in R_X} \sum_{y\in R_Y} g(x,y)\ .\ P_{X,Y}(x,y)
+E[g(x,y)]=\sum_{x\in R_X} \sum_{y\in R_Y} g(x,y)\ .\ P_{X,Y}(x,y)
 $$
 
 ### Independencia

@@ -61,7 +61,7 @@ $$
 p_n(t)=P(N(t)=n)=\frac{(\lambda\ .\ t)^n}{n!}\ .\ e^{-\lambda\ .\ t}\\
 N(t)\sim Poisson(\lambda\ .\ t)
 $$
-Para calcular la cantidad de eventos entre 2 puntos en el tiempo $(\lambda_1,\lambda_2)$:
+Para calcular la cantidad de eventos entre 2 puntos en el tiempo $(t_1,t_2)$:
 $$
 M = N(t_1)-N(t_2)\sim Poisson(\lambda\ .\ (t_2-t_1))
 $$

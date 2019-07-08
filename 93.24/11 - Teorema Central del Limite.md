@@ -15,7 +15,7 @@ $$
 - Sea $S_n= \sum_{k=1}^n X_k$, con $E[S_n] = n\cdot\mu$ y $var[S_n] = n\cdot\sigma^2$, entonces
 
 $$
-P(S_n \leq s) \sim \Phi\left( \frac {s - \mu}{\sigma}\right)
+P(S_n \leq s) \sim \Phi\left( \frac {s - \mu \cdot n}{\sigma \cdot \sqrt n}\right)
 $$
 
 ### Ejemplo $S_n$
