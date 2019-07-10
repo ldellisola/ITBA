@@ -24,7 +24,7 @@ $$
 
 ## Teorema Fundamental Algebraico (TFA)
 
-### Hipotesis
+### Hipótesis
 
 Sea:
 
@@ -38,7 +38,7 @@ $$
 
 y la factorización es unica.
 
-### Demostracion
+### Demostración
 
 La demostración se divide en varios casos:
 
@@ -66,9 +66,9 @@ Este caso es valido.
 
 3. $a\leq -2 \Rightarrow |a|\geq 2$
 
-Es analogo al segundo punto.
+Es análogo al segundo punto.
 
-4. Unicidad de la Factorizacion
+4. Unicidad de la Factorización
 
 $$
 a =Sg(a)\ .\ p_1\ .\ p_2\ .\ p_i = Sg(a)\ .\ q_1\ .\ q_2\ .\ q_j
@@ -86,7 +86,7 @@ $$
 \therefore p_1 \geq q_1~~~~(1)
 $$
 
-- De forma analoga se obtiene $q_1\geq p_1~~~(2)$
+- De forma análoga se obtiene $q_1\geq p_1~~~(2)$
 
 Entonces por $(1)$ y $(2)$ , $p_1 = q_1$.
 
@@ -131,7 +131,7 @@ $$
 
 ### Función $v_p$
 
-Es una funcion que devuelve el exponente $p$ en la factorizacion de $a$.
+Es una función que devuelve el exponente $p$ en la factorización de $a$.
 
 Si $p \in P$
 $$
@@ -151,7 +151,7 @@ $$
 
 #### Propiedades
 
-1. $v_p(a\ .\ b) =v_p(a)\ .\ v_p(b)$
+1. $v_p(a\ .\ b) =v_p(a)+ v_p(b)$
 2. $v_p(a^n)= n\ .\ v_p(a)$
 3. Si $d|a\Rightarrow v_p(d) \leq v_p(a)$
 
@@ -159,14 +159,14 @@ $$
 
 1. Si $p\in P \Rightarrow \root{n}\of{p} \notin \Q \forall n\geq2$
 
-**Demostracion**:
+**Demostración**:
 $$
 \root n \of p = \frac a b~~~~,~~a,b\in\N	\\
 p = \frac{a^n}{b^n}	\\
 v_p(p\ .\ b^n)=v_p(a^n)\\
 1 + n\ .\ v_p(b) = v_p(a)\\
 1 = n(v_p(a)-v_p(b))\\
-\Rightarrow n|1 \Rightarrow n = 1 ~~ABS!
+\Rightarrow n|1 \Rightarrow n = 1 ~~ABS!
 $$
 
 
