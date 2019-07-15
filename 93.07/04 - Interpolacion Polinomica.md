@@ -37,6 +37,7 @@ A partir de esto podemos obtener las siguentes conclusiones:
 1. $\begin{pmatrix} a_n\\a_{n-1} \\ \vdots \\ a_0 \end{pmatrix} = \mathbb V^{-1} \times Y$
 2. $\mathbb V$ esta completa
 3. El sistema lineal esta mal condicionado, por lo que peque;os cambios en los datos traen grandes cambios en la solucion, entonces no vale la pena utiizar este metodo si hay muchos puntos a evaluar.
+4. 
 
 #### Ejemplo
 
