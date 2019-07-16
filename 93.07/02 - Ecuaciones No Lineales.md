@@ -120,9 +120,9 @@ end
 
 Tambien se puede descargar de [aca](Resources/Newton.m)
 
-## Método de Punto Flotante
+## Método de Punto Fijo
 
-Si $f'(x) > 0$, entonces tiene una construcción llamada **Atractor** (Similar a una escalera). Si $f(x)\lt 0$, entonces tiene una construcción de **tela ara;a** (Similar a Fibonacci, pero cuadrada).
+Si $f'(x) > 0$, entonces tiene una construcción llamada **Atractor** (Similar a una escalera). Si $f'(x)\lt 0$, entonces tiene una construcción de **tela araña** (Similar a Fibonacci, pero cuadrada).
 
 ### Hipótesis
 

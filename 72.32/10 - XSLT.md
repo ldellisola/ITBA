@@ -4,9 +4,9 @@ XSLT es un lenguaje pensado para transformar documentos XML en otro tipo de docu
 
 ## Templates
 
-XSLT es un lenguaje declarativo, que se organiza en **templates** (Similares a funciones). Cada template provee reglas para realizar una transformacion especifica y constituye a una unidad logica. 
+XSLT es un lenguaje declarativo, que se organiza en **templates** (Similares a funciones). Cada template provee reglas para realizar una transformación especifica y constituye a una unidad lógica. 
 
-Se requiere un procesador de XSLT para aplicar dichos templates a la estructura jerarquica de un documento XML, los templates declaran precisamente a que nodos del arbol se aplicaran las reglas.
+Se requiere un procesador de XSLT para aplicar dichos templates a la estructura jerárquica de un documento XML, los templates declaran precisamente a que nodos del árbol se aplicaran las reglas.
 
 Las templates se pueden definir de dos formas distintas, pero ambas tienen el mismo efecto:
 
@@ -26,11 +26,11 @@ Las templates se pueden definir de dos formas distintas, pero ambas tienen el mi
 </xsl:transform>
 ```
 
-Hay dos tipos de templates: Anonimos y Con Nombre.
+Hay dos tipos de templates: Anónimos y Con Nombre.
 
-### Templates Anonimos
+### Templates Anónimos
 
-Este tipo de templates no necesitan tener nombre, pero tampoco tienen que estar dentro de otro template.  Se los define de la siguente forma:
+Este tipo de templates no necesitan tener nombre, pero tampoco tienen que estar dentro de otro template.  Se los define de la siguiente forma:
 
 ```xml
 <xsl:template match="xpathExpression">
@@ -39,7 +39,7 @@ Este tipo de templates no necesitan tener nombre, pero tampoco tienen que estar 
 </xsl:template>
 ```
 
-Y luego se los puede invocar de la siguente forma:
+Y luego se los puede invocar de la siguiente forma:
 
 ```xml
 <xsl:apply-template select="xpathexpression">
@@ -48,13 +48,13 @@ Y luego se los puede invocar de la siguente forma:
 </xsl:apply-template>
 ```
 
-Los parametros son opcionales y pueden tener infinitos. Ahora, como sabe a que template anonimo llamar? XSLT compara a todos los templates anonimos y selecciona al primero cuya expresion `match` sea igual a la de `select`.
+Los parámetros son opcionales y pueden tener infinitos. Ahora, como sabe a que template anónimo llamar? XSLT compara a todos los templates anónimos y selecciona al primero cuya expresión `match` sea igual a la de `select`.
 
 ### Templates con Nombre
 
-Son similares a los templates anonimos pero en vez de tener el atributo `match` tienen el atributo `name`, y luego se las llama por el nombre.
+Son similares a los templates anónimos pero en vez de tener el atributo `match` tienen el atributo `name`, y luego se las llama por el nombre.
 
-Asi es la sintaxis:
+Así es la sintaxis:
 
 ```xml
 <xsl:template name="TemplateName">
@@ -63,7 +63,7 @@ Asi es la sintaxis:
 </xsl:template>
 ```
 
-Y asi se lo invoca:
+Y así se lo invoca:
 
 ```xml
 <xsl:call-template name="TemplateName">
@@ -74,7 +74,7 @@ Y asi se lo invoca:
 
 ### Template Hibrido
 
-Tambien se pueden combinar ambos templates haciendo que time una expresion y tenga un nombre. De esta forma puede ser invocado tanto como un template con nombre como a uno anonimo.
+Tambien se pueden combinar ambos templates haciendo que time una expresión y tenga un nombre. De esta forma puede ser invocado tanto como un template con nombre como a uno anónimo.
 
 ```xml
 <xsl:template name="TemplateName" match="xpathExpression">
@@ -83,17 +83,17 @@ Tambien se pueden combinar ambos templates haciendo que time una expresion y ten
 </xsl:template>
 ```
 
-## Algoritmo de Evaluacion
+## Algoritmo de Evaluación
 
-El procesador comienza con el nodo raiz y aplica un template a todos los nodos hijos. De no existir esta regla para alguno de los templates, se aplica el **element default template** que consiste en sacar su contenido en la salida y buscar un template para cada uno de sus hijos. Si hay mas de una template que puede tomar a uno de los hijos, XSLT llama a la template mas especifica.
+El procesador comienza con el nodo raíz y aplica un template a todos los nodos hijos. De no existir esta regla para alguno de los templates, se aplica el **element default template** que consiste en sacar su contenido en la salida y buscar un template para cada uno de sus hijos. Si hay mas de una template que puede tomar a uno de los hijos, XSLT llama a la template mas especifica.
 
-El algoritmo tambien recorre el arbol de arriba a abajo y de izquiera a deracha
+El algoritmo tambien recorre el árbol de arriba a abajo y de izquierda a derecha
 
 ## Sentencias para Crear las Reglas de los Templates
 
-### Generacion de nuevos tags
+### Generación de nuevos tags
 
-Para generar un nuevo elemento se utiliza el contructor de `element`. Para darle un valor se lo debe poner dentro del tag.
+Para generar un nuevo elemento se utiliza el constructor de `element`. Para darle un valor se lo debe poner dentro del tag.
 
 ```xml
 <xsl:element name="ElementName"/>
@@ -105,9 +105,9 @@ Para generar un nuevo atributo se utiliza el constructor de `attribute` dentro d
 <xsl:attribute name="AttrName"/>
 ```
 
-### Extraccióndel Valor de un Nodo
+### Extracción del Valor de un Nodo
 
-Se utiliza la funcion `value-of`:
+Se utiliza la función `value-of`:
 
 ```xml
 <xsl:value-of select="XPathExpression"/>
@@ -115,7 +115,7 @@ Se utiliza la funcion `value-of`:
 
 ### Loop
 
-Permite iterar sobre una coleccion de nodos o elementos.
+Permite iterar sobre una colección de nodos o elementos.
 
 ```xml
 <xsl:for-each select="XPathExpression"/>
@@ -129,7 +129,7 @@ Permite ordenar los elementos dentro de un `for-each`. Tiene un argumento opcion
 <xsl:sort select="XPathExpression"/>
 ```
 
-### Decision
+### Decisión
 
 Permite el uso de la sintaxis `if` y `switch`. 
 
@@ -157,7 +157,7 @@ En el caso del `if`, no tiene `else`:
 
 ### Variables
 
-Se crea una variable con un nombre y un valor. A la hora de usarla se debe utilizar el simbolo `$` antes del nombre. Las variables definidas fuera de un template son **globales**. El valor puede asignarse con `select` o poniendolo dentro del tag.
+Se crea una variable con un nombre y un valor. A la hora de usarla se debe utilizar el símbolo `$` antes del nombre. Las variables definidas fuera de un template son **globales**. El valor puede asignarse con `select` o poniéndolo dentro del tag.
 
 ```xml
 <xsl:variable name="NameVar" select="value"/>

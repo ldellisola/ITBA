@@ -1,10 +1,10 @@
-# Validacion con el Esquema DTD
+# Validación con el Esquema DTD
 
-DTD es una gramatica para describir la estrictura de documentos XML. Dicha gramatica es una **extension a gramaticas libres de contexto** . Esta forma de describir al esquema se basa fuertemente en expresiones regulares. Tiene que haber una regla por cada elemento distinto del documento. 
+DTD es una gramática para describir la estructura de documentos XML. Dicha gramática es una **extensión a gramáticas libres de contexto** . Esta forma de describir al esquema se basa fuertemente en expresiones regulares. Tiene que haber una regla por cada elemento distinto del documento. 
 
 ## Declaracion del DTD
 
-Si un documento quiere ser validado con cierto DTD debe hacerlo en su prologo. Esto se puede hacer de forma _inline_ o con un archivo externo. El tag que se utiliza es el `DOCTYPE`, y se indica por cual de los elementos del DTD comienza su raiz, ya que en la definicion del DTD no hay orden.
+Si un documento quiere ser validado con cierto DTD debe hacerlo en su prologo. Esto se puede hacer de forma _inline_ o con un archivo externo. El tag que se utiliza es el `DOCTYPE`, y se indica por cual de los elementos del DTD comienza su raíz, ya que en la definición del DTD no hay orden.
 
 Si se quiere declarar el DTD _inline_:
 
@@ -30,11 +30,11 @@ Si se lo declara en otro archivo:
 
 ## Reglas para definir Elementos
 
-Las reglas para los elementos pueden definirse con la siguente tabla:
+Las reglas para los elementos pueden definirse con la siguiente tabla:
 
 ![1563121124886](Resources/ReglasDTD.png)
 
-Y se define una regal de la siguente forma:
+Y se define una regla de la siguiente forma:
 
 ```dtd
 <!ELEMENT nombreDelELemento modelo>
@@ -42,11 +42,11 @@ Y se define una regal de la siguente forma:
 
 ## Reglas para definir Atributos
 
-Las reglas para definit atributos se encuentran en la siguente tabla:
+Las reglas para definir atributos se encuentran en la siguiente tabla:
 
 ![1563121378680](Resources/ReglasDTDAtributos.png)
 
-Y se definen a las reglas de la siguente forma:
+Y se definen a las reglas de la siguiente forma:
 
 ```dtd
 <!ATTLIST NombreElemento	NombreAtt1	tipoAtt1	valorDefault1

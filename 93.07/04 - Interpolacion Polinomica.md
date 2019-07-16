@@ -24,20 +24,31 @@ $$
 
 ## Tabla de Diferencias Divididas
 
+La tabla de diferencias divididas se forma a partir de una tabla donde se tienen algunos valores de $x$ y de $f(x)$.
+
+Si se tiene la tabla
+
+|  $x$  | $f(x)$ |        $c_1$         | $c_2$ | $c_3$ |
+| :---: | :----: | :------------------: | :---: | :---: |
+| $x_1$ | $y_1$  | $\frac{y_1 - y_2}{}$ |       |       |
+| $x_2$ | $y_2$  |                      |       |       |
+| $x_3$ | $y_3$  |                      |       |       |
+| $x_4$ | $y_4$  |                      |       |       |
+| $x_5$ |        |                      |       |       |
+
 
 
 ## Matriz de Vandermonde $\mathbb V$
 
-Para calcular la Matriz de Vandermonde se necesita una lista con distintos valores de $x$ y $f(x)$, y luego evaluamos un polinomio generico en esos valores, y a partir de eso formamos un sistema de ecuaciones lineales.
+Para calcular la Matriz de Vandermonde se necesita una lista con distintos valores de $x$ y $f(x)$, y luego evaluamos un polinomio genérico en esos valores, y a partir de eso formamos un sistema de ecuaciones lineales.
 
 La matriz $\mathbb V$ esta compuesta por los elementos $\mathbb {V}_{i,j} = x_{i-1}^{n-j+1}$, $i,j \in[1,2,\dots,n+1]$
 
-A partir de esto podemos obtener las siguentes conclusiones:
+A partir de esto podemos obtener las siguientes conclusiones:
 
 1. $\begin{pmatrix} a_n\\a_{n-1} \\ \vdots \\ a_0 \end{pmatrix} = \mathbb V^{-1} \times Y$
 2. $\mathbb V$ esta completa
-3. El sistema lineal esta mal condicionado, por lo que peque;os cambios en los datos traen grandes cambios en la solucion, entonces no vale la pena utiizar este metodo si hay muchos puntos a evaluar.
-4. 
+3. El sistema lineal esta mal condicionado, por lo que peque;os cambios en los datos traen grandes cambios en la solucion, entonces no vale la pena utilizar este método si hay muchos puntos a evaluar.
 
 #### Ejemplo
 
@@ -49,7 +60,7 @@ Sea $f(x)$ :
 |  0   |  $y_0$   |
 |  1   |  $y_1$   |
 
-Evaluamos cada valor de $x$ en un polinomio generico:
+Evaluamos cada valor de $x$ en un polinomio genérico:
 $$
 a_0 + a_1 \cdot(-1) + a_2 \cdot (-1)^2 = y_{-1}\\
 a_0 + a_1 \cdot (0) + a_2 \cdot (0)^2  = y_0 \\

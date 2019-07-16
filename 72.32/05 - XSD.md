@@ -1,17 +1,17 @@
 # Validación con XML Scheme
 
-Este tipo de esquema valida con dos metodos distintos:
+Este tipo de esquema valida con dos métodos distintos:
 
-1. **Content Model Validation**: Se fija que los tags sean correctors, que las secuencias esten bien formadas, etc.
-2. **Datatype Validation**: Validan el tip de dato y su rango. Tiene tipos creados por defecto como `int`, `boolean`, etc, aunque tambien el usuario puede definir sus propios tipos.
+1. **Content Model Validation**: Se fija que los tags sean correctos, que las secuencias estén bien formadas, etc.
+2. **Datatype Validation**: Validan el tipo de dato y su rango. Tiene tipos creados por defecto como `int`, `boolean`, etc, aunque tambien el usuario puede definir sus propios tipos.
 
 ## Historia
 
-Luego de la aparicion de XML 1.0, los DTDs probaron ser insuficientes, por lo que a principios de 1998 se empezo a trabajar en un nuevo esquema. Entre los esquemas propuestos estaban XML Data, DCD, DR y SOX, entre otros. Pero en 1999 se creo un grupo de trabajo orientado a resolver los problemas del esquema a crear, y para 2001 se presento **XML Schema** como una recomendacion oficial.
+Luego de la aparición de XML 1.0, los DTDs probaron ser insuficientes, por lo que a principios de 1998 se empezó a trabajar en un nuevo esquema. Entre los esquemas propuestos estaban XML Data, DCD, DR y SOX, entre otros. Pero en 1999 se creo un grupo de trabajo orientado a resolver los problemas del esquema a crear, y para 2001 se presento **XML Schema** como una recomendación oficial.
 
 ## Declaracion
 
-El archivo XSD no puede ir dentro del XML, por lo que hay que indicar en el nodo raiz donde esta guardado el esquema. Ejemplo:
+El archivo XSD no puede ir dentro del XML, por lo que hay que indicar en el nodo raíz donde esta guardado el esquema. Ejemplo:
 
 ```xml
 <Raiz 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -21,23 +21,23 @@ El archivo XSD no puede ir dentro del XML, por lo que hay que indicar en el nodo
 
 ## Tipos de Datos
 
-XML Schema permite definir dos tipos de elementos:
+XML Scheme permite definir dos tipos de elementos:
 
 - `simpleType`: El elemento no puede tener subelementos ni atributos, solo puede tener texto.
 - `compleType`: El elemento puede contener subelementos y/o atributos.
 
 Tambien se pueden crear tipos de forma:
 
-- Anonima: No se les asigna un nombre y son locales a la declaracion del elemento, es decir, no se puede reutilizar.
-- Con nombre. Son definidos globalmente y pueden reutilizarse.
+- **Anónima**: No se les asigna un nombre y son locales a la declaración del elemento, es decir, no se puede reutilizar.
+- **Con nombre**: Son definidos globalmente y pueden reutilizarse.
 
 ### SimpleType
 
-Se pueden modificar de 3 formas a un tipo de datos simple, pero este siempre devolvera un tipo de datos simple. Para poder modificar a un atributo de un elemento, este debe tener el atributo `fixed="false"`. Todas estas modificaciones se pueden aplicar a tipos anonimos o con nombre:
+Se pueden modificar de 3 formas a un tipo de datos simple, pero este siempre devolverá un tipo de datos simple. Para poder modificar a un atributo de un elemento, este debe tener el atributo `fixed="false"`. Todas estas modificaciones se pueden aplicar a tipos anónimos o con nombre:
 
-- Restricciones:
+- **Restricciones**:
 
-Las resticciones permiten limitar el tipo de informacion que hay en un elemento, por ejemplo, dadole un rango de numeros para elegir (`minInclusive`,`maxInclusive`) o dandole una lista de valores (`enumeration`). Tambien se pueden utilizar Regex (`pattern`), entre otros. 
+Las restricciones permiten limitar el tipo de informacion que hay en un elemento, por ejemplo, dándole un rango de números para elegir (`minInclusive`,`maxInclusive`) o dándole una lista de valores (`enumeration`). Tambien se pueden utilizar Regex (`pattern`), entre otros. 
 
 Un ejemplo seria:
 
@@ -51,9 +51,9 @@ Un ejemplo seria:
 
 Para ver todas las restricciones posibles hace click [aca](#Tabla de restricciones por tipo:)
 
-- Uniones:
+- **Uniones**:
 
-Las uniones permiten que un tipo de datos pueda ser guardado como distintos tipos, pero solo puede ser visualizado como uno de ellos. En el proximo ejemplo se puede ver un caso donde el tipo de datos permite que se ingrese una fecha o un string, pero no ambos:
+Las uniones permiten que un tipo de datos pueda ser guardado como distintos tipos, pero solo puede ser visualizado como uno de ellos. En el próximo ejemplo se puede ver un caso donde el tipo de datos permite que se ingrese una fecha o un string, pero no ambos:
 
 ```xml
 <xsd:simpleType>
@@ -68,9 +68,9 @@ Las uniones permiten que un tipo de datos pueda ser guardado como distintos tipo
 </xsd:simpleType>
 ```
 
-- Listas:
+- **Listas**:
 
-Las listas permiten definir un tipo de datos, y luego el elemento podra contener varios elementos de ese tipo de dato, siendo separado por espacios. El ejemplo muestra una lista de string:
+Las listas permiten definir un tipo de datos, y luego el elemento podrá contener varios elementos de ese tipo de dato, siendo separado por espacios. El ejemplo muestra una lista de string:
 
 ```xml
 <xsd:simpleType>
@@ -80,13 +80,13 @@ Las listas permiten definir un tipo de datos, y luego el elemento podra contener
 
 ### ComplexType
 
-Los tipos de datos complejos permiten tener a otros elementos dentro suyo y tambien permiten tener atributos. Estos elementos y atributos pueden ser tanto de tipo compejo como simple. Estos tipos de datos se pueden crear de dos formas, mediante la creacion de un nuevo tipo o aplicando una resticcion a un tipo existente:
+Los tipos de datos complejos permiten tener a otros elementos dentro suyo y tambien permiten tener atributos. Estos elementos y atributos pueden ser tanto de tipo complejo como simple. Estos tipos de datos se pueden crear de dos formas, mediante la creación de un nuevo tipo o aplicando una restricción a un tipo existente:
 
-- Sequence:
+- **Sequence**:
 
-Se define a una sequencia de elementos internos que debe seguir cuando se cree el documento XML. Dentro de si misma se pueden crear mas elementos del tipo secuencia, choice o elementos normales.
+Se define a una secuencia de elementos internos que debe seguir cuando se cree el documento XML. Dentro de si misma **se pueden crear** mas elementos del tipo **secuencia**, **choice** o **elementos normales**.
 
-Al ser tipos de datos complejos, podemos agregarle atributos, siempre y cuando estos esten definidos al final del tag `complexType`. Tambien se puede trabajar con la cardenalidad de la misma forma que antes, agregando atributos al final del tag `sequence`.
+Al ser tipos de datos complejos, podemos **agregarle atributos**, siempre y cuando estos estén definidos al final del tag `complexType`. Tambien se puede trabajar con la cardinalidad de la misma forma que antes, agregando atributos al final del tag `sequence`.
 
 Ejemplo:
 
@@ -107,9 +107,9 @@ Ejemplo:
 </complexType>
 ```
 
-- Choice
+- **Choice**
 
-El choice cumple una funcion opuesta al `sequence`, con la particularidad de que solo permite que se utilice uno de los elementos ingresados. Aqui la cardenalidad funciona de forma similar. Si se aplica al choice, cualquer elemento va a poder estar $n$ veces, y si se aplica al elemento, solo ese elemento va a poder estar $n$ veces.
+El choice cumple una función opuesta al `sequence`, con la particularidad de que **solo permite que se utilice uno de los elementos ingresados**. Aquí la cardinalidad funciona de forma similar. Si se aplica al choice, cualquier elemento va a poder estar $n$ veces, y si se aplica al elemento, solo ese elemento va a poder estar $n$ veces.
 
 Ejemplo:
 
@@ -122,9 +122,9 @@ Ejemplo:
 </complexType>
 ```
 
-- All:
+- **All**:
 
-`All` es bastante similar a `sequence`, pero sin la limitacion de que los elementos tienen que estar en cierto orden. Pero tambien trae una limitacion, solo puede tomar elementos, y no sequencias o choices. Otra restriccion es que no se puede tener mas de un elemento igual dentro del `All` y como mucho los elementos pueden ser opcionales (Indicando minima cardenalidad 0). 
+`All` es bastante similar a `sequence`, pero sin la limitación de que los elementos tienen que estar en cierto orden. Pero tambien trae una limitación, **solo puede tomar elementos**, y no secuencias o choices. Otra restricción es que **no se puede tener mas de un elemento igual** dentro del `All` y como mucho los elementos pueden ser opcionales (Indicando mínima cardinalidad 0). 
 
 Ejemplo:
 
@@ -141,9 +141,9 @@ Ejemplo:
 
 ## Estructura
 
-Los documentos XSD (XML Schema) son documentos XML, por lo que tienen un elemento raiz llamado `schema` y sus atributos sirven para indicar el namespace.
+Los documentos XSD (XML Scheme) son documentos XML, por lo que tienen un elemento raíz llamado `schema` y sus atributos sirven para indicar el namespace.
 
-Los elementos se pueden definir dentro de la raiz o dentro de otros elementos y son basicamente un tag de XML. Este tag puede tener los siguentes atributos:
+Los elementos se pueden definir dentro de la raíz o dentro de otros elementos y son básicamente un tag de XML. Este tag puede tener los siguientes atributos:
 
 - `name`: nombre del elemento.
 - `minOccurs`,`maxOccurs`: veces que se puede repetir el elemento.
@@ -151,7 +151,7 @@ Los elementos se pueden definir dentro de la raiz o dentro de otros elementos y 
 - `default`:
 - `fixed`: es un valor booleano, donde se especifica si al derivar al tipo de dato, se puede modificar el atributo.
 
-Aqui se puede ver un ejemplo de un elemento que puede tanto no estar en el documento o puede estar ilimitadas veces, del tipo `string`:
+Aquí se puede ver un ejemplo de un elemento que puede tanto no estar en el documento o puede estar ilimitadas veces, del tipo `string`:
 
 ```
 <xsd:element name="ElementName" minOccurs="0" maxOccurs="unbounded" type="string"/>
@@ -165,7 +165,7 @@ Por otro lado, para definir un atributo solo hay que crear un tag dentro del ele
 
 ### Componentes Globales y Locales
 
-Se pueden definir componentes globales, que son hijos directos del tag `schema`. El nombre global debe ser unico. Luego se pueden definir componentes locales, donde su alcance corresponde a la declaracion que lo contiene.
+Se pueden definir componentes globales, que son hijos directos del tag `schema`. El nombre global debe ser único. Luego se pueden definir componentes locales, donde su alcance corresponde a la declaración que lo contiene.
 
 
 

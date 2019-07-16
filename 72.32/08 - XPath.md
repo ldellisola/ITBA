@@ -1,20 +1,20 @@
 # XPath
 
-El lengauje XPath se basa en el concepto de navegación. Dado que al estructura a navegar es jerarquica, la **navegación es posicional**. Permite recuperar parte del documento XML por medio de expresiones que pueden escribirse usando un conjunto de funciones estandares. Por dentro, funciona creando un arbol del documento XML, similar a DOM.
+El lenguaje XPath se basa en el concepto de navegación. Dado que al estructura a navegar es jerárquica, la **navegación es posicional**. Permite recuperar parte del documento XML por medio de expresiones que pueden escribirse usando un conjunto de funciones estándares. Por dentro, funciona creando un árbol del documento XML, similar a DOM.
 
-Para navegar por el documento, XPath construye un arbol que tiene 7 tipos distintos de nodos:
+Para navegar por el documento, XPath construye un árbol que tiene 7 tipos distintos de nodos:
 
 - Comentario
 - Processing Instruction
 - Namespace
-- Raiz
+- Raíz
 - Elemento
 - Atributo
 - Texto
 
 ## Limitaciones
 
-XPath es muy potente para hacer consultas, pero todavia hay cosas que no puede resolver:
+XPath es muy potente para hacer consultas, pero todavía hay cosas que no puede resolver:
 
 - Agrupar
 - Ordenar
@@ -29,7 +29,7 @@ Las expresiones de XPath tiene un direccionamiento similar al FileSystem, y esta
 - NodeTest: Es el nodo sobre el que va a actuar o una wildcard `*`.
 - Predicados: Puede tener 0 o mas predicados para filtrar a los nodos seleccionados.
 
-La combinacion entre Axis y NodeTest indican cual sera el nuevo nodo contexto, a partir del cual se seleccionaran el nodo contexto actual.
+La combinación entre Axis y NodeTest indican cual será el nuevo nodo contexto, a partir del cual se seleccionaran el nodo contexto actual.
 
 ### Axis
 
@@ -37,7 +37,7 @@ En esta tabla se pueden ver las diferentes combinaciones para el Axis:
 
 ![1563137557676](../../Carpeta%20ITBA/72.32/Resources/TablaStepXPATH.png)
 
-Tambien se puede ver en este arbol como son las relaciones:
+Tambien se puede ver en este árbol como son las relaciones:
 
 ![1563137716925](../../Carpeta%20ITBA/72.32/Resources/XPATHRelacionesTree.png)
 
@@ -55,7 +55,7 @@ Con el axis `descendant::` se obtienen todos los nodos descendientes del context
 
 #### Nodos Predecesores
 
-Con el axis `ancestor::` se obtienen todos los nodos predecesores del contexto actual que cumplan con un nombre especifico. Una caracteristica de este axis es que elimina duplicados. Esto se debe a que en realidad se maneja con punteros a memoria, entonces si dos elementos tiene la misma posicion de memoria, solo se queda con uno.
+Con el axis `ancestor::` se obtienen todos los nodos predecesores del contexto actual que cumplan con un nombre especifico. Una característica de este axis es que elimina duplicados. Esto se debe a que en realidad se maneja con punteros a memoria, entonces si dos elementos tiene la misma posición de memoria, solo se queda con uno.
 
 ### NodeTest
 
@@ -67,22 +67,20 @@ En esta tabla se puede ver la lista de NodeTest:
 
 Se le puede agregar un predicado mediante el cual se filtraran los nodos que no cumplan con el.
 
-Cuando se usa una condicion dentro de un predicado hay que tener cuidado por que:
+Cuando se usa una condición dentro de un predicado hay que tener cuidado por que:
 
 - Si se coloca un `QName` se considera elemento hijo al context node (path relativo)
 - Si se coloca `@QName` se considera atributo del context node (path relativo)
 - Si se coloca `..` o `.` se considera al context node (path relativo).
-- Si se coloca `/` o `//` como inicio de expresion, se pierde el nodo contexto y se evalua independiente de este caso (path absoluto).
+- Si se coloca `/` o `//` como inicio de expresión, se pierde el nodo contexto y se evalúa independiente de este caso (path absoluto).
 
-Estas expresiones van entre brackets `[ ]` y pueden utilizar operadores logicos y matematicos como `>`, `<`, `and` y `or`, entre otros. Por ejemplo:
+Estas expresiones van entre brackets `[ ]` y pueden utilizar operadores lógicos y matemáticos como `>`, `<`, `and` y `or`, entre otros. Por ejemplo:
 
 ![1563138889733](Resources/EjemploPredicadoXPath.png)
 
 Tambien se pueden utilizar funciones.
 
-
-
-#### Combinacion de conjuntos
+#### Combinación de conjuntos
 
 Tambien se pueden aplicar combinaciones entre conjuntos, con el operador `|`. Este operador toma dos funciones que devuelven NodeSets y las combina en uno solo.
 
@@ -90,18 +88,18 @@ Tambien se pueden aplicar combinaciones entre conjuntos, con el operador `|`. Es
 
 ## Funciones
 
-Las funciones se pueden utilizar en los predicados y utilizan los mismos tipos de datos que XML Schema. Las funciones pueden ser:
+Las funciones se pueden utilizar en los predicados y utilizan los mismos tipos de datos que XML Scheme. Las funciones pueden ser:
 
-- Numericas
+- Numéricas
 - Booleanas
 - Strings
 - Nodos
 
-### Funciones Numericas
+### Funciones Numéricas
 
 ![1563139066529](Resources/1563139066529.png)
 
-Para aplicar una funcion sobre un elemento se toma su contenido y si se puede (y es necesario) se lo transforma en un numero.
+Para aplicar una función sobre un elemento se toma su contenido y si se puede (y es necesario) se lo transforma en un numero.
 
 ### Funciones sobre Strings
 
@@ -111,7 +109,7 @@ Para aplicar una funcion sobre un elemento se toma su contenido y si se puede (y
 
 ![1563139204287](Resources/1563139204287.png)
 
-### Funciones Logicas
+### Funciones Lógicas
 
 ![1563139257324](Resources/1563139257324.png)
 
@@ -119,9 +117,9 @@ Para aplicar una funcion sobre un elemento se toma su contenido y si se puede (y
 
 ## Evaluador
 
-El motor evaluador de XPath toma al documento XML y la expresio XPath. La evaluacion utiliza el concepto de **nodo contexto actual**. A medida que evalua una subexpresion cambia la lista de nodos contexto actuales por una nueva lista.
+El motor evaluador de XPath toma al documento XML y la expresión XPath. La evaluación utiliza el concepto de **nodo contexto actual**. A medida que evalúa una subexpresion cambia la lista de nodos contexto actuales por una nueva lista.
 
-Antes de comenzar a evaluar, XPath selecciona como primer nodo a la raiz XPath, que no es el primer elemento del documento, sino que esta afuera de ese.
+Antes de comenzar a evaluar, XPath selecciona como primer nodo a la raíz XPath, que no es el primer elemento del documento, sino que esta afuera de ese.
 
 Ejemplo:
 

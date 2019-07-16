@@ -1,0 +1,45 @@
+# Metodos Numericos
+
+-  [Errores de Truncamiento](01 - Errores de Truncamiento.html) 
+  - Error Absoluto y Relativo
+  - Aproximaciones Iterativas Simples
+  - Punto Flotante
+-   [Ecuaciones No Lineales](02 - Ecuaciones No Lineales.html) 
+  - Metodo de la Biseccion
+  - Metodo de Newton
+  - Metodo de Punto Fijo
+-   [PVI para EDOs](03 - PVI para EDOs.html) 
+  - Metodos de Ruge-Kutta
+    - Metodo de Euler
+    - Metodo de Heun
+    - Metodo RK4
+    - Error
+  - Metodo de Taylor
+-   [Interpolacion Polinomica](04 - Interpolacion Polinomica.html) 
+  - Forma de Potencias
+  - Forma de Lagrange
+  - Forma de Newton
+  - Tabla de Diferencias Divididas
+  - Matriz de Vendermonde
+  - Aplicaciones
+    - Derivadas
+    - Integrales
+-   [Integracion Numerica](05 - Integracion Numerica.html) 
+  - Metodos Compuestos
+    - Regla del Rectangulo
+      - Por Izquierda
+      - Por Derecha
+      - Por Punto Medio
+    - Regla del Trapecio
+    - Regla de Simpson
+-   [Sistemas de Ecuaciones](06 - Sistemas de Ecuaciones.html) 
+  - Metodos Directos
+    - Metodo de Eliminacion de Gauss
+  - Metodos Iterativos
+    - Formas Generalizadas
+      - Jacobi
+      - Gauss-Seidel
+    - Condicion de Convergencia
+    - Condicion de Parada
+
+ 
