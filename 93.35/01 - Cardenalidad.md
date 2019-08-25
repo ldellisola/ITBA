@@ -503,7 +503,7 @@ $$
 
 Hay infinitos cardinales infinitos:
 $$
-\#\N \lt \#\rho(\N) \lt \#\rho(\rho(\N)) \lt \dots
+\#\N \lt \#\rho(\N) \lt \#\rho(\rho(\N)) \lt \dots 
 $$
 
 ### Demostracion
@@ -576,4 +576,3 @@ $$
 $$
 
 
- 
