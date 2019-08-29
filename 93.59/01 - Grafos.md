@@ -58,6 +58,19 @@ De forma similar a los multígrafos no dirigidos, un dígrafo es dirigido cuando
 
 <img src="Resources/1565008930385.png" style="zoom:75%">
 
+### Grafo Ponderado
+
+$G$ es un grafo podenrado si cada arista tiene un peso asociado. Notacion $e\in E_G,p(e)$
+
+#### Distancia ponderada
+
+Sea $G$ un grafo ponderado con $a,b \in V_G $, la distancia ponderada es la distancia ponderada minima entre todos los caminos entre $a$ y $b$, Es decir, el camino con menor peso de todos los posibles. Notacion: $dp(a,b)$ 
+
+Sea $c_j$ un camino valido entre $a,b$, compuesto por vertices $e_i \in E_G$:
+$$
+dp(a,b)= min\{c_1,\dots, c_j\}~~~c_j=\sum_i (e_i)
+$$
+
 ### Matriz de Incidencia
 
 La matriz de incidencia de un grafo $G$ es la matriz $I_G$  cuyas filas y columnas son indexadas por algún orden de $V_G$ y $E_G$ respectivamente tal que:
