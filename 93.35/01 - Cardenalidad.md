@@ -171,7 +171,7 @@ Sean $a,b$ Cardinales. Sean $A,B$ conjuntos$/ \#A = a,~\#B=b$
 
 2. $\#(\N \times \N) = ?= \chi_o$ por las diagonales de Cantor
 
-   Vamos a usar el [Teorema de Bernstein](#Teorema de Beinstein), por lo que tenemos que buscar una función de $\N^2$ a $\N$ y otra de  $\N$ a $\N^2$, ambas inyectivas.
+   Vamos a usar el [Teorema de Bernstein](#Teorema de Bernstein), por lo que tenemos que buscar una función de $\N^2$ a $\N$ y otra de  $\N$ a $\N^2$, ambas inyectivas.
 
    - Busco $f:\N \rightarrow \N^2$
 
