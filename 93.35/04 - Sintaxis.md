@@ -1,4 +1,4 @@
-# Lógica Proposicional
+# Sintaxis
 
 Sea $A$ el alfabeto de la lógica proposicional:
 $$
@@ -8,7 +8,7 @@ Siendo $Var=\{P_n/n\in \N\}$ las variables y $C=\{\and,\or,\rightarrow,\neg\}$ l
 
 Observación: $\#A=\chi_o$
 
-### Formula
+## Formula
 
 $F\in A^*$ es la formula, es decir, el lenguaje de la lógica proposicional. 
 
@@ -18,7 +18,7 @@ $F\in A^*$ es la formula, es decir, el lenguaje de la lógica proposicional.
   3. $\alpha,\beta \in F \Rightarrow (\alpha \and \beta),(\alpha \or \beta),(\alpha \rightarrow \beta) \in F$
   4. Si $\alpha \in A^*$, entonces $ \alpha \in F \Leftrightarrow$ se obtiene aplicando finitas veces 1),2) o 3)
 
-### Cadena
+## Cadena
 
 Una cadena de fórmulas es una sucesión finita de $X_1,\dots,X_n$ de elementos de $A^*$ que verifica la siguiente propiedad:
 
@@ -34,7 +34,21 @@ Decimos que $X_1,\dots,X_n$ es una cadena de formación $\alpha \in A^*$ si $X_n
 
 - Teorema: $\alpha \in F \Leftrightarrow \exist X_1,\dots,X_n \text{ candea de formacion de } \alpha$ 
 
-### Complejidad de $\alpha$
+### Cadena de Formacion Minimal
+
+Una cadena de formacion es minimal si no tiene mas eslabones de los necesarios para completar a la cadena.
+
+### Subcadena de Formacion
+
+Dada $X_1,\dots,X_n$ una cadena de formacion, se define a $X_{i_1},\dots,X_{i_k}$ como una subcadena de formacion de la cadena anterior si cumple con:
+
+- $X_{i_k} = X_n$
+- $1\leq i_1 \le \dots \le i_k=n$
+- Es una cadena de formación.
+
+## Operaciones
+
+### Complejidad 
 
 Sea $\alpha \in F$, la complejidad de $\alpha$ es la cantidad de conectivos de $\alpha$. Notación: $C(\alpha)$.
 
@@ -43,7 +57,25 @@ $$
 \alpha=(P_1 \and \neg P_2) \rightarrow C(\alpha)=2
 $$
 
-### Subformula
+### Complejidad Binaria
+
+Sea $\alpha \in F$, la complejidad binaria de $\alpha$ es la cantidad de conectivos binarios ($\rightarrow,\or,\and$) de $\alpha$. Notacion $Cb(\alpha)$.
+
+### Peso
+
+El peso de una expresion es la suma de los parentesis, siendo el inicio de un parentesis equivalente a $+1$ y el cierre de un parentesis a $-1$. Notacion $P(\alpha)$
+
+Ejemplo:
+$$
+\alpha=(p_1 \or p_2 \Rightarrow P(\alpha)=1
+$$
+
+- **Teorema**: Si $\alpha$ es una formula, entonces el peso es $0$
+- **Teorema**: Si $\alpha$ es una formula, entonces si $\alpha$ tiene un conectivo binario, llamo $E$ a la expresion a la izquierda del conectivo y el peso de $E$ es positivo ($P(E)>0$).
+- **Corolario: <u>Unicidad de Escritura</u>**: Si $\alpha \in F \Rightarrow \exist !\beta \in F/\alpha =\neg\beta \or \exist !\beta_1,\beta_2\in F, \exist ! * \in \{\rightarrow,\or,\and\}/ \alpha=(\beta_1 * \beta_2)$
+- 
+
+## Subformula
 
 Sea $\alpha \in F$, con $C(\alpha)=n$. $\beta$ es una subformula de $\alpha$ si cumple con:
 
