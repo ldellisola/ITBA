@@ -209,21 +209,30 @@ Sea que $G~k-conexo$ y sea $M$ un conjunto de aristas $M\sub E_G/ \#M = m \le k-
 
 $\Rightarrow G-M$ es conexo.
 
+### Proposicion ==FINAL==
 
+la relacion entre $K_e(G)$ y $K_v(G)$.
 
-TAREA: usando el Teorema y el corolario encontrar la relacion entre $K_e(G)$ y $K_v(G)$.
+$$
+k \le K_v(G)\le K_e(G) \le \delta
+$$
 
+#### Demostracion
 
+Supongo que $G$ e es $k-conexo$ y $K_v(G)=k$
 
+Si $M$ es el conjunto de $m$ aristas ($m<k$), Entonces $G-\{M\}$ es $k-m-conexo$
 
+Entonces:
+$$
+K_e(G) \ge k = K_v(G)
+$$
+Si $m=k-1 \Rightarrow G-M$ es $$conexo ==PEDIR==
 
-
-
-
-
-
-
-
+Entonces 
+$$
+\Rightarrow K_e(G)\ge k
+$$
 
 ## Conexidad por aristas 
 
@@ -272,24 +281,4 @@ Es decir, el conjunto $<V_2,V_2>$ es el conjunto de aristas que empiezan en algu
 ### Observacion
 
 Para cualquier particion de $V_G$, se cumple que $\#<V_1,V_2> \geq K_e(G)$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

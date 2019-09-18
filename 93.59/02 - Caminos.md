@@ -40,6 +40,12 @@ Dado un camino $w_1 =< v_0,e_1,v_1,e_2,...,v_{k−1},e_k,v_k >$ que contiene un 
 
 Es un camino que no repite vertices
 
+### Adicion de un Camino Simple
+
+Adicionar un camino simple entre $x$ e $y$ es agregar un camino $x-y$ al grafo $G$ cuyos vertices internos no esten en $G$
+
+<img src="Resources/clip_image001-1568030408265.png" alt="img" style="zoom:33%;" />
+
 ### Camino Hamiltoniano
 
 Es un camino simple (no ciclo) en el grafo que contiene todos sus vértices.
