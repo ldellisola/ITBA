@@ -1,4 +1,0 @@
-# Modelos Mentales
-
-### Percepcion
-
