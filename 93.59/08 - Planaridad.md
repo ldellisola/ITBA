@@ -146,3 +146,30 @@ Sirven para probar que un grafo no es plano.
 - $K_{3,3}$ no es plano.
 - Para obtener un grafo que no sea plano pero cumpla con el segundo corolario del teorema de Euler, tengo que plantear un $K_{3,3}$ y agregarle varios elementos a cada subgrafo, y conectarlos todos con una sola arista entre vértices. 
 - Los lazos, vértices colgantes y las multiaristas no afectan a la planaridad, por lo que si quiero analizar la planaridad de un grafo puedo remover todos los lazos, vértices colgantes y multiaristas.
+
+## Resumen
+
+Tenemos las siguentes herramientas paran justificar si un grafo es plano o no:
+
+- **Corolario de Euler**:
+  $$
+  \text{$G$ plano, simple sin lazos y conexo} \Leftrightarrow e \le 3 \times v - 6
+  $$
+
+- **Corolario de Euler para Grafos Bipartitos:**
+  $$
+  \text{$G$ plano, simple sin lazos, bipartito y conexo} \Leftrightarrow e \le 2 \times v - 4
+  $$
+
+- **Teorema de Kuratowsky**:
+  $$
+  \text{Un grafo $G$ no es plano } \Leftrightarrow G \text{ contiene un subgrafo homeomorfo a $K_5$ o $K_{3,3}$}
+  $$
+
+- **Algoritmo de Planaridad**
+
+- **Teorema**:
+  $$
+  H \text{ subgrafo de $G$, $H$ no es plano} \Rightarrow G \text{ no es plano}
+  $$
+  

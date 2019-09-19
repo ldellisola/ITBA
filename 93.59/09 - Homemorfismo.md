@@ -45,9 +45,9 @@ $$
 
 No se demuestra la implicación a la derecha. La implicación a la izquierda se demuestra por la proposición.
 
-- **Observaciones**:
+- **Observación**: Si el grafo tiene menos de $5$ vertices de grado $4$ es imposible encontrar un subgrafo homeomorfo a $K_5$.
   
-- Si el grafo no tiene menos de $5$ vertices de grado $4$ es imposible encontrar un subgrafo homeomorfo a $K_5$.
+- **Observación**: Si el grafo tiene menos de 6 vertices de grado 3 es imposible encontrar un subgrafo homeomorfo a $K_{3,3}$.
   
 - **Ejemplo**: Analizar si el grafo $G = Q_2$ es plano
 

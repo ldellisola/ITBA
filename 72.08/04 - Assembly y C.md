@@ -48,7 +48,7 @@ pop ebp
 
 ## Interoperabilidad entre C y Assembly
 
-## Llamada de funciones de C en Assembly
+### Llamada de funciones de C en Assembly
 
 ```assembly
 GLOBAL main
@@ -70,7 +70,7 @@ string db "hello world",0
 
 En este caso, nuestro programa simplemente va a utilizar la función `printf` de C para poder imprimir en un string en pantalla. Para esto pasamos al stack a nuestro string que queremos imprimir, que es parámetro de la función, y luego la llamamos.
 
-## Llamada de funciones de Assembly en C
+### Llamada de funciones de Assembly en C
 
 ```c
 #include <stdio.h>
