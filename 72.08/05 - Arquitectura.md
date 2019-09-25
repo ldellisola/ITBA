@@ -4,7 +4,7 @@ Hay dos formas principales de transmitir informacion:
 
 - **En serie**: Se utiliza solo un medio para transmitir solo un flujo de informacion.
 
-- **Paralela**: Se utilizan varios medios, por lo que puedo mandar mas de un flujo de informacion y transmitir mas rápido. La desventaja de este sistema es que suele ser mas caro. 
+- **Paralelo**: Se utilizan varios medios, por lo que puedo mandar mas de un flujo de informacion y transmitir mas rápido. La desventaja de este sistema es que suele ser mas caro. 
 
   Se suele llamar a un **bus** al conjunto de medios que conectan a un dispositivo con otro y llevan un mismo mensaje.
 
