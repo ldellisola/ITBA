@@ -92,6 +92,8 @@ A la hora de asignarle un lugar a la memoria RAM, puedo elegir cualquier posici�
 
 Este proceso explicado previamente se realiza con un **circuito decodificador**. Esto permite que solo se active el bus del `chip select` cuando se quiere acceder a una memoria especifica. Este bus solo se debe activar cuando se esta interactuando con la memoria en cuestión. Si el tamaño de la memoria es igual al tamaño del mapa de memoria, no es necesario implementar un circuito decodificador.
 
+Intel, al desarrollar el procesador de 16 bits, se estaba quedando con poco espacio para los periféricos en el mapa de memoria, por lo que desarrollaron un pin especial llamado `IO/M-`  que permitía utilizar un mapa de memoria secundario, del mismo tamaño que el mapa de memoria regular, pero solo para periféricos. En realidad, este pin seria el bit 17 de la dirección de memoria. Este mapa de memoria se puede acceder con las instrucciones `in` y `out`. Estas instrucciones son iguales a la instrucción `mov` pero solo para acceder a periféricos (`in` permite leer y `out` escribir informacion).
+
 ## Ejemplos
 
 - **Tengo un Procesador conectado con el bus de dirección de 16 bits y bus de datos de 8 bits conectado a una memoria ROM con las mismas entradas:**
