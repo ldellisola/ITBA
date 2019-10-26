@@ -10,4 +10,10 @@
 8. [Planaridad](08 - Planaridad.html)
 9. [Homeomorfismo](09 - Homeomorfismo.html)
 10. [Bloques](10 - Bloques.html)
+11. [Grafo Dual](11 - Grafo Dual.html)
+12. [Coloreo](12 - Coloreo.html)
+13. [Complejidad](13 - Complejidad.html)
+14. [Arboles](14 - Arboles.html)
+15. [Arbol Dirigido](15 - Arbol Dirigido.html)
+16. [Arbol M-Ario](16 - Arbol m-ario.html)
 
