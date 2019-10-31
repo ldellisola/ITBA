@@ -16,4 +16,6 @@
 14. [Arboles](14 - Arboles.html)
 15. [Arbol Dirigido](15 - Arbol Dirigido.html)
 16. [Arbol M-Ario](16 - Arbol m-ario.html)
+17. [Ordenamiento de Arboles](17 - Ordenamiento de Arboles.html)
+18. [Otros Algoritmos](18 - Otros Algoritos de Arboles.html)
 
