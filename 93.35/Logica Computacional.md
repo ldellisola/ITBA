@@ -14,4 +14,9 @@
 12.  [Sintaxis | Logica 1er Orden](11 - Sintaxis - Logica 1er Orden.html)
 13.  [Semantica | Logica 1er Orden](12 - Semantica - Logica de 1er Orden.html)
 14.  [Isomorfismo](13 - Isomorfismo.html)
+15.  [Lenguaje S](14 - Lenguaje S.html) 
+16.  [Computabilidad](15 - Computabilidad.html) 
+17.  [Recursion Primitiva](16 - Recursion Primitiva.html) 
+18.  [Funciones no Computables](17 - Funciones no Computables.html) 
+19.  [Codificacion](18 - Codificacion.html) 
 

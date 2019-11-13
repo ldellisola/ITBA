@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Proposicion - 03</title><link href='https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+
+
+:root { --side-bar-bg-color: white; --window-border: none; --search-select-bg-color: #575c61; --active-file-bg-color: #f1f4f5; --item-hover-bg-color: #f1f4f5; --item-hover-text-color: black; --control-text-color: #555; }
+html { font-size: 12pt; }
+#write { font-family: STIX2Text, "Times New Roman", serif; line-height: 1.5em; padding: 5% 10% 10%; }
+.file-list-item-summary { height: 36px; }
+.file-list-item { padding-bottom: 18px; padding-top: 18px !important; }
+#sidebar-loading-template.file-list-item { padding-top: 0px !important; }
+a, a:visited { color: rgb(170, 0, 0); }
+h1, h2, h3, h4, h5, h6 { font-family: inherit; line-height: 1.5em; margin-bottom: 1em; margin-top: 1em; }
+h1 { font-size: 2.4em; }
+#write h1 { text-align: center; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1.1em; }
+h6 { font-size: 1em; }
+p { margin-top: 1em; margin-bottom: 1em; text-align: justify; }
+pre, code { font-family: "Latin Modern Mono Light", "Latin Modern Mono", monospace !important; }
+.footnotes { display: list-item; margin-left: 1em; }
+.md-fences { border: 1px solid; }
+.md-fences.md-fences-with-lineno { border: none; }
+.CodeMirror-linenumber { color: rgb(51, 51, 51); }
+.in-text-selection, ::selection, .CodeMirror-selected { background: var(--search-select-bg-color); text-shadow: none; color: var(--search-select-text-color)  !important; }
+a.md-toc-inner { color: var(--text-color); }
+.cm-s-typora-default .cm-link { color: rgb(170, 0, 0); text-decoration: underline; }
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property { color: black; }
+#typora-source .CodeMirror-lines { -webkit-font-smoothing: auto; max-width: 1000px; }
+.md-def-name::before, .md-def-name::after { color: rgb(45, 45, 45); }
+sup.md-footnote { background-color: initial; color: inherit; }
+mark { background: rgb(255, 243, 135); }
+td, th { border: 1px solid; padding-left: 1ch; padding-right: 1ch; }
+th { border-bottom: 0px rgb(51, 51, 51); padding-top: 2px; background: rgb(87, 92, 97); border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); color: rgb(243, 243, 243); }
+pre.md-meta-block { border: 1px solid rgb(162, 169, 177); background-color: rgb(248, 249, 250); padding: 5px; margin-bottom: 1em; }
+.task-list-item input::before { content: "√"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
+.task-list-item input:checked::before, .task-list-item input[checked]::before { color: inherit; }
+.md-task-list-item > input { top: auto; margin-left: -1.1em; font-size: 1.3em; margin-top: 0px; -webkit-appearance: none; }
+.md-task-list-item input::before { content: "☐"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
+.md-task-list-item input:checked::before, .md-task-list-item input[checked]::before { color: inherit; content: "☑"; }
+.task-list-item { padding-left: 1.5em; }
+blockquote { font-style: italic; padding: 0.25em 24px; position: relative; color: rgb(56, 56, 56); border-left: 2px solid; }
+#write > blockquote { padding: 0.25em 30px; margin-left: -32px; width: calc(100% + 32px); }
+#write > .md-fences-with-lineno { margin-left: -33px; color: black; }
+.CodeMirror-linenumber { min-width: 25px; }
+.md-header { font-size: inherit !important; }
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n0" cid="n0" mdtype="math_block"><div class="md-rawblock-container md-math-container" tabindex="-1"><div class="MathJax_SVG_Display"><span class="MathJax_SVG" id="MathJax-Element-406-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="115.903ex" height="18.644ex" viewBox="0 -855.5 49902.5 8027.1" role="img" focusable="false" style="vertical-align: -16.657ex; max-width: 100%;"><defs><path stroke-width="0" id="E1628-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path><path stroke-width="0" id="E1628-MJMATHI-61" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path stroke-width="0" id="E1628-MJMATHI-6C" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path stroke-width="0" id="E1628-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E1628-MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path><path stroke-width="0" id="E1628-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="0" id="E1628-MJMAIN-2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path><path stroke-width="0" id="E1628-MJMATHI-63" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path><path stroke-width="0" id="E1628-MJMATHI-70" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path><path stroke-width="0" id="E1628-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E1628-MJMAIN-2200" d="M0 673Q0 684 7 689T20 694Q32 694 38 680T82 567L126 451H430L473 566Q483 593 494 622T512 668T519 685Q524 694 538 694Q556 692 556 674Q556 670 426 329T293 -15Q288 -22 278 -22T263 -15Q260 -11 131 328T0 673ZM414 410Q414 411 278 411T142 410L278 55L414 410Z"></path><path stroke-width="0" id="E1628-MJMAIN-2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path><path stroke-width="0" id="E1628-MJMAIN-3C" d="M694 -11T694 -19T688 -33T678 -40Q671 -40 524 29T234 166L90 235Q83 240 83 250Q83 261 91 266Q664 540 678 540Q681 540 687 534T694 519T687 505Q686 504 417 376L151 250L417 124Q686 -4 687 -5Q694 -11 694 -19Z"></path><path stroke-width="0" id="E1628-MJMATHI-56" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path><path stroke-width="0" id="E1628-MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="0" id="E1628-MJMATHI-73" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path stroke-width="0" id="E1628-MJMAIN-3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path><path stroke-width="0" id="E1628-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E1628-MJSZ2-2211" d="M60 948Q63 950 665 950H1267L1325 815Q1384 677 1388 669H1348L1341 683Q1320 724 1285 761Q1235 809 1174 838T1033 881T882 898T699 902H574H543H251L259 891Q722 258 724 252Q725 250 724 246Q721 243 460 -56L196 -356Q196 -357 407 -357Q459 -357 548 -357T676 -358Q812 -358 896 -353T1063 -332T1204 -283T1307 -196Q1328 -170 1348 -124H1388Q1388 -125 1381 -145T1356 -210T1325 -294L1267 -449L666 -450Q64 -450 61 -448Q55 -446 55 -439Q55 -437 57 -433L590 177Q590 178 557 222T452 366T322 544L56 909L55 924Q55 945 60 948Z"></path><path stroke-width="0" id="E1628-MJMATHI-65" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path><path stroke-width="0" id="E1628-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E1628-MJMAIN-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path stroke-width="0" id="E1628-MJMAIN-21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g transform="translate(17875,0)"><use xlink:href="#E1628-MJMATHI-76" x="0" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="485" y="0"></use><use xlink:href="#E1628-MJMATHI-6C" x="1014" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="1312" y="0"></use><use xlink:href="#E1628-MJMATHI-66" x="1701" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="2251" y="0"></use><use xlink:href="#E1628-MJMAIN-2264" x="2917" y="0"></use><use xlink:href="#E1628-MJMATHI-63" x="3973" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="4406" y="0"></use><use xlink:href="#E1628-MJMATHI-70" x="4935" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="5438" y="0"></use><use xlink:href="#E1628-MJMATHI-6B" x="5827" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="6348" y="0"></use><use xlink:href="#E1628-MJMAIN-2200" x="7487" y="0"></use><use xlink:href="#E1628-MJMATHI-6B" x="8043" y="0"></use><g transform="translate(8842,0)"><use xlink:href="#E1628-MJMAIN-2208"></use><use xlink:href="#E1628-MJMAIN-3C" x="667" y="0"></use></g><g transform="translate(10565,0)"><use xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-66" x="824" y="-218"></use></g><use xlink:href="#E1628-MJMAIN-2C" x="11637" y="0"></use><g transform="translate(12081,0)"><use xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-73" x="824" y="-213"></use></g><use xlink:href="#E1628-MJMAIN-3E" x="13374" y="0"></use></g><g transform="translate(7720,-1680)"><use xlink:href="#E1628-MJMATHI-76" x="0" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="485" y="0"></use><use xlink:href="#E1628-MJMATHI-6C" x="1014" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="1312" y="0"></use><use xlink:href="#E1628-MJMATHI-66" x="1701" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="2251" y="0"></use><use xlink:href="#E1628-MJMAIN-3D" x="2917" y="0"></use><g transform="translate(3973,0)"><use xlink:href="#E1628-MJSZ2-2211" x="789" y="0"></use><g transform="translate(0,-1100)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-65" x="0" y="0"></use><g transform="translate(329,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2208"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-3C" x="667" y="0"></use></g><g transform="translate(1351,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.5)" xlink:href="#E1628-MJMATHI-66" x="824" y="-218"></use></g><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2C" x="2982" y="0"></use><g transform="translate(2305,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.5)" xlink:href="#E1628-MJMATHI-73" x="824" y="-213"></use></g></g></g><use xlink:href="#E1628-MJMATHI-66" x="7163" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="7713" y="0"></use><use xlink:href="#E1628-MJMATHI-65" x="8102" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="8568" y="0"></use><use xlink:href="#E1628-MJMAIN-2212" x="9179" y="0"></use><g transform="translate(10179,0)"><use xlink:href="#E1628-MJSZ2-2211" x="1064" y="0"></use><g transform="translate(0,-1100)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-65" x="0" y="0"></use><g transform="translate(329,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2208"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-3C" x="667" y="0"></use></g><g transform="translate(1351,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.5)" xlink:href="#E1628-MJMATHI-73" x="824" y="-213"></use></g><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2C" x="2925" y="0"></use><g transform="translate(2265,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.5)" xlink:href="#E1628-MJMATHI-66" x="824" y="-218"></use></g><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-3E" x="4275" y="0"></use></g></g><use xlink:href="#E1628-MJMATHI-66" x="13919" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="14469" y="0"></use><use xlink:href="#E1628-MJMATHI-65" x="14858" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="15324" y="0"></use><use xlink:href="#E1628-MJMAIN-2264" x="15991" y="0"></use><g transform="translate(17047,0)"><use xlink:href="#E1628-MJSZ2-2211" x="1064" y="0"></use><g transform="translate(0,-1100)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-65" x="0" y="0"></use><g transform="translate(329,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2208"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-3C" x="667" y="0"></use></g><g transform="translate(1351,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.5)" xlink:href="#E1628-MJMATHI-66" x="824" y="-218"></use></g><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2C" x="2982" y="0"></use><g transform="translate(2305,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.5)" xlink:href="#E1628-MJMATHI-73" x="824" y="-213"></use></g><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-3E" x="4275" y="0"></use></g></g><use xlink:href="#E1628-MJMATHI-66" x="20787" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="21337" y="0"></use><use xlink:href="#E1628-MJMATHI-65" x="21726" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="22192" y="0"></use><use xlink:href="#E1628-MJMAIN-2264" x="22859" y="0"></use><g transform="translate(23915,0)"><use xlink:href="#E1628-MJSZ2-2211" x="1064" y="0"></use><g transform="translate(0,-1100)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-65" x="0" y="0"></use><g transform="translate(329,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2208"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-3C" x="667" y="0"></use></g><g transform="translate(1351,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.5)" xlink:href="#E1628-MJMATHI-66" x="824" y="-218"></use></g><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2C" x="2982" y="0"></use><g transform="translate(2305,0)"><use transform="scale(0.707)" xlink:href="#E1628-MJMATHI-56" x="0" y="0"></use><use transform="scale(0.5)" xlink:href="#E1628-MJMATHI-73" x="824" y="-213"></use></g><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-3E" x="4275" y="0"></use></g></g><use xlink:href="#E1628-MJMATHI-63" x="27655" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="28088" y="0"></use><use xlink:href="#E1628-MJMATHI-70" x="28617" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="29120" y="0"></use><use xlink:href="#E1628-MJMATHI-65" x="29509" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="29975" y="0"></use><use xlink:href="#E1628-MJMAIN-2264" x="30642" y="0"></use><use xlink:href="#E1628-MJMATHI-63" x="31697" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="32130" y="0"></use><use xlink:href="#E1628-MJMATHI-70" x="32659" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="33162" y="0"></use><use xlink:href="#E1628-MJMATHI-6B" x="33551" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="34072" y="0"></use></g><g transform="translate(12586,-4272)"><use xlink:href="#E1628-MJMATHI-76" x="0" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="485" y="0"></use><use xlink:href="#E1628-MJMATHI-6C" x="1014" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="1312" y="0"></use><g transform="translate(1701,0)"><use xlink:href="#E1628-MJMATHI-66" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2217" x="803" y="583"></use></g><use xlink:href="#E1628-MJMAIN-29" x="2722" y="0"></use><use xlink:href="#E1628-MJMAIN-2264" x="3389" y="0"></use><use xlink:href="#E1628-MJMATHI-63" x="4445" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="4878" y="0"></use><use xlink:href="#E1628-MJMATHI-70" x="5407" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="5910" y="0"></use><g transform="translate(6299,0)"><use xlink:href="#E1628-MJMATHI-6B" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2217" x="736" y="583"></use></g><use xlink:href="#E1628-MJMAIN-29" x="7273" y="0"></use><use xlink:href="#E1628-MJMAIN-2264" x="7940" y="0"></use><use xlink:href="#E1628-MJMATHI-63" x="8996" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="9429" y="0"></use><use xlink:href="#E1628-MJMATHI-70" x="9958" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="10461" y="0"></use><use xlink:href="#E1628-MJMATHI-6B" x="10850" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="11371" y="0"></use><use xlink:href="#E1628-MJMAIN-3D" x="12038" y="0"></use><use xlink:href="#E1628-MJMATHI-76" x="13093" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="13578" y="0"></use><use xlink:href="#E1628-MJMATHI-6C" x="14107" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="14405" y="0"></use><use xlink:href="#E1628-MJMATHI-66" x="14794" y="0"></use><use xlink:href="#E1628-MJMAIN-29" x="15344" y="0"></use><use xlink:href="#E1628-MJMAIN-2264" x="16011" y="0"></use><use xlink:href="#E1628-MJMATHI-76" x="17067" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="17552" y="0"></use><use xlink:href="#E1628-MJMATHI-6C" x="18081" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="18379" y="0"></use><g transform="translate(18768,0)"><use xlink:href="#E1628-MJMATHI-66" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2217" x="803" y="583"></use></g><use xlink:href="#E1628-MJMAIN-29" x="19789" y="0"></use><use xlink:href="#E1628-MJMAIN-2264" x="20456" y="0"></use><use xlink:href="#E1628-MJMATHI-63" x="21512" y="0"></use><use xlink:href="#E1628-MJMATHI-61" x="21945" y="0"></use><use xlink:href="#E1628-MJMATHI-70" x="22474" y="0"></use><use xlink:href="#E1628-MJMAIN-28" x="22977" y="0"></use><g transform="translate(23366,0)"><use xlink:href="#E1628-MJMATHI-6B" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2217" x="736" y="583"></use></g><use xlink:href="#E1628-MJMAIN-29" x="24341" y="0"></use></g><g transform="translate(22897,-5694)"><use xlink:href="#E1628-MJMAIN-21D2" x="0" y="0"></use><use xlink:href="#E1628-MJMATHI-6B" x="1277" y="0"></use><use xlink:href="#E1628-MJMAIN-3D" x="2076" y="0"></use><g transform="translate(3132,0)"><use xlink:href="#E1628-MJMATHI-6B" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2217" x="736" y="583"></use></g></g><g transform="translate(22859,-6894)"><use xlink:href="#E1628-MJMAIN-21D2" x="0" y="0"></use><use xlink:href="#E1628-MJMATHI-66" x="1277" y="0"></use><use xlink:href="#E1628-MJMAIN-3D" x="2105" y="0"></use><g transform="translate(3161,0)"><use xlink:href="#E1628-MJMATHI-66" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1628-MJMAIN-2217" x="803" y="583"></use></g></g></g></svg></span></div><script type="math/tex; mode=display" id="MathJax-Element-406">val(f) \leq cap(k) ~~~\forall k \in <V_f,V_s>\\
+val(f) = \sum_{e \in <V_f,V_s}f(e)-\sum_{e\in <V_s,V_f>}f(e) \leq
+\sum_{e \in <V_f,V_s>}f(e) \leq \sum_{e \in <V_f,V_s>} cap(e) \leq cap(k)\\
+
+val(f^*) \leq cap(k^*) \leq cap(k) = val(f) \leq val(f^*) \leq cap(k^*)\\
+\Rightarrow k = k^*\\
+\Rightarrow f = f^*
+</script></div></div><p>&nbsp;</p></div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Algoritmos De Arboles
 
-### Definiciones
+## Definiciones
 
 - **Arbol Balanceado**: un arbol esta balanceado si para cad vertice se cumpe que la cantidad de vertices de susubarbol derecho difiere a lo sumo en uno con la cantidad de vertices en el subarbol izquierdo.
 
