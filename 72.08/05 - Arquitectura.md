@@ -24,7 +24,7 @@ De forma similar a la codificación anterior, se asigna un valor positivo al 1 y
 
 ## Von Neumann
 
-![1568057788465](Resources/1568057788465.png)
+<img src="Resources/1568057788465.png" alt="1568057788465" style="zoom: 50%;" />
 
 La arquitectura de Von Neumann se conecte con un solo bus con la memoria de código y de los datos. Esta arquitectura es la mas utilizada por su simplicidad y su bajo costo:
 
@@ -33,7 +33,7 @@ La arquitectura de Von Neumann se conecte con un solo bus con la memoria de cód
 
 ## Harvard
 
-![1568057844917](Resources/1568057844917.png)
+<img src="Resources/1568057844917.png" alt="1568057844917" style="zoom:50%;" />
 
 La arquitectura de Harvard utiliza 2 buses, uno para conectarse a la memoria de código y otro para conectarse a la memoria de datos. Esto paraleliza el acceso a la informacion (en algunos casos) y haría que sea mas rápido el acceso.
 
@@ -51,7 +51,7 @@ Además, las memorias compatibles con la arquitectura `x86` tiene otro bus para 
 
 ### Mapa de memoria
 
-El mapa de memoria te dice la cantidad de memoria que el procesador puede manejar, pero no necesariamente es la memoria real que tenés en tu sistema. Un mapa de memoria esta definido por el bus de datos y por el bus de direcciones. El bus de datos indica el tamaño que va a tener cada posición de memoria mientras que el bus de direcciones.
+El mapa de memoria te dice la cantidad de memoria que el procesador puede manejar, pero no necesariamente es la memoria real que tenés en tu sistema. Un mapa de memoria esta definido por el bus de datos y por el bus de direcciones. El bus de datos indica el tamaño que va a tener cada posición de memoria mientras que el bus de direcciones representa la cantidad máxima de direcciones que se pueden utilizar en la memoria.
 
 Si le asignamos $n=$ tamaño del bus de direcciones y $t=$ tamaño del bus de datos, hay $2^n$ posibles direcciones de memoria, de las cuales cada una tiene $t$ bits de tamaño, por lo que esta memoria tiene $2^n \times t$ bits de memoria.
 

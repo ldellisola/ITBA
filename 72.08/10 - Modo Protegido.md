@@ -10,7 +10,7 @@ Gracias a esto se generan los **contextos** de cada tarea. El contexto es el est
 
 ## Memory Management Unit (MMU)
 
-El MMU es el encargado de evitar que los programas no puedan escribir ni leer dentro del contexto de otras aplicaciones. Esta implementación tiene un par de validaciones entre la dirección (las que escribe el programador) y la dirección física. Tiene dos partes, a la **Unidad de Segmentación** y a la **Unidad de Paginación**. Estas unidades pueden modificar a los punteros antes de escribir en la memoria física para evitar que se pise memoria y podes mover los contextos mas fácilmente.
+El MMU es el encargado de evitar que los programas no puedan escribir ni leer dentro del contexto de otras aplicaciones. Esta implementación tiene un par de validaciones entre la dirección (las que escribe el programador) y la dirección física. Tiene dos partes, a la **Unidad de Segmentación** y a la **Unidad de Paginación**. Estas unidades pueden modificar a los punteros antes de escribir en la memoria física para evitar que se pise memoria y poder mover los contextos mas fácilmente.
 
 Hay una tabla (**descriptor table**) que contiene informacion sobre todos los procesos que están activos en el sistema. Entre la informacion que posee sobre los procesos están los permisos, los datos, el tamaño de la memoria que ocupa y donde empieza y donde termina en la RAM. Esta tabla se asigna permisos a nivel de kernel, por lo que el sistema operativo es el encargado de cargar los datos de la tabla, pero esta tabla puede existir sin un sistema operativo.
 
