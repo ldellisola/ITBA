@@ -4,7 +4,7 @@
 2.   [Cardenalidad](01 - Cardenalidad.html) 
 3.   [Algebra de Cardinales](02 - Algebra de Cardinales.html) 
 4.   [Lenguajes](03 - Lenguajes.html) 
-5.  [Sintaxis](04 - Logica Proposicional Sintaxis.html)
+5.  [Sintaxis](04 - Sintaxis.html)
 6.  [Semantica](05 - Logica Proposicional Semantica.html) 
 7.  [Logica Proposicional](06 - Logica Proposicional.html) 
 8.  [Independencia](07 - Independencia.html) 

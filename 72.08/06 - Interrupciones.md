@@ -2,9 +2,11 @@
 
 Las interrupciones son una señal externa que interrumpe al micro para requerir un servicio de atención. Hay dos tipos de interrupciones:
 
-- **Interrupción de Hardware**: Son las interrupciones generadas por dispositivos conectados al microprocesador o periféricos. Estos dispositivos están conectados al Controlador Programable de Interrupciones (PIC). Este controlador puede manejar hasta 8 dispositivos distintos, y se encarga de manejar el flujo de informacion por los pines `INTA` e `INTR`. El procesador obtiene del PIC el pedido de interrupción por el pin ``INTR` y luego de completar el ciclo actual del procesador, este le respondera al PIC en el pin `INTA` un acknowledge para que sepa que pueda ejecutar a su interrupcion. 
+- **Interrupción de Hardware**: Son las interrupciones generadas por dispositivos conectados al microprocesador o periféricos. Estos dispositivos están conectados al Controlador Programable de Interrupciones (PIC). Este controlador puede manejar hasta 8 dispositivos distintos, y se encarga de manejar el flujo de informacion por los pines `INTA` e `INTR`. El procesador obtiene del PIC el pedido de interrupción por el pin `INTR` y luego de completar el ciclo actual del procesador, este le respondera al PIC en el pin `INTA` un acknowledge para que sepa que pueda ejecutar a su interrupcion. 
 
-  Cuando el microprocesador acepta la interrupción, este le pide informacion sobre que dispositivo esta haciendo la interrupción al PIC y luego el microprocesador busca lo que debe hacer en la sección de memoria llamada `IDT` (interrupción descriptor table) y ejecuta la rutina en otro sector de la memoria.
+  Cuando el microprocesador acepta la interrupción, este le pide informacion sobre que dispositivo esta haciendo la interrupción al PIC y luego el microprocesador busca lo que debe hacer en la sección de memoria llamada `IDT` (interruption descriptor table) y ejecuta la rutina en otro sector de la memoria.
+
+  La IDT debe estar en memoria RAM, no importa donde este pero debe estar dentro de la memoria fisica.
 
   Adicionalmente, los procesadores tienen un flag `IF` que indica si se deben atender a las interrupciones externas. Básicamente permite bloquear a las interrupciones. Este flag se maneja con las instrucciones `cli` (clear interrupt) y `sti` (set interrupt).
 
@@ -17,7 +19,7 @@ Las interrupciones son una señal externa que interrumpe al micro para requerir 
 
 ## PIC
 
-El PIC es el controlador programable de interrupciones, y es el encargado de registrar las interrupciones de los dispositivos conectados y notificarle al procesador. El proceso es bastante simple, primero un dispositivo conectado le comunica al PIC que tiene una interrupción, este le avisa al procesador que sucedió una interrupción, y el procesador es el encargado de responderle si puede atenderla en el momento (si esta bloqueando las interrupciones externas). Luego de que el procesador confirme que acepta la interrupción, el PIC le manda por el bus de datos el índice de la tabla de interrupciones (`IDT`) de interrupción que esta sucediente y de ahí el procesador recupera un puntero hacia la rutina que se debe ejecutar. En caso de que multiples dispositivos le notifiquen al PIC, hay implementada una lista de prioridad donde se decide que interrupcion va al procesador primero.
+El PIC es el controlador programable de interrupciones, y es el encargado de registrar las interrupciones de los dispositivos conectados y notificarle al procesador. El proceso es bastante simple, primero un dispositivo conectado le comunica al PIC que tiene una interrupción, este le avisa al procesador que sucedió una interrupción, y el procesador es el encargado de responderle si puede atenderla en el momento (si esta bloqueando las interrupciones externas). Luego de que el procesador confirme que acepta la interrupción, el PIC le manda por el bus de datos el índice de la tabla de interrupciones (`IDT`) de interrupción que esta sucediente y de ahí el procesador recupera un puntero hacia la rutina que se debe ejecutar. En caso de que múltiples dispositivos le notifiquen al PIC, hay implementada una lista de prioridad donde se decide que interrupción va al procesador primero.
 
 <img src="Resources/image-20191029195857576.png" alt="image-20191029195857576" style="zoom: 50%;" />
 

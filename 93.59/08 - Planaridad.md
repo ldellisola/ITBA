@@ -36,11 +36,7 @@ Es la cantidad de aristas de su frontera. Se lo nota como $g(R_n)$
 
 - Sea $H\sub G$, si $H$ no es plano $\Rightarrow$ $G$ no es plano.
 
-  - Demostración:
-
-    Si $G$ no es plano, entonces $\exist \tau:G\rightarrow S$ una inmersión plana de todo subgrafo de $G$, en particular de H. Entonces $H$ será plano. <u>ABS!</u>.
-
-    $\therefore$ $G$ no es plano.
+   [Demostración](Demostraciones\08 - Planaridad\Proposicion - 01.html) 
 
 ## Teoremas
 
@@ -51,47 +47,7 @@ $$
 v-e+r=2
 $$
 
-#### Demostración
-
-(Por inducción en la cantidad de aristas)
-
-- Caso Base:
-
-  Sea $e=1$, tengo 2 casos de grafos conexo:
-
-  - Caso $I$: Tengo el grafo $K_2$, entones $2 - 1 + 1=2$. Lo valida.
-  - Caso $II$: Tengo un lazo, entonces $1-1+2=2$. Lo valida.
-
-- Hipótesis Inductiva:
-
-  La proposición es verdadera si $e\le n$.
-
-- Tesis Inductiva:
-
-  La proposición es verdadera si $e = n+1$.
-
-Supongamos que un grafo $G$ conexo con $n+1$ aristas. Si quitamos una arista, tenemos 2 casos:
-
-- Caso $I$: Al quitar la arista el grafo sigue siendo conexo, es decir, no quito una arista de corte
-
-  <img src="Resources/clip_image001-1568035083348.png" alt="img" style="zoom:20%;" />
-
-  En todos estos casos, al tomar la arista tengo una arista menos y tengo una region menos. Entonces por Hipotesis inductiva:
-  $$
-  v-n+r=2\\r-(n+1)+(r+1) = 2 \\v-n+r =2
-  $$
-
-- Caso $II$:
-
-  <img src="Resources/clip_image001-1568035566686.png" alt="img" style="zoom:25%;" />
-
-  $v_1 + v_2 = v$, $e_1 + e_2 = e-1$  y $r_1 + r_2 = r+1$. Entonces, por HI
-  $$
-  v-n+r=\\
-  v_1-e_1+r_1 +v_2 - e_2 +r_2 = \\
-  v-e+1 + r+1
-  $$
-  ==PEDIR==
+ [Demostración](Demostraciones\08 - Planaridad\Teorema - 01.html) 
 
 #### Corolarios
 
@@ -103,41 +59,13 @@ Sirven para probar que un grafo no es plano.
   $$
   Si $G$ no cumple con esto, entonces no es plano.
 
-  - Demostración:
-
-    Si $G$ es simple, no hay multiaristas y no hay regiones de grado 2. Como no tiene lazos, no hay regiones de grado 1. Entonces:
-    $$
-    g(R_i)\ge 3~~~\forall R_i
-    $$
-    Tambien sabemos que 
-    $$
-    \sum_{\forall R_i} g(R_i)=2 \times e \ge e \times r\\
-    2 \times e \ge e \times r
-    $$
-    Como $G$ es plano:
-    $$
-    2 \times e \ge e \times (v-e+2)\\
-    3\times v - 6 \ge e
-    $$
+   [Demostración](Demostraciones\08 - Planaridad\Corolario - 01.html) 
 
 - Sea $G$ un grafo plano, conexo y bipartito, entonces:
   $$
   e \le 2 \times v - 4
   $$
-  Sabemos que en un grafo bipartito:
-  $$
-  g(R_i) \ge 4
-  $$
-  Entonces si planteamos la sumatoria de grados de regiones
-  $$
-  \sum_{\forall R_i} g(R_i) = 2 \times e \ge 4 \times r
-  $$
-  Como $r = 2 - v + e$:
-  $$
-  2 \times e \ge 4 \times (2 - v + e)\\
-  2 \times v - 4 \ge e
-  $$
-  
+   [Demostración](Demostraciones\08 - Planaridad\Corolario - 02.html) 
 
 ## Observaciones
 

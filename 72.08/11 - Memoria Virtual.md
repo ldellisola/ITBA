@@ -20,7 +20,7 @@ Cuando la paginación esta habilitada, el procesador primero chequea los permiso
 
 ### Modelo FLAT
 
-Debido a la protección combinada, algunos sistemas operativos como UNIX utilizan el modelo FLAT de memoria. Este modelo funciona declarando 2 segmentos de código y de datos que referencian a toda la memoria. Esto permite un manejo mas simple de las mismas y a su vez mas portabilidad, ya que mochos procesadores no tienen unidad de segmentación pero si de paginación.
+Debido a la protección combinada, algunos sistemas operativos como UNIX utilizan el modelo FLAT de memoria. Este modelo funciona declarando 2 segmentos de código y de datos que referencian a toda la memoria. Esto permite un manejo mas simple de las mismas y a su vez mas portabilidad, ya que mochos procesadores no tienen unidad de segmentación pero si de paginación. Al hacer un segmento único permite ignorar la segmentación, ya que solo hay un segmento, y dentro están todas las páginas.
 
 ## Swapping
 

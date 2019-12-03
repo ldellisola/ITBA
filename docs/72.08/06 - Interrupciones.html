@@ -148,56 +148,266 @@ video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
 svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-:root { --side-bar-bg-color: white; --window-border: none; --search-select-bg-color: #575c61; --active-file-bg-color: #f1f4f5; --item-hover-bg-color: #f1f4f5; --item-hover-text-color: black; --control-text-color: #555; }
-html { font-size: 12pt; }
-#write { font-family: STIX2Text, "Times New Roman", serif; line-height: 1.5em; padding: 5% 10% 10%; }
-.file-list-item-summary { height: 36px; }
-.file-list-item { padding-bottom: 18px; padding-top: 18px !important; }
-#sidebar-loading-template.file-list-item { padding-top: 0px !important; }
-a, a:visited { color: rgb(170, 0, 0); }
-h1, h2, h3, h4, h5, h6 { font-family: inherit; line-height: 1.5em; margin-bottom: 1em; margin-top: 1em; }
-h1 { font-size: 2.4em; }
-#write h1 { text-align: center; }
-h2 { font-size: 1.8em; }
-h3 { font-size: 1.4em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1.1em; }
-h6 { font-size: 1em; }
-p { margin-top: 1em; margin-bottom: 1em; text-align: justify; }
-pre, code { font-family: "Latin Modern Mono Light", "Latin Modern Mono", monospace !important; }
-.footnotes { display: list-item; margin-left: 1em; }
-.md-fences { border: 1px solid; }
-.md-fences.md-fences-with-lineno { border: none; }
-.CodeMirror-linenumber { color: rgb(51, 51, 51); }
-.in-text-selection, ::selection, .CodeMirror-selected { background: var(--search-select-bg-color); text-shadow: none; color: var(--search-select-text-color)  !important; }
-a.md-toc-inner { color: var(--text-color); }
-.cm-s-typora-default .cm-link { color: rgb(170, 0, 0); text-decoration: underline; }
-.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property { color: black; }
-#typora-source .CodeMirror-lines { -webkit-font-smoothing: auto; max-width: 1000px; }
-.md-def-name::before, .md-def-name::after { color: rgb(45, 45, 45); }
-sup.md-footnote { background-color: initial; color: inherit; }
-mark { background: rgb(255, 243, 135); }
-td, th { border: 1px solid; padding-left: 1ch; padding-right: 1ch; }
-th { border-bottom: 0px rgb(51, 51, 51); padding-top: 2px; background: rgb(87, 92, 97); border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); color: rgb(243, 243, 243); }
-pre.md-meta-block { border: 1px solid rgb(162, 169, 177); background-color: rgb(248, 249, 250); padding: 5px; margin-bottom: 1em; }
-.task-list-item input::before { content: "√"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.task-list-item input:checked::before, .task-list-item input[checked]::before { color: inherit; }
-.md-task-list-item > input { top: auto; margin-left: -1.1em; font-size: 1.3em; margin-top: 0px; -webkit-appearance: none; }
-.md-task-list-item input::before { content: "☐"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.md-task-list-item input:checked::before, .md-task-list-item input[checked]::before { color: inherit; content: "☑"; }
-.task-list-item { padding-left: 1.5em; }
-blockquote { font-style: italic; padding: 0.25em 24px; position: relative; color: rgb(56, 56, 56); border-left: 2px solid; }
-#write > blockquote { padding: 0.25em 30px; margin-left: -32px; width: calc(100% + 32px); }
-#write > .md-fences-with-lineno { margin-left: -33px; color: black; }
-.CodeMirror-linenumber { min-width: 25px; }
-.md-header { font-size: inherit !important; }
+:root {
+    --side-bar-bg-color: white;
+    --window-border: none;
+    --search-select-bg-color: #575c61;
+    --active-file-bg-color: #f1f4f5;
+    --item-hover-bg-color: #f1f4f5;
+    --item-hover-text-color: black;
+    --control-text-color: #555;
+}
+
+@include-when-export url(https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css);
+
+html {
+    font-size: 12pt;
+}
+
+#write {
+    font-family: "STIX2Text", "Times New Roman", "serif";
+    line-height: 1.5em;
+    padding: 10%;
+    padding-top: 5%;
+}
+
+.file-list-item-summary {
+    height: 36px;
+}
+
+.file-list-item {
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+}
+
+#sidebar-loading-template.file-list-item {
+    padding-top: 0 !important;
+}
+
+a, a:visited {
+    color: #a00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h1  {
+    font-size: 2.4em;
+}
+
+#write h1  {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5  {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+pre, code {
+    font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+}
+
+.footnotes {
+    display: list-item;
+    margin-left: 1em;
+}
+
+.md-fences {
+    border: 1px solid;
+}
+
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
+
+.CodeMirror-linenumber {
+    color: #333;
+}
+
+*.in-text-selection,
+::selection,
+.CodeMirror-selected {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color) !important;
+    text-shadow: none;
+}
+
+a.md-toc-inner {
+    color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-link {
+    color: #a00;
+    text-decoration: underline;
+}
+
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property {
+    color: black;
+}
+
+#typora-source .CodeMirror-lines {
+    -webkit-font-smoothing: auto;
+    max-width: 1000px;
+}
+
+.md-def-name:before,
+.md-def-name:after {
+    color: #2d2d2d;
+}
+
+sup.md-footnote {
+    background-color: initial;
+    color: inherit;
+}
+
+mark {
+    background: #fff387;
+}
+
+td, th {
+    border: 1px solid;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+/*table tr[cid]:first-child > td {
+    border-top: 3px double;
+}*/
+
+th {
+    border-bottom: 0;
+    padding-top: 2px;
+    background: #575c61;
+    border-color: #333;
+    color: #f3f3f3;
+}
+
+pre.md-meta-block {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+.task-list-item input:before {
+    content: '\221A';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before{
+    color: inherit;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.1em;
+    font-size: 1.3em;
+    margin-top: 0px;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item input:before {
+    content: '\2610';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.md-task-list-item input:checked:before,
+.md-task-list-item input[checked]:before{
+    color: inherit;
+    content: '\2611';
+}
+
+.task-list-item {
+    padding-left: 1.5em;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0.25em 24px;
+    position: relative;
+    color: #383838;
+    border-left: 2px solid;
+    
+}
+
+#write > blockquote {
+    padding: 0.25em 30px;
+    margin-left: -32px;
+    width: calc(100% + 32px);
+}
+
+#write >  .md-fences-with-lineno {
+    margin-left: -33px;
+    color: black;
+}
+
+.CodeMirror-linenumber {
+    min-width: 25px;
+}
+
+.md-header {
+    font-size: inherit !important;
+}
+
+/*blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}*/
+
 
 
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="interrupciones" class="md-header-anchor"></a><span>Interrupciones</span></h1><p><span>Las interrupciones son una señal externa que interrumpe al micro para requerir un servicio de atención. Hay dos tipos de interrupciones:</span></p><ul><li><p><strong><span>Interrupción de Hardware</span></strong><span>: Son las interrupciones generadas por dispositivos conectados al microprocesador o periféricos. Estos dispositivos están conectados al Controlador Programable de Interrupciones (PIC). Este controlador puede manejar hasta 8 dispositivos distintos, y se encarga de manejar el flujo de informacion por los pines </span><code>INTA</code><span> e </span><code>INTR</code><span>. El procesador obtiene del PIC el pedido de interrupción por el pin </span><code>`INTR</code><span> y luego de completar el ciclo actual del procesador, este le respondera al PIC en el pin </span><code>INTA</code><span> un acknowledge para que sepa que pueda ejecutar a su interrupcion. </span></p><p><span>Cuando el microprocesador acepta la interrupción, este le pide informacion sobre que dispositivo esta haciendo la interrupción al PIC y luego el microprocesador busca lo que debe hacer en la sección de memoria llamada </span><code>IDT</code><span> (interrupción descriptor table) y ejecuta la rutina en otro sector de la memoria.</span></p><p><span>Adicionalmente, los procesadores tienen un flag </span><code>IF</code><span> que indica si se deben atender a las interrupciones externas. Básicamente permite bloquear a las interrupciones. Este flag se maneja con las instrucciones </span><code>cli</code><span> (clear interrupt) y </span><code>sti</code><span> (set interrupt).</span></p><p><span>Dentro de las interrupciones de hardware, hay dos tipos de interrupciones:</span></p><ul><li><strong><span>Interrupción Enmascarable</span></strong><span>: Al deshabilitar el flag </span><code>IF</code><span> este tipo de interrupciones no llegan al procesador.</span></li><li><strong><span>Interrupción no Enmascarable</span></strong><span>: Estas interrupciones llegan por el pin </span><code>NMI</code><span> y no puede ser ignoradas. Un claro ejemplo de estas interrupciones suceden al apagar la computadora desde el botón o para mantener la temperatura.</span></li></ul></li><li><p><strong><span>Interrupción por Software</span></strong><span>: son las interrupciones generadas por código. Un buen ejemplo de esto son las interrupciones ejecutadas con la instrucción </span><code>int 80h</code><span>. Esto básicamente genera una instrucción, hace que el procesador vaya al </span><code>IDT</code><span> a buscar la posición </span><code>80h</code><span> y de ahí salta a la subrutina que se debe ejecutar al encontrarse con esa interrupción. Este tipo de rutinas son tambien llamadas rutinas globales y se suelen usar para que los programas de userspace tengan acceso al hardware (controlado por el kernel) mediante syscalls.</span></p></li></ul><h2><a name="pic" class="md-header-anchor"></a><span>PIC</span></h2><p><span>El PIC es el controlador programable de interrupciones, y es el encargado de registrar las interrupciones de los dispositivos conectados y notificarle al procesador. El proceso es bastante simple, primero un dispositivo conectado le comunica al PIC que tiene una interrupción, este le avisa al procesador que sucedió una interrupción, y el procesador es el encargado de responderle si puede atenderla en el momento (si esta bloqueando las interrupciones externas). Luego de que el procesador confirme que acepta la interrupción, el PIC le manda por el bus de datos el índice de la tabla de interrupciones (</span><code>IDT</code><span>) de interrupción que esta sucediente y de ahí el procesador recupera un puntero hacia la rutina que se debe ejecutar. En caso de que multiples dispositivos le notifiquen al PIC, hay implementada una lista de prioridad donde se decide que interrupcion va al procesador primero.</span></p><p><img src="Resources/image-20191029195857576.png" alt="image-20191029195857576" style="zoom: 50%;" /></p><p><span>Los puertos de entrada y salida de la PC son el </span><code>20h</code><span> y el </span><code>21h</code><span>. El puerto </span><code>20h</code><span> es utilizado para programar el PIC (Lo utiliza la BIOS a la hora de arrancar el sistema), mientras que el puerto </span><code>21h</code><span> es utilizado para acceder al registro </span><code>IMR</code><span> (</span><strong><span>Interrupt Mask Register</span></strong><span>), donde podemos setear que interrupciones llegan al procesador y cuales no.</span></p><p><span>Como en un PIC solo pueden conectarse una cantidad finita de dispositivos, pueden conectarse varios PICs en serie para soportar a mas dispositivos. En las PCs se utiliza el </span><code>IRQ2</code><span> para conectar a un segundo PIC.</span></p><h2><a name="interrupciones-en-modo-protegido" class="md-header-anchor"></a><span>Interrupciones en Modo Protegido</span></h2><p><span>En modo protegido, cada entrada de la IDT es un descriptor de una interrupción, además cada descriptor contiene la dirección de la rutina de atención a la interrupción como datos de permisos. Las primeras 32 interrupciones son excepciones, de las cuales solo son utilizadas 20 por el momento.</span></p><p><span>En modo protegido se utiliza una tabla llamada </span><code>GDT</code><span> (Global Descriptor Table) o </span><code>LDT</code><span> (Local Descriptor Table) que guarda la dirección de memoria base del sector de memoria donde la función relacionada a una interrupción. La </span><code>IDT</code><span> especifica el offset de la función y con un puntero indica el </span><code>offset collector</code><span> que es una posición en dichas tablas. Junto al offset y a la dirección base se puede formar la dirección de memoria donde esta ubicada la rutina asociada a cada excepción.</span></p><h3><a name="excepciones" class="md-header-anchor"></a><span>Excepciones</span></h3><p><span>Una excepción es un evento generado por el procesador cuando detecta una o mas condiciones predefinidas al ejecutar una instrucción. Existen 3 tipos de excepciones:</span></p><ul><li><strong><span>Faults</span></strong><span>: Son excepciones que pueden corregirse. El procesador guarda en la pila la dirección de la instrucción que produjo la falla.</span></li><li><strong><span>Trap</span></strong><span>: Se utilizan para realizar accesos al sistema operativo.</span></li><li><strong><span>Abort</span></strong><span>: No siempre se puede obtener la instrucción que causo la excepción. Reporta errores importantes.</span></li></ul><p><span>Estas son las excepciones implementadas:</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>Id</span></th><th style='text-align:center;' ><span>Descripción</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>0</span></td><td style='text-align:center;' ><code>Divide Error</code></td></tr><tr><td style='text-align:center;' ><span>1</span></td><td style='text-align:center;' ><code>Debug Exception</code></td></tr><tr><td style='text-align:center;' ><span>2</span></td><td style='text-align:center;' ><code>Nonmaskable Interrupt</code></td></tr><tr><td style='text-align:center;' ><span>3</span></td><td style='text-align:center;' ><code>Breakpoint</code></td></tr><tr><td style='text-align:center;' ><span>4</span></td><td style='text-align:center;' ><code>Overflow</code></td></tr><tr><td style='text-align:center;' ><span>5</span></td><td style='text-align:center;' ><code>Bounds Check</code></td></tr><tr><td style='text-align:center;' ><span>6</span></td><td style='text-align:center;' ><code>Invalid Opcode</code></td></tr><tr><td style='text-align:center;' ><span>7</span></td><td style='text-align:center;' ><code>Coprocessor not Available</code></td></tr><tr><td style='text-align:center;' ><span>8</span></td><td style='text-align:center;' ><code>Double Fault</code></td></tr><tr><td style='text-align:center;' ><span>9</span></td><td style='text-align:center;' ><code>(Reserved)</code></td></tr><tr><td style='text-align:center;' ><span>10</span></td><td style='text-align:center;' ><code>Invalid TSS</code></td></tr><tr><td style='text-align:center;' ><span>11</span></td><td style='text-align:center;' ><code>Segment not Present</code></td></tr><tr><td style='text-align:center;' ><span>12</span></td><td style='text-align:center;' ><code>Stack Exception</code></td></tr><tr><td style='text-align:center;' ><span>13</span></td><td style='text-align:center;' ><code>General Protection</code></td></tr><tr><td style='text-align:center;' ><span>14</span></td><td style='text-align:center;' ><code>Page Fault</code></td></tr><tr><td style='text-align:center;' ><span>15</span></td><td style='text-align:center;' ><code>(Reserved)</code></td></tr><tr><td style='text-align:center;' ><span>16</span></td><td style='text-align:center;' ><code>Coprocessor Error</code></td></tr></tbody></table></figure><h2><a name="interrupciones-en-multi-core" class="md-header-anchor"></a><span>Interrupciones en Multi-Core</span></h2><p><span>A diferencia de los procesadores de un solo núcleo, en los procesadores multinúcleo se utiliza otro integrado para manejar las interrupciones llamado </span><code>APIC</code><span> (Advanced Programmable Interrupt Controller). En este caso el </span><code>I/O</code><span> posee un </span><code>APIC</code><span> mientras que cada núcleo tiene un </span><code>APIC</code><span> local. Este nuevo integrado se encarga de hacer el ruteo de los periféricos a los núcleos.</span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="interrupciones" class="md-header-anchor"></a><span>Interrupciones</span></h1><p><span>Las interrupciones son una señal externa que interrumpe al micro para requerir un servicio de atención. Hay dos tipos de interrupciones:</span></p><ul><li><p><strong><span>Interrupción de Hardware</span></strong><span>: Son las interrupciones generadas por dispositivos conectados al microprocesador o periféricos. Estos dispositivos están conectados al Controlador Programable de Interrupciones (PIC). Este controlador puede manejar hasta 8 dispositivos distintos, y se encarga de manejar el flujo de informacion por los pines </span><code>INTA</code><span> e </span><code>INTR</code><span>. El procesador obtiene del PIC el pedido de interrupción por el pin </span><code>INTR</code><span> y luego de completar el ciclo actual del procesador, este le respondera al PIC en el pin </span><code>INTA</code><span> un acknowledge para que sepa que pueda ejecutar a su interrupcion. </span></p><p><span>Cuando el microprocesador acepta la interrupción, este le pide informacion sobre que dispositivo esta haciendo la interrupción al PIC y luego el microprocesador busca lo que debe hacer en la sección de memoria llamada </span><code>IDT</code><span> (interruption descriptor table) y ejecuta la rutina en otro sector de la memoria.</span></p><p><span>La IDT debe estar en memoria RAM, no importa donde este pero debe estar dentro de la memoria fisica.</span></p><p><span>Adicionalmente, los procesadores tienen un flag </span><code>IF</code><span> que indica si se deben atender a las interrupciones externas. Básicamente permite bloquear a las interrupciones. Este flag se maneja con las instrucciones </span><code>cli</code><span> (clear interrupt) y </span><code>sti</code><span> (set interrupt).</span></p><p><span>Dentro de las interrupciones de hardware, hay dos tipos de interrupciones:</span></p><ul><li><strong><span>Interrupción Enmascarable</span></strong><span>: Al deshabilitar el flag </span><code>IF</code><span> este tipo de interrupciones no llegan al procesador.</span></li><li><strong><span>Interrupción no Enmascarable</span></strong><span>: Estas interrupciones llegan por el pin </span><code>NMI</code><span> y no puede ser ignoradas. Un claro ejemplo de estas interrupciones suceden al apagar la computadora desde el botón o para mantener la temperatura.</span></li></ul></li><li><p><strong><span>Interrupción por Software</span></strong><span>: son las interrupciones generadas por código. Un buen ejemplo de esto son las interrupciones ejecutadas con la instrucción </span><code>int 80h</code><span>. Esto básicamente genera una instrucción, hace que el procesador vaya al </span><code>IDT</code><span> a buscar la posición </span><code>80h</code><span> y de ahí salta a la subrutina que se debe ejecutar al encontrarse con esa interrupción. Este tipo de rutinas son tambien llamadas rutinas globales y se suelen usar para que los programas de userspace tengan acceso al hardware (controlado por el kernel) mediante syscalls.</span></p></li></ul><h2><a name="pic" class="md-header-anchor"></a><span>PIC</span></h2><p><span>El PIC es el controlador programable de interrupciones, y es el encargado de registrar las interrupciones de los dispositivos conectados y notificarle al procesador. El proceso es bastante simple, primero un dispositivo conectado le comunica al PIC que tiene una interrupción, este le avisa al procesador que sucedió una interrupción, y el procesador es el encargado de responderle si puede atenderla en el momento (si esta bloqueando las interrupciones externas). Luego de que el procesador confirme que acepta la interrupción, el PIC le manda por el bus de datos el índice de la tabla de interrupciones (</span><code>IDT</code><span>) de interrupción que esta sucediente y de ahí el procesador recupera un puntero hacia la rutina que se debe ejecutar. En caso de que múltiples dispositivos le notifiquen al PIC, hay implementada una lista de prioridad donde se decide que interrupción va al procesador primero.</span></p><p><img src="Resources/image-20191029195857576.png" alt="image-20191029195857576" style="zoom: 50%;" /></p><p><span>Los puertos de entrada y salida de la PC son el </span><code>20h</code><span> y el </span><code>21h</code><span>. El puerto </span><code>20h</code><span> es utilizado para programar el PIC (Lo utiliza la BIOS a la hora de arrancar el sistema), mientras que el puerto </span><code>21h</code><span> es utilizado para acceder al registro </span><code>IMR</code><span> (</span><strong><span>Interrupt Mask Register</span></strong><span>), donde podemos setear que interrupciones llegan al procesador y cuales no.</span></p><p><span>Como en un PIC solo pueden conectarse una cantidad finita de dispositivos, pueden conectarse varios PICs en serie para soportar a mas dispositivos. En las PCs se utiliza el </span><code>IRQ2</code><span> para conectar a un segundo PIC.</span></p><h2><a name="interrupciones-en-modo-protegido" class="md-header-anchor"></a><span>Interrupciones en Modo Protegido</span></h2><p><span>En modo protegido, cada entrada de la IDT es un descriptor de una interrupción, además cada descriptor contiene la dirección de la rutina de atención a la interrupción como datos de permisos. Las primeras 32 interrupciones son excepciones, de las cuales solo son utilizadas 20 por el momento.</span></p><p><span>En modo protegido se utiliza una tabla llamada </span><code>GDT</code><span> (Global Descriptor Table) o </span><code>LDT</code><span> (Local Descriptor Table) que guarda la dirección de memoria base del sector de memoria donde la función relacionada a una interrupción. La </span><code>IDT</code><span> especifica el offset de la función y con un puntero indica el </span><code>offset collector</code><span> que es una posición en dichas tablas. Junto al offset y a la dirección base se puede formar la dirección de memoria donde esta ubicada la rutina asociada a cada excepción.</span></p><h3><a name="excepciones" class="md-header-anchor"></a><span>Excepciones</span></h3><p><span>Una excepción es un evento generado por el procesador cuando detecta una o mas condiciones predefinidas al ejecutar una instrucción. Existen 3 tipos de excepciones:</span></p><ul><li><strong><span>Faults</span></strong><span>: Son excepciones que pueden corregirse. El procesador guarda en la pila la dirección de la instrucción que produjo la falla.</span></li><li><strong><span>Trap</span></strong><span>: Se utilizan para realizar accesos al sistema operativo.</span></li><li><strong><span>Abort</span></strong><span>: No siempre se puede obtener la instrucción que causo la excepción. Reporta errores importantes.</span></li></ul><p><span>Estas son las excepciones implementadas:</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>Id</span></th><th style='text-align:center;' ><span>Descripción</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>0</span></td><td style='text-align:center;' ><code>Divide Error</code></td></tr><tr><td style='text-align:center;' ><span>1</span></td><td style='text-align:center;' ><code>Debug Exception</code></td></tr><tr><td style='text-align:center;' ><span>2</span></td><td style='text-align:center;' ><code>Nonmaskable Interrupt</code></td></tr><tr><td style='text-align:center;' ><span>3</span></td><td style='text-align:center;' ><code>Breakpoint</code></td></tr><tr><td style='text-align:center;' ><span>4</span></td><td style='text-align:center;' ><code>Overflow</code></td></tr><tr><td style='text-align:center;' ><span>5</span></td><td style='text-align:center;' ><code>Bounds Check</code></td></tr><tr><td style='text-align:center;' ><span>6</span></td><td style='text-align:center;' ><code>Invalid Opcode</code></td></tr><tr><td style='text-align:center;' ><span>7</span></td><td style='text-align:center;' ><code>Coprocessor not Available</code></td></tr><tr><td style='text-align:center;' ><span>8</span></td><td style='text-align:center;' ><code>Double Fault</code></td></tr><tr><td style='text-align:center;' ><span>9</span></td><td style='text-align:center;' ><code>(Reserved)</code></td></tr><tr><td style='text-align:center;' ><span>10</span></td><td style='text-align:center;' ><code>Invalid TSS</code></td></tr><tr><td style='text-align:center;' ><span>11</span></td><td style='text-align:center;' ><code>Segment not Present</code></td></tr><tr><td style='text-align:center;' ><span>12</span></td><td style='text-align:center;' ><code>Stack Exception</code></td></tr><tr><td style='text-align:center;' ><span>13</span></td><td style='text-align:center;' ><code>General Protection</code></td></tr><tr><td style='text-align:center;' ><span>14</span></td><td style='text-align:center;' ><code>Page Fault</code></td></tr><tr><td style='text-align:center;' ><span>15</span></td><td style='text-align:center;' ><code>(Reserved)</code></td></tr><tr><td style='text-align:center;' ><span>16</span></td><td style='text-align:center;' ><code>Coprocessor Error</code></td></tr></tbody></table></figure><h2><a name="interrupciones-en-multi-core" class="md-header-anchor"></a><span>Interrupciones en Multi-Core</span></h2><p><span>A diferencia de los procesadores de un solo núcleo, en los procesadores multinúcleo se utiliza otro integrado para manejar las interrupciones llamado </span><code>APIC</code><span> (Advanced Programmable Interrupt Controller). En este caso el </span><code>I/O</code><span> posee un </span><code>APIC</code><span> mientras que cada núcleo tiene un </span><code>APIC</code><span> local. Este nuevo integrado se encarga de hacer el ruteo de los periféricos a los núcleos.</span></p></div>
 </body>
 </html>

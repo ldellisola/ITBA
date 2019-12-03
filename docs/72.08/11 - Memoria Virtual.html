@@ -148,56 +148,266 @@ video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
 svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-:root { --side-bar-bg-color: white; --window-border: none; --search-select-bg-color: #575c61; --active-file-bg-color: #f1f4f5; --item-hover-bg-color: #f1f4f5; --item-hover-text-color: black; --control-text-color: #555; }
-html { font-size: 12pt; }
-#write { font-family: STIX2Text, "Times New Roman", serif; line-height: 1.5em; padding: 5% 10% 10%; }
-.file-list-item-summary { height: 36px; }
-.file-list-item { padding-bottom: 18px; padding-top: 18px !important; }
-#sidebar-loading-template.file-list-item { padding-top: 0px !important; }
-a, a:visited { color: rgb(170, 0, 0); }
-h1, h2, h3, h4, h5, h6 { font-family: inherit; line-height: 1.5em; margin-bottom: 1em; margin-top: 1em; }
-h1 { font-size: 2.4em; }
-#write h1 { text-align: center; }
-h2 { font-size: 1.8em; }
-h3 { font-size: 1.4em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1.1em; }
-h6 { font-size: 1em; }
-p { margin-top: 1em; margin-bottom: 1em; text-align: justify; }
-pre, code { font-family: "Latin Modern Mono Light", "Latin Modern Mono", monospace !important; }
-.footnotes { display: list-item; margin-left: 1em; }
-.md-fences { border: 1px solid; }
-.md-fences.md-fences-with-lineno { border: none; }
-.CodeMirror-linenumber { color: rgb(51, 51, 51); }
-.in-text-selection, ::selection, .CodeMirror-selected { background: var(--search-select-bg-color); text-shadow: none; color: var(--search-select-text-color)  !important; }
-a.md-toc-inner { color: var(--text-color); }
-.cm-s-typora-default .cm-link { color: rgb(170, 0, 0); text-decoration: underline; }
-.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property { color: black; }
-#typora-source .CodeMirror-lines { -webkit-font-smoothing: auto; max-width: 1000px; }
-.md-def-name::before, .md-def-name::after { color: rgb(45, 45, 45); }
-sup.md-footnote { background-color: initial; color: inherit; }
-mark { background: rgb(255, 243, 135); }
-td, th { border: 1px solid; padding-left: 1ch; padding-right: 1ch; }
-th { border-bottom: 0px rgb(51, 51, 51); padding-top: 2px; background: rgb(87, 92, 97); border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); color: rgb(243, 243, 243); }
-pre.md-meta-block { border: 1px solid rgb(162, 169, 177); background-color: rgb(248, 249, 250); padding: 5px; margin-bottom: 1em; }
-.task-list-item input::before { content: "√"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.task-list-item input:checked::before, .task-list-item input[checked]::before { color: inherit; }
-.md-task-list-item > input { top: auto; margin-left: -1.1em; font-size: 1.3em; margin-top: 0px; -webkit-appearance: none; }
-.md-task-list-item input::before { content: "☐"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.md-task-list-item input:checked::before, .md-task-list-item input[checked]::before { color: inherit; content: "☑"; }
-.task-list-item { padding-left: 1.5em; }
-blockquote { font-style: italic; padding: 0.25em 24px; position: relative; color: rgb(56, 56, 56); border-left: 2px solid; }
-#write > blockquote { padding: 0.25em 30px; margin-left: -32px; width: calc(100% + 32px); }
-#write > .md-fences-with-lineno { margin-left: -33px; color: black; }
-.CodeMirror-linenumber { min-width: 25px; }
-.md-header { font-size: inherit !important; }
+:root {
+    --side-bar-bg-color: white;
+    --window-border: none;
+    --search-select-bg-color: #575c61;
+    --active-file-bg-color: #f1f4f5;
+    --item-hover-bg-color: #f1f4f5;
+    --item-hover-text-color: black;
+    --control-text-color: #555;
+}
+
+@include-when-export url(https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css);
+
+html {
+    font-size: 12pt;
+}
+
+#write {
+    font-family: "STIX2Text", "Times New Roman", "serif";
+    line-height: 1.5em;
+    padding: 10%;
+    padding-top: 5%;
+}
+
+.file-list-item-summary {
+    height: 36px;
+}
+
+.file-list-item {
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+}
+
+#sidebar-loading-template.file-list-item {
+    padding-top: 0 !important;
+}
+
+a, a:visited {
+    color: #a00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h1  {
+    font-size: 2.4em;
+}
+
+#write h1  {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5  {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+pre, code {
+    font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+}
+
+.footnotes {
+    display: list-item;
+    margin-left: 1em;
+}
+
+.md-fences {
+    border: 1px solid;
+}
+
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
+
+.CodeMirror-linenumber {
+    color: #333;
+}
+
+*.in-text-selection,
+::selection,
+.CodeMirror-selected {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color) !important;
+    text-shadow: none;
+}
+
+a.md-toc-inner {
+    color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-link {
+    color: #a00;
+    text-decoration: underline;
+}
+
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property {
+    color: black;
+}
+
+#typora-source .CodeMirror-lines {
+    -webkit-font-smoothing: auto;
+    max-width: 1000px;
+}
+
+.md-def-name:before,
+.md-def-name:after {
+    color: #2d2d2d;
+}
+
+sup.md-footnote {
+    background-color: initial;
+    color: inherit;
+}
+
+mark {
+    background: #fff387;
+}
+
+td, th {
+    border: 1px solid;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+/*table tr[cid]:first-child > td {
+    border-top: 3px double;
+}*/
+
+th {
+    border-bottom: 0;
+    padding-top: 2px;
+    background: #575c61;
+    border-color: #333;
+    color: #f3f3f3;
+}
+
+pre.md-meta-block {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+.task-list-item input:before {
+    content: '\221A';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before{
+    color: inherit;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.1em;
+    font-size: 1.3em;
+    margin-top: 0px;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item input:before {
+    content: '\2610';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.md-task-list-item input:checked:before,
+.md-task-list-item input[checked]:before{
+    color: inherit;
+    content: '\2611';
+}
+
+.task-list-item {
+    padding-left: 1.5em;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0.25em 24px;
+    position: relative;
+    color: #383838;
+    border-left: 2px solid;
+    
+}
+
+#write > blockquote {
+    padding: 0.25em 30px;
+    margin-left: -32px;
+    width: calc(100% + 32px);
+}
+
+#write >  .md-fences-with-lineno {
+    margin-left: -33px;
+    color: black;
+}
+
+.CodeMirror-linenumber {
+    min-width: 25px;
+}
+
+.md-header {
+    font-size: inherit !important;
+}
+
+/*blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}*/
+
 
 
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="memoria-virtual" class="md-header-anchor"></a><span>Memoria Virtual</span></h1><p><span>La memoria virtual es un concepto que genera el procesador, no el sistema operativo, este ultimo solo utiliza al concepto. Esto trae a la paginación dentro de la ecuación, esto permite transformar las direcciones de memoria virtuales que se asignan a cada proceso en posiciones de memoria física, pero solo el procesador se entera de esta cambio. Estas direcciones virtuales pueden apuntar a la misma o distintas direcciones física que otro proceso. Un ejemplo de esos son las librerías estándar, que puede que varios procesos la requieran pero no es eficiente que se cargue toda la librería por cada vez que se linkedita contra esa función, por lo que múltiples procesos pueden leer a la misma posición de memoria física.</span></p><h2><a name="paginación" class="md-header-anchor"></a><span>Paginación</span></h2><p><span>Para acceder a las páginas en los procesadores Intel de 32 bits, se hace de forma indexada. Para acceder a una pagina se debe acceder por una posición de memoria, donde los 12 bits mas significativos son la dirección de la memoria, seguidos por 10 bits que indican a que pagina se quiere acceder y por ultimo 10 bits donde se indica el offset para indicar a que posición de memoria se quiere acceder, dentro de cada pagina.</span></p><p><span>Las tablas de páginas están compuestas por la siguiente estructura, llamada </span><code>Page Table Entry</code><span>:</span></p><p><img src="Resources/image-20191029223005140.png" alt="image-20191029223005140" style="zoom:67%;" /></p><p><span>El bit de presencia </span><code>P</code><span> indica que esa tabla se puede utilizar para obtener una dirección de memoria. Si esta en 0 significa que no se puede utilizar. Cuando el procesador se encuentra con esta situación suele tirar una excepción, y si el sistema operativo soporta memoria virtual, se ejecutara la rutina que va a buscar la memoria al disco duro.</span></p><p><span> El bit </span><code>U/S</code><span> indica los permisos de esa tabla. Puede ser 3 si se trata de un usuario mientras que si la memoria es propiedad del kernel va a tener almacenado un 0, 1 o 2 en esos 2 bits.</span></p><h3><a name="protección-combinada" class="md-header-anchor"></a><span>Protección Combinada</span></h3><p><span>Cuando la paginación esta habilitada, el procesador primero chequea los permisos en la segmentación y luego en la paginación, de esta forma se pueden definir segmentos de datos que están compuestos por páginas solo de lectura y de escritura.</span></p><h3><a name="modelo-flat" class="md-header-anchor"></a><span>Modelo FLAT</span></h3><p><span>Debido a la protección combinada, algunos sistemas operativos como UNIX utilizan el modelo FLAT de memoria. Este modelo funciona declarando 2 segmentos de código y de datos que referencian a toda la memoria. Esto permite un manejo mas simple de las mismas y a su vez mas portabilidad, ya que mochos procesadores no tienen unidad de segmentación pero si de paginación.</span></p><h2><a name="swapping" class="md-header-anchor"></a><span>Swapping</span></h2><p><span>Cuando se necesita una pagina en memoria pero la memoria esta completa, Linux elije una pagina que no ha sido accedida recientemente y guarda un clon exacto en el disco. Luego setea al bit de presencia en 0 a la pagina guardada en memoria, permitiendo que sea escrita con nueva informacion. Esta informacion suele ser almacenada en una zona especial destinada para este tipo de operaciones. A este proceso se lo llama </span><strong><span>pagging</span></strong><span>.</span></p><p><span>Tambien existe el proceso de </span><strong><span>swapping</span></strong><span>, que implica guardar en disco todas las páginas de un proceso.</span></p><h3><a name="ejemplo" class="md-header-anchor"></a><span>Ejemplo</span></h3><p><span>Nosotros vamos a tomar el tamaño de la pagina como </span><code>4kb</code><span>, por lo que un procesador de 32bits, que puede manejar hasta 4 Gb de memoria, va a tener </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="21.124ex" height="4.106ex" viewBox="0 -1140 9095.1 1767.9" role="img" focusable="false" style="vertical-align: -1.458ex;"><defs><path stroke-width="0" id="E56-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E56-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="0" id="E56-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E56-MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="0" id="E56-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E56-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E56-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E56-MJMAIN-32"></use><use transform="scale(0.707)" xlink:href="#E56-MJMAIN-30" x="500" y="0"></use></g><use xlink:href="#E56-MJMAIN-3D" x="1584" y="0"></use><g transform="translate(2362,0)"><g transform="translate(397,0)"><rect stroke="none" width="1044" height="60" x="0" y="220"></rect><g transform="translate(60,416)"><use transform="scale(0.707)" xlink:href="#E56-MJMAIN-32" x="0" y="0"></use><g transform="translate(353,277)"><use transform="scale(0.5)" xlink:href="#E56-MJMAIN-33"></use><use transform="scale(0.5)" xlink:href="#E56-MJMAIN-32" x="500" y="0"></use></g></g><g transform="translate(60,-528)"><use transform="scale(0.707)" xlink:href="#E56-MJMAIN-32" x="0" y="0"></use><g transform="translate(353,277)"><use transform="scale(0.5)" xlink:href="#E56-MJMAIN-31"></use><use transform="scale(0.5)" xlink:href="#E56-MJMAIN-32" x="500" y="0"></use></g></g></g></g><use xlink:href="#E56-MJMAIN-3D" x="4202" y="0"></use><g transform="translate(5258,0)"><use xlink:href="#E56-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E56-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E56-MJMAIN-30" x="500" y="0"></use></g></g><use xlink:href="#E56-MJMAIN-D7" x="6787" y="0"></use><g transform="translate(7788,0)"><use xlink:href="#E56-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E56-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E56-MJMAIN-30" x="500" y="0"></use></g></g></g></svg></span><script type="math/tex">2^{20}=\frac{2^{32}}{2^{12}}=2^{10}\times 2^{10}</script><span> páginas. Por lo que hay </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.036ex" height="2.388ex" viewBox="0 -969.3 1307.1 1028.2" role="img" focusable="false" style="vertical-align: -0.137ex;"><defs><path stroke-width="0" id="E58-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E58-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E58-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E58-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E58-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E58-MJMAIN-30" x="500" y="0"></use></g></g></svg></span><script type="math/tex">2^{10}</script><span> grupos de páginas, que cada uno contiene </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.036ex" height="2.388ex" viewBox="0 -969.3 1307.1 1028.2" role="img" focusable="false" style="vertical-align: -0.137ex;"><defs><path stroke-width="0" id="E58-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E58-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E58-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E58-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E58-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E58-MJMAIN-30" x="500" y="0"></use></g></g></svg></span><script type="math/tex">2^{10}</script><span> páginas.</span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="memoria-virtual" class="md-header-anchor"></a><span>Memoria Virtual</span></h1><p><span>La memoria virtual es un concepto que genera el procesador, no el sistema operativo, este ultimo solo utiliza al concepto. Esto trae a la paginación dentro de la ecuación, esto permite transformar las direcciones de memoria virtuales que se asignan a cada proceso en posiciones de memoria física, pero solo el procesador se entera de esta cambio. Estas direcciones virtuales pueden apuntar a la misma o distintas direcciones física que otro proceso. Un ejemplo de esos son las librerías estándar, que puede que varios procesos la requieran pero no es eficiente que se cargue toda la librería por cada vez que se linkedita contra esa función, por lo que múltiples procesos pueden leer a la misma posición de memoria física.</span></p><h2><a name="paginación" class="md-header-anchor"></a><span>Paginación</span></h2><p><span>Para acceder a las páginas en los procesadores Intel de 32 bits, se hace de forma indexada. Para acceder a una pagina se debe acceder por una posición de memoria, donde los 12 bits mas significativos son la dirección de la memoria, seguidos por 10 bits que indican a que pagina se quiere acceder y por ultimo 10 bits donde se indica el offset para indicar a que posición de memoria se quiere acceder, dentro de cada pagina.</span></p><p><span>Las tablas de páginas están compuestas por la siguiente estructura, llamada </span><code>Page Table Entry</code><span>:</span></p><p><img src="Resources/image-20191029223005140.png" alt="image-20191029223005140" style="zoom:67%;" /></p><p><span>El bit de presencia </span><code>P</code><span> indica que esa tabla se puede utilizar para obtener una dirección de memoria. Si esta en 0 significa que no se puede utilizar. Cuando el procesador se encuentra con esta situación suele tirar una excepción, y si el sistema operativo soporta memoria virtual, se ejecutara la rutina que va a buscar la memoria al disco duro.</span></p><p><span> El bit </span><code>U/S</code><span> indica los permisos de esa tabla. Puede ser 3 si se trata de un usuario mientras que si la memoria es propiedad del kernel va a tener almacenado un 0, 1 o 2 en esos 2 bits.</span></p><h3><a name="protección-combinada" class="md-header-anchor"></a><span>Protección Combinada</span></h3><p><span>Cuando la paginación esta habilitada, el procesador primero chequea los permisos en la segmentación y luego en la paginación, de esta forma se pueden definir segmentos de datos que están compuestos por páginas solo de lectura y de escritura.</span></p><h3><a name="modelo-flat" class="md-header-anchor"></a><span>Modelo FLAT</span></h3><p><span>Debido a la protección combinada, algunos sistemas operativos como UNIX utilizan el modelo FLAT de memoria. Este modelo funciona declarando 2 segmentos de código y de datos que referencian a toda la memoria. Esto permite un manejo mas simple de las mismas y a su vez mas portabilidad, ya que mochos procesadores no tienen unidad de segmentación pero si de paginación. Al hacer un segmento único permite ignorar la segmentación, ya que solo hay un segmento, y dentro están todas las páginas.</span></p><h2><a name="swapping" class="md-header-anchor"></a><span>Swapping</span></h2><p><span>Cuando se necesita una pagina en memoria pero la memoria esta completa, Linux elije una pagina que no ha sido accedida recientemente y guarda un clon exacto en el disco. Luego setea al bit de presencia en 0 a la pagina guardada en memoria, permitiendo que sea escrita con nueva informacion. Esta informacion suele ser almacenada en una zona especial destinada para este tipo de operaciones. A este proceso se lo llama </span><strong><span>pagging</span></strong><span>.</span></p><p><span>Tambien existe el proceso de </span><strong><span>swapping</span></strong><span>, que implica guardar en disco todas las páginas de un proceso.</span></p><h3><a name="ejemplo" class="md-header-anchor"></a><span>Ejemplo</span></h3><p><span>Nosotros vamos a tomar el tamaño de la pagina como </span><code>4kb</code><span>, por lo que un procesador de 32bits, que puede manejar hasta 4 Gb de memoria, va a tener </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="21.124ex" height="4.106ex" viewBox="0 -1140 9095.1 1767.9" role="img" focusable="false" style="vertical-align: -1.458ex;"><defs><path stroke-width="0" id="E2-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E2-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="0" id="E2-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E2-MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="0" id="E2-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E2-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E2-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-32"></use><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-30" x="500" y="0"></use></g><use xlink:href="#E2-MJMAIN-3D" x="1584" y="0"></use><g transform="translate(2362,0)"><g transform="translate(397,0)"><rect stroke="none" width="1044" height="60" x="0" y="220"></rect><g transform="translate(60,416)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-32" x="0" y="0"></use><g transform="translate(353,277)"><use transform="scale(0.5)" xlink:href="#E2-MJMAIN-33"></use><use transform="scale(0.5)" xlink:href="#E2-MJMAIN-32" x="500" y="0"></use></g></g><g transform="translate(60,-528)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-32" x="0" y="0"></use><g transform="translate(353,277)"><use transform="scale(0.5)" xlink:href="#E2-MJMAIN-31"></use><use transform="scale(0.5)" xlink:href="#E2-MJMAIN-32" x="500" y="0"></use></g></g></g></g><use xlink:href="#E2-MJMAIN-3D" x="4202" y="0"></use><g transform="translate(5258,0)"><use xlink:href="#E2-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-30" x="500" y="0"></use></g></g><use xlink:href="#E2-MJMAIN-D7" x="6787" y="0"></use><g transform="translate(7788,0)"><use xlink:href="#E2-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-30" x="500" y="0"></use></g></g></g></svg></span><script type="math/tex">2^{20}=\frac{2^{32}}{2^{12}}=2^{10}\times 2^{10}</script><span> páginas. Por lo que hay </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.036ex" height="2.388ex" viewBox="0 -969.3 1307.1 1028.2" role="img" focusable="false" style="vertical-align: -0.137ex;"><defs><path stroke-width="0" id="E4-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E4-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E4-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E4-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E4-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E4-MJMAIN-30" x="500" y="0"></use></g></g></svg></span><script type="math/tex">2^{10}</script><span> grupos de páginas, que cada uno contiene </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.036ex" height="2.388ex" viewBox="0 -969.3 1307.1 1028.2" role="img" focusable="false" style="vertical-align: -0.137ex;"><defs><path stroke-width="0" id="E4-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E4-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E4-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E4-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E4-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E4-MJMAIN-30" x="500" y="0"></use></g></g></svg></span><script type="math/tex">2^{10}</script><span> páginas.</span></p></div>
 </body>
 </html>

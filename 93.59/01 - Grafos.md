@@ -136,9 +136,12 @@ En un dígrafo se deﬁne **grado de salida** de un vértice $v$ $g_s(v)$ al num
   $$
   \sum_{i=1}^{n=\#V_G} g(v_i)=2 \cdot \#E_G
   $$
-
+[Demostración](Demostraciones\01 - Grafos\Proposicion 01.html) 
+  
 - En un grafo $G$ la cantidad de vértices de grado impar es par. Se puede suponer que los primeros $q$ vértices ($0 \leq q \leq n$) tienen grado par y el siguiente conjunto de vértices ($n-q$) tiene grado impar.
 
+  [Demostración](Demostraciones\01 - Grafos\Proposicion 02.html) 
+  
   **Demo:**
   $$
   \sum_{i=1}^{n=\#V_G} g(v_i)= \sum_{i=1}^{q} g(v_i) + \sum_{i=q+1}^{n} g(v_i)  =2 \cdot \#E_G
@@ -247,6 +250,14 @@ Se los nota como $\mathbb K_{m,n}$
 <img src="Resources/1565009328818.png" style="zoom:50%">
 
 En este caso $V_1=\{A,C,E\}$ y $V_2 = \{B,D\}$, y $V_1 \cap V_2 = \empty$.
+
+#### Caracterizacion de un Grafo Bipartito
+
+$$
+G \text{ es bipartito} \Leftrightarrow G \text{ no tiene ciclos de longitud impar}
+$$
+
+ [Demostración](Demostraciones\01 - Grafos\Proposicion 03.html) 
 
 #### Grafo Bipartito Completo
 

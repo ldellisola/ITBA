@@ -2,7 +2,7 @@
 
 La memoria cache es la memoria mas rápida de la computadora y se encuentra dentro del procesador. El trabajo de esta memoria es guardar informacion que el procesador haya utilizado recientemente con el objetivo de que si requiere esa informacion de vuelta, no tenga que ir hacia la memoria RAM para recuperar la informacion sino que puede acceder a ella rápidamente.
 
-Este tipo de memorias es mucho mas rápido y caro que la memoria RAM común y utiliza una tecnológica llamada SRAM, que permite que guarde informacion a pesar de que no haya energía. La velocidad de respuesta de esta memoria es acorde a la velocidad del CPU. Hoy en día existen 3 tipos de memoria cache L1, L2 y L3.
+Este tipo de memorias es mucho mas rápido y caro que la memoria RAM común y utiliza una tecnológica llamada SRAM, que le permite mantener la memoria sin tener que refrescarla cada algunos milisegundos. La velocidad de respuesta de esta memoria es acorde a la velocidad del CPU. Hoy en día existen 3 tipos de memoria cache L1, L2 y L3.
 
 Esta memoria se compone de 3 elementos, memoria para almacenar datos, memoria para almacenar etiquetas y un controlador que selecciona que informacion será guardada en la memoria de datos.
 
@@ -22,6 +22,8 @@ Si tenemos una <u>memoria RAM de 1MB</u> ($1M\times 8b $), <u>los bloques de tra
 $$
 4K = 2^{12} \rightarrow \frac{2^{12}}{2^5} = 128
 $$
+Se accede a la memoria cache de forma similar a la paginación, de forma tal que como en este caso las direcciones son de 20 bits, y nuestra cache es de 9 bits (0.5 KB), entonces los 11 bits mas significativos y a eso lo llama etiqueta, mientras que  que los 9 bits menos significativos son el offset. Como la cache no tiene tanta memoria, se fija si la etiqueta obtenida esta guardada dentro de la memoria, y si lo esta accede mediante el offset.
+
 ==PREGUNTAR POR EL TAMA:O DE LA MEMORIA DE ETIQUETAS==
 
 ## Mapeos

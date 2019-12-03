@@ -11,17 +11,16 @@ En este caso vamos a ver la complejidad temporal, y la vamos a calcular en funci
 2. <u>Peor caso</u>
 3. <u>Caso promedio</u>
 
-**Notacion O**: es la cota superior, por lo que si un algoritmo nos devuelve un polinomio como salida, podemos decir que el orden de esa funcion es el grado mayor del polinomio.
+**Notación O**: es la cota superior, por lo que si un algoritmo nos devuelve un polinomio como salida, podemos decir que el orden de esa función es el grado mayor del polinomio.
 $$
 f(n) \text{ es }O(g(n)) \text{ si existe } C \in \R^+/\mid f(b) \mid \le C \times \mid g(n) \mid
 $$
 
-
-**Notacion $\Omega$**: es la cota inferior.
+**Notación $\Omega$**: es la cota inferior.
 $$
 f(n) \text{ es }\Omega(g(n)) \text{ si existe } C \in \R^+/\mid f(b) \mid \ge C \times \mid g(n) \mid
 $$
-**Notacion $\theta$**: Permite acotar inferiormente y superiormente a $f(n)$.
+**Notación $\theta$**: Permite acotar inferiormente y superiormente a $f(n)$.
 $$
 f(n) \text{ es }\theta(g(n)) \text{ si $f(n)$ es $O(g(n))$ y es $\Omega(g(n))$ }
 $$
@@ -39,7 +38,7 @@ OUT: Max(a1, a2, ... , an)
 		END
 ```
 
-Podemos ver que cada vez que entro en un for hago $1$ comparacion y entra $(n-1)$. Podemos ver que la complejidad es:
+Podemos ver que cada vez que entro en un for hago $1$ comparación y entra $(n-1)$. Podemos ver que la complejidad es:
 $$
 O(N)= 2\times (N-1) +1 =2\times N - 1
 $$
@@ -55,7 +54,7 @@ FOR	i:=1	TO	i = n
 ENDFOR
 ```
 
-Como tiene un loop principal que se recorre $N$ veces, y dentro de el tiene otro loop que se recorre $N$ veces. Por lo que la complejidad sera:
+Como tiene un loop principal que se recorre $N$ veces, y dentro de el tiene otro loop que se recorre $N$ veces. Por lo que la complejidad será:
 $$
 (N+1) + (N+1) \times N = (N+1)^2
 $$
@@ -70,7 +69,7 @@ FOR i:= 1	TO	i = n
 ENDFOR
 ```
 
-Tiene un loop principal que se recorre $N$ veces y hace $(N+1)$ veces la comparacion con $i$ para ver si llega al valor limite. La complejidad sera:
+Tiene un loop principal que se recorre $N$ veces y hace $(N+1)$ veces la comparación con $i$ para ver si llega al valor limite. La complejidad será:
 $$
 N+1
 $$
@@ -84,7 +83,7 @@ BEGIN
 ENDFOR
 ```
 
-Es una funcion recursiva, pero se ve que se compara $(N+1)$ veces, por lo que la complejidad es:
+Es una función recursiva, pero se ve que se compara $(N+1)$ veces, por lo que la complejidad es:
 $$
 N+1
 $$
@@ -97,7 +96,7 @@ FOR i:=1	TO	i = N
 ENDFOR
 ```
 
-En el primer loop se ahcen $(N+1)$ comparaciones, mientras que en el segundo loop, cada vez se hacen menos comparaciones. Esto se pude modelar como la suma de los numeros enteros entre el $i$ que viene como parametro y $N$:
+En el primer loop se hacen $(N+1)$ comparaciones, mientras que en el segundo loop, cada vez se hacen menos comparaciones. Esto se pude modelar como la suma de los números enteros entre el $i$ que viene como parámetro y $N$:
 $$
 \sum_{i=1}^{N+1}i=\frac{(N-1)\times(N-2)}{2} = \frac{N^2 + 3N+2}{2}
 $$
@@ -129,8 +128,7 @@ $$
 = 10 N + 4(N-i)
 $$
 
-
-**Metodo de Insercion**
+**Método de Inserción**
 
 ```pseudocode
 IN: a[a_1, ... , a_N]
@@ -146,7 +144,7 @@ FOR i:=2	TO	i = n
 END
 ```
 
-Aplicamos el algoritmo con la siguente entrada `[10,15,5,2]`:
+Aplicamos el algoritmo con la siguiente entrada `[10,15,5,2]`:
 
 ```pseudocode
 a = [10, 15, 5, 2 ]	STEP 1: i = 2	j = 2	v = 15
@@ -161,7 +159,7 @@ a = [2, 5, 10, 15 ]	STEP 8: i = 4	j = 1	v = 2
 
 <u>Peor caso</u>: El peor caso se da cuando en el while solo depende de `j`.
 
-Podemos ver que el primer loop hace `N` comparaciones, ya que compara de `2` a `N`. En el while podemos ver que cada vez que se quiera evaluar si el while debe continuar se haran `2` comparaciones. Como el valor de `j` depende de `i`, tenemos que plantear para cada `i` cuantas comparaciones va a requerir el while, gracias a esto llegamos a que para el valor inicial requiere 2 comparaciones y para cuando `i = N`, entonces se puede modelar como la suma de Gauss.
+Podemos ver que el primer loop hace `N` comparaciones, ya que compara de `2` a `N`. En el while podemos ver que cada vez que se quiera evaluar si el while debe continuar se harán `2` comparaciones. Como el valor de `j` depende de `i`, tenemos que plantear para cada `i` cuantas comparaciones va a requerir el while, gracias a esto llegamos a que para el valor inicial requiere 2 comparaciones y para cuando `i = N`, entonces se puede modelar como la suma de Gauss.
 
 La complejidad es:
 $$
@@ -169,11 +167,11 @@ N + 2 \times \sum_{i=2}^{N} i =
 N + 2 \times \left( \frac{n \times (n+1)}{2} -1 \right) =
 N^2+2N-2
 $$
-<u>Mejor caso</u>: En el mejor caso, el arreglo esta ordenado, entonces nunca va a entrar en el while. De esta forma solo tiene dos comparaciones cada vez que entra al while ademas de la comparacion del for. La complejidad es:
+<u>Mejor caso</u>: En el mejor caso, el arreglo esta ordenado, entonces nunca va a entrar en el while. De esta forma solo tiene dos comparaciones cada vez que entra al while además de la comparación del for. La complejidad es:
 $$
 N + 2 \times (N-1) = 3 N -2
 $$
-**Metodo de Seleccion**
+**Método de Selección**
 
 ```pseudocode
 IN: a[a_1, ... , a_N]
@@ -190,7 +188,7 @@ END
 
 No hay mejor o peor caso, solo esta el caso promedio.
 
-Aplico el algoritmo con la siguente entrada `IN: [10, 15, 5, 2]`:
+Aplico el algoritmo con la siguiente entrada `IN: [10, 15, 5, 2]`:
 
 ```pseudocode
 a = [10, 15, 5, 2] STEP 1: i = 1  j = 2  min = null
@@ -213,11 +211,11 @@ $$
 
 ### Algoritmo
 
-Un algoritmo es un conjunto de operaciones que pueden ser ejecutadas por una maquina o una persona, que no requiere conocimientos adicionales a los requeridos por las instrucciones o el sentido comun. Es un proceso mecanico.
+Un algoritmo es un conjunto de operaciones que pueden ser ejecutadas por una maquina o una persona, que no requiere conocimientos adicionales a los requeridos por las instrucciones o el sentido común. Es un proceso mecánico.
 
 Tiene que cumplir con las siguientes condiciones:
 
 - **Finitud**: El texto que describe el algoritmo tiene que ser finito.
 - **Efectividad**: Cada paso del algoritmo debe poder ejecutarse.
 - **Determinismo**: Para cada entrada debe haber una unica secuencia de pasos.
-- **Terminación**: La ejecucion del algoritmo debe detenerse en un numero finito de pasos.
+- **Terminación**: La ejecución del algoritmo debe detenerse en un numero finito de pasos.

@@ -80,6 +80,14 @@ Superposición por 2 vértices alternados:
 
 1. Sea $G$ un grafo y $H \sub G$, $H$ ciclo, entonces $2$ apéndices superpuestos no pueden dibujarse ambos en la misma región (interior a $H$ o región infinita).
 
+### Proposiciones
+
+- Si $G$ tiene todos sus bloques planos, entonces es plano.
+
+- Sean $B_1,B_2$ dos bloques distintos de $G$, entonces tienen a lo sumo un vertice en común. 
+
+   [Demostración](Demostraciones\10 - Bloques\Proposicion - 01.html) 
+
 ## Algoritmo de Planaridad
 
 Se intenta de transformar a cualquier grafo a uno $2-conexo$.
@@ -124,10 +132,6 @@ Veo que tengo los siguientes apéndices:
 Agrego el camino $<v_1,e_9,v_7,e_6,v_8,e_{11},v_3>$ a $H_1$
 
 <img src="Resources/clip_image001-1568642497142.png" alt="img" style="zoom:33%;" />
-
-### Proposiciones
-
-Si $G$ tiene todos sus bloques planos, entonces es plano.
 
 
 

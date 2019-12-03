@@ -101,6 +101,8 @@ Se lo nota como $\chi(G)$.
 
 - Utilizando a la [independencia](#Independencia de un Grafo), podemos calcular que $\chi(G) \ge \lceil {\frac{\#V_G}{ind(G)}}\rceil $
 
+   [Demostración](Demostraciones\12 - Coloreo\Proposicion - 03.html) 
+
 ### Grafo $k-critico$
 
 Sea $G$ un grafo tal que $\chi(G)=k$ y $G-\{e\}$ es $k-1$ coloreable $\forall e \in E_G$  
@@ -136,17 +138,13 @@ Siendo $A_j$ un conjunto de vértices independientes de $G$.
 
 ## Proposiciones
 
-- Sea $G$ un grafo conexo [$k$ critico](#Grafo $k-critico$), entonces $G-\{v\}$ es [$k-1$ coloreable](#Grafo $k-coloreable$) $\forall v\in V_G$ pues al sacar un vértice, saco al menos una arista. 
+- Sea $G$ un grafo conexo [$k$ critico](#Grafo $k-critico$), entonces $G-\{v\}$ es [$k-1$ coloreable](#Grafo $k-coloreable$) $\forall v\in V_G$ 
+
+   [Demostración](Demostraciones\12 - Coloreo\Proposicion - 02.html) 
 
 - Sea $G$ conexo y [$k$ critico](#Grafo $k-critico$), entonces $gr(v_i) \ge k-1~~\forall v_i\in G$.
 
-  Supongamos que hay un vértice $v$ tal que $gr(v)<k-1$ y que $g(v)=k-2$.
-
-  Como $G-\{v\}$ es $k-1$ coloreable y como los adyacentes a $v$ sin $k-2$ coloreables, estos no usan los $k-1$ colores.
-
-  $\Rightarrow$ queda 1 color que se puede asignar a $v$ y "*agregar*" a $G-\{v\}$ con lo que $G$ quedaría pintado con $k-1$ colores ([Coloreo propio](#$k-Coloreo$ propio))
-
-  $\Rightarrow$ $G$ no es k critico. ABS! (Contradice la hipótesis).
+   [Demostración](Demostraciones\12 - Coloreo\Proposicion - 01.html) 
 
 - $\chi(G)\le \delta_{max}+1$, con $\delta_{max}=max_{\forall v_i \in V_G} \{gr(v_i)\}$ 
 

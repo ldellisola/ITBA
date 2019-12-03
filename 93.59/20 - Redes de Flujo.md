@@ -39,9 +39,9 @@ Finalmente nos queda el siguente grafo:
 
 <img src="Resources/Mon, 11 Nov 2019 104342.png" alt="img" style="zoom:33%;" />
 
-Donde en $V_f$ ponemos todos los vertices etiquetados y en $V_s$ quedan los que no.
+Donde en $V_f$ ponemos todos los vértices etiquetados y en $V_s$ quedan los que no.
 
-Tambien se obtiene que $K^* = <V_f,V_s>$ es el corte minimo.
+Tambien se obtiene que $K^* = <V_f,V_s>$ es el corte mínimo.
 
 $val(f^*) = \sum_{\forall i}Q_i = 11= cap(K^*)$
 
@@ -55,13 +55,13 @@ $val(f^*) = \sum_{\forall i}Q_i = 11= cap(K^*)$
 
 - **Flujo Máximo**: un flujo es máximo si para todo flujo asociado a la red se verifica $val(f) \leq val(f^*)$.
 
-  Se lo nota como $f^*$.
+  Se lo nota como $f^*$
 
-- **Capacidad de Corte**: $cap<V_f,V_s> = \sum_{e \in <V_f,V_s>} cap(e)$
+  **Capacidad de Corte**: $cap<V_f,V_s> = \sum_{e \in <V_f,V_s>} cap(e)$
 
 - **Corte Mínimo**: $K^*$ es un corte tal que $\forall k=<V_f,V_s>$
 
-- **Cuasicamino de Aumento**: Un cuasicamino de aumento es un camino $f-s$ en el grafo subyacente de la red (no importa el sentido de las aristas), tal que si la arista es directa $f(e)<cap(e)$ siendo $\Delta e = cap(e)-f(e)$. 
+- **Cuasicamino de Aumento**: Un cuasi camino de aumento es un camino $f-s$ en el grafo subyacente de la red (no importa el sentido de las aristas), tal que si la arista es directa $f(e)<cap(e)$ siendo $\Delta e = cap(e)-f(e)$. 
 
   Si la arista es inversa $f(e)>0$ y $\Delta e = f(e)$.
 
@@ -83,7 +83,7 @@ $val(f^*) = \sum_{\forall i}Q_i = 11= cap(K^*)$
 
 - Si en la red el $val(f)=cap(k)$ para algun corte  $\Rightarrow f = f^* \and k = k^*$
 
-  [Demostración](/Demostraciones/20 - Redes de Flujo/Proposicion - 03.html) 
+  [Demostración](Demostraciones\20 - Redes de Flujo\Proposicion - 03.html) 
 
 ## Observaciones
 

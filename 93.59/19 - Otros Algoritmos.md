@@ -2,20 +2,23 @@
 
 - **Árbol Recubridor**: Sea $G$ un grafo conexo, un árbol recubridor $T$ de $G$ ($T\subset G$) es un subgrafo de $G$, que es un árbol, y $V_G = V_T$
 - **Arista Frontera**: Dado $T_1 \subset G/ V_{T_1} \neq V_G$, una arista frontera es $\{a,b\}$ con $a\in V_{T_1}$ y $b \in V_{G-T_1}$.
-- **Arbol Recubridor Minimo**: 
 
 ## Observaciones
 
 - **DFS**: Si $\exist e=\{u,v\} \in E_G$ y $e \notin E_T$ y $dfnum(u) < dfnum(v) \Rightarrow u$ es el ancestro de $v$ en el árbol.
 - $dfnum(v)$ es la etiqueta `v.DFTag` que se le asigna en el algoritmo.
 - **BFS**: Las aristas de $G$ que no están en $T$ unen vértices que están en el mismo nivel en $T$ o en niveles consecutivos
-- 
 
 ## Proposiciones
 
 - Sea $T$ el árbol que se obtiene de aplicar DFS al grafo $G$, la raíz ($r$) del árbol es vértice de corte de $G$ $\Leftrightarrow r$ tiene mas de un hijo en $T$.  
 
-  [Demostración](Demostraciones/Proposicion - 01.html) ==PEDIR QUE NO VEO NADA==
+  [Demostración](Demostraciones\19 - Otros Algoritmos\Proposicion - 01.html) ==PEDIR QUE NO VEO NADA==
+  
+- Sea $T$ el árbol que se obtiene luego de aplicar el algoritmo de Kruskal:
+  $$
+  T \text{ es un árbol recubridor mínimo }
+  $$
 
 ## Algoritmos
 
@@ -104,9 +107,9 @@ DFS = function(G,node){
 verticesDeCorte = function(G){
     K = [];
     
-    T = DFS(G, G.nodes.chooseRandom());
+    T = DFS(G, G.nodes.pickRandom());
     
-    if(T.root.sons.count > 1)
+    if(T.root.sons.count() > 1)
         K.add(T.root);
     
     for( i = 0 ; i < G.nodes.count() ; i++){

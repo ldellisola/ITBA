@@ -54,7 +54,7 @@ Sea $\alpha \in F$, la complejidad de $\alpha$ es la cantidad de conectivos de $
 
 Ejemplo:
 $$
-\alpha=(P_1 \and \neg P_2) \rightarrow C(\alpha)=2
+\alpha=(P_1 \and \neg P_2) \rightarrow C(\alpha)=3
 $$
 
 ### Complejidad Binaria
@@ -71,7 +71,7 @@ $$
 $$
 
 - **Teorema**: Si $\alpha$ es una formula, entonces el peso es $0$
-- **Teorema**: Si $\alpha$ es una formula, entonces si $\alpha$ tiene un conectivo binario, llamo $E$ a la expresión a la izquierda del conectivo y el peso de $E$ es positivo ($P(E)>0$).
+- **Teorema**: Si $\alpha$ es una formula y si  tiene un conectivo binario, llamo $E$ a la expresión a la izquierda del conectivo y el peso de $E$ es positivo ($P(E)>0$).
 - **Corolario: <u>Unicidad de Escritura</u>**: Si $\alpha \in F \Rightarrow \exist !\beta \in F/\alpha =\neg\beta \or \exist !\beta_1,\beta_2\in F, \exist ! * \in \{\rightarrow,\or,\and\}/ \alpha=(\beta_1 * \beta_2)$
 
 ## Subformula
