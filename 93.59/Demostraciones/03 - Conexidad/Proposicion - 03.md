@@ -20,32 +20,27 @@ Sea $G-\{e\} ~(k-1)-conexo$
 
 #### Demo
 
-Quiero ver que $G-\{e\}$ es $(k-1)-conexo$, entonces si saco $k-2$ vertices del grafo, este seguira siendo conexo.
+Sea $W \subset V_{G-\{e\}}/ \#W = k-2$. Ademas, sean $x,y \in V_{G-\{e\}-W}$. 
 
-Tomamos $W \sub V_G$ de vertices $/\#W=k-2$. Si pruebo que $G-\{e\}\cup W$ es conexo, habre probado que $G-\{e\}$ es $(k-1)-conexo$  
+Solo tenemos que probar la existencia de un camino $\{x,y\}$ en $G-\{e\}-W$
 
-- Caso $I$ : $a \in W$ o $b\in W$, entonces $G-W=G-\{e\}\cup W$ 
+- Primero suponemos que al menos uno de los vertices de la arista $e$ pertenece al conjunto $W$. 
 
-  Al sacar uno de los extremos desaparece la arista.
+  Como el subgrafo $G-W$ es conexo  ($2-conexo$), entonces existe un camino $\{x,y\}$ en $G-W$ tal que no contiene a la arista $e$, por lo que el camino $\{x,y\}$ esta en el subgrafo $G-\{e\}-W$.
 
-  $\Rightarrow$ Como $G$ es $k-conexo$, $G-W$ es conexo.
+- Por otro lado, suponemos que ninguno de los extremos de la arista $e$ pertenecen al conjunto $W$, por lo que tenemos 2 casos:
 
-- Caso $II$:  $a,b \notin W$
+  1. Sean los vertices $x,y$ los extremos de $e$, el grafo $G$ tiene al menos $(k+1)$ vertices, ya que $G$ es $k-conexo$.
 
-  1. Busco la existencia del camino $u-v$ en caso de que alguno de los dos no es extremo de $e$.
+     Entonces existe un vertice $z \in V_{G}-W-\{x,y\}$, como $G$ es $k-conexo$, entonces existe un camino $\{x,z\} = p_1$ en el subgrafo $G-\{w_1,\dots,x_{k-2},y\}$. Ademas,  existe un camino $\{z,y\}=p_2$ en el subgrafo $G-\{w_1,\dots,w_{k-2},x\}$.
 
-     Supongo que $u \neq a$ y que $u\neq b$.
+     Ninguno de estos caminos contienen a la arista $e$, entonces la concatenacion de $p_1$ y $p_2$ es $\{x,y\}$, que pertenece al subgrafo $G-\{e\}-W$.
 
-     Supongo que $v \neq b$
+  2. Al menos uno de los vertices $x,y$ no es un extremo de  la arista $e$. Voy a tomar que el vertice $x$ no es extremo de la arista $e$.
 
-     Veamos que $G-W\cup \{b\}$ es conexo. Entonce en este grafo hay un camino $u-v$ que no contiene  a $e$ (Desaparecio al sacar a $b$).
+     Sea $u$ el otro extremo de la arista $e$, como el grafo $G$ es $k-conexo$, el subgrafo $G-W-\{u\}$ es conexo.
 
-     $\Rightarrow$ hay un camino $u-v$ en $G-W\cup\{e\}$
+     Entonces, existe un camino $\{x,y\}=p$ en el subgrafo $G-W-\{u\}$. Luego, el camino $p$ en $G-W$ no contiene al vertice $u$, entonces excluye a la arista $e$.
 
-  2. Veamos que hay camino $a-b$, entonces, $(1) ~G-W\cup\{a\}$ y $(2)~G-W\cup\{b\}$ con conexos.
+     De esta forma $p$ es un camino $\{x,y\}$ en $G-\{e\}-W $.
 
-     En $(1)$ esta el vertice $b$ y otro vertice $z$ distinto de $b$ $\Rightarrow$ Por ser conexo $\exist$ un camino $b-z=L_1$ 
-
-     En $(2)$ esta el vertice $a$ y otro vertice $z$ distinto de $a$ $\Rightarrow$ Por ser conexo $\exist$ un camino $z-a=L_2$
-
-     $\Rightarrow$ $L_1L_2$ es un camino $a-b$ que no contiene a $e$.

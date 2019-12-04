@@ -141,14 +141,6 @@ $$
 
  [Demostración](Demostraciones\03 - Conexidad\Proposicion - 04.html) 
 
-### Proposicion
-
-Sea $G$ $k-conexo$ y $k\ge 3$:
-$$
-G-\{e\} \text{ es $(k-1)-$conexo}
-$$
- [Demostración](Demostraciones\03 - Conexidad\Proposicion - 05.html) 
-
 ## Conexidad por aristas 
 
 Es la minima cantidad de aristas que hay que remover del grafo para que deje de ser conexo.
