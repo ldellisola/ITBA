@@ -1,9 +1,10 @@
 # Demostración
 
-En un grafo $G$ la cantidad de vértices de grado impar es par. Se puede suponer que los primeros $q$ vértices ($0 \leq q \leq n$) tienen grado par y el siguiente conjunto de vértices ($n-q$) tiene grado impar.
+En un grafo $G$ la cantidad de vértices de grado impar es par. 
 
 #### Demo
 
+Se puede suponer que los primeros $q$ vértices ($0 \leq q \leq n$) tienen grado par y el siguiente conjunto de vértices ($n-q$) tiene grado impar.
 $$
 \sum_{i=1}^{n=\#V_G} g(v_i)= \sum_{i=1}^{q} g(v_i) + \sum_{i=q+1}^{n} g(v_i)  =2 \cdot \#E_G
 $$
