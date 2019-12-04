@@ -30,19 +30,35 @@ Supongamos que un grafo $G$ conexo con $n+1$ aristas. Si quitamos una arista, te
 
   <img src="../../Resources/clip_image001-1568035083348.png" alt="img" style="zoom:20%;" />
 
-  En todos estos casos, al tomar la arista tengo una arista menos y tengo una region menos. Entonces por Hipotesis inductiva:
+  En todos estos casos, al tomar la arista tengo una arista menos y tengo una región menos. Entonces por Hipótesis inductiva:
   $$
-  v-n+r=2\\r-(n+1)+(r+1) = 2 \\v-n+r =2
+  v-e+r=2\\
+  r-(e+1)+(r+1) = 2 
+  \\v-e+r =2
   $$
 
 - Caso $II$:
 
   <img src="../../Resources/clip_image001-1568035566686.png" alt="img" style="zoom:25%;" />
 
-  $v_1 + v_2 = v$, $e_1 + e_2 = e-1$  y $r_1 + r_2 = r+1$. Entonces, por HI
+  
+  
+  Podemos ver que:
   $$
-  v-n+r=\\
-  v_1-e_1+r_1 +v_2 - e_2 +r_2 = \\
-  v-e+1 + r+1
+  v=v_1 + v_2\\
+  e = 1 + e_1 + e_2\\
+  r = r_1 + r_2 - 1\\
   $$
-  ==PEDIR==
+  Por hipótesis inductiva, obtenemos que :
+  $$
+  v_1 - e_1 + r_1 = 2\\
+  v_2 - e_2 + r_2 = 2
+  $$
+  Entonces, si sumo ambas ecuaciones obtengo:
+  $$
+  v_1 + v_2 -e_1 - e_2 +r_1 + r_2 = 4\\
+  (v_1+v_2)-(e_1+e_2)+(r_1+r_2)=4\\
+  (v_1+v_2) - (e_1 + e_2 + 1) + (r_1 + r_2 -1) = 2\\
+  v -e+r = 2
+  $$
+  

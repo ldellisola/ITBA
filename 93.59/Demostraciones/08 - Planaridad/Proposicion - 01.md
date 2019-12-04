@@ -4,7 +4,7 @@ Sea $H\sub G$, si $H$ no es plano $\Rightarrow$ $G$ no es plano.
 
 #### Demo
 
-Supongo que $G$ no es plano:
+Supongo que $G$ es plano:
 
 Entonces $\exist \tau:G\rightarrow S$ una inmersión plana de todo subgrafo de $G$, en particular de H. 
 
