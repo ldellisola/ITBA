@@ -40,12 +40,12 @@ Se denomina $\scr{K}$$(G)$ a la cantidad de componentes de $G$.
 
 ![1567423331727](Resources/1567423331727.png)
 
-En este caso, se puede ver que el vertice $F$ y $E$ son vertices de corte ya que si los remuevo genero nuevos subgrafos
+En este caso, se puede ver que el vértice $F$ y $E$ son vértices de corte ya que si los remuevo genero nuevos subgrafos
 
 ### Proposiciones
 
 $$
-v\in V_G \text{ es vertice de corte de }G \\ \Leftrightarrow \\\exist \mu,v,w \in V_G/ \mu \neq v, v \neq w, \mu \neq w \text{ tal que todo camino de } \mu-w \text{ pasa por } w
+v\in V_G \text{ es vertice de corte de }G \\ \Leftrightarrow \\\exist \mu,v,w \in V_G/ \mu \neq v, v \neq w, \mu \neq w \text{ tal que todo camino de } \mu-w \text{ pasa por } v
 $$
 
  [Demostración](Demostraciones\03 - Conexidad\Proposicion - 01.html) ==FINAL==
