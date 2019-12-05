@@ -72,5 +72,3 @@ Aqui tengo 2 casos:
   <img src="../../Resources/clip_image001-1568029301624.png" alt="img" style="zoom:35%;" />
 
   Se cumple la Tesis por que $<w,e,y>$ es $L_{x,y}$, $Q_{x,y}$ es otro $L_{x,y}'$ internamente disjunto con $L_{x,y}$
-
-### 

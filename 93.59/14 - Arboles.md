@@ -43,7 +43,7 @@ Un **bosque** es un conjunto de arboles. Es un grafo no conexo donde los compone
 
   1. Una arista de un grafo es una arista de corte $\Leftrightarrow$ no es una arista ciclo.
 
-  2. Sea $e$ cualquier arista de  $G$, entonces $\chi(G-\{e\}) = \left\{\array{\chi(G) &e \text{ es una arista ciclo}\\\chi(G)+1 & \text{else}}\right.$
+  2. Sea $e$ cualquier arista de  $G$, entonces $\scr K$ $(G-\{e\}) = \left\{\array{\scr K\text{($G$)} &e \text{ es una arista ciclo}\\\scr K\text{($G$)}+1 & \text{else}}\right.$
 
 - Todo arbol con al menos una arista tiene por lo menos 2 vertices de grado 1.
 
@@ -61,8 +61,8 @@ Un **bosque** es un conjunto de arboles. Es un grafo no conexo donde los compone
 
   Esta proposicion tiene 2 corolarios:
 
-  1. Todo bosque con $n$ vertices tiene $n-\chi(F)$ aristas
-  2. Un grafo $G$ con $n$ vertices tiene por lo menos $n-\chi(G)$ aristas.
+  1. Todo bosque con $n$ vertices tiene $n-\scr K$ $(F)$ aristas
+  2. Un grafo $G$ con $n$ vertices tiene por lo menos  $n-\scr K$ $(G)$ aristas
 
 - Sea $G$ un grafo simple con $n$ vertices y $k$ componentes $\Rightarrow$ la cantidad de aristas es :
   $$
