@@ -42,80 +42,21 @@ Sean $E,F$ expresiones:
 2. $E = \lambda, F \neq \lambda \Rightarrow EF = F$
 3. $E \neq \lambda, F\neq \lambda \Rightarrow EF = e_0e_1\dots e_{n-1}f_0f_1\dots f_t,~~~long(EF)= long(E)+ long(F)$
 
-- Proposición:
+#### Proposición
 
-  Sea $A$ un alfabeto, $E,F,G,H \in A^*$, sean $EF = GH$ y $long(E) \ge long(G)$, entonces:
-  $$
-  \exist H'\in A^*/E=GH'
-  $$
+Sea $A$ un alfabeto, $E,F,G,H \in A^*$, sean $EF = GH$ y $long(E) \ge long(G)$, entonces:
+$$
+\exist H'\in A^*/E=GH'
+$$
 
-  - Demostración por inducción en $long(E)$:
+ [Demostración](Demostraciones\03 - Lenguajes\Proposicion - 01.html) 
 
-    - Caso Base) $long(E)=0 \Rightarrow E = \lambda$
-      $$
-      0 = long(E) \ge long(G)\ge 0 \Rightarrow long(G)=0
-      $$
-      Entonces defino $H'=\lambda$ por que $E= GH' \Rightarrow \lambda = \lambda \lambda$
+#### Corolario
 
-    - Hipótesis Inductiva) Sea $A$ un alfabeto, $E,F,G,H \in A^*$, sean $EF = GH$
-      $$
-      n=long(E)\ge long(g) \Rightarrow \exist H'\in A^*/ E=GH'
-      $$
+Sea $A$ un alfabeto, $E,F,G,H \in A^*$, sean $EF = GH$ y $long(E) = long(G)$, entonces:
 
-    - Tesis Inductiva) Sea $A$ un alfabeto, $E,F,G,H \in A^*$, sean $EF = GH$
-      $$
-      n+1=long(E)\ge long(G)
-      $$
+$$
+E=G \and F=H
+$$
+ [Demostración](Demostraciones\03 - Lenguajes\Corolario - 01.html) 
 
-    - Demostración:
-
-      - Caso 1) $G\neq \lambda/ G=g_0g_1\dots g_t$
-
-        Defino $\tilde E, \tilde G/ \tilde E=e_1e_2\dots e_n~,~\tilde G=g_1g_2\dots g_t$
-
-        Y como $E$ y $G$ cumplían con  $EF=GH \Rightarrow \tilde EF=\tilde G H,~~~\tilde E, \tilde G \in A^*$
-
-        Entonces:
-        $$
-        long(\tilde E) = long(E)-1 \ge long(G)-1 = long(\tilde G)
-        $$
-        Entonces, por hipótesis inductiva:
-        $$
-        \exist H'\in A^*/\tilde E = \tilde G H' \Rightarrow E=e_0\tilde E=g_0\tilde G H'= GH'
-        $$
-
-      - Caso 2) $G=\lambda$
-
-        Tomo $H'=E \Rightarrow E=GH'$
-
-- Corolario
-
-  Sea $A$ un alfabeto, $E,F,G,H \in A^*$, sean $EF = GH$ y $long(E) = long(G)$, entonces:
-  $$
-  E=G \and F=H
-  $$
-
-  - Demostración:
-
-    Sea $EF=GH$ y $long(E)=long(G)$
-
-    Entonces:
-    $$
-    long(E)\ge long(G)
-    $$
-    por la propiedad anterior, $\exist H'\in A^*/E=GH'$, entonces:
-    $$
-    long(E)=long(G)+long(H')
-    $$
-    Como $long(E)=long(G)$:
-    $$
-    long(H')=0 \Rightarrow H'=\lambda
-    $$
-
-    $$
-    \therefore E=G \and \text{ como } EF=GH \Rightarrow F=H
-    $$
-
-    
-
-    

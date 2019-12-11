@@ -32,7 +32,9 @@ Y a cada $X_i$ se lo llama eslabón
 
 Decimos que $X_1,\dots,X_n$ es una cadena de formación $\alpha \in A^*$ si $X_n = \alpha$
 
-- Teorema: $\alpha \in F \Leftrightarrow \exist X_1,\dots,X_n \text{ candea de formacion de } \alpha$ 
+- **Teorema**: $\alpha \in F \Leftrightarrow \exist X_1,\dots,X_n \text{ candea de formacion de } \alpha$ 
+
+   [Demostración](Demostraciones\04 - Sintaxis\Teorema - 01.html)
 
 ### Cadena de Formación Minimal
 
@@ -71,8 +73,18 @@ $$
 $$
 
 - **Teorema**: Si $\alpha$ es una formula, entonces el peso es $0$
+
+   [Demostración](Demostraciones\04 - Sintaxis\Teorema - 02.html) 
+
 - **Teorema**: Si $\alpha$ es una formula y si  tiene un conectivo binario, llamo $E$ a la expresión a la izquierda del conectivo y el peso de $E$ es positivo ($P(E)>0$).
-- **Corolario: <u>Unicidad de Escritura</u>**: Si $\alpha \in F \Rightarrow \exist !\beta \in F/\alpha =\neg\beta \or \exist !\beta_1,\beta_2\in F, \exist ! * \in \{\rightarrow,\or,\and\}/ \alpha=(\beta_1 * \beta_2)$
+
+   [Demostración](Demostraciones\04 - Sintaxis\Teorema - 03.html) 
+
+- **Corolario: <u>Unicidad de Escritura</u>**: Si $\alpha \in F \Rightarrow $
+   $$
+   \exist !\beta \in F/\alpha =\neg\beta \or \exist !\beta_1,\beta_2\in F, \exist ! * \in \{\rightarrow,\or,\and\}/ \alpha=(\beta_1 * \beta_2)
+   $$
+    [Demostración](Demostraciones\04 - Sintaxis\Corolario - 01.html) 
 
 ## Subformula
 

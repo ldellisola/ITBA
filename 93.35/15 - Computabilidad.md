@@ -65,10 +65,6 @@
   f(x_1,\dots,x_k,n+1) = g(x_1,\dots,x_k,n,f(x_1,\dots,x_k,n))
   $$
 
-
-
-
-
 ## Teoremas
 
 - **Composición de funciones computables es computable**:

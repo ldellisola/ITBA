@@ -19,7 +19,7 @@
   $$
   \overline{h_ov} = h_o\overline v
   $$
-  [Demostracion](#)
+   [Demostración](Demostraciones\13 - Isomorfismo\Lema - 01.html) 
 
 ## Teoremas
 
@@ -27,7 +27,7 @@
   $$
   I_1 \models\alpha[v] \Leftrightarrow I_2 \models \alpha [h_ov]
   $$
-  [Demostración](#)
+  [Demostración](Demostraciones\13 - Isomorfismo\Teorema - 01.html) 
 
   - **Corolario 1:**
 
@@ -35,7 +35,7 @@
     $$
     \alpha \text{ es valido en }I_1 \Leftrightarrow \alpha \text{ es valido en } I_2
     $$
-    [Demostración](#)
+    [Demostración](Demostraciones\13 - Isomorfismo\Corolario - 01.html) 
 
   - **Corolario 2**:
 
@@ -44,7 +44,7 @@
     \text{Si }\exist h/ h:U_I\rightarrow U_I \text{ es un isomorfismo y } a \in U_I \text{ es distinguible}\\
     \Rightarrow h(a)=a
     $$
-    [Demostración](#)
+    [Demostración](Demostraciones\13 - Isomorfismo\Corolario - 02.html) 
 
   - **Corolario 3**:
 
@@ -54,7 +54,7 @@
     \\
     \Rightarrow h(a) \in A~~~\forall a\in A
     $$
-    [Demostración](#)
+    [Demostración](Demostraciones\13 - Isomorfismo\Corolario - 03.html) 
 
   - **Corolario 4**:
 
@@ -63,5 +63,4 @@
     a\in U_I \text{ es distinguible en }I_1 \Leftrightarrow h(a) \in U_2 \text{ es distinguible en }I_2
     $$
     
-
-    [Demostración](#)
+    [Demostración](Demostraciones\13 - Isomorfismo\Corolario - 04.html)

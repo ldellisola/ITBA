@@ -13,14 +13,15 @@ Sea $\Gamma\sube F, \Gamma$ es <u>finitamente satisfacible</u> (f.s.) si todo su
 - **Lema**: Sea $\Gamma \sube F, p_i\in Var$:
   $$
   \Gamma \text{ es f.s.} \Rightarrow R\cup \{p_i\} \text{ es f.s.} \or R\cup \{\neg p_i\} \text{ es f.s.}
-  \
   $$
+   [Demostración](Demostraciones\06 - Logica Proposicional\Lema - 01.html) 
 
 - **Teorema <u>de Compacidad</u>**: Sean $\Gamma \sube F$:
   $$
   \Gamma \text{ es satisfacible }\Leftrightarrow \Gamma \text{ es f.s.}
   $$
-
+ [Demostración](Demostraciones\06 - Logica Proposicional\Teorema - 04.html) 
+  
 - **Teorema**: Son equivalentes:
   $$
   \array{
@@ -29,7 +30,7 @@ Sea $\Gamma\sube F, \Gamma$ es <u>finitamente satisfacible</u> (f.s.) si todo su
   3)&\alpha \in C(\Gamma) \Rightarrow \exist \Gamma' \text{ finito}/ \Gamma' \sube \Gamma \and \alpha \in C(\Gamma')
   }
   $$
-  
+   [Demostración](Demostraciones\06 - Logica Proposicional\Teorema - 05.html) 
 
 ## Consecuencia
 
@@ -43,14 +44,19 @@ Al conjunto de formulas que son parte de la consecuencia de un conjunto se lo no
   $$
   \alpha \in C(\Gamma) \Leftrightarrow \Gamma \cup \{\neg \alpha\} \text{ es insatisfacible}
   $$
-
+ [Demostración](Demostraciones\06 - Logica Proposicional\Teorema - 01.html) 
+  
 - **Teorema**: Sea $\alpha \in F, \Gamma=\{\gamma_1,\dots,\gamma_n\}\sube Formulas$, entonces:
   $$
   \alpha \in C(\Gamma) \Leftrightarrow \beta-((\gamma_1 \and \dots \and \gamma_n) \rightarrow \alpha) \text{ es tautologia}
   $$
-
-- **Teorema <u>de la deduccion</u>**: Sean $\alpha,\beta \in F, \Gamma \sube F,$ entonces:
+ [Demostración](Demostraciones\06 - Logica Proposicional\Teorema - 02.html) 
+  
+- **Teorema <u>de la deducción</u>**: Sean $\alpha,\beta \in F, \Gamma \sube F,$ entonces:
   $$
   (\alpha \rightarrow \beta) \in C(\alpha) \Leftrightarrow \beta \in C(\Gamma \cup \{\alpha\})
   $$
-  
+  [Demostración](Demostraciones\06 - Logica Proposicional\Teorema - 03.html) 
+
+
+

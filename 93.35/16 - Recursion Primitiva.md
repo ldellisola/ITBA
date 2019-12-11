@@ -40,25 +40,25 @@ Una función $f:\N^k\rightarrow\N$ es RP (Recursivamente primitiva) si es una <u
 
 - Una función obtenida a partir de una operación ERII de otra función RP es RP. 
 
-   [Demostración](Demos\16 - Recursion Primitiva\Teorema - 04.html) 
+   La demo es analoga a la anterior.
 
 - Existen funciones computables que no son RP
 
 - $P^k,Q^k$ son RP $\Rightarrow \neg P^k$ y $P^k \land Q^k$ son RP
 
-   [Demostración](Demos\16 - Recursion Primitiva\Teorema- 05.html) 
+   [Demostración](Demos\16 - Recursion Primitiva\Teorema - 05.html) 
   
 - $P^k,Q^k$ son computables $\Rightarrow \neg P^k$ y $P^k \land Q^k$ son computables
 
-   [Demostracion]()
+   [Demostracion](Demostraciones\16 - Recursion Primitiva\Teorema - 06.html)
 
 - $P^k,Q^k$ son RP $\Rightarrow  P^k\rightarrow Q^k$ y $P^k \lor Q^k$ son RP
 
-   [Demostracion]()
+   [Demostracion](Demostraciones\16 - Recursion Primitiva\Teorema - 07.html) ==??==
 
 - $P^k,Q^k$ son computables $\Rightarrow P^k \rightarrow Q^k$ y $P^k \lor Q^k$ son computables
 
-   [Demostracion]()
+   [Demostracion]() ==??==
 
 - Sean $h,g:\N^k\rightarrow\N$ funciones RP y $P^m$ un predicado RP
    $$
@@ -72,7 +72,7 @@ Una función $f:\N^k\rightarrow\N$ es RP (Recursivamente primitiva) si es una <u
    $$
    $f$ es RP.
 
-   [Demo]()
+    [Demostración](Demostraciones\16 - Recursion Primitiva\Teorema - 08.html) 
 
 - Sean $h,g:\N^k\rightarrow\N$ funciones computables y $P^m$ un predicado computable
    $$

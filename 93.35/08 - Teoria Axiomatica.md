@@ -18,6 +18,8 @@ Sea $\alpha \in F, \alpha $ es demostrable si $\exist \alpha_1,\dots,\alpha_n=\a
 
 - **Teorema**: $\alpha \text{ es demostrable} \Rightarrow \alpha \text{ es una tautologia.}$
 
+   [Demostración](Demostraciones\08 - Teoria Axiomatica\Teorema - 01.html) 
+
 - **Teorema**: Sea $\alpha \in F, \Gamma \sube F$, decimos que $\alpha$ es deducible o demostrable a partir de $\Gamma$ si existe una sucesión finita de fórmulas $\alpha_1,\dots,\alpha_n=\alpha$ tal que:
   $$
   \array{
@@ -36,8 +38,19 @@ Sea $\alpha \in F, \alpha $ es demostrable si $\exist \alpha_1,\dots,\alpha_n=\a
   $$
   \Gamma \vdash (\alpha\rightarrow\beta) \Leftrightarrow \Gamma \cup \{\alpha\} \vdash \beta
   $$
-
-- **Teorema <u>de la Completitud</u>**: $\alpha \in C(\Gamma) \Rightarrow \Gamma \vdash \alpha$
+ [Demostración](Demostraciones\08 - Teoria Axiomatica\Teorema - 02.html) 
+  
+- **Teorema <u>de la Correctitud</u>**: 
+   $$
+   \Gamma \vdash \alpha  \Rightarrow \alpha \in C(\Gamma)
+   $$
+    [Demostración](Demostraciones\08 - Teoria Axiomatica\Teorema - 03.html) 
+   
+- **Teorema <u>de la Completitud</u>**:
+   $$
+   \alpha \in C(\Gamma) \Leftrightarrow \Gamma \vdash \alpha
+   $$
+    [Demostración](Demostraciones\08 - Teoria Axiomatica\Teorema - 05.html) 
 
 ## Conjunto Consistente
 
@@ -47,9 +60,20 @@ $$
 $$
 
 - **Observación**: $\Gamma$ es satisfacible $\Rightarrow \Gamma$ es consistente
-- **Observación**: $\Gamma \cup \{\neg \phi\}$ no es consistente $\Leftrightarrow \Gamma \vdash \phi$
-- **Observación**: $\Gamma \cup \{\phi\}$ no es consistente $\Leftrightarrow \Gamma \vdash \neg \phi$
+
+   [Demostración](Demostraciones\08 - Teoria Axiomatica\Observacion - 01.html) 
+
+- **Observación**: $\Gamma \cup \{\neg \gamma\}$ no es consistente $\Leftrightarrow \Gamma \vdash \gamma$
+
+    [Demostración](Demostraciones\08 - Teoria Axiomatica\Observacion - 02.html) 
+
+- **Observación**: $\Gamma \cup \{\gamma\}$ no es consistente $\Leftrightarrow \Gamma \vdash \neg \gamma$
+
+    [Demostración](Demostraciones\08 - Teoria Axiomatica\Observacion - 03.html) 
+
 - **Teorema**: $\Gamma \text{ es consistente} \Leftrightarrow \Gamma \text{ es satisfacible}$
+
+     [Demostración](Demostraciones\08 - Teoria Axiomatica\Teorema - 04.html) 
 
 ### Conjunto Maximal Consistente (M.C.)
 
@@ -61,16 +85,19 @@ $$
 }
 $$
 
-- **Observación**: Si $\Gamma$ es $M.C. \Rightarrow \phi \in \Gamma \veebar \neg\phi \in\Gamma$
+- **Observación**: Si $\Gamma$ es $M.C. \Rightarrow \gamma\in \Gamma \veebar \neg\gamma\in\Gamma$
+
+    [Demostración](Demostraciones\08 - Teoria Axiomatica\Observacion - 04.html) 
 
 - **Observación**: Sea $\Gamma$ es $M.C.$:
   $$
   \Gamma \vdash \alpha \Leftrightarrow \alpha \in \Gamma
   $$
+   [Demostración](Demostraciones\08 - Teoria Axiomatica\Observacion - 05.html) 
   
 - **<u>Lema de Lindenbaum</u>**: Dado un $\Gamma$ consistente $\Rightarrow \exist \Gamma' M.C./ \Gamma' \sube \Gamma$
 
-
+   [Demostración](Demostraciones\08 - Teoria Axiomatica\Lema - 01.html) 
 
 
 

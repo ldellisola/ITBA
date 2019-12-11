@@ -1,15 +1,17 @@
-# Sistemas Axiomaticos
+# Sistemas Axiomáticos
 
-Un sistema axiomatico $S$ es un conunto de axiomas y reglas de inferencia.
+Un sistema axiomático $S$ es un conjunto de axiomas y reglas de inferencia.
 
-Notacion: $\Gamma \vdash_S \alpha$ quiere decir que $\alpha$ es deducible a partir de $\Gamma$ dentro de $S$.
+Notación: $\Gamma \vdash_S \alpha$ quiere decir que $\alpha$ es deducible a partir de $\Gamma$ dentro de $S$.
 
-## Sistema Axiomatico Consistente
+## Sistema Axiomático Consistente
 
-Un sistema axiomatico $S$ es consistente si:
+Un sistema axiomático $S$ es consistente si:
 $$
 \not \exist \alpha \in F/\array{&\empty\vdash_{S}\alpha &\and& \empty \vdash_S \neg \alpha }
 $$
 
-- **Teorema**: Sea $S$ es sistema axiomatico dado por $AX_1,AX_2,AX_3$ y $MP$, entonces es consistente
+- **Teorema**: Sea $S$ es sistema axiomático dado por $AX_1,AX_2,AX_3$ y $MP$, entonces es consistente
+
+   [Demostración](Demostraciones\08 - Teoria Axiomatica\Teorema - 06.html) 
 
