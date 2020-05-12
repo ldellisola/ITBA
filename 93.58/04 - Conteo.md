@@ -11,7 +11,7 @@ $$
 2. División en Casos: Si $A_1$,$A_2$,$\dots$,$A_k$ son conjuntos vacíos tal que:
 
 $$
-A_i \cap A_j = \empty~~~~i\neq j\\
+A_i \cap A_j = \empty ~~~~i\neq j\\
 A = \bigcup_{i=1}^k A_i
 $$
 
