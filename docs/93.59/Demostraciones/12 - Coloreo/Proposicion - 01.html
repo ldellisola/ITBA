@@ -1,156 +1,1144 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>Proposicion - 01</title><link href='https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Proposicion - 01</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<style type='text/css' >
+html {
+    overflow-x: initial !important;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --select-text-bg-color: #B5D6FC;
+    --select-text-font-color: auto;
+    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+}
+
+html {
+    font-size: 14px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 5%;
+    padding: 0px;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 1rem;
+    line-height: 1.42857;
+    overflow-x: hidden;
+    background: inherit;
+    tab-size: 4;
+}
+
+iframe {
+    margin: auto;
+}
+
+a.url {
+    word-break: break-all;
+}
+
+a:active, a:hover {
+    outline: 0px;
+}
+
+.in-text-selection, ::selection {
+    text-shadow: none;
+    background: var(--select-text-bg-color);
+    color: var(--select-text-font-color);
+}
+
+#write {
+    margin: 0px auto;
+    height: auto;
+    width: inherit;
+    word-break: normal;
+    overflow-wrap: break-word;
+    position: relative;
+    white-space: normal;
+    overflow-x: visible;
+    padding-top: 40px;
+}
+
+    #write.first-line-indent p {
+        text-indent: 2em;
+    }
+
+        #write.first-line-indent li p, #write.first-line-indent p * {
+            text-indent: 0px;
+        }
+
+    #write.first-line-indent li {
+        margin-left: 2em;
+    }
+
+.for-image #write {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+body.typora-export {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.typora-export .footnote-line, .typora-export li, .typora-export p {
+    white-space: pre-wrap;
+}
+
 @media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
+    body.typora-export {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #write {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .CodeMirror-sizer {
+        margin-left: 0px !important;
+    }
+
+    .CodeMirror-gutters {
+        display: none !important;
+    }
 }
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; }
-button, input, select, textarea { color: inherit; font: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px !important; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror-linenumber { user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
+
+#write li > figure:last-child {
+    margin-bottom: 0.5rem;
+}
+
+#write ol, #write ul {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+button, input, select, textarea {
+    color: inherit;
+    font: inherit;
+}
+
+    input[type="checkbox"], input[type="radio"] {
+        line-height: normal;
+        padding: 0px;
+    }
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre {
+    width: inherit;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p {
+    position: relative;
+}
+
+p {
+    line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    break-after: avoid-page;
+    break-inside: avoid;
+    orphans: 2;
+}
+
+p {
+    orphans: 4;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+h5 {
+    font-size: 1.2rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.md-blockmeta {
+    color: rgb(204, 204, 204);
+    font-weight: 700;
+    font-style: italic;
+}
+
+a {
+    cursor: pointer;
+}
+
+sup.md-footnote {
+    padding: 2px 4px;
+    background-color: rgba(238, 238, 238, 0.7);
+    color: rgb(85, 85, 85);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    sup.md-footnote a, sup.md-footnote a:hover {
+        color: inherit;
+        text-transform: inherit;
+        text-decoration: inherit;
+    }
+
+#write input[type="checkbox"] {
+    cursor: pointer;
+    width: inherit;
+    height: inherit;
+}
+
+figure {
+    overflow-x: auto;
+    margin: 1.2em 0px;
+    max-width: calc(100% + 16px);
+    padding: 0px;
+}
+
+    figure > table {
+        margin: 0px !important;
+    }
+
+tr {
+    break-inside: avoid;
+    break-after: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+    overflow: auto;
+    break-inside: auto;
+    text-align: left;
+}
+
+    table.md-table td {
+        min-width: 32px;
+    }
+
+.CodeMirror-gutters {
+    border-right: 0px;
+    background-color: inherit;
+}
+
+.CodeMirror-linenumber {
+    user-select: none;
+}
+
+.CodeMirror {
+    text-align: left;
+}
+
+.CodeMirror-placeholder {
+    opacity: 0.3;
+}
+
+.CodeMirror pre {
+    padding: 0px 4px;
+}
+
+.CodeMirror-lines {
+    padding: 0px;
+}
+
+div.hr:focus {
+    cursor: none;
+}
+
+#write pre {
+    white-space: pre-wrap;
+}
+
+#write.fences-no-line-wrapping pre {
+    white-space: pre;
+}
+
+#write pre.ty-contain-cm {
+    white-space: normal;
+}
+
+.CodeMirror-gutters {
+    margin-right: 4px;
+}
+
+.md-fences {
+    font-size: 0.9rem;
+    display: block;
+    break-inside: avoid;
+    text-align: left;
+    overflow: visible;
+    white-space: pre;
+    background: inherit;
+    position: relative !important;
+}
+
+.md-diagram-panel {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    overflow-x: auto;
+}
+
+#write .md-fences.mock-cm {
+    white-space: pre-wrap;
+}
+
+.md-fences.md-fences-with-lineno {
+    padding-left: 0px;
+}
+
+#write.fences-no-line-wrapping .md-fences.mock-cm {
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.md-fences.mock-cm.md-fences-with-lineno {
+    padding-left: 8px;
+}
+
+.CodeMirror-line, twitterwidget {
+    break-inside: avoid;
+}
+
+.footnotes {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+    .footnotes + .footnotes {
+        margin-top: 0px;
+    }
+
+.md-reset {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0px;
+    vertical-align: top;
+    background: 0px 0px;
+    text-decoration: none;
+    text-shadow: none;
+    float: none;
+    position: static;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+    line-height: normal;
+    font-weight: 400;
+    text-align: left;
+    box-sizing: content-box;
+    direction: ltr;
+}
+
+li div {
+    padding-top: 0px;
+}
+
+blockquote {
+    margin: 1rem 0px;
+}
+
+li .mathjax-block, li p {
+    margin: 0.5rem 0px;
+}
+
+li {
+    margin: 0px;
+    position: relative;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0px;
+}
+
+blockquote > :first-child, li > :first-child {
+    margin-top: 0px;
+}
+
+.footnotes-area {
+    color: rgb(136, 136, 136);
+    margin-top: 0.714rem;
+    padding-bottom: 0.143rem;
+    white-space: normal;
+}
+
+#write .footnote-line {
+    white-space: pre-wrap;
+}
+
 @media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
+    body, html {
+        border: 1px solid transparent;
+        height: 99%;
+        break-after: avoid;
+        break-before: avoid;
+    }
+
+    #write {
+        margin-top: 0px;
+        padding-top: 0px;
+        border-color: transparent !important;
+    }
+
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+
+    html.blink-to-pdf {
+        font-size: 13px;
+    }
+
+    .typora-export #write {
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 0px;
+        break-after: avoid;
+    }
+
+        .typora-export #write::after {
+            height: 0px;
+        }
 }
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+
+.footnote-line {
+    margin-top: 0.714em;
+    font-size: 0.7em;
+}
+
+a img, img a {
+    cursor: pointer;
+}
+
+pre.md-meta-block {
+    font-size: 0.8rem;
+    min-height: 0.8rem;
+    white-space: pre-wrap;
+    background: rgb(204, 204, 204);
+    display: block;
+    overflow-x: hidden;
+}
+
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child {
+    display: block;
+    margin: auto;
+}
+
+p > .md-image:only-child {
+    display: inline-block;
+    width: 100%;
+}
+
+#write .MathJax_Display {
+    margin: 0.8em 0px 0px;
+}
+
+.md-math-block {
+    width: 100%;
+}
+
+    .md-math-block:not(:empty)::after {
+        display: none;
+    }
+
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
+    outline: 0px;
+    box-shadow: none;
+}
+
+.md-task-list-item {
+    position: relative;
+    list-style-type: none;
+}
+
+.task-list-item.md-task-list-item {
+    padding-left: 0px;
+}
+
+.md-task-list-item > input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-left: -1.2em;
+    margin-top: calc(1em - 10px);
+    border: none;
+}
+
+.math {
+    font-size: 1rem;
+}
+
+.md-toc {
+    min-height: 3.58rem;
+    position: relative;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.md-toc-content {
+    position: relative;
+    margin-left: 0px;
+}
+
+    .md-toc-content::after, .md-toc::after {
+        display: none;
+    }
+
+.md-toc-item {
+    display: block;
+    color: rgb(65, 131, 196);
+}
+
+    .md-toc-item a {
+        text-decoration: none;
+    }
+
+.md-toc-inner:hover {
+    text-decoration: underline;
+}
+
+.md-toc-inner {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.md-toc-h1 .md-toc-inner {
+    margin-left: 0px;
+    font-weight: 700;
+}
+
+.md-toc-h2 .md-toc-inner {
+    margin-left: 2em;
+}
+
+.md-toc-h3 .md-toc-inner {
+    margin-left: 4em;
+}
+
+.md-toc-h4 .md-toc-inner {
+    margin-left: 6em;
+}
+
+.md-toc-h5 .md-toc-inner {
+    margin-left: 8em;
+}
+
+.md-toc-h6 .md-toc-inner {
+    margin-left: 10em;
+}
+
 @media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+    .md-toc-h3 .md-toc-inner {
+        margin-left: 3.5em;
+    }
+
+    .md-toc-h4 .md-toc-inner {
+        margin-left: 5em;
+    }
+
+    .md-toc-h5 .md-toc-inner {
+        margin-left: 6.5em;
+    }
+
+    .md-toc-h6 .md-toc-inner {
+        margin-left: 8em;
+    }
 }
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.md-inline-math .MathJax_SVG .noError { display: none !important; }
-.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
-.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
-.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
-.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none 0s ease 0s; }
-.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
-svg[id^="mermaidChart"] { line-height: 1em; }
-mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
-.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+a.md-toc-inner {
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.footnote-line a:not(.reversefootnote) {
+    color: inherit;
+}
+
+.md-attr {
+    display: none;
+}
+
+.md-fn-count::after {
+    content: ".";
+}
+
+code, pre, samp, tt {
+    font-family: var(--monospace);
+}
+
+kbd {
+    margin: 0px 0.1em;
+    padding: 0.1em 0.6em;
+    font-size: 0.8em;
+    color: rgb(36, 39, 41);
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(173, 179, 185);
+    border-radius: 3px;
+    box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.md-comment {
+    color: rgb(162, 127, 3);
+    opacity: 0.8;
+    font-family: var(--monospace);
+}
+
+code {
+    text-align: left;
+    vertical-align: initial;
+}
+
+a.md-print-anchor {
+    white-space: pre !important;
+    border-width: initial !important;
+    border-style: none !important;
+    border-color: initial !important;
+    display: inline-block !important;
+    position: absolute !important;
+    width: 1px !important;
+    right: 0px !important;
+    outline: 0px !important;
+    background: 0px 0px !important;
+    text-decoration: initial !important;
+    text-shadow: initial !important;
+}
+
+.md-inline-math .MathJax_SVG .noError {
+    display: none !important;
+}
+
+.html-for-mac .inline-math-svg .MathJax_SVG {
+    vertical-align: 0.2px;
+}
+
+.md-math-block .MathJax_SVG_Display {
+    text-align: center;
+    margin: 0px;
+    position: relative;
+    text-indent: 0px;
+    max-width: none;
+    max-height: none;
+    min-height: 0px;
+    min-width: 100%;
+    width: auto;
+    overflow-y: hidden;
+    display: block !important;
+}
+
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display {
+    width: auto;
+    margin: inherit;
+    display: inline-block !important;
+}
+
+.MathJax_SVG .MJX-monospace {
+    font-family: var(--monospace);
+}
+
+.MathJax_SVG .MJX-sans-serif {
+    font-family: sans-serif;
+}
+
+.MathJax_SVG {
+    display: inline;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    zoom: 90%;
+    text-indent: 0px;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    max-width: none;
+    max-height: none;
+    min-width: 0px;
+    min-height: 0px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .MathJax_SVG * {
+        transition: none 0s ease 0s;
+    }
+
+.MathJax_SVG_Display svg {
+    vertical-align: middle !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+.os-windows.monocolor-emoji .md-emoji {
+    font-family: "Segoe UI Symbol", sans-serif;
+}
+
+.md-diagram-panel > svg {
+    max-width: 100%;
+}
+
+[lang="flow"] svg, [lang="mermaid"] svg {
+    max-width: 100%;
+    height: auto;
+}
+
+[lang="mermaid"] .node text {
+    font-size: 1rem;
+}
+
+table tr th {
+    border-bottom: 0px;
+}
+
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0px auto;
+}
+
+iframe {
+    max-width: 100%;
+    width: 100%;
+    border: none;
+}
+
+.highlight td, .highlight tr {
+    border: 0px;
+}
+
+svg[id^="mermaidChart"] {
+    line-height: 1em;
+}
+
+mark {
+    background: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+        color: inherit;
+    }
+
+    mark .md-meta {
+        color: rgb(0, 0, 0);
+        opacity: 0.3 !important;
+    }
+
+
+.CodeMirror {
+    height: auto;
+}
+
+    .CodeMirror.cm-s-inner {
+        background: inherit;
+    }
+
+.CodeMirror-scroll {
+    overflow: auto hidden;
+    z-index: 3;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler {
+    background-color: rgb(255, 255, 255);
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid rgb(221, 221, 221);
+    background: inherit;
+    white-space: nowrap;
+}
+
+.CodeMirror-linenumber {
+    padding: 0px 3px 0px 5px;
+    text-align: right;
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-keyword {
+    color: rgb(119, 0, 136);
+}
+
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom {
+    color: rgb(34, 17, 153);
+}
+
+.cm-s-inner .cm-number {
+    color: rgb(17, 102, 68);
+}
+
+.cm-s-inner .cm-def {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-variable {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: rgb(0, 85, 170);
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: rgb(0, 136, 85);
+}
+
+.cm-s-inner .cm-string {
+    color: rgb(170, 17, 17);
+}
+
+.cm-s-inner .cm-property {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-operator {
+    color: rgb(152, 26, 26);
+}
+
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment {
+    color: rgb(170, 85, 0);
+}
+
+.cm-s-inner .cm-string-2 {
+    color: rgb(255, 85, 0);
+}
+
+.cm-s-inner .cm-meta {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-qualifier {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-builtin {
+    color: rgb(51, 0, 170);
+}
+
+.cm-s-inner .cm-bracket {
+    color: rgb(153, 153, 119);
+}
+
+.cm-s-inner .cm-tag {
+    color: rgb(17, 119, 0);
+}
+
+.cm-s-inner .cm-attribute {
+    color: rgb(0, 0, 204);
+}
+
+.cm-s-inner .cm-header, .cm-s-inner.cm-header {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote {
+    color: rgb(0, 153, 0);
+}
+
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr {
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-link, .cm-s-inner.cm-link {
+    color: rgb(0, 0, 204);
+}
+
+.cm-negative {
+    color: rgb(221, 68, 68);
+}
+
+.cm-positive {
+    color: rgb(34, 153, 34);
+}
+
+.cm-header, .cm-strong {
+    font-weight: 700;
+}
+
+.cm-del {
+    text-decoration: line-through;
+}
+
+.cm-em {
+    font-style: italic;
+}
+
+.cm-link {
+    text-decoration: underline;
+}
+
+.cm-error {
+    color: red;
+}
+
+.cm-invalidchar {
+    color: red;
+}
+
+.cm-constant {
+    color: rgb(38, 139, 210);
+}
+
+.cm-defined {
+    color: rgb(181, 137, 0);
+}
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: rgb(0, 255, 0);
+}
+
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+    color: rgb(255, 34, 34);
+}
+
+.cm-s-inner .CodeMirror-activeline-background {
+    background: inherit;
+}
+
+.CodeMirror {
+    position: relative;
+    overflow: hidden;
+}
+
+.CodeMirror-scroll {
+    height: 100%;
+    outline: 0px;
+    position: relative;
+    box-sizing: content-box;
+    background: inherit;
+}
+
+.CodeMirror-sizer {
+    position: relative;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar {
+    position: absolute;
+    z-index: 6;
+    display: none;
+}
+
+.CodeMirror-vscrollbar {
+    right: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-hscrollbar {
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-scrollbar-filler {
+    right: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutter-filler {
+    left: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding-bottom: 30px;
+    z-index: 3;
+}
+
+.CodeMirror-gutter {
+    white-space: normal;
+    height: 100%;
+    box-sizing: content-box;
+    padding-bottom: 30px;
+    margin-bottom: -32px;
+    display: inline-block;
+}
+
+.CodeMirror-gutter-wrapper {
+    position: absolute;
+    z-index: 4;
+    background: 0px 0px !important;
+    border: none !important;
+}
+
+.CodeMirror-gutter-background {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 4;
+}
+
+.CodeMirror-gutter-elt {
+    position: absolute;
+    cursor: default;
+    z-index: 4;
+}
+
+.CodeMirror-lines {
+    cursor: text;
+}
+
+.CodeMirror pre {
+    border-radius: 0px;
+    border-width: 0px;
+    background: 0px 0px;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0px;
+    white-space: pre;
+    overflow-wrap: normal;
+    color: inherit;
+    z-index: 2;
+    position: relative;
+    overflow: visible;
+}
+
+.CodeMirror-wrap pre {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: normal;
+}
+
+.CodeMirror-code pre {
+    border-right: 30px solid transparent;
+    width: fit-content;
+}
+
+.CodeMirror-wrap .CodeMirror-code pre {
+    border-right: none;
+    width: auto;
+}
+
+.CodeMirror-linebackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 0;
+}
+
+.CodeMirror-linewidget {
+    position: relative;
+    z-index: 2;
+    overflow: auto;
+}
+
+.CodeMirror-wrap .CodeMirror-scroll {
+    overflow-x: hidden;
+}
+
+.CodeMirror-measure {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+    .CodeMirror-measure pre {
+        position: static;
+    }
+
+.CodeMirror div.CodeMirror-cursor {
+    position: absolute;
+    visibility: hidden;
+    border-right: none;
+    width: 0px;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+}
+
+.CodeMirror-focused div.CodeMirror-cursor {
+    visibility: inherit;
+}
+
+.cm-searching {
+    background: rgba(255, 255, 0, 0.4);
+}
+
+@media print {
+    .CodeMirror div.CodeMirror-cursor {
+        visibility: hidden;
+    }
+}
 
 
 :root {
@@ -200,11 +1188,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1em;
 }
 
-h1  {
+h1 {
     font-size: 2.4em;
 }
 
-#write h1  {
+#write h1 {
     text-align: center;
 }
 
@@ -220,7 +1208,7 @@ h4 {
     font-size: 1.2em;
 }
 
-h5  {
+h5 {
     font-size: 1.1em;
 }
 
@@ -236,6 +1224,7 @@ p {
 
 pre, code {
     font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+    background-color: #ebebeb;
 }
 
 .footnotes {
@@ -247,9 +1236,9 @@ pre, code {
     border: 1px solid;
 }
 
-.md-fences.md-fences-with-lineno {
-    border: none;
-}
+    .md-fences.md-fences-with-lineno {
+        border: none;
+    }
 
 .CodeMirror-linenumber {
     color: #333;
@@ -332,7 +1321,7 @@ pre.md-meta-block {
 }
 
 .task-list-item input:checked:before,
-.task-list-item input[checked]:before{
+.task-list-item input[checked]:before {
     color: inherit;
 }
 
@@ -356,7 +1345,7 @@ pre.md-meta-block {
 }
 
 .md-task-list-item input:checked:before,
-.md-task-list-item input[checked]:before{
+.md-task-list-item input[checked]:before {
     color: inherit;
     content: '\2611';
 }
@@ -371,7 +1360,6 @@ blockquote {
     position: relative;
     color: #383838;
     border-left: 2px solid;
-    
 }
 
 #write > blockquote {
@@ -380,7 +1368,7 @@ blockquote {
     width: calc(100% + 32px);
 }
 
-#write >  .md-fences-with-lineno {
+#write > .md-fences-with-lineno {
     margin-left: -33px;
     color: black;
 }
@@ -405,9 +1393,15 @@ blockquote {
 
 
 
-</style>
+</style >
 </head>
-<body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="demostración" class="md-header-anchor"></a><span>Demostración</span></h1><p><span>Sea </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.826ex" height="2.124ex" viewBox="0 -798.6 786 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E30-MJMATHI-47" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E30-MJMATHI-47" x="0" y="0"></use></g></svg></span><script type="math/tex">G</script><span> conexo y </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.21ex" height="2.124ex" viewBox="0 -798.6 521 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E166-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E166-MJMATHI-6B" x="0" y="0"></use></g></svg></span><script type="math/tex">k</script><span> critico, </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.323ex" height="1.727ex" viewBox="0 -627.9 1000 743.7" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E23-MJMAIN-21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJMAIN-21D2" x="0" y="0"></use></g></svg></span><script type="math/tex">\Rightarrow</script><span> </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="23.246ex" height="2.785ex" viewBox="0 -855.5 10008.5 1198.9" role="img" focusable="false" style="vertical-align: -0.798ex;"><defs><path stroke-width="0" id="E167-MJMATHI-67" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path><path stroke-width="0" id="E167-MJMATHI-72" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E167-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E167-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path><path stroke-width="0" id="E167-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E167-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="0" id="E167-MJMAIN-2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path><path stroke-width="0" id="E167-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E167-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E167-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E167-MJMAIN-2200" d="M0 673Q0 684 7 689T20 694Q32 694 38 680T82 567L126 451H430L473 566Q483 593 494 622T512 668T519 685Q524 694 538 694Q556 692 556 674Q556 670 426 329T293 -15Q288 -22 278 -22T263 -15Q260 -11 131 328T0 673ZM414 410Q414 411 278 411T142 410L278 55L414 410Z"></path><path stroke-width="0" id="E167-MJMAIN-2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path><path stroke-width="0" id="E167-MJMATHI-47" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E167-MJMATHI-67" x="0" y="0"></use><use xlink:href="#E167-MJMATHI-72" x="480" y="0"></use><use xlink:href="#E167-MJMAIN-28" x="931" y="0"></use><g transform="translate(1320,0)"><use xlink:href="#E167-MJMATHI-76" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E167-MJMATHI-69" x="685" y="-213"></use></g><use xlink:href="#E167-MJMAIN-29" x="2148" y="0"></use><use xlink:href="#E167-MJMAIN-2265" x="2815" y="0"></use><use xlink:href="#E167-MJMATHI-6B" x="3871" y="0"></use><use xlink:href="#E167-MJMAIN-2212" x="4614" y="0"></use><use xlink:href="#E167-MJMAIN-31" x="5614" y="0"></use><use xlink:href="#E167-MJMAIN-2200" x="6614" y="0"></use><g transform="translate(7170,0)"><use xlink:href="#E167-MJMATHI-76" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E167-MJMATHI-69" x="685" y="-213"></use></g><use xlink:href="#E167-MJMAIN-2208" x="8277" y="0"></use><use xlink:href="#E167-MJMATHI-47" x="9222" y="0"></use></g></svg></span><script type="math/tex">gr(v_i) \ge k-1~~\forall v_i\in G</script><span>.</span></p><h4><a name="demo" class="md-header-anchor"></a><span>Demo</span></h4><p><span>Supongamos que hay un vértice </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.126ex" height="1.463ex" viewBox="0 -514.1 485 629.9" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E57-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E57-MJMATHI-76" x="0" y="0"></use></g></svg></span><script type="math/tex">v</script><span> tal que </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.404ex" height="2.785ex" viewBox="0 -855.5 5771 1198.9" role="img" focusable="false" style="vertical-align: -0.798ex;"><defs><path stroke-width="0" id="E168-MJMATHI-67" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path><path stroke-width="0" id="E168-MJMATHI-72" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E168-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E168-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path><path stroke-width="0" id="E168-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="0" id="E168-MJMAIN-3C" d="M694 -11T694 -19T688 -33T678 -40Q671 -40 524 29T234 166L90 235Q83 240 83 250Q83 261 91 266Q664 540 678 540Q681 540 687 534T694 519T687 505Q686 504 417 376L151 250L417 124Q686 -4 687 -5Q694 -11 694 -19Z"></path><path stroke-width="0" id="E168-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E168-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E168-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E168-MJMATHI-67" x="0" y="0"></use><use xlink:href="#E168-MJMATHI-72" x="480" y="0"></use><use xlink:href="#E168-MJMAIN-28" x="931" y="0"></use><use xlink:href="#E168-MJMATHI-76" x="1320" y="0"></use><use xlink:href="#E168-MJMAIN-29" x="1805" y="0"></use><use xlink:href="#E168-MJMAIN-3C" x="2471" y="0"></use><use xlink:href="#E168-MJMATHI-6B" x="3527" y="0"></use><use xlink:href="#E168-MJMAIN-2212" x="4270" y="0"></use><use xlink:href="#E168-MJMAIN-31" x="5271" y="0"></use></g></svg></span><script type="math/tex">gr(v)<k-1</script><span> y que </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.356ex" height="2.785ex" viewBox="0 -855.5 5320 1198.9" role="img" focusable="false" style="vertical-align: -0.798ex;"><defs><path stroke-width="0" id="E169-MJMATHI-67" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path><path stroke-width="0" id="E169-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E169-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path><path stroke-width="0" id="E169-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="0" id="E169-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E169-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E169-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E169-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E169-MJMATHI-67" x="0" y="0"></use><use xlink:href="#E169-MJMAIN-28" x="480" y="0"></use><use xlink:href="#E169-MJMATHI-76" x="869" y="0"></use><use xlink:href="#E169-MJMAIN-29" x="1354" y="0"></use><use xlink:href="#E169-MJMAIN-3D" x="2020" y="0"></use><use xlink:href="#E169-MJMATHI-6B" x="3076" y="0"></use><use xlink:href="#E169-MJMAIN-2212" x="3819" y="0"></use><use xlink:href="#E169-MJMAIN-32" x="4820" y="0"></use></g></svg></span><script type="math/tex">g(v)=k-2</script><span>.</span></p><p><span>Como </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.114ex" height="2.785ex" viewBox="0 -855.5 3493.4 1198.9" role="img" focusable="false" style="vertical-align: -0.798ex;"><defs><path stroke-width="0" id="E174-MJMATHI-47" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path><path stroke-width="0" id="E174-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E174-MJMAIN-7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path><path stroke-width="0" id="E174-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path><path stroke-width="0" id="E174-MJMAIN-7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E174-MJMATHI-47" x="0" y="0"></use><use xlink:href="#E174-MJMAIN-2212" x="1008" y="0"></use><use xlink:href="#E174-MJMAIN-7B" x="2008" y="0"></use><use xlink:href="#E174-MJMATHI-76" x="2508" y="0"></use><use xlink:href="#E174-MJMAIN-7D" x="2993" y="0"></use></g></svg></span><script type="math/tex">G-\{v\}</script><span> es </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.211ex" height="2.256ex" viewBox="0 -798.6 2243.4 971.3" role="img" focusable="false" style="vertical-align: -0.401ex;"><defs><path stroke-width="0" id="E175-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E175-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E175-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E175-MJMATHI-6B" x="0" y="0"></use><use xlink:href="#E175-MJMAIN-2212" x="743" y="0"></use><use xlink:href="#E175-MJMAIN-31" x="1743" y="0"></use></g></svg></span><script type="math/tex">k-1</script><span> coloreable y como los adyacentes a </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.126ex" height="1.463ex" viewBox="0 -514.1 485 629.9" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E57-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E57-MJMATHI-76" x="0" y="0"></use></g></svg></span><script type="math/tex">v</script><span> sin </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.211ex" height="2.256ex" viewBox="0 -798.6 2243.4 971.3" role="img" focusable="false" style="vertical-align: -0.401ex;"><defs><path stroke-width="0" id="E172-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E172-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E172-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E172-MJMATHI-6B" x="0" y="0"></use><use xlink:href="#E172-MJMAIN-2212" x="743" y="0"></use><use xlink:href="#E172-MJMAIN-32" x="1743" y="0"></use></g></svg></span><script type="math/tex">k-2</script><span> coloreables, estos no usan los </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.211ex" height="2.256ex" viewBox="0 -798.6 2243.4 971.3" role="img" focusable="false" style="vertical-align: -0.401ex;"><defs><path stroke-width="0" id="E175-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E175-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E175-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E175-MJMATHI-6B" x="0" y="0"></use><use xlink:href="#E175-MJMAIN-2212" x="743" y="0"></use><use xlink:href="#E175-MJMAIN-31" x="1743" y="0"></use></g></svg></span><script type="math/tex">k-1</script><span> colores.</span></p><p><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.323ex" height="1.727ex" viewBox="0 -627.9 1000 743.7" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E23-MJMAIN-21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJMAIN-21D2" x="0" y="0"></use></g></svg></span><script type="math/tex">\Rightarrow</script><span> queda 1 color que se puede asignar a </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.126ex" height="1.463ex" viewBox="0 -514.1 485 629.9" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E57-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E57-MJMATHI-76" x="0" y="0"></use></g></svg></span><script type="math/tex">v</script><span> y “</span><em><span>agregar</span></em><span>” a </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.114ex" height="2.785ex" viewBox="0 -855.5 3493.4 1198.9" role="img" focusable="false" style="vertical-align: -0.798ex;"><defs><path stroke-width="0" id="E174-MJMATHI-47" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path><path stroke-width="0" id="E174-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E174-MJMAIN-7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path><path stroke-width="0" id="E174-MJMATHI-76" d="M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z"></path><path stroke-width="0" id="E174-MJMAIN-7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E174-MJMATHI-47" x="0" y="0"></use><use xlink:href="#E174-MJMAIN-2212" x="1008" y="0"></use><use xlink:href="#E174-MJMAIN-7B" x="2008" y="0"></use><use xlink:href="#E174-MJMATHI-76" x="2508" y="0"></use><use xlink:href="#E174-MJMAIN-7D" x="2993" y="0"></use></g></svg></span><script type="math/tex">G-\{v\}</script><span> con lo que </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.826ex" height="2.124ex" viewBox="0 -798.6 786 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E30-MJMATHI-47" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E30-MJMATHI-47" x="0" y="0"></use></g></svg></span><script type="math/tex">G</script><span> quedaría pintado con </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.211ex" height="2.256ex" viewBox="0 -798.6 2243.4 971.3" role="img" focusable="false" style="vertical-align: -0.401ex;"><defs><path stroke-width="0" id="E175-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E175-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E175-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E175-MJMATHI-6B" x="0" y="0"></use><use xlink:href="#E175-MJMAIN-2212" x="743" y="0"></use><use xlink:href="#E175-MJMAIN-31" x="1743" y="0"></use></g></svg></span><script type="math/tex">k-1</script><span> colores (Coloreo propio</span></p><p><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.323ex" height="1.727ex" viewBox="0 -627.9 1000 743.7" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E23-MJMAIN-21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJMAIN-21D2" x="0" y="0"></use></g></svg></span><script type="math/tex">\Rightarrow</script><span> </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.826ex" height="2.124ex" viewBox="0 -798.6 786 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E30-MJMATHI-47" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E30-MJMATHI-47" x="0" y="0"></use></g></svg></span><script type="math/tex">G</script><span> no es k critico. </span><strong><span>ABS!</span></strong><span> (Contradice la hipótesis).</span></p><p>&nbsp;</p></div>
+<body>
+<h1 id="demostración">Demostración</h1>
+<p>Sea <span class="math inline">\(G\)</span> conexo y <span class="math inline">\(k\)</span> critico, <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(gr(v_i) \ge k-1~~\forall v_i\in G\)</span>.</p>
+<h4 id="demo">Demo</h4>
+<p>Supongamos que hay un vértice <span class="math inline">\(v\)</span> tal que <span class="math inline">\(gr(v)&lt;k-1\)</span> y que <span class="math inline">\(g(v)=k-2\)</span>.</p>
+<p>Como <span class="math inline">\(G-\{v\}\)</span> es <span class="math inline">\(k-1\)</span> coloreable y como los adyacentes a <span class="math inline">\(v\)</span> sin <span class="math inline">\(k-2\)</span> coloreables, estos no usan los <span class="math inline">\(k-1\)</span> colores.</p>
+<p><span class="math inline">\(\Rightarrow\)</span> queda 1 color que se puede asignar a <span class="math inline">\(v\)</span> y “<em>agregar</em>” a <span class="math inline">\(G-\{v\}\)</span> con lo que <span class="math inline">\(G\)</span> quedaría pintado con <span class="math inline">\(k-1\)</span> colores (Coloreo propio</p>
+<p><span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(G\)</span> no es k critico. <strong>ABS!</strong> (Contradice la hipótesis).</p>
 </body>
 </html>

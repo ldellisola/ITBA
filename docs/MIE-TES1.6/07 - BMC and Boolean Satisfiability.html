@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>07 - BMC and Boolean Satisfiability</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="boolean-satisfiability">Boolean Satisfiability</h1>
+<p>Because BMC problem are very hard to solve an compute for all possible inputs, we are going to convert BMC to <strong>boolean satifiability</strong> (SAT). Then we will check if the SAT is satisfiable or not.</p>
+<h3 id="boolean-encoding-of-bmc">Boolean Encoding of BMC</h3>
+<p>Every finite transition system <span class="math inline">\((S,S_0,R)\)</span> can be encoded as a Boolean transition system. For the new transition system we are going to need <span class="math inline">\(\lceil \log_2|S|\rceil\)</span> variables. In this transition we are going to represent the set of initial states, the states and the transition relation as a binary formula.</p>
+<p>There are different ways of creating a Boolean encoding of BMC:</p>
+<ul>
+<li><p><strong>Disjunctive Normal Form</strong>: This is the simplest form of encoding, where we represent the system as the space where the states are described, the set of initial states and the set of transitions. We also should provide a lookup table to identify the states and their given encoding.</p>
+<p>For example, if we have the following transition system:</p>
+<figure>
+<img src="Resources/07%20-%20BMC%20and%20Boolean%20Satisfiability/image-20201126120027204.png" alt="image-20201126120027204" /><figcaption aria-hidden="true">image-20201126120027204</figcaption>
+</figure>
+<p>Described formally as: <span class="math display">\[
+\left(\{A,B,C\}, \{A\},\left\{\array{(A,B)\\(B,B)\\(B,C)\\(C,A)}\right\}\right)
+\]</span> It can be converted to the following transition system: <span class="math display">\[
+\left\{\mathbb{B}^2,\{(\top,\top)\},\left\{
+\array{
+((\top,\top),(\top,\bot))\\
+((\top,\bot),(\top,\bot))\\
+((\top,\bot),(\bot,\top))\\
+((\bot,\top),(\top,\top))
+}
+\right\}\right\}
+\]</span> With the following encoding: <span class="math display">\[
+\left\{\array{A:(\top,\top)\\
+B:(\top,\bot)\\
+C:(\bot,\top)}
+\right\}
+\]</span> Now we can finally obtain the boolean encoding of BMC: $$ (^2, {(v_0,v_1)|v_0v_1},{((v_0,v_1),(v_0’,v_1’)| </p>
+<p>.} ) $$</p></li>
+</ul>
+<h2 id="boolean-satisfiability-1">Boolean Satisfiability</h2>
+<p>The <strong>SAT</strong> algorithm is used to verify Boolean satisfiability. In order to verify our models we need to input the transition system, initial state and final state as a boolean formula: <span class="math display">\[
+\phi = \text{initial state} \land \text{transition system} \land \text{property}
+\]</span> And it will return the satisfying assignment if it exists or <span class="math inline">\(\text{unsat}\)</span> if the formula is not satisfiable.</p>
+<p>Because we want a counter example each time that BMC is not satisfiable, we don’t try to check that our property holds, but rather the opposite. For a given property <span class="math inline">\(\phi\)</span> and length <span class="math inline">\(n\)</span>, we are looking to use SAT to verify the following formula: <span class="math display">\[
+\neg \text{BMC}(\phi,n)
+\]</span> If the formula holds, it will return the variable assignment and thus we will have a counter example for <span class="math inline">\(\text{BMC}(\phi,n)\)</span>. If the formula is not satisfiable, then <span class="math inline">\(\text{BMC}(\phi,n)\)</span> holds.</p>
+<p>For the following transition system: <span class="math display">\[
+(\mathbb{B}^k,\{\vec v | S_0\}\,\{(\vec v,\vec v &#39;) | T \} )
+\]</span> Where <span class="math inline">\(S_0, T,\text{ok}\)</span> are boolean formulas encoding the corresponding sets, <span class="math inline">\(\vec v, \vec v&#39;\)</span> are boolean variables representing the states of the transition system, and our path or length <span class="math inline">\(n\)</span> is composed of <span class="math inline">\(k\)</span>-tuple of boolean vectors <span class="math inline">\((\vec v^0,\vec v^1,\dots,\vec v^{n-1})\)</span>. We want to represent the formula: <span class="math display">\[
+\neg \text{BMC}(G\text{ok},n)
+\]</span> And we will do it as such: <span class="math display">\[
+S_0[\vec v \larr \vec v^0] \land \bigwedge_{i=1}^{n-2} T[\vec v \larr \vec v^i,\vec v&#39; \larr \vec v^{i+1}] \land \bigvee_{i\in\{0,\dots,n-1\}} \neg ok[\vec v \larr \vec v^i]
+\]</span> Here we are applying <strong>symbolic model checking</strong>, which uses symbols for representing big sets. In the case of infinite states, this is our only possible choice to solve them.</p>
+<h2 id="sat-solvers">SAT Solvers</h2>
+<p>Before diving into SAT solvers, we need to stablish some terminology:</p>
+<ul>
+<li><strong>Literal</strong> refers to a boolean variable or its negation</li>
+<li><strong>Clause</strong>: a disjunction of literals. I believe its the operation of <span class="math inline">\(\land,\lor,\Rightarrow\)</span> over two literals.</li>
+</ul>
+<p>The naïve approach is pretty simple, yet inefficient. For a given formula, the algorithm will return <span class="math inline">\(\top\)</span> if it is satisfiable or <span class="math inline">\(\bot\)</span> if it’s not.</p>
+<pre class="pseudocode"><code>Input: f // boolean formula
+Output: True or False
+
+f_ = simplify(f)
+if f_ is Boolean Constant
+    return f_
+v = free variable of f_
+return SAT(f_[v &lt;- False]) or SAT(f_[v &lt;- True])</code></pre>
+<p>To get a more powerful version of this algorithm we have to implement the following changes:</p>
+<ul>
+<li><strong>Unit Propagation</strong>: It assigns a value to a literal. We do this in a way that looks for the formula to be satisfiable. If setting the variable to <span class="math inline">\(\bot\)</span> causes the formula to not be satisfiable, then we will assign <span class="math inline">\(\top\)</span>.</li>
+<li><strong>Pure Literal Elimination</strong>: If a variable only occurs as positively or negatively, we can automatically assign a truth value that evaluates all corresponding clauses to <span class="math inline">\(\top\)</span>.</li>
+</ul>
+<p>This new algorithm is called SAT+ o <strong>DPLL</strong>:</p>
+<pre class="pseudocode"><code>Input: f // boolean formula
+Output: True or False
+
+f_ = simplify(f)
+if f_ is Boolean Constant
+    return f_
+
+if f_ == f
+    v = free variable in a clause with only one literal
+    b = value that doesn&#39;t cause f_ to be not satisfiable
+    return SAT(f_[v &lt;- b])
+
+v = free variable of f_
+return SAT(f_[v &lt;- False]) or SAT(f_[v &lt;- True])</code></pre>
+</body>
+</html>

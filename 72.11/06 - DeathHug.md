@@ -25,7 +25,7 @@ Para resolver este problema hay 3 enfoques:
 
 - <u>Asegurarse de que el sistema nunca ingrese a un estado de abrazo mortal.</u>
 - <u>Permitir que el sistema ingrese en un abrazo mortal, y después recuperarlo</u>:
-- <u>Ignorar el problema</u> (solucion implementada en la mayoría de los SO).
+- <u>Ignorar el problema</u> (solución implementada en la mayoría de los SO).
 
 ### Como evitarlo
 
@@ -35,7 +35,7 @@ Para lograr esto se tiene que limitar la forma de obtener recursos. Para lograrl
 
 Otra forma de lograr esto es bloqueando a un proceso y liberando todos los recursos que tiene reservados cuando un proceso pide un recurso que no esta disponible instantáneamente. Los recursos que fueron liberados se agregan a una lista de recursos deseados, y el proceso se desbloqueara cuando se le puedan asignar todos los recursos (nuevos y viejos).
 
-Esto tambien se puede evitar haciendo imposible la **espera circular**. Para lograrlo simplemente tengo que asignarle una jerarquía entre todos los tipos de procesos y que cada proceso tenga que pedir los recursos en un orden determinado. De esta forma no puede haber espera circular y no puede suceder un abrazo mortal. Esta implementación obliga a los procesos a que pidan varios recursos por avanzado.
+Esto también se puede evitar haciendo imposible la **espera circular**. Para lograrlo simplemente tengo que asignarle una jerarquía entre todos los tipos de procesos y que cada proceso tenga que pedir los recursos en un orden determinado. De esta forma no puede haber espera circular y no puede suceder un abrazo mortal. Esta implementación obliga a los procesos a que pidan varios recursos por avanzado. 
 
 Por otro lado, podemos dejar que el sistema entre en abrazo mortal y luego rescatarlo, en base a algoritmos y conocimiento de los procesos.
 

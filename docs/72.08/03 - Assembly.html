@@ -1,275 +1,1621 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>03 - Assembly</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>03 - Assembly</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f8f8f8; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ef2929; } /* Alert */
+    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #c4a000; } /* Attribute */
+    code span.bn { color: #0000cf; } /* BaseN */
+    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4e9a06; } /* Char */
+    code span.cn { color: #000000; } /* Constant */
+    code span.co { color: #8f5902; font-style: italic; } /* Comment */
+    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+    code span.dt { color: #204a87; } /* DataType */
+    code span.dv { color: #0000cf; } /* DecVal */
+    code span.er { color: #a40000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #0000cf; } /* Float */
+    code span.fu { color: #000000; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+    code span.ot { color: #8f5902; } /* Other */
+    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+    code span.sc { color: #000000; } /* SpecialChar */
+    code span.ss { color: #4e9a06; } /* SpecialString */
+    code span.st { color: #4e9a06; } /* String */
+    code span.va { color: #000000; } /* Variable */
+    code span.vs { color: #4e9a06; } /* VerbatimString */
+    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<style type='text/css' >
+html {
+    overflow-x: initial !important;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --select-text-bg-color: #B5D6FC;
+    --select-text-font-color: auto;
+    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+}
+
+html {
+    font-size: 14px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 5%;
+    padding: 0px;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 1rem;
+    line-height: 1.42857;
+    overflow-x: hidden;
+    background: inherit;
+    tab-size: 4;
+}
+
+iframe {
+    margin: auto;
+}
+
+a.url {
+    word-break: break-all;
+}
+
+a:active, a:hover {
+    outline: 0px;
+}
+
+.in-text-selection, ::selection {
+    text-shadow: none;
+    background: var(--select-text-bg-color);
+    color: var(--select-text-font-color);
+}
+
+#write {
+    margin: 0px auto;
+    height: auto;
+    width: inherit;
+    word-break: normal;
+    overflow-wrap: break-word;
+    position: relative;
+    white-space: normal;
+    overflow-x: visible;
+    padding-top: 40px;
+}
+
+    #write.first-line-indent p {
+        text-indent: 2em;
+    }
+
+        #write.first-line-indent li p, #write.first-line-indent p * {
+            text-indent: 0px;
+        }
+
+    #write.first-line-indent li {
+        margin-left: 2em;
+    }
+
+.for-image #write {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+body.typora-export {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.typora-export .footnote-line, .typora-export li, .typora-export p {
+    white-space: pre-wrap;
+}
+
 @media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
+    body.typora-export {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #write {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .CodeMirror-sizer {
+        margin-left: 0px !important;
+    }
+
+    .CodeMirror-gutters {
+        display: none !important;
+    }
 }
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; }
-button, input, select, textarea { color: inherit; font: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px !important; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror-linenumber { user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
+
+#write li > figure:last-child {
+    margin-bottom: 0.5rem;
+}
+
+#write ol, #write ul {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+button, input, select, textarea {
+    color: inherit;
+    font: inherit;
+}
+
+    input[type="checkbox"], input[type="radio"] {
+        line-height: normal;
+        padding: 0px;
+    }
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre {
+    width: inherit;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p {
+    position: relative;
+}
+
+p {
+    line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    break-after: avoid-page;
+    break-inside: avoid;
+    orphans: 2;
+}
+
+p {
+    orphans: 4;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+h5 {
+    font-size: 1.2rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.md-blockmeta {
+    color: rgb(204, 204, 204);
+    font-weight: 700;
+    font-style: italic;
+}
+
+a {
+    cursor: pointer;
+}
+
+sup.md-footnote {
+    padding: 2px 4px;
+    background-color: rgba(238, 238, 238, 0.7);
+    color: rgb(85, 85, 85);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    sup.md-footnote a, sup.md-footnote a:hover {
+        color: inherit;
+        text-transform: inherit;
+        text-decoration: inherit;
+    }
+
+#write input[type="checkbox"] {
+    cursor: pointer;
+    width: inherit;
+    height: inherit;
+}
+
+figure {
+    overflow-x: auto;
+    margin: 1.2em 0px;
+    max-width: calc(100% + 16px);
+    padding: 0px;
+}
+
+    figure > table {
+        margin: 0px !important;
+    }
+
+tr {
+    break-inside: avoid;
+    break-after: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+    overflow: auto;
+    break-inside: auto;
+    text-align: left;
+}
+
+    table.md-table td {
+        min-width: 32px;
+    }
+
+.CodeMirror-gutters {
+    border-right: 0px;
+    background-color: inherit;
+}
+
+.CodeMirror-linenumber {
+    user-select: none;
+}
+
+.CodeMirror {
+    text-align: left;
+}
+
+.CodeMirror-placeholder {
+    opacity: 0.3;
+}
+
+.CodeMirror pre {
+    padding: 0px 4px;
+}
+
+.CodeMirror-lines {
+    padding: 0px;
+}
+
+div.hr:focus {
+    cursor: none;
+}
+
+#write pre {
+    white-space: pre-wrap;
+}
+
+#write.fences-no-line-wrapping pre {
+    white-space: pre;
+}
+
+#write pre.ty-contain-cm {
+    white-space: normal;
+}
+
+.CodeMirror-gutters {
+    margin-right: 4px;
+}
+
+.md-fences {
+    font-size: 0.9rem;
+    display: block;
+    break-inside: avoid;
+    text-align: left;
+    overflow: visible;
+    white-space: pre;
+    background: inherit;
+    position: relative !important;
+}
+
+.md-diagram-panel {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    overflow-x: auto;
+}
+
+#write .md-fences.mock-cm {
+    white-space: pre-wrap;
+}
+
+.md-fences.md-fences-with-lineno {
+    padding-left: 0px;
+}
+
+#write.fences-no-line-wrapping .md-fences.mock-cm {
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.md-fences.mock-cm.md-fences-with-lineno {
+    padding-left: 8px;
+}
+
+.CodeMirror-line, twitterwidget {
+    break-inside: avoid;
+}
+
+.footnotes {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+    .footnotes + .footnotes {
+        margin-top: 0px;
+    }
+
+.md-reset {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0px;
+    vertical-align: top;
+    background: 0px 0px;
+    text-decoration: none;
+    text-shadow: none;
+    float: none;
+    position: static;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+    line-height: normal;
+    font-weight: 400;
+    text-align: left;
+    box-sizing: content-box;
+    direction: ltr;
+}
+
+li div {
+    padding-top: 0px;
+}
+
+blockquote {
+    margin: 1rem 0px;
+}
+
+li .mathjax-block, li p {
+    margin: 0.5rem 0px;
+}
+
+li {
+    margin: 0px;
+    position: relative;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0px;
+}
+
+blockquote > :first-child, li > :first-child {
+    margin-top: 0px;
+}
+
+.footnotes-area {
+    color: rgb(136, 136, 136);
+    margin-top: 0.714rem;
+    padding-bottom: 0.143rem;
+    white-space: normal;
+}
+
+#write .footnote-line {
+    white-space: pre-wrap;
+}
+
 @media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
+    body, html {
+        border: 1px solid transparent;
+        height: 99%;
+        break-after: avoid;
+        break-before: avoid;
+    }
+
+    #write {
+        margin-top: 0px;
+        padding-top: 0px;
+        border-color: transparent !important;
+    }
+
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+
+    html.blink-to-pdf {
+        font-size: 13px;
+    }
+
+    .typora-export #write {
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 0px;
+        break-after: avoid;
+    }
+
+        .typora-export #write::after {
+            height: 0px;
+        }
 }
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+
+.footnote-line {
+    margin-top: 0.714em;
+    font-size: 0.7em;
+}
+
+a img, img a {
+    cursor: pointer;
+}
+
+pre.md-meta-block {
+    font-size: 0.8rem;
+    min-height: 0.8rem;
+    white-space: pre-wrap;
+    background: rgb(204, 204, 204);
+    display: block;
+    overflow-x: hidden;
+}
+
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child {
+    display: block;
+    margin: auto;
+}
+
+p > .md-image:only-child {
+    display: inline-block;
+    width: 100%;
+}
+
+#write .MathJax_Display {
+    margin: 0.8em 0px 0px;
+}
+
+.md-math-block {
+    width: 100%;
+}
+
+    .md-math-block:not(:empty)::after {
+        display: none;
+    }
+
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
+    outline: 0px;
+    box-shadow: none;
+}
+
+.md-task-list-item {
+    position: relative;
+    list-style-type: none;
+}
+
+.task-list-item.md-task-list-item {
+    padding-left: 0px;
+}
+
+.md-task-list-item > input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-left: -1.2em;
+    margin-top: calc(1em - 10px);
+    border: none;
+}
+
+.math {
+    font-size: 1rem;
+}
+
+.md-toc {
+    min-height: 3.58rem;
+    position: relative;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.md-toc-content {
+    position: relative;
+    margin-left: 0px;
+}
+
+    .md-toc-content::after, .md-toc::after {
+        display: none;
+    }
+
+.md-toc-item {
+    display: block;
+    color: rgb(65, 131, 196);
+}
+
+    .md-toc-item a {
+        text-decoration: none;
+    }
+
+.md-toc-inner:hover {
+    text-decoration: underline;
+}
+
+.md-toc-inner {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.md-toc-h1 .md-toc-inner {
+    margin-left: 0px;
+    font-weight: 700;
+}
+
+.md-toc-h2 .md-toc-inner {
+    margin-left: 2em;
+}
+
+.md-toc-h3 .md-toc-inner {
+    margin-left: 4em;
+}
+
+.md-toc-h4 .md-toc-inner {
+    margin-left: 6em;
+}
+
+.md-toc-h5 .md-toc-inner {
+    margin-left: 8em;
+}
+
+.md-toc-h6 .md-toc-inner {
+    margin-left: 10em;
+}
+
 @media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+    .md-toc-h3 .md-toc-inner {
+        margin-left: 3.5em;
+    }
+
+    .md-toc-h4 .md-toc-inner {
+        margin-left: 5em;
+    }
+
+    .md-toc-h5 .md-toc-inner {
+        margin-left: 6.5em;
+    }
+
+    .md-toc-h6 .md-toc-inner {
+        margin-left: 8em;
+    }
 }
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.md-inline-math .MathJax_SVG .noError { display: none !important; }
-.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
-.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
-.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
-.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none 0s ease 0s; }
-.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
+
+a.md-toc-inner {
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.footnote-line a:not(.reversefootnote) {
+    color: inherit;
+}
+
+.md-attr {
+    display: none;
+}
+
+.md-fn-count::after {
+    content: ".";
+}
+
+code, pre, samp, tt {
+    font-family: var(--monospace);
+}
+
+kbd {
+    margin: 0px 0.1em;
+    padding: 0.1em 0.6em;
+    font-size: 0.8em;
+    color: rgb(36, 39, 41);
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(173, 179, 185);
+    border-radius: 3px;
+    box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.md-comment {
+    color: rgb(162, 127, 3);
+    opacity: 0.8;
+    font-family: var(--monospace);
+}
+
+code {
+    text-align: left;
+    vertical-align: initial;
+}
+
+a.md-print-anchor {
+    white-space: pre !important;
+    border-width: initial !important;
+    border-style: none !important;
+    border-color: initial !important;
+    display: inline-block !important;
+    position: absolute !important;
+    width: 1px !important;
+    right: 0px !important;
+    outline: 0px !important;
+    background: 0px 0px !important;
+    text-decoration: initial !important;
+    text-shadow: initial !important;
+}
+
+.md-inline-math .MathJax_SVG .noError {
+    display: none !important;
+}
+
+.html-for-mac .inline-math-svg .MathJax_SVG {
+    vertical-align: 0.2px;
+}
+
+.md-math-block .MathJax_SVG_Display {
+    text-align: center;
+    margin: 0px;
+    position: relative;
+    text-indent: 0px;
+    max-width: none;
+    max-height: none;
+    min-height: 0px;
+    min-width: 100%;
+    width: auto;
+    overflow-y: hidden;
+    display: block !important;
+}
+
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display {
+    width: auto;
+    margin: inherit;
+    display: inline-block !important;
+}
+
+.MathJax_SVG .MJX-monospace {
+    font-family: var(--monospace);
+}
+
+.MathJax_SVG .MJX-sans-serif {
+    font-family: sans-serif;
+}
+
+.MathJax_SVG {
+    display: inline;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    zoom: 90%;
+    text-indent: 0px;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    max-width: none;
+    max-height: none;
+    min-width: 0px;
+    min-height: 0px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .MathJax_SVG * {
+        transition: none 0s ease 0s;
+    }
+
+.MathJax_SVG_Display svg {
+    vertical-align: middle !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+.os-windows.monocolor-emoji .md-emoji {
+    font-family: "Segoe UI Symbol", sans-serif;
+}
+
+.md-diagram-panel > svg {
+    max-width: 100%;
+}
+
+[lang="flow"] svg, [lang="mermaid"] svg {
+    max-width: 100%;
+    height: auto;
+}
+
+[lang="mermaid"] .node text {
+    font-size: 1rem;
+}
+
+table tr th {
+    border-bottom: 0px;
+}
+
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0px auto;
+}
+
+iframe {
+    max-width: 100%;
+    width: 100%;
+    border: none;
+}
+
+.highlight td, .highlight tr {
+    border: 0px;
+}
+
+svg[id^="mermaidChart"] {
+    line-height: 1em;
+}
+
+mark {
+    background: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+        color: inherit;
+    }
+
+    mark .md-meta {
+        color: rgb(0, 0, 0);
+        opacity: 0.3 !important;
+    }
 
 
-.CodeMirror { height: auto; }
-.CodeMirror.cm-s-inner { background: inherit; }
-.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
-.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
-.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
-.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
-.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
-.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
-.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
-.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
-.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
-.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
-.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
-.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
-.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
-.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
-.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
-.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
-.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
-.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
-.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
-.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
-.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
-.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
-.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
-.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
-.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
-.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
-.cm-negative { color: rgb(221, 68, 68); }
-.cm-positive { color: rgb(34, 153, 34); }
-.cm-header, .cm-strong { font-weight: 700; }
-.cm-del { text-decoration: line-through; }
-.cm-em { font-style: italic; }
-.cm-link { text-decoration: underline; }
-.cm-error { color: red; }
-.cm-invalidchar { color: red; }
-.cm-constant { color: rgb(38, 139, 210); }
-.cm-defined { color: rgb(181, 137, 0); }
-div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
-div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
-.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
-.CodeMirror { position: relative; overflow: hidden; }
-.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
-.CodeMirror-sizer { position: relative; }
-.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
-.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
-.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
-.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
-.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
-.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
-.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
-.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
-.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
-.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
-.CodeMirror-lines { cursor: text; }
-.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
-.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
-.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
-.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
-.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
-.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
-.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
-.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
-.CodeMirror-measure pre { position: static; }
-.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
-.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
-.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
-.cm-searching { background: rgba(255, 255, 0, 0.4); }
+.CodeMirror {
+    height: auto;
+}
+
+    .CodeMirror.cm-s-inner {
+        background: inherit;
+    }
+
+.CodeMirror-scroll {
+    overflow: auto hidden;
+    z-index: 3;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler {
+    background-color: rgb(255, 255, 255);
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid rgb(221, 221, 221);
+    background: inherit;
+    white-space: nowrap;
+}
+
+.CodeMirror-linenumber {
+    padding: 0px 3px 0px 5px;
+    text-align: right;
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-keyword {
+    color: rgb(119, 0, 136);
+}
+
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom {
+    color: rgb(34, 17, 153);
+}
+
+.cm-s-inner .cm-number {
+    color: rgb(17, 102, 68);
+}
+
+.cm-s-inner .cm-def {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-variable {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: rgb(0, 85, 170);
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: rgb(0, 136, 85);
+}
+
+.cm-s-inner .cm-string {
+    color: rgb(170, 17, 17);
+}
+
+.cm-s-inner .cm-property {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-operator {
+    color: rgb(152, 26, 26);
+}
+
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment {
+    color: rgb(170, 85, 0);
+}
+
+.cm-s-inner .cm-string-2 {
+    color: rgb(255, 85, 0);
+}
+
+.cm-s-inner .cm-meta {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-qualifier {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-builtin {
+    color: rgb(51, 0, 170);
+}
+
+.cm-s-inner .cm-bracket {
+    color: rgb(153, 153, 119);
+}
+
+.cm-s-inner .cm-tag {
+    color: rgb(17, 119, 0);
+}
+
+.cm-s-inner .cm-attribute {
+    color: rgb(0, 0, 204);
+}
+
+.cm-s-inner .cm-header, .cm-s-inner.cm-header {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote {
+    color: rgb(0, 153, 0);
+}
+
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr {
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-link, .cm-s-inner.cm-link {
+    color: rgb(0, 0, 204);
+}
+
+.cm-negative {
+    color: rgb(221, 68, 68);
+}
+
+.cm-positive {
+    color: rgb(34, 153, 34);
+}
+
+.cm-header, .cm-strong {
+    font-weight: 700;
+}
+
+.cm-del {
+    text-decoration: line-through;
+}
+
+.cm-em {
+    font-style: italic;
+}
+
+.cm-link {
+    text-decoration: underline;
+}
+
+.cm-error {
+    color: red;
+}
+
+.cm-invalidchar {
+    color: red;
+}
+
+.cm-constant {
+    color: rgb(38, 139, 210);
+}
+
+.cm-defined {
+    color: rgb(181, 137, 0);
+}
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: rgb(0, 255, 0);
+}
+
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+    color: rgb(255, 34, 34);
+}
+
+.cm-s-inner .CodeMirror-activeline-background {
+    background: inherit;
+}
+
+.CodeMirror {
+    position: relative;
+    overflow: hidden;
+}
+
+.CodeMirror-scroll {
+    height: 100%;
+    outline: 0px;
+    position: relative;
+    box-sizing: content-box;
+    background: inherit;
+}
+
+.CodeMirror-sizer {
+    position: relative;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar {
+    position: absolute;
+    z-index: 6;
+    display: none;
+}
+
+.CodeMirror-vscrollbar {
+    right: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-hscrollbar {
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-scrollbar-filler {
+    right: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutter-filler {
+    left: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding-bottom: 30px;
+    z-index: 3;
+}
+
+.CodeMirror-gutter {
+    white-space: normal;
+    height: 100%;
+    box-sizing: content-box;
+    padding-bottom: 30px;
+    margin-bottom: -32px;
+    display: inline-block;
+}
+
+.CodeMirror-gutter-wrapper {
+    position: absolute;
+    z-index: 4;
+    background: 0px 0px !important;
+    border: none !important;
+}
+
+.CodeMirror-gutter-background {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 4;
+}
+
+.CodeMirror-gutter-elt {
+    position: absolute;
+    cursor: default;
+    z-index: 4;
+}
+
+.CodeMirror-lines {
+    cursor: text;
+}
+
+.CodeMirror pre {
+    border-radius: 0px;
+    border-width: 0px;
+    background: 0px 0px;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0px;
+    white-space: pre;
+    overflow-wrap: normal;
+    color: inherit;
+    z-index: 2;
+    position: relative;
+    overflow: visible;
+}
+
+.CodeMirror-wrap pre {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: normal;
+}
+
+.CodeMirror-code pre {
+    border-right: 30px solid transparent;
+    width: fit-content;
+}
+
+.CodeMirror-wrap .CodeMirror-code pre {
+    border-right: none;
+    width: auto;
+}
+
+.CodeMirror-linebackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 0;
+}
+
+.CodeMirror-linewidget {
+    position: relative;
+    z-index: 2;
+    overflow: auto;
+}
+
+.CodeMirror-wrap .CodeMirror-scroll {
+    overflow-x: hidden;
+}
+
+.CodeMirror-measure {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+    .CodeMirror-measure pre {
+        position: static;
+    }
+
+.CodeMirror div.CodeMirror-cursor {
+    position: absolute;
+    visibility: hidden;
+    border-right: none;
+    width: 0px;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+}
+
+.CodeMirror-focused div.CodeMirror-cursor {
+    visibility: inherit;
+}
+
+.cm-searching {
+    background: rgba(255, 255, 0, 0.4);
+}
+
 @media print {
-  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+    .CodeMirror div.CodeMirror-cursor {
+        visibility: hidden;
+    }
 }
 
 
-:root { --side-bar-bg-color: white; --window-border: none; --search-select-bg-color: #575c61; --active-file-bg-color: #f1f4f5; --item-hover-bg-color: #f1f4f5; --item-hover-text-color: black; --control-text-color: #555; }
-html { font-size: 12pt; }
-#write { font-family: STIX2Text, "Times New Roman", serif; line-height: 1.5em; padding: 5% 10% 10%; }
-.file-list-item-summary { height: 36px; }
-.file-list-item { padding-bottom: 18px; padding-top: 18px !important; }
-#sidebar-loading-template.file-list-item { padding-top: 0px !important; }
-a, a:visited { color: rgb(170, 0, 0); }
-h1, h2, h3, h4, h5, h6 { font-family: inherit; line-height: 1.5em; margin-bottom: 1em; margin-top: 1em; }
-h1 { font-size: 2.4em; }
-#write h1 { text-align: center; }
-h2 { font-size: 1.8em; }
-h3 { font-size: 1.4em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1.1em; }
-h6 { font-size: 1em; }
-p { margin-top: 1em; margin-bottom: 1em; text-align: justify; }
-pre, code { font-family: "Latin Modern Mono Light", "Latin Modern Mono", monospace !important; }
-.footnotes { display: list-item; margin-left: 1em; }
-.md-fences { border: 1px solid; }
-.md-fences.md-fences-with-lineno { border: none; }
-.CodeMirror-linenumber { color: rgb(51, 51, 51); }
-.in-text-selection, ::selection, .CodeMirror-selected { background: var(--search-select-bg-color); text-shadow: none; color: var(--search-select-text-color)  !important; }
-a.md-toc-inner { color: var(--text-color); }
-.cm-s-typora-default .cm-link { color: rgb(170, 0, 0); text-decoration: underline; }
-.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property { color: black; }
-#typora-source .CodeMirror-lines { -webkit-font-smoothing: auto; max-width: 1000px; }
-.md-def-name::before, .md-def-name::after { color: rgb(45, 45, 45); }
-sup.md-footnote { background-color: initial; color: inherit; }
-mark { background: rgb(255, 243, 135); }
-td, th { border: 1px solid; padding-left: 1ch; padding-right: 1ch; }
-th { border-bottom: 0px rgb(51, 51, 51); padding-top: 2px; background: rgb(87, 92, 97); border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); color: rgb(243, 243, 243); }
-pre.md-meta-block { border: 1px solid rgb(162, 169, 177); background-color: rgb(248, 249, 250); padding: 5px; margin-bottom: 1em; }
-.task-list-item input::before { content: "√"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.task-list-item input:checked::before, .task-list-item input[checked]::before { color: inherit; }
-.md-task-list-item > input { top: auto; margin-left: -1.1em; font-size: 1.3em; margin-top: 0px; -webkit-appearance: none; }
-.md-task-list-item input::before { content: "☐"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.md-task-list-item input:checked::before, .md-task-list-item input[checked]::before { color: inherit; content: "☑"; }
-.task-list-item { padding-left: 1.5em; }
-blockquote { font-style: italic; padding: 0.25em 24px; position: relative; color: rgb(56, 56, 56); border-left: 2px solid; }
-#write > blockquote { padding: 0.25em 30px; margin-left: -32px; width: calc(100% + 32px); }
-#write > .md-fences-with-lineno { margin-left: -33px; color: black; }
-.CodeMirror-linenumber { min-width: 25px; }
-.md-header { font-size: inherit !important; }
+:root {
+    --side-bar-bg-color: white;
+    --window-border: none;
+    --search-select-bg-color: #575c61;
+    --active-file-bg-color: #f1f4f5;
+    --item-hover-bg-color: #f1f4f5;
+    --item-hover-text-color: black;
+    --control-text-color: #555;
+}
+
+@include-when-export url(https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css);
+
+html {
+    font-size: 12pt;
+}
+
+#write {
+    font-family: "STIX2Text", "Times New Roman", "serif";
+    line-height: 1.5em;
+    padding: 10%;
+    padding-top: 5%;
+}
+
+.file-list-item-summary {
+    height: 36px;
+}
+
+.file-list-item {
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+}
+
+#sidebar-loading-template.file-list-item {
+    padding-top: 0 !important;
+}
+
+a, a:visited {
+    color: #a00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+#write h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+pre, code {
+    font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+    background-color: #ebebeb;
+}
+
+.footnotes {
+    display: list-item;
+    margin-left: 1em;
+}
+
+.md-fences {
+    border: 1px solid;
+}
+
+    .md-fences.md-fences-with-lineno {
+        border: none;
+    }
+
+.CodeMirror-linenumber {
+    color: #333;
+}
+
+*.in-text-selection,
+::selection,
+.CodeMirror-selected {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color) !important;
+    text-shadow: none;
+}
+
+a.md-toc-inner {
+    color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-link {
+    color: #a00;
+    text-decoration: underline;
+}
+
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property {
+    color: black;
+}
+
+#typora-source .CodeMirror-lines {
+    -webkit-font-smoothing: auto;
+    max-width: 1000px;
+}
+
+.md-def-name:before,
+.md-def-name:after {
+    color: #2d2d2d;
+}
+
+sup.md-footnote {
+    background-color: initial;
+    color: inherit;
+}
+
+mark {
+    background: #fff387;
+}
+
+td, th {
+    border: 1px solid;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+/*table tr[cid]:first-child > td {
+    border-top: 3px double;
+}*/
+
+th {
+    border-bottom: 0;
+    padding-top: 2px;
+    background: #575c61;
+    border-color: #333;
+    color: #f3f3f3;
+}
+
+pre.md-meta-block {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+.task-list-item input:before {
+    content: '\221A';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before {
+    color: inherit;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.1em;
+    font-size: 1.3em;
+    margin-top: 0px;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item input:before {
+    content: '\2610';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.md-task-list-item input:checked:before,
+.md-task-list-item input[checked]:before {
+    color: inherit;
+    content: '\2611';
+}
+
+.task-list-item {
+    padding-left: 1.5em;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0.25em 24px;
+    position: relative;
+    color: #383838;
+    border-left: 2px solid;
+}
+
+#write > blockquote {
+    padding: 0.25em 30px;
+    margin-left: -32px;
+    width: calc(100% + 32px);
+}
+
+#write > .md-fences-with-lineno {
+    margin-left: -33px;
+    color: black;
+}
+
+.CodeMirror-linenumber {
+    min-width: 25px;
+}
+
+.md-header {
+    font-size: inherit !important;
+}
+
+/*blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}*/
 
 
-</style>
+
+</style >
 </head>
-<body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="assembly" class="md-header-anchor"></a><span>Assembly</span></h1><p><span>En la arquitectura Intel x86 no se pueden mover datos de una posición de memoria a otra posición de memoria con una sola instrucción. La instrucción que no se puede hacer es:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="assembly"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">Mov</span><span class="cm-tab" role="presentation" cm-text="	"> </span>[<span class="cm-variable">bx</span>],[<span class="cm-variable">ax</span>]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 25px;"></div><div class="CodeMirror-gutters" style="display: none; height: 25px;"></div></div></div></pre><p><span>Esto se debe a que la memoria no puede procesar informacion, es solo un lugar donde se guardan cosas, por lo que no puede encargarse de estas tareas.</span></p><p><span>En assembler se puede declarar una variable sin inicializarla:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="assembly"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">Variable</span> <span class="cm-keyword">db</span> ?</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 24px;"></div><div class="CodeMirror-gutters" style="display: none; height: 24px;"></div></div></div></pre><p><span>Para declararla e inicializarla al mismo tiempo:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="assembly"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">Variable</span> <span class="cm-keyword">db</span> <span class="cm-keyword">99h</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 24px;"></div><div class="CodeMirror-gutters" style="display: none; height: 24px;"></div></div></div></pre><p><span>Para declarar variables globales hay que definir la zona de datos </span><code>bss</code><span> y reservar bytes de variables globales</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="assembly"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">section</span> .bss</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">placeholder</span> <span class="cm-keyword">resb</span> <span class="cm-keyword">10</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 48px;"></div><div class="CodeMirror-gutters" style="display: none; height: 48px;"></div></div></div></pre><h2><a name="compilacion-y-linkedicion" class="md-header-anchor"></a><span>Compilacion y Linkedicion</span></h2><p><span>Para compilar se deben correr los siguentes comandos:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="bash"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">nasm <span class="cm-attribute">-f</span> elf32 file1.asm file2.asm ... fileN.asm</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ld <span class="cm-attribute">-m</span> elf_i386 file1.o file2.o ... fileN.o <span class="cm-attribute">-o</span> exec</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 48px;"></div><div class="CodeMirror-gutters" style="display: none; height: 48px;"></div></div></div></pre><p><span>Los flags </span><code>-f</code><span> y </span><code>-m</code><span> indican la arquitectura para la cual se van a compilar y linkeditar este binario. Si queremos hacerlo en 32-bits, entonces tenemos que indicar </span><code>-f elf32</code><span> y </span><code>-m elf_i386</code><span>. Si queremos hacerlo para arquitecturas de 64-bits no es necesario utilizar los flags por que por defecto utiliza 64-bits.</span></p><p><span>Por otro lado el flag </span><code>-o</code><span> indica el nombre del archivo luego te haber terminado la linkedicion.</span></p><h2><a name="secciones" class="md-header-anchor"></a><span>Secciones</span></h2><p><span>Los archivos </span><code>.asm</code><span> se definen en distintas secciones, entre las cuales estan </span><code>.text</code><span>, </span><code>.data</code><span>, </span><code>.bss</code><span> y </span><code>.rodata</code><span>. Cada una de estas secciones tiene el siguiente uso:</span></p><ul><li><code>.text</code><span>: Es la zona del archivo donde se escribe el codigo. La informacion de esta zona no debe ser modificada durante la ejecucion y si lo es se va a generar un error.</span></li><li><code>.data</code><span>: Esta zona se utiliza para guardar informacion que luego puede ser modificada, pero no puede tener codigo a ejecutar.</span></li><li><code>.rodata</code><span>: Similar a </span><code>.data</code><span>, esta zona contiene informacion y no puede tener codigo a ejecutar, pero la informacion que contiene es read-only.</span></li><li><code>.bss</code><span>: Esta seccion sirve para reservar memoria no inicializada.</span></li></ul><h3><a name="instrucciones-para-reservar-memoria" class="md-header-anchor"></a><span>Instrucciones para Reservar Memoria</span></h3><p><span>Los operadores de reserva de memoria solo indican el tamaño del bloque donde van a guardar la informacion, por lo que se les puede pasar un solo valor a guardar, una sucesion de valores o hasta un string. Existen los siguentes operadores:</span></p><ul><li><code>db</code><span>: Reserva bloques de 1 byte.</span></li><li><code>dw</code><span>: Reserva bloques de 2 bytes.</span></li><li><code>dd</code><span>: Reserva bloques de 4 bytes</span></li></ul><p><span>Tambien existen </span><code>dq</code><span> y </span><code>dt</code><span> pero no se ven en esta materia.</span></p><p><span>A la hora de reservar memoria no inicializada (En la seccion </span><code>.bss</code><span>), tambien tenemos disitntas instrucciones dependiento del tamaño de bloque de la informacion que vamos a guardar. La diferencia es que en estas instrucciones no se indica que vamos a guardar, sino cuanta memoria queremos. Tenemos las siguientes operaciones:</span></p><ul><li><code>resb</code><span>: Reserva memoria con bloques de 1 byte.</span></li><li><code>resw</code><span>: Reserva memoria con bloques de 2 bytes.</span></li></ul><p><span>Tambien existen </span><code>resq</code><span>, </span><code>resy</code><span> y </span><code>resz</code><span> pero no se ven en esta materia.</span></p><p><span>Por ultimo tenemos a la operacion </span><code>equ</code><span>, que es el equivalente al define de C.</span></p><h2><a name="modos-de-direccionamiento" class="md-header-anchor"></a><span>Modos de Direccionamiento</span></h2><p><span>El assembly del Intel 80386 tiene varios modos de direccionamiento:</span></p><ul><li><span>Inmediato: Cuando se pasa un valor a un registro directamente. Por ejemplo: </span><code>mov eax, 123</code><span>.</span></li><li><span>De Registro: Cuando se copian valores de un registro a otro. Por ejemplo: </span><code>mov eax, ebx</code><span>.</span></li><li><span>Directo: Se trata cuando se desreferencia a una posición de memoria directamente, sin haberla cargado en un registro. Por ejemplo: </span><code>mov ax,[1234h]</code><span> .</span></li><li><span>Indirecto: Funciona de forma similar al directo, pero en este caso se desreferencia al valor de una variable. Por ejemplo: </span><code>mov ax,[eax]</code></li><li><span>Indexado: Permite tomar el direccionamiento indirecto y sumarle un índice, para acceder a otra posición de memoria. Por ejemplo: </span><code>mov ax, [eax+4]</code><span> </span></li></ul><h2><a name="escritura-y-lectura-de-memoria" class="md-header-anchor"></a><span>Escritura y Lectura de Memoria</span></h2><p><span>Al leer o escribir en memoria, se van a escribir o leer una cantidad de bytes igual a la del registro que esta siendo utilizado, por ejemplo: </span><code>mov ax,[100h]</code><span> va a copiar 2 bytes (</span><code>100h</code><span> y </span><code>101h</code><span>) a </span><code>ax</code><span>.</span></p><h2><a name="punto-de-entrada" class="md-header-anchor"></a><span>Punto de Entrada</span></h2><p><span>El punto de entrada es la primer funcion que ejecuta el sistema operativo al correr el binario. En assembly este se llama </span><code>_start:</code><span>. </span></p><h3><a name="argumentos-de-linea-de-comando" class="md-header-anchor"></a><span>Argumentos de Linea de Comando</span></h3><p><span>El punto de entrada es el unico que realmente tiene acceso a los argumentos que se enviaron por linea de comando. Estos se pasan por el stack de la siguente forma:</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>Posicion del Stack</span></th><th style='text-align:center;' ><span>Valor guardado</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><code>ESP</code></td><td style='text-align:center;' ><span>Cantidad de Argumentos</span></td></tr><tr><td style='text-align:center;' ><code>ESP+4</code></td><td style='text-align:center;' ><span>Path al Programa</span></td></tr><tr><td style='text-align:center;' ><code>ESP+8</code></td><td style='text-align:center;' ><span>Direccion del 1er Argumento</span></td></tr><tr><td style='text-align:center;' ><code>ESP+(n+2)*4</code></td><td style='text-align:center;' ><span>Direccion del n-Argumento</span></td></tr><tr><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>NULL</span></td></tr><tr><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>Direccion de la 1ra Variable de Entorno</span></td></tr><tr><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>Direccion de la 2da Variable de Entorno</span></td></tr><tr><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>Direccion de la n-Variable de Entorno</span></td></tr><tr><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>NULL</span></td></tr></tbody></table></figure><p><span>Es una buena practica copiar la direccion inicial del </span><code>ESP</code><span> al </span><code>EBP</code><span> para poder acceder rapidamente a estas variables luego, ya que a medida que se utiliza el stack, estas variables son cada vez mas complicadas de acceder.</span></p><h2><a name="stack" class="md-header-anchor"></a><span>Stack</span></h2><p><span>El stack es necesario para poder llamar a funciones, de esta forma se puede conocer el </span>“<span>historial</span>”<span> de funciones y a que direccion de memoria el programa tiene que ir luego de terminar de ejecutar una funcion.</span></p><h2><a name="system-calls" class="md-header-anchor"></a><span>System Calls</span></h2><p><span>En  Linux todos los periféricos son tratados como archivos y se manejan con System Calls:</span></p><figure><table><thead><tr><th><span>Return on success</span></th><th><span>Nombre</span></th><th><code>EAX</code></th><th><code>EBX</code></th><th><code>ECX</code></th><th><code>EDX</code></th></tr></thead><tbody><tr><td>&nbsp;</td><td><code>EXIT</code></td><td><code>1h</code></td><td><span>error code</span></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>Bytes Read</span></td><td><code>READ</code></td><td><code>3h</code></td><td><span>File Descriptor</span></td><td><span>Buffer</span></td><td><span>Buffer Size</span></td></tr><tr><td><span>Bytes Written</span></td><td><code>WRITE</code></td><td><code>4h</code></td><td><span>File Descriptor</span></td><td><span>String</span></td><td><span>String Size</span></td></tr><tr><td><span>File Descriptor</span></td><td><code>OPEN</code></td><td><code>5h</code></td><td><span>Path to File</span></td><td><span>Flags</span></td><td><span>Mode</span></td></tr><tr><td><code>0</code></td><td><code>CLOSE</code></td><td><code>6h</code></td><td><span>File Descriptor</span></td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></figure><p><span>Para utilizar cualquiera de estas system calls, hay que utilizar a las interrupciones. En Assembly de Intel, corriendo sobre Linux, se debe llamar a la siguente instruccion </span><code>int 80h</code></p><p>&nbsp;</p><p>&nbsp;</p></div>
+<body>
+<h1 id="assembly">Assembly</h1>
+<p>En la arquitectura Intel x86 no se pueden mover datos de una posición de memoria a otra posición de memoria con una sola instrucción. La instrucción que no se puede hacer es:</p>
+<pre class="assembly"><code>Mov [bx],[ax]</code></pre>
+<p>Esto se debe a que la memoria no puede procesar informacion, es solo un lugar donde se guardan cosas, por lo que no puede encargarse de estas tareas.</p>
+<p>En assembler se puede declarar una variable sin inicializarla:</p>
+<pre class="assembly"><code>Variable db ?</code></pre>
+<p>Para declararla e inicializarla al mismo tiempo:</p>
+<pre class="assembly"><code>Variable db 99h</code></pre>
+<p>Para declarar variables globales hay que definir la zona de datos <code>bss</code> y reservar bytes de variables globales</p>
+<pre class="assembly"><code>section .bss
+placeholder resb 10</code></pre>
+<h2 id="compilacion-y-linkedicion">Compilacion y Linkedicion</h2>
+<p>Para compilar se deben correr los siguentes comandos:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nasm</span> -f elf32 file1.asm file2.asm ... fileN.asm</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ld</span> -m elf_i386 file1.o file2.o ... fileN.o -o exec</span></code></pre></div>
+<p>Los flags <code>-f</code> y <code>-m</code> indican la arquitectura para la cual se van a compilar y linkeditar este binario. Si queremos hacerlo en 32-bits, entonces tenemos que indicar <code>-f elf32</code> y <code>-m elf_i386</code>. Si queremos hacerlo para arquitecturas de 64-bits no es necesario utilizar los flags por que por defecto utiliza 64-bits.</p>
+<p>Por otro lado el flag <code>-o</code> indica el nombre del archivo luego te haber terminado la linkedicion.</p>
+<h2 id="secciones">Secciones</h2>
+<p>Los archivos <code>.asm</code> se definen en distintas secciones, entre las cuales estan <code>.text</code>, <code>.data</code>, <code>.bss</code> y <code>.rodata</code>. Cada una de estas secciones tiene el siguiente uso:</p>
+<ul>
+<li><code>.text</code>: Es la zona del archivo donde se escribe el codigo. La informacion de esta zona no debe ser modificada durante la ejecucion y si lo es se va a generar un error.</li>
+<li><code>.data</code>: Esta zona se utiliza para guardar informacion que luego puede ser modificada, pero no puede tener codigo a ejecutar.</li>
+<li><code>.rodata</code>: Similar a <code>.data</code>, esta zona contiene informacion y no puede tener codigo a ejecutar, pero la informacion que contiene es read-only.</li>
+<li><code>.bss</code>: Esta seccion sirve para reservar memoria no inicializada.</li>
+</ul>
+<h3 id="instrucciones-para-reservar-memoria">Instrucciones para Reservar Memoria</h3>
+<p>Los operadores de reserva de memoria solo indican el tamaño del bloque donde van a guardar la informacion, por lo que se les puede pasar un solo valor a guardar, una sucesion de valores o hasta un string. Existen los siguentes operadores:</p>
+<ul>
+<li><code>db</code>: Reserva bloques de 1 byte.</li>
+<li><code>dw</code>: Reserva bloques de 2 bytes.</li>
+<li><code>dd</code>: Reserva bloques de 4 bytes</li>
+</ul>
+<p>Tambien existen <code>dq</code> y <code>dt</code> pero no se ven en esta materia.</p>
+<p>A la hora de reservar memoria no inicializada (En la seccion <code>.bss</code>), tambien tenemos disitntas instrucciones dependiento del tamaño de bloque de la informacion que vamos a guardar. La diferencia es que en estas instrucciones no se indica que vamos a guardar, sino cuanta memoria queremos. Tenemos las siguientes operaciones:</p>
+<ul>
+<li><code>resb</code>: Reserva memoria con bloques de 1 byte.</li>
+<li><code>resw</code>: Reserva memoria con bloques de 2 bytes.</li>
+</ul>
+<p>Tambien existen <code>resq</code>, <code>resy</code> y <code>resz</code> pero no se ven en esta materia.</p>
+<p>Por ultimo tenemos a la operacion <code>equ</code>, que es el equivalente al define de C.</p>
+<h2 id="modos-de-direccionamiento">Modos de Direccionamiento</h2>
+<p>El assembly del Intel 80386 tiene varios modos de direccionamiento:</p>
+<ul>
+<li><p>Inmediato: Cuando se pasa un valor a un registro directamente. Por ejemplo: <code>mov eax, 123</code>.</p></li>
+<li><p>De Registro: Cuando se copian valores de un registro a otro. Por ejemplo: <code>mov eax, ebx</code>.</p></li>
+<li><p>Directo: Se trata cuando se desreferencia a una posición de memoria directamente, sin haberla cargado en un registro. Por ejemplo: <code>mov ax,[1234h]</code> .</p></li>
+<li><p>Indirecto: Funciona de forma similar al directo, pero en este caso se desreferencia al valor de una variable. Por ejemplo: <code>mov ax,[eax]</code></p></li>
+<li><p>Indexado: Permite tomar el direccionamiento indirecto y sumarle un índice, para acceder a otra posición de memoria. Por ejemplo: <code>mov ax, [eax+4]</code></p></li>
+</ul>
+<h2 id="escritura-y-lectura-de-memoria">Escritura y Lectura de Memoria</h2>
+<p>Al leer o escribir en memoria, se van a escribir o leer una cantidad de bytes igual a la del registro que esta siendo utilizado, por ejemplo: <code>mov ax,[100h]</code> va a copiar 2 bytes (<code>100h</code> y <code>101h</code>) a <code>ax</code>.</p>
+<h2 id="punto-de-entrada">Punto de Entrada</h2>
+<p>El punto de entrada es la primer funcion que ejecuta el sistema operativo al correr el binario. En assembly este se llama <code>_start:</code>.</p>
+<h3 id="argumentos-de-linea-de-comando">Argumentos de Linea de Comando</h3>
+<p>El punto de entrada es el unico que realmente tiene acceso a los argumentos que se enviaron por linea de comando. Estos se pasan por el stack de la siguente forma:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Posicion del Stack</th>
+<th style="text-align: center;">Valor guardado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>ESP</code></td>
+<td style="text-align: center;">Cantidad de Argumentos</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>ESP+4</code></td>
+<td style="text-align: center;">Path al Programa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>ESP+8</code></td>
+<td style="text-align: center;">Direccion del 1er Argumento</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>ESP+(n+2)*4</code></td>
+<td style="text-align: center;">Direccion del n-Argumento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">NULL</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Direccion de la 1ra Variable de Entorno</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Direccion de la 2da Variable de Entorno</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Direccion de la n-Variable de Entorno</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Es una buena practica copiar la direccion inicial del <code>ESP</code> al <code>EBP</code> para poder acceder rapidamente a estas variables luego, ya que a medida que se utiliza el stack, estas variables son cada vez mas complicadas de acceder.</p>
+<h2 id="stack">Stack</h2>
+<p>El stack es necesario para poder llamar a funciones, de esta forma se puede conocer el “historial” de funciones y a que direccion de memoria el programa tiene que ir luego de terminar de ejecutar una funcion.</p>
+<h2 id="system-calls">System Calls</h2>
+<p>En Linux todos los periféricos son tratados como archivos y se manejan con System Calls:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Return on success</th>
+<th>Nombre</th>
+<th><code>EAX</code></th>
+<th><code>EBX</code></th>
+<th><code>ECX</code></th>
+<th><code>EDX</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><code>EXIT</code></td>
+<td><code>1h</code></td>
+<td>error code</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Bytes Read</td>
+<td><code>READ</code></td>
+<td><code>3h</code></td>
+<td>File Descriptor</td>
+<td>Buffer</td>
+<td>Buffer Size</td>
+</tr>
+<tr class="odd">
+<td>Bytes Written</td>
+<td><code>WRITE</code></td>
+<td><code>4h</code></td>
+<td>File Descriptor</td>
+<td>String</td>
+<td>String Size</td>
+</tr>
+<tr class="even">
+<td>File Descriptor</td>
+<td><code>OPEN</code></td>
+<td><code>5h</code></td>
+<td>Path to File</td>
+<td>Flags</td>
+<td>Mode</td>
+</tr>
+<tr class="odd">
+<td><code>0</code></td>
+<td><code>CLOSE</code></td>
+<td><code>6h</code></td>
+<td>File Descriptor</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Para utilizar cualquiera de estas system calls, hay que utilizar a las interrupciones. En Assembly de Intel, corriendo sobre Linux, se debe llamar a la siguente instruccion <code>int 80h</code></p>
 </body>
 </html>

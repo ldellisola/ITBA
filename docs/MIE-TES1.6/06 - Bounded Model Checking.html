@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>06 - Bounded Model Checking</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="bounded-model-checking">Bounded Model Checking</h1>
+<p>We have system models based on automata and their interactions and their formal specification based on temporal logic, but how do we check that a certain model fulfills a specification?</p>
+<p>Given a transition system and a formula <span class="math inline">\(\phi\)</span>, we have two possible outcomes, either all paths hold that formula or we find a counter-example. The problem here is that there may be infinite paths of infinite length and it’s impossible to test them all.</p>
+<p>Traditionally, we solved this problem by selecting a subset of all possible paths and use them as <strong>test cases</strong> to check the model for correctness. But this does not mean that the model is correct, just that it works with the selected test cases.</p>
+<p>We can start solving this problem by using only <strong>finite paths</strong>.</p>
+<h3 id="formula-g-textgoal">Formula <span class="math inline">\(G \text{goal}\)</span></h3>
+<p>We have to adapt this formula to use only finite paths. This is why we are adding a parameter <span class="math inline">\(n\)</span> that selects a prefix if the infinite length path: <span class="math display">\[
+t\models G\text{ ok} \iff\forall k \in \{0,\dots,n-1\}~~t(k) \models \text{ok}
+\]</span> This is a <strong>necessary condition for correctness</strong>:</p>
+<blockquote>
+<p>For every finite path <span class="math inline">\(t\)</span> of the given transition system: <span class="math display">\[
+\models G \text{ ok} \Rightarrow t \models G \text{ ok}\\
+\not\models G \text{ ok} \Rightarrow t \not\models G \text{ ok}\\
+\]</span></p>
+</blockquote>
+<h4 id="formula-f-textgoal">Formula <span class="math inline">\(F \text{goal}\)</span></h4>
+<p>Loop detection. Loops are problems if we reach them before we reach our goal. Taking loops into consideration, we can say redefine this formula as: <span class="math display">\[
+\array{
+t \models F \text{ goal}: \Leftrightarrow &amp;
+\\
+&amp; \exists l \in \{0,\dots,n-2\} / t(n-1) = t(l)  \\&amp;\Rightarrow
+\\ &amp; \exists k \in \{0,\dots,n-1\} / t(k) \models \text{goal}
+}
+\]</span> This is a <strong>necessary condition for correctness</strong>:</p>
+<blockquote>
+<p>For every finite path <span class="math inline">\(t\)</span> of the given transition system: <span class="math display">\[
+\models F \text{ goal} \Rightarrow t \models F \text{ goal}\\
+\not\models F \text{ goal} \Rightarrow t \not\models F \text{ goal}\\
+\]</span></p>
+</blockquote>
+<h2 id="bounded-semantics-of-ltl">Bounded Semantics of LTL</h2>
+<p>Bounded Semantics uses almost all operators from LTL. Given a finite path <span class="math inline">\(t\)</span> of length <span class="math inline">\(n\)</span> and LTL formulas <span class="math inline">\(p,q\)</span>:</p>
+<p><img src="Resources/06 - Bounded Model Checking/image-20201108193950241.png" alt="image-20201108193950241" style="zoom:50%;" /></p>
+<p>Here negation is only allowed where it appear before the state property. If it appears in other part we need to allow</p>
+<p>We also have a similar <strong>Necessary Condition for Correctness</strong>:</p>
+<blockquote>
+<p>For every finite path <span class="math inline">\(t\)</span> of the given transition system: <span class="math display">\[
+\models F \text{ goal} \Rightarrow t \models F \text{ goal}\\
+\not\models F \text{ goal} \Rightarrow t \not\models F \text{ goal}\\
+\]</span></p>
+</blockquote>
+<h2 id="testing-transition-systems">Testing Transition Systems</h2>
+<p>Instead of checking correctness for all paths, we are going to check correctness for some finite paths (test cases): <span class="math display">\[
+\text{Test}(\phi,T) :\Leftrightarrow \forall t \in T/ t \models \phi
+\]</span> Where <span class="math inline">\(T\)</span> is the set of test cases.</p>
+<p>If <span class="math inline">\(\models \phi\)</span> that implies <span class="math inline">\(\text{Test}(\phi,T)\)</span></p>
+<h3 id="how-do-i-select-test-cases">How do I select test cases</h3>
+<p>Transition systems can have infinitely many paths of infinite length. There are systematic methods for choosing finite paths for testing:</p>
+<ul>
+<li>black-box testing</li>
+<li>white-box testing</li>
+<li>Coverage criteria</li>
+<li>…</li>
+</ul>
+<p>The problems with testing is that you can easily miss bugs and this is not reliable enough for many safety critical systems. Because of this, we are going to use methods for proving correctness.</p>
+<h3 id="bounded-model-checking-1">Bounded Model Checking</h3>
+<p>This does exhaustive testing, meaning that it will test <em>all finite paths</em> of a given length. <span class="math display">\[
+BMC(\phi,n) \iff \forall \pi \in \{t \in S/ |t| = n\} \pi \models \phi \iff \text{Test}(\phi,\{t/ \text{is a path of length n}\})
+\]</span> Every finite path that is longer that the amount of states contains a cycle/ Also, if there exists a counter-example for <span class="math inline">\(G\text{ ok}\)</span> that is longer than the amount of states, then there also exists a counter-example that is shorter. From these 2 observation we san say that: <span class="math display">\[
+\models G \text{ ok} \iff BMC(G\text{ ok},|S|)
+\]</span> We also have the following theorem:</p>
+<blockquote>
+<p>For all finite transition systems, for all LTL formulas <span class="math inline">\(\phi\)</span></p>
+<p>there is a bound <span class="math inline">\(n\)</span> such that for all <span class="math inline">\(n&#39; \ge n\)</span>, <span class="math inline">\(BNC(\phi,n&#39;) \iff \models \phi\)</span></p>
+</blockquote>
+<p>But his bound may be huge.</p>
+</body>
+</html>

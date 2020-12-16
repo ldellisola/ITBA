@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>03 - Memoria Virtual</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f8f8f8; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ef2929; } /* Alert */
+    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #c4a000; } /* Attribute */
+    code span.bn { color: #0000cf; } /* BaseN */
+    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4e9a06; } /* Char */
+    code span.cn { color: #000000; } /* Constant */
+    code span.co { color: #8f5902; font-style: italic; } /* Comment */
+    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+    code span.dt { color: #204a87; } /* DataType */
+    code span.dv { color: #0000cf; } /* DecVal */
+    code span.er { color: #a40000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #0000cf; } /* Float */
+    code span.fu { color: #000000; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+    code span.ot { color: #8f5902; } /* Other */
+    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+    code span.sc { color: #000000; } /* SpecialChar */
+    code span.ss { color: #4e9a06; } /* SpecialString */
+    code span.st { color: #4e9a06; } /* String */
+    code span.va { color: #000000; } /* Variable */
+    code span.vs { color: #4e9a06; } /* VerbatimString */
+    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<style type='text/css' >
+html {
+    overflow-x: initial !important;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --select-text-bg-color: #B5D6FC;
+    --select-text-font-color: auto;
+    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+}
+
+html {
+    font-size: 14px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 5%;
+    padding: 0px;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 1rem;
+    line-height: 1.42857;
+    overflow-x: hidden;
+    background: inherit;
+    tab-size: 4;
+}
+
+iframe {
+    margin: auto;
+}
+
+a.url {
+    word-break: break-all;
+}
+
+a:active, a:hover {
+    outline: 0px;
+}
+
+.in-text-selection, ::selection {
+    text-shadow: none;
+    background: var(--select-text-bg-color);
+    color: var(--select-text-font-color);
+}
+
+#write {
+    margin: 0px auto;
+    height: auto;
+    width: inherit;
+    word-break: normal;
+    overflow-wrap: break-word;
+    position: relative;
+    white-space: normal;
+    overflow-x: visible;
+    padding-top: 40px;
+}
+
+    #write.first-line-indent p {
+        text-indent: 2em;
+    }
+
+        #write.first-line-indent li p, #write.first-line-indent p * {
+            text-indent: 0px;
+        }
+
+    #write.first-line-indent li {
+        margin-left: 2em;
+    }
+
+.for-image #write {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+body.typora-export {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.typora-export .footnote-line, .typora-export li, .typora-export p {
+    white-space: pre-wrap;
+}
+
+@media screen and (max-width: 500px) {
+    body.typora-export {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #write {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .CodeMirror-sizer {
+        margin-left: 0px !important;
+    }
+
+    .CodeMirror-gutters {
+        display: none !important;
+    }
+}
+
+#write li > figure:last-child {
+    margin-bottom: 0.5rem;
+}
+
+#write ol, #write ul {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+button, input, select, textarea {
+    color: inherit;
+    font: inherit;
+}
+
+    input[type="checkbox"], input[type="radio"] {
+        line-height: normal;
+        padding: 0px;
+    }
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre {
+    width: inherit;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p {
+    position: relative;
+}
+
+p {
+    line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    break-after: avoid-page;
+    break-inside: avoid;
+    orphans: 2;
+}
+
+p {
+    orphans: 4;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+h5 {
+    font-size: 1.2rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.md-blockmeta {
+    color: rgb(204, 204, 204);
+    font-weight: 700;
+    font-style: italic;
+}
+
+a {
+    cursor: pointer;
+}
+
+sup.md-footnote {
+    padding: 2px 4px;
+    background-color: rgba(238, 238, 238, 0.7);
+    color: rgb(85, 85, 85);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    sup.md-footnote a, sup.md-footnote a:hover {
+        color: inherit;
+        text-transform: inherit;
+        text-decoration: inherit;
+    }
+
+#write input[type="checkbox"] {
+    cursor: pointer;
+    width: inherit;
+    height: inherit;
+}
+
+figure {
+    overflow-x: auto;
+    margin: 1.2em 0px;
+    max-width: calc(100% + 16px);
+    padding: 0px;
+}
+
+    figure > table {
+        margin: 0px !important;
+    }
+
+tr {
+    break-inside: avoid;
+    break-after: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+    overflow: auto;
+    break-inside: auto;
+    text-align: left;
+}
+
+    table.md-table td {
+        min-width: 32px;
+    }
+
+.CodeMirror-gutters {
+    border-right: 0px;
+    background-color: inherit;
+}
+
+.CodeMirror-linenumber {
+    user-select: none;
+}
+
+.CodeMirror {
+    text-align: left;
+}
+
+.CodeMirror-placeholder {
+    opacity: 0.3;
+}
+
+.CodeMirror pre {
+    padding: 0px 4px;
+}
+
+.CodeMirror-lines {
+    padding: 0px;
+}
+
+div.hr:focus {
+    cursor: none;
+}
+
+#write pre {
+    white-space: pre-wrap;
+}
+
+#write.fences-no-line-wrapping pre {
+    white-space: pre;
+}
+
+#write pre.ty-contain-cm {
+    white-space: normal;
+}
+
+.CodeMirror-gutters {
+    margin-right: 4px;
+}
+
+.md-fences {
+    font-size: 0.9rem;
+    display: block;
+    break-inside: avoid;
+    text-align: left;
+    overflow: visible;
+    white-space: pre;
+    background: inherit;
+    position: relative !important;
+}
+
+.md-diagram-panel {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    overflow-x: auto;
+}
+
+#write .md-fences.mock-cm {
+    white-space: pre-wrap;
+}
+
+.md-fences.md-fences-with-lineno {
+    padding-left: 0px;
+}
+
+#write.fences-no-line-wrapping .md-fences.mock-cm {
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.md-fences.mock-cm.md-fences-with-lineno {
+    padding-left: 8px;
+}
+
+.CodeMirror-line, twitterwidget {
+    break-inside: avoid;
+}
+
+.footnotes {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+    .footnotes + .footnotes {
+        margin-top: 0px;
+    }
+
+.md-reset {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0px;
+    vertical-align: top;
+    background: 0px 0px;
+    text-decoration: none;
+    text-shadow: none;
+    float: none;
+    position: static;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+    line-height: normal;
+    font-weight: 400;
+    text-align: left;
+    box-sizing: content-box;
+    direction: ltr;
+}
+
+li div {
+    padding-top: 0px;
+}
+
+blockquote {
+    margin: 1rem 0px;
+}
+
+li .mathjax-block, li p {
+    margin: 0.5rem 0px;
+}
+
+li {
+    margin: 0px;
+    position: relative;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0px;
+}
+
+blockquote > :first-child, li > :first-child {
+    margin-top: 0px;
+}
+
+.footnotes-area {
+    color: rgb(136, 136, 136);
+    margin-top: 0.714rem;
+    padding-bottom: 0.143rem;
+    white-space: normal;
+}
+
+#write .footnote-line {
+    white-space: pre-wrap;
+}
+
+@media print {
+    body, html {
+        border: 1px solid transparent;
+        height: 99%;
+        break-after: avoid;
+        break-before: avoid;
+    }
+
+    #write {
+        margin-top: 0px;
+        padding-top: 0px;
+        border-color: transparent !important;
+    }
+
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+
+    html.blink-to-pdf {
+        font-size: 13px;
+    }
+
+    .typora-export #write {
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 0px;
+        break-after: avoid;
+    }
+
+        .typora-export #write::after {
+            height: 0px;
+        }
+}
+
+.footnote-line {
+    margin-top: 0.714em;
+    font-size: 0.7em;
+}
+
+a img, img a {
+    cursor: pointer;
+}
+
+pre.md-meta-block {
+    font-size: 0.8rem;
+    min-height: 0.8rem;
+    white-space: pre-wrap;
+    background: rgb(204, 204, 204);
+    display: block;
+    overflow-x: hidden;
+}
+
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child {
+    display: block;
+    margin: auto;
+}
+
+p > .md-image:only-child {
+    display: inline-block;
+    width: 100%;
+}
+
+#write .MathJax_Display {
+    margin: 0.8em 0px 0px;
+}
+
+.md-math-block {
+    width: 100%;
+}
+
+    .md-math-block:not(:empty)::after {
+        display: none;
+    }
+
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
+    outline: 0px;
+    box-shadow: none;
+}
+
+.md-task-list-item {
+    position: relative;
+    list-style-type: none;
+}
+
+.task-list-item.md-task-list-item {
+    padding-left: 0px;
+}
+
+.md-task-list-item > input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-left: -1.2em;
+    margin-top: calc(1em - 10px);
+    border: none;
+}
+
+.math {
+    font-size: 1rem;
+}
+
+.md-toc {
+    min-height: 3.58rem;
+    position: relative;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.md-toc-content {
+    position: relative;
+    margin-left: 0px;
+}
+
+    .md-toc-content::after, .md-toc::after {
+        display: none;
+    }
+
+.md-toc-item {
+    display: block;
+    color: rgb(65, 131, 196);
+}
+
+    .md-toc-item a {
+        text-decoration: none;
+    }
+
+.md-toc-inner:hover {
+    text-decoration: underline;
+}
+
+.md-toc-inner {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.md-toc-h1 .md-toc-inner {
+    margin-left: 0px;
+    font-weight: 700;
+}
+
+.md-toc-h2 .md-toc-inner {
+    margin-left: 2em;
+}
+
+.md-toc-h3 .md-toc-inner {
+    margin-left: 4em;
+}
+
+.md-toc-h4 .md-toc-inner {
+    margin-left: 6em;
+}
+
+.md-toc-h5 .md-toc-inner {
+    margin-left: 8em;
+}
+
+.md-toc-h6 .md-toc-inner {
+    margin-left: 10em;
+}
+
+@media screen and (max-width: 48em) {
+    .md-toc-h3 .md-toc-inner {
+        margin-left: 3.5em;
+    }
+
+    .md-toc-h4 .md-toc-inner {
+        margin-left: 5em;
+    }
+
+    .md-toc-h5 .md-toc-inner {
+        margin-left: 6.5em;
+    }
+
+    .md-toc-h6 .md-toc-inner {
+        margin-left: 8em;
+    }
+}
+
+a.md-toc-inner {
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.footnote-line a:not(.reversefootnote) {
+    color: inherit;
+}
+
+.md-attr {
+    display: none;
+}
+
+.md-fn-count::after {
+    content: ".";
+}
+
+code, pre, samp, tt {
+    font-family: var(--monospace);
+}
+
+kbd {
+    margin: 0px 0.1em;
+    padding: 0.1em 0.6em;
+    font-size: 0.8em;
+    color: rgb(36, 39, 41);
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(173, 179, 185);
+    border-radius: 3px;
+    box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.md-comment {
+    color: rgb(162, 127, 3);
+    opacity: 0.8;
+    font-family: var(--monospace);
+}
+
+code {
+    text-align: left;
+    vertical-align: initial;
+}
+
+a.md-print-anchor {
+    white-space: pre !important;
+    border-width: initial !important;
+    border-style: none !important;
+    border-color: initial !important;
+    display: inline-block !important;
+    position: absolute !important;
+    width: 1px !important;
+    right: 0px !important;
+    outline: 0px !important;
+    background: 0px 0px !important;
+    text-decoration: initial !important;
+    text-shadow: initial !important;
+}
+
+.md-inline-math .MathJax_SVG .noError {
+    display: none !important;
+}
+
+.html-for-mac .inline-math-svg .MathJax_SVG {
+    vertical-align: 0.2px;
+}
+
+.md-math-block .MathJax_SVG_Display {
+    text-align: center;
+    margin: 0px;
+    position: relative;
+    text-indent: 0px;
+    max-width: none;
+    max-height: none;
+    min-height: 0px;
+    min-width: 100%;
+    width: auto;
+    overflow-y: hidden;
+    display: block !important;
+}
+
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display {
+    width: auto;
+    margin: inherit;
+    display: inline-block !important;
+}
+
+.MathJax_SVG .MJX-monospace {
+    font-family: var(--monospace);
+}
+
+.MathJax_SVG .MJX-sans-serif {
+    font-family: sans-serif;
+}
+
+.MathJax_SVG {
+    display: inline;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    zoom: 90%;
+    text-indent: 0px;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    max-width: none;
+    max-height: none;
+    min-width: 0px;
+    min-height: 0px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .MathJax_SVG * {
+        transition: none 0s ease 0s;
+    }
+
+.MathJax_SVG_Display svg {
+    vertical-align: middle !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+.os-windows.monocolor-emoji .md-emoji {
+    font-family: "Segoe UI Symbol", sans-serif;
+}
+
+.md-diagram-panel > svg {
+    max-width: 100%;
+}
+
+[lang="flow"] svg, [lang="mermaid"] svg {
+    max-width: 100%;
+    height: auto;
+}
+
+[lang="mermaid"] .node text {
+    font-size: 1rem;
+}
+
+table tr th {
+    border-bottom: 0px;
+}
+
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0px auto;
+}
+
+iframe {
+    max-width: 100%;
+    width: 100%;
+    border: none;
+}
+
+.highlight td, .highlight tr {
+    border: 0px;
+}
+
+svg[id^="mermaidChart"] {
+    line-height: 1em;
+}
+
+mark {
+    background: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+        color: inherit;
+    }
+
+    mark .md-meta {
+        color: rgb(0, 0, 0);
+        opacity: 0.3 !important;
+    }
+
+
+.CodeMirror {
+    height: auto;
+}
+
+    .CodeMirror.cm-s-inner {
+        background: inherit;
+    }
+
+.CodeMirror-scroll {
+    overflow: auto hidden;
+    z-index: 3;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler {
+    background-color: rgb(255, 255, 255);
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid rgb(221, 221, 221);
+    background: inherit;
+    white-space: nowrap;
+}
+
+.CodeMirror-linenumber {
+    padding: 0px 3px 0px 5px;
+    text-align: right;
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-keyword {
+    color: rgb(119, 0, 136);
+}
+
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom {
+    color: rgb(34, 17, 153);
+}
+
+.cm-s-inner .cm-number {
+    color: rgb(17, 102, 68);
+}
+
+.cm-s-inner .cm-def {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-variable {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: rgb(0, 85, 170);
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: rgb(0, 136, 85);
+}
+
+.cm-s-inner .cm-string {
+    color: rgb(170, 17, 17);
+}
+
+.cm-s-inner .cm-property {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-operator {
+    color: rgb(152, 26, 26);
+}
+
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment {
+    color: rgb(170, 85, 0);
+}
+
+.cm-s-inner .cm-string-2 {
+    color: rgb(255, 85, 0);
+}
+
+.cm-s-inner .cm-meta {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-qualifier {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-builtin {
+    color: rgb(51, 0, 170);
+}
+
+.cm-s-inner .cm-bracket {
+    color: rgb(153, 153, 119);
+}
+
+.cm-s-inner .cm-tag {
+    color: rgb(17, 119, 0);
+}
+
+.cm-s-inner .cm-attribute {
+    color: rgb(0, 0, 204);
+}
+
+.cm-s-inner .cm-header, .cm-s-inner.cm-header {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote {
+    color: rgb(0, 153, 0);
+}
+
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr {
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-link, .cm-s-inner.cm-link {
+    color: rgb(0, 0, 204);
+}
+
+.cm-negative {
+    color: rgb(221, 68, 68);
+}
+
+.cm-positive {
+    color: rgb(34, 153, 34);
+}
+
+.cm-header, .cm-strong {
+    font-weight: 700;
+}
+
+.cm-del {
+    text-decoration: line-through;
+}
+
+.cm-em {
+    font-style: italic;
+}
+
+.cm-link {
+    text-decoration: underline;
+}
+
+.cm-error {
+    color: red;
+}
+
+.cm-invalidchar {
+    color: red;
+}
+
+.cm-constant {
+    color: rgb(38, 139, 210);
+}
+
+.cm-defined {
+    color: rgb(181, 137, 0);
+}
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: rgb(0, 255, 0);
+}
+
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+    color: rgb(255, 34, 34);
+}
+
+.cm-s-inner .CodeMirror-activeline-background {
+    background: inherit;
+}
+
+.CodeMirror {
+    position: relative;
+    overflow: hidden;
+}
+
+.CodeMirror-scroll {
+    height: 100%;
+    outline: 0px;
+    position: relative;
+    box-sizing: content-box;
+    background: inherit;
+}
+
+.CodeMirror-sizer {
+    position: relative;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar {
+    position: absolute;
+    z-index: 6;
+    display: none;
+}
+
+.CodeMirror-vscrollbar {
+    right: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-hscrollbar {
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-scrollbar-filler {
+    right: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutter-filler {
+    left: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding-bottom: 30px;
+    z-index: 3;
+}
+
+.CodeMirror-gutter {
+    white-space: normal;
+    height: 100%;
+    box-sizing: content-box;
+    padding-bottom: 30px;
+    margin-bottom: -32px;
+    display: inline-block;
+}
+
+.CodeMirror-gutter-wrapper {
+    position: absolute;
+    z-index: 4;
+    background: 0px 0px !important;
+    border: none !important;
+}
+
+.CodeMirror-gutter-background {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 4;
+}
+
+.CodeMirror-gutter-elt {
+    position: absolute;
+    cursor: default;
+    z-index: 4;
+}
+
+.CodeMirror-lines {
+    cursor: text;
+}
+
+.CodeMirror pre {
+    border-radius: 0px;
+    border-width: 0px;
+    background: 0px 0px;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0px;
+    white-space: pre;
+    overflow-wrap: normal;
+    color: inherit;
+    z-index: 2;
+    position: relative;
+    overflow: visible;
+}
+
+.CodeMirror-wrap pre {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: normal;
+}
+
+.CodeMirror-code pre {
+    border-right: 30px solid transparent;
+    width: fit-content;
+}
+
+.CodeMirror-wrap .CodeMirror-code pre {
+    border-right: none;
+    width: auto;
+}
+
+.CodeMirror-linebackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 0;
+}
+
+.CodeMirror-linewidget {
+    position: relative;
+    z-index: 2;
+    overflow: auto;
+}
+
+.CodeMirror-wrap .CodeMirror-scroll {
+    overflow-x: hidden;
+}
+
+.CodeMirror-measure {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+    .CodeMirror-measure pre {
+        position: static;
+    }
+
+.CodeMirror div.CodeMirror-cursor {
+    position: absolute;
+    visibility: hidden;
+    border-right: none;
+    width: 0px;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+}
+
+.CodeMirror-focused div.CodeMirror-cursor {
+    visibility: inherit;
+}
+
+.cm-searching {
+    background: rgba(255, 255, 0, 0.4);
+}
+
+@media print {
+    .CodeMirror div.CodeMirror-cursor {
+        visibility: hidden;
+    }
+}
+
+
+:root {
+    --side-bar-bg-color: white;
+    --window-border: none;
+    --search-select-bg-color: #575c61;
+    --active-file-bg-color: #f1f4f5;
+    --item-hover-bg-color: #f1f4f5;
+    --item-hover-text-color: black;
+    --control-text-color: #555;
+}
+
+@include-when-export url(https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css);
+
+html {
+    font-size: 12pt;
+}
+
+#write {
+    font-family: "STIX2Text", "Times New Roman", "serif";
+    line-height: 1.5em;
+    padding: 10%;
+    padding-top: 5%;
+}
+
+.file-list-item-summary {
+    height: 36px;
+}
+
+.file-list-item {
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+}
+
+#sidebar-loading-template.file-list-item {
+    padding-top: 0 !important;
+}
+
+a, a:visited {
+    color: #a00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+#write h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+pre, code {
+    font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+    background-color: #ebebeb;
+}
+
+.footnotes {
+    display: list-item;
+    margin-left: 1em;
+}
+
+.md-fences {
+    border: 1px solid;
+}
+
+    .md-fences.md-fences-with-lineno {
+        border: none;
+    }
+
+.CodeMirror-linenumber {
+    color: #333;
+}
+
+*.in-text-selection,
+::selection,
+.CodeMirror-selected {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color) !important;
+    text-shadow: none;
+}
+
+a.md-toc-inner {
+    color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-link {
+    color: #a00;
+    text-decoration: underline;
+}
+
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property {
+    color: black;
+}
+
+#typora-source .CodeMirror-lines {
+    -webkit-font-smoothing: auto;
+    max-width: 1000px;
+}
+
+.md-def-name:before,
+.md-def-name:after {
+    color: #2d2d2d;
+}
+
+sup.md-footnote {
+    background-color: initial;
+    color: inherit;
+}
+
+mark {
+    background: #fff387;
+}
+
+td, th {
+    border: 1px solid;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+/*table tr[cid]:first-child > td {
+    border-top: 3px double;
+}*/
+
+th {
+    border-bottom: 0;
+    padding-top: 2px;
+    background: #575c61;
+    border-color: #333;
+    color: #f3f3f3;
+}
+
+pre.md-meta-block {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+.task-list-item input:before {
+    content: '\221A';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before {
+    color: inherit;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.1em;
+    font-size: 1.3em;
+    margin-top: 0px;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item input:before {
+    content: '\2610';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.md-task-list-item input:checked:before,
+.md-task-list-item input[checked]:before {
+    color: inherit;
+    content: '\2611';
+}
+
+.task-list-item {
+    padding-left: 1.5em;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0.25em 24px;
+    position: relative;
+    color: #383838;
+    border-left: 2px solid;
+}
+
+#write > blockquote {
+    padding: 0.25em 30px;
+    margin-left: -32px;
+    width: calc(100% + 32px);
+}
+
+#write > .md-fences-with-lineno {
+    margin-left: -33px;
+    color: black;
+}
+
+.CodeMirror-linenumber {
+    min-width: 25px;
+}
+
+.md-header {
+    font-size: inherit !important;
+}
+
+/*blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}*/
+
+
+
+</style >
+</head>
+<body>
+<h1 id="memoria-virtual">Memoria Virtual</h1>
+<h2 id="section">1</h2>
+<p>¿En qué medida influye cada uno de estos factores en la tasa de fallos de página de un sistema?</p>
+<ol type="1">
+<li><p>El tamaño de página.</p>
+<p>Si el tamaño de pagina es muy chico, esto significa que cuando el proceso necesite una seccion de memoria en especial, no va a estar en las paginas ya cargadas, entonces tiene que ir a buscarla al almacenamiento mediante un fallo de pagina.</p></li>
+<li><p>El tamaño de la TLB.</p>
+<p>La TLB es la tabla que contiene las paginas cargadas actualmente en memoria. Si esta tabla es mas grande, siempre que la memoria ram lo permita, va a poder mantener mas paginas en memoria y evitar fallos de paginas.</p></li>
+<li><p>El tamaño de la memoria principal.</p>
+<p>Junto a la TLB, el tamaño de la memoria principal ocupa un papel crucial, ya que si no tiene memoria suficiente la computadora, va a tener que guardar paginas en almacenamiento temporáneamente (swapping) y traer nuevas paginas mediante un fallo de pagina.</p></li>
+<li><p>La velocidad del procesador.</p>
+<p>No afecta a la tasa de fallos de pagina.</p></li>
+</ol>
+<h2 id="section-1">2</h2>
+<p>Supongamos que tenemos una máquina con <u>16 MB de memoria principal</u> y un esquema de gestión de memoria virtual paginado con <u>páginas de 4 KB</u>. Un proceso produce la siguiente secuencia de accesos a direcciones de memoria (mostradas aquí en hexadecimal):</p>
+<pre><code>02D4B8, 02D4B9, 02D4EB, 02D4EB, 02D86F, F0B621, F0B815, F0D963, F0B832, F0BA23, D9D6C3, D9B1A7, D9B1A1, F0BA25, 02D4C7, 628A31, F0B328, D9B325, D73425</code></pre>
+<p>El sistema operativo asigna al proceso 4 marcos de memoria principal. Se pide:</p>
+<ol type="1">
+<li><p>Dar la cadena de referencia de las páginas accedidas por el proceso.</p>
+<p>Voy a definir a las siguientes paginas:</p>
+<pre><code>Pagina 1: 0x02D000 -&gt; 0x02DFFF
+Pagina 2: 0xF0B000 -&gt; 0xF0BFFF
+Pagina 3: 0xF0D000 -&gt; 0xF0DFFF
+Pagina 4: 0xD9D000 -&gt; 0xD9DFFF
+Pagina 5: 0xD9B000 -&gt; 0xD9BFFF
+Pagina 6: 0x628000 -&gt; 0x628FFF
+Pagina 7: 0xD73000 -&gt; 0xD73FFF</code></pre></li>
+<li><p>Si el sistema operativo utiliza 4 marcos de memoria principal, describir el comportamiento del gestor de memoria utilizando cada uno de los siguientes algoritmos de reemplazo de páginas, indicando cuántos fallos de página se producen con cada algoritmo:</p></li>
+<li><p>Algoritmo FIFO.</p>
+<p>Ahora, sabiendo que mi proceso tiene asignado 4 marcos, voy a ir paso por paso indicando cuando hay una falla de memoria:</p>
+<pre><code>Marcos Actuales: [][][][]</code></pre>
+<ol type="1">
+<li><p>Se pide la dirección <code>0x02D4B8</code>: Como todos los marcos estan vacios, se genera un fallo de pagina y se carga la pagina 1</p>
+<pre><code>Marcos Actuales: [Pag1][][][]</code></pre></li>
+<li><p>Se pide la dirección <code>0x02D4B9</code>: Esta vez, la pagina esta cargada, entonces no se genera un fallo de pagina:</p>
+<pre><code>Marcos Actuales: [Pag1][][][]</code></pre></li>
+<li><p>Se pide la dirección <code>0x02D4EB</code>: Misma situacion que la anterior</p>
+<pre><code>Marcos Actuales: [Pag1][][][]</code></pre></li>
+<li><p>Se pide la dirección <code>0x02D4EB</code>: Misma situacion que la anterior</p>
+<pre><code>Marcos Actuales: [Pag1][][][]</code></pre></li>
+<li><p>Se pide la dirección <code>0x02D86F</code>: Misma situacion que la anterior</p>
+<pre><code>Marcos Actuales: [Pag1][][][]</code></pre></li>
+<li><p>Se pide la dirección <code>0xF0B621</code>: Se genera un fallo de pagina por que no esta esta posicion de memoria en ninguna pagina activa</p>
+<pre><code>Marcos Actuales: [Pag1][Pag2][][]</code></pre></li>
+<li><p>Se pide la dirección <code>0xF0B815</code>: Ya se encuentra la posicion en una pagina activa</p>
+<pre><code>Marcos Actuales: [Pag1][Pag2][][]</code></pre></li>
+<li><p>Se pide la dirección <code>0xF0D963</code>: Se genera un fallo de pagina por que no esta esta posicion de memoria en ninguna pagina activa</p>
+<pre><code>Marcos Actuales: [Pag1][Pag2][Pag3][]</code></pre></li>
+<li><p>Se pide la dirección <code>0xF0B832</code>: Ya se encuentra</p>
+<pre><code>Marcos Actuales: [Pag1][Pag2][Pag3][]</code></pre></li>
+<li><p>Se pide la dirección <code>0xF0BA23</code>: Ya se encuentra</p>
+<pre><code>Marcos Actuales: [Pag1][Pag2][Pag3][]</code></pre></li>
+<li><p>Se pide la dirección <code>0xD9D6C3</code>: Fallo de pagina</p>
+<pre><code>Marcos Actuales: [Pag1][Pag2][Pag3][Pag4]</code></pre></li>
+<li><p>Se pide la dirección <code>0xD9B1A7</code>: Se genera fallo de pagina, pero como estan todos los marcos ocupados, descarto al primero.</p>
+<pre><code>Marcos Actuales: [Pag5][Pag2][Pag3][Pag4]</code></pre></li>
+<li><p>Se pide la dirección <code>0xD9B1A1</code>: Ya se encuentra</p>
+<pre><code>Marcos Actuales: [Pag5][Pag2][Pag3][Pag4]</code></pre></li>
+<li><p>Se pide la dirección <code>0xF0BA25</code>: Ya se encuentra</p>
+<pre><code>Marcos Actuales: [Pag5][Pag2][Pag3][Pag4]</code></pre></li>
+<li><p>Se pide la dirección <code>0x02D4C7</code>: fallo de pagina, reemplazo a la pagina 2 con esta por ser la mas vieja.</p>
+<pre><code>Marcos Actuales: [Pag5][Pag1][Pag3][Pag4]</code></pre></li>
+<li><p>Se pide la dirección <code>0x628A31</code>: Fallo de pagina, reemplazo pag3 con pag6</p>
+<pre><code>Marcos Actuales: [Pag5][Pag2][Pag6][Pag4]</code></pre></li>
+<li><p>Se pide la dirección <code>0xF0B328</code>: Ya se encuentra</p>
+<pre><code>Marcos Actuales: [Pag5][Pag2][Pag6][Pag4]</code></pre></li>
+<li><p>Se pide la dirección <code>0xD9B325</code>: Ya esta</p>
+<pre><code>Marcos Actuales: [Pag5][Pag2][Pag6][Pag4]</code></pre></li>
+<li><p>Se pide la dirección <code>0xD73425</code>: Fallo de pagina, reemplazo pag4 con pag7</p>
+<pre><code>Marcos Actuales: [Pag5][Pag2][Pag6][Pag7]</code></pre></li>
+</ol></li>
+<li><p>Algoritmo de la segunda oportunidad.</p>
+<p><img src="Resources/03%20-%20Memoria%20Virtual/image-20200612174544669.png" /></p>
+<p>El algoritmo funciona de la siguiente manera:</p>
+<p>Si la pagina no esta en memoria ya, la tengo que traer. Si hay marcos disponibles, cargo la pagina en ese marco y le pongo el bit de referencia del marco en 1.</p>
+<p>Si no hay marcos disponibles, entonces tengo que moverme desde mi puntero, viendo los bit de referencia de cada marco. Si el bit de referencia esta en 1 significa que no puedo sacar a la pagina y solo le decremento el bit de referencia. Si el bit de referencia esta en 0, entonces puedo reemplazar esa pagina por la que quiero traer. Luego de traer la pagina nueva, le asigno 1 en su bit de referencia y cambio el puntero al proximo marco.</p>
+<p>Si la pagina ya existe, entonces cambio su bit de referencia a 1.</p></li>
+</ol>
+<h2 id="section-2">3</h2>
+<p>Un sistema con un solo procesador y con memoria virtual con paginación bajo demanda posee un <u>espacio direccionable máximo de 4 GB</u> y utiliza <u>páginas de 128 bytes</u>. Actualmente el sistema dispone de <u>128 MB de memoria principal.</u></p>
+<p>El <u>tiempo de acceso a memoria es de 150 nanosegundos</u>, <u>la tasa de fallos de página es del 5%</u> y <u>el tiempo medio de servicio de fallo de página es de 6 milisegundos</u>.</p>
+<p>La política de reemplazo es local, utiliza la <u>LRU</u> y permite un tamaño máximo de área de trabajo por proceso de <u>tres marcos de página</u>.</p>
+<p>La búsqueda de marcos libres se realiza mediante una búsqueda lineal empezando por el marco cero.</p>
+<p>El núcleo del sistema operativo tiene un tamaño de <u>134 216 448 bytes y está ubicado de forma contigua a partir del primer marco de página de la memoria.</u></p>
+<p>En el sistema aquí descrito se ha ejecutado un único proceso que tiene un tamaño de 5300 bytes y ha generado las siguientes direcciones de memoria principal:</p>
+<pre><code>898, 100, 150, 260, 127, 400, 110, 515, 180, 420, 120, 425, 256, 175, 270.</code></pre>
+<p>A partir de estos datos, responda a las siguientes cuestiones:</p>
+<ol type="1">
+<li><p>¿Cuál es la estructura de una dirección virtual en este sistema?</p>
+<p>Como el sistema tiene un maximo direccionable de 4GB, entonces puedo decir que su memoria virtual es de 32 bits. Luego indica que las tablas son de 128 bytes, lo que implica que tiene 25 bits de numero de pagina y 7 bits de desplazamiento.</p></li>
+<li><p>¿Cuál es el número máximo de entradas que tendrá la tabla de páginas de un proceso?</p>
+<p>Como el numero de pagina ocupa 25 bits, el maximo de entradas que puede tener la tabla es <code>2^25</code></p></li>
+<li><p>¿Cuántas entradas tiene la tabla de marcos de página?</p>
+<p>Como la memoria actual es de 128 MB, eso implica que la direccion real es de 27 bits. Gracias a esto podemos decir que maximo de pagias asignadas a un proceso es de <code>2^20</code> paginas.</p></li>
+<li><p>¿Qué páginas del proceso estarán en memoria principal en cada momento de su ejecución?</p>
+<figure>
+<img src="Resources/03%20-%20Memoria%20Virtual/image-20200612183434257.png" alt="image-20200612183434257" /><figcaption aria-hidden="true">image-20200612183434257</figcaption>
+</figure>
+<p>El algoritmo funciona de la siguiente forma:</p>
+<p>Si tengo que traer una pagina y tengo lugar, la traigo y pongo su bit de referencia en 1.</p>
+<p>Si no tengo lugar, entonces busco de izquierda a derecha y reemplazo la primer pagina que encuentre que tenga un 0 en su bit de referencia. Al resto de los bits de referencia los cambio a 0.</p>
+<p>Si no hay fallo, entonces pongo en 1 el bit de referencia.</p></li>
+<li><p>¿En qué estado se encuentra la tabla de páginas del proceso después del último acceso a memoria?</p>
+<p>Como en la ultima linea de la tabla anterior.</p></li>
+</ol>
+<h2 id="section-3">4</h2>
+<p>Responde a las siguientes cuestiones de forma breve y justificando adecuadamente tus argumentos.</p>
+<ul>
+<li><p>¿Por qué el tamaño de página debe ser siempre una potencia de 2?</p>
+<p>Por que el calculo de las direcciones seria mucho mas complejo sin potencias de dos.</p></li>
+<li><p>En un sistema multiprogramado, cuando ocurre un cambio de contexto lo normal es limpiar el contenido actual de la TLB. ¿Cuál puede ser el motivo?</p>
+<p>Por que tengo una tabla de pagina por cada proceso. Si cambio de contexto la traducción de memoria y pagina no seria correcto con la tabla de otro proceso.</p></li>
+</ul>
+<h2 id="section-4">5</h2>
+<ul>
+<li><p>¿Es técnicamente posible que un procesador maneje un espacio de direcciones lógicas de 64 bits y direcciones físicas de 32 bits?</p>
+<p>Si, es posible</p></li>
+<li><p>¿Esto es posible con segmentación, paginación o con ambas técnicas?</p>
+<p>Con ambas técnicas</p></li>
+<li><p>¿Qué utilidad podría tener esta diferencia de tamaño entre el espacio lógico y el físico?</p>
+<p>Correr aplicaciones desarrolladas para procesadores de 32 bits en un procesador de 64 bits. ??? ==TAMI==</p></li>
+</ul>
+<h2 id="section-5">6</h2>
+<p>Un sistema realiza una gestión de memoria virtual mediante paginación por demanda. <u>El tamaño de página es 512 bytes</u>, <u>el espacio lógico de direcciones 8KB</u> y el <u>espacio físico de direcciones 4KB</u>. Suponga que en el sistema se encuentra en memoria un solo proceso y que el contenido de los marcos de página es el siguiente:</p>
+<p><img src="Resources/03 - Memoria Virtual/clip_image002.png" alt="img" style="zoom: 50%;" /></p>
+<p>Asumiendo una política de reemplazo local de páginas mediante el algoritmo óptimo, y dada la siguiente secuencia de direcciones lógicas de acceso a memoria 0x0458, 0x066D, 0x0801, 0x026E, 0x0AD8:</p>
+<ol type="1">
+<li><p>Represente el estado final de la memoria física y de la tabla de páginas del proceso tras la secuencia de accesos a memoria.</p>
+<figure>
+<img src="Resources/03%20-%20Memoria%20Virtual/image-20200612191518392.png" alt="image-20200612191518392" /><figcaption aria-hidden="true">image-20200612191518392</figcaption>
+</figure>
+<p>El algoritmo optimo asume que conoces todo el estado del proceso y todos los accesos a memoria que va a hacer el proceso en su ejecución. Con esta información, a ojo, podes ver que pagina te conviene cambiar en caso de fallo de pagina y que todos los marcos estén ocupados, para que haya la menor cantidad de fallos de paginas posibles.</p></li>
+<li><p>Se tiene un sistema de memoria virtual con paginación a dos niveles que permite agrupar las páginas en “directorios de páginas”. Cada directorio de páginas puede contener hasta 256 páginas. Los espacios de direcciones lógicas de este sistema son de 4Gbytes y el tamaño de página es de 4Kbytes. El espacio de direcciones físicas es de 1Gb. Describa la estructura de las direcciones lógicas y de las direcciones físicas de este sistema de memoria virtual.</p>
+<p>==Tami??== arqui??</p></li>
+</ol>
+<h2 id="section-6">8</h2>
+<p>Sea un computador con las siguientes características:</p>
+<ul>
+<li>Ancho de palabra de 32 bits</li>
+<li>Direcciones de 32 bits</li>
+<li>Memoria física de 64 MB</li>
+<li>Memoria virtual:
+<ul>
+<li>Tamaño de página: 2 KB</li>
+<li>Política de reemplazo: FIFO</li>
+</ul></li>
+</ul>
+<p>En un determinado momento, se está ejecutando en este computador un proceso que tiene asignados exclusivamente 8 marcos de página. El fragmento de código correspondiente al periodo que se considera es:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>s = <span class="dv">0</span>; m = <span class="dv">0</span>; r = <span class="dv">0</span>; </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">2047</span>; i++)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>   s = s + a[i];</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">2047</span>; i++)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>   m = m + a[i] * b[i];</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">2047</span>; i++) </span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>   r = r + a[i] + c[i];</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>La variable de control del bucle <code>i</code> y las variables <code>s</code>, <code>m</code> y <code>r</code> están asignadas a registros del procesador.</p>
+<p>Todas las variables que aparecen son enteros de 32 bits.</p>
+<p>Las estructuras <code>a[i]</code>, <code>b[i]</code> y <code>c[i]</code> están asignadas por el procesador a direcciones consecutivas, en ese orden, a partir de la dirección <code>H’0000</code>.</p>
+<p>Considerando sólo los accesos a direcciones de datos, se pide:</p>
+<ol type="1">
+<li><p>Escriba la traza del programa, indicando la secuencia de páginas a las que se accede.</p>
+<p>Teniendo en cuenta que cada arreglo ocupa 2048 elementos por 4 bytes (asumo) , es decir 8KB (4 paginas). Podemos decir que el proceso ocupa 24KB (12 paginas). Trace:</p>
+<pre><code>Antes del primer for:
+Marcos = [][][][][][][][]
+En el primer for:
+Marcos = [a][a][a][a][][][][]
+En el segundo for:
+Marcos = [a][a][a][a][b][b][b][b]
+En el tercer for:
+Marcos = [c][a&#39;][c][a&#39;][c][a&#39;][c][a&#39;]</code></pre>
+<p>En el ultimo estado tengo a <code>a'</code> por que al utilizar el algoritmo fifo, tengo que sacar primero las paginas de <code>a</code> ya que son las mas viejas y recargarlas inmediatamente por que las necesitan.</p></li>
+<li><p>Indique los fallos de página que se producen durante la ejecución.</p>
+<p>Suceden 16 fallos de pagina:</p>
+<ul>
+<li>Suceden 4 fallos en el primer ciclo for, donde se cargan todas las paginas de <code>a</code>.</li>
+<li>Suceden 4 fallos en el segundo ciclo for, donde se cargan todas las paginas de <code>b</code>.</li>
+<li>Suceden 8 fallos en el tercer ciclo for, donde se cargan las 4 paginas de <code>c</code> y se recargan las 4 paginas de <code>a</code></li>
+</ul></li>
+<li><p>Repita el apartado b) suponiendo que la política de reemplazo es LRU.</p>
+<p>Suceden 12 fallos de pagina:</p>
+<ul>
+<li>Suceden 4 fallos en el primer ciclo for, donde se cargan todas las paginas de <code>a</code>.</li>
+<li>Suceden 4 fallos en el segundo ciclo for, donde se cargan todas las paginas de <code>b</code>.</li>
+<li>Suceden 4 fallos en el tercer ciclo for, donde se cargan las 4 paginas de <code>c</code>.</li>
+</ul></li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>08 - Architecture and Design</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<style type='text/css' >
+html {
+    overflow-x: initial !important;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --select-text-bg-color: #B5D6FC;
+    --select-text-font-color: auto;
+    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+}
+
+html {
+    font-size: 14px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 5%;
+    padding: 0px;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 1rem;
+    line-height: 1.42857;
+    overflow-x: hidden;
+    background: inherit;
+    tab-size: 4;
+}
+
+iframe {
+    margin: auto;
+}
+
+a.url {
+    word-break: break-all;
+}
+
+a:active, a:hover {
+    outline: 0px;
+}
+
+.in-text-selection, ::selection {
+    text-shadow: none;
+    background: var(--select-text-bg-color);
+    color: var(--select-text-font-color);
+}
+
+#write {
+    margin: 0px auto;
+    height: auto;
+    width: inherit;
+    word-break: normal;
+    overflow-wrap: break-word;
+    position: relative;
+    white-space: normal;
+    overflow-x: visible;
+    padding-top: 40px;
+}
+
+    #write.first-line-indent p {
+        text-indent: 2em;
+    }
+
+        #write.first-line-indent li p, #write.first-line-indent p * {
+            text-indent: 0px;
+        }
+
+    #write.first-line-indent li {
+        margin-left: 2em;
+    }
+
+.for-image #write {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+body.typora-export {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.typora-export .footnote-line, .typora-export li, .typora-export p {
+    white-space: pre-wrap;
+}
+
+@media screen and (max-width: 500px) {
+    body.typora-export {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #write {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .CodeMirror-sizer {
+        margin-left: 0px !important;
+    }
+
+    .CodeMirror-gutters {
+        display: none !important;
+    }
+}
+
+#write li > figure:last-child {
+    margin-bottom: 0.5rem;
+}
+
+#write ol, #write ul {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+button, input, select, textarea {
+    color: inherit;
+    font: inherit;
+}
+
+    input[type="checkbox"], input[type="radio"] {
+        line-height: normal;
+        padding: 0px;
+    }
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre {
+    width: inherit;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p {
+    position: relative;
+}
+
+p {
+    line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    break-after: avoid-page;
+    break-inside: avoid;
+    orphans: 2;
+}
+
+p {
+    orphans: 4;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+h5 {
+    font-size: 1.2rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.md-blockmeta {
+    color: rgb(204, 204, 204);
+    font-weight: 700;
+    font-style: italic;
+}
+
+a {
+    cursor: pointer;
+}
+
+sup.md-footnote {
+    padding: 2px 4px;
+    background-color: rgba(238, 238, 238, 0.7);
+    color: rgb(85, 85, 85);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    sup.md-footnote a, sup.md-footnote a:hover {
+        color: inherit;
+        text-transform: inherit;
+        text-decoration: inherit;
+    }
+
+#write input[type="checkbox"] {
+    cursor: pointer;
+    width: inherit;
+    height: inherit;
+}
+
+figure {
+    overflow-x: auto;
+    margin: 1.2em 0px;
+    max-width: calc(100% + 16px);
+    padding: 0px;
+}
+
+    figure > table {
+        margin: 0px !important;
+    }
+
+tr {
+    break-inside: avoid;
+    break-after: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+    overflow: auto;
+    break-inside: auto;
+    text-align: left;
+}
+
+    table.md-table td {
+        min-width: 32px;
+    }
+
+.CodeMirror-gutters {
+    border-right: 0px;
+    background-color: inherit;
+}
+
+.CodeMirror-linenumber {
+    user-select: none;
+}
+
+.CodeMirror {
+    text-align: left;
+}
+
+.CodeMirror-placeholder {
+    opacity: 0.3;
+}
+
+.CodeMirror pre {
+    padding: 0px 4px;
+}
+
+.CodeMirror-lines {
+    padding: 0px;
+}
+
+div.hr:focus {
+    cursor: none;
+}
+
+#write pre {
+    white-space: pre-wrap;
+}
+
+#write.fences-no-line-wrapping pre {
+    white-space: pre;
+}
+
+#write pre.ty-contain-cm {
+    white-space: normal;
+}
+
+.CodeMirror-gutters {
+    margin-right: 4px;
+}
+
+.md-fences {
+    font-size: 0.9rem;
+    display: block;
+    break-inside: avoid;
+    text-align: left;
+    overflow: visible;
+    white-space: pre;
+    background: inherit;
+    position: relative !important;
+}
+
+.md-diagram-panel {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    overflow-x: auto;
+}
+
+#write .md-fences.mock-cm {
+    white-space: pre-wrap;
+}
+
+.md-fences.md-fences-with-lineno {
+    padding-left: 0px;
+}
+
+#write.fences-no-line-wrapping .md-fences.mock-cm {
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.md-fences.mock-cm.md-fences-with-lineno {
+    padding-left: 8px;
+}
+
+.CodeMirror-line, twitterwidget {
+    break-inside: avoid;
+}
+
+.footnotes {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+    .footnotes + .footnotes {
+        margin-top: 0px;
+    }
+
+.md-reset {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0px;
+    vertical-align: top;
+    background: 0px 0px;
+    text-decoration: none;
+    text-shadow: none;
+    float: none;
+    position: static;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+    line-height: normal;
+    font-weight: 400;
+    text-align: left;
+    box-sizing: content-box;
+    direction: ltr;
+}
+
+li div {
+    padding-top: 0px;
+}
+
+blockquote {
+    margin: 1rem 0px;
+}
+
+li .mathjax-block, li p {
+    margin: 0.5rem 0px;
+}
+
+li {
+    margin: 0px;
+    position: relative;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0px;
+}
+
+blockquote > :first-child, li > :first-child {
+    margin-top: 0px;
+}
+
+.footnotes-area {
+    color: rgb(136, 136, 136);
+    margin-top: 0.714rem;
+    padding-bottom: 0.143rem;
+    white-space: normal;
+}
+
+#write .footnote-line {
+    white-space: pre-wrap;
+}
+
+@media print {
+    body, html {
+        border: 1px solid transparent;
+        height: 99%;
+        break-after: avoid;
+        break-before: avoid;
+    }
+
+    #write {
+        margin-top: 0px;
+        padding-top: 0px;
+        border-color: transparent !important;
+    }
+
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+
+    html.blink-to-pdf {
+        font-size: 13px;
+    }
+
+    .typora-export #write {
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 0px;
+        break-after: avoid;
+    }
+
+        .typora-export #write::after {
+            height: 0px;
+        }
+}
+
+.footnote-line {
+    margin-top: 0.714em;
+    font-size: 0.7em;
+}
+
+a img, img a {
+    cursor: pointer;
+}
+
+pre.md-meta-block {
+    font-size: 0.8rem;
+    min-height: 0.8rem;
+    white-space: pre-wrap;
+    background: rgb(204, 204, 204);
+    display: block;
+    overflow-x: hidden;
+}
+
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child {
+    display: block;
+    margin: auto;
+}
+
+p > .md-image:only-child {
+    display: inline-block;
+    width: 100%;
+}
+
+#write .MathJax_Display {
+    margin: 0.8em 0px 0px;
+}
+
+.md-math-block {
+    width: 100%;
+}
+
+    .md-math-block:not(:empty)::after {
+        display: none;
+    }
+
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
+    outline: 0px;
+    box-shadow: none;
+}
+
+.md-task-list-item {
+    position: relative;
+    list-style-type: none;
+}
+
+.task-list-item.md-task-list-item {
+    padding-left: 0px;
+}
+
+.md-task-list-item > input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-left: -1.2em;
+    margin-top: calc(1em - 10px);
+    border: none;
+}
+
+.math {
+    font-size: 1rem;
+}
+
+.md-toc {
+    min-height: 3.58rem;
+    position: relative;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.md-toc-content {
+    position: relative;
+    margin-left: 0px;
+}
+
+    .md-toc-content::after, .md-toc::after {
+        display: none;
+    }
+
+.md-toc-item {
+    display: block;
+    color: rgb(65, 131, 196);
+}
+
+    .md-toc-item a {
+        text-decoration: none;
+    }
+
+.md-toc-inner:hover {
+    text-decoration: underline;
+}
+
+.md-toc-inner {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.md-toc-h1 .md-toc-inner {
+    margin-left: 0px;
+    font-weight: 700;
+}
+
+.md-toc-h2 .md-toc-inner {
+    margin-left: 2em;
+}
+
+.md-toc-h3 .md-toc-inner {
+    margin-left: 4em;
+}
+
+.md-toc-h4 .md-toc-inner {
+    margin-left: 6em;
+}
+
+.md-toc-h5 .md-toc-inner {
+    margin-left: 8em;
+}
+
+.md-toc-h6 .md-toc-inner {
+    margin-left: 10em;
+}
+
+@media screen and (max-width: 48em) {
+    .md-toc-h3 .md-toc-inner {
+        margin-left: 3.5em;
+    }
+
+    .md-toc-h4 .md-toc-inner {
+        margin-left: 5em;
+    }
+
+    .md-toc-h5 .md-toc-inner {
+        margin-left: 6.5em;
+    }
+
+    .md-toc-h6 .md-toc-inner {
+        margin-left: 8em;
+    }
+}
+
+a.md-toc-inner {
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.footnote-line a:not(.reversefootnote) {
+    color: inherit;
+}
+
+.md-attr {
+    display: none;
+}
+
+.md-fn-count::after {
+    content: ".";
+}
+
+code, pre, samp, tt {
+    font-family: var(--monospace);
+}
+
+kbd {
+    margin: 0px 0.1em;
+    padding: 0.1em 0.6em;
+    font-size: 0.8em;
+    color: rgb(36, 39, 41);
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(173, 179, 185);
+    border-radius: 3px;
+    box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.md-comment {
+    color: rgb(162, 127, 3);
+    opacity: 0.8;
+    font-family: var(--monospace);
+}
+
+code {
+    text-align: left;
+    vertical-align: initial;
+}
+
+a.md-print-anchor {
+    white-space: pre !important;
+    border-width: initial !important;
+    border-style: none !important;
+    border-color: initial !important;
+    display: inline-block !important;
+    position: absolute !important;
+    width: 1px !important;
+    right: 0px !important;
+    outline: 0px !important;
+    background: 0px 0px !important;
+    text-decoration: initial !important;
+    text-shadow: initial !important;
+}
+
+.md-inline-math .MathJax_SVG .noError {
+    display: none !important;
+}
+
+.html-for-mac .inline-math-svg .MathJax_SVG {
+    vertical-align: 0.2px;
+}
+
+.md-math-block .MathJax_SVG_Display {
+    text-align: center;
+    margin: 0px;
+    position: relative;
+    text-indent: 0px;
+    max-width: none;
+    max-height: none;
+    min-height: 0px;
+    min-width: 100%;
+    width: auto;
+    overflow-y: hidden;
+    display: block !important;
+}
+
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display {
+    width: auto;
+    margin: inherit;
+    display: inline-block !important;
+}
+
+.MathJax_SVG .MJX-monospace {
+    font-family: var(--monospace);
+}
+
+.MathJax_SVG .MJX-sans-serif {
+    font-family: sans-serif;
+}
+
+.MathJax_SVG {
+    display: inline;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    zoom: 90%;
+    text-indent: 0px;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    max-width: none;
+    max-height: none;
+    min-width: 0px;
+    min-height: 0px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .MathJax_SVG * {
+        transition: none 0s ease 0s;
+    }
+
+.MathJax_SVG_Display svg {
+    vertical-align: middle !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+.os-windows.monocolor-emoji .md-emoji {
+    font-family: "Segoe UI Symbol", sans-serif;
+}
+
+.md-diagram-panel > svg {
+    max-width: 100%;
+}
+
+[lang="flow"] svg, [lang="mermaid"] svg {
+    max-width: 100%;
+    height: auto;
+}
+
+[lang="mermaid"] .node text {
+    font-size: 1rem;
+}
+
+table tr th {
+    border-bottom: 0px;
+}
+
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0px auto;
+}
+
+iframe {
+    max-width: 100%;
+    width: 100%;
+    border: none;
+}
+
+.highlight td, .highlight tr {
+    border: 0px;
+}
+
+svg[id^="mermaidChart"] {
+    line-height: 1em;
+}
+
+mark {
+    background: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+        color: inherit;
+    }
+
+    mark .md-meta {
+        color: rgb(0, 0, 0);
+        opacity: 0.3 !important;
+    }
+
+
+.CodeMirror {
+    height: auto;
+}
+
+    .CodeMirror.cm-s-inner {
+        background: inherit;
+    }
+
+.CodeMirror-scroll {
+    overflow: auto hidden;
+    z-index: 3;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler {
+    background-color: rgb(255, 255, 255);
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid rgb(221, 221, 221);
+    background: inherit;
+    white-space: nowrap;
+}
+
+.CodeMirror-linenumber {
+    padding: 0px 3px 0px 5px;
+    text-align: right;
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-keyword {
+    color: rgb(119, 0, 136);
+}
+
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom {
+    color: rgb(34, 17, 153);
+}
+
+.cm-s-inner .cm-number {
+    color: rgb(17, 102, 68);
+}
+
+.cm-s-inner .cm-def {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-variable {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: rgb(0, 85, 170);
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: rgb(0, 136, 85);
+}
+
+.cm-s-inner .cm-string {
+    color: rgb(170, 17, 17);
+}
+
+.cm-s-inner .cm-property {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-operator {
+    color: rgb(152, 26, 26);
+}
+
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment {
+    color: rgb(170, 85, 0);
+}
+
+.cm-s-inner .cm-string-2 {
+    color: rgb(255, 85, 0);
+}
+
+.cm-s-inner .cm-meta {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-qualifier {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-builtin {
+    color: rgb(51, 0, 170);
+}
+
+.cm-s-inner .cm-bracket {
+    color: rgb(153, 153, 119);
+}
+
+.cm-s-inner .cm-tag {
+    color: rgb(17, 119, 0);
+}
+
+.cm-s-inner .cm-attribute {
+    color: rgb(0, 0, 204);
+}
+
+.cm-s-inner .cm-header, .cm-s-inner.cm-header {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote {
+    color: rgb(0, 153, 0);
+}
+
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr {
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-link, .cm-s-inner.cm-link {
+    color: rgb(0, 0, 204);
+}
+
+.cm-negative {
+    color: rgb(221, 68, 68);
+}
+
+.cm-positive {
+    color: rgb(34, 153, 34);
+}
+
+.cm-header, .cm-strong {
+    font-weight: 700;
+}
+
+.cm-del {
+    text-decoration: line-through;
+}
+
+.cm-em {
+    font-style: italic;
+}
+
+.cm-link {
+    text-decoration: underline;
+}
+
+.cm-error {
+    color: red;
+}
+
+.cm-invalidchar {
+    color: red;
+}
+
+.cm-constant {
+    color: rgb(38, 139, 210);
+}
+
+.cm-defined {
+    color: rgb(181, 137, 0);
+}
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: rgb(0, 255, 0);
+}
+
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+    color: rgb(255, 34, 34);
+}
+
+.cm-s-inner .CodeMirror-activeline-background {
+    background: inherit;
+}
+
+.CodeMirror {
+    position: relative;
+    overflow: hidden;
+}
+
+.CodeMirror-scroll {
+    height: 100%;
+    outline: 0px;
+    position: relative;
+    box-sizing: content-box;
+    background: inherit;
+}
+
+.CodeMirror-sizer {
+    position: relative;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar {
+    position: absolute;
+    z-index: 6;
+    display: none;
+}
+
+.CodeMirror-vscrollbar {
+    right: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-hscrollbar {
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-scrollbar-filler {
+    right: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutter-filler {
+    left: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding-bottom: 30px;
+    z-index: 3;
+}
+
+.CodeMirror-gutter {
+    white-space: normal;
+    height: 100%;
+    box-sizing: content-box;
+    padding-bottom: 30px;
+    margin-bottom: -32px;
+    display: inline-block;
+}
+
+.CodeMirror-gutter-wrapper {
+    position: absolute;
+    z-index: 4;
+    background: 0px 0px !important;
+    border: none !important;
+}
+
+.CodeMirror-gutter-background {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 4;
+}
+
+.CodeMirror-gutter-elt {
+    position: absolute;
+    cursor: default;
+    z-index: 4;
+}
+
+.CodeMirror-lines {
+    cursor: text;
+}
+
+.CodeMirror pre {
+    border-radius: 0px;
+    border-width: 0px;
+    background: 0px 0px;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0px;
+    white-space: pre;
+    overflow-wrap: normal;
+    color: inherit;
+    z-index: 2;
+    position: relative;
+    overflow: visible;
+}
+
+.CodeMirror-wrap pre {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: normal;
+}
+
+.CodeMirror-code pre {
+    border-right: 30px solid transparent;
+    width: fit-content;
+}
+
+.CodeMirror-wrap .CodeMirror-code pre {
+    border-right: none;
+    width: auto;
+}
+
+.CodeMirror-linebackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 0;
+}
+
+.CodeMirror-linewidget {
+    position: relative;
+    z-index: 2;
+    overflow: auto;
+}
+
+.CodeMirror-wrap .CodeMirror-scroll {
+    overflow-x: hidden;
+}
+
+.CodeMirror-measure {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+    .CodeMirror-measure pre {
+        position: static;
+    }
+
+.CodeMirror div.CodeMirror-cursor {
+    position: absolute;
+    visibility: hidden;
+    border-right: none;
+    width: 0px;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+}
+
+.CodeMirror-focused div.CodeMirror-cursor {
+    visibility: inherit;
+}
+
+.cm-searching {
+    background: rgba(255, 255, 0, 0.4);
+}
+
+@media print {
+    .CodeMirror div.CodeMirror-cursor {
+        visibility: hidden;
+    }
+}
+
+
+:root {
+    --side-bar-bg-color: white;
+    --window-border: none;
+    --search-select-bg-color: #575c61;
+    --active-file-bg-color: #f1f4f5;
+    --item-hover-bg-color: #f1f4f5;
+    --item-hover-text-color: black;
+    --control-text-color: #555;
+}
+
+@include-when-export url(https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css);
+
+html {
+    font-size: 12pt;
+}
+
+#write {
+    font-family: "STIX2Text", "Times New Roman", "serif";
+    line-height: 1.5em;
+    padding: 10%;
+    padding-top: 5%;
+}
+
+.file-list-item-summary {
+    height: 36px;
+}
+
+.file-list-item {
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+}
+
+#sidebar-loading-template.file-list-item {
+    padding-top: 0 !important;
+}
+
+a, a:visited {
+    color: #a00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+#write h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+pre, code {
+    font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+    background-color: #ebebeb;
+}
+
+.footnotes {
+    display: list-item;
+    margin-left: 1em;
+}
+
+.md-fences {
+    border: 1px solid;
+}
+
+    .md-fences.md-fences-with-lineno {
+        border: none;
+    }
+
+.CodeMirror-linenumber {
+    color: #333;
+}
+
+*.in-text-selection,
+::selection,
+.CodeMirror-selected {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color) !important;
+    text-shadow: none;
+}
+
+a.md-toc-inner {
+    color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-link {
+    color: #a00;
+    text-decoration: underline;
+}
+
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property {
+    color: black;
+}
+
+#typora-source .CodeMirror-lines {
+    -webkit-font-smoothing: auto;
+    max-width: 1000px;
+}
+
+.md-def-name:before,
+.md-def-name:after {
+    color: #2d2d2d;
+}
+
+sup.md-footnote {
+    background-color: initial;
+    color: inherit;
+}
+
+mark {
+    background: #fff387;
+}
+
+td, th {
+    border: 1px solid;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+/*table tr[cid]:first-child > td {
+    border-top: 3px double;
+}*/
+
+th {
+    border-bottom: 0;
+    padding-top: 2px;
+    background: #575c61;
+    border-color: #333;
+    color: #f3f3f3;
+}
+
+pre.md-meta-block {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+.task-list-item input:before {
+    content: '\221A';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before {
+    color: inherit;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.1em;
+    font-size: 1.3em;
+    margin-top: 0px;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item input:before {
+    content: '\2610';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.md-task-list-item input:checked:before,
+.md-task-list-item input[checked]:before {
+    color: inherit;
+    content: '\2611';
+}
+
+.task-list-item {
+    padding-left: 1.5em;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0.25em 24px;
+    position: relative;
+    color: #383838;
+    border-left: 2px solid;
+}
+
+#write > blockquote {
+    padding: 0.25em 30px;
+    margin-left: -32px;
+    width: calc(100% + 32px);
+}
+
+#write > .md-fences-with-lineno {
+    margin-left: -33px;
+    color: black;
+}
+
+.CodeMirror-linenumber {
+    min-width: 25px;
+}
+
+.md-header {
+    font-size: inherit !important;
+}
+
+/*blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}*/
+
+
+
+</style >
+</head>
+<body>
+<h1 id="architecture-and-design">Architecture and Design</h1>
+<h2 id="the-symptoms-of-poor-design">The Symptoms of Poor Design</h2>
+<p>The main symptoms of poor design can be described in 3 categories:</p>
+<ul>
+<li><strong>Rigidity</strong>: The design is hard to change because every change affects too many parts of the system</li>
+<li><strong>Fragility</strong>: Making a change breaks unexpectedly other parts of the system</li>
+<li><strong>Immobility</strong>: It is hard t reuse the code in other application because it is too entangled with the current application.</li>
+</ul>
+<p>But this condition can also manifest itself with other symptoms, such as:</p>
+<ul>
+<li><strong>Viscosity</strong>: It is hard to do the right thing and we are forced into hacks.</li>
+<li><strong>Needless Complexity</strong>: Overdesign of the system</li>
+<li><strong>Needless Repetition</strong>: ???</li>
+<li><strong>Opacity</strong>: disorganized expression.</li>
+</ul>
+<h2 id="design-principles">Design Principles</h2>
+<p>While the following are not patterns to implement in your code, they are principles that you should respect to maintain a good design. They don’t try to solve a specific problem but the overall structure of the program.</p>
+<ul>
+<li><p><strong>DRY</strong></p>
+<p>Do not Repeat Yourself. Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</p></li>
+<li><p><strong>KISS</strong></p>
+<p>Keep It Simple, Stupid. Simple code is often less code, and it takes less time to write, has less bugs and is easier to modify. Extra complexity should be avoided.</p></li>
+<li><p><strong>SoC</strong></p>
+<p>Separation of Concerns tries to separate a computer program into distinct sections such that each addresses a separate concern. Programs that employ this principle are called modular and they are achieved by encapsulating information and hiding it behind an interface.</p></li>
+<li><p><strong>YAGNI</strong></p>
+<p>You Aren’t Going to Need It. A programmer should only add the needed functionality and abstain to add anything else.</p></li>
+<li><p><strong>Law of Demter</strong></p>
+<p>Each unit should only have limited knowledge about other units. In OOP terms, a class can only call its methods and not the methods of their variables.</p></li>
+<li><p><strong>ZOI Rule</strong></p>
+<p>The Zero One Infinity rule talks about setting an arbitrary limit to the number of instances of a particular entity. This rule says that you can either have 0 instances, 1 instance or infinite instances.</p></li>
+<li><p><strong>SOLID</strong></p>
+<p>SOLID stands for a set of principles that complement each other well:</p>
+<ul>
+<li><u><strong>S</strong>ingle Responsibility Principle (SRP)</u>: Each class should handle 1 thing or have one responsibility. If they have more they should be split into two or more.</li>
+<li><u><strong>O</strong>pen-Closed Principle (OCP)</u>: Classes should be open for extension, but closed for modification. This means that you can add functionality to a class by extending, but you shouldn’t modify it.</li>
+<li><u><strong>L</strong>iskov Substitution Principle</u>: Subtypes must be substitutable for their base types in structural way and also in a behavioral way.</li>
+<li><u><strong>I</strong>nterface Segregation Principle (ISP)</u>: Clients should not be forced to depend on methods that they don’t use. The clients should receive interfaces only with the necessary methods.</li>
+<li><u><strong>D</strong>ependency-Inversion Principle (DIP)</u>: The main idea here is that high level modules should not depend on low level modules, both must depend on abstractions.</li>
+</ul></li>
+</ul>
+<h2 id="design-patterns">Design Patterns</h2>
+<h3 id="mvc">MVC</h3>
+<p>MVC or Model View Controller is an architectural pattern that decouples interactive applications into 3 components.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201210200708420.png" alt="image-20201210200708420" style="zoom:50%;" /></p>
+<p>This pattern has the benefit that you can have multiple views for the same model and change freely the “look and feel” of the application, but it can also lead to increased complexity and a close connection between the view and the controller.</p>
+<h3 id="mvp">MVP</h3>
+<p>This pattern is similar to MVC, with the difference that now there is no controller and all inputs and outputs are managed by the view. This queries and changes go through the presenter, which will affect the model and send the changes back to the view.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201210200950244.png" alt="image-20201210200950244" style="zoom:50%;" /></p>
+<h3 id="mvvm">MVVM</h3>
+<p>Model View View-Model is an attempt to solve the GUI testing problem of MVP. Here the view is stateless and the state container is the View-Model.</p>
+<h3 id="observer">Observer</h3>
+<p>The Observer pattern tries to abstract coupling between Subject and Observers. The main idea is that observers can be added to a given subject without making any changes and the subject can broadcast messages to them.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201210202459536.png" alt="image-20201210202459536" style="zoom:35%;" /></p>
+<p>When implementing this patter, the programmer has to be aware of possible deadlocks and unexpected updates.</p>
+<h3 id="factory-method">Factory Method</h3>
+<p>The creation of concrete instances violates the Dependency inversion principle and this pattern tries to tackle that problem.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201210202856612.png" alt="image-20201210202856612" style="zoom:43%;" /></p>
+<h3 id="factory">Factory</h3>
+<p>It is very similar to the previous pattern but now every class has its own factory class that only creates it.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211110607418.png" alt="image-20201211110607418" style="zoom:100%;" /></p>
+<h3 id="abstract-factory">Abstract Factory</h3>
+<p>Abstract factories are used to create a set of objects that extend a main object. There is a main abstract factory and then, according to the differences in the objects we can create different factories to create them.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211110828051.png" alt="image-20201211110828051" style="zoom:67%;" /></p>
+<p>The benefits of this approach is that the clients is isolated from the concrete implementation of classes and it makes exchanging product families very easy. On the other side, supporting new kinds of products requires changing the abstract factory interface.</p>
+<h3 id="strategy">Strategy</h3>
+<p>The Strategy pattern tries to define a family of algorithms and encapsulate them in a base class, making them interchangeable.</p>
+<figure>
+<img src="Resources/08%20-%20Architecture%20and%20Design/image-20201211111339040.png" alt="image-20201211111339040" /><figcaption aria-hidden="true">image-20201211111339040</figcaption>
+</figure>
+<h3 id="state">State</h3>
+<p>The State pattern allows an object to alter its behavior when its internal state changes.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211111522174.png" alt="image-20201211111522174" style="zoom:80%;" /></p>
+<h3 id="visitor">Visitor</h3>
+<p>It allows to add new operations to a class hierarchy without changing its classes.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211111822642.png" alt="image-20201211111822642" style="zoom:67%;" /></p>
+<p>It is applicable when you want many distinct and unrelated operations without messing with the structural classes.</p>
+<h3 id="proxy">Proxy</h3>
+<p>The Proxy provides a surrogate or a placeholder for another object to control access to it.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211112115518.png" alt="image-20201211112115518" style="zoom:80%;" /></p>
+<h3 id="command">Command</h3>
+<p>The Command pattern encapsulates a message request as an object that will later be invoked.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211112254230.png" alt="image-20201211112254230" style="zoom:80%;" /></p>
+<p>This pattern is useful when you need to queue different actions and the commands may have different life times than the original object.</p>
+<h3 id="memento">Memento</h3>
+<p>It creates an snapshot of an object’s internal state which can be later restored.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211112454073.png" alt="image-20201211112454073" style="zoom:80%;" /></p>
+<p>It provides a way of recording the internal state of an object in a separate object without violating the encapsulation principle and it eliminates the need for multiple creation of the same object for the sole purpose of saving its state.</p>
+<p>The issue with it is that it must provide 2 types of interfaces, a narrow interface for the care taker and a wider interface for the originator.</p>
+<h3 id="bridge">Bridge</h3>
+<p>The Bridge pattern aims to provide portability and “bridge” the differences between non-compatible standards or operating systems.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211113156898.png" alt="image-20201211113156898" style="zoom:80%;" /></p>
+<h3 id="builder">Builder</h3>
+<p>The Builder separates the construction process from the concrete representation.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211113310340.png" alt="image-20201211113310340" style="zoom:80%;" /></p>
+<h3 id="prototype">Prototype</h3>
+<p>Prototype specifies the kind of objects to create using a prototype and creating new objects by copying it</p>
+<figure>
+<img src="Resources/08%20-%20Architecture%20and%20Design/image-20201211115214487.png" alt="image-20201211115214487" /><figcaption aria-hidden="true">image-20201211115214487</figcaption>
+</figure>
+<h3 id="singleton">Singleton</h3>
+<p>It ensures a class has only one instance and provides a global access point to it. While it’s easy to use, it is a bad practice because it introduces a global state and makes your code not portable</p>
+<h3 id="facade">Facade</h3>
+<p>It provides a simple interface to a group of objects that have complex and general interfaces. The pattern enforces low coupling with external subsystems and libraries.</p>
+<h3 id="adapter">Adapter</h3>
+<p>The Adapter convers the interface of a class into another interface, which the client expects.</p>
+<figure>
+<img src="Resources/08%20-%20Architecture%20and%20Design/image-20201211115856369.png" alt="image-20201211115856369" /><figcaption aria-hidden="true">image-20201211115856369</figcaption>
+</figure>
+<h3 id="flyweight">Flyweight</h3>
+<p>It uses sharing to support a large number of fine-grained objects efficiently.</p>
+<figure>
+<img src="Resources/08%20-%20Architecture%20and%20Design/image-20201211115956710.png" alt="image-20201211115956710" /><figcaption aria-hidden="true">image-20201211115956710</figcaption>
+</figure>
+<p>It is used when the application uses a large number of objects and the storage costs are high.</p>
+<h3 id="composite">Composite</h3>
+<p>It is a tree structure that represents part-whole relationships.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211120300202.png" alt="image-20201211120300202" style="zoom: 40%;" /></p>
+<h3 id="decorator">Decorator</h3>
+<p>The decorator attaches additional responsibilities to an object dynamically.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211120536195.png" alt="image-20201211120536195" style="zoom:43%;" /></p>
+<p>This provides more flexibility than static inheritance but it also has a lot of little objects.</p>
+<h3 id="chain-of-responsibility">Chain of Responsibility</h3>
+<p>The Chain of responsibility is a method of passing a request among a chain of objects.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211120823548.png" alt="image-20201211120823548" style="zoom:33%;" /></p>
+<p>It reduces coupling between sender and receiver and it has a lot of flexibility in assigning responsibilities to objects, but it has performance issues.</p>
+<h3 id="template-method">Template Method</h3>
+<p>It defines a skeleton for an algorithm in a base class and lets the subclasses redefine the steps.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211121016869.png" alt="image-20201211121016869" style="zoom:33%;" /></p>
+<h3 id="mediator">Mediator</h3>
+<p>It encapsulates the interaction of a set of objects.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211121724330.png" alt="image-20201211121724330" style="zoom:33%;" /></p>
+<p>This pattern centralizes controls, abstracts object cooperation and limits subclassing of colleague classes.</p>
+<h3 id="iterator">Iterator</h3>
+<p>It represents sequential access to container elements without exposing its underlying representation.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211122019075.png" alt="image-20201211122019075" style="zoom:33%;" /></p>
+<h3 id="interpreter">Interpreter</h3>
+<p>It defines a grammatical representation for a language and an interpreter to interpret the grammar.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211122118746.png" alt="image-20201211122118746" style="zoom:40%;" /></p>
+<h3 id="marker-interface">Marker Interface</h3>
+<p>It provides a means to associate metadata with a class where the language does not have explicit support for such metadata. Sort of expanding the concept of reflection to and adding new data to a class.</p>
+<h3 id="mock-object">Mock Object</h3>
+<p>It simulates objects that mimic the behavior of real object in controlled ways. One use case it unit testing.</p>
+<h3 id="module">Module</h3>
+<p>It implements the concept of software modules in a programming language with incomplete direct support for the concept. It organizes code in certain ways to accomplish a particular function. It can be implemented using a specialization of the singleton pattern.</p>
+<h3 id="twin">Twin</h3>
+<p>It allows developers to model multiple inheritance in programming languages that do not support it.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211141133459.png" alt="image-20201211141133459" style="zoom: 33%;" /></p>
+<p>It’s applicable to model multiple inheritance and to avoid some of its problems. It requires message forwarding, may be less efficient than inheritance.</p>
+<h3 id="servant">Servant</h3>
+<p>An object used to offer some functionality to a group of classes without defining that functionality in each of them. It promotes separation of concerns.</p>
+<h3 id="active-record">Active Record</h3>
+<p>It is an approach to accessing data in a database where each table or view is represented as a class and an instance represents a single row of that table. CRUD operations are made using transactions.</p>
+<h3 id="data-mapper">Data Mapper</h3>
+<p>A data access layer that performs bidirectional transfer of data between a data store and an in-memory data representation. It is an improvement over Active Record and its goal is to keep an in-memory persistent representation of another data store.</p>
+<h2 id="architectural-patterns">Architectural Patterns</h2>
+<p>The following patterns are not designed to do a specific thing, but to organize the structure of a whole project.</p>
+<h3 id="component--based-architecture">Component- Based Architecture</h3>
+<p>It is the idea that software is made up of different components and its an answer to the <em>“software crisis”</em> where monolithic applications where hard to maintain. It heavily enforces the separation of Concerns principle and so, each component must be easily substitutable.</p>
+<p>An example of this are web services, libraries, and classes.</p>
+<h3 id="layered-architecture">Layered Architecture</h3>
+<p>A layered architecture is a design with different levels of abstraction which partitions the concerns of the application into stacked groups</p>
+<h3 id="client-server-architecture">Client-Server Architecture</h3>
+<p>This architecture partitions tasks between the providers of a resource (servers) and the service requesters (clients). It is usually dictated by a 1:N relationship from the servers to the clients, where we can use the advantages of the mediator pattern.</p>
+<h3 id="service-oriented-architecture">Service-Oriented Architecture</h3>
+<p>A service is a discrete unit of functionality that can be accessed remotely and acted upon and updated independently. It is based in the principles of independent vendors, product and technologies and less about how to modularize an application.</p>
+<h3 id="pipes-and-filters">Pipes and Filters</h3>
+<p>IT is used as a chain of processing elements arranged so that the output of each element is the input of the next. It is usually a linear and one-directional component-based architecture. Bash is a good example of it.</p>
+<h3 id="database-centric-architecture">Database Centric Architecture</h3>
+<p>It is used in systems where the databases play a crucial role. It is similar to the client-server architecture, but here the server only takes CRUD operations. An application state is represented by its data and it can be stored, stopped, and restored from a database like it neve stopped.</p>
+<h3 id="rule-based-architecture">Rule-Based Architecture</h3>
+<p>It is used as a way to codify the problem-solving capabilities of human experts into programs. It interprets the situation in a <strong>match-resolve-act</strong> cycle:</p>
+<ol type="1">
+<li><strong>Match</strong>: The left-hand side matches against the known contents of the memory and it returns a conflict set, which consist of instantiations of all satisfied rules.</li>
+<li><strong>Conflict-Resolution</strong>: One of the rules instantiated in the conflict set if selected for execution.</li>
+<li><strong>Act</strong>: the actions of the rule are executed. This actions may change the contents of the working memory.</li>
+</ol>
+<h3 id="blackboard-architecture">Blackboard Architecture</h3>
+<p>It specifies how to design a systems that integrates large and diverse specialized modules, and implements complex non-deterministic control strategies. It is used in context with high parallelism and where no deterministic solutions are known.</p>
+<h3 id="asynchronous-messaging">Asynchronous Messaging</h3>
+<p>Is is a layer that allows heterogeneous components to asynchronously communicate despite their differences. I is usually realized as a Message-Oriented Middleware.</p>
+<p>It can store, route and transform messages, but it needs a bus and it most applications communication is synchronous.</p>
+<h3 id="event-driven-architecture">Event-Driven Architecture</h3>
+<p>It is an architecture promoting the production, detection, consumption and reaction of events. It can be implemented with a mediator or broker topology.</p>
+<h3 id="publish-subscribe-architecture">Publish-Subscribe Architecture</h3>
+<p>Publishers categorize published messages and subscribers express their interest in messages from a certain category and only receive messages of those categories, without knowing the publishers.</p>
+<p><img src="Resources/08 - Architecture and Design/image-20201211152205814.png" alt="image-20201211152205814" style="zoom:50%;" /></p>
+<h3 id="dsls">DSLs</h3>
+<p>DSL is a computer language specialized to a particular application domain. It contrasts to a general-purpose language and it is used to model an specific domain.</p>
+<h3 id="reflection">Reflection</h3>
+<p>it give the ability to examine, introspect and modify its behavior at runtime.</p>
+<h3 id="plug-ins-architecture">Plug-ins Architecture</h3>
+<p>A plug-in is a software component that adds a specific feature to an existing computer program.</p>
+</body>
+</html>

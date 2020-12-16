@@ -1,203 +1,1473 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>05 - Arquitectura</title><link href='https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>05 - Arquitectura</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<style type='text/css' >
+html {
+    overflow-x: initial !important;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --select-text-bg-color: #B5D6FC;
+    --select-text-font-color: auto;
+    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+}
+
+html {
+    font-size: 14px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 5%;
+    padding: 0px;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 1rem;
+    line-height: 1.42857;
+    overflow-x: hidden;
+    background: inherit;
+    tab-size: 4;
+}
+
+iframe {
+    margin: auto;
+}
+
+a.url {
+    word-break: break-all;
+}
+
+a:active, a:hover {
+    outline: 0px;
+}
+
+.in-text-selection, ::selection {
+    text-shadow: none;
+    background: var(--select-text-bg-color);
+    color: var(--select-text-font-color);
+}
+
+#write {
+    margin: 0px auto;
+    height: auto;
+    width: inherit;
+    word-break: normal;
+    overflow-wrap: break-word;
+    position: relative;
+    white-space: normal;
+    overflow-x: visible;
+    padding-top: 40px;
+}
+
+    #write.first-line-indent p {
+        text-indent: 2em;
+    }
+
+        #write.first-line-indent li p, #write.first-line-indent p * {
+            text-indent: 0px;
+        }
+
+    #write.first-line-indent li {
+        margin-left: 2em;
+    }
+
+.for-image #write {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+body.typora-export {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.typora-export .footnote-line, .typora-export li, .typora-export p {
+    white-space: pre-wrap;
+}
+
 @media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
+    body.typora-export {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #write {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .CodeMirror-sizer {
+        margin-left: 0px !important;
+    }
+
+    .CodeMirror-gutters {
+        display: none !important;
+    }
 }
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; }
-button, input, select, textarea { color: inherit; font: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px !important; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror-linenumber { user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
+
+#write li > figure:last-child {
+    margin-bottom: 0.5rem;
+}
+
+#write ol, #write ul {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+button, input, select, textarea {
+    color: inherit;
+    font: inherit;
+}
+
+    input[type="checkbox"], input[type="radio"] {
+        line-height: normal;
+        padding: 0px;
+    }
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre {
+    width: inherit;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p {
+    position: relative;
+}
+
+p {
+    line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    break-after: avoid-page;
+    break-inside: avoid;
+    orphans: 2;
+}
+
+p {
+    orphans: 4;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+h5 {
+    font-size: 1.2rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.md-blockmeta {
+    color: rgb(204, 204, 204);
+    font-weight: 700;
+    font-style: italic;
+}
+
+a {
+    cursor: pointer;
+}
+
+sup.md-footnote {
+    padding: 2px 4px;
+    background-color: rgba(238, 238, 238, 0.7);
+    color: rgb(85, 85, 85);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    sup.md-footnote a, sup.md-footnote a:hover {
+        color: inherit;
+        text-transform: inherit;
+        text-decoration: inherit;
+    }
+
+#write input[type="checkbox"] {
+    cursor: pointer;
+    width: inherit;
+    height: inherit;
+}
+
+figure {
+    overflow-x: auto;
+    margin: 1.2em 0px;
+    max-width: calc(100% + 16px);
+    padding: 0px;
+}
+
+    figure > table {
+        margin: 0px !important;
+    }
+
+tr {
+    break-inside: avoid;
+    break-after: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+    overflow: auto;
+    break-inside: auto;
+    text-align: left;
+}
+
+    table.md-table td {
+        min-width: 32px;
+    }
+
+.CodeMirror-gutters {
+    border-right: 0px;
+    background-color: inherit;
+}
+
+.CodeMirror-linenumber {
+    user-select: none;
+}
+
+.CodeMirror {
+    text-align: left;
+}
+
+.CodeMirror-placeholder {
+    opacity: 0.3;
+}
+
+.CodeMirror pre {
+    padding: 0px 4px;
+}
+
+.CodeMirror-lines {
+    padding: 0px;
+}
+
+div.hr:focus {
+    cursor: none;
+}
+
+#write pre {
+    white-space: pre-wrap;
+}
+
+#write.fences-no-line-wrapping pre {
+    white-space: pre;
+}
+
+#write pre.ty-contain-cm {
+    white-space: normal;
+}
+
+.CodeMirror-gutters {
+    margin-right: 4px;
+}
+
+.md-fences {
+    font-size: 0.9rem;
+    display: block;
+    break-inside: avoid;
+    text-align: left;
+    overflow: visible;
+    white-space: pre;
+    background: inherit;
+    position: relative !important;
+}
+
+.md-diagram-panel {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    overflow-x: auto;
+}
+
+#write .md-fences.mock-cm {
+    white-space: pre-wrap;
+}
+
+.md-fences.md-fences-with-lineno {
+    padding-left: 0px;
+}
+
+#write.fences-no-line-wrapping .md-fences.mock-cm {
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.md-fences.mock-cm.md-fences-with-lineno {
+    padding-left: 8px;
+}
+
+.CodeMirror-line, twitterwidget {
+    break-inside: avoid;
+}
+
+.footnotes {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+    .footnotes + .footnotes {
+        margin-top: 0px;
+    }
+
+.md-reset {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0px;
+    vertical-align: top;
+    background: 0px 0px;
+    text-decoration: none;
+    text-shadow: none;
+    float: none;
+    position: static;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+    line-height: normal;
+    font-weight: 400;
+    text-align: left;
+    box-sizing: content-box;
+    direction: ltr;
+}
+
+li div {
+    padding-top: 0px;
+}
+
+blockquote {
+    margin: 1rem 0px;
+}
+
+li .mathjax-block, li p {
+    margin: 0.5rem 0px;
+}
+
+li {
+    margin: 0px;
+    position: relative;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0px;
+}
+
+blockquote > :first-child, li > :first-child {
+    margin-top: 0px;
+}
+
+.footnotes-area {
+    color: rgb(136, 136, 136);
+    margin-top: 0.714rem;
+    padding-bottom: 0.143rem;
+    white-space: normal;
+}
+
+#write .footnote-line {
+    white-space: pre-wrap;
+}
+
 @media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
+    body, html {
+        border: 1px solid transparent;
+        height: 99%;
+        break-after: avoid;
+        break-before: avoid;
+    }
+
+    #write {
+        margin-top: 0px;
+        padding-top: 0px;
+        border-color: transparent !important;
+    }
+
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+
+    html.blink-to-pdf {
+        font-size: 13px;
+    }
+
+    .typora-export #write {
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 0px;
+        break-after: avoid;
+    }
+
+        .typora-export #write::after {
+            height: 0px;
+        }
 }
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+
+.footnote-line {
+    margin-top: 0.714em;
+    font-size: 0.7em;
+}
+
+a img, img a {
+    cursor: pointer;
+}
+
+pre.md-meta-block {
+    font-size: 0.8rem;
+    min-height: 0.8rem;
+    white-space: pre-wrap;
+    background: rgb(204, 204, 204);
+    display: block;
+    overflow-x: hidden;
+}
+
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child {
+    display: block;
+    margin: auto;
+}
+
+p > .md-image:only-child {
+    display: inline-block;
+    width: 100%;
+}
+
+#write .MathJax_Display {
+    margin: 0.8em 0px 0px;
+}
+
+.md-math-block {
+    width: 100%;
+}
+
+    .md-math-block:not(:empty)::after {
+        display: none;
+    }
+
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
+    outline: 0px;
+    box-shadow: none;
+}
+
+.md-task-list-item {
+    position: relative;
+    list-style-type: none;
+}
+
+.task-list-item.md-task-list-item {
+    padding-left: 0px;
+}
+
+.md-task-list-item > input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-left: -1.2em;
+    margin-top: calc(1em - 10px);
+    border: none;
+}
+
+.math {
+    font-size: 1rem;
+}
+
+.md-toc {
+    min-height: 3.58rem;
+    position: relative;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.md-toc-content {
+    position: relative;
+    margin-left: 0px;
+}
+
+    .md-toc-content::after, .md-toc::after {
+        display: none;
+    }
+
+.md-toc-item {
+    display: block;
+    color: rgb(65, 131, 196);
+}
+
+    .md-toc-item a {
+        text-decoration: none;
+    }
+
+.md-toc-inner:hover {
+    text-decoration: underline;
+}
+
+.md-toc-inner {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.md-toc-h1 .md-toc-inner {
+    margin-left: 0px;
+    font-weight: 700;
+}
+
+.md-toc-h2 .md-toc-inner {
+    margin-left: 2em;
+}
+
+.md-toc-h3 .md-toc-inner {
+    margin-left: 4em;
+}
+
+.md-toc-h4 .md-toc-inner {
+    margin-left: 6em;
+}
+
+.md-toc-h5 .md-toc-inner {
+    margin-left: 8em;
+}
+
+.md-toc-h6 .md-toc-inner {
+    margin-left: 10em;
+}
+
 @media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+    .md-toc-h3 .md-toc-inner {
+        margin-left: 3.5em;
+    }
+
+    .md-toc-h4 .md-toc-inner {
+        margin-left: 5em;
+    }
+
+    .md-toc-h5 .md-toc-inner {
+        margin-left: 6.5em;
+    }
+
+    .md-toc-h6 .md-toc-inner {
+        margin-left: 8em;
+    }
 }
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.md-inline-math .MathJax_SVG .noError { display: none !important; }
-.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
-.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
-.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
-.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none 0s ease 0s; }
-.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
-svg[id^="mermaidChart"] { line-height: 1em; }
+
+a.md-toc-inner {
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.footnote-line a:not(.reversefootnote) {
+    color: inherit;
+}
+
+.md-attr {
+    display: none;
+}
+
+.md-fn-count::after {
+    content: ".";
+}
+
+code, pre, samp, tt {
+    font-family: var(--monospace);
+}
+
+kbd {
+    margin: 0px 0.1em;
+    padding: 0.1em 0.6em;
+    font-size: 0.8em;
+    color: rgb(36, 39, 41);
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(173, 179, 185);
+    border-radius: 3px;
+    box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.md-comment {
+    color: rgb(162, 127, 3);
+    opacity: 0.8;
+    font-family: var(--monospace);
+}
+
+code {
+    text-align: left;
+    vertical-align: initial;
+}
+
+a.md-print-anchor {
+    white-space: pre !important;
+    border-width: initial !important;
+    border-style: none !important;
+    border-color: initial !important;
+    display: inline-block !important;
+    position: absolute !important;
+    width: 1px !important;
+    right: 0px !important;
+    outline: 0px !important;
+    background: 0px 0px !important;
+    text-decoration: initial !important;
+    text-shadow: initial !important;
+}
+
+.md-inline-math .MathJax_SVG .noError {
+    display: none !important;
+}
+
+.html-for-mac .inline-math-svg .MathJax_SVG {
+    vertical-align: 0.2px;
+}
+
+.md-math-block .MathJax_SVG_Display {
+    text-align: center;
+    margin: 0px;
+    position: relative;
+    text-indent: 0px;
+    max-width: none;
+    max-height: none;
+    min-height: 0px;
+    min-width: 100%;
+    width: auto;
+    overflow-y: hidden;
+    display: block !important;
+}
+
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display {
+    width: auto;
+    margin: inherit;
+    display: inline-block !important;
+}
+
+.MathJax_SVG .MJX-monospace {
+    font-family: var(--monospace);
+}
+
+.MathJax_SVG .MJX-sans-serif {
+    font-family: sans-serif;
+}
+
+.MathJax_SVG {
+    display: inline;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    zoom: 90%;
+    text-indent: 0px;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    max-width: none;
+    max-height: none;
+    min-width: 0px;
+    min-height: 0px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .MathJax_SVG * {
+        transition: none 0s ease 0s;
+    }
+
+.MathJax_SVG_Display svg {
+    vertical-align: middle !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+.os-windows.monocolor-emoji .md-emoji {
+    font-family: "Segoe UI Symbol", sans-serif;
+}
+
+.md-diagram-panel > svg {
+    max-width: 100%;
+}
+
+[lang="flow"] svg, [lang="mermaid"] svg {
+    max-width: 100%;
+    height: auto;
+}
+
+[lang="mermaid"] .node text {
+    font-size: 1rem;
+}
+
+table tr th {
+    border-bottom: 0px;
+}
+
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0px auto;
+}
+
+iframe {
+    max-width: 100%;
+    width: 100%;
+    border: none;
+}
+
+.highlight td, .highlight tr {
+    border: 0px;
+}
+
+svg[id^="mermaidChart"] {
+    line-height: 1em;
+}
+
+mark {
+    background: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+        color: inherit;
+    }
+
+    mark .md-meta {
+        color: rgb(0, 0, 0);
+        opacity: 0.3 !important;
+    }
 
 
-:root { --side-bar-bg-color: white; --window-border: none; --search-select-bg-color: #575c61; --active-file-bg-color: #f1f4f5; --item-hover-bg-color: #f1f4f5; --item-hover-text-color: black; --control-text-color: #555; }
-html { font-size: 12pt; }
-#write { font-family: STIX2Text, "Times New Roman", serif; line-height: 1.5em; padding: 5% 10% 10%; }
-.file-list-item-summary { height: 36px; }
-.file-list-item { padding-bottom: 18px; padding-top: 18px !important; }
-#sidebar-loading-template.file-list-item { padding-top: 0px !important; }
-a, a:visited { color: rgb(170, 0, 0); }
-h1, h2, h3, h4, h5, h6 { font-family: inherit; line-height: 1.5em; margin-bottom: 1em; margin-top: 1em; }
-h1 { font-size: 2.4em; }
-#write h1 { text-align: center; }
-h2 { font-size: 1.8em; }
-h3 { font-size: 1.4em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1.1em; }
-h6 { font-size: 1em; }
-p { margin-top: 1em; margin-bottom: 1em; text-align: justify; }
-pre, code { font-family: "Latin Modern Mono Light", "Latin Modern Mono", monospace !important; }
-.footnotes { display: list-item; margin-left: 1em; }
-.md-fences { border: 1px solid; }
-.md-fences.md-fences-with-lineno { border: none; }
-.CodeMirror-linenumber { color: rgb(51, 51, 51); }
-.in-text-selection, ::selection, .CodeMirror-selected { background: var(--search-select-bg-color); text-shadow: none; color: var(--search-select-text-color)  !important; }
-a.md-toc-inner { color: var(--text-color); }
-.cm-s-typora-default .cm-link { color: rgb(170, 0, 0); text-decoration: underline; }
-.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property { color: black; }
-#typora-source .CodeMirror-lines { -webkit-font-smoothing: auto; max-width: 1000px; }
-.md-def-name::before, .md-def-name::after { color: rgb(45, 45, 45); }
-sup.md-footnote { background-color: initial; color: inherit; }
-mark { background: rgb(255, 243, 135); }
-td, th { border: 1px solid; padding-left: 1ch; padding-right: 1ch; }
-th { border-bottom: 0px rgb(51, 51, 51); padding-top: 2px; background: rgb(87, 92, 97); border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); color: rgb(243, 243, 243); }
-pre.md-meta-block { border: 1px solid rgb(162, 169, 177); background-color: rgb(248, 249, 250); padding: 5px; margin-bottom: 1em; }
-.task-list-item input::before { content: "√"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.task-list-item input:checked::before, .task-list-item input[checked]::before { color: inherit; }
-.md-task-list-item > input { top: auto; margin-left: -1.1em; font-size: 1.3em; margin-top: 0px; -webkit-appearance: none; }
-.md-task-list-item input::before { content: "☐"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.md-task-list-item input:checked::before, .md-task-list-item input[checked]::before { color: inherit; content: "☑"; }
-.task-list-item { padding-left: 1.5em; }
-blockquote { font-style: italic; padding: 0.25em 24px; position: relative; color: rgb(56, 56, 56); border-left: 2px solid; }
-#write > blockquote { padding: 0.25em 30px; margin-left: -32px; width: calc(100% + 32px); }
-#write > .md-fences-with-lineno { margin-left: -33px; color: black; }
-.CodeMirror-linenumber { min-width: 25px; }
-.md-header { font-size: inherit !important; }
+.CodeMirror {
+    height: auto;
+}
+
+    .CodeMirror.cm-s-inner {
+        background: inherit;
+    }
+
+.CodeMirror-scroll {
+    overflow: auto hidden;
+    z-index: 3;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler {
+    background-color: rgb(255, 255, 255);
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid rgb(221, 221, 221);
+    background: inherit;
+    white-space: nowrap;
+}
+
+.CodeMirror-linenumber {
+    padding: 0px 3px 0px 5px;
+    text-align: right;
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-keyword {
+    color: rgb(119, 0, 136);
+}
+
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom {
+    color: rgb(34, 17, 153);
+}
+
+.cm-s-inner .cm-number {
+    color: rgb(17, 102, 68);
+}
+
+.cm-s-inner .cm-def {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-variable {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: rgb(0, 85, 170);
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: rgb(0, 136, 85);
+}
+
+.cm-s-inner .cm-string {
+    color: rgb(170, 17, 17);
+}
+
+.cm-s-inner .cm-property {
+    color: rgb(0, 0, 0);
+}
+
+.cm-s-inner .cm-operator {
+    color: rgb(152, 26, 26);
+}
+
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment {
+    color: rgb(170, 85, 0);
+}
+
+.cm-s-inner .cm-string-2 {
+    color: rgb(255, 85, 0);
+}
+
+.cm-s-inner .cm-meta {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-qualifier {
+    color: rgb(85, 85, 85);
+}
+
+.cm-s-inner .cm-builtin {
+    color: rgb(51, 0, 170);
+}
+
+.cm-s-inner .cm-bracket {
+    color: rgb(153, 153, 119);
+}
+
+.cm-s-inner .cm-tag {
+    color: rgb(17, 119, 0);
+}
+
+.cm-s-inner .cm-attribute {
+    color: rgb(0, 0, 204);
+}
+
+.cm-s-inner .cm-header, .cm-s-inner.cm-header {
+    color: rgb(0, 0, 255);
+}
+
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote {
+    color: rgb(0, 153, 0);
+}
+
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr {
+    color: rgb(153, 153, 153);
+}
+
+.cm-s-inner .cm-link, .cm-s-inner.cm-link {
+    color: rgb(0, 0, 204);
+}
+
+.cm-negative {
+    color: rgb(221, 68, 68);
+}
+
+.cm-positive {
+    color: rgb(34, 153, 34);
+}
+
+.cm-header, .cm-strong {
+    font-weight: 700;
+}
+
+.cm-del {
+    text-decoration: line-through;
+}
+
+.cm-em {
+    font-style: italic;
+}
+
+.cm-link {
+    text-decoration: underline;
+}
+
+.cm-error {
+    color: red;
+}
+
+.cm-invalidchar {
+    color: red;
+}
+
+.cm-constant {
+    color: rgb(38, 139, 210);
+}
+
+.cm-defined {
+    color: rgb(181, 137, 0);
+}
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: rgb(0, 255, 0);
+}
+
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+    color: rgb(255, 34, 34);
+}
+
+.cm-s-inner .CodeMirror-activeline-background {
+    background: inherit;
+}
+
+.CodeMirror {
+    position: relative;
+    overflow: hidden;
+}
+
+.CodeMirror-scroll {
+    height: 100%;
+    outline: 0px;
+    position: relative;
+    box-sizing: content-box;
+    background: inherit;
+}
+
+.CodeMirror-sizer {
+    position: relative;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar {
+    position: absolute;
+    z-index: 6;
+    display: none;
+}
+
+.CodeMirror-vscrollbar {
+    right: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-hscrollbar {
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.CodeMirror-scrollbar-filler {
+    right: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutter-filler {
+    left: 0px;
+    bottom: 0px;
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding-bottom: 30px;
+    z-index: 3;
+}
+
+.CodeMirror-gutter {
+    white-space: normal;
+    height: 100%;
+    box-sizing: content-box;
+    padding-bottom: 30px;
+    margin-bottom: -32px;
+    display: inline-block;
+}
+
+.CodeMirror-gutter-wrapper {
+    position: absolute;
+    z-index: 4;
+    background: 0px 0px !important;
+    border: none !important;
+}
+
+.CodeMirror-gutter-background {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 4;
+}
+
+.CodeMirror-gutter-elt {
+    position: absolute;
+    cursor: default;
+    z-index: 4;
+}
+
+.CodeMirror-lines {
+    cursor: text;
+}
+
+.CodeMirror pre {
+    border-radius: 0px;
+    border-width: 0px;
+    background: 0px 0px;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0px;
+    white-space: pre;
+    overflow-wrap: normal;
+    color: inherit;
+    z-index: 2;
+    position: relative;
+    overflow: visible;
+}
+
+.CodeMirror-wrap pre {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: normal;
+}
+
+.CodeMirror-code pre {
+    border-right: 30px solid transparent;
+    width: fit-content;
+}
+
+.CodeMirror-wrap .CodeMirror-code pre {
+    border-right: none;
+    width: auto;
+}
+
+.CodeMirror-linebackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 0;
+}
+
+.CodeMirror-linewidget {
+    position: relative;
+    z-index: 2;
+    overflow: auto;
+}
+
+.CodeMirror-wrap .CodeMirror-scroll {
+    overflow-x: hidden;
+}
+
+.CodeMirror-measure {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+    .CodeMirror-measure pre {
+        position: static;
+    }
+
+.CodeMirror div.CodeMirror-cursor {
+    position: absolute;
+    visibility: hidden;
+    border-right: none;
+    width: 0px;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+}
+
+.CodeMirror-focused div.CodeMirror-cursor {
+    visibility: inherit;
+}
+
+.cm-searching {
+    background: rgba(255, 255, 0, 0.4);
+}
+
+@media print {
+    .CodeMirror div.CodeMirror-cursor {
+        visibility: hidden;
+    }
+}
 
 
-</style>
+:root {
+    --side-bar-bg-color: white;
+    --window-border: none;
+    --search-select-bg-color: #575c61;
+    --active-file-bg-color: #f1f4f5;
+    --item-hover-bg-color: #f1f4f5;
+    --item-hover-text-color: black;
+    --control-text-color: #555;
+}
+
+@include-when-export url(https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css);
+
+html {
+    font-size: 12pt;
+}
+
+#write {
+    font-family: "STIX2Text", "Times New Roman", "serif";
+    line-height: 1.5em;
+    padding: 10%;
+    padding-top: 5%;
+}
+
+.file-list-item-summary {
+    height: 36px;
+}
+
+.file-list-item {
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+}
+
+#sidebar-loading-template.file-list-item {
+    padding-top: 0 !important;
+}
+
+a, a:visited {
+    color: #a00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+#write h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+pre, code {
+    font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+    background-color: #ebebeb;
+}
+
+.footnotes {
+    display: list-item;
+    margin-left: 1em;
+}
+
+.md-fences {
+    border: 1px solid;
+}
+
+    .md-fences.md-fences-with-lineno {
+        border: none;
+    }
+
+.CodeMirror-linenumber {
+    color: #333;
+}
+
+*.in-text-selection,
+::selection,
+.CodeMirror-selected {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color) !important;
+    text-shadow: none;
+}
+
+a.md-toc-inner {
+    color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-link {
+    color: #a00;
+    text-decoration: underline;
+}
+
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property {
+    color: black;
+}
+
+#typora-source .CodeMirror-lines {
+    -webkit-font-smoothing: auto;
+    max-width: 1000px;
+}
+
+.md-def-name:before,
+.md-def-name:after {
+    color: #2d2d2d;
+}
+
+sup.md-footnote {
+    background-color: initial;
+    color: inherit;
+}
+
+mark {
+    background: #fff387;
+}
+
+td, th {
+    border: 1px solid;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+/*table tr[cid]:first-child > td {
+    border-top: 3px double;
+}*/
+
+th {
+    border-bottom: 0;
+    padding-top: 2px;
+    background: #575c61;
+    border-color: #333;
+    color: #f3f3f3;
+}
+
+pre.md-meta-block {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+.task-list-item input:before {
+    content: '\221A';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before {
+    color: inherit;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.1em;
+    font-size: 1.3em;
+    margin-top: 0px;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item input:before {
+    content: '\2610';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.md-task-list-item input:checked:before,
+.md-task-list-item input[checked]:before {
+    color: inherit;
+    content: '\2611';
+}
+
+.task-list-item {
+    padding-left: 1.5em;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0.25em 24px;
+    position: relative;
+    color: #383838;
+    border-left: 2px solid;
+}
+
+#write > blockquote {
+    padding: 0.25em 30px;
+    margin-left: -32px;
+    width: calc(100% + 32px);
+}
+
+#write > .md-fences-with-lineno {
+    margin-left: -33px;
+    color: black;
+}
+
+.CodeMirror-linenumber {
+    min-width: 25px;
+}
+
+.md-header {
+    font-size: inherit !important;
+}
+
+/*blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}*/
+
+
+
+</style >
 </head>
-<body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="transmisión" class="md-header-anchor"></a><span>Transmisión</span></h1><p><span>Hay dos formas principales de transmitir informacion:</span></p><ul><li><p><strong><span>En serie</span></strong><span>: Se utiliza solo un medio para transmitir solo un flujo de informacion.</span></p></li><li><p><strong><span>Paralelo</span></strong><span>: Se utilizan varios medios, por lo que puedo mandar mas de un flujo de informacion y transmitir mas rápido. La desventaja de este sistema es que suele ser mas caro. </span></p><p><span>Se suele llamar a un </span><strong><span>bus</span></strong><span> al conjunto de medios que conectan a un dispositivo con otro y llevan un mismo mensaje.</span></p></li></ul><h2><a name="codificación" class="md-header-anchor"></a><span>Codificación</span></h2><p><span>La forma de pasar e interpretar informacion en las computadoras es mediante distintos voltajes. En la realidad estos voltajes no son tan lindo como en la teoría, sino que suelen tener ruido, por eso se utilizan valores bastante distintos para signar a un 1 y a un 0.</span></p><h3><a name="codificación-unipolar" class="md-header-anchor"></a><span>Codificación Unipolar</span></h3><p><span>Para representar memoria en las computadoras, se utiliza diferencia de potencial (voltaje) de modo tal que se asigna un valor (</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.947ex" height="2.124ex" viewBox="0 -798.6 1269 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E6-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="0" id="E6-MJMATHI-56" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E6-MJMAIN-35" x="0" y="0"></use><use xlink:href="#E6-MJMATHI-56" x="500" y="0"></use></g></svg></span><script type="math/tex">5V</script><span> o </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.947ex" height="2.124ex" viewBox="0 -798.6 1269 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E4-MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="0" id="E4-MJMATHI-56" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E4-MJMAIN-33" x="0" y="0"></use><use xlink:href="#E4-MJMATHI-56" x="500" y="0"></use></g></svg></span><script type="math/tex">3V</script><span>) al 1, mientras que se le asigna </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.947ex" height="2.124ex" viewBox="0 -798.6 1269 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E5-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="0" id="E5-MJMATHI-56" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E5-MJMAIN-30" x="0" y="0"></use><use xlink:href="#E5-MJMATHI-56" x="500" y="0"></use></g></svg></span><script type="math/tex">0V</script><span> al 0. </span></p><h3><a name="codificación-de-línea" class="md-header-anchor"></a><span>Codificación de línea</span></h3><p><span>De forma similar a la codificación anterior, se asigna un valor positivo al 1 y el mismo valor pero negativo para el cero. Normalmente se asigna </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.947ex" height="2.124ex" viewBox="0 -798.6 1269 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E6-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="0" id="E6-MJMATHI-56" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E6-MJMAIN-35" x="0" y="0"></use><use xlink:href="#E6-MJMATHI-56" x="500" y="0"></use></g></svg></span><script type="math/tex">5V</script><span> para 1 y </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.561ex" height="2.785ex" viewBox="0 -855.5 2825 1198.9" role="img" focusable="false" style="vertical-align: -0.798ex;"><defs><path stroke-width="0" id="E7-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E7-MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="0" id="E7-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="0" id="E7-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="0" id="E7-MJMATHI-56" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E7-MJMAIN-28" x="0" y="0"></use><use xlink:href="#E7-MJMAIN-2212" x="389" y="0"></use><use xlink:href="#E7-MJMAIN-35" x="1167" y="0"></use><use xlink:href="#E7-MJMAIN-29" x="1667" y="0"></use><use xlink:href="#E7-MJMATHI-56" x="2056" y="0"></use></g></svg></span><script type="math/tex">(-5)V</script><span> para el 0</span></p><h1><a name="arquitecturas" class="md-header-anchor"></a><span>Arquitecturas</span></h1><h2><a name="von-neumann" class="md-header-anchor"></a><span>Von Neumann</span></h2><p><img src="Resources/1568057788465.png" alt="1568057788465" style="zoom: 50%;" /></p><p><span>La arquitectura de Von Neumann se conecte con un solo bus con la memoria de código y de los datos. Esta arquitectura es la mas utilizada por su simplicidad y su bajo costo:</span></p><ul><li><span>Tiene solo una memoria en vez de 2</span></li><li><span>Menor complejidad en la toma de decisiones. Esto afecta a la complejidad del procesador.</span></li></ul><h2><a name="harvard" class="md-header-anchor"></a><span>Harvard</span></h2><p><img src="Resources/1568057844917.png" alt="1568057844917" style="zoom:50%;" /></p><p><span>La arquitectura de Harvard utiliza 2 buses, uno para conectarse a la memoria de código y otro para conectarse a la memoria de datos. Esto paraleliza el acceso a la informacion (en algunos casos) y haría que sea mas rápido el acceso.</span></p><p><span>Hay pocos dispositivos con un procesador con estructura Harvard, entre los cuales se esta aplicando cada vez mas en los dispositivos móviles con estructura ARM.</span></p><h1><a name="memoria" class="md-header-anchor"></a><span>Memoria</span></h1><h2><a name="estructura" class="md-header-anchor"></a><span>Estructura</span></h2><p><span>La memoria idealmente esta constituida por los 2 buses que presentamos anteriormente, el bus de datos y el bus de dirección.</span></p><p><span>Pero la memoria no tiene solo esos dos buses, sino que tiene un bus extra de control donde se indica si la instrucción es del tipo read/write. Este tercer bus son 2 cables, donde uno indica si de debe escribir y otro se indica si de debe leer informacion. Esto esta hecho así ya que existen funciones que no leen ni escriben en memoria, como lo es el refresco de la memoria RAM.</span></p><p><span>Además, las memorias compatibles con la arquitectura </span><code>x86</code><span> tiene otro bus para indicar si están accediendo a la memoria con una instrucción de </span><code>8-bits</code><span>, </span><code>16-bits</code><span> o </span><code>32-bits</code><span>. </span></p><h3><a name="mapa-de-memoria" class="md-header-anchor"></a><span>Mapa de memoria</span></h3><p><span>El mapa de memoria te dice la cantidad de memoria que el procesador puede manejar, pero no necesariamente es la memoria real que tenés en tu sistema. Un mapa de memoria esta definido por el bus de datos y por el bus de direcciones. El bus de datos indica el tamaño que va a tener cada posición de memoria mientras que el bus de direcciones representa la cantidad máxima de direcciones que se pueden utilizar en la memoria.</span></p><p><span>Si le asignamos </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.846ex" height="1.463ex" viewBox="0 -514.1 1655.8 629.9" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E8-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E8-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E8-MJMATHI-6E" x="0" y="0"></use><use xlink:href="#E8-MJMAIN-3D" x="877" y="0"></use></g></svg></span><script type="math/tex">n=</script><span> tamaño del bus de direcciones y </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.291ex" height="1.992ex" viewBox="0 -741.7 1416.8 857.5" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E9-MJMATHI-74" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path><path stroke-width="0" id="E9-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E9-MJMATHI-74" x="0" y="0"></use><use xlink:href="#E9-MJMAIN-3D" x="638" y="0"></use></g></svg></span><script type="math/tex">t=</script><span> tamaño del bus de datos, hay </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.379ex" height="1.992ex" viewBox="0 -798.6 1024.3 857.5" role="img" focusable="false" style="vertical-align: -0.137ex;"><defs><path stroke-width="0" id="E10-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E10-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E10-MJMAIN-32" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E10-MJMATHI-6E" x="707" y="555"></use></g></svg></span><script type="math/tex">2^n</script><span> posibles direcciones de memoria, de las cuales cada una tiene </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.838ex" height="1.992ex" viewBox="0 -741.7 361 857.5" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E11-MJMATHI-74" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E11-MJMATHI-74" x="0" y="0"></use></g></svg></span><script type="math/tex">t</script><span> bits de tamaño, por lo que esta memoria tiene </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.057ex" height="2.124ex" viewBox="0 -798.6 2607.7 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E12-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E12-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E12-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E12-MJMATHI-74" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E12-MJMAIN-32" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E12-MJMATHI-6E" x="707" y="555"></use><use xlink:href="#E12-MJMAIN-D7" x="1246" y="0"></use><use xlink:href="#E12-MJMATHI-74" x="2246" y="0"></use></g></svg></span><script type="math/tex">2^n \times t</script><span> bits de memoria.</span></p><h2><a name="clasificación-de-memorias" class="md-header-anchor"></a><span>Clasificación de Memorias</span></h2><h3><a name="memoria-rom" class="md-header-anchor"></a><span>Memoria ROM</span></h3><p><span>Esta memoria es normalmente llamada BIOS. Es memoria estática (no se elimina al apagar la computadora) y es de rápido acceso. A la hora de iniciar la computadora, el Instruction Pointer (IP) apunta a una dirección de memoria ROM en la BIOS y ahí comienza a ejecutar instrucciones.</span></p><p><span>Este tipo de memoria no son solo de lectura, como lo eran antes, sino que utiliza una tecnología EEPROM, por lo que son muy rápidas al leer informacion, pero lentas al escribir. </span></p><p><span>Estas memorias tampoco tienen una vida infinita, sino que lentamente van perdiendo energía y duran alrededor de 40 años. Para poder </span><em>“<span>recargar</span>”</em><span> la energía, hay que leer y reescribir la memoria de vuelta.</span></p><p><span>Los pendrives, disco de estado solido y demás memorias </span><em><span>Flash</span></em><span> son de esta familia.</span></p><h3><a name="memoria-ram" class="md-header-anchor"></a><span>Memoria RAM</span></h3><p><span>Por el contrario, la memoria RAM tiene una lectura y escritura muy rápida, además de una volatilidad muy alta, ya que el procesador debe leer y reescribir todos el contenido de la RAM cada algunos milisegundos.</span></p><p><span>Aquí hay dos tecnologías:</span></p><ul><li><span>SRAM (Static RAM): Es un tipo de memoria muy compleja y muy cara, pero es muy rápida y no necesita ser refrescada (al apagar la computadora se borra igual).</span></li><li><span>DRAM (Dynamic RAM): Es mas lenta, bastante barata y necesita ser refrescada cada una cierta cantidad de milisegundos.</span></li></ul><h2><a name="tiempo-de-acceso" class="md-header-anchor"></a><span>Tiempo de Acceso</span></h2><p><span>La </span><strong><span>transferencia</span></strong><span> es el tiempo que tarda en transferir la informacion del procesador a la memoria, mientras que </span><strong><span>latencia</span></strong><span> es el tiempo que la memoria tarda en buscar la informacion y dárselo al procesador. La latencia suele ser mucho mas lenta que la transferencia, ya que la transferencia suele ser mayormente enviar informacion por un cable.</span></p><h1><a name="sistemas" class="md-header-anchor"></a><span>Sistemas</span></h1><p><span>A la hora de armar un sistema, se debe tener en cuenta el tamaño del mapa de memoria del procesador como el tamaño de nuestra memoria. </span></p><p><span>El Instruction Pointer es el registro donde se va apuntar a la dirección de memoria donde se almacena el código. Este puntero no siempre apunta al mismo lugar, sino que distintos fabricantes lo apuntan a donde ellos prefieren (esta hardcodeado). Por lo que tengo que chequear que en mi memoria exista la posición de memoria a donde apunta el IP.</span></p><p><span>No siempre se va a tener solo memoria RAM o ROM, o los tamaños van a ser similares al del mapa de memoria del procesador. En estos casos, como se quieren utilizar ambas memorias, ambas tienen que estar incluidas dentro del mapa de memoria. En estos casos se suele asignarle el espacio primero a la ROM, ya que debemos tener en cuenta a la posición de memoria a la que apunta el IP.</span></p><p><span>A la hora de asignarle un lugar a la memoria RAM, puedo elegir cualquier posición siempre que no se pise con la ROM. Pero mientras que es técnicamente posible, se suele poner a la RAM luego de la ROM, por si en algún momento se le asigna una memoria RAM con mayor capacidad, se le puede asignar un lugar en el mapa de memoria mas grande y listo, ya que no se puede </span>“<span>dividir</span>”<span> la memoria RAM en varias partes.</span></p><p><span>Este proceso explicado previamente se realiza con un </span><strong><span>circuito decodificador</span></strong><span>. Esto permite que solo se active el bus del </span><code>chip select</code><span> cuando se quiere acceder a una memoria especifica. Este bus solo se debe activar cuando se esta interactuando con la memoria en cuestión. Si el tamaño de la memoria es igual al tamaño del mapa de memoria, no es necesario implementar un circuito decodificador.</span></p><p><span>Intel, al desarrollar el procesador de 16 bits, se estaba quedando con poco espacio para los periféricos en el mapa de memoria, por lo que desarrollaron un pin especial llamado </span><code>IO/M-</code><span>  que permitía utilizar un mapa de memoria secundario, del mismo tamaño que el mapa de memoria regular, pero solo para periféricos. En realidad, este pin seria el bit 17 de la dirección de memoria. Este mapa de memoria se puede acceder con las instrucciones </span><code>in</code><span> y </span><code>out</code><span>. Estas instrucciones son iguales a la instrucción </span><code>mov</code><span> pero solo para acceder a periféricos (</span><code>in</code><span> permite leer y </span><code>out</code><span> escribir informacion).</span></p><h2><a name="ejemplos" class="md-header-anchor"></a><span>Ejemplos</span></h2><ul><li><p><strong><span>Tengo un Procesador conectado con el bus de dirección de 16 bits y bus de datos de 8 bits conectado a una memoria ROM con las mismas entradas:</span></strong></p><p><span>Si armo el mapa de memoria del procesador, me queda que tiene un tamaño de </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.036ex" height="2.52ex" viewBox="0 -969.3 3029.6 1085.1" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E13-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E13-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E13-MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="0" id="E13-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E13-MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E13-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E13-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E13-MJMAIN-36" x="500" y="0"></use></g><use xlink:href="#E13-MJMAIN-D7" x="1529" y="0"></use><use xlink:href="#E13-MJMAIN-38" x="2529" y="0"></use></g></svg></span><script type="math/tex">2^{16}\times 8</script><span> bits </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.775ex" height="1.992ex" viewBox="0 -741.7 2055.8 857.5" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E14-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E14-MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="0" id="E14-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E14-MJMAIN-3D" x="0" y="0"></use><g transform="translate(1055,0)"><use xlink:href="#E14-MJMAIN-36"></use><use xlink:href="#E14-MJMAIN-34" x="500" y="0"></use></g></g></svg></span><script type="math/tex">= 64</script><span>kb.</span></p><p><span>Vemos el tamaño de nuestra memoria ROM, como nuestra memoria tiene una entrada de 16 bits para el bus de dirección y 8 bits para el bus de datos, vemos que el tamaño tambien es de </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.323ex" height="1.992ex" viewBox="0 -741.7 1000 857.5" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E21-MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="0" id="E21-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E21-MJMAIN-36"></use><use xlink:href="#E21-MJMAIN-34" x="500" y="0"></use></g></svg></span><script type="math/tex">64</script><span>kb.</span></p><p><span>Como el tamaño máximo del mapa de memoria es igual al tamaño de nuestra memoria, nuestro procesador puede operar perfectamente.</span></p></li><li><p><strong><span>Tengo un Procesador conectado con el </span><u><span>bus de dirección 16 bits</span></u><span> y </span><u><span>bus de datos de 8 bits</span></u><span> conectado a una </span><u><span>memoria ROM</span></u><span> cuyo </span><u><span>bus de datos es de 8 bits</span></u><span>, pero su </span><u><span>bus de direcciones tiene 8 bits</span></u><span>. Tambien lo conecto a una </span><u><span>memoria RAM</span></u><span> con la </span><u><span>misma configuración de entradas</span></u><span> que la memoria ROM. Por otro lado sabemos que el IP apunta a la dirección de memoria </span><code>2000h</code><span> :</span></strong></p><p><span>En este caso el mapa de memoria de mi procesador es de </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.323ex" height="1.992ex" viewBox="0 -741.7 1000 857.5" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E21-MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="0" id="E21-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E21-MJMAIN-36"></use><use xlink:href="#E21-MJMAIN-34" x="500" y="0"></use></g></svg></span><script type="math/tex">64</script><span>kb, pero nuestra memoria ROM, al igual que la RAM, solo tienen </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.796ex" height="2.52ex" viewBox="0 -969.3 5509.6 1085.1" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E17-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E17-MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path stroke-width="0" id="E17-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E17-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E17-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="0" id="E17-MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E17-MJMAIN-32" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E17-MJMAIN-38" x="707" y="555"></use><use xlink:href="#E17-MJMAIN-D7" x="1175" y="0"></use><use xlink:href="#E17-MJMAIN-38" x="2175" y="0"></use><use xlink:href="#E17-MJMAIN-3D" x="2953" y="0"></use><g transform="translate(4009,0)"><use xlink:href="#E17-MJMAIN-32"></use><use xlink:href="#E17-MJMAIN-35" x="500" y="0"></use><use xlink:href="#E17-MJMAIN-36" x="1000" y="0"></use></g></g></svg></span><script type="math/tex">2^8 \times 8 =256</script><span> bytes. </span></p><p><span>En este caso tengo que </span>“<span>meter</span>”<span> tanto la memoria RAM como la ROM dentro del mapa de memoria del procesador. Como el IP apunta a la posición </span><code>2000h</code><span>, le asignamos la memoria entre la posición </span><code>2000h</code><span> y </span><code>20FFh</code><span> a la ROM. Elijo para la memoria RAM las posiciones entre </span><code>3000h</code><span> y </span><code>30FFh</code><span>.</span></p></li><li><p><strong><span>Tengo un procesador con un </span><u><span>bus de direcciones de 16 bits</span></u><span> y un </span><u><span>bus de datos de 8 bits</span></u><span>. Quiero conectar una </span><u><span>memoria ROM de </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.372ex" height="2.124ex" viewBox="0 -798.6 2743.4 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E18-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E18-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E18-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E18-MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E18-MJMAIN-32" x="0" y="0"></use><use xlink:href="#E18-MJMATHI-6B" x="500" y="0"></use><use xlink:href="#E18-MJMAIN-D7" x="1243" y="0"></use><use xlink:href="#E18-MJMAIN-38" x="2243" y="0"></use></g></svg></span><script type="math/tex">2k\times 8</script><span> bits</span></u><span>. El IP apunta a la dirección </span><code>2000h</code><span>:</span></strong><span> </span></p><p><span>Como la memoria ROM es de </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.372ex" height="2.124ex" viewBox="0 -798.6 2743.4 914.4" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E19-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E19-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E19-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E19-MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E19-MJMAIN-32" x="0" y="0"></use><use xlink:href="#E19-MJMATHI-6B" x="500" y="0"></use><use xlink:href="#E19-MJMAIN-D7" x="1243" y="0"></use><use xlink:href="#E19-MJMAIN-38" x="2243" y="0"></use></g></svg></span><script type="math/tex">2k \times 8</script><span>, puedo decir que el bus de datos es de 8 bits, mientras que el bus de direcciones es de 11 bits (</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="18.638ex" height="2.52ex" viewBox="0 -969.3 8024.8 1085.1" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E20-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E20-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="0" id="E20-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E20-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E20-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E20-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E20-MJMAIN-32" x="0" y="0"></use><use xlink:href="#E20-MJMATHI-6B" x="500" y="0"></use><use xlink:href="#E20-MJMAIN-3D" x="1298" y="0"></use><use xlink:href="#E20-MJMAIN-32" x="2354" y="0"></use><use xlink:href="#E20-MJMAIN-D7" x="3076" y="0"></use><g transform="translate(4077,0)"><use xlink:href="#E20-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E20-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E20-MJMAIN-30" x="500" y="0"></use></g></g><use xlink:href="#E20-MJMAIN-3D" x="5661" y="0"></use><g transform="translate(6717,0)"><use xlink:href="#E20-MJMAIN-32" x="0" y="0"></use><g transform="translate(500,392)"><use transform="scale(0.707)" xlink:href="#E20-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E20-MJMAIN-31" x="500" y="0"></use></g></g></g></svg></span><script type="math/tex">2k=2 \times 2^{10} = 2^{11}</script><span>).</span></p><p><span>Por otro lado vemos que el tamaño del mapa de memoria es </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.323ex" height="1.992ex" viewBox="0 -741.7 1000 857.5" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E21-MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="0" id="E21-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E21-MJMAIN-36"></use><use xlink:href="#E21-MJMAIN-34" x="500" y="0"></use></g></svg></span><script type="math/tex">64</script><span>kb, con las direcciones entre </span><code>0000h</code><span> y </span><code>FFFFh</code><span>.</span></p><p><span>Le asignamos a la ROM, las posiciones de memoria desde </span><code>2000h</code><span> hasta </span><code>27FFh</code><span>.</span></p><p><span>Tambien tenemos que involucrar un codificador de hardware, para que solo se pueda acceder a la memoria cuando se quiere acceder a una de las posiciones de memoria de la ROM y en otro lado. Para esto analizamos las posiciones de comienzo y de fin de la ROM en el mapa de memoria.</span></p><p><code>2000h = 0010 0000 0000 0000</code><span> y </span><code>27FFh = 0010 0111 1111 1111</code><span>, tambien llamamos a las posiciones de memoria </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.96ex" height="2.388ex" viewBox="0 -798.6 1274.3 1028.2" role="img" focusable="false" style="vertical-align: -0.533ex;"><defs><path stroke-width="0" id="E22-MJMATHI-41" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path stroke-width="0" id="E22-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E22-MJMATHI-41" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E22-MJMATHI-6E" x="1060" y="-213"></use></g></svg></span><script type="math/tex">A_n</script><span>, siendo </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.394ex" height="1.463ex" viewBox="0 -514.1 600 629.9" role="img" focusable="false" style="vertical-align: -0.269ex;"><defs><path stroke-width="0" id="E23-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJMATHI-6E" x="0" y="0"></use></g></svg></span><script type="math/tex">n</script><span> la enésima posición de los bits, siendo la primera posición la que esta al final de la cadena. Según esto vemos que los últimos 5 bits son iguales, y solo son así para las posiciones de memoria validas dentro de nuestro mapa de memoria para la ROM. Por esto uso un codificador de memoria que tome </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.214ex" height="2.52ex" viewBox="0 -798.6 9564.2 1085.1" role="img" focusable="false" style="vertical-align: -0.665ex;"><defs><path stroke-width="0" id="E24-MJMATHI-41" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path stroke-width="0" id="E24-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E24-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="0" id="E24-MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="0" id="E24-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path stroke-width="0" id="E24-MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="0" id="E24-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E24-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-35" x="500" y="0"></use></g><use xlink:href="#E24-MJMAIN-2C" x="1557" y="0"></use><g transform="translate(2001,0)"><use xlink:href="#E24-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-34" x="500" y="0"></use></g></g><use xlink:href="#E24-MJMAIN-2C" x="3558" y="0"></use><g transform="translate(4003,0)"><use xlink:href="#E24-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-33" x="500" y="0"></use></g></g><use xlink:href="#E24-MJMAIN-2C" x="5560" y="0"></use><g transform="translate(6005,0)"><use xlink:href="#E24-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-32" x="500" y="0"></use></g></g><use xlink:href="#E24-MJMAIN-2C" x="7562" y="0"></use><g transform="translate(8007,0)"><use xlink:href="#E24-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E24-MJMAIN-31" x="500" y="0"></use></g></g></g></svg></span><script type="math/tex">A_{15}, A_{14}, A_{13}, A_{12}, A_{11}</script><span> para poder activar al bus </span><code>chip select</code><span>, y que solo active cuando estos valores tengan la siguiente configuración:</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n77" cid="n77" mdtype="math_block"><div class="md-rawblock-container md-math-container" tabindex="-1"><div class="MathJax_SVG_Display" style="text-align: center;"><span class="MathJax_SVG" id="MathJax-Element-2-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="49.411ex" height="2.785ex" viewBox="0 -855.5 21274.1 1198.9" role="img" focusable="false" style="vertical-align: -0.798ex; max-width: 100%;"><defs><path stroke-width="0" id="E2-MJMATHI-41" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path stroke-width="0" id="E2-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E2-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="0" id="E2-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E2-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="0" id="E2-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path stroke-width="0" id="E2-MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="0" id="E2-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g transform="translate(167,0)"><g transform="translate(-14,0)"><g transform="translate(0,-50)"><use xlink:href="#E2-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-35" x="500" y="0"></use></g><use xlink:href="#E2-MJMAIN-3D" x="1834" y="0"></use><use xlink:href="#E2-MJMAIN-30" x="2890" y="0"></use></g></g><g transform="translate(4377,0)"><g transform="translate(0,-50)"><use xlink:href="#E2-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-34" x="500" y="0"></use></g><use xlink:href="#E2-MJMAIN-3D" x="1834" y="0"></use><use xlink:href="#E2-MJMAIN-30" x="2890" y="0"></use></g></g><g transform="translate(8768,0)"><g transform="translate(0,-50)"><use xlink:href="#E2-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-33" x="500" y="0"></use></g><use xlink:href="#E2-MJMAIN-3D" x="1834" y="0"></use><use xlink:href="#E2-MJMAIN-31" x="2890" y="0"></use></g></g><g transform="translate(13158,0)"><g transform="translate(0,-50)"><use xlink:href="#E2-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-32" x="500" y="0"></use></g><use xlink:href="#E2-MJMAIN-3D" x="1834" y="0"></use><use xlink:href="#E2-MJMAIN-30" x="2890" y="0"></use></g></g><g transform="translate(17549,0)"><g transform="translate(0,-50)"><use xlink:href="#E2-MJMATHI-41" x="0" y="0"></use><g transform="translate(750,-150)"><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-31"></use><use transform="scale(0.707)" xlink:href="#E2-MJMAIN-31" x="500" y="0"></use></g><use xlink:href="#E2-MJMAIN-3D" x="1834" y="0"></use><use xlink:href="#E2-MJMAIN-30" x="2890" y="0"></use></g></g></g></g></svg></span></div><script type="math/tex; mode=display" id="MathJax-Element-2">\array{ A_{15}=0 & A_{14}=0 & A_{13}=1 & A_{12}=0 & A_{11}=0 }</script></div></div><p>&nbsp;</p></li></ul><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div>
+<body>
+<h1 id="transmisión">Transmisión</h1>
+<p>Hay dos formas principales de transmitir informacion:</p>
+<ul>
+<li><p><strong>En serie</strong>: Se utiliza solo un medio para transmitir solo un flujo de informacion.</p></li>
+<li><p><strong>Paralelo</strong>: Se utilizan varios medios, por lo que puedo mandar mas de un flujo de informacion y transmitir mas rápido. La desventaja de este sistema es que suele ser mas caro.</p>
+<p>Se suele llamar a un <strong>bus</strong> al conjunto de medios que conectan a un dispositivo con otro y llevan un mismo mensaje.</p></li>
+</ul>
+<h2 id="codificación">Codificación</h2>
+<p>La forma de pasar e interpretar informacion en las computadoras es mediante distintos voltajes. En la realidad estos voltajes no son tan lindo como en la teoría, sino que suelen tener ruido, por eso se utilizan valores bastante distintos para signar a un 1 y a un 0.</p>
+<h3 id="codificación-unipolar">Codificación Unipolar</h3>
+<p>Para representar memoria en las computadoras, se utiliza diferencia de potencial (voltaje) de modo tal que se asigna un valor (<span class="math inline">\(5V\)</span> o <span class="math inline">\(3V\)</span>) al 1, mientras que se le asigna <span class="math inline">\(0V\)</span> al 0.</p>
+<h3 id="codificación-de-línea">Codificación de línea</h3>
+<p>De forma similar a la codificación anterior, se asigna un valor positivo al 1 y el mismo valor pero negativo para el cero. Normalmente se asigna <span class="math inline">\(5V\)</span> para 1 y <span class="math inline">\((-5)V\)</span> para el 0</p>
+<h1 id="arquitecturas">Arquitecturas</h1>
+<h2 id="von-neumann">Von Neumann</h2>
+<p><img src="Resources/1568057788465.png" alt="1568057788465" style="zoom: 50%;" /></p>
+<p>La arquitectura de Von Neumann se conecte con un solo bus con la memoria de código y de los datos. Esta arquitectura es la mas utilizada por su simplicidad y su bajo costo:</p>
+<ul>
+<li>Tiene solo una memoria en vez de 2</li>
+<li>Menor complejidad en la toma de decisiones. Esto afecta a la complejidad del procesador.</li>
+</ul>
+<h2 id="harvard">Harvard</h2>
+<p><img src="Resources/1568057844917.png" alt="1568057844917" style="zoom:50%;" /></p>
+<p>La arquitectura de Harvard utiliza 2 buses, uno para conectarse a la memoria de código y otro para conectarse a la memoria de datos. Esto paraleliza el acceso a la informacion (en algunos casos) y haría que sea mas rápido el acceso.</p>
+<p>Hay pocos dispositivos con un procesador con estructura Harvard, entre los cuales se esta aplicando cada vez mas en los dispositivos móviles con estructura ARM.</p>
+<h1 id="memoria">Memoria</h1>
+<h2 id="estructura">Estructura</h2>
+<p>La memoria idealmente esta constituida por los 2 buses que presentamos anteriormente, el bus de datos y el bus de dirección.</p>
+<p>Pero la memoria no tiene solo esos dos buses, sino que tiene un bus extra de control donde se indica si la instrucción es del tipo read/write. Este tercer bus son 2 cables, donde uno indica si de debe escribir y otro se indica si de debe leer informacion. Esto esta hecho así ya que existen funciones que no leen ni escriben en memoria, como lo es el refresco de la memoria RAM.</p>
+<p>Además, las memorias compatibles con la arquitectura <code>x86</code> tiene otro bus para indicar si están accediendo a la memoria con una instrucción de <code>8-bits</code>, <code>16-bits</code> o <code>32-bits</code>.</p>
+<h3 id="mapa-de-memoria">Mapa de memoria</h3>
+<p>El mapa de memoria te dice la cantidad de memoria que el procesador puede manejar, pero no necesariamente es la memoria real que tenés en tu sistema. Un mapa de memoria esta definido por el bus de datos y por el bus de direcciones. El bus de datos indica el tamaño que va a tener cada posición de memoria mientras que el bus de direcciones representa la cantidad máxima de direcciones que se pueden utilizar en la memoria.</p>
+<p>Si le asignamos <span class="math inline">\(n=\)</span> tamaño del bus de direcciones y <span class="math inline">\(t=\)</span> tamaño del bus de datos, hay <span class="math inline">\(2^n\)</span> posibles direcciones de memoria, de las cuales cada una tiene <span class="math inline">\(t\)</span> bits de tamaño, por lo que esta memoria tiene <span class="math inline">\(2^n \times t\)</span> bits de memoria.</p>
+<h2 id="clasificación-de-memorias">Clasificación de Memorias</h2>
+<h3 id="memoria-rom">Memoria ROM</h3>
+<p>Esta memoria es normalmente llamada BIOS. Es memoria estática (no se elimina al apagar la computadora) y es de rápido acceso. A la hora de iniciar la computadora, el Instruction Pointer (IP) apunta a una dirección de memoria ROM en la BIOS y ahí comienza a ejecutar instrucciones.</p>
+<p>Este tipo de memoria no son solo de lectura, como lo eran antes, sino que utiliza una tecnología EEPROM, por lo que son muy rápidas al leer informacion, pero lentas al escribir.</p>
+<p>Estas memorias tampoco tienen una vida infinita, sino que lentamente van perdiendo energía y duran alrededor de 40 años. Para poder <em>“recargar”</em> la energía, hay que leer y reescribir la memoria de vuelta.</p>
+<p>Los pendrives, disco de estado solido y demás memorias <em>Flash</em> son de esta familia.</p>
+<h3 id="memoria-ram">Memoria RAM</h3>
+<p>Por el contrario, la memoria RAM tiene una lectura y escritura muy rápida, además de una volatilidad muy alta, ya que el procesador debe leer y reescribir todos el contenido de la RAM cada algunos milisegundos.</p>
+<p>Aquí hay dos tecnologías:</p>
+<ul>
+<li>SRAM (Static RAM): Es un tipo de memoria muy compleja y muy cara, pero es muy rápida y no necesita ser refrescada (al apagar la computadora se borra igual).</li>
+<li>DRAM (Dynamic RAM): Es mas lenta, bastante barata y necesita ser refrescada cada una cierta cantidad de milisegundos.</li>
+</ul>
+<h2 id="tiempo-de-acceso">Tiempo de Acceso</h2>
+<p>La <strong>transferencia</strong> es el tiempo que tarda en transferir la informacion del procesador a la memoria, mientras que <strong>latencia</strong> es el tiempo que la memoria tarda en buscar la informacion y dárselo al procesador. La latencia suele ser mucho mas lenta que la transferencia, ya que la transferencia suele ser mayormente enviar informacion por un cable.</p>
+<h1 id="sistemas">Sistemas</h1>
+<p>A la hora de armar un sistema, se debe tener en cuenta el tamaño del mapa de memoria del procesador como el tamaño de nuestra memoria.</p>
+<p>El Instruction Pointer es el registro donde se va apuntar a la dirección de memoria donde se almacena el código. Este puntero no siempre apunta al mismo lugar, sino que distintos fabricantes lo apuntan a donde ellos prefieren (esta hardcodeado). Por lo que tengo que chequear que en mi memoria exista la posición de memoria a donde apunta el IP.</p>
+<p>No siempre se va a tener solo memoria RAM o ROM, o los tamaños van a ser similares al del mapa de memoria del procesador. En estos casos, como se quieren utilizar ambas memorias, ambas tienen que estar incluidas dentro del mapa de memoria. En estos casos se suele asignarle el espacio primero a la ROM, ya que debemos tener en cuenta a la posición de memoria a la que apunta el IP.</p>
+<p>A la hora de asignarle un lugar a la memoria RAM, puedo elegir cualquier posición siempre que no se pise con la ROM. Pero mientras que es técnicamente posible, se suele poner a la RAM luego de la ROM, por si en algún momento se le asigna una memoria RAM con mayor capacidad, se le puede asignar un lugar en el mapa de memoria mas grande y listo, ya que no se puede “dividir” la memoria RAM en varias partes.</p>
+<p>Este proceso explicado previamente se realiza con un <strong>circuito decodificador</strong>. Esto permite que solo se active el bus del <code>chip select</code> cuando se quiere acceder a una memoria especifica. Este bus solo se debe activar cuando se esta interactuando con la memoria en cuestión. Si el tamaño de la memoria es igual al tamaño del mapa de memoria, no es necesario implementar un circuito decodificador.</p>
+<p>Intel, al desarrollar el procesador de 16 bits, se estaba quedando con poco espacio para los periféricos en el mapa de memoria, por lo que desarrollaron un pin especial llamado <code>IO/M-</code> que permitía utilizar un mapa de memoria secundario, del mismo tamaño que el mapa de memoria regular, pero solo para periféricos. En realidad, este pin seria el bit 17 de la dirección de memoria. Este mapa de memoria se puede acceder con las instrucciones <code>in</code> y <code>out</code>. Estas instrucciones son iguales a la instrucción <code>mov</code> pero solo para acceder a periféricos (<code>in</code> permite leer y <code>out</code> escribir informacion).</p>
+<h2 id="ejemplos">Ejemplos</h2>
+<ul>
+<li><p><strong>Tengo un Procesador conectado con el bus de dirección de 16 bits y bus de datos de 8 bits conectado a una memoria ROM con las mismas entradas:</strong></p>
+<p>Si armo el mapa de memoria del procesador, me queda que tiene un tamaño de <span class="math inline">\(2^{16}\times 8\)</span> bits <span class="math inline">\(= 64\)</span>kb.</p>
+<p>Vemos el tamaño de nuestra memoria ROM, como nuestra memoria tiene una entrada de 16 bits para el bus de dirección y 8 bits para el bus de datos, vemos que el tamaño tambien es de <span class="math inline">\(64\)</span>kb.</p>
+<p>Como el tamaño máximo del mapa de memoria es igual al tamaño de nuestra memoria, nuestro procesador puede operar perfectamente.</p></li>
+<li><p><strong>Tengo un Procesador conectado con el <u>bus de dirección 16 bits</u> y <u>bus de datos de 8 bits</u> conectado a una <u>memoria ROM</u> cuyo <u>bus de datos es de 8 bits</u>, pero su <u>bus de direcciones tiene 8 bits</u>. Tambien lo conecto a una <u>memoria RAM</u> con la <u>misma configuración de entradas</u> que la memoria ROM. Por otro lado sabemos que el IP apunta a la dirección de memoria <code>2000h</code> :</strong></p>
+<p>En este caso el mapa de memoria de mi procesador es de <span class="math inline">\(64\)</span>kb, pero nuestra memoria ROM, al igual que la RAM, solo tienen <span class="math inline">\(2^8 \times 8 =256\)</span> bytes.</p>
+<p>En este caso tengo que “meter” tanto la memoria RAM como la ROM dentro del mapa de memoria del procesador. Como el IP apunta a la posición <code>2000h</code>, le asignamos la memoria entre la posición <code>2000h</code> y <code>20FFh</code> a la ROM. Elijo para la memoria RAM las posiciones entre <code>3000h</code> y <code>30FFh</code>.</p></li>
+<li><p><strong>Tengo un procesador con un <u>bus de direcciones de 16 bits</u> y un <u>bus de datos de 8 bits</u>. Quiero conectar una <u>memoria ROM de <span class="math inline">\(2k\times 8\)</span> bits</u>. El IP apunta a la dirección <code>2000h</code>:</strong></p>
+<p>Como la memoria ROM es de <span class="math inline">\(2k \times 8\)</span>, puedo decir que el bus de datos es de 8 bits, mientras que el bus de direcciones es de 11 bits (<span class="math inline">\(2k=2 \times 2^{10} = 2^{11}\)</span>).</p>
+<p>Por otro lado vemos que el tamaño del mapa de memoria es <span class="math inline">\(64\)</span>kb, con las direcciones entre <code>0000h</code> y <code>FFFFh</code>.</p>
+<p>Le asignamos a la ROM, las posiciones de memoria desde <code>2000h</code> hasta <code>27FFh</code>.</p>
+<p>Tambien tenemos que involucrar un codificador de hardware, para que solo se pueda acceder a la memoria cuando se quiere acceder a una de las posiciones de memoria de la ROM y en otro lado. Para esto analizamos las posiciones de comienzo y de fin de la ROM en el mapa de memoria.</p>
+<p><code>2000h = 0010 0000 0000 0000</code> y <code>27FFh = 0010 0111 1111 1111</code>, tambien llamamos a las posiciones de memoria <span class="math inline">\(A_n\)</span>, siendo <span class="math inline">\(n\)</span> la enésima posición de los bits, siendo la primera posición la que esta al final de la cadena. Según esto vemos que los últimos 5 bits son iguales, y solo son así para las posiciones de memoria validas dentro de nuestro mapa de memoria para la ROM. Por esto uso un codificador de memoria que tome <span class="math inline">\(A_{15}, A_{14}, A_{13}, A_{12}, A_{11}\)</span> para poder activar al bus <code>chip select</code>, y que solo active cuando estos valores tengan la siguiente configuración: <span class="math display">\[
+\array{ A_{15}=0 &amp; A_{14}=0 &amp; A_{13}=1 &amp; A_{12}=0 &amp; A_{11}=0 }
+\]</span></p></li>
+</ul>
 </body>
 </html>

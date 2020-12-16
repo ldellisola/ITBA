@@ -1,0 +1,265 @@
+# Assignment #2: Financial Statement
+
+## 1
+
+>  Jaster Jets has **\$10 billion in total assets.** Its balance sheet shows **\$1 billion in current**
+> **liabilities**, **\$3 billion in long-term debt**, and **\$6 billion in common equity**. It has **800**
+> **million shares of common stock outstanding**, and its **stock price is \$32 per share**.
+> What is Jaster’s market/book ratio?
+
+We can calculate the market/book ratio as:
+$$
+\text{M/B} = \frac {\text{market price per share}} {\text{book price per share}}
+$$
+And we can obtain the book price per share as:
+$$
+\text{book price per share} = \frac{\text{common equity}} {\text{shares of common stock outstanding}} = \frac {\$6\text{B}}{800\text{M}} = \$7.5 
+$$
+And replacing this in the $\text{M/B}$ ratio we get:
+$$
+\text{M/B} = \frac{\$32}{\$7.5} = 4.27
+$$
+
+## 2
+
+>  A company has an **EPS of \$2.00**, a **cash flow per share of ​\$3.00**, and a **price/cash flow ratio of 8.0**. What is its P/E ratio?
+
+The $\text{P/E}$ ratio is calculates from the earnings and price per share:
+$$
+\text{P/E} = \frac{\text{price per share}}{\text{earnings per share}}
+$$
+And the $\text{price per share}$ can be deduced from the price/cash flow ratio:
+$$
+\text{price per share} = \text{price/cash flow ratio} \times \text{cash flow per share}\\
+\text{price per share} =\$ 3 \times 8 = \$24
+$$
+And now we can calculate the $\text{P/E}$ ratio:
+$$
+\text{P/E} = \frac{\$24}{\$2} = \$12
+$$
+
+# 3
+
+> Duval Manufacturing recently reported the following information: 
+>
+> - **Net income \$600,000** 
+> - **ROA 8%** 
+> - **Interest expense \$225,000** 
+>
+> Its **tax rate is 35 percent**. What is its basic earning power (BEP)?
+
+We are looking into the $\text{BEP}$:
+$$
+\text{BEP} = \frac {\text{EBIT}} {\text{total assets}}
+$$
+Now we have to figure out the $\text{EBIT}$ and the $\text{total assets}$ from the data provided. The total assets can be calculated using the $\text{ROA}$ and the $\text{net income}$:
+$$
+\text{total assets} = \frac{\text{net income}}{\text{ROA}} = \frac{\$600,000}{0.08} = \$7,500,000
+$$
+Now for the $\text{EBIT}$ we need to use a formula from the previous assignment:
+$$
+\text{EBIT} = \text{EBT} + \text{interest} = \frac{\text{net income}}{1-\text{tax}} + \text{interest} \\
+\text{EBIT} = \frac{\$600,000}{1-0.35} + \$225,000 = \$1,148,077
+$$
+And now we can finally calculate the $\text{BEP}$:
+$$
+\text{BEP} = \frac{\$1,148,077}{\$7,500,000} = 0.15
+$$
+
+# 4
+
+> You are given the following information: 
+>
+> - **Stockholders’ equity = \$3.75 billion**;
+> - **price/earnings ratio = 3.5** 
+> - **common shares outstanding = 50 million** 
+> - **market/book ratio = 1.9**
+>
+> Calculate the price of a share of the company’s common stock.
+
+The price of a share of the company's common stock can be obtained from the $M/B$ ratio, but first we need to calculate the $\text{book value}$:
+$$
+\text{book value per share} = \frac {\text{common equity}} {\text{# shares outstanding}} = \frac{\$3.75\text{B}}{50\text{M}} = \$75
+$$
+And now we get the price of a share using the $\text{M/B}$:
+$$
+\text{price of a share} = \text{M/B} \times \text{book value per share} = 1.9 \times \$75 = \$142.5
+$$
+
+# 5
+
+> Assume you are given the following relationships for the Brauer Corp.: 
+>
+> - **Sales/total assets 1.5** 
+> - **ROA 3%** 
+> - **ROE 5%** 
+>
+>  Calculate Brauer’s profit margin and debt ratio
+
+### Profit Margin
+
+The profit margin ratio can be calculated from the net income and sales data:
+$$
+\text{profit margin} = \frac{\text{net income}}{\text{sales}}
+$$
+Now, because we don't have a way to calculate the $\text{sales}$, we can use the $\text{ROA}$ and the relation of sales and total assets:
+$$
+\text{net income} = \text{ROA} \times \text{total assets} = \frac{\text{ROA} \times \text{sales}}{\text{1.5}}
+$$
+If we replace this equation in the profit margin calculation, we get that:
+$$
+\text{profit margin} =\frac{\frac{\text{ROA} \times \cancel{\text{sales}}}{\text{1.5}}}{\cancel{\text{sales}}} =\frac{\text{ROA} }{\text{1.5}} = \frac{0.03}{1.5} = 0.02
+$$
+
+### Debt Ratio
+
+The debt ratio is related to the total debt and the total assets:
+$$
+\text{debt} = \frac{\text{total debt}}{\text{total assets}}
+$$
+And the total debt can be calculates as the difference of assets and equity:
+$$
+\text{total debt} = \text{total assets} - \text{equity}
+$$
+And the equity is calculated from the net income (which we derived before) and the $\text{ROE}$:
+$$
+\text{equity} = \frac{\text{net income}}{\text{ROE}} = \frac{\text{ROA} \times \text{total assets}}{\text{ROE} }
+$$
+So, using both functions we reach to:
+$$
+\text{debt} = \frac {\text{total assets} - \text{equity}}{\text{total assets}} = 1 - \frac {\text{equity}} {\text{total assets}} = 1 - \frac{\text{ROA} \times \cancel{\text{total assets}}}{\text{ROE} \times \cancel{\text{total assets}}}\\
+\text{debt} = 1 - \frac{\text{ROA}}{\text{ROE}} = 1- \frac {0.03}{0.05} =  0.4
+$$
+
+## 6
+
+>  Midwest Packaging’s **ROE last year was only 3 percent**, but its management has developed a new operating plan that calls for a **total debt ratio of 60 percent**, which will result in annual **interest charges of \$300,000**. Management projects an **EBIT of ​\$1,000,000** on **sales of ​\$10,000,000**, and it expects to have a **total assets turnover ratio of 2.0**. Under these conditions, the **tax rate will be 34 percent**. If the changes are made, what will be its return on equity?
+
+As we've seen before, the $\text{ROE}$ is calculated using the net income and the equity. We need to find both values.
+
+For the net income we can use the interest, EBIT and the taxes, as we've seen in the previous assignment:
+$$
+\text{EBT}= \text{EBIT} - \text{interest} = \$700,000\\
+\text{net income} = \text{EBT} (1-\text{taxes})
+\\
+\text{net income} = \$462,000
+$$
+On the other side, we need to figure out the equity.  Using the total assets turnover ration and the sales we can get the total assets value:
+$$
+\text{total assets} = \frac{\text{sales}}{\text{total assets turnover ratio}} = \frac{\$10,000,000}{2} = \$5,000,000
+$$
+Now, we are going to calculate the equity from the debt ratio:
+$$
+\text{debt} = 1 -\frac{\text{equity}}{\text{total assets}}\\
+\text{equity} = \text{total assets} \times (1 - \text{debt}) = \$5,000,000 \times (1-0.4) = \$2,000,000
+$$
+Finally, we can calculate $\text{ROE}$:
+$$
+\text{ROE} = \frac{\text{net income}}{\text{equity}} = \frac{\$462,000}{\$2,000,000} = 0.231
+$$
+
+## 7
+
+> Lloyd Inc. has sales of \$200,000, a net income of \$15,000, and the following balance sheet:
+>
+> ![image-20201123234217947](Resources/02 - Financial Statements/image-20201123234217947.png)
+>
+> The new owner thinks that **inventories** are excessive and can be lowered to the point where the current **ratio** is equal to the **industry average, 2.5**, **without affecting either sales or net income**. If **inventories are sold off and not replaced thus reducing the current ratio to 2.5**, if the funds generated are used to reduce common equity (stock can be repurchased at book value), and if no other changes occur, by how much will the ROE change? What will be the firm’s new quick ratio?
+
+### ROE
+
+Before this change, the $\text{ROE}$ was around:
+$$
+\text{ROE} = \frac{\text{net income}} {\text{equity}} = \frac{\$15,000}{\$200,000} = 0.075
+$$
+If we make those changes, our new inventory is worth:
+$$
+\text{inventories} = \frac{\text{sales}} {\text{inventory turnover ratio}} = \frac{\$200,000}{2.5} = \$130,000
+$$
+And we are buying back stocks with this money, reducing the equity by $\$70,000$. So our new $\text{ROE}$ is:
+$$
+\text{ROE} = \frac{\$15,000}{\$200,000 - \$70,000} = 0.115
+$$
+So the $\text{ROE}$ will increase by around $50\%$
+
+### Quick ratio
+
+The quick ratio is calculated using the current liabilities, current assets and the inventories:
+$$
+\text{quick ratio} = \frac{\text{current assets} - \text{inventories}}{\text{current liabilities}}
+$$
+The current liabilities are composed of the accounts payable and the other current liabilities and it totals to $\$50,000$.  On the other side, the current assets are all the assets that can be liquidated in the short time. Here we are including cash, inventories and receivables, which amount to $\$190,000$.
+
+Finally, we can obtain the quick ratio:
+$$
+\text{quick ratio} = \frac{\$190,000 - \$130,000}{\$50,000} = 1.2
+$$
+
+## 8
+
+> Complete the balance sheet and sales information that follows using the following financial data:
+>
+> <img src="Resources/02 - Financial Statements/image-20201123233946507.png" alt="image-20201123233946507" style="zoom:67%;" />
+
+![image-20201128155050264](Resources/02 - Financial Statements/image-20201128155050264.png)
+
+From the initial data, we can calculate the **common stock** using the Debt ratio:
+$$
+\text{total debt} = \text{debt ratio} \times \text{total assets} = 0.5 \times \$300,000 = \$150,000\\
+\text{common stock} = \text{total assets} - \text{total debt} = \$150,000
+$$
+Now we will calculate the **sales** using the Total Assets turnover:
+$$
+\text{sales} = \text{Total Assets turnover}\times \text{Total assets} = \$450,000
+$$
+For the **costs of goods sold** we need the Gross Profit Margin on Sales:
+$$
+\text{costs of goods sold} = \text{sales} - \text{gross profit margin} \times \text{sales} = \$225,000
+$$
+To calculate the receivables, which in this case it would only be **account receivables** we are using the DSO
+$$
+\text{receivables} = \text{DSO} \times \frac{\text{sales}} {365} = \$30,000
+$$
+The **inventory** was calculating using the inventory turnover ratio:
+$$
+\text{inventory} = \frac{\text{sales}}{\text{inventory turnover ratio}} = \$60,000
+$$
+To calculate **accounts payable** we need to use the total debt again. In this case accounts payable is the only item in current liabilities:
+$$
+\text{accounts payable} = \text{total debt} - \text{long term debt} = \$ 90,000
+$$
+**total liabilities and equity** is simply the sum of current liabilities, long term debt and common stock:
+$$
+\text{total liabilities and equity} = \text{accounts payable} + \text{long term debt} + \text{common stock} = \$300,000
+$$
+In order to calculate **cash** we need to use the current ratio. Again, here current liabilities is only conformed by accounts payable:
+$$
+\text{current assets} = \text{current ratio} \times \text{current liabilities} = \$162,000\\
+\text{cash} = \text{current assets} - \text{accounts receivables} - \text{inventories} = \$72,000
+$$
+Our last item is **fixed assets**:
+$$
+\text{fixed assets} = \text{total assets} - \text{current assets} = \$ 138,000
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

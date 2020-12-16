@@ -8,7 +8,7 @@ A la hora de implementar un gestor de memoria, hay 3 cuestiones críticas:
 
 ## Memoria Virtual
 
-Tambien llamado paginación por demanda, implica que en la creación del proceso no se asignan todas las páginas que tiene en memoria, sino solo las partes que necesita. Esto puede causar que partes del código del programa solo se carguen cuando este necesite ejecutarlo. Para agilizar el acceso a estas páginas de memoria, el sistema operativo intenta de "adivinar" cuales son las páginas que tiene que traer a memoria antes de que las pida mediante una excepción del tipo `page fault`.
+También llamado paginación por demanda, implica que en la creación del proceso no se asignan todas las páginas que tiene en memoria, sino solo las partes que necesita. Esto puede causar que partes del código del programa solo se carguen cuando este necesite ejecutarlo. Para agilizar el acceso a estas páginas de memoria, el sistema operativo intenta de "adivinar" cuales son las páginas que tiene que traer a memoria antes de que las pida mediante una excepción del tipo `page fault`.
 
 Históricamente, el problema de memoria virtual fue solucionado con swapping y librerías linkeadas dinámicamente, entre otras. 
 
@@ -16,7 +16,7 @@ En caso de no tener mas páginas disponibles y no de pueden robar páginas a otr
 
 ### Localidad
 
-La mayoría de los programas exhibe una fuerte localidad. En cada momento, los accesos a código y a datos se concentra sobre arias pequeñas del espacio de memoria, esta es la base para que funcione la memoria virtual, ya que si conseguimos traer solo esas pequeñas porciones de memoria cuando necesitamos, los accesos a disco serán mínimos. El problema surge a la hora de adivinar cuales son las zonas de memoria a traer.
+La mayoría de los programas exhibe una fuerte localidad. En cada momento, los accesos a código y a datos se concentra sobre áreas pequeñas del espacio de memoria, esta es la base para que funcione la memoria virtual, ya que si conseguimos traer solo esas pequeñas porciones de memoria cuando necesitamos, los accesos a disco serán mínimos. El problema surge a la hora de adivinar cuales son las zonas de memoria a traer.
 
 Una localidad débil o mala tendría un programa que acceda a muchas páginas distintas en un periodo corto de tiempo.
 
@@ -32,7 +32,7 @@ TLB es un mecanismo de memoria cache para reducir el tiempo de acceso a la memor
 
 ### Paginación por demanda
 
-La paginación por demanda es una solucion a que páginas hay que cargar inicialmente. Con esta solucion, al iniciar un proceso no se carga ninguna pagina, y a medida que se necesitan las va trayendo mediante interrupciones de `page fault`.
+La paginación por demanda es una solución a que páginas hay que cargar inicialmente. Con esta solución, al iniciar un proceso no se carga ninguna pagina, y a medida que se necesitan las va trayendo mediante interrupciones de `page fault`.
 
 Otras alternativas a este proceso serian precargar las primeras páginas de código o mediante una heurística poder calcular cuales son las páginas mas accedidas.
 
@@ -48,16 +48,15 @@ El objetivo del manejo de memoria virtual es minimizar la frecuencia de fallos d
 
 Algunos algoritmos canónicos son:
 
-- ***Least Recently Used (LRU)***:
-- ***Least Frequently Used (LFU)***:
+- ***Least Recently Used (LRU)***: Mediante un timestamp se puede identificar cuando fue la ultima vez que se utilizo la pagina. Gracias a esto podemos buscar y elegir la pagina que se haya usado hace mas tiempo y reemplazarla por la pagina que necesitamos.
+- ***Least Frequently Used (LFU)***: Podemos asignar un valor a cada pagina donde se indiquen la cantidad de veces que se utilizo una pagina. Con esta información podemos implementar un algoritmo que reemplace la pagina que menos se haya usado.
 - ***First in First out (FIFO)***: es un algoritmo simple y no requiere hardware adicional ya que se puede implementar mediante el sistema operativo, pero como no tiene en cuenta el uso real de las páginas, puede destruir pagina que se utilizan todo el tiempo como partes de código del kernel. Otro motivo en contra de FIFO es la anomalía de Belady, esta anomalía surgen en algunos momentos y causa que cuanto mas se aumenta la cantidad de páginas disponibles, mas aumenta la cantidad de interrupciones del tipo `page fault` se generan.
 
-La informacion para poder utilizar cualquiera de estos métodos están almacenados en la MMU. Por ejemplo podemos pedirle a la MMU que deje un timestamp en la entrada de cada tabla de cuando fue utilizado. Para frecuentemente usado se puede tener un contador, indicando cuantas veces se utilizo la pagina. FIFO se puede implementar de forma similar al LRU.
+La información para poder utilizar cualquiera de estos métodos están almacenados en la MMU. Por ejemplo podemos pedirle a la MMU que deje un timestamp en la entrada de cada tabla de cuando fue utilizado. Para frecuentemente usado se puede tener un contador, indicando cuantas veces se utilizo la pagina. FIFO se puede implementar de forma similar al LRU.
 
 En la realidad se suelen utilizar alternativas mas simples y que consumen menos recursos como los siguientes:
 
 - ***Not Recently Used (NRU)***: Se crea un bit de referencia en la entrada de la tabla. Este bit de referencia es llevado a 0 cada cierto tiempo y cuando una pagina es utilizada se pone en uno a este valor. Utilizando el bit de modificado,tengo cuatro opciones y puedo elegir el tipo de pagina que preferiría robar, como lo es una pagina no referenciada y no modificada.
-- ...
 
 ### Asignación de Marcos
 

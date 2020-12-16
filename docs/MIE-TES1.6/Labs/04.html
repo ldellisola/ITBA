@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>04</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="lab-4">Lab 4</h1>
+<h2 id="section">4.1</h2>
+<figure>
+<img src="Resources/04/image-20201127162407038.png" alt="image-20201127162407038" /><figcaption aria-hidden="true">image-20201127162407038</figcaption>
+</figure>
+<h3 id="a-it-doesnt-hold">A) It doesn’t hold</h3>
+<p><span class="math display">\[
+\models [po \implies Fm] \\
+\models [po] \implies \models[Fm]\\
+\neg \models [po] \ \lor \models [Fm] \\
+\]</span></p>
+<p>Here we will see that <span class="math inline">\(\models po\)</span> holds: <span class="math display">\[
+\pi \models po\\
+\pi(0) \models po \\
+\pi(0) = P \in \mathcal I(po) = \{P,O_1,O_2\}
+\]</span> And we continue with our formula: <span class="math display">\[
+\neg \top \ \lor \models [Fm] \\
+\bot \lor \models [Fm] \\
+\models Fm
+\]</span></p>
+<p>Now that we know that the formula will hold only if the formula <span class="math inline">\(\models Fm\)</span> holds, I’m going to present a counter example that proves this is false: <span class="math display">\[
+P \rarr O_1 \rarr O_1 \rarr \dots \rarr O_1
+\]</span> If we follow the path that is constantly looping over <span class="math inline">\(O_1\)</span>, we will never reach one of the states of <span class="math inline">\(\mathcal I(m) = \{m\}\)</span>, thus is a valid counter example.</p>
+<h3 id="b-it-holds">B) It holds</h3>
+<p><span class="math display">\[
+\models [o \implies Fm] \\
+\models[o] \implies \models[Fm] \\
+\neg \models[o] \lor \implies[Fm]
+\]</span></p>
+<p>Here we will evaluate <span class="math inline">\(\models o\)</span>: <span class="math display">\[
+\pi \models o\\
+\pi(0) \models o \\
+\pi(0) = P \not \in \mathcal (o) = \{O_1,O_2\}
+\]</span> This the formula <span class="math inline">\(\models o\)</span> does not hold. Now we are going to continue with our main formula: <span class="math display">\[
+\neg \bot \lor \models[Fm]\\
+\top \lor \models [Fm] \\
+\top
+\]</span> Thus the formula holds.</p>
+<h3 id="c-it-doesnt-hold">C) It doesn’t hold</h3>
+<p><span class="math display">\[
+\models [poUm]
+\]</span></p>
+<p>This formula does not hold, here is the counter example: <span class="math display">\[
+P \rarr O_1 \rarr O_1 \rarr \dots \rarr O_1
+\]</span> In this path we are currently looping over <span class="math inline">\(O_1\)</span>, therefore there doesn’t exist <span class="math inline">\(i\)</span> such that <span class="math inline">\(\pi^i \models m\)</span> because <span class="math inline">\(\pi(j) \not \in \mathcal I(m) \forall j \in \mathbb{N}_0\)</span>.</p>
+<h3 id="d-it-holds">D) It holds</h3>
+<p><span class="math display">\[
+\models oRpo 
+\]</span></p>
+<p>In the initial state, any path will have <span class="math inline">\(P\)</span>: <span class="math display">\[
+\pi(0) \models po \land \pi(0) \not \models o
+\]</span> In the next step, all paths will contain <span class="math inline">\(O_1\)</span>, validating the <span class="math inline">\(o\)</span> formula: <span class="math display">\[
+\pi(1) \models o \land \pi(1) \models po
+\]</span></p>
+<h2 id="section-1">4.2</h2>
+<h3 id="a-it-holds">A) It holds</h3>
+<p><span class="math display">\[
+\begin{align}
+(a,b,c,d,b) \models Fp &amp;&amp; \mathcal I(p)  = \{p\}
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+\Leftrightarrow \exists 0\le l \le {n-2} / t(n-1) = t(l) \implies \exists 0 \le k \le {n-1} / t(k) \models p\\
+\top \implies \top\\
+\top
+\]</span></p>
+<p>We’ll investigate the first part of the implication: <span class="math display">\[
+\exists 0\le l \le {n-2} / t(n-1) = t(l)\\
+\]</span> If I take <span class="math inline">\(l=1\)</span>, then the formula is true: <span class="math display">\[
+t(n-1) = b = t(1)
+\]</span> Now onto the second part: <span class="math display">\[
+\exists 0 \le k \le {n-1} / t(k) \models p\\
+\array{
+k=0 &amp;&amp; t(0) = a \not \in \mathcal I(p) = \{d\}\\
+k=1 &amp;&amp; t(1) = b \not \in \mathcal I(p) = \{d\}\\
+k=2 &amp;&amp; t(2) = c \not \in \mathcal I(p) = \{d\}\\
+k=3 &amp;&amp; t(3) = p \in \mathcal I(p) = \{d\}\\
+}
+\]</span> If we pick <span class="math inline">\(k=3\)</span>, the second part of the implication is true.</p>
+<h3 id="b-it-holds-1">B) It holds</h3>
+<p><span class="math display">\[
+\array{
+(a,c,b,d,c,d) \models G[\neg p \lor q] &amp; \mathcal I(p) = \{a,b\}, \mathcal I(q) = \{a,b,d\}
+}\\
+\Leftrightarrow \forall k \in \{0,\dots,n-1/ t(k) \models [\neg p \lor q]\}
+\\
+\Leftrightarrow \forall k \in \{0,\dots,n-1/ t(k) \models [\neg p] \lor t(k) \models[q]\}
+\]</span></p>
+<p>If we examine it case by case: <span class="math display">\[
+\array{
+k=0 &amp; t(0)  = a \not \models \neg p &amp; a \models q &amp; \bot \lor \top = \top\\
+k=1 &amp; t(1)  = c \models \neg p &amp; c \not \models q &amp; \top \lor \top = \top\\
+k=2 &amp; t(2)  = b \not \models \neg p &amp; b \models q &amp; \bot \lor \top = \top\\
+k=3 &amp; t(3)  = d \models \neg p &amp; d \models q      &amp; \top \lor \bot = \top\\
+k=4 &amp; t(4)  = c \models \neg p &amp; c \not \models q &amp; \top \lor \bot = \top\\
+k=5 &amp; t(5)  = d \models \neg p &amp; d \models q      &amp; \top \lor \top = \top\\
+}
+\]</span> Now that we see that the formula holds for all <span class="math inline">\(k\)</span>, the the property hold for the path.</p>
+<h3 id="c-it-holds">C) It holds</h3>
+<p><span class="math display">\[
+\array{(g,b,h,a) \models FGp &amp;&amp; \mathcal I(p) = \{p\}}\\
+\Leftrightarrow \exists i \in\{0,\dots,n-2\}/t(n-1) = t(i) \implies\exists j\in\{0,\dots,n-1\}/ t(j) \models Gp
+\]</span></p>
+<p>We can see that the first part of the implication is false, because there is no loop in our path. Knowing this, we can say that the property holds.</p>
+<h3 id="d-it-holds-1">D) It holds</h3>
+<p><span class="math display">\[
+\array{(c) \models Xp &amp;&amp; \mathcal I(p) = \{b\}}
+\]</span></p>
+<p><span class="math display">\[
+\Lrarr(c)^1 = () \models p
+\]</span></p>
+<p>And because we are working with an empty path, the property holds.</p>
+<h3 id="e-it-holds">E) It holds</h3>
+<p><span class="math display">\[
+\array{ (a,b,c,b,a) \models p \implies Fq &amp; \mathcal I(p) =\{c\},\mathcal I(q)=\{b\} }
+\\
+(a,b,c,b,a) \models [p]  \implies (a,b,c,b,a) \models [Fq]
+\]</span></p>
+<p>I will first analyze the first part of the implication: <span class="math display">\[
+(a,b,c,b,a) \models p \\
+(a,b,c,b,a)(0) \models p \\
+a \models p\\
+\cancel{a \in \mathcal I(p)}
+\]</span> So the first part is false, which means that we don’t care about the last part of the implication, because the property already holds: <span class="math display">\[
+\bot \implies ?\\
+{\neg \bot}\  \lor\  ? \\
+\top\ \lor\ ?\\
+\top
+\]</span></p>
+<h3 id="f-does-not-hold">F) Does not hold</h3>
+<p><span class="math display">\[
+\array{(a,b,d,c,a,c) \models G[p \implies Fq] &amp;\mathcal I(p) =\{b,c\},\mathcal I(q)=\{b\}}\\
+\Lrarr \forall i \in \{0,\dots,n-1\} /t(i) \models [p \implies F q]
+\]</span></p>
+<p>After looking at the path, I can see that if I choose <span class="math inline">\(i = 3\)</span>, the property won’t hold: <span class="math display">\[
+(c,a,c) \models [p \implies Fq]
+\]</span> The first element <span class="math inline">\(c\)</span> is a part of the interpretation of the property <span class="math inline">\(p\)</span>, which forces the second part of the implication to be hold if we want the formula to hold: <span class="math display">\[
+(c,a,c) \models Fq  \\
+\Lrarr \exists k \in \{0,\dots,n-2\}/ t(n-1) = t(k) \implies \exists j \in\{0,\dots,n-1\}/t(j) \models q
+\]</span> Again the first part of the implication holds with <span class="math inline">\(k = 0\)</span>, but this time no <span class="math inline">\(j \in \{0,\dots,n-1\}\)</span> exists for the property to hold.</p>
+<h2 id="section-2">4.3</h2>
+<figure>
+<img src="Resources/04/image-20201128123643173.png" alt="image-20201128123643173" /><figcaption aria-hidden="true">image-20201128123643173</figcaption>
+</figure>
+<h3 id="a">A)</h3>
+<p><span class="math display">\[
+\array{\text{BMC}(G\text{ok},i)&amp;\mathcal I(\text{ok}) =\{1,2,3,4,5,6\}&amp; i\in \mathbb{N}_0}
+\]</span></p>
+<p>We will go through all the values of <span class="math inline">\(i\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(i=0\)</span>: In this case the path is empty, causing the property to hold.</p></li>
+<li><p><span class="math inline">\(i=1\)</span>: The path of length 1 is <span class="math inline">\((1)\)</span>, and we can see that <span class="math inline">\(t(1) = 1 \in \mathcal I(\text{ok}) =\{1,2,3,4,5,6\}\)</span>. So the property holds</p></li>
+<li><p><span class="math inline">\(i=2\)</span>: Now we have two paths: <span class="math display">\[
+\array{
+A: &amp;(1,2)\\
+B: &amp; (1,3)
+}
+\]</span> For both paths we can see that the property <span class="math inline">\(\text{ok}\)</span> holds, because all elements are part of the interpretation of the property.</p></li>
+<li><p><span class="math inline">\(i=3\)</span>: We have 3 paths: <span class="math display">\[
+\array{
+A: &amp;(1,2,6)\\
+B: &amp;(1,2,2)\\
+C: &amp;(1,3,4)
+}
+\]</span> Similar to the previous case, the property holds for the three paths as the elements from each path are included in the interpretation of the property.</p></li>
+<li><p><span class="math inline">\(i=4\)</span>: <span class="math display">\[
+\array{
+A:&amp;(1,2,6,5) \\
+B:&amp;(1,2,6,6)\\
+C:&amp;(1,2,2,6)\\
+D:&amp;(1,2,2,2)\\
+E:&amp;(1,3,4,5)\\
+F:&amp;(1,3,4,1)
+}
+\]</span> Similar to the previous case, the property holds for all paths as the elements from each path are included in the interpretation of the property.</p></li>
+</ul>
+<p>We can see that because the interpretation of the property <span class="math inline">\(\text{ok}\)</span> contains all the states from the transition system, and our formula includes <span class="math inline">\(G\)</span>, that will test if the property holds for all the states of each given path, the property will hold for all <span class="math inline">\(i\in\mathbb{N}_0\)</span>.</p>
+<h3 id="b">B)</h3>
+<p><span class="math display">\[
+\array{
+\text{BMC}(F\text{goal},i) &amp; \mathcal I(\text{goal}) = \{2,3\}&amp; i\in\mathbb{N}_0
+}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(i=0\)</span>: The property holds because this is an empty path.</p></li>
+<li><p><span class="math inline">\(i=1\)</span>: Here property doesn’t hold because there’s only one state and it does not model the property. Here is the counter example: <span class="math display">\[
+t =(1)
+\]</span></p></li>
+<li><p><span class="math inline">\(i=2\)</span>: Here we don’t have any loops, so the definition for the <span class="math inline">\(F\)</span> operator in Bounded LTL tells us that property holds.</p></li>
+<li><p><span class="math inline">\(i \ge 3\)</span>: Here the formula still holds, but for a different reason. We have cases where there are no loops, such as : <span class="math display">\[
+A:(1,3,4,5)\\
+B:(1,2,6)
+\]</span> In this cases, just like before, the property holds because in Bounded LTL if we have the <span class="math inline">\(F\)</span> operator and no loops, it will hold the formula.</p>
+<p>In other cases where we have loops, such as: <span class="math display">\[
+C:(1,3,4,1)\\
+D:(1,2,2,2)
+\]</span> We can see that the property still holds. If the paths contains loops, then we need to find some element in the path for which the property holds, and in our case we can see that in all ouf our paths, the second element will be <span class="math inline">\(2\)</span> or <span class="math inline">\(3\)</span>, and for both of those elements the property holds.</p></li>
+</ul>
+<p>So, we can say that the property holds for <span class="math inline">\(i \in \mathbb{N}_0 \setminus\{1\}\)</span>. In the case of <span class="math inline">\(i=1\)</span> the property doesn’t hold.</p>
+<h3 id="c">C)</h3>
+<p><span class="math display">\[
+\array{
+\text{BMC}(F\text{goal},i) &amp; \mathcal I(\text{goal}) = \{4,5,6\} &amp; i \in \mathbb{N}_0
+}
+\]</span></p>
+<p>This property doesn’t hold for any value of <span class="math inline">\(i\)</span> except for <span class="math inline">\(0\)</span>. I will show counter examples for the first values of <span class="math inline">\(i\)</span> and then make a generic counter example for higher values.</p>
+<ul>
+<li><p><span class="math inline">\(i=0\)</span>: The property holds because we are using an empty path.</p></li>
+<li><p><span class="math inline">\(i=1\)</span>: Counter example: <span class="math display">\[
+t=(1)
+\]</span></p></li>
+<li><p><span class="math inline">\(i=2\)</span>: Counter example: <span class="math display">\[
+t=(1,2)
+\]</span></p></li>
+<li><p><span class="math inline">\(i\ge3\)</span>: For all values of <span class="math inline">\(i\)</span> higher than 2, we can always find a counter example for the property. I’m going to use the path that continuously loops around 2, <span class="math inline">\(i-1\)</span> times: <span class="math display">\[
+t=(1,2,2,2,\dots,2)
+\]</span></p></li>
+</ul>
+<h3 id="d">D)</h3>
+<p><span class="math display">\[
+\array{
+\text{BMC}(XG\text{ok}) &amp; \mathcal I(\text{ok}) =\{1,2,3,4,5,6\} &amp; i\in\mathbb{N}_0
+}
+\]</span></p>
+<p>Similar to exercise <strong>A)</strong>, the formula will hold for all <span class="math inline">\(i\in \mathbb{N}_0\)</span>. But here we have two special cases that we need to evaluate:</p>
+<ul>
+<li><span class="math inline">\(i=0\)</span>: Here we have an empty path, but thanks to the <span class="math inline">\(X\)</span> operator we are going to evaluate the <span class="math inline">\(G\)</span> operator from the second element on the path, but because it is an empty path, we will still evaluate <span class="math inline">\(G\)</span> on an empty path, forcing the formula to hold.</li>
+<li><span class="math inline">\(i=1\)</span>: Here our path is not empty, but it only has one element in it. If apply the <span class="math inline">\(X\)</span> operator, then the <span class="math inline">\(G\)</span> operator will be evaluated on an empty path, and again, the formula will hold.</li>
+<li><span class="math inline">\(i \ge 2\)</span>: The justification as to why the property will hold on all paths longer than 1 is similar to <strong>A)</strong>. The <span class="math inline">\(G\)</span> operator will check that every element of the new path (we are removing the first element (<span class="math inline">\(1\)</span>) with the operator <span class="math inline">\(X\)</span>) models the property, and because the set of states of the transition system is the same as the interpretation of the property <span class="math inline">\(\text{ok}\)</span>, all paths will held the property.</li>
+</ul>
+<h2 id="section-3">4.4</h2>
+<p><span class="math display">\[
+\left\{
+\array{
+1:\top, \top\\
+2: \top, \bot \\
+3: \bot,\top\\ }
+\right\}
+\]</span></p>
+<p>$$ (B^2, {(v_0,v_1) / v_0 v_1}, { (v_0,v_1) |</p>
+<p>. } ) $$</p>
+<h2 id="section-4">4.5</h2>
+<h3 id="a-1">A)</h3>
+<p><span class="math display">\[
+[P\lor \neg Q \lor \neg R] \land [\neg P \lor Q \lor R] \land [\neg Q\lor R]\\
+\array{
+\text{recursive call} [P \larr \bot] &amp;[\bot\lor \neg Q \lor \neg R] \land [\neg \bot \lor Q \lor R] \land [\neg Q\lor R]\\
+\text{Simplification} &amp;[\neg Q \lor \neg R] \land [\neg Q\lor R]\\
+\text{Pure Literal Elimiation}[Q\larr \bot] &amp;[\top \lor \neg R] \land [\top\lor R]\\
+\text{Simplification}&amp; \top
+}
+\]</span></p>
+<h3 id="b-1">B)</h3>
+<p><span class="math display">\[
+[\neg P \lor Q \lor R]\land P \land [\neg Q \lor R] \land [\neg Q \land \neg R]\\
+\array{
+\text{Recursive call}[P\larr\bot] &amp; [\top \lor Q \lor R]\land \top \land [\neg Q \lor R] \land [\neg Q \land \neg R]\\
+\text{Simplification} &amp; [\neg Q \lor R] \land [\neg Q \land \neg R]\\
+\text{Pure Literal Elimiation}[Q\larr \bot] &amp;[\top \lor \neg R] \land [\top\lor R]\\
+\text{Simplification}&amp; \top
+}
+\]</span></p>
+</body>
+</html>

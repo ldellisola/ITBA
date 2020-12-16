@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>03 - Systems and Automata</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="systems-and-automata">Systems and Automata</h1>
+<p>In the <strong>Black-box description</strong> of a system, we treat the system as a mystery box that we don’t know what it contains. We can only know the inputs and outputs of the system.</p>
+<p>We say that a system is <strong>reactive</strong> if their inputs and outputs have infinite length, such as a signal.</p>
+<p>A discrete time system with input <span class="math inline">\(I\)</span> and output <span class="math inline">\(O\)</span> is a relation between signals over <span class="math inline">\(I\)</span> and signals over <span class="math inline">\(O\)</span>, a subset of <span class="math inline">\(\Sigma_I \times \Sigma_O\)</span>. If <span class="math inline">\((i,o)\)</span> is an element of this subset, then we say it is a <strong>behavior</strong> of the system.</p>
+<p>We say a system<span class="math inline">\(S_1\)</span> if a <strong>refinement</strong> of another system <span class="math inline">\(S_2\)</span> if is it a part of that system <span class="math inline">\(S_1 \subseteq S_2\)</span>.</p>
+<p>In the <strong>white-box description</strong> of a system, we can actually look at how it works and makes decisions.</p>
+<h3 id="properties">Properties</h3>
+<p>We will assume the system <span class="math inline">\(S\)</span> is a discrete system with input set <span class="math inline">\(I\)</span> and output set <span class="math inline">\(O\)</span>. We say <span class="math inline">\(S\)</span> is <strong>receptive</strong> if for every input there’s an output. The formal definition is as follows: <span class="math display">\[
+\forall i \in \Sigma_I, \exists o \in \Sigma_O / (i,o) \in S
+\]</span> We say <span class="math inline">\(S\)</span> is <strong>causal</strong> if the output given at some time is determined by another input up to that time. Formally, we say that: <span class="math display">\[
+\forall i_1,i_2 \in \Sigma_I, x\in O, t\in \mathbb{N}_0 /
+\\
+\forall t&#39; \in \{0,\dots,t\}/ i_1(t&#39;) = i_2(t&#39;) \land \exists o \in \Sigma_O/(i_1,o) \in S, o(t) = x
+\\
+\iff
+\\
+\exists o \in \Sigma_O/ (i_2,o) \in S, o(t) = x
+\]</span> <span class="math inline">\(S\)</span> is <strong>deterministic</strong> if every input has an unique output.</p>
+<p><span class="math inline">\(S\)</span> is <strong>memoryless</strong> if the output at a given time is determined only by the input at this time.</p>
+<h2 id="discrete-time-automata">Discrete Time Automata</h2>
+<p>A discrete time automata is a quintuple <span class="math inline">\((S,S_0,I,O,R)\)</span> where:</p>
+<ul>
+<li><span class="math inline">\(S\)</span> is a set of states.</li>
+<li><span class="math inline">\(S_0 \subseteq S\)</span> is a set of initial states</li>
+<li><span class="math inline">\(I\)</span> is the set of inputs.</li>
+<li><span class="math inline">\(O\)</span> is the set of outputs</li>
+<li><span class="math inline">\(R\subseteq I \times S \times S \times O\)</span> is the set of transitions.</li>
+</ul>
+<p>The difference with the classical automata is that there are no terminal states.</p>
+<p>We call the <strong>behavior of a system</strong> to the pair of signals <span class="math inline">\((i,o) \in \Sigma_I \times \Sigma_O\)</span> if: <span class="math display">\[
+\forall t \in \{0,1,\dots\} (i(t),s(t),s(t+1),o(t))\in \mathbb{R}
+\]</span> The following automaton represents the system: <span class="math display">\[
+[T] = \{(i,o) \in \Sigma_I \times \Sigma_O / (i,o) \text{ is a behavior of the system }T\}
+\]</span> We say that two automata are equivalent if they represent the same system.</p>
+<p>The system represented by an automaton is always receptive and causal, but it can be nondeterministic. An automaton is <strong>deterministic</strong> if it only has one initial state and and there is only 1 receiving state and output for every input and state.</p>
+</body>
+</html>
