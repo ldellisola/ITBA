@@ -1401,14 +1401,14 @@ blockquote {
 <p>We say that a context-free grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> is <strong>ambiguous</strong> if there exists a sentence <span class="math inline">\(w \in L(G)\)</span> that is the result of two different parse trees. Otherwise we say that the grammar is <strong>unambiguous</strong>.</p>
 <p>In many cases it is possible to remove the ambiguousness from the grammar, but if it is impossible, we call them <strong>inherently ambiguous languages</strong>. It is impossible to create a algorithm to decide whether a given GFG is ambiguous.</p>
 <p>A context-free grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> is <strong>cycle-free</strong> if not derivation of the following type is possible: <span class="math display">\[
-A \Rarr^*A
+A \Rightarrow^*A
 \]</span> A context-free grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> is <strong>proper</strong> is it is cycle-free, <span class="math inline">\(\epsilon\)</span>-rule free and it contains no redundant symbols.</p>
 <p>There are also a few important theorems:</p>
 <ul>
 <li><p><strong>Rule Exclusion Theorem</strong>:</p>
-<p>Let context-free grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> and <span class="math inline">\((A\rarr \alpha B \beta) \in P\)</span> with <span class="math inline">\(\beta,\alpha \in (N\cup\Sigma)^*\)</span><span class="math inline">\(, B \in N, A \neq B\)</span> .</p>
-<p>Let <span class="math inline">\(B\rarr \gamma_1 | \dots|\gamma_k\)</span> be all the rules in <span class="math inline">\(P\)</span> with the symbol <span class="math inline">\(B\)</span> on the left-hand side. Let <span class="math inline">\(G&#39;=(N,\Sigma,P&#39;,S)\)</span> where: <span class="math display">\[
-P&#39;=P \cup\{A \rarr \alpha \gamma_1\beta|\dots|\alpha\gamma_k\beta\} \setminus \{A \rarr \alpha B \beta\}
+<p>Let context-free grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> and <span class="math inline">\((A\rightarrow \alpha B \beta) \in P\)</span> with <span class="math inline">\(\beta,\alpha \in (N\cup\Sigma)^*\)</span><span class="math inline">\(, B \in N, A \neq B\)</span> .</p>
+<p>Let <span class="math inline">\(B\rightarrow \gamma_1 | \dots|\gamma_k\)</span> be all the rules in <span class="math inline">\(P\)</span> with the symbol <span class="math inline">\(B\)</span> on the left-hand side. Let <span class="math inline">\(G&#39;=(N,\Sigma,P&#39;,S)\)</span> where: <span class="math display">\[
+P&#39;=P \cup\{A \rightarrow \alpha \gamma_1\beta|\dots|\alpha\gamma_k\beta\} \setminus \{A \rightarrow \alpha B \beta\}
 \]</span> Then: <span class="math display">\[
 L(G) = L(G&#39;)
 \]</span></p></li>
@@ -1433,7 +1433,7 @@ S \Rightarrow^* wXi \Rightarrow^*wxy,~~~~ w,x,y \in \Sigma^*
 <ul>
 <li><p><span class="math inline">\(P\)</span> contains no <span class="math inline">\(\epsilon\)</span>-rule</p></li>
 <li><p><span class="math inline">\(P\)</span> contains only one <span class="math inline">\(\epsilon\)</span>-rule of the form: <span class="math display">\[
-S \Rarr\epsilon
+S \Rightarrow\epsilon
 \]</span> And <span class="math inline">\(S\)</span> does not appear on the right side of any rule in <span class="math inline">\(P\)</span>.</p></li>
 </ul>
 <p>We can remove all <span class="math inline">\(\epsilon\)</span>-rules with the following algorithm.</p>
@@ -1443,9 +1443,9 @@ S \Rarr\epsilon
 <h2 id="chomsky-normal-form">Chomsky Normal Form</h2>
 <p>A context-free grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> is in <strong>Chomsky Normal Form</strong> if every rule in <span class="math inline">\(P\)</span> is in one of the following forms:</p>
 <ul>
-<li><span class="math inline">\(A\rarr BC\)</span></li>
-<li><span class="math inline">\(A\rarr a\)</span></li>
-<li><span class="math inline">\(S \rarr \epsilon\)</span> if <span class="math inline">\(\epsilon \in L(G)\)</span> and <span class="math inline">\(S\)</span> does not appear in the right-hand side of any rule.</li>
+<li><span class="math inline">\(A\rightarrow BC\)</span></li>
+<li><span class="math inline">\(A\rightarrow a\)</span></li>
+<li><span class="math inline">\(S \rightarrow \epsilon\)</span> if <span class="math inline">\(\epsilon \in L(G)\)</span> and <span class="math inline">\(S\)</span> does not appear in the right-hand side of any rule.</li>
 </ul>
 <p><span class="math inline">\(A,S,B,C \in N, a \in \Sigma\)</span>.</p>
 <blockquote>
@@ -1459,7 +1459,7 @@ S \Rarr\epsilon
 <p><img src="Resources/07 - Context-Free Grammars/image-20201227203126212.png" alt="image-20201227203126212" style="zoom:67%;" /></p>
 <h2 id="recursive-context-free-grammar">Recursive Context-Free Grammar</h2>
 <p>A non terminal symbol <span class="math inline">\(A\)</span> in a context-free grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> is called <strong>recursive</strong> if there exists a derivation: <span class="math display">\[
-A \Rarr^*\alpha A \beta
+A \Rightarrow^*\alpha A \beta
 \]</span> For some <span class="math inline">\(\alpha,\beta \in (N\cup\Sigma)^*\)</span>. If <span class="math inline">\(\alpha = \epsilon\)</span>, then we call <span class="math inline">\(A\)</span> a <strong>left-recursive symbol</strong>, in the same way we call <span class="math inline">\(A\)</span> a <strong>right-recursive symbol</strong> if <span class="math inline">\(\beta = \epsilon\)</span>.</p>
 <p>If a grammar has at least one non-terminal recursive symbol, we call it a <strong>recursive grammar</strong>.</p>
 <p>Following the next algorithm, we can remove left-recursion from a grammar.</p>

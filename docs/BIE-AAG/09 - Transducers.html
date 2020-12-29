@@ -1418,19 +1418,19 @@ blockquote {
 <li><span class="math inline">\(N\)</span> is a finite set of nonterminal symbols</li>
 <li><span class="math inline">\(\Sigma\)</span> is a finite set of input symbols</li>
 <li><span class="math inline">\(D\)</span> is a finite set of output symbols</li>
-<li><span class="math inline">\(R\)</span> is a finite set of rules in the form <span class="math inline">\(A \rarr \alpha\)</span> where <span class="math inline">\(A \in N\)</span></li>
+<li><span class="math inline">\(R\)</span> is a finite set of rules in the form <span class="math inline">\(A \rightarrow \alpha\)</span> where <span class="math inline">\(A \in N\)</span></li>
 <li><span class="math inline">\(S \in N\)</span> is the starting symbol</li>
 </ul>
 <p>For a given <span class="math inline">\(TG\)</span>, we say that <span class="math inline">\(\alpha\)</span> derives in one step to <span class="math inline">\(\beta\)</span>: <span class="math display">\[
-\alpha \Rarr \beta
+\alpha \Rightarrow \beta
 \]</span> if <span class="math inline">\(\exists \tau,w,\gamma \in (N \cup\Sigma \cup D)^*,\exists A \in N\)</span>: <span class="math display">\[
- \alpha = \tau A w, \beta = \tau \gamma w, (A \rarr \gamma) \in R
+ \alpha = \tau A w, \beta = \tau \gamma w, (A \rightarrow \gamma) \in R
 \]</span> We say that <span class="math inline">\(\alpha\)</span> derives <span class="math inline">\(\beta\)</span>: <span class="math display">\[
-\alpha \Rarr^* \beta 
+\alpha \Rightarrow^* \beta 
 \]</span> If <span class="math inline">\(\exists \alpha_1,\dots,\alpha_n \in (N \cup\Sigma\cup D)^*, n\ge1\)</span>: <span class="math display">\[
-\alpha = \alpha_1 \Rarr\alpha_2 \Rarr \dots \Rarr \alpha_n = \beta
+\alpha = \alpha_1 \Rightarrow\alpha_2 \Rightarrow \dots \Rightarrow \alpha_n = \beta
 \]</span> The sequence <span class="math inline">\(\alpha_1,\dots,\alpha_n\)</span> is called <strong>translation derivation</strong> of length <span class="math inline">\(n\)</span> if string <span class="math inline">\(\beta\)</span> from string <span class="math inline">\(\alpha\)</span>.</p>
-<p>We can also have a <strong>transitive closure</strong> <span class="math inline">\((\Rarr^+)\)</span> and a <strong>transitive and reflexive closure</strong> <span class="math inline">\((\Rarr^*)\)</span>.</p>
+<p>We can also have a <strong>transitive closure</strong> <span class="math inline">\((\Rightarrow^+)\)</span> and a <strong>transitive and reflexive closure</strong> <span class="math inline">\((\Rightarrow^*)\)</span>.</p>
 <p>For a translation grammar <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span>, an <strong>input homomorphism</strong> is defined as: <span class="math display">\[
 h^{TG}_i(a) = 
 \left\{
@@ -1443,14 +1443,14 @@ h_i^{TG}(x) = h_i^{TG}(x_1) \times \dots \times h_i^{TG}(x_n),~~\forall x_j\in (
 \]</span> We can also define an <strong>output homomorphism</strong>: <span class="math display">\[
 h^{TG}_0(a) = \left\{\array{\epsilon&amp;\forall a \in \Sigma\\ a&amp; \forall a \in D \cup N}\right.\\h_o^{TG}(x) = h_o^{TG}(x_1) \times \dots \times h_o^{TG}(x_n),~~\forall x_j\in (\Sigma \cup N \cup D)^*
 \]</span> A <strong>translation defined by a translation grammar</strong> <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span> is: <span class="math display">\[
-Z(TG) = \{(h_i^{YG}(w),h_O^{TG}(w)):w \in (\Sigma \cup D)^*, S \Rarr^*w\}
-\]</span> An <strong>Input translation grammar</strong> <span class="math inline">\(TG\)</span> is a Context-Free Grammar <span class="math inline">\(G_i = (N,\Sigma,P_i,S)\)</span> where <span class="math inline">\(P_i = \{A \rarr h_i(\alpha): (A\rarr \alpha) \in R\}\)</span>. An <strong>Output translation grammar</strong> <span class="math inline">\(TG\)</span> is a Context-Free Grammar <span class="math inline">\(G_o = (N,\Sigma,P_o,S)\)</span> where <span class="math inline">\(P_o = \{A \rarr h_o(\alpha):(A\rarr \alpha) \in R\}\)</span></p>
+Z(TG) = \{(h_i^{YG}(w),h_O^{TG}(w)):w \in (\Sigma \cup D)^*, S \Rightarrow^*w\}
+\]</span> An <strong>Input translation grammar</strong> <span class="math inline">\(TG\)</span> is a Context-Free Grammar <span class="math inline">\(G_i = (N,\Sigma,P_i,S)\)</span> where <span class="math inline">\(P_i = \{A \rightarrow h_i(\alpha): (A\rightarrow \alpha) \in R\}\)</span>. An <strong>Output translation grammar</strong> <span class="math inline">\(TG\)</span> is a Context-Free Grammar <span class="math inline">\(G_o = (N,\Sigma,P_o,S)\)</span> where <span class="math inline">\(P_o = \{A \rightarrow h_o(\alpha):(A\rightarrow \alpha) \in R\}\)</span></p>
 <p>A CFG <span class="math inline">\(G = (N,\Sigma \cup D, R,S)\)</span> is a <strong>characteristic grammar of translation grammar</strong> <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span>, in the same way, <span class="math inline">\(L(G)\)</span> is the <strong>characteristic language of translation</strong> <span class="math inline">\(Z(TG)\)</span> and <span class="math inline">\(w\in L(G)\)</span> is a <strong>characteristic sentence of pair</strong> <span class="math inline">\((x,y)\)</span></p>
 <p>A <strong>regular translation grammar</strong> is a <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span> such that all the rules are of the form: <span class="math display">\[
 \array{
-A \rarr axB\\
-A\rarr ax\\
-S\rarr \epsilon
+A \rightarrow axB\\
+A\rightarrow ax\\
+S\rightarrow \epsilon
 }
 \]</span> Where <span class="math inline">\(A,B \in N, a \in \Sigma, x \in D^*\)</span>, and in the case of the last rule, <span class="math inline">\(S\)</span> cannot be in the right side of any other rule.</p>
 <h2 id="finite-transducers">Finite Transducers</h2>
@@ -1514,17 +1514,17 @@ Z(FT) = \{(u,v):u \in \Sigma^*, v \in D^*, \exists q \in F, (q_0,u,\epsilon) \vd
 Z(M) = Z(M&#39;)
 \]</span> The Mealy automaton is constructed as follows:</p>
 <ul>
-<li><span class="math inline">\(\lambda&#39;(q,a) \larr \lambda(\delta(q,a))\)</span> <span class="math inline">\(\forall q \in Q, \forall a \in \Sigma\)</span></li>
+<li><span class="math inline">\(\lambda&#39;(q,a) \leftarrow \lambda(\delta(q,a))\)</span> <span class="math inline">\(\forall q \in Q, \forall a \in \Sigma\)</span></li>
 <li><span class="math inline">\(M&#39; = (Q,\Sigma,D,\delta,\lambda&#39;,q_0)\)</span></li>
 </ul>
 <p>Also, for any Mealy automaton <span class="math inline">\(M&#39;=(Q&#39;,\Sigma,D,\delta&#39;,\lambda&#39;,q_0&#39;)\)</span> there exists a Moore automaton <span class="math inline">\(M\)</span> with <span class="math inline">\(|Q&#39;||D|\)</span> states such that: <span class="math display">\[
 Z(M&#39;) = Z(M)
 \]</span> The Moore automaton is constructed as follows:</p>
 <ul>
-<li><span class="math inline">\(Q \larr Q&#39; \times D\)</span></li>
-<li><span class="math inline">\(\delta((q,b),a) \larr (\delta&#39;(q,q),\lambda&#39;(q,a))\)</span> <span class="math inline">\(\forall q \in Q&#39;,\forall a \in \Sigma, \forall b\in D\)</span></li>
-<li><span class="math inline">\(q_0 \larr (q_0&#39;,c)\)</span> for some arbitrary fixed <span class="math inline">\(c\in D\)</span></li>
-<li><span class="math inline">\(\lambda((q,b)) \larr b\)</span> <span class="math inline">\(\forall q \in Q&#39;,\forall b \in D\)</span></li>
+<li><span class="math inline">\(Q \leftarrow Q&#39; \times D\)</span></li>
+<li><span class="math inline">\(\delta((q,b),a) \leftarrow (\delta&#39;(q,q),\lambda&#39;(q,a))\)</span> <span class="math inline">\(\forall q \in Q&#39;,\forall a \in \Sigma, \forall b\in D\)</span></li>
+<li><span class="math inline">\(q_0 \leftarrow (q_0&#39;,c)\)</span> for some arbitrary fixed <span class="math inline">\(c\in D\)</span></li>
+<li><span class="math inline">\(\lambda((q,b)) \leftarrow b\)</span> <span class="math inline">\(\forall q \in Q&#39;,\forall b \in D\)</span></li>
 <li><span class="math inline">\(M = (Q,\Sigma,D,\delta,\lambda,q_0)\)</span></li>
 </ul>
 <h2 id="pushdown-translation-automata">Pushdown Translation Automata</h2>
@@ -1560,9 +1560,9 @@ Z_\epsilon(PTA) = Z(TG)
 PTA = (\{q\},\Sigma,N,N\cup \Sigma\cup D,D,\delta,q,S,\emptyset)
 \]</span> where: <span class="math display">\[
 \array{
-\delta(q,\emptyset,A) \larr \{(q,\alpha,\epsilon):(A\rarr \alpha)\in R\}&amp; \forall A\in N\\
-\delta(q,a,a) \larr \{(q,\epsilon,\epsilon)\}&amp; \forall a \in \Sigma \\
-\delta(q,\epsilon,b) \larr \{(a,\epsilon,b)\} &amp; \forall b \in D
+\delta(q,\emptyset,A) \leftarrow \{(q,\alpha,\epsilon):(A\rightarrow \alpha)\in R\}&amp; \forall A\in N\\
+\delta(q,a,a) \leftarrow \{(q,\epsilon,\epsilon)\}&amp; \forall a \in \Sigma \\
+\delta(q,\epsilon,b) \leftarrow \{(a,\epsilon,b)\} &amp; \forall b \in D
 }
 \]</span></p>
 </body>

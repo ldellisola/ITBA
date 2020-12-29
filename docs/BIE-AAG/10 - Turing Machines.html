@@ -1464,7 +1464,7 @@ R=(Q,\Sigma,G,\delta,q_0,B,G)
 <li><strong>Class P problems</strong> are the ones that can be solved in polynomial time using a deterministic TM.</li>
 <li><strong>Class NP problems</strong> can only be solved by non-deterministic TM in polynomial time.</li>
 </ul>
-<p>We can convert some languages into polynomial-time languages using <strong>polynomial-time reduction</strong>. We say that language <span class="math inline">\(A \subseteq\{0,1\}^*\)</span> is polynomial-time reducible to a language <span class="math inline">\(B\subseteq \{0,1\}^*\)</span> denoted by <span class="math inline">\(A\le_p B\)</span> if there is a polynomial-time computable function <span class="math inline">\(f:\{0,1\}^* \rarr \{0,1\}^*\)</span> such that: <span class="math display">\[
+<p>We can convert some languages into polynomial-time languages using <strong>polynomial-time reduction</strong>. We say that language <span class="math inline">\(A \subseteq\{0,1\}^*\)</span> is polynomial-time reducible to a language <span class="math inline">\(B\subseteq \{0,1\}^*\)</span> denoted by <span class="math inline">\(A\le_p B\)</span> if there is a polynomial-time computable function <span class="math inline">\(f:\{0,1\}^* \rightarrow \{0,1\}^*\)</span> such that: <span class="math display">\[
 \forall x \in \{0,1\}^*/ x\in A \iff f(x) \in B
 \]</span> We also have another class of problems called <strong>NP-hard</strong>. These problems are such that any problem in NP can be reduced to them (they are at least as hard as the hardest problems in NP). Formally, we can define them as: <span class="math display">\[
 B \in \text{NP-hard} \iff A \le _p B, ~~\forall A \in \text{NP}

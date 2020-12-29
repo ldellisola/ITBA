@@ -1417,7 +1417,7 @@ blockquote {
 \models Fm
 \]</span></p>
 <p>Now that we know that the formula will hold only if the formula <span class="math inline">\(\models Fm\)</span> holds, I’m going to present a counter example that proves this is false: <span class="math display">\[
-P \rarr O_1 \rarr O_1 \rarr \dots \rarr O_1
+P \rightarrow O_1 \rightarrow O_1 \rightarrow \dots \rightarrow O_1
 \]</span> If we follow the path that is constantly looping over <span class="math inline">\(O_1\)</span>, we will never reach one of the states of <span class="math inline">\(\mathcal I(m) = \{m\}\)</span>, thus is a valid counter example.</p>
 <h3 id="b-it-holds">B) It holds</h3>
 <p><span class="math display">\[
@@ -1439,7 +1439,7 @@ P \rarr O_1 \rarr O_1 \rarr \dots \rarr O_1
 \models [poUm]
 \]</span></p>
 <p>This formula does not hold, here is the counter example: <span class="math display">\[
-P \rarr O_1 \rarr O_1 \rarr \dots \rarr O_1
+P \rightarrow O_1 \rightarrow O_1 \rightarrow \dots \rightarrow O_1
 \]</span> In this path we are currently looping over <span class="math inline">\(O_1\)</span>, therefore there doesn’t exist <span class="math inline">\(i\)</span> such that <span class="math inline">\(\pi^i \models m\)</span> because <span class="math inline">\(\pi(j) \not \in \mathcal I(m) \forall j \in \mathbb{N}_0\)</span>.</p>
 <h3 id="d-it-holds">D) It holds</h3>
 <p><span class="math display">\[
@@ -1642,9 +1642,9 @@ t=(1,2,2,2,\dots,2)
 <p><span class="math display">\[
 [P\lor \neg Q \lor \neg R] \land [\neg P \lor Q \lor R] \land [\neg Q\lor R]\\
 \array{
-\text{recursive call} [P \larr \bot] &amp;[\bot\lor \neg Q \lor \neg R] \land [\neg \bot \lor Q \lor R] \land [\neg Q\lor R]\\
+\text{recursive call} [P \leftarrow \bot] &amp;[\bot\lor \neg Q \lor \neg R] \land [\neg \bot \lor Q \lor R] \land [\neg Q\lor R]\\
 \text{Simplification} &amp;[\neg Q \lor \neg R] \land [\neg Q\lor R]\\
-\text{Pure Literal Elimiation}[Q\larr \bot] &amp;[\top \lor \neg R] \land [\top\lor R]\\
+\text{Pure Literal Elimiation}[Q\leftarrow \bot] &amp;[\top \lor \neg R] \land [\top\lor R]\\
 \text{Simplification}&amp; \top
 }
 \]</span></p>
@@ -1652,9 +1652,9 @@ t=(1,2,2,2,\dots,2)
 <p><span class="math display">\[
 [\neg P \lor Q \lor R]\land P \land [\neg Q \lor R] \land [\neg Q \land \neg R]\\
 \array{
-\text{Recursive call}[P\larr\bot] &amp; [\top \lor Q \lor R]\land \top \land [\neg Q \lor R] \land [\neg Q \land \neg R]\\
+\text{Recursive call}[P\leftarrow\bot] &amp; [\top \lor Q \lor R]\land \top \land [\neg Q \lor R] \land [\neg Q \land \neg R]\\
 \text{Simplification} &amp; [\neg Q \lor R] \land [\neg Q \land \neg R]\\
-\text{Pure Literal Elimiation}[Q\larr \bot] &amp;[\top \lor \neg R] \land [\top\lor R]\\
+\text{Pure Literal Elimiation}[Q\leftarrow \bot] &amp;[\top \lor \neg R] \land [\top\lor R]\\
 \text{Simplification}&amp; \top
 }
 \]</span></p>

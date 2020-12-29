@@ -1438,7 +1438,7 @@ C:(\bot,\top)}
 \]</span> Where <span class="math inline">\(S_0, T,\text{ok}\)</span> are boolean formulas encoding the corresponding sets, <span class="math inline">\(\vec v, \vec v&#39;\)</span> are boolean variables representing the states of the transition system, and our path or length <span class="math inline">\(n\)</span> is composed of <span class="math inline">\(k\)</span>-tuple of boolean vectors <span class="math inline">\((\vec v^0,\vec v^1,\dots,\vec v^{n-1})\)</span>. We want to represent the formula: <span class="math display">\[
 \neg \text{BMC}(G\text{ok},n)
 \]</span> And we will do it as such: <span class="math display">\[
-S_0[\vec v \larr \vec v^0] \land \bigwedge_{i=1}^{n-2} T[\vec v \larr \vec v^i,\vec v&#39; \larr \vec v^{i+1}] \land \bigvee_{i\in\{0,\dots,n-1\}} \neg ok[\vec v \larr \vec v^i]
+S_0[\vec v \leftarrow \vec v^0] \land \bigwedge_{i=1}^{n-2} T[\vec v \leftarrow \vec v^i,\vec v&#39; \leftarrow \vec v^{i+1}] \land \bigvee_{i\in\{0,\dots,n-1\}} \neg ok[\vec v \leftarrow \vec v^i]
 \]</span> Here we are applying <strong>symbolic model checking</strong>, which uses symbols for representing big sets. In the case of infinite states, this is our only possible choice to solve them.</p>
 <h2 id="sat-solvers">SAT Solvers</h2>
 <p>Before diving into SAT solvers, we need to stablish some terminology:</p>

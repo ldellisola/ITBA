@@ -1441,10 +1441,10 @@ blockquote {
 <p>Let <span class="math inline">\(L\)</span> be a language. Then a <span class="math inline">\(P_\epsilon\)</span> PDA exists accepting <span class="math inline">\(L\)</span> by empty pushdown store if there exists a PDA <span class="math inline">\(P_f\)</span> accepting <span class="math inline">\(L\)</span> by a transition into a final state</p>
 </blockquote>
 <h2 id="parsing">Parsing</h2>
-<p>Given <span class="math inline">\(G=(N,\Sigma,P,S)\)</span> a derivation <span class="math inline">\(S \Rarr^* \alpha\)</span> <span class="math inline">\(\alpha \in (N\cup \Sigma)^*\)</span> is called <strong>leftmost derivation</strong> if the leftmost nonterminal symbol is a sentential form is replaced in each step. The <strong>rightmost derivation</strong> is defined in the same way.</p>
+<p>Given <span class="math inline">\(G=(N,\Sigma,P,S)\)</span> a derivation <span class="math inline">\(S \Rightarrow^* \alpha\)</span> <span class="math inline">\(\alpha \in (N\cup \Sigma)^*\)</span> is called <strong>leftmost derivation</strong> if the leftmost nonterminal symbol is a sentential form is replaced in each step. The <strong>rightmost derivation</strong> is defined in the same way.</p>
 <p>A leftmost derivation (or rightmost) corresponds to only one parse tree and vice versa. Therefore there is a linear representation of a parse tree called <strong>parse</strong>.</p>
-<p>Given <span class="math inline">\(G=(N,\Sigma,P,S)\)</span>, let’s assume the rules in <span class="math inline">\(P\)</span> are numbered by <span class="math inline">\(1,2,\dots,|P|\)</span>. The <strong>parse of a sentential form</strong> <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(G\)</span> is the sequence of the rule numbers used in the derivation <span class="math inline">\(S\Rarr^*\alpha\)</span>.</p>
-<p>The <strong>left parse of a sentential form</strong> <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(G\)</span> is the sequence of the rule numbers used in the leftmost derivation <span class="math inline">\(S\Rarr^*\alpha\)</span>. The <strong>right parse of a sentential form is equivalent</strong>.</p>
+<p>Given <span class="math inline">\(G=(N,\Sigma,P,S)\)</span>, let’s assume the rules in <span class="math inline">\(P\)</span> are numbered by <span class="math inline">\(1,2,\dots,|P|\)</span>. The <strong>parse of a sentential form</strong> <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(G\)</span> is the sequence of the rule numbers used in the derivation <span class="math inline">\(S\Rightarrow^*\alpha\)</span>.</p>
+<p>The <strong>left parse of a sentential form</strong> <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(G\)</span> is the sequence of the rule numbers used in the leftmost derivation <span class="math inline">\(S\Rightarrow^*\alpha\)</span>. The <strong>right parse of a sentential form is equivalent</strong>.</p>
 <p>We can construct the parse tree in two different ways:</p>
 <ul>
 <li><p><strong>Top Down (LL)</strong></p>
@@ -1462,17 +1462,17 @@ L(G) = L_\epsilon(R)
 R = (\{q\},\Sigma,N\cup \Sigma,\delta,q,S, \emptyset)
 \]</span> where the mapping function is defined as:</p>
 <ul>
-<li><span class="math inline">\(\delta(q,\epsilon,A) \larr \{(q,\alpha) : (A \rarr \alpha) \in P\}\)</span> <span class="math inline">\(\forall A \in N\)</span></li>
-<li><span class="math inline">\(\delta(q,a,a) \larr \{(q,\epsilon)\}\)</span> <span class="math inline">\(\forall a \in \Sigma\)</span></li>
+<li><span class="math inline">\(\delta(q,\epsilon,A) \leftarrow \{(q,\alpha) : (A \rightarrow \alpha) \in P\}\)</span> <span class="math inline">\(\forall A \in N\)</span></li>
+<li><span class="math inline">\(\delta(q,a,a) \leftarrow \{(q,\epsilon)\}\)</span> <span class="math inline">\(\forall a \in \Sigma\)</span></li>
 </ul>
 <p>The top of the pushdown store for this type of automaton is always on the left.</p>
 <p>In a similar way, we can create a PDA using bottom up parsing: <span class="math display">\[
 R=(\{q,r\},\Sigma,N \cup \Sigma\cup\{\#\},\delta,q,\#,\{r\})
 \]</span> Where the mapping function is defined as:</p>
 <ul>
-<li><span class="math inline">\(\delta(q,a,\epsilon) \larr \{(q,a)\}\)</span> <span class="math inline">\(\forall a\in \Sigma\)</span></li>
-<li><span class="math inline">\(\delta(q,\epsilon,\alpha) \larr \{(a,A):(A \larr \alpha) \in P\}\)</span></li>
-<li><span class="math inline">\(\delta(q,\epsilon,\#S) \larr \{(r,\epsilon)\}\)</span></li>
+<li><span class="math inline">\(\delta(q,a,\epsilon) \leftarrow \{(q,a)\}\)</span> <span class="math inline">\(\forall a\in \Sigma\)</span></li>
+<li><span class="math inline">\(\delta(q,\epsilon,\alpha) \leftarrow \{(a,A):(A \leftarrow \alpha) \in P\}\)</span></li>
+<li><span class="math inline">\(\delta(q,\epsilon,\#S) \leftarrow \{(r,\epsilon)\}\)</span></li>
 </ul>
 <p>Compared to the definition of the pushdown automaton and its configurations, the top of the pushdown store for this type of pushdown automaton is always on the right.</p>
 <h2 id="deterministic-pda">Deterministic PDA</h2>
@@ -1483,16 +1483,16 @@ R=(\{q,r\},\Sigma,N \cup \Sigma\cup\{\#\},\delta,q,\#,\{r\})
 <li>If <span class="math inline">\(\delta(q,a,\alpha) \neq \emptyset\)</span> and <span class="math inline">\(\delta(q,\epsilon, \beta) \ne \emptyset\)</span> then <span class="math inline">\(\alpha\)</span> is not a prefix of <span class="math inline">\(\beta\)</span> and vice versa.</li>
 </ul>
 <p>Using the top-down method we can construct a deterministic PDA. To do this we need to prepare our CFG <span class="math inline">\(G\)</span> first. This algorithm takes a CFG <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> where all the rules are in the form: <span class="math display">\[
-\array{A \rarr a\alpha &amp; a\in \Sigma, \alpha \in (\Sigma\cup N)^*}
+\array{A \rightarrow a\alpha &amp; a\in \Sigma, \alpha \in (\Sigma\cup N)^*}
 \]</span> And for each two different rules: <span class="math display">\[
-\array{A \rarr a\alpha  &amp;  B \rarr b\beta}
+\array{A \rightarrow a\alpha  &amp;  B \rightarrow b\beta}
 \]</span> it holds that <span class="math inline">\(a \neq b\)</span></p>
 <p>Once we have the correct grammar, we can convert it to the following automaton: <span class="math display">\[
 R = (\{q\},\Sigma,N\cup\Sigma,\delta,q,S,\emptyset)
 \]</span> where the mapping function is defined as:</p>
 <ul>
-<li><span class="math inline">\(\delta(q,a,A) \larr \{(a,\alpha) :(A\rarr a\alpha) \in P\}\)</span> <span class="math inline">\(\forall A \in N\)</span></li>
-<li><span class="math inline">\(\delta(q,a,a) \larr \{(q,\epsilon)\}\)</span> <span class="math inline">\(\forall a \in \Sigma\)</span></li>
+<li><span class="math inline">\(\delta(q,a,A) \leftarrow \{(a,\alpha) :(A\rightarrow a\alpha) \in P\}\)</span> <span class="math inline">\(\forall A \in N\)</span></li>
+<li><span class="math inline">\(\delta(q,a,a) \leftarrow \{(q,\epsilon)\}\)</span> <span class="math inline">\(\forall a \in \Sigma\)</span></li>
 </ul>
 </body>
 </html>

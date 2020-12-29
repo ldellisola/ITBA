@@ -1492,7 +1492,7 @@ R^- = \{(x&#39;,x) | (x,x&#39;)\in R\}
 <p>In order to obtain a Safety Certificate we need to convert our model with a topological sort into a strict linear order on all states. After the topological sort, we cannot have transitions that “go back” to a state that is before.</p>
 <p>To avoid this we can usually remove transitions that go back and rearrange the topological sort. For example, if we have the following model:</p>
 <p><img src="Resources/08 - Unbounded Model Checking/image-20201127151518287.png" alt="image-20201127151518287" style="zoom:67%;" /></p>
-<p>We can see that if we were to create a topological sort, it would have some transitions that go back, for example <span class="math inline">\(C\rarr D\)</span>:</p>
+<p>We can see that if we were to create a topological sort, it would have some transitions that go back, for example <span class="math inline">\(C\rightarrow D\)</span>:</p>
 <p><img src="Resources/08 - Unbounded Model Checking/image-20201127151744804.png" alt="image-20201127151744804" style="zoom:67%;" /></p>
 <p>If we remove that transition, we can rearrange the topological sort into a better solution:</p>
 <p><img src="Resources/08 - Unbounded Model Checking/image-20201127152447386.png" alt="image-20201127152447386" style="zoom:67%;" /></p>

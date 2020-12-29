@@ -71,11 +71,11 @@ A context-free grammar $G = (N,\Sigma,P,S)$ is **$\epsilon$-rule free** if:
 
 We can remove all $\epsilon$-rules with the following algorithm.
 
-<img src="Resources/07 - Context-Free Grammars/image-20201227194730374.png" alt="image-20201227194730374" style="zoom:67%;" />![image-20201227194753003](Resources/07 - Context-Free Grammars/image-20201227194753003.png)
+<img src="Resources/07 - Context-Free Grammars/image-20201227194730374.png" alt="image-20201227194730374" style="zoom:67%;" />
 
 ### Exclusion of simple rules
 
-<img src="Resources/07 - Context-Free Grammars/image-20201227194730374.png" alt="image-20201227194730374" style="zoom:67%;" />![image-20201227194753003](Resources/07 - Context-Free Grammars/image-20201227194753003.png)
+<img src="Resources/07 - Context-Free Grammars/image-20201227194753003.png" alt="image-20201227194753003" style="zoom:67%;" />
 
 ## Chomsky Normal Form
 
