@@ -145,4 +145,3 @@ When we are dealing with non-determinism we do not have an unit direction for ou
 
 <img src="Resources/12- Modeling of Physical Environments/image-20210106110829237.png" alt="image-20210106110829237" style="zoom:33%;" />
 
-Tesy test
