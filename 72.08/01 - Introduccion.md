@@ -28,6 +28,7 @@ El programa tienen en memoria un espacio asignado en una forma particular. En la
 
 La memoria no esta encargada de almacenar a la informacion de los programas, sino que además de contener múltiples programas (<u>User Space</u>), tambien tiene que tener al sistema operativo (<u>Kernel Space</u>).
 
+
 ### System Calls
 
 Las system calls es la forma que tienen todos los programas de interactuar con el sistema operativo y, finalmente, con el hardware (aunque nunca lo hacen de forma directa).
