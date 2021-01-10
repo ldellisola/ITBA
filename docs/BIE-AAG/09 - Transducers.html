@@ -1593,6 +1593,15 @@ S\rightarrow \epsilon
 <li><span class="math inline">\(q_0 \in Q\)</span> is the start state</li>
 <li><span class="math inline">\(F \subseteq Q\)</span> is the set of final states</li>
 </ul>
+<p>There are two ways to represent the transition function. We will show now an example from the state <span class="math inline">\(S\)</span> with the input symbol <span class="math inline">\(a\)</span> to the state <span class="math inline">\(A\)</span> and output <span class="math inline">\(x\)</span>:</p>
+<ul>
+<li><p>Formal Representation: <span class="math display">\[
+\delta(S,a) = \{(A,x)\}
+\]</span></p></li>
+<li><p>State Diagram: <span class="math display">\[
+S \overset {a/x} \rightarrow |A|
+\]</span></p></li>
+</ul>
 <p>A <strong>configuration of a transducer</strong> <span class="math inline">\(FT = (Q,\Sigma,D,\delta,q_0,F)\)</span> is a triple: <span class="math display">\[
 (q,x,y) \in Q \times \Sigma^* \times D^*
 \]</span> The initial configuration is described as <span class="math inline">\((q_0,x,\epsilon)\)</span>. We can also describe the relation <span class="math inline">\(\vdash_{FT}\)</span> in the same way as for the pushdown automata, as well as a move.</p>
@@ -1604,6 +1613,7 @@ Z(FT) = \{(u,v):u \in \Sigma^*, v \in D^*, \exists q \in F, (q_0,u,\epsilon) \vd
 |\delta(q,\epsilon)|\le 1 &amp; \forall a \in \Sigma \land \delta(q,a) = \emptyset
 }
 \]</span></p>
+<p>Basically it is deterministic if it has no <span class="math inline">\(\epsilon\)</span>-transitions and for each state we can distinguish each exit transition by its input symbol.</p>
 <h2 id="sequential-mapping">Sequential mapping</h2>
 <p>A sequential mapping <span class="math inline">\(S\)</span> is a mapping such that:</p>
 <ul>
@@ -1673,7 +1683,15 @@ Z(M&#39;) = Z(M)
 </ul>
 <p>The configuration of a <span class="math inline">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> is defined as a quadruple: <span class="math display">\[
 (q,x,\alpha,y) \in Q \times \Sigma^*\times G^* \times D^*
-\]</span> The moves and transition relation is defined in the same way as it previously was.</p>
+\]</span> The moves and transition relation is defined in the same way as it previously was, but it is represented differently. In this example we are going from state <span class="math inline">\(S\)</span>, input <span class="math inline">\(a\)</span> and pushdown store symbol <span class="math inline">\(b\)</span> to state <span class="math inline">\(A\)</span>, output <span class="math inline">\(x\)</span> and pushing the symbol <span class="math inline">\(c\)</span> into the pushdown store:</p>
+<ul>
+<li><p>Formal Representation: <span class="math display">\[
+  \delta(S,a,b) = \{(A,c,x)\}
+  \]</span></p></li>
+<li><p>State Diagram: <span class="math display">\[
+S \overset {a,b/c,x} \longrightarrow |A|
+\]</span></p></li>
+</ul>
 <p>The translation defined by a <span class="math inline">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> by a move into final state is a set of pairs: <span class="math display">\[
 Z(\text{PTA}) = \{(x,y): x \in \Sigma^*, y\in D^*, \exists q \in F,\exists \alpha \in G^*,(q_0,x,Z_0,\epsilon)\vdash^*(q,\epsilon,\alpha,y)\}
 \]</span> The translation defined by a <span class="math inline">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> by a move into configuration with empty pushdown store is a set of pairs: <span class="math display">\[

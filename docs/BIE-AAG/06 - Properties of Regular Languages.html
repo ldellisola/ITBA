@@ -1534,7 +1534,23 @@ blockquote {
 <li><span class="math inline">\(|xy| \le p\)</span></li>
 <li><span class="math inline">\(\forall k \ge 0 / xy^kz \in L\)</span></li>
 </ul>
-<p>We will use this lemma to <strong>prove that languages are not regular</strong>. To do this we are going to prove them using by the absurd. We are going to assume that a language is regular an apply the lemma, we should find a word <span class="math inline">\(w\)</span> such that all the conditions for the pumping lemma don’t hold for all possible partitions of <span class="math inline">\(w\)</span> into <span class="math inline">\(xyz\)</span>.</p>
+<p>We will use this lemma to <strong>prove that languages are not regular</strong>. To do this we are going to use the counter-reciprocal method:</p>
+<ol type="1">
+<li><p>We assume that the language <span class="math inline">\(L\)</span> is regular, and because of this it must hold the pumping property and the counter-reciprocal: <span class="math display">\[
+\forall p \ge 1. \exists w \in L/ |w| \ge p \land\\ 
+\forall x,y,x\in \Sigma^*.[(w = xyz \land |xy| \le p \land |y| \ge 1) \Rightarrow
+\exists k \ge 0. xy^kz \not\in L]
+\]</span></p></li>
+<li><p>We have to look for a convenient word <span class="math inline">\(w\)</span> such that <span class="math inline">\(|w| \ge p\)</span></p></li>
+<li><p>We need to split <span class="math inline">\(w\)</span> into <span class="math inline">\(xyz\)</span> and all its possible partitions. If the recursive part of the word has a sequence before it, then there are <span class="math inline">\(2^n\)</span> partitions, where <span class="math inline">\(n\)</span> is the size of the prefix.</p></li>
+<li><p>We need to find <span class="math inline">\(k\)</span> such that <span class="math inline">\(w_k = xy^kz \not\in L\)</span></p></li>
+<li><p><span class="math inline">\(L\)</span> is regular but the pumping property is not met, this is absurd and it means that our assumption is wrong, meaning the language <span class="math inline">\(L\)</span> is not regular.</p></li>
+</ol>
+<p>We can also look for the smallest value of <span class="math inline">\(p\)</span> valid. This depends on the language:</p>
+<ul>
+<li>If it is a finite language, then the smallest value of <span class="math inline">\(p\)</span> is the same as the length of the longest word <span class="math inline">\(+1\)</span>.</li>
+<li>If the language is infinite, then <span class="math inline">\(p\)</span> is the value for which all <span class="math inline">\(w_k\)</span> is valid.</li>
+</ul>
 <h2 id="myhill-nerode-theorem">Myhill-Nerode Theorem</h2>
 <p>This theorem characterizes the fundamental relationships between finite automata over alphabet <span class="math inline">\(\Sigma\)</span> and certain equivalence relations over strings in <span class="math inline">\(\Sigma^*\)</span>. It describes some of the necessary and sufficient conditions for a language to be regular and it provides a formal basis for an elegant proof of existence of a unique minimal DFA for a given regular language.</p>
 <p>We will go over some necessary definitions for this topic:</p>
@@ -1568,5 +1584,20 @@ u \sim_L v \iff \forall w \in \Sigma^*/ uw \in L \iff vw \in L
 <blockquote>
 <p>The number of states of any minimal DFA accepting <span class="math inline">\(L\)</span> is equal to the index of <span class="math inline">\(\sim_L\)</span>.</p>
 </blockquote>
+<h3 id="proving-that-a-language-is-not-regular">Proving that a language is not regular</h3>
+<p>Often the key for proving that a language is not regular with the Myhill-Nerode Theorem is to prove that the second property isn’t valid for a given language. We can follow this steps:</p>
+<ol type="1">
+<li><p>I will assume that the language <span class="math inline">\(L\)</span> is regular, meaning that the Myhill-Nerode theorem applies.</p></li>
+<li><p>I will enumerate <span class="math inline">\(k+1\)</span> convenient words: <span class="math display">\[
+W = \{w_1,\dots,w_{k+1}\}
+\]</span></p></li>
+<li><p>Because there are only <span class="math inline">\(k\)</span> equivalence classes and I’m choosing <span class="math inline">\(k+1\)</span> words, some words must be in the same equivalence class: <span class="math display">\[
+\exists i,j \in \{1,k+1\}. w_i \sim w_j  \Rightarrow w_iv \sim w_jv ~~\forall v
+\]</span></p></li>
+<li><p>Now I have to find a word <span class="math inline">\(v\)</span> such that: <span class="math display">\[
+w_iv \in L \land w_jv \not\in L
+\]</span></p></li>
+<li><p>From one side, the Language is regular and because of that the MH theorem applies. On the other side, the second proposition of the theorem is not valid for the language <span class="math inline">\(L\)</span>. This is an absurd conclusion and it means that our initial assumption is incorrect. So <span class="math inline">\(L\)</span> is not regular.</p></li>
+</ol>
 </body>
 </html>

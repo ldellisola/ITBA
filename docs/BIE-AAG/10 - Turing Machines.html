@@ -1558,6 +1558,15 @@ R = (Q,\Sigma,G,\delta,q_0,B,F)
 3) &amp; \alpha = \alpha&#39;a&amp; \gamma = \alpha&#39;cd &amp; \beta = d\pi &amp; \delta(q,a)=(r,c,1)&amp;a,c,d\in G
 }
 \]</span> <img src="Resources/10 - Turing Machines/image-20201228220332429.png" alt="image-20201228220332429" style="zoom:67%;" /></p>
+<p>And the transition function is represented in two different ways. For this example we will be going from the state <span class="math inline">\(S\)</span> with input symbol <span class="math inline">\(a\)</span>, writing symbol <span class="math inline">\(c\)</span> and moving the head to the right into state <span class="math inline">\(A\)</span>:</p>
+<ul>
+<li><p>Formal Representation: <span class="math display">\[
+\delta(A,a) = \{(A,c,1)\}
+\]</span></p></li>
+<li><p>State Diagram: <span class="math display">\[
+S \overset {a,c,1} \longrightarrow |A|
+\]</span></p></li>
+</ul>
 <p>A Turing Machine <span class="math inline">\(R=(Q,\Sigma,G,\delta,q_0,B,F)\)</span> accepts a word <span class="math inline">\(a\alpha \in \Sigma^+\)</span> if <span class="math inline">\(\exists q \in F\)</span> such that: <span class="math display">\[
 (a,q_0,\alpha) \vdash^*(B,q,\epsilon)
 \]</span> In the same way <span class="math inline">\(R\)</span> accepts <span class="math inline">\(\epsilon\)</span> if <span class="math inline">\(\exists q \in F\)</span> such that: <span class="math display">\[

@@ -1543,7 +1543,21 @@ blockquote {
 \]</span> Then, we will create the transitions from the set <span class="math inline">\(P\)</span>. Here our elements are written as <span class="math inline">\(\text{letter}_\text{state1}\text{transition}_{\text{state2}}\)</span> and we will map them as: <span class="math display">\[
 \delta(\text{state1},\text{transition}) =\text{state2}
 \]</span> All undefined transitions will be redirected to <span class="math inline">\(\emptyset\)</span>.</p>
-<p>We can also see the algorithm here:</p>
+<p>We can also see the algorithm here and it returns a NFA with no <span class="math inline">\(\epsilon\)</span>-transitions:</p>
+<ol type="1">
+<li><p>We need to assign numbers to all symbols in the regular expression <span class="math inline">\(V\)</span>.</p></li>
+<li><p>To create the starter set <span class="math inline">\(Z\)</span> we need to select all the symbols that can be the first element of any resulting string.</p></li>
+<li><p>To create the set of final states <span class="math inline">\(F\)</span> we need to select all the symbols that can be the last element of any resulting string.</p></li>
+<li><p>To create the neighbors set <span class="math inline">\(P\)</span> we need to select all pairs of symbols that can be together in any resulting string.</p></li>
+<li><p>For each pair of symbols in the neighbors set <span class="math inline">\(P\)</span>, we can create the transition functions for our resulting automaton: <span class="math display">\[
+\array{a_1b_2 &amp;\Rightarrow &amp;1\overset {b}{\rightarrow} 2}
+\]</span></p></li>
+<li><p>We create the initial state <span class="math inline">\(q_0\)</span> and we connect it to all the symbols in the starter set <span class="math inline">\(Z\)</span>. The transition value is defined by the letter of the symbol: <span class="math display">\[
+\array{a_1 &amp; \Rightarrow&amp; q_0 \overset a \rightarrow 1}
+\]</span></p></li>
+<li><p>We assign the set <span class="math inline">\(F\)</span> to the final states set of the automaton.</p></li>
+</ol>
+<p>We can see now a more formal definition of the algorithm.</p>
 <p><img src="Resources/05 - Convertsions/image-20201031194622538.png" alt="image-20201031194622538" style="zoom:50%;" /></p>
 <h3 id="method-of-derivatives">Method of Derivatives</h3>
 <p>This algorithm works using the theorem of <em>Bound of Dissimilarities</em>:</p>
@@ -1561,6 +1575,18 @@ U = \{ab,b\}
 \]</span> Then I would have a transition from <span class="math inline">\(ab \overset a {\rightarrow } b\)</span>. This is because: <span class="math display">\[
 \frac {\part ab}{\part a} = b \\
 \]</span> The actual algorithm can be found here:</p>
+<ol type="1">
+<li><p>Create a set that contains only the initial regular expression <span class="math inline">\(V\)</span>: <span class="math display">\[
+U = \{V\}
+\]</span></p></li>
+<li><p>Differentiate all the regular expressions in the set <span class="math inline">\(U\)</span> by all the symbols in the alphabet. Add all the results to the set <span class="math inline">\(U\)</span>.</p></li>
+<li><p>If no new regular expressions have been added in the past step, continue to the next one. Else, repeat step <span class="math inline">\(2.\)</span></p></li>
+<li><p>The initial state <span class="math inline">\(q_0\)</span> is the input regular expression <span class="math inline">\(V\)</span>.</p></li>
+<li><p>The set of states of the automation is the set <span class="math inline">\(U\)</span>.</p></li>
+<li><p>The transitions are defined by which symbol derives what regular expression.</p></li>
+<li><p>The formulas that can express <span class="math inline">\(\epsilon\)</span> are the final states.</p></li>
+</ol>
+<p>A more formal version of the algorithm can be found here.</p>
 <p><img src="Resources/05 - Conversions/image-20201113145642693.png" alt="image-20201113145642693" style="zoom: 67%;" /></p>
 <h3 id="thompsons-method">Thompson’s Method</h3>
 <p>Thompson’s method works constructing and merging different automaton. The most basic parts of the automaton are:</p>
@@ -1591,7 +1617,7 @@ U = \{ab,b\}
 </figure></li>
 </ul>
 <p>After combining all the parts we will obtain a NFA with epsilon transitions.</p>
-<h2 id="between-re-and-fa-1">Between RE and FA</h2>
+<h2 id="between-fa-and-re">Between FA and RE</h2>
 <p>We are using the following theorem:</p>
 <blockquote>
 <p>For every NFA <span class="math inline">\(M\)</span> a regular expression <span class="math inline">\(V\)</span> can be constructed such that: <span class="math display">\[
@@ -1614,6 +1640,16 @@ L(M) = L(V)
 </blockquote>
 <h3 id="elimination-of-states">Elimination of States</h3>
 <p>Elimination of States works by removing states on the NFA and replacing them with regular expressions that represent that state. To work with this algorithm we need to create a new initial state is connected using an <span class="math inline">\(\epsilon\)</span>-transition to the previous initial state. In the same way, we need to connect all the final states to a new final state using <span class="math inline">\(\epsilon\)</span>-transitions. In the end we should only have the new initial and final states that we just created.</p>
+<p>Here’s the algorithm:</p>
+<ol type="1">
+<li><p>We add the states <span class="math inline">\(q&#39;\)</span> and <span class="math inline">\(f&#39;\)</span> as the initial and final states to the automaton. We also add <span class="math inline">\(\epsilon\)</span>-transitions from <span class="math inline">\(q&#39;\)</span> to the previous initial state <span class="math inline">\(q_0\)</span> and from the previous final states to <span class="math inline">\(f&#39;\)</span>.</p></li>
+<li><p>One by one we remove states from the automaton in the following ways: $$  $$</p></li>
+<li><p>The resulting regular expression between <span class="math inline">\(q&#39;\)</span> and <span class="math inline">\(f&#39;\)</span> is the output of the algorithm: <span class="math display">\[
+q&#39; \overset V \rightarrow f&#39;
+\]</span></p></li>
+</ol>
+<p>We can also remove all useless or unnecessary states.</p>
+<p>A more formal version of the algorithm can be found here:</p>
 <p><img src="Resources/05 - Conversions/image-20201113155818779.png" alt="image-20201113155818779" style="zoom:67%;" /></p>
 <h3 id="solution-of-regular-equations">Solution of Regular Equations</h3>
 <p>The idea on this algorithm is to create regular equations from the automaton and them solve them, creating the Regular Expression. For this we have to take into considerations all transitions from a state. For example, if the state A has a transition to state B with the action 1 and to itself with the action 2, we get the following regular expression: <span class="math display">\[
@@ -1624,9 +1660,59 @@ V \leftarrow X_{p_1} + X_{p_2}+ \dots + X_{p_i}~~~\forall p_i \in F
 \]</span> Here is the formal algorithm:</p>
 <p><img src="Resources/05 - Conversions/image-20201113161909928.png" alt="image-20201113161909928" style="zoom:67%;" /></p>
 <h2 id="between-rg-and-re">Between RG and RE</h2>
-<p>We will assume that for given <span class="math inline">\(A,B \in N\)</span> there is at most one production rule of the form: <span class="math display">\[
-A \rightarrow \alpha B\\
-A \rightarrow \alpha
+<h3 id="regular-equation">Regular Equation</h3>
+<p>We can convert the production rules of the grammar into regular equations and then solve the system. This conversion works in the following way: <span class="math display">\[
+\array{
+S\rightarrow bS |aA &amp; \Rightarrow &amp; S= bS + aA\\
+A \rightarrow aA &amp; \Rightarrow &amp; A = aA + \emptyset = \emptyset
+}
 \]</span></p>
+<h3 id="non-terminal-elimination">Non-Terminal Elimination</h3>
+<p>This method is very similar to the elimination of states and it follows this algorithm:</p>
+<ol type="1">
+<li><p>Add states <span class="math inline">\(q&#39;\)</span> and <span class="math inline">\(f&#39;\)</span> as the new initial and final states of the automaton.</p></li>
+<li><p>Connect all the terminal states to <span class="math inline">\(f&#39;\)</span> and <span class="math inline">\(q&#39;\)</span> to the initial state with <span class="math inline">\(\epsilon\)</span>-transitions</p></li>
+<li><p>For each non-terminal symbol we remove them in the following way: <span class="math display">\[
+\array{S \rightarrow A1|A2 &amp; \Rightarrow &amp; S\rightarrow A(1+2)}
+\]</span></p></li>
+</ol>
+<h2 id="between-re-and-rg">Between RE and RG</h2>
+<h3 id="method-of-derivatives-1">Method of derivatives</h3>
+<p>Here we go through the same procedure as in the method of derivatives for the conversion from RE to FA.</p>
+<h3 id="method-of-incremental-construction">Method of Incremental Construction</h3>
+<p>This method is similar to Thompson’s method but with the following predefined grammars: <span class="math display">\[
+\array{G_\epsilon = (\{s\},\emptyset,\{S\rightarrow \epsilon\},S)\\
+G_\emptyset = (\{S\},\emptyset,\emptyset,S)\\
+G_a = (\{S\},\{a\},\{S\rightarrow a\},S)}
+\]</span> Another change here are the operations. The standard operations for grammars are defined as: <span class="math display">\[
+\array{
+A + B &amp;= &amp;G(A) \cup G(B)\\
+AB &amp;=&amp; G(A).G(B) \\
+A^* &amp;=&amp; G(A)^*
+}
+\]</span></p>
+<h2 id="between-rg-and-fa">Between RG and FA</h2>
+<p>There only is one conversion between regular grammars and finite automata. We need to follow this algorithm:</p>
+<ol type="1">
+<li><p>For each non-terminal symbol in the grammar we create a new non-final state in the automaton.</p></li>
+<li><p>We create one final state <span class="math inline">\(K\)</span></p></li>
+<li><p>If there is an <span class="math inline">\(\epsilon\)</span>-rule with the start symbol in the left-hand side, the initial state is also final.</p></li>
+<li><p>For each production rule we add a transition in the following way: $$  $$</p></li>
+<li></li>
+</ol>
+<h2 id="between-fa-and-rg">Between FA and RG</h2>
+<p>This algorithm is the reverse as the conversion from RG to FA:</p>
+<ol type="1">
+<li><p>For each state in the automaton we create a non-terminal symbol.</p></li>
+<li><p>The non-terminal symbol that corresponds to the initial state is the starting symbol.</p></li>
+<li><p>For each transition we add a new production rule in the following way: $$  $$ Where <span class="math inline">\(|B|\)</span> means that <span class="math inline">\(B\)</span> is a final state.</p></li>
+<li><p>If the initial state is also final, we need to add an <span class="math inline">\(\epsilon\)</span>-rule to the initial state. This may transform the grammar into a non-regular one and in that case we need to fix it by adding a new rule and initial state: <span class="math display">\[
+\array{\array{S \rightarrow \epsilon|aS|\dots\\A \rightarrow bS|\dots\\\vdots} &amp;\Rightarrow &amp; \array{S&#39; \rightarrow \epsilon | aS|a|\dots\\
+S \rightarrow aS|a|\dots\\
+A \rightarrow bS|b|\dots\\
+\vdots
+}}
+\]</span></p></li>
+</ol>
 </body>
 </html>

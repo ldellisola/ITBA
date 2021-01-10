@@ -1553,8 +1553,19 @@ blockquote {
 B:(\top,\bot)\\
 C:(\bot,\top)}
 \right\}
-\]</span> Now we can finally obtain the boolean encoding of BMC: $$ (^2, {(v_0,v_1)|v_0v_1},{((v_0,v_1),(v_0’,v_1’)| </p>
-<p>.} ) $$</p></li>
+\]</span> Now we can finally obtain the boolean encoding of BMC: <span class="math display">\[
+\left(\mathbb{B}^2, \left\{(v_0,v_1)|v_0\land v_1\right\},\left\{((v_0,v_1),(v_0&#39;,v_1&#39;)\left|
+\array{
+[v_0\land v_1\land v_0&#39;\land \neg v_1&#39;]
+\\ \lor \\
+[v_0 \land \neg v_1 \land v_0&#39; \land \neg v_1&#39;]
+\\ \lor \\
+[v_0 \land \neg v_1 \land \neg v_0&#39; \land v_1&#39;] 
+\\ \lor \\
+[\neg v_0 \land v_1 \land v_0&#39; \land v_1&#39;]
+}
+\right.\right\} \right)
+\]</span></p></li>
 </ul>
 <h2 id="boolean-satisfiability-1">Boolean Satisfiability</h2>
 <p>The <strong>SAT</strong> algorithm is used to verify Boolean satisfiability. In order to verify our models we need to input the transition system, initial state and final state as a boolean formula: <span class="math display">\[

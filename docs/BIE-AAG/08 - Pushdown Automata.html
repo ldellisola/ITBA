@@ -1537,6 +1537,17 @@ blockquote {
 <li><span class="math inline">\(Z_0 \in G\)</span> is the initial pushdown store symbol.</li>
 <li><span class="math inline">\(F\subseteq Q\)</span> is a set of final states.</li>
 </ul>
+<p>A <strong>Pushdown Store</strong> is a stack where we store symbols and we can only read or obtain the top symbol. Also this store is not empty at the start because it contains <span class="math inline">\(Z_0\)</span>.</p>
+<p>The transition function <span class="math inline">\(\delta\)</span> tells us that according to the current state, current input and the top of the pushdown store we are deciding to which state we are moving and what we are storing in the pushdown store. We can represent this transition function in two ways:</p>
+<p>In this example we are going from state <span class="math inline">\(S\)</span> to state <span class="math inline">\(A\)</span> with input <span class="math inline">\(a\)</span> and pushdown store <span class="math inline">\(b\)</span>. In the end we will store the symbol <span class="math inline">\(c\)</span> in the pushdown store.</p>
+<ul>
+<li><p>Formal Notation: <span class="math display">\[
+\delta(S,a,b) = \{(A,c)\}
+\]</span></p></li>
+<li><p>State Diagram: <span class="math display">\[
+S \overset {a,b/c} \longrightarrow A
+\]</span></p></li>
+</ul>
 <p>The <strong>configuration of a pushdown automaton</strong> <span class="math inline">\(R:(q,w,\alpha) \in Q \times \Sigma^* \times G^*\)</span> where:</p>
 <ul>
 <li><span class="math inline">\(q\)</span> is the current state.</li>
@@ -1612,6 +1623,8 @@ R=(\{q,r\},\Sigma,N \cup \Sigma\cup\{\#\},\delta,q,\#,\{r\})
 <li>If <span class="math inline">\(\delta(q,a,\alpha) \neq \emptyset\)</span> and <span class="math inline">\(\delta(q,a,\beta) \neq \emptyset\)</span> and <span class="math inline">\(\alpha \neq \beta\)</span> then <span class="math inline">\(\alpha\)</span> is not a prefix of <span class="math inline">\(\beta\)</span> and vice versa.</li>
 <li>If <span class="math inline">\(\delta(q,a,\alpha) \neq \emptyset\)</span> and <span class="math inline">\(\delta(q,\epsilon, \beta) \ne \emptyset\)</span> then <span class="math inline">\(\alpha\)</span> is not a prefix of <span class="math inline">\(\beta\)</span> and vice versa.</li>
 </ul>
+<p>A simpler way to see this is that if two transitions from the same state use them same input symbol, then they must use a different pushdown store string and they can’t be a prefix or suffix of each other.</p>
+<h3 id="construction">Construction</h3>
 <p>Using the top-down method we can construct a deterministic PDA. To do this we need to prepare our CFG <span class="math inline">\(G\)</span> first. This algorithm takes a CFG <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> where all the rules are in the form: <span class="math display">\[
 \array{A \rightarrow a\alpha &amp; a\in \Sigma, \alpha \in (\Sigma\cup N)^*}
 \]</span> And for each two different rules: <span class="math display">\[
@@ -1623,6 +1636,12 @@ R = (\{q\},\Sigma,N\cup\Sigma,\delta,q,S,\emptyset)
 <ul>
 <li><span class="math inline">\(\delta(q,a,A) \leftarrow \{(a,\alpha) :(A\rightarrow a\alpha) \in P\}\)</span> <span class="math inline">\(\forall A \in N\)</span></li>
 <li><span class="math inline">\(\delta(q,a,a) \leftarrow \{(q,\epsilon)\}\)</span> <span class="math inline">\(\forall a \in \Sigma\)</span></li>
+</ul>
+<h3 id="accepting-a-string">Accepting a String</h3>
+<p>A DPDA accepts a string when it reaches the end of a string and is:</p>
+<ul>
+<li>One of the final states.</li>
+<li>It is an arbitrary state but the pushdown store is empty.</li>
 </ul>
 </body>
 </html>
