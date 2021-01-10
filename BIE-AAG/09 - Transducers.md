@@ -94,6 +94,19 @@ A finite transducer is a sextuple $FT = (Q,\Sigma,D,\delta,q_0,F)$ where:
 - $q_0 \in Q$ is the start state
 - $F \subseteq Q$ is the set of final states
 
+There are two ways to represent the transition function. We will show now an example from the state $S$ with the input symbol $a$ to the state $A$ and output $x$:
+
+- Formal Representation:
+  $$
+  \delta(S,a) = \{(A,x)\}
+  $$
+
+- State Diagram:
+  $$
+  S \overset {a/x} \rarr |A|
+  $$
+  
+
 A **configuration of a transducer** $FT = (Q,\Sigma,D,\delta,q_0,F)$ is a triple:
 $$
 (q,x,y) \in Q \times \Sigma^* \times D^*
@@ -111,6 +124,8 @@ $$
 |\delta(q,\epsilon)|\le 1 & \forall a \in \Sigma \land \delta(q,a) = \empty
 }
 $$
+
+Basically it is deterministic if it has no $\epsilon$-transitions and for each state we can distinguish each exit transition by its input symbol.
 
 ## Sequential mapping
 
@@ -198,7 +213,17 @@ The configuration of a $\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)$ is defined
 $$
 (q,x,\alpha,y) \in Q \times \Sigma^*\times G^* \times D^*
 $$
-The moves and transition relation is defined in the same way as it previously was.
+The moves and transition relation is defined in the same way as it previously was, but it is represented differently. In this example we are going from state $S$, input $a$ and pushdown store symbol $b$ to state $A$, output $x$ and pushing the symbol $c$ into the pushdown store:
+
+-  Formal Representation:
+  $$
+  \delta(S,a,b) = \{(A,c,x)\}
+  $$
+
+- State Diagram:
+  $$
+  S \overset {a,b/c,x} \longrightarrow |A|
+  $$
 
 The translation defined by a $\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)$ by a move into final state is a set of pairs:
 $$

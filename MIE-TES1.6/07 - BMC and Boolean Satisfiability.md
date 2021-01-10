@@ -48,7 +48,6 @@ There are different ways of creating a Boolean encoding of BMC:
   \\ \lor \\
   [\neg v_0 \land v_1 \land v_0' \land v_1']
   }
-  
   \right.\right\} \right)
   $$
 

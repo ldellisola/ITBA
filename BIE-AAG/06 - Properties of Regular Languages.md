@@ -8,7 +8,27 @@ Let $L$ be a regular language, then for language $L$ there exists a constant $p\
 - $|xy| \le p$
 - $\forall k \ge 0 / xy^kz \in L$
 
-We will use this lemma to **prove that languages are not regular**. To do this we are going to prove them using by the absurd. We are going to assume that a language is regular an apply the lemma, we should find a word $w$ such that all the conditions for the pumping lemma don't hold for all possible partitions of $w$ into $xyz$.
+We will use this lemma to **prove that languages are not regular**. To do this we are going to use the counter-reciprocal method:
+
+1. We assume that the language $L$ is regular, and because of this it must hold the pumping property and the counter-reciprocal:
+   $$
+   \forall p \ge 1. \exists w \in L/ |w| \ge p \land\\ 
+   \forall x,y,x\in \Sigma^*.[(w = xyz \land |xy| \le p \land |y| \ge 1) \Rarr
+   \exists k \ge 0. xy^kz \not\in L]
+   $$
+
+2. We have to look for a convenient word $w$ such that $|w| \ge p$
+
+3. We need to split $w$ into $xyz$ and all its possible partitions. If the recursive part of the word has a sequence before it, then there are $2^n$ partitions, where $n$ is the size of the prefix.
+
+4. We need to find $k$ such that $w_k = xy^kz \not\in L$
+
+5. $L$ is regular but the pumping property is not met, this is absurd and it means that our assumption is wrong, meaning the language $L$ is not regular.
+
+We can also look for the smallest value of $p$ valid. This depends on the language:
+
+- If it is a finite language, then the smallest value of $p$ is the same as the length of the longest word $+1$.
+- If the language is infinite, then $p$ is the value for which all $w_k$ is valid. 
 
 ## Myhill-Nerode Theorem
 
@@ -56,3 +76,27 @@ To use this theorem to prove the irregularity of a language, we need to fin an e
 There is a second version of this theorem:
 
 > The number of states of any minimal DFA accepting $L$ is equal to the index of $\sim_L$.
+
+### Proving that a language is not regular
+
+Often the key for proving that a language is not regular with the Myhill-Nerode Theorem is to prove that the second property isn't valid for a given language. We can follow this steps:
+
+1. I will assume that the language $L$ is regular, meaning that the Myhill-Nerode theorem applies.
+
+2. I will enumerate $k+1$ convenient words:
+   $$
+   W = \{w_1,\dots,w_{k+1}\}
+   $$
+
+3. Because there are only $k$ equivalence classes and I'm choosing $k+1$ words, some words must be in the same equivalence class:
+   $$
+   \exists i,j \in \{1,k+1\}. w_i \sim w_j  \Rarr w_iv \sim w_jv ~~\forall v
+   $$
+
+4. Now I have to find a word $v$ such that:
+   $$
+   w_iv \in L \land w_jv \not\in L
+   $$
+
+5. From one side, the Language is regular and because of that the MH theorem applies. On the other side,  the second proposition of the theorem is not valid for the language $L$. This is an absurd conclusion and it means that our initial assumption is incorrect. So $L$ is not regular.
+

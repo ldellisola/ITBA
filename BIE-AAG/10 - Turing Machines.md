@@ -42,6 +42,21 @@ $$
 $$
 <img src="Resources/10 - Turing Machines/image-20201228220332429.png" alt="image-20201228220332429" style="zoom:67%;" />
 
+And the transition function is represented in two different ways. For this example we will be going from the state $S$ with input symbol $a$, writing symbol $c$ and moving the head to the right into state $A$:
+
+- Formal Representation:
+  $$
+  \delta(A,a) = \{(A,c,1)\}
+  $$
+
+- State Diagram:
+  $$
+  S \overset {a,c,1} \longrightarrow |A|
+  $$
+  
+
+
+
 A Turing Machine $R=(Q,\Sigma,G,\delta,q_0,B,F)$ accepts a word $a\alpha \in \Sigma^+$ if $\exists q \in F$ such that:
 $$
 (a,q_0,\alpha) \vdash^*(B,q,\epsilon)

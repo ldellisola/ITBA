@@ -1,4 +1,4 @@
-# Petri Nets
+#  Petri Nets
 
 A **Petri Net** is a 5-tuple
 $$

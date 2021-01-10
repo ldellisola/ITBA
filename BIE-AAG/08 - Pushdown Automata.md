@@ -10,6 +10,23 @@ A pushdown automaton is a 7-tuple $R=(Q,\Sigma,G,\delta,q_0,Z_0,F)$ where:
 - $Z_0 \in G$ is the initial pushdown store symbol.
 - $F\subseteq Q$ is a set of final states.
 
+A **Pushdown Store** is a stack where we store symbols and we can only  read or obtain the top symbol. Also this store is not empty at the start because it contains $Z_0$.
+
+The transition function $\delta$  tells us that according to the current state, current input and the top of the pushdown store we are deciding to which state we are moving and what we are storing in the pushdown store. We can represent this transition function in two ways:
+
+In this example we are going from state $S$ to state $A$ with input $a$ and pushdown store $b$. In the end we will store the symbol $c$ in the pushdown store.
+
+- Formal Notation:
+  $$
+  \delta(S,a,b) = \{(A,c)\}
+  $$
+
+- State Diagram:
+  $$
+  S \overset {a,b/c} \longrightarrow A
+  $$
+  
+
 The **configuration of a pushdown automaton** $R:(q,w,\alpha) \in Q \times \Sigma^* \times G^*$  where:
 
 - $q$ is the current state.
@@ -109,6 +126,10 @@ $R=(Q,\Sigma,G,\delta,q_0,Z_0,F)$ is a **deterministic pushdown automaton** if:
 - If $\delta(q,a,\alpha) \neq \empty$ and $\delta(q,a,\beta) \neq \empty$ and $\alpha \neq \beta$ then $\alpha$ is not a prefix of $\beta$ and vice versa.
 - If $\delta(q,a,\alpha) \neq \empty$ and $\delta(q,\epsilon, \beta) \ne \empty$ then $\alpha$ is not a prefix of $\beta$ and vice versa.
 
+ A simpler way to see this is that if two transitions from the same state use them same input symbol, then they must use a different pushdown store string and they can't be a prefix or suffix of each other. 
+
+### Construction 
+
 Using the top-down method we can construct a deterministic PDA. To do this we need to prepare our CFG $G$ first. This algorithm takes a CFG $G = (N,\Sigma,P,S)$ where all the rules are in the form:
 $$
 \array{A \rarr a\alpha & a\in \Sigma, \alpha \in (\Sigma\cup N)^*}
@@ -127,4 +148,13 @@ where the mapping function is defined as:
 
 - $\delta(q,a,A) \larr \{(a,\alpha) :(A\rarr a\alpha) \in P\}$   $\forall A \in N$
 - $\delta(q,a,a) \larr \{(q,\epsilon)\}$   $\forall a \in \Sigma$ 
+
+### Accepting a String
+
+A DPDA accepts a string when it reaches the end of a string and is:
+
+- One of the final states.
+- It is an arbitrary state but the pushdown store is empty.
+
+
 
