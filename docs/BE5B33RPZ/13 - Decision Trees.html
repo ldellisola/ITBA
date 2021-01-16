@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>13 - Decision Trees</title>
   <style>
     html {
       line-height: 1.5;
@@ -1526,143 +1526,67 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="multiagent-systems">Multiagent Systems</h1>
+<h1 id="decision-trees">Decision Trees</h1>
+<h2 id="top-down-induction-of-a-dt">Top-Down Induction of a DT</h2>
+<p>This process is made up of 2 phases:</p>
+<ul>
+<li><strong>Growth Phase</strong>: The tree is constructed top-down.:
 <ol type="1">
-<li><a href="01%20-%20Introduction.html">Introduction</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#agents">Agents</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#key-properties-of-intelligent">Key properties of Intelligent</a></li>
-<li><a href="01%20-%20Introduction.html#other-properties">Other properties</a></li>
-<li><a href="01%20-%20Introduction.html#agents-vs-objects">Agents vs Objects</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#multiagent-design-problem">Multiagent Design Problem</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#micro-vs-macro">Micro vs Macro</a></li>
-<li><a href="01%20-%20Introduction.html#types-of-agents-systems">Types of agents systems</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#single-agent">Single agent</a></li>
-<li><a href="01%20-%20Introduction.html#cooperative">Cooperative</a></li>
-<li><a href="01%20-%20Introduction.html#competitive">Competitive</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#deployment-opportunities">Deployment Opportunities</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#applications">Applications</a></li>
-</ul></li>
-<li><a href="02%20-%20Agents.html">Agents</a>
-<ul>
-<li><a href="02%20-%20Agents.html#agents-with-state">Agents with State</a></li>
-<li><a href="02%20-%20Agents.html#tasks">Tasks</a>
-<ul>
-<li><a href="02%20-%20Agents.html#local-utility-function">Local Utility Function</a></li>
-<li><a href="02%20-%20Agents.html#sequential-decision-making">Sequential Decision Making</a></li>
-<li><a href="02%20-%20Agents.html#utilities-over-runs">Utilities Over Runs</a></li>
-</ul></li>
-<li><a href="02%20-%20Agents.html#types-of-agents">Types of Agents</a>
-<ul>
-<li><a href="02%20-%20Agents.html#reactive-agents">Reactive Agents</a></li>
-</ul></li>
-</ul></li>
-<li><a href="03%20-%20Environment.html">Environment</a></li>
-<li><a href="04%20-%20Architecture.html">Architecture</a>
-<ul>
-<li><a href="04%20-%20Architecture.html#runs">Runs</a></li>
-<li><a href="04%20-%20Architecture.html#environments">Environments</a></li>
-<li><a href="04%20-%20Architecture.html#agents">Agents</a></li>
-<li><a href="04%20-%20Architecture.html#system">System</a></li>
-</ul></li>
-<li><a href="05%20-%20Game%20Theory.html">Game Theory</a>
-<ul>
-<li><a href="05%20-%20Game%20Theory.html#normal-form-games">Normal Form Games</a>
-<ul>
-<li><a href="05%20-%20Game%20Theory.html#strategies">Strategies</a></li>
-<li><a href="05%20-%20Game%20Theory.html#dominance">Dominance</a></li>
-</ul></li>
-</ul></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html">Solving Normal Form Games</a>
-<ul>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#nash-equilibrium">Nash Equilibrium</a>
-<ul>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#the-equilibrium-selection-problem">The Equilibrium Selection Problem</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#calculating-nash-equilibrium-games">Calculating Nash Equilibrium Games</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#regret">Regret</a></li>
-</ul></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#correlated-equilibrium">Correlated Equilibrium</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#stackelberg-equilibrium">Stackelberg Equilibrium</a></li>
-</ul></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html">Games in Extensive Form</a>
-<ul>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#nash-equilibria">Nash Equilibria</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#efg-with-chance">EFG with Chance</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#efg-with-imperfect-information">EFG with Imperfect information</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#other-strategies">Other Strategies</a></li>
-</ul></li>
-<li><a href="08%20-%20Solving%20EFGs.html">Solving EFGs</a>
-<ul>
-<li><a href="08%20-%20Solving%20EFGs.html#strategies-with-imperfect-information">Strategies with Imperfect Information</a></li>
-<li><a href="08%20-%20Solving%20EFGs.html#linear-programming">Linear Programming</a>
-<ul>
-<li><a href="08%20-%20Solving%20EFGs.html#realization-plans">Realization plans</a></li>
-</ul></li>
-</ul></li>
-<li><a href="09%20-%20Resource%20Allocation.html">Resource Allocation</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#resources">Resources</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#preference-representation">Preference Representation</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#social-welfare">Social Welfare</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#utilitarian-social-welfare">Utilitarian Social Welfare</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#egalitarian-social-welfare">Egalitarian Social Welfare</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#nash-product-social-welfare">Nash Product Social Welfare</a></li>
-</ul></li>
-<li><a href="09%20-%20Resource%20Allocation.html#efficiency-vs-fairness">Efficiency vs Fairness</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#$\alpha$-fair-allocation"><span class="math inline">\(\alpha\)</span>-Fair Allocation</a></li>
-</ul></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html">Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#rules">Rules</a></li>
-<li><a href="10%20-%20Auctions.html#payoff">Payoff</a></li>
-<li><a href="10%20-%20Auctions.html#types-of-auctions">Types of Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#single-item-auctions">Single Item Auctions</a></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html#analyzing-auctions">Analyzing Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#bayesian-games">Bayesian Games</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#relation-to-auctions">Relation to Auctions</a></li>
-<li><a href="10%20-%20Auctions.html#desired-properties">Desired Properties</a></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html#second-price-sealed-bid">Second-price Sealed Bid</a></li>
-<li><a href="10%20-%20Auctions.html#first-price-sealed-bid">First-Price Sealed Bid</a></li>
-<li><a href="10%20-%20Auctions.html#english-and-japanese-auctions">English and Japanese Auctions</a></li>
-<li><a href="10%20-%20Auctions.html#revenue-equivalence">Revenue Equivalence</a></li>
-<li><a href="10%20-%20Auctions.html#efficiency">Efficiency</a></li>
-</ul></li>
-</ul></li>
-<li><a href="11%20-%20Optimal%20Auctions.html">Optimal Auctions</a>
-<ul>
-<li><a href="11%20-%20Optimal%20Auctions.html#design">Design</a></li>
-<li><a href="11%20-%20Optimal%20Auctions.html#optimal-single-item-auction">Optimal Single Item Auction</a></li>
-<li><a href="11%20-%20Optimal%20Auctions.html#remarks">Remarks</a></li>
-</ul></li>
-<li><a href="12%20Combinatorial%20Auctions.html">12 Combinatorial Auctions</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#allocations">Allocations</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#simple-combinatorial-auction-mechanism">Simple Combinatorial Auction Mechanism</a></li>
-</ul></li>
-<li><a href="12%20Combinatorial%20Auctions.html#vcg-auction">VCG Auction</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#the-winner-determination-problem">The Winner Determination Problem</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#bid-representation">Bid Representation</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#atomic-bids">Atomic Bids</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#or-bids">OR Bids</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#xor-bids">XOR Bids</a></li>
-</ul></li>
-</ul></li>
+<li>We find the <em>“Best”</em> attribute</li>
+<li>We partition examples based on on the attribute’s value</li>
+<li>We apply recursively to each partition</li>
+</ol></li>
+<li><strong>Pruning Phase</strong>: The tree is pruned button-up. For each node, we keep the subtree or change it for a leaf by comparing the estimated error.</li>
+</ul>
+<p>When splitting a node into branches, we need to define a splitting function <span class="math inline">\(S(P,\theta)\)</span> as a mapping which takes a set <span class="math inline">\(P\)</span> (data points at a node) and splitting parameters <span class="math inline">\(\theta\)</span> and partitions <span class="math inline">\(P\)</span> into <span class="math inline">\(\{P_1,\dots,P_k\}\)</span>: <span class="math display">\[
+S:P,\theta \rightarrow \{P_1,\dots,P_k\}\\
+P_i \cap P_j =\emptyset \Leftrightarrow i \neq j \\
+\cup_{i=1}^k P_i = P
+\]</span> Where <span class="math inline">\(\theta\)</span> is a set of parameters that may contain the breaching factor <span class="math inline">\(k\)</span>, the index <span class="math inline">\(i\)</span> of the splitting dimension <span class="math inline">\(X_i\)</span>.</p>
+<h3 id="maximization-of-information-gain">Maximization of Information Gain</h3>
+<p>One approach to splitting is <strong>greedy maximization of information gain</strong>, where information gain <span class="math inline">\((IG)\)</span> measures the expected reduction in entropy <span class="math inline">\((H)\)</span> when a set <span class="math inline">\(P\)</span> is partitioned to subsets <span class="math inline">\(P_1,\dots,P_k\)</span>. The information gain for an attribute <span class="math inline">\(A\)</span> is <span class="math inline">\(IG(A)\)</span>: <span class="math display">\[
+IG(A) = H(P) - \sum_{i=1}^k\frac{|P_i|}{|P|} H(P_i)\\
+H(P) = - \sum_{j}\frac{|P^{j}|}{|P|} \log\frac{|P^{j}|}{|P|}\\
+H(P_i) = -\sum_j \frac{|P^{j}_i|}{|P_i|} \log \frac{|P_i^{j}|}{|P_i|}
+\]</span> Where <span class="math inline">\(P^{(j)}\)</span> is the number of points of class <span class="math inline">\(j\)</span> in <span class="math inline">\(P\)</span>.</p>
+<p>The attributes with the highest entropy should be decided first. We can reformulate this process into an algorithm. The input is the training set <span class="math inline">\(\mathcal T\)</span> and a class <span class="math inline">\(S\)</span> of allowed splitting parameters:</p>
+<ol type="1">
+<li><p>Set the partition <span class="math inline">\(P\)</span> to the training set: <span class="math display">\[
+P = \mathcal T
+\]</span></p></li>
+<li><p>Find the best splitting function as measured by the Information Gain: <span class="math display">\[
+S = \underset {\theta \in S}{\arg\min} \left(
+\sum_{P_i \in S(P,\theta)}\frac{|P_i|}{|P|} H(P_i)  
+\right)\\
+H(P_i) = - \sum_j \frac{|P_i^{(j)}|}{|P_i|} \log \frac{|P_i^{(j)}|}{|P_i|}\\
+\]</span></p></li>
+<li><p>Go recursively to branches</p></li>
 </ol>
+<h3 id="minimization-of-training-error">Minimization of Training Error</h3>
+<p>This algorithm is similar to the previous one but instead of using Information gain and entropy, it uses the training error:</p>
+<ol type="1">
+<li><p>Set the partition <span class="math inline">\(P\)</span> to the training set: <span class="math display">\[
+P = \mathcal T
+\]</span></p></li>
+<li><p>Find the best splitting function as measured by the Information Gain: <span class="math display">\[
+S = \underset {\theta \in S}{\arg\min} \left(
+\sum_{P_i \in S(P,\theta)}\frac{|P_i|}{|P|} \epsilon(P_i)  
+\right)\\
+H(P_i) = 1- \max_j \frac{|P_i^{(j)}|}{|P_i|}
+\]</span></p></li>
+<li><p>Go recursively to branches</p></li>
+</ol>
+<h2 id="random-decision-forests">Random Decision Forests</h2>
+<p>Decision trees tend to overfit, but combining multiple decision trees offers a solution to this problem. This raises two problems:</p>
+<ul>
+<li><p>How should multiple trees be combined?</p>
+<p>Generally a majority of votes for a given class is used, similar to NNs</p></li>
+<li><p>How should multiple trees be constructed?</p>
+<p>Constructing multiple different trees requires randomization that can be employed for:</p>
+<ul>
+<li>Randomly sampling the training set for individual decision trees, using <strong>bagging</strong>.</li>
+<li>Randomly sampling a subset of features for individual decision trees.</li>
+</ul></li>
+</ul>
 </body>
 </html>

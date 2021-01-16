@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>11 - Optimal Auctions</title>
   <style>
     html {
       line-height: 1.5;
@@ -1526,143 +1526,54 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="multiagent-systems">Multiagent Systems</h1>
-<ol type="1">
-<li><a href="01%20-%20Introduction.html">Introduction</a>
+<h1 id="optimal-auctions">Optimal Auctions</h1>
+<p>The Seller’s problem is to design an auction mechanism which has a Nash equilibrium giving him the highest possible expected utility.</p>
+<h2 id="design">Design</h2>
+<p>Assuming the IPV setting and risk-neutral bidders, each bidder <span class="math inline">\(i\)</span>’s valuation is drawn from some strictly increasing cumulative density function <span class="math inline">\(F_i(v)\)</span>, having probability density function <span class="math inline">\(f_i(v)\)</span> that is continuous and bounded below.</p>
+<p>The risk neutral seller knows each <span class="math inline">\(F_j\)</span> and has zero value for the object. The auction that maximizes the seller’s expected revenue subject to individual rationality and Bayesian incentive-compatibility for the buyers is an <strong>optimal auction</strong>.</p>
+<p>Auctions can be made with a base or <strong>reserve price</strong>, and bidding the true value is still the dominant strategy.</p>
+<p><img src="Resources/11 - Optimal Auctions/image-20210115121152259.png" alt="image-20210115121152259" style="zoom:33%;" /></p>
+<p>The following holds:</p>
 <ul>
-<li><a href="01%20-%20Introduction.html#agents">Agents</a>
+<li><p>If both bidders are below <span class="math inline">\(R\)</span>, then there is no sale. Also if this happens with probability <span class="math inline">\(R^2\)</span> then revenue is <span class="math inline">\(0\)</span>.</p></li>
+<li><p>If one bid is above the reserve and another one below, the sale is at reserve price <span class="math inline">\(R\)</span>. This happens with probability <span class="math inline">\(2(1-R)R\)</span> and the revenue is also <span class="math inline">\(R\)</span>.</p></li>
+<li><p>If both bids are above the reserve price, then the sale is at the second highest bid and this happens with probability <span class="math inline">\((1-R)^2\)</span>. The revenue in this case is : <span class="math display">\[
+\text{revenue} = E[\min v_i | \min v_i \ge R]= \frac{1 + 2R}{3}
+\]</span></p></li>
+</ul>
+<p>Taking all three scenarios into account we can say that the expected revenue is: <span class="math display">\[
+\text{expected revenue} = 2(1-R)R^2 + (1-R)^2\frac{1+2R}{3}
+\]</span> And if we want to maximize it, we can select <span class="math inline">\(R =0.5\)</span>. At this reserve price we can expect a revenue of <span class="math inline">\(5/12\)</span>, while a reserve price of <span class="math inline">\(0\)</span> will lead to <span class="math inline">\(4/12\)</span>. This has some tradeoffs:</p>
 <ul>
-<li><a href="01%20-%20Introduction.html#key-properties-of-intelligent">Key properties of Intelligent</a></li>
-<li><a href="01%20-%20Introduction.html#other-properties">Other properties</a></li>
-<li><a href="01%20-%20Introduction.html#agents-vs-objects">Agents vs Objects</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#multiagent-design-problem">Multiagent Design Problem</a>
+<li>You may loose the sale hen both bids are below <span class="math inline">\(0.5\)</span>, but the revenue would be very low if you accepted it. This can happen with a probability of <span class="math inline">\(1/4\)</span>.</li>
+<li>You may increate the sale price when one bidder has a loss valuation and the other high. This happens with a probability of <span class="math inline">\(0.5\)</span></li>
+</ul>
+<h2 id="optimal-single-item-auction">Optimal Single Item Auction</h2>
+<p>In an IPV setting where bidders are risk-neutral, and each bidder <span class="math inline">\(i\)</span>’s valuation is drawn from some strictly increasing cumulative density function <span class="math inline">\(F_i(v)\)</span>, with a probability density function <span class="math inline">\(f_i(v)\)</span>, we define:</p>
 <ul>
-<li><a href="01%20-%20Introduction.html#micro-vs-macro">Micro vs Macro</a></li>
-<li><a href="01%20-%20Introduction.html#types-of-agents-systems">Types of agents systems</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#single-agent">Single agent</a></li>
-<li><a href="01%20-%20Introduction.html#cooperative">Cooperative</a></li>
-<li><a href="01%20-%20Introduction.html#competitive">Competitive</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#deployment-opportunities">Deployment Opportunities</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#applications">Applications</a></li>
-</ul></li>
-<li><a href="02%20-%20Agents.html">Agents</a>
-<ul>
-<li><a href="02%20-%20Agents.html#agents-with-state">Agents with State</a></li>
-<li><a href="02%20-%20Agents.html#tasks">Tasks</a>
-<ul>
-<li><a href="02%20-%20Agents.html#local-utility-function">Local Utility Function</a></li>
-<li><a href="02%20-%20Agents.html#sequential-decision-making">Sequential Decision Making</a></li>
-<li><a href="02%20-%20Agents.html#utilities-over-runs">Utilities Over Runs</a></li>
-</ul></li>
-<li><a href="02%20-%20Agents.html#types-of-agents">Types of Agents</a>
-<ul>
-<li><a href="02%20-%20Agents.html#reactive-agents">Reactive Agents</a></li>
-</ul></li>
-</ul></li>
-<li><a href="03%20-%20Environment.html">Environment</a></li>
-<li><a href="04%20-%20Architecture.html">Architecture</a>
-<ul>
-<li><a href="04%20-%20Architecture.html#runs">Runs</a></li>
-<li><a href="04%20-%20Architecture.html#environments">Environments</a></li>
-<li><a href="04%20-%20Architecture.html#agents">Agents</a></li>
-<li><a href="04%20-%20Architecture.html#system">System</a></li>
-</ul></li>
-<li><a href="05%20-%20Game%20Theory.html">Game Theory</a>
-<ul>
-<li><a href="05%20-%20Game%20Theory.html#normal-form-games">Normal Form Games</a>
-<ul>
-<li><a href="05%20-%20Game%20Theory.html#strategies">Strategies</a></li>
-<li><a href="05%20-%20Game%20Theory.html#dominance">Dominance</a></li>
-</ul></li>
-</ul></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html">Solving Normal Form Games</a>
-<ul>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#nash-equilibrium">Nash Equilibrium</a>
-<ul>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#the-equilibrium-selection-problem">The Equilibrium Selection Problem</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#calculating-nash-equilibrium-games">Calculating Nash Equilibrium Games</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#regret">Regret</a></li>
-</ul></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#correlated-equilibrium">Correlated Equilibrium</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#stackelberg-equilibrium">Stackelberg Equilibrium</a></li>
-</ul></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html">Games in Extensive Form</a>
-<ul>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#nash-equilibria">Nash Equilibria</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#efg-with-chance">EFG with Chance</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#efg-with-imperfect-information">EFG with Imperfect information</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#other-strategies">Other Strategies</a></li>
-</ul></li>
-<li><a href="08%20-%20Solving%20EFGs.html">Solving EFGs</a>
-<ul>
-<li><a href="08%20-%20Solving%20EFGs.html#strategies-with-imperfect-information">Strategies with Imperfect Information</a></li>
-<li><a href="08%20-%20Solving%20EFGs.html#linear-programming">Linear Programming</a>
-<ul>
-<li><a href="08%20-%20Solving%20EFGs.html#realization-plans">Realization plans</a></li>
-</ul></li>
-</ul></li>
-<li><a href="09%20-%20Resource%20Allocation.html">Resource Allocation</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#resources">Resources</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#preference-representation">Preference Representation</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#social-welfare">Social Welfare</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#utilitarian-social-welfare">Utilitarian Social Welfare</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#egalitarian-social-welfare">Egalitarian Social Welfare</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#nash-product-social-welfare">Nash Product Social Welfare</a></li>
-</ul></li>
-<li><a href="09%20-%20Resource%20Allocation.html#efficiency-vs-fairness">Efficiency vs Fairness</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#$\alpha$-fair-allocation"><span class="math inline">\(\alpha\)</span>-Fair Allocation</a></li>
-</ul></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html">Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#rules">Rules</a></li>
-<li><a href="10%20-%20Auctions.html#payoff">Payoff</a></li>
-<li><a href="10%20-%20Auctions.html#types-of-auctions">Types of Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#single-item-auctions">Single Item Auctions</a></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html#analyzing-auctions">Analyzing Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#bayesian-games">Bayesian Games</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#relation-to-auctions">Relation to Auctions</a></li>
-<li><a href="10%20-%20Auctions.html#desired-properties">Desired Properties</a></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html#second-price-sealed-bid">Second-price Sealed Bid</a></li>
-<li><a href="10%20-%20Auctions.html#first-price-sealed-bid">First-Price Sealed Bid</a></li>
-<li><a href="10%20-%20Auctions.html#english-and-japanese-auctions">English and Japanese Auctions</a></li>
-<li><a href="10%20-%20Auctions.html#revenue-equivalence">Revenue Equivalence</a></li>
-<li><a href="10%20-%20Auctions.html#efficiency">Efficiency</a></li>
-</ul></li>
-</ul></li>
-<li><a href="11%20-%20Optimal%20Auctions.html">Optimal Auctions</a>
-<ul>
-<li><a href="11%20-%20Optimal%20Auctions.html#design">Design</a></li>
-<li><a href="11%20-%20Optimal%20Auctions.html#optimal-single-item-auction">Optimal Single Item Auction</a></li>
-<li><a href="11%20-%20Optimal%20Auctions.html#remarks">Remarks</a></li>
-</ul></li>
-<li><a href="12%20Combinatorial%20Auctions.html">12 Combinatorial Auctions</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#allocations">Allocations</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#simple-combinatorial-auction-mechanism">Simple Combinatorial Auction Mechanism</a></li>
-</ul></li>
-<li><a href="12%20Combinatorial%20Auctions.html#vcg-auction">VCG Auction</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#the-winner-determination-problem">The Winner Determination Problem</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#bid-representation">Bid Representation</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#atomic-bids">Atomic Bids</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#or-bids">OR Bids</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#xor-bids">XOR Bids</a></li>
-</ul></li>
-</ul></li>
-</ol>
+<li><p>Bidder <span class="math inline">\(i\)</span>’s <strong>virtual valuation</strong> as: <span class="math display">\[
+\psi_i(v_i) = v_i- \frac{1-F_i(v_i)}{f_i(v_i)}
+\]</span></p></li>
+<li><p>Bidder <span class="math inline">\(i\)</span>’s <strong>bidder-specific reserve price</strong> as : <span class="math display">\[
+r_i^*/ \psi_i(r_i^*) = 0
+\]</span></p></li>
+</ul>
+<blockquote>
+<p>The optimal single good auction is a sealed-bid auction in which every agent is asked to declare his valuation. The good is sold to the agent <span class="math inline">\(i = \arg\max_i \psi_i(\hat v_i)\)</span> as long as <span class="math inline">\(v_i &gt; r_i^*\)</span>.</p>
+<p>If the good is sold, the winning agent <span class="math inline">\(i\)</span> is charged the smallest valuation that it could have declared while still remaining the winner: <span class="math display">\[
+\inf\{v_i^*:\psi_i(v_i^*) \ge 0 \land \forall j \neq i. \psi_i(v_i^*) \ge \psi_j(\hat v_j)\}
+\]</span></p>
+</blockquote>
+<p>This can be understood as a second price auction with a reserve price, held in a virtual valuation space rather than the space of actual valuations. The dominant strategy is still to bid truthfully.</p>
+<p>There is a symmetric case: the second-price auction with reserve price <span class="math inline">\(r^*\)</span> satisfying: <span class="math display">\[
+\psi(r^*) = r^* - \frac{1-F(r^*)}{f(r^*)} = 0
+\]</span> Here the truthful mechanisms is useful only when <span class="math inline">\(\psi(v)\)</span> is non-decreasing.</p>
+<p>The second-price sealed bid auction with reserve price is not efficient.</p>
+<h2 id="remarks">Remarks</h2>
+<p>For optimal revenue we must sacrifice some efficiency. Optimal auctions are not detail-free, they require the seller to incorporate information about the bidders’ valuation distribution into the mechanism and are rarely used in practice.</p>
+<p>We also know thanks to Bulow and Klemperer’s theorem that its better to spend energy on attracting more bidders:</p>
+<blockquote>
+<p>Revenue of an efficiency maximizing auction with <span class="math inline">\(k+1\)</span> bidders is at least as high as that of the revenue-maximizing auction with <span class="math inline">\(k\)</span> bidders.</p>
+</blockquote>
 </body>
 </html>

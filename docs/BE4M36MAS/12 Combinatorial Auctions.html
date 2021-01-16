@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>12 Combinatorial Auctions</title>
   <style>
     html {
       line-height: 1.5;
@@ -1526,143 +1526,85 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="multiagent-systems">Multiagent Systems</h1>
+<h1 id="combinatorial-auctions">Combinatorial Auctions</h1>
+<p>Combinatorial Auctions are used to sell bundles of goods. Let <span class="math inline">\(G= \{g_1,\dots,g_n\}\)</span> be a set of items to be auctioned, the valuation function <span class="math inline">\(v_i:2^G \mapsto \mathbb{R}\)</span> indicates how much a bundle is worth to agent <span class="math inline">\(i\)</span>. We typically assume the following properties:</p>
+<ul>
+<li><p>Normalization: <span class="math display">\[
+v(\emptyset) = 0
+\]</span></p></li>
+<li><p>Free Disposal: <span class="math display">\[
+G_1 \subseteq G_2 \implies v(G_1) \le v(G_2)
+\]</span></p></li>
+</ul>
+<p>This type of auctions are interesting with the valuation function is not additive. There are two main types of non-additivity:</p>
+<ul>
+<li><p><strong>Substitutability</strong>: The valuation function <span class="math inline">\(v\)</span> exhibits substitutability if there exists two sets of goods for whom the sum of their individual valuations is greater than the valuation of the union of both sets: <span class="math display">\[
+\exists G_1,G_2 \subseteq G. G_1 \cap G_2  = \emptyset \land v(G_1 \cup G_2) &lt; v(G_1) + v(G_2)
+\]</span> If this condition holds, then we say the function <span class="math inline">\(v\)</span> is sub-additive. A good example of this are two different brands of TVs.</p></li>
+<li><p><strong>Complementarity</strong>: The valuation function <span class="math inline">\(v\)</span> exhibits complementarity if there are two sets of goods such that the valuation of the union of both sets is greater than the sum of the individual valuations: <span class="math display">\[
+\exists G_1,G_2 \subseteq G. G_1 \cap G_2  = \emptyset \land v(G_1 \cup G_2) &gt; v(G_1) + v(G_2)
+\]</span> If this condition golds, then we say that the valuation function <span class="math inline">\(v\)</span> is super-additive. A good example of this are left and right shoes.</p></li>
+</ul>
+<p>Selling goods with non-additive valuations is different than normal goods. We have 3 different options:</p>
 <ol type="1">
-<li><a href="01%20-%20Introduction.html">Introduction</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#agents">Agents</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#key-properties-of-intelligent">Key properties of Intelligent</a></li>
-<li><a href="01%20-%20Introduction.html#other-properties">Other properties</a></li>
-<li><a href="01%20-%20Introduction.html#agents-vs-objects">Agents vs Objects</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#multiagent-design-problem">Multiagent Design Problem</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#micro-vs-macro">Micro vs Macro</a></li>
-<li><a href="01%20-%20Introduction.html#types-of-agents-systems">Types of agents systems</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#single-agent">Single agent</a></li>
-<li><a href="01%20-%20Introduction.html#cooperative">Cooperative</a></li>
-<li><a href="01%20-%20Introduction.html#competitive">Competitive</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#deployment-opportunities">Deployment Opportunities</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#applications">Applications</a></li>
-</ul></li>
-<li><a href="02%20-%20Agents.html">Agents</a>
-<ul>
-<li><a href="02%20-%20Agents.html#agents-with-state">Agents with State</a></li>
-<li><a href="02%20-%20Agents.html#tasks">Tasks</a>
-<ul>
-<li><a href="02%20-%20Agents.html#local-utility-function">Local Utility Function</a></li>
-<li><a href="02%20-%20Agents.html#sequential-decision-making">Sequential Decision Making</a></li>
-<li><a href="02%20-%20Agents.html#utilities-over-runs">Utilities Over Runs</a></li>
-</ul></li>
-<li><a href="02%20-%20Agents.html#types-of-agents">Types of Agents</a>
-<ul>
-<li><a href="02%20-%20Agents.html#reactive-agents">Reactive Agents</a></li>
-</ul></li>
-</ul></li>
-<li><a href="03%20-%20Environment.html">Environment</a></li>
-<li><a href="04%20-%20Architecture.html">Architecture</a>
-<ul>
-<li><a href="04%20-%20Architecture.html#runs">Runs</a></li>
-<li><a href="04%20-%20Architecture.html#environments">Environments</a></li>
-<li><a href="04%20-%20Architecture.html#agents">Agents</a></li>
-<li><a href="04%20-%20Architecture.html#system">System</a></li>
-</ul></li>
-<li><a href="05%20-%20Game%20Theory.html">Game Theory</a>
-<ul>
-<li><a href="05%20-%20Game%20Theory.html#normal-form-games">Normal Form Games</a>
-<ul>
-<li><a href="05%20-%20Game%20Theory.html#strategies">Strategies</a></li>
-<li><a href="05%20-%20Game%20Theory.html#dominance">Dominance</a></li>
-</ul></li>
-</ul></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html">Solving Normal Form Games</a>
-<ul>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#nash-equilibrium">Nash Equilibrium</a>
-<ul>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#the-equilibrium-selection-problem">The Equilibrium Selection Problem</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#calculating-nash-equilibrium-games">Calculating Nash Equilibrium Games</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#regret">Regret</a></li>
-</ul></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#correlated-equilibrium">Correlated Equilibrium</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#stackelberg-equilibrium">Stackelberg Equilibrium</a></li>
-</ul></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html">Games in Extensive Form</a>
-<ul>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#nash-equilibria">Nash Equilibria</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#efg-with-chance">EFG with Chance</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#efg-with-imperfect-information">EFG with Imperfect information</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#other-strategies">Other Strategies</a></li>
-</ul></li>
-<li><a href="08%20-%20Solving%20EFGs.html">Solving EFGs</a>
-<ul>
-<li><a href="08%20-%20Solving%20EFGs.html#strategies-with-imperfect-information">Strategies with Imperfect Information</a></li>
-<li><a href="08%20-%20Solving%20EFGs.html#linear-programming">Linear Programming</a>
-<ul>
-<li><a href="08%20-%20Solving%20EFGs.html#realization-plans">Realization plans</a></li>
-</ul></li>
-</ul></li>
-<li><a href="09%20-%20Resource%20Allocation.html">Resource Allocation</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#resources">Resources</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#preference-representation">Preference Representation</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#social-welfare">Social Welfare</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#utilitarian-social-welfare">Utilitarian Social Welfare</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#egalitarian-social-welfare">Egalitarian Social Welfare</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#nash-product-social-welfare">Nash Product Social Welfare</a></li>
-</ul></li>
-<li><a href="09%20-%20Resource%20Allocation.html#efficiency-vs-fairness">Efficiency vs Fairness</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#$\alpha$-fair-allocation"><span class="math inline">\(\alpha\)</span>-Fair Allocation</a></li>
-</ul></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html">Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#rules">Rules</a></li>
-<li><a href="10%20-%20Auctions.html#payoff">Payoff</a></li>
-<li><a href="10%20-%20Auctions.html#types-of-auctions">Types of Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#single-item-auctions">Single Item Auctions</a></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html#analyzing-auctions">Analyzing Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#bayesian-games">Bayesian Games</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#relation-to-auctions">Relation to Auctions</a></li>
-<li><a href="10%20-%20Auctions.html#desired-properties">Desired Properties</a></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html#second-price-sealed-bid">Second-price Sealed Bid</a></li>
-<li><a href="10%20-%20Auctions.html#first-price-sealed-bid">First-Price Sealed Bid</a></li>
-<li><a href="10%20-%20Auctions.html#english-and-japanese-auctions">English and Japanese Auctions</a></li>
-<li><a href="10%20-%20Auctions.html#revenue-equivalence">Revenue Equivalence</a></li>
-<li><a href="10%20-%20Auctions.html#efficiency">Efficiency</a></li>
-</ul></li>
-</ul></li>
-<li><a href="11%20-%20Optimal%20Auctions.html">Optimal Auctions</a>
-<ul>
-<li><a href="11%20-%20Optimal%20Auctions.html#design">Design</a></li>
-<li><a href="11%20-%20Optimal%20Auctions.html#optimal-single-item-auction">Optimal Single Item Auction</a></li>
-<li><a href="11%20-%20Optimal%20Auctions.html#remarks">Remarks</a></li>
-</ul></li>
-<li><a href="12%20Combinatorial%20Auctions.html">12 Combinatorial Auctions</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#allocations">Allocations</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#simple-combinatorial-auction-mechanism">Simple Combinatorial Auction Mechanism</a></li>
-</ul></li>
-<li><a href="12%20Combinatorial%20Auctions.html#vcg-auction">VCG Auction</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#the-winner-determination-problem">The Winner Determination Problem</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#bid-representation">Bid Representation</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#atomic-bids">Atomic Bids</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#or-bids">OR Bids</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#xor-bids">XOR Bids</a></li>
-</ul></li>
-</ul></li>
+<li>Ignore valuation dependencies and sell sequentially via a sequence of independent single-item auctions. The problem here is that a bidder may bid aggressively for a set of goods hoping to win a bundle but ends not winning all the wanted items.</li>
+<li>Run separate but connected single-item auction simultaneously. The bidder bids in one auction eh has a reasonably good indication of what is transpiring in the other auctions of interest.</li>
+<li>Combinatorial Auction. Bid directly on a bundle of goods.</li>
 </ol>
+<h2 id="allocations">Allocations</h2>
+<p>Allocation is a list of sets <span class="math inline">\(G_1,\dots,G_n \subseteq G\)</span>, one for each agent <span class="math inline">\(i\)</span> where no good is allocated to more than one agent. We have different ways to choose an allocation for a combinatorial auction, but the simplest one is to maximize social welfare: <span class="math display">\[
+U(G_1,\dots,G_n,v_1,\dots,v_n) = \sum_{i=1}^{n} v_i(G_i)
+\]</span></p>
+<h3 id="simple-combinatorial-auction-mechanism">Simple Combinatorial Auction Mechanism</h3>
+<p>This mechanism determines the social welfare maximizing allocation and then charges the winners their bid for the bundle they have won.</p>
+<h2 id="vcg-auction">VCG Auction</h2>
+<p>A <strong>Vickrey-Clarke-Groves (VCG) auction</strong> is a type of sealed-bid auction of multiple items. The auction system assigns the items in a socially optimal manner, by charging each individual the harm they cause to other bidders.</p>
+<p>The VCG auction is an analogy to the second-price sealed bid single-unit auctions but for combinatorial settings and the dominant strategy is still being truthful and it is efficient.</p>
+<p>In a VCG auction the payments are calculated as follows:</p>
+<p>Let <span class="math inline">\(V^*\)</span> be the total value of the optimal allocation, and for each bidder <span class="math inline">\(i\)</span> let <span class="math inline">\(V^*_{-i}\)</span> be the total value of the optimal allocation when <span class="math inline">\(i\)</span> does not participate. Let <span class="math inline">\(V_I\)</span> be the value of <span class="math inline">\(i\)</span>’s winning subset, losing bidders pay <span class="math inline">\(0\)</span> and the payment made by each winning bidder is: <span class="math display">\[
+p_i = V_i - (V^* - V^*_{-i})
+\]</span></p>
+<h2 id="the-winner-determination-problem">The Winner Determination Problem</h2>
+<p>The <strong>winner determination problem</strong> for combinatorial auctions, given the agents’ declared valuations <span class="math inline">\(\hat v_i\)</span> is to find the social welfare-maximizing allocation of goods to agents. This problem can be expressed as the following integer linear program: <span class="math display">\[
+\array{
+\text{maximize}&amp; \sum_{i\in N}\sum_{Z \subseteq \mathcal Z} \hat v_i(Z) x_{Z,i}\\
+\text{subject to:}&amp;&amp;\\
+&amp;\sum_{Z,j\in Z} \sum_{i\in N} x_{Z,i} &amp; \forall j \in \mathcal Z\\
+&amp; \sum_{Z \subseteq \mathcal Z}x_{Z,i} &amp; \forall i \in N\\
+&amp; x_{Z,i} = \{0,1\} &amp; \forall Z\subseteq \mathcal Z,i\in N
+}
+\]</span> This problem is equivalent to the set packing problem, which is NP-Complete and it cannot be approximated uniformly to a fixed constant. We can solve this issue one of two wats:</p>
+<ul>
+<li><p>Limit to instance where polynomial-time solutions exist. To do this we can relax our requirements and solve the program as a regular linear program, The solution is guaranteed to be integral when the constraints matrix is unimodular. Here are some good examples on when to implement this:</p>
+<p><img src="Resources/12 Combinatorial Auctions/image-20210116111043991.png" alt="image-20210116111043991" style="zoom:33%;" /></p></li>
+<li><p>Use heuristic methods that drop the guarantee of polynomial runtime, optimality, or both. Incomplete methods do not guarantee to find the vest possible solution, but we can be sure that the solution is within <span class="math inline">\(1/\sqrt k\)</span> of the optimal solution, where <span class="math inline">\(k\)</span> is the number of goods.</p>
+<p>This methods work well in practice, making it possible to solve large auctions.</p></li>
+</ul>
+<h2 id="bid-representation">Bid Representation</h2>
+<p>We have another problem, how do we encode the bid in a succinct (polynomial-size) form? Here there is a debate between expressivity and conciseness.</p>
+<p><img src="Resources/12 Combinatorial Auctions/image-20210116113949068.png" alt="image-20210116113949068" style="zoom:33%;" /></p>
+<h3 id="atomic-bids">Atomic Bids</h3>
+<p>In this case the bidders only bid for one particular subset of goods. An atomic bid is a pair <span class="math inline">\((S,p)\)</span> indicating that the agent is willing to pay price <span class="math inline">\(p\)</span> for the subset of goods <span class="math inline">\(S\)</span>. This representation has very limited expressive power and is not even even a basic additive valuation can be represented.</p>
+<h3 id="or-bids">OR Bids</h3>
+<p>OR bids are more expressive than atomic bids. They are a disjunction of atomic bids: <span class="math display">\[
+(S_1,p_1) \lor \dots \lor(S_m,p_m)
+\]</span> that indicate that the agent is willing to pay price <span class="math inline">\(p_i\)</span> for the subset of goods <span class="math inline">\(S_i\)</span>. We interpret OR as an operator for combining valuation functions. Let <span class="math inline">\(V\)</span> be the space of possible valuation functions, and <span class="math inline">\(v_1,v_2\in V\)</span> be arbitrary valuations: <span class="math display">\[
+(v_1 \lor v_2)(S) = \max_{R,T\subseteq S, R\cap T = \emptyset} (v_1(R) + v_2(T))
+\]</span> OR bids can express additive valuations but are still quite limited, according to the following theorem:</p>
+<blockquote>
+<p>OR bids can express all valuation function that exhibit no substitutability</p>
+</blockquote>
+<p>We can simulate the effect of XOR by allowing bids to include dummy items. This is possible with the <strong>OR<span class="math inline">\(^*\)</span> bid language</strong>, given a set of dummy items <span class="math inline">\(G_i\)</span> for each agent <span class="math inline">\(i\in N\)</span>, an OR<sup><em>^ bid is a disjunction of atomic bids: <span class="math display">\[
+(S_i,p_m) \lor \dots \lor (S_m,p_m)
+\]</span> where for each <span class="math inline">\(l=1,\dots,m\)</span> , the agent is willing to pay price <span class="math inline">\(p_l\)</span> for the set of items <span class="math inline">\(S_l \subseteq G \cup G_i\)</span>. OR^</em></sup> can express all bids and is more concise that OR, XOR and their combinations.</p>
+<h3 id="xor-bids">XOR Bids</h3>
+<p>XOR Bids are more powerful and they are the result of an exclusive OR of atomic bids: <span class="math display">\[
+(S_1,p_1) \oplus \dots \oplus (S_m,p_m)
+\]</span> And it indicates that the agent is willing to accept only one of the atomic bids. The operator is defined on the space of valuation functions, and <span class="math inline">\(v_1,v_s \in V\)</span> be arbitrary valuation functions: <span class="math display">\[
+(v_1 \oplus v_2)(S) = \max(v_1(S),v_2(S))
+\]</span></p>
+<blockquote>
+<p>XOR bids can represent all possible valuation functions, but not every valuation function can be represented efficiently by XOR bids.</p>
+</blockquote>
 </body>
 </html>

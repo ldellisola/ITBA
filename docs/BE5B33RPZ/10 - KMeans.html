@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>10 - KMeans</title>
   <style>
     html {
       line-height: 1.5;
@@ -1526,143 +1526,59 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="multiagent-systems">Multiagent Systems</h1>
+<h1 id="k-means">K-Means</h1>
+<p>The <strong>K-Means</strong> algorithm comes to solve the Least-Squares Clustering Problem. The main objective for this algorithm is to find points that represent the center of the best distribution of <span class="math inline">\(K\)</span> clusters of points. The algorithm looks like this:</p>
 <ol type="1">
-<li><a href="01%20-%20Introduction.html">Introduction</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#agents">Agents</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#key-properties-of-intelligent">Key properties of Intelligent</a></li>
-<li><a href="01%20-%20Introduction.html#other-properties">Other properties</a></li>
-<li><a href="01%20-%20Introduction.html#agents-vs-objects">Agents vs Objects</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#multiagent-design-problem">Multiagent Design Problem</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#micro-vs-macro">Micro vs Macro</a></li>
-<li><a href="01%20-%20Introduction.html#types-of-agents-systems">Types of agents systems</a>
-<ul>
-<li><a href="01%20-%20Introduction.html#single-agent">Single agent</a></li>
-<li><a href="01%20-%20Introduction.html#cooperative">Cooperative</a></li>
-<li><a href="01%20-%20Introduction.html#competitive">Competitive</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#deployment-opportunities">Deployment Opportunities</a></li>
-</ul></li>
-<li><a href="01%20-%20Introduction.html#applications">Applications</a></li>
-</ul></li>
-<li><a href="02%20-%20Agents.html">Agents</a>
-<ul>
-<li><a href="02%20-%20Agents.html#agents-with-state">Agents with State</a></li>
-<li><a href="02%20-%20Agents.html#tasks">Tasks</a>
-<ul>
-<li><a href="02%20-%20Agents.html#local-utility-function">Local Utility Function</a></li>
-<li><a href="02%20-%20Agents.html#sequential-decision-making">Sequential Decision Making</a></li>
-<li><a href="02%20-%20Agents.html#utilities-over-runs">Utilities Over Runs</a></li>
-</ul></li>
-<li><a href="02%20-%20Agents.html#types-of-agents">Types of Agents</a>
-<ul>
-<li><a href="02%20-%20Agents.html#reactive-agents">Reactive Agents</a></li>
-</ul></li>
-</ul></li>
-<li><a href="03%20-%20Environment.html">Environment</a></li>
-<li><a href="04%20-%20Architecture.html">Architecture</a>
-<ul>
-<li><a href="04%20-%20Architecture.html#runs">Runs</a></li>
-<li><a href="04%20-%20Architecture.html#environments">Environments</a></li>
-<li><a href="04%20-%20Architecture.html#agents">Agents</a></li>
-<li><a href="04%20-%20Architecture.html#system">System</a></li>
-</ul></li>
-<li><a href="05%20-%20Game%20Theory.html">Game Theory</a>
-<ul>
-<li><a href="05%20-%20Game%20Theory.html#normal-form-games">Normal Form Games</a>
-<ul>
-<li><a href="05%20-%20Game%20Theory.html#strategies">Strategies</a></li>
-<li><a href="05%20-%20Game%20Theory.html#dominance">Dominance</a></li>
-</ul></li>
-</ul></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html">Solving Normal Form Games</a>
-<ul>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#nash-equilibrium">Nash Equilibrium</a>
-<ul>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#the-equilibrium-selection-problem">The Equilibrium Selection Problem</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#calculating-nash-equilibrium-games">Calculating Nash Equilibrium Games</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#regret">Regret</a></li>
-</ul></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#correlated-equilibrium">Correlated Equilibrium</a></li>
-<li><a href="06%20-%20Solving%20Normal%20Form%20Games.html#stackelberg-equilibrium">Stackelberg Equilibrium</a></li>
-</ul></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html">Games in Extensive Form</a>
-<ul>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#nash-equilibria">Nash Equilibria</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#efg-with-chance">EFG with Chance</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#efg-with-imperfect-information">EFG with Imperfect information</a></li>
-<li><a href="07%20-%20Games%20in%20Extensive%20Form.html#other-strategies">Other Strategies</a></li>
-</ul></li>
-<li><a href="08%20-%20Solving%20EFGs.html">Solving EFGs</a>
-<ul>
-<li><a href="08%20-%20Solving%20EFGs.html#strategies-with-imperfect-information">Strategies with Imperfect Information</a></li>
-<li><a href="08%20-%20Solving%20EFGs.html#linear-programming">Linear Programming</a>
-<ul>
-<li><a href="08%20-%20Solving%20EFGs.html#realization-plans">Realization plans</a></li>
-</ul></li>
-</ul></li>
-<li><a href="09%20-%20Resource%20Allocation.html">Resource Allocation</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#resources">Resources</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#preference-representation">Preference Representation</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#social-welfare">Social Welfare</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#utilitarian-social-welfare">Utilitarian Social Welfare</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#egalitarian-social-welfare">Egalitarian Social Welfare</a></li>
-<li><a href="09%20-%20Resource%20Allocation.html#nash-product-social-welfare">Nash Product Social Welfare</a></li>
-</ul></li>
-<li><a href="09%20-%20Resource%20Allocation.html#efficiency-vs-fairness">Efficiency vs Fairness</a>
-<ul>
-<li><a href="09%20-%20Resource%20Allocation.html#$\alpha$-fair-allocation"><span class="math inline">\(\alpha\)</span>-Fair Allocation</a></li>
-</ul></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html">Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#rules">Rules</a></li>
-<li><a href="10%20-%20Auctions.html#payoff">Payoff</a></li>
-<li><a href="10%20-%20Auctions.html#types-of-auctions">Types of Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#single-item-auctions">Single Item Auctions</a></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html#analyzing-auctions">Analyzing Auctions</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#bayesian-games">Bayesian Games</a>
-<ul>
-<li><a href="10%20-%20Auctions.html#relation-to-auctions">Relation to Auctions</a></li>
-<li><a href="10%20-%20Auctions.html#desired-properties">Desired Properties</a></li>
-</ul></li>
-<li><a href="10%20-%20Auctions.html#second-price-sealed-bid">Second-price Sealed Bid</a></li>
-<li><a href="10%20-%20Auctions.html#first-price-sealed-bid">First-Price Sealed Bid</a></li>
-<li><a href="10%20-%20Auctions.html#english-and-japanese-auctions">English and Japanese Auctions</a></li>
-<li><a href="10%20-%20Auctions.html#revenue-equivalence">Revenue Equivalence</a></li>
-<li><a href="10%20-%20Auctions.html#efficiency">Efficiency</a></li>
-</ul></li>
-</ul></li>
-<li><a href="11%20-%20Optimal%20Auctions.html">Optimal Auctions</a>
-<ul>
-<li><a href="11%20-%20Optimal%20Auctions.html#design">Design</a></li>
-<li><a href="11%20-%20Optimal%20Auctions.html#optimal-single-item-auction">Optimal Single Item Auction</a></li>
-<li><a href="11%20-%20Optimal%20Auctions.html#remarks">Remarks</a></li>
-</ul></li>
-<li><a href="12%20Combinatorial%20Auctions.html">12 Combinatorial Auctions</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#allocations">Allocations</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#simple-combinatorial-auction-mechanism">Simple Combinatorial Auction Mechanism</a></li>
-</ul></li>
-<li><a href="12%20Combinatorial%20Auctions.html#vcg-auction">VCG Auction</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#the-winner-determination-problem">The Winner Determination Problem</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#bid-representation">Bid Representation</a>
-<ul>
-<li><a href="12%20Combinatorial%20Auctions.html#atomic-bids">Atomic Bids</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#or-bids">OR Bids</a></li>
-<li><a href="12%20Combinatorial%20Auctions.html#xor-bids">XOR Bids</a></li>
-</ul></li>
-</ul></li>
+<li><p>Initialize the cluster centers <span class="math inline">\(\{c_k\}^K_{k=1}\)</span> with some value. This can be a random selection of data points from the training set <span class="math inline">\(\mathcal T\)</span>.</p></li>
+<li><p>Split the training set <span class="math inline">\(\mathcal T\)</span> into <span class="math inline">\(k\)</span> groups <span class="math inline">\((\mathcal T_k)\)</span>. This decision will be based on de closes cluster center to each data point: <span class="math display">\[
+\array{\mathcal T_k=\{x \in \mathcal T : \forall j.|\!|x-c_k|\!| ^2 \le |\!| x - c_j |\!|^2 \} &amp;\forall k \in 1,\dots,K}
+\]</span></p></li>
+<li><p>Now we will analyze the classification and decide the new cluster centers: <span class="math display">\[
+\array{c_k = 
+\left\{\array{
+\frac{1}{|\mathcal T_k|} \sum_{x\in \mathcal T_k} x&amp;|\mathcal T_k| &gt; 0\\
+\text{re-initialize}&amp; \mathcal T_k = \emptyset
+}\right. &amp; \forall k = 1,\dots, K}
+\]</span></p></li>
+<li><p>If <span class="math inline">\(\forall k: \mathcal T^{t+1}_k = \mathcal T^t_k\)</span> then we can exit the algorithm, otherwise go back to step 2.</p></li>
+</ol>
+<p>This algorithm always converges and the least squares criterion <span class="math inline">\(J\)</span> monotonically decreases. Also, because of the finite number of assignments and that no assignment is visited twice, the algorithm reaches a <em>local minimum</em> after a finite number of steps.</p>
+<p>The complexity of this algorithm depends on the amount of clusters <span class="math inline">\((K)\)</span> and size of the training data set <span class="math inline">\((L)\)</span>. The complexity is <span class="math inline">\(O(KL)\)</span>, but it can be speed up.</p>
+<h2 id="k-means-1">K-Means++</h2>
+<p>A good initialization can help you avoid bad local minima. This is the motivation for the K-means++ algorithm.</p>
+<ol type="1">
+<li><p>Choose the first cluster center <span class="math inline">\(c_1\)</span> uniformly at random from <span class="math inline">\(\mathcal T\)</span> and set <span class="math inline">\(\mathcal C=\{c_1\}\)</span></p></li>
+<li><p>For each data point <span class="math inline">\(x_l\)</span>, compute the distance <span class="math inline">\(d_l\)</span> to its nearest cluster in <span class="math inline">\(\mathcal C\)</span>: <span class="math display">\[
+\array{d_l = \min_{c\in\mathcal C} |\!|x_l - c|\!| &amp; \forall l \in 1,\dots,L}
+\]</span></p></li>
+<li><p>Select a point <span class="math inline">\(x_l\)</span> from <span class="math inline">\(\mathcal T\)</span> with probability proportional to <span class="math inline">\(d_l^2\)</span> . This involves construction a distribution <span class="math inline">\(p(l)\)</span> with <span class="math inline">\(d_n\)</span> as <span class="math inline">\(p(n)= \frac{d_n^2}{\sum_{i=1}^L d_i^2}\)</span> and sampling from it to get the index <span class="math inline">\(l\)</span></p></li>
+<li><p>We add that new point <span class="math inline">\(x_l\)</span> to our set of cluster centers: <span class="math display">\[
+\mathcal C \leftarrow \mathcal C \cup \{x_l\}
+\]</span></p></li>
+<li><p>If <span class="math inline">\(|\mathcal C| = K\)</span>, we exit the algorithm, else go back to step 2.</p></li>
+</ol>
+<p>After running the algorithm we have a good set of initial cluster centers that we need to run through the normal K-means algorithm.</p>
+<p>If we initialize K-means with the K-means++ algorithm, then we can have an upper bound on the expectation on the criterion value <span class="math inline">\(E(J)\)</span>: <span class="math display">\[
+E(J) \le 8 (\ln(K) + 2) J_{opt}
+\]</span></p>
+<h2 id="generalizations">Generalizations</h2>
+<p>K-means can be generalized for minimized a criterion other than squared Euclidean distance. For this we are going to modify the algorithm:</p>
+<p>The input for the algorithm now is the set of observations <span class="math inline">\(\mathcal T =\{x_l\}^L_{l=1}\)</span>, the desired number of clusters <span class="math inline">\(K\)</span> and the distance function <span class="math inline">\(d(x,y)\)</span>.</p>
+<p>The output is the same as before, a set of cluster centers <span class="math inline">\(\{c_k\}^K_{k=1}\)</span> and the partition of the set data based on the centers <span class="math inline">\(\{\mathcal T_k\}^K_{k=1}\)</span>.</p>
+<p>Now the algorithm looks like this:</p>
+<ol type="1">
+<li><p>Initialize the cluster centers <span class="math inline">\(\{c_k\}^K_{k=1}\)</span> with some value. This can be a random selection of data points from the training set <span class="math inline">\(\mathcal T\)</span>.</p></li>
+<li><p>Split the training set <span class="math inline">\(\mathcal T\)</span> into <span class="math inline">\(k\)</span> groups <span class="math inline">\((\mathcal T_k)\)</span>. This decision will be based on de closes cluster center to each data point: <span class="math display">\[
+\array{\mathcal T_k=\{x \in \mathcal T : \forall j.d(x-c_k) \le d(x,c_j) \} &amp;\forall k \in 1,\dots,K}
+\]</span></p></li>
+<li><p>Now we will analyze the classification and decide the new cluster centers: <span class="math display">\[
+\array{c_k = 
+\left\{\array{
+\text{argmin}_c\sum_{x\in \mathcal T_k} d(x,c)&amp;|\mathcal T_k| &gt; 0\\
+\text{re-initialize}&amp; \mathcal T_k = \emptyset
+}\right. &amp; \forall k = 1,\dots, K}
+\]</span></p></li>
+<li><p>If <span class="math inline">\(\forall k: \mathcal T^{t+1}_k = \mathcal T^t_k\)</span> then we can exit the algorithm, otherwise go back to step 2.</p></li>
 </ol>
 </body>
 </html>
