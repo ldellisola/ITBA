@@ -1568,8 +1568,11 @@ q:X\rightarrow K/q(x)=
 \overline \epsilon_D \ge \epsilon_D
 \]</span> Using the likelihood ratio, we can <strong>rank</strong> our results, and order them. The lowest likelihood ratio will be named as <span class="math inline">\(r_1\)</span>, and subsequently all other results will follow it until the highest value.</p>
 <p>The optimal way to pick <span class="math inline">\(\mu\)</span> is choosing the right <span class="math inline">\(\mu_i\)</span>: <span class="math display">\[
-\mu_0 = 0  \\
-m_i = \frac {r_i+r_{i+1}}{2}
+\mu_0 = 0\\
+\mu_i = \frac {r_i+r_{i+1}}{2}
+\]</span></p>
+<p>Such that: <span class="math display">\[
+\mu_i &lt; \mu &lt; \mu_{i+1}
 \]</span></p>
 <h3 id="randomized-strategies">Randomized Strategies</h3>
 <p>It is common to use randomized strategies to obtain a better decision model. We do this so that <span class="math inline">\(\epsilon_D\)</span> is as close as possible to <span class="math inline">\(\overline \epsilon_D\)</span> as possible, and when we are dealing with discrete probabilities, it is often necessary.</p>

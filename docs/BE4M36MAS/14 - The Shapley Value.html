@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Parameter Estimation</title>
+  <title>14 - The Shapley Value</title>
   <style>
     html {
       line-height: 1.5;
@@ -1526,91 +1526,58 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="parameter-estimation">Parameter Estimation</h1>
-<p>Here we are going to estimate parameters using the <strong>Maximum Likelihood (ML)</strong> method, the <strong>Maximum a Posteriori (MAP)</strong> method and the <strong>Bayesian</strong> method.</p>
-<p>In the previous classes we assumed that we know all necessary probabilities, but in reality that’s hardly the case, and we need to estimate these parameters from training data.</p>
-<p>According the the form of the model for the distribution, we have two types of estimation methods:</p>
+<h1 id="the-shapley-value">The Shapley Value</h1>
+<p>The Shapley value quantifies the effect of individual components on the performance of the entire system.</p>
+<p>Let <span class="math inline">\(\Gamma\)</span> be the set of all games over <span class="math inline">\(N\)</span>, the <strong>value</strong> is a mapping: <span class="math display">\[
+\array{\gamma:\Gamma\rightarrow \mathbb{R}^n &amp; \gamma = (\gamma_1,\dots,\gamma_n)}
+\]</span> A value <span class="math inline">\(\gamma\)</span>:</p>
 <ul>
-<li><strong>Parametric</strong>: The distribution has a knows form of a function which has parameters <span class="math inline">\(\theta = (\theta_1,\theta_2,\dots,\theta_D)\)</span>, but the number of parameters is low. A good example of this is the Normal distribution, which has the parameters <span class="math inline">\(\theta=(\mu,\sigma^2)\)</span></li>
-<li><strong>Non-Parametric</strong>: It’s similar to the parametric distribution but it has a lot of parameters. In these cases the parameters tend to disappear from the estimating methods procedure. Examples of this kind are Parzen window and Histogram.</li>
+<li><p>is <strong>Efficient</strong> if <span class="math inline">\(\sum_{i\le n} \gamma_i = v(N)\)</span> for each <span class="math inline">\(v\in \Gamma\)</span></p></li>
+<li><p>is <strong>Additive</strong> if <span class="math inline">\(\gamma(u+v) = \gamma(u) + \gamma(v)\)</span> for all <span class="math inline">\(u,v \in \Gamma\)</span></p></li>
+<li><p>is <strong>Symmetric</strong> if the following implication holds for each game <span class="math inline">\(v\)</span>, players <span class="math inline">\(i,j \in N\)</span> and each coalition <span class="math inline">\(A \subseteq N\setminus \{i,j\}\)</span>: <span class="math display">\[
+v(A \cup i ) = v(A \cup j) \implies \gamma_i(v) = \gamma_j(v)
+\]</span> Informally we can think that this means players get the same reward for the same contribution.</p></li>
+<li><p>satisfies the <strong>Null Player Property</strong>, if the following implication holds for each game <span class="math inline">\(v\)</span>, each player <span class="math inline">\(i \in N\)</span> and all <span class="math inline">\(A \subseteq N \setminus \{i\}\)</span>: <span class="math display">\[
+v(A\cup i) = v(A) \implies \gamma_i(v) =0
+\]</span> Informally we can express it as <em>“The player who doesn’t work, doesn’t get a reward”</em>.</p></li>
 </ul>
-<h2 id="maximum-likelihood-principle">Maximum Likelihood Principle</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> The ML principle says that the maximum likelihood estimate <span class="math inline">\(\hat\theta\)</span> for the observed data <span class="math inline">\(\mathcal T\)</span> is defined as: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max}~  L(\theta) = \underset \theta {\arg\max} ~p(\mathcal T / \theta) 
-\]</span> The intuition behind this method is that if the parameters are correct, then they will give larger probabilities for the objections, compared to wrong parameters. Usually the parameters for different classes are independent, and the likelihood function can be factorized as: <span class="math display">\[
-\mathcal {p(T/\theta) = p(T_1/\theta_1) p(T_2/\theta_2)\dots p(T_K/\theta_K)}
-\]</span> Where <span class="math inline">\(\mathcal T_i\)</span> corresponds to all members of <span class="math inline">\(\mathcal T\)</span> that are assigned the class <span class="math inline">\(i\)</span>.</p>
-<p>Now, because the samples in <span class="math inline">\(\mathcal T\)</span> are independent and identically distributed, we know that: <span class="math display">\[
-p(\{x_1,\dots,x_N\}/\theta) = \prod_{i=1}^N p(x_i/\theta)
-\]</span> And the ML estimation for the class is: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max} \prod_{i=1}^N p(x_i/\theta)
-\]</span> Because we are maximizing an argument and the logarithm function is an increasing function, we can maximize the log-likelihood and obtain the same results, making our calculations easier.</p>
-<p>Under general conditions, as the number of observations grows to infinity, the estimates approach the actual parameters. Also, the probability density function approaches the Gaussian Distribution with large training sets.</p>
-<p>The problem with this method is when our training set is small, because the parameter estimations can be biased to our small dataset and not represent the actual values we are estimating.</p>
-<h3 id="binomial-distribution">Binomial Distribution</h3>
-<p>We can present this method with an example over the Binomial distribution. Let’s say that we are taking randomly elements from a drawer that contains <span class="math inline">\(R\)</span> red balls and <span class="math inline">\(G\)</span> green balls, and the total of balls in the drawer is <span class="math inline">\(N = G + R\)</span>. We want to estimate the percentage <span class="math inline">\(\pi\)</span> of red balls in the drawer.</p>
-<p>Because it’s a binomial distribution, we know that the likelihood function is: <span class="math display">\[
-p(R,N/\pi)=\left(\array{N\\ R}\right) \pi^R (1-\pi)^{N-R}
-\]</span> Because we want to maximize the parameter <span class="math inline">\(\pi\)</span>, we will derivate the likelihood function with respect to <span class="math inline">\(\pi\)</span>, equal it to zero and solve for <span class="math inline">\(\pi\)</span>: <span class="math display">\[
-\left(\array{N\\ R}\right) R \pi^{R-1}(1-\pi)^{N-R}- \left(\array{N\\ R}\right) \pi^{R}(1-\pi)^{N-R-1}(N-R ) = 0
-\]</span> After solving the equation, we will find our estimate <span class="math inline">\(\hat\pi_{ML}\)</span>: <span class="math display">\[
-\hat\pi_{ML} = \pi = \frac R N
+<blockquote>
+<p>There is an unique value: <span class="math display">\[
+\gamma^S: \Gamma \rightarrow \mathbb{R}^n
+\]</span> Which is efficient, additive, symmetric and satisfies the null player property. The <strong>Shapley value</strong> of a player <span class="math inline">\(i\in N\)</span> is: <span class="math display">\[
+\gamma_i^S(v) = \sum_{A\subseteq N\setminus\{i\}} \frac{|A|! \times (n-|A|-1)!}{n!} \times (v(A\cup i) - v(A))
 \]</span></p>
-<h3 id="normal-distribution">Normal Distribution</h3>
-<p>We can also apply this to the normal distribution with <span class="math inline">\(N\)</span> observations from the training data <span class="math inline">\((\mathcal T = \{x_1,\dots,x_N\})\)</span>. The likelihood function in this case is: <span class="math display">\[
-P(\mathcal T/\mu,\sigma) = \frac 1 {\sigma^N \sqrt{(2\pi)^N}} e^{-\frac 1 {2 \sigma^2}\sum_{i=1}^N (x_i - \mu)^2}
-\]</span> Now we are maximizing two parameters <span class="math inline">\((\mu, \sigma)\)</span> so we need the partial derivative for both. We’ll start with the mean estimation: <span class="math display">\[
-\frac {\partial {P(\mathcal T/\mu,\sigma)}} {\partial\mu} =P(\mathcal T/\mu,\sigma) \frac 1 {\sigma^2} \left(\sum_{i=1}^N (x_i - \mu) \right) = 0
-\]</span> After solving this equation we get: <span class="math display">\[
-\hat\mu_{ML} = \mu = \frac 1 N \sum_{i=1}^N x_i
-\]</span> Now for the variance: <span class="math display">\[
-\frac {\partial {P(\mathcal T/\mu,\sigma)}} {\partial\sigma} =P(\mathcal T/\mu,\sigma) \frac N \sigma + P(\mathcal T/\mu,\sigma) \frac 1 {\sigma^3} \left( \sum_{i=1}^N (x_i - \mu)^2 \right) = 0
-\]</span> And solving the equation we get: <span class="math display">\[
-\hat \sigma _{ML} = \sigma =\frac 1 N \sum_{i=1}^N(x_i- \hat\mu_{ML})^2
+</blockquote>
+<p>We can also calculate this value using a marginal vector: <span class="math display">\[
+\gamma_i^S(v) = \sum_{\pi \in \Pi} \frac 1 {n!} (v(A_i^\pi \cup i) - v(A_i^\pi))
+\]</span> Here players arrive in a random order given by permutation <span class="math inline">\(\pi\)</span>, and each permutation <span class="math inline">\(\pi\)</span> of players has a <span class="math inline">\(\frac 1 {n!}\)</span> changes of happening.</p>
+<h3 id="estimation">Estimation</h3>
+<p>We can estimate the Shapley value with the following algorithm:</p>
+<p>The input is a game <span class="math inline">\(v\)</span> over <span class="math inline">\(n\)</span> players and a selected player <span class="math inline">\(i\)</span></p>
+<ol type="1">
+<li><p>Pick the size of the random sample <span class="math inline">\(m &lt;\!&lt;n!\)</span></p></li>
+<li><p>Sample with replacement permutations <span class="math inline">\((\pi_1,\dots,\pi_m)\)</span> with uniform probability <span class="math inline">\(\frac 1{n!}\)</span></p></li>
+<li><p>Estimate the Shapley value of player <span class="math inline">\(i\)</span>: <span class="math display">\[
+\sum_{k=1}^m \frac 1 m x_i^{\pi_k} = \sum_{k=1}^m \frac 1 m \times(v(A_i^\pi \cup i) - v(A_i^\pi))
+\]</span></p></li>
+</ol>
+<p>The algorithm is polynomial provided that <span class="math inline">\(v(A)\)</span> can be calculated in polynomial time.</p>
+<h2 id="shapley-shubik-index">Shapley-Shubik Index</h2>
+<p>The Shapley-Shubik index helps determine the voting power of players in simple games. This index is defined as: <span class="math display">\[
+\gamma_i^S(v) = \sum_{\array{A \subseteq N\setminus\{i\}\\ i \text{ pivotal to }A}} \frac 1 {n \left(\array{n-1\\|A|}\right)}
+\]</span> For a player <span class="math inline">\(i\)</span> in a simple game <span class="math inline">\(v\)</span>.</p>
+<p>A player <span class="math inline">\(i\)</span> is pivotal to a coalition <span class="math inline">\(A \subseteq N\setminus\{i\}\)</span> if: <span class="math display">\[
+\array{v(A\cup i) = 1 &amp; \land &amp; v(A)=0}
+\]</span> The probability that player <span class="math inline">\(i\)</span> casts the decisive vote in an order given by a randomly chosen permutation <span class="math inline">\(\pi \in \Pi\)</span> is: <span class="math display">\[
+\gamma_i^S(v) = \frac 1 {n!} \times |\{\pi \in \Pi:i \text{ is pivotal to }A_i^\pi\}|
 \]</span></p>
-<h2 id="maximum-a-posteriori-estimation">Maximum A Posteriori Estimation</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> And the prior distribution <span class="math inline">\(p(\theta)\)</span> of the model parameters <span class="math inline">\(\theta\)</span> is known.</p>
-<p>The MAP principle says that the Maximum A Posteriori estimate <span class="math inline">\(\hat \theta\)</span> of the distribution parameters for the observed data <span class="math inline">\(\mathcal T\)</span> is defined as: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max}~ p(\theta/\mathcal T)
-\]</span> And we can use the Bayes Theorem to obtain the following formula: <span class="math display">\[
-\hat \theta = \underset \theta {\arg\max}~p(\mathcal T/\theta)p(\theta)
-\]</span> In this approach we are not maximizing the likelihood, but the product of the likelihood and the prior probability of <span class="math inline">\(\theta\)</span>, which shifts the optimum <span class="math inline">\(\hat\theta\)</span> when the number of observations is low.</p>
-<h3 id="binomial-distribution-1">Binomial Distribution</h3>
-<p>We can present this method with an example over the Binomial distribution. Let’s say that we are taking randomly elements from a drawer that contains <span class="math inline">\(R\)</span> red balls and <span class="math inline">\(G\)</span> green balls, and the total of balls in the drawer is <span class="math inline">\(N = G + R\)</span>. We want to estimate the percentage <span class="math inline">\(\pi\)</span> of red balls in the drawer.</p>
-<p>Because it’s a binomial distribution, we know that the likelihood function is: <span class="math display">\[
-p(R,N/\pi)=\left(\array{N\\mathbb{R}}\right) \pi^R (1-\pi)^{N-R}
-\]</span> Now we need to find a suitable prior for <span class="math inline">\(\pi\)</span>: <span class="math display">\[
-p(\pi) = \pi^A(1-\pi)^B
-\]</span> Now, after deriving the product of the prior and the conditional probability and solving for <span class="math inline">\(\pi\)</span>, we obtain the following estimate: <span class="math display">\[
-\hat\pi_{MAP} = \frac {R + A} {N + A + B}
-\]</span> But we still have two unknown parameters <span class="math inline">\(A,B\)</span>. These hyperparameters appear because the prior distribution <span class="math inline">\(p(\pi)\)</span> is also known as the <strong>Beta distribution</strong>. We can think about them as <em>virtual</em> observations done before any real observation has been done. <span class="math inline">\(A\)</span> would be the amount of red balls and <span class="math inline">\(B\)</span> the amount of green balls.</p>
-<p>The Beta distribution is defined as: <span class="math display">\[
-\beta(\pi/a,b) = \frac 1 {B(a,b)} \pi ^{a-1} (1-\pi) ^ {b-1}
-\]</span> Where <span class="math inline">\(A = a-1, B = b-1\)</span>, and the function <span class="math inline">\(B(a,b)\)</span> is a normalizing constant.</p>
-<h2 id="bayesian-parameter-estimation">Bayesian Parameter Estimation</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> And the prior distribution <span class="math inline">\(p(\theta)\)</span> of the model parameters <span class="math inline">\(\theta\)</span> is known.</p>
-<p>The Bayesian Parameter estimation tries to minimize the risk <span class="math inline">\(R(\theta)\)</span> of the estimate <span class="math inline">\(\theta\)</span>. The risk function is defined as: <span class="math display">\[
-R(\theta) = \int_{-\infty}^\infty p(t/\mathcal T) (t-\theta)^2 dt\\
-\theta_{MSE} = \underset \theta {\arg\min}R(\theta)
-\]</span> Where <span class="math inline">\(MSE\)</span> is the Mean Squared Error.</p>
-<p>This leads to: <span class="math display">\[
-\theta_{MSE} = \int_{-\infty}^\infty t p(t/\mathcal T)dt
+<h2 id="banzhaf-index">Banzhaf Index</h2>
+<p>A <strong>swing</strong> for player <span class="math inline">\(i\)</span> is a coalition in which <span class="math inline">\(i\)</span> is pivotal and it is defined as: <span class="math display">\[
+s_i(v) = |\{A \subseteq N \setminus \{i\}: v(A\cup i) - v(a) = 1\}|
+\]</span> The <strong>Banzhaf index</strong> of player <span class="math inline">\(i\)</span> in a simple game <span class="math inline">\(v\)</span> is : <span class="math display">\[
+\gamma_i^B(v) - \frac{1}{2^{n-1}} \times s_i(v)
+\]</span> We also have the <strong>normalized Banzhaf Index</strong> for player <span class="math inline">\(i\)</span> in a simple game <span class="math inline">\(v\)</span>: <span class="math display">\[
+\beta_i(b) = \frac{s_i(v)}{s_1(v) + \dots + s_n(v)}
 \]</span></p>
-<h3 id="binomial-distribution-2">Binomial Distribution</h3>
 </body>
 </html>

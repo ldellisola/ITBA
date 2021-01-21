@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Parameter Estimation</title>
+  <title>15 - The Nucleolus</title>
   <style>
     html {
       line-height: 1.5;
@@ -1526,91 +1526,56 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="parameter-estimation">Parameter Estimation</h1>
-<p>Here we are going to estimate parameters using the <strong>Maximum Likelihood (ML)</strong> method, the <strong>Maximum a Posteriori (MAP)</strong> method and the <strong>Bayesian</strong> method.</p>
-<p>In the previous classes we assumed that we know all necessary probabilities, but in reality that’s hardly the case, and we need to estimate these parameters from training data.</p>
-<p>According the the form of the model for the distribution, we have two types of estimation methods:</p>
-<ul>
-<li><strong>Parametric</strong>: The distribution has a knows form of a function which has parameters <span class="math inline">\(\theta = (\theta_1,\theta_2,\dots,\theta_D)\)</span>, but the number of parameters is low. A good example of this is the Normal distribution, which has the parameters <span class="math inline">\(\theta=(\mu,\sigma^2)\)</span></li>
-<li><strong>Non-Parametric</strong>: It’s similar to the parametric distribution but it has a lot of parameters. In these cases the parameters tend to disappear from the estimating methods procedure. Examples of this kind are Parzen window and Histogram.</li>
-</ul>
-<h2 id="maximum-likelihood-principle">Maximum Likelihood Principle</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> The ML principle says that the maximum likelihood estimate <span class="math inline">\(\hat\theta\)</span> for the observed data <span class="math inline">\(\mathcal T\)</span> is defined as: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max}~  L(\theta) = \underset \theta {\arg\max} ~p(\mathcal T / \theta) 
-\]</span> The intuition behind this method is that if the parameters are correct, then they will give larger probabilities for the objections, compared to wrong parameters. Usually the parameters for different classes are independent, and the likelihood function can be factorized as: <span class="math display">\[
-\mathcal {p(T/\theta) = p(T_1/\theta_1) p(T_2/\theta_2)\dots p(T_K/\theta_K)}
-\]</span> Where <span class="math inline">\(\mathcal T_i\)</span> corresponds to all members of <span class="math inline">\(\mathcal T\)</span> that are assigned the class <span class="math inline">\(i\)</span>.</p>
-<p>Now, because the samples in <span class="math inline">\(\mathcal T\)</span> are independent and identically distributed, we know that: <span class="math display">\[
-p(\{x_1,\dots,x_N\}/\theta) = \prod_{i=1}^N p(x_i/\theta)
-\]</span> And the ML estimation for the class is: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max} \prod_{i=1}^N p(x_i/\theta)
-\]</span> Because we are maximizing an argument and the logarithm function is an increasing function, we can maximize the log-likelihood and obtain the same results, making our calculations easier.</p>
-<p>Under general conditions, as the number of observations grows to infinity, the estimates approach the actual parameters. Also, the probability density function approaches the Gaussian Distribution with large training sets.</p>
-<p>The problem with this method is when our training set is small, because the parameter estimations can be biased to our small dataset and not represent the actual values we are estimating.</p>
-<h3 id="binomial-distribution">Binomial Distribution</h3>
-<p>We can present this method with an example over the Binomial distribution. Let’s say that we are taking randomly elements from a drawer that contains <span class="math inline">\(R\)</span> red balls and <span class="math inline">\(G\)</span> green balls, and the total of balls in the drawer is <span class="math inline">\(N = G + R\)</span>. We want to estimate the percentage <span class="math inline">\(\pi\)</span> of red balls in the drawer.</p>
-<p>Because it’s a binomial distribution, we know that the likelihood function is: <span class="math display">\[
-p(R,N/\pi)=\left(\array{N\\ R}\right) \pi^R (1-\pi)^{N-R}
-\]</span> Because we want to maximize the parameter <span class="math inline">\(\pi\)</span>, we will derivate the likelihood function with respect to <span class="math inline">\(\pi\)</span>, equal it to zero and solve for <span class="math inline">\(\pi\)</span>: <span class="math display">\[
-\left(\array{N\\ R}\right) R \pi^{R-1}(1-\pi)^{N-R}- \left(\array{N\\ R}\right) \pi^{R}(1-\pi)^{N-R-1}(N-R ) = 0
-\]</span> After solving the equation, we will find our estimate <span class="math inline">\(\hat\pi_{ML}\)</span>: <span class="math display">\[
-\hat\pi_{ML} = \pi = \frac R N
+<h1 id="the-nucleolus">The Nucleolus</h1>
+<h2 id="bankruptcy-games">Bankruptcy Games</h2>
+<p>Let <span class="math inline">\(N =\{1,\dots,n\}\)</span> be the set of claimants, the <strong>bankruptcy problem</strong> is a pair <span class="math inline">\((e,d)\)</span> where <span class="math inline">\(e \ge 0\)</span> is the state and <span class="math inline">\(d=(d_1,\dots,d_n) \in \mathbb{R}_+^n\)</span> are the demands such that: <span class="math display">\[
+e \le d_1 + \dots + d_n
+\]</span> A <strong>bankruptcy game </strong> associated with the bankruptcy problem <span class="math inline">\((e,d)\)</span> is a coalitional game given by: <span class="math display">\[
+\array{v(A) = \max\{e - d(N\setminus A),0\} &amp; A \subseteq N}
+\]</span> Every bankruptcy game is super-modular, which implies that The core <span class="math inline">\(C(v)\)</span> is non-empty and that the Shapley value belongs to <span class="math inline">\(C(v)\)</span>.</p>
+<h2 id="the-nucleolus-1">The Nucleolus</h2>
+<p>The nucleolus is an alternative to the Shapley value that also applies to all coalitional games and the idea is that the maximal dissatisfaction of coalitions with an allocation should be minimized.</p>
+<p>Let <span class="math inline">\(v\)</span> be a game with <span class="math inline">\(I(v) \neq \emptyset\)</span>, the <strong>nucleolus</strong> of <span class="math inline">\(v\)</span> is the set: <span class="math display">\[
+N(v) =\{x \in I(V) : e(x) \preceq e(y), \forall y \in I(v)\}
+\]</span> The nucleolus is non-empty and has only a single value. Amon its properties, we can find that if the core <span class="math inline">\(C(v)\)</span> is not empty, then the nucleolus is contained within the core, and it also presents efficiency, Symmetry and the Null Player Property.</p>
+<p>The Nucleolus is calculated using the following algorithm:</p>
+<ol type="1">
+<li><p>Find <span class="math inline">\(X_1\subseteq I(v)\)</span> minimizing the maximal excess:</p>
+<p>This is done solving the following linear program: <span class="math display">\[
+\array{\text{minimize}&amp; t_1\\ 
+\text{subject to}&amp; e(A,x) \le t &amp; \emptyset \neq A \subset N, x \in I(v)}
+\]</span> Where <span class="math inline">\(t_1\)</span> is the value of the LP and <span class="math inline">\(X_1 \times \{t_1\}\)</span> is the set of optimal solutions.</p>
+<p>If <span class="math inline">\(X_1\)</span> is a singleton, then <span class="math inline">\(N(v) = X_1\)</span> and exit the algorithm. Else we create the following set: <span class="math display">\[
+F_1 = \{A\subset N : e(A,x) = t_1, \forall x\in X_1\}
+\]</span></p></li>
+<li><p>We will continue with set <span class="math inline">\(X_{i}, i \ge 2\)</span>:</p>
+<p>This is done solving the following linear program: <span class="math display">\[
+\array{\text{minimize}&amp; t_i\\ 
+\text{subject to}&amp; e(A,x) \le t &amp; A\notin F_{i-1},\emptyset \neq A \subset N, x \in X_{i-1}}
+\]</span> Where <span class="math inline">\(t_i\)</span> is the value of the LP and <span class="math inline">\(X_i \times \{t_i\}\)</span> is the set of optimal solutions.</p>
+<p>If <span class="math inline">\(X_i\)</span> is a singleton, then <span class="math inline">\(N(v) = X_i\)</span> and exit the algorithm. Else we create the following set: <span class="math display">\[
+F_i = \{A\subset N : e(A,x) = t_i, \forall x\in X_i\}
+\]</span></p></li>
+<li><p>We increment <span class="math inline">\(i\)</span> and repeat step 2.</p></li>
+</ol>
+<p>The algorithm will stop when <span class="math inline">\(X_k\)</span> is a singleton at step <span class="math inline">\(k \le 2^n\)</span>. Each <span class="math inline">\(t_i\)</span> is the <span class="math inline">\(i^{th}\)</span> highest excess, and each <span class="math inline">\(F_i\)</span> is a collection of coalitions with excess <span class="math inline">\(t_i\)</span>.</p>
+<h3 id="excess-of-a-coalition">Excess of a Coalition</h3>
+<p>The <strong>excess of a coalition</strong> <span class="math inline">\(A \subseteq N\)</span> at allocation <span class="math inline">\(x \in \mathbb{R}^n\)</span> is: <span class="math display">\[
+e(A,x) v(A) - x(A) 
+\]</span> The <strong>excess vector</strong> is defined as: <span class="math display">\[
+e(x) = (e(A_1,x),\dots,(A_{2^n},x)) \in \mathbb{R}^{2^n}
+\]</span> Where the coalitions <span class="math inline">\(A_i\)</span> are enumerated from the highest excess such that: <span class="math display">\[
+e(A_1,x) \ge \dots\ge e(A_{2^n},x)
+\]</span> The excess vector whose maximal excess is minimal are preferred.</p>
+<blockquote>
+<p>For every <span class="math inline">\(\alpha,\beta \in \mathbb{R}^m\)</span>, we define the following symbols: <span class="math display">\[
+\alpha \prec \beta \iff \exists k \in \{1,\dots,m\}. \forall j &lt; k. \alpha_j = \beta_j \land \alpha_k &lt; \beta_k\\
+\alpha \preceq \beta \iff \alpha \prec \beta \lor \alpha = \beta
 \]</span></p>
-<h3 id="normal-distribution">Normal Distribution</h3>
-<p>We can also apply this to the normal distribution with <span class="math inline">\(N\)</span> observations from the training data <span class="math inline">\((\mathcal T = \{x_1,\dots,x_N\})\)</span>. The likelihood function in this case is: <span class="math display">\[
-P(\mathcal T/\mu,\sigma) = \frac 1 {\sigma^N \sqrt{(2\pi)^N}} e^{-\frac 1 {2 \sigma^2}\sum_{i=1}^N (x_i - \mu)^2}
-\]</span> Now we are maximizing two parameters <span class="math inline">\((\mu, \sigma)\)</span> so we need the partial derivative for both. We’ll start with the mean estimation: <span class="math display">\[
-\frac {\partial {P(\mathcal T/\mu,\sigma)}} {\partial\mu} =P(\mathcal T/\mu,\sigma) \frac 1 {\sigma^2} \left(\sum_{i=1}^N (x_i - \mu) \right) = 0
-\]</span> After solving this equation we get: <span class="math display">\[
-\hat\mu_{ML} = \mu = \frac 1 N \sum_{i=1}^N x_i
-\]</span> Now for the variance: <span class="math display">\[
-\frac {\partial {P(\mathcal T/\mu,\sigma)}} {\partial\sigma} =P(\mathcal T/\mu,\sigma) \frac N \sigma + P(\mathcal T/\mu,\sigma) \frac 1 {\sigma^3} \left( \sum_{i=1}^N (x_i - \mu)^2 \right) = 0
-\]</span> And solving the equation we get: <span class="math display">\[
-\hat \sigma _{ML} = \sigma =\frac 1 N \sum_{i=1}^N(x_i- \hat\mu_{ML})^2
-\]</span></p>
-<h2 id="maximum-a-posteriori-estimation">Maximum A Posteriori Estimation</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> And the prior distribution <span class="math inline">\(p(\theta)\)</span> of the model parameters <span class="math inline">\(\theta\)</span> is known.</p>
-<p>The MAP principle says that the Maximum A Posteriori estimate <span class="math inline">\(\hat \theta\)</span> of the distribution parameters for the observed data <span class="math inline">\(\mathcal T\)</span> is defined as: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max}~ p(\theta/\mathcal T)
-\]</span> And we can use the Bayes Theorem to obtain the following formula: <span class="math display">\[
-\hat \theta = \underset \theta {\arg\max}~p(\mathcal T/\theta)p(\theta)
-\]</span> In this approach we are not maximizing the likelihood, but the product of the likelihood and the prior probability of <span class="math inline">\(\theta\)</span>, which shifts the optimum <span class="math inline">\(\hat\theta\)</span> when the number of observations is low.</p>
-<h3 id="binomial-distribution-1">Binomial Distribution</h3>
-<p>We can present this method with an example over the Binomial distribution. Let’s say that we are taking randomly elements from a drawer that contains <span class="math inline">\(R\)</span> red balls and <span class="math inline">\(G\)</span> green balls, and the total of balls in the drawer is <span class="math inline">\(N = G + R\)</span>. We want to estimate the percentage <span class="math inline">\(\pi\)</span> of red balls in the drawer.</p>
-<p>Because it’s a binomial distribution, we know that the likelihood function is: <span class="math display">\[
-p(R,N/\pi)=\left(\array{N\\mathbb{R}}\right) \pi^R (1-\pi)^{N-R}
-\]</span> Now we need to find a suitable prior for <span class="math inline">\(\pi\)</span>: <span class="math display">\[
-p(\pi) = \pi^A(1-\pi)^B
-\]</span> Now, after deriving the product of the prior and the conditional probability and solving for <span class="math inline">\(\pi\)</span>, we obtain the following estimate: <span class="math display">\[
-\hat\pi_{MAP} = \frac {R + A} {N + A + B}
-\]</span> But we still have two unknown parameters <span class="math inline">\(A,B\)</span>. These hyperparameters appear because the prior distribution <span class="math inline">\(p(\pi)\)</span> is also known as the <strong>Beta distribution</strong>. We can think about them as <em>virtual</em> observations done before any real observation has been done. <span class="math inline">\(A\)</span> would be the amount of red balls and <span class="math inline">\(B\)</span> the amount of green balls.</p>
-<p>The Beta distribution is defined as: <span class="math display">\[
-\beta(\pi/a,b) = \frac 1 {B(a,b)} \pi ^{a-1} (1-\pi) ^ {b-1}
-\]</span> Where <span class="math inline">\(A = a-1, B = b-1\)</span>, and the function <span class="math inline">\(B(a,b)\)</span> is a normalizing constant.</p>
-<h2 id="bayesian-parameter-estimation">Bayesian Parameter Estimation</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> And the prior distribution <span class="math inline">\(p(\theta)\)</span> of the model parameters <span class="math inline">\(\theta\)</span> is known.</p>
-<p>The Bayesian Parameter estimation tries to minimize the risk <span class="math inline">\(R(\theta)\)</span> of the estimate <span class="math inline">\(\theta\)</span>. The risk function is defined as: <span class="math display">\[
-R(\theta) = \int_{-\infty}^\infty p(t/\mathcal T) (t-\theta)^2 dt\\
-\theta_{MSE} = \underset \theta {\arg\min}R(\theta)
-\]</span> Where <span class="math inline">\(MSE\)</span> is the Mean Squared Error.</p>
-<p>This leads to: <span class="math display">\[
-\theta_{MSE} = \int_{-\infty}^\infty t p(t/\mathcal T)dt
-\]</span></p>
-<h3 id="binomial-distribution-2">Binomial Distribution</h3>
+</blockquote>
+<h3 id="imputations">Imputations</h3>
+<p>We seek a lexicographic minimizer of excess vectors <span class="math inline">\(e(x)\)</span> over a set of allocation <span class="math inline">\(x\)</span> in game <span class="math inline">\(v\)</span>. The core is not a good choice as a base set because it can be empty. This is why we are defining the set of <strong>imputations</strong> as: <span class="math display">\[
+I = \{x\in \mathbb{R}^n : x(N) = v(N) \land \forall i\in N.~ x_i \ge v(i)\}
+\]</span> If the game <span class="math inline">\(v\)</span> is super-additive, the <span class="math inline">\(I(v) \neq \emptyset\)</span>.</p>
 </body>
 </html>

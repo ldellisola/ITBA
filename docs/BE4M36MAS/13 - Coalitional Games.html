@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Parameter Estimation</title>
+  <title>13 - Coalitional Games</title>
   <style>
     html {
       line-height: 1.5;
@@ -1526,91 +1526,83 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="parameter-estimation">Parameter Estimation</h1>
-<p>Here we are going to estimate parameters using the <strong>Maximum Likelihood (ML)</strong> method, the <strong>Maximum a Posteriori (MAP)</strong> method and the <strong>Bayesian</strong> method.</p>
-<p>In the previous classes we assumed that we know all necessary probabilities, but in reality that’s hardly the case, and we need to estimate these parameters from training data.</p>
-<p>According the the form of the model for the distribution, we have two types of estimation methods:</p>
+<h1 id="coalitional-games">Coalitional Games</h1>
+<p>Coalitional Games are a set of games where the agents have to collaborate. Players can form coalitions and coordinate strategies in order to maximize the utility of the coalition.</p>
+<p>The player set is described as: <span class="math display">\[
+N =\{1,\dots,n\}
+\]</span></p>
+<p>And a coalition is a subset <span class="math inline">\(A\subseteq N\)</span> where:</p>
 <ul>
-<li><strong>Parametric</strong>: The distribution has a knows form of a function which has parameters <span class="math inline">\(\theta = (\theta_1,\theta_2,\dots,\theta_D)\)</span>, but the number of parameters is low. A good example of this is the Normal distribution, which has the parameters <span class="math inline">\(\theta=(\mu,\sigma^2)\)</span></li>
-<li><strong>Non-Parametric</strong>: It’s similar to the parametric distribution but it has a lot of parameters. In these cases the parameters tend to disappear from the estimating methods procedure. Examples of this kind are Parzen window and Histogram.</li>
+<li><span class="math inline">\(\emptyset\)</span> is the <strong>empty coalition</strong>.</li>
+<li><span class="math inline">\(N\)</span> is the <strong>grand coalition</strong>.</li>
+<li><span class="math inline">\(\{i\}\)</span> is a <strong>one-player coalition</strong></li>
 </ul>
-<h2 id="maximum-likelihood-principle">Maximum Likelihood Principle</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> The ML principle says that the maximum likelihood estimate <span class="math inline">\(\hat\theta\)</span> for the observed data <span class="math inline">\(\mathcal T\)</span> is defined as: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max}~  L(\theta) = \underset \theta {\arg\max} ~p(\mathcal T / \theta) 
-\]</span> The intuition behind this method is that if the parameters are correct, then they will give larger probabilities for the objections, compared to wrong parameters. Usually the parameters for different classes are independent, and the likelihood function can be factorized as: <span class="math display">\[
-\mathcal {p(T/\theta) = p(T_1/\theta_1) p(T_2/\theta_2)\dots p(T_K/\theta_K)}
-\]</span> Where <span class="math inline">\(\mathcal T_i\)</span> corresponds to all members of <span class="math inline">\(\mathcal T\)</span> that are assigned the class <span class="math inline">\(i\)</span>.</p>
-<p>Now, because the samples in <span class="math inline">\(\mathcal T\)</span> are independent and identically distributed, we know that: <span class="math display">\[
-p(\{x_1,\dots,x_N\}/\theta) = \prod_{i=1}^N p(x_i/\theta)
-\]</span> And the ML estimation for the class is: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max} \prod_{i=1}^N p(x_i/\theta)
-\]</span> Because we are maximizing an argument and the logarithm function is an increasing function, we can maximize the log-likelihood and obtain the same results, making our calculations easier.</p>
-<p>Under general conditions, as the number of observations grows to infinity, the estimates approach the actual parameters. Also, the probability density function approaches the Gaussian Distribution with large training sets.</p>
-<p>The problem with this method is when our training set is small, because the parameter estimations can be biased to our small dataset and not represent the actual values we are estimating.</p>
-<h3 id="binomial-distribution">Binomial Distribution</h3>
-<p>We can present this method with an example over the Binomial distribution. Let’s say that we are taking randomly elements from a drawer that contains <span class="math inline">\(R\)</span> red balls and <span class="math inline">\(G\)</span> green balls, and the total of balls in the drawer is <span class="math inline">\(N = G + R\)</span>. We want to estimate the percentage <span class="math inline">\(\pi\)</span> of red balls in the drawer.</p>
-<p>Because it’s a binomial distribution, we know that the likelihood function is: <span class="math display">\[
-p(R,N/\pi)=\left(\array{N\\ R}\right) \pi^R (1-\pi)^{N-R}
-\]</span> Because we want to maximize the parameter <span class="math inline">\(\pi\)</span>, we will derivate the likelihood function with respect to <span class="math inline">\(\pi\)</span>, equal it to zero and solve for <span class="math inline">\(\pi\)</span>: <span class="math display">\[
-\left(\array{N\\ R}\right) R \pi^{R-1}(1-\pi)^{N-R}- \left(\array{N\\ R}\right) \pi^{R}(1-\pi)^{N-R-1}(N-R ) = 0
-\]</span> After solving the equation, we will find our estimate <span class="math inline">\(\hat\pi_{ML}\)</span>: <span class="math display">\[
-\hat\pi_{ML} = \pi = \frac R N
+<p>The set of all coalitions is the powerset: <span class="math display">\[
+\mathcal P(N) = \{A:A\subseteq N\}
+\]</span> Formally, a <strong>coalitional game</strong> is a pair <span class="math inline">\((N,v)\)</span> where <span class="math inline">\(v\)</span> is a function such that: <span class="math display">\[
+\array{v:\mathcal P(N) \rightarrow \mathbb{R} &amp; \text{such that }v(\emptyset) = 0 }
+\]</span> The players in coalition <span class="math inline">\(A\)</span> receive the worth <span class="math inline">\(v(A)\)</span> independently of the actions of players in <span class="math inline">\(N\setminus A\)</span>. We will identify a coalitional game <span class="math inline">\((N,v)\)</span> with the function <span class="math inline">\(v\)</span> and simply call <span class="math inline">\(v\)</span> a game.</p>
+<p>We say that a game <span class="math inline">\(v\)</span> is super-additive if: <span class="math display">\[
+\array{v(A) + v(B) \le v(A\cup B) &amp; A,B \subseteq N : A \cap B = \emptyset}
+\]</span> The game can be supper-additive and simple if: <span class="math display">\[
+v(A) \in \{0,1\}\\
+v \text{ is monotone and } v(N) = 1
 \]</span></p>
-<h3 id="normal-distribution">Normal Distribution</h3>
-<p>We can also apply this to the normal distribution with <span class="math inline">\(N\)</span> observations from the training data <span class="math inline">\((\mathcal T = \{x_1,\dots,x_N\})\)</span>. The likelihood function in this case is: <span class="math display">\[
-P(\mathcal T/\mu,\sigma) = \frac 1 {\sigma^N \sqrt{(2\pi)^N}} e^{-\frac 1 {2 \sigma^2}\sum_{i=1}^N (x_i - \mu)^2}
-\]</span> Now we are maximizing two parameters <span class="math inline">\((\mu, \sigma)\)</span> so we need the partial derivative for both. We’ll start with the mean estimation: <span class="math display">\[
-\frac {\partial {P(\mathcal T/\mu,\sigma)}} {\partial\mu} =P(\mathcal T/\mu,\sigma) \frac 1 {\sigma^2} \left(\sum_{i=1}^N (x_i - \mu) \right) = 0
-\]</span> After solving this equation we get: <span class="math display">\[
-\hat\mu_{ML} = \mu = \frac 1 N \sum_{i=1}^N x_i
-\]</span> Now for the variance: <span class="math display">\[
-\frac {\partial {P(\mathcal T/\mu,\sigma)}} {\partial\sigma} =P(\mathcal T/\mu,\sigma) \frac N \sigma + P(\mathcal T/\mu,\sigma) \frac 1 {\sigma^3} \left( \sum_{i=1}^N (x_i - \mu)^2 \right) = 0
-\]</span> And solving the equation we get: <span class="math display">\[
-\hat \sigma _{ML} = \sigma =\frac 1 N \sum_{i=1}^N(x_i- \hat\mu_{ML})^2
+<p>## Coalitional Structure</p>
+<p>A <strong>coalitional structure</strong> is a partition <span class="math inline">\(S\)</span> of <span class="math inline">\(N\)</span>: <span class="math display">\[
+S = \{A_1,\dots,A_k\}
+\]</span> where:</p>
+<ul>
+<li><span class="math inline">\(A_1 \cup \dots\cup A_k = N\)</span>, <span class="math inline">\(A_i \neq \emptyset\)</span></li>
+<li><span class="math inline">\(A_i \cap A_j = \emptyset, \forall i \neq j\)</span></li>
+</ul>
+<p>The total utility of the coalitional structure <span class="math inline">\(S\)</span> is: <span class="math display">\[
+V(S) = \sum_{i=1}^k  v(A_i)
+\]</span> The coalition formulation problem can be described as:</p>
+<blockquote>
+<p>Find a collational structure <span class="math inline">\(S^*\)</span> satisfying: <span class="math display">\[
+V(S^*) = \max\{V(S): S \text{ is a colational strucutre}\}
 \]</span></p>
-<h2 id="maximum-a-posteriori-estimation">Maximum A Posteriori Estimation</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> And the prior distribution <span class="math inline">\(p(\theta)\)</span> of the model parameters <span class="math inline">\(\theta\)</span> is known.</p>
-<p>The MAP principle says that the Maximum A Posteriori estimate <span class="math inline">\(\hat \theta\)</span> of the distribution parameters for the observed data <span class="math inline">\(\mathcal T\)</span> is defined as: <span class="math display">\[
-\hat\theta = \underset \theta {\arg\max}~ p(\theta/\mathcal T)
-\]</span> And we can use the Bayes Theorem to obtain the following formula: <span class="math display">\[
-\hat \theta = \underset \theta {\arg\max}~p(\mathcal T/\theta)p(\theta)
-\]</span> In this approach we are not maximizing the likelihood, but the product of the likelihood and the prior probability of <span class="math inline">\(\theta\)</span>, which shifts the optimum <span class="math inline">\(\hat\theta\)</span> when the number of observations is low.</p>
-<h3 id="binomial-distribution-1">Binomial Distribution</h3>
-<p>We can present this method with an example over the Binomial distribution. Let’s say that we are taking randomly elements from a drawer that contains <span class="math inline">\(R\)</span> red balls and <span class="math inline">\(G\)</span> green balls, and the total of balls in the drawer is <span class="math inline">\(N = G + R\)</span>. We want to estimate the percentage <span class="math inline">\(\pi\)</span> of red balls in the drawer.</p>
-<p>Because it’s a binomial distribution, we know that the likelihood function is: <span class="math display">\[
-p(R,N/\pi)=\left(\array{N\\mathbb{R}}\right) \pi^R (1-\pi)^{N-R}
-\]</span> Now we need to find a suitable prior for <span class="math inline">\(\pi\)</span>: <span class="math display">\[
-p(\pi) = \pi^A(1-\pi)^B
-\]</span> Now, after deriving the product of the prior and the conditional probability and solving for <span class="math inline">\(\pi\)</span>, we obtain the following estimate: <span class="math display">\[
-\hat\pi_{MAP} = \frac {R + A} {N + A + B}
-\]</span> But we still have two unknown parameters <span class="math inline">\(A,B\)</span>. These hyperparameters appear because the prior distribution <span class="math inline">\(p(\pi)\)</span> is also known as the <strong>Beta distribution</strong>. We can think about them as <em>virtual</em> observations done before any real observation has been done. <span class="math inline">\(A\)</span> would be the amount of red balls and <span class="math inline">\(B\)</span> the amount of green balls.</p>
-<p>The Beta distribution is defined as: <span class="math display">\[
-\beta(\pi/a,b) = \frac 1 {B(a,b)} \pi ^{a-1} (1-\pi) ^ {b-1}
-\]</span> Where <span class="math inline">\(A = a-1, B = b-1\)</span>, and the function <span class="math inline">\(B(a,b)\)</span> is a normalizing constant.</p>
-<h2 id="bayesian-parameter-estimation">Bayesian Parameter Estimation</h2>
-<p>Here we have the following training set: <span class="math display">\[
-\mathcal T=\{(x_1,k_1),\dots, (x_X,k_N)\}
-\]</span> Where each observation (<span class="math inline">\(x_i\)</span>) has the correct class (<span class="math inline">\(k_i\)</span>) assigned.</p>
-<p>We also know the parametric form of the likelihood: <span class="math display">\[
-L(\theta) = p(\mathcal T/\theta)
-\]</span> And the prior distribution <span class="math inline">\(p(\theta)\)</span> of the model parameters <span class="math inline">\(\theta\)</span> is known.</p>
-<p>The Bayesian Parameter estimation tries to minimize the risk <span class="math inline">\(R(\theta)\)</span> of the estimate <span class="math inline">\(\theta\)</span>. The risk function is defined as: <span class="math display">\[
-R(\theta) = \int_{-\infty}^\infty p(t/\mathcal T) (t-\theta)^2 dt\\
-\theta_{MSE} = \underset \theta {\arg\min}R(\theta)
-\]</span> Where <span class="math inline">\(MSE\)</span> is the Mean Squared Error.</p>
-<p>This leads to: <span class="math display">\[
-\theta_{MSE} = \int_{-\infty}^\infty t p(t/\mathcal T)dt
+</blockquote>
+<p>The <strong>bell numbers</strong> <span class="math inline">\(B_n\)</span> count the number of coalitional structures you can form, and it grows exponentially. This is an NP-complete problem. Luckily there is a trivial solution for supper-additive games:</p>
+<blockquote>
+<p>Let <span class="math inline">\(v\)</span> be a super-additive game, for any coalitional structure <span class="math inline">\(S\)</span>: <span class="math display">\[
+V(S) = \sum_{i=1}^k v(A_i) \le v(N) = V(\{N\})
+\]</span> This implies that <span class="math inline">\(S^*\)</span> ={N}</p>
+</blockquote>
+<p>From now on we will assume that players form a grand coalition <span class="math inline">\(N\)</span>. Also the coalition will allocate its worth in the following way. An allocation is a vector <span class="math inline">\(x=(x_1,\dots,x_n) \in \mathbb{R}^n\)</span>. If <span class="math inline">\(x\)</span> is allocated to players, coalition <span class="math inline">\(A\subseteq N\)</span> obtains: <span class="math display">\[
+x(A) = \sum_{i\in A} x_i
+\]</span> The solution of a game <span class="math inline">\(v\)</span> is some set of allocations <span class="math inline">\(x\in \mathbb{R}^n\)</span>.</p>
+<h2 id="the-core">The Core</h2>
+<p>The core is a set of efficient allocations upon which no coalition can improve. It is formally defined as: <span class="math display">\[
+C(v) = \{x\in \mathbb{R}^n : x(N) = v(N) \land  \forall A\subseteq N.~ x(A) \ge v(A)\}
+\]</span> The core is a complex polytope in <span class="math inline">\(\mathbb{R}^n\)</span> of dimension <span class="math inline">\(\le n-1\)</span>.</p>
+<p>We can decide if the core of a game is empty with the following linear program: <span class="math display">\[
+\array{
+\text{minimize} &amp; x_1+\dots+x_n \\
+\text{subject to}&amp;\sum_{i\in A} x_i \ge v(A)&amp;\forall A \subseteq N:A \neq \emptyset
+}
+\]</span> We can also say that the following are equivalent:</p>
+<ul>
+<li>The optimal value is <span class="math inline">\(v(N)\)</span></li>
+<li><span class="math inline">\(C(v) \neq \emptyset\)</span></li>
+</ul>
+<p>To find all vertices of the core <span class="math inline">\(C(v)\)</span> is a hard problem, but there are closed-form solutions for some games.</p>
+<p>A game <span class="math inline">\(v\)</span> is <strong>super-modular</strong> if: <span class="math display">\[
+\array{v(A) + v(B) \le v(A\cup B) + v(A \cap B) &amp; \forall A,B \subseteq N}
+\]</span> Also, the following propositions are equivalent:</p>
+<ul>
+<li><p>The game <span class="math inline">\(v\)</span> is super-modular.</p></li>
+<li><p><span class="math inline">\(\forall A,B \subseteq N: A \subseteq B\)</span>, and each <span class="math inline">\(i \in N\setminus B\)</span>: <span class="math display">\[
+v(A\cup i) - v(A) \le v(B\cup i)-v(B)
+\]</span></p></li>
+<li><p>The vertices of <span class="math inline">\(C(v)\)</span> are precisely marginal vectors</p></li>
+</ul>
+<h3 id="marginal-vector">Marginal Vector</h3>
+<p>Given a permutation <span class="math inline">\(\pi\)</span> of <span class="math inline">\(N\)</span>, the rank of player <span class="math inline">\(i\)</span> is <span class="math inline">\(\pi(i)\)</span>. The coalition preceding player <span class="math inline">\(i\)</span> is then: <span class="math display">\[
+A_i^\pi = \{j\in N: \pi(j) &lt; \pi(i)\}
+\]</span> A <strong>marginal vector</strong> is an allocation <span class="math inline">\(x^\pi \in \mathbb{R}^n\)</span> such that: <span class="math display">\[
+\array{x_i^\pi = v(A_i^\pi \cup i)- v(A_i^\pi) &amp; i\in N}
 \]</span></p>
-<h3 id="binomial-distribution-2">Binomial Distribution</h3>
 </body>
 </html>
