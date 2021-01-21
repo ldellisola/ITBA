@@ -65,8 +65,13 @@ Using the likelihood ratio, we can **rank** our results, and order them. The low
 
 The optimal way to pick $\mu$ is choosing the right $\mu_i$:
 $$
-\mu_0 = 0  \\
-m_i = \frac {r_i+r_{i+1}}{2}
+\mu_0 = 0\\
+\mu_i = \frac {r_i+r_{i+1}}{2}
+$$
+
+Such that:
+$$
+\mu_i < \mu < \mu_{i+1}
 $$
 
 ### Randomized Strategies

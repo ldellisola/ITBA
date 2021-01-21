@@ -51,11 +51,11 @@ We can present this method with an example over the Binomial distribution. Let's
 
 Because it's a binomial distribution, we know that the likelihood function is:
 $$
-p(R,N/\pi)=\left(\array{N\\R}\right) \pi^R (1-\pi)^{N-R}
+p(R,N/\pi)=\left(\array{N\\ R}\right) \pi^R (1-\pi)^{N-R}
 $$
 Because we want to maximize the parameter $\pi$, we will derivate the likelihood function with respect to $\pi$, equal it to zero and solve for $\pi$:
 $$
-\left(\array{N\\R}\right) R \pi^{R-1}(1-\pi)^{N-R}- \left(\array{N\\R}\right) \pi^{R}(1-\pi)^{N-R-1}(N-R ) = 0
+\left(\array{N\\ R}\right) R \pi^{R-1}(1-\pi)^{N-R}- \left(\array{N\\ R}\right) \pi^{R}(1-\pi)^{N-R-1}(N-R ) = 0
 $$
 After solving the equation, we will find our estimate $\hat\pi_{ML}$:
 $$
