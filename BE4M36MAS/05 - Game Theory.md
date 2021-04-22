@@ -33,7 +33,7 @@ $$
 $$
 There are different types of outcomes for games:
 
-- **Pareto Optimal Outcome**: It's an outcome $\mathcal s$ such that there's no other outcome $\mathcal s'$ where one player would be better of, and all other players have at least the same utility as in $\mathcal s$.
+- **Pareto Optimal Outcome**: It's an outcome $\mathcal s$ such that there's no other outcome $\mathcal s'$ where one player would be better of, and all other players have at least the same utility as in $\mathcal s$. <u>You have to find a strategy where your outcome is better than the Nash equilibrium and the other player's outcome is worse.</u>
 - **Social Welfare Optimization**: It's a outcome that maximized the sum of all players.
 
 ### Dominance

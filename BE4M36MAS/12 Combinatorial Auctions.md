@@ -102,11 +102,11 @@ OR bids can express additive valuations but are still quite limited, according t
 
 > OR bids can express all valuation function that exhibit no substitutability
 
-We can simulate the effect of XOR by allowing bids to include dummy items. This is possible with the **OR$^*$ bid language**, given a set of dummy items $G_i$ for each agent $i\in N$, an OR^*^ bid is a disjunction of atomic bids:
+We can simulate the effect of XOR by allowing bids to include dummy items. This is possible with the **OR$^*$ bid language**, given a set of dummy items $G_i$ for each agent $i\in N$, an OR$^*$ bid is a disjunction of atomic bids:
 $$
 (S_i,p_m) \lor \dots \lor (S_m,p_m)
 $$
-where for each $l=1,\dots,m$ , the agent is willing to pay price $p_l$ for the set of items $S_l \subseteq G \cup G_i$. OR^*^ can express all bids and is more concise that OR, XOR and their combinations.
+where for each $l=1,\dots,m$ , the agent is willing to pay price $p_l$ for the set of items $S_l \subseteq G \cup G_i$. OR$^*$ can express all bids and is more concise that OR, XOR and their combinations.
 
 ### XOR Bids
 

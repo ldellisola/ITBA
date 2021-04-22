@@ -10,6 +10,8 @@ h(xa) = h(x)h(a) & \forall x\in \Sigma^*, \forall a \in \Sigma
 
 }
 $$
+It is basically an injective translation.
+
 A **prefix** and **postfix** notation of an expression $E$:
 
 1. if $E$ is a variable or a constant, then the prefix or postfix notation of $E$ is $E$.

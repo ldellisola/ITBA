@@ -12,3 +12,6 @@ Puedo definir a $f$:
 $$
 f:\N^k\rightarrow \N
 $$
+
+
+

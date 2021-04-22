@@ -30,8 +30,13 @@ $$
 2p + 0(1-p) = 0p + 1(1-p) \\
 p= \frac 1 3
 $$
-If we do the same with player one, we'll find that there are 2 equilibriums at $[(2,1);(1,2)]$.
-
+If we do the same with player one, we'll find that there are 2 equilibriums at $[(\frac 2 3,\frac 1 3);(\frac 1 3,\frac 2 3)]$. This is calculated using the probabilities obtained previously. We know that player $2$ has probability $p$ and we can calculate the probability for player $1$ with $q$. This will result in the mixed strategies:
+$$
+\array{
+\text{player 1}& (q,1-q)\\
+\text{player 2}& (p,1-p)
+}
+$$
 In games with more actions we cannot directly apply this method, but we can try to remove dominated strategies and search for a possible support.
 
 ### The Equilibrium Selection Problem
@@ -92,7 +97,6 @@ $$
 }\\
 q(a_1) \ge 0, w(a_2) \ge 0, s_1(a_1) \ge 0, s_2(a_2) \ge 0 ~~\forall a_1\in \mathcal A_1, \forall a_2 \in \mathcal A_2 \\
 s_1(a_1) \times q(a_1) = 0, s_2(a_2) \times w(a_2) = 0 ~~ \forall a_1\in \mathcal A_1, \forall a_2 \in \mathcal A_2 
-
 $$
 This problem gets more complicated as you add more players.
 
@@ -116,12 +120,10 @@ $$
 In a normal-form game $\mathcal G = (\mathcal N,\mathcal A,u)$ and let $\sigma$ be a probability distribution over joint pure strategy profiles, $\sigma \in \Delta(\mathcal A)$. We say that $\sigma$ is a **correlated equilibrium** if for every player $i$, every signal $a_i \in \mathcal A_i$ and every possible action $a_i' \in \mathcal A_i$ it holds:
 $$
 \sum_{a_{-i} \in \mathcal A_{-i}} \sigma(a_i,a_{-i})u_i(a_i,a_{-i})
-
 \ge 
-
-\sum_{a_{-i} \in \mathcal A_{-i}} \sigma(a_i,a_{-i})u_i(a_i',a_{-i})
+\sum_{a_{-i} \in \mathcal A_{-i}} \sigma(a_i,a_{-i})u_i(a_i',a_{-i})
 $$
-The intuitive idea behind correlated equilibrium is that you have a randomizing factor that recommends actions to agents such that no agent wants to deviate.  
+<u>The intuitive idea behind correlated equilibrium is that you have a randomizing factor that recommends actions to agents such that no agent wants to deviate.</u>  
 
 For every Nash equilibrium there exists a corresponding Correlated Equilibrium.
 

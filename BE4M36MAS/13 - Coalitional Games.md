@@ -33,7 +33,7 @@ v(A) \in \{0,1\}\\
 v \text{ is monotone and } v(N) = 1
 $$
 
- ## Coalitional Structure
+## Coalitional Structure
 
 A **coalitional structure** is a partition $S$ of $N$:
 $$

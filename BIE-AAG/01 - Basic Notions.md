@@ -104,6 +104,11 @@ This classification works like an onion, where, for example, some recursively en
 
 <img src="Resources/01 - Basic Notions/image-20201101114712073.png" alt="image-20201101114712073" style="zoom:50%;" />
 
+If $L_1$ is regular and $L_2$ is not regular, then there exists $L_3$ that is regular and complies with the following:
+
+- $L_1 \cup L_2 = L_3$
+- $L_1 \cap L_2 = L_3$ 
+
 ### Finite Languages
 
 We call a language $L \subset \Sigma^*$ **finite** if:

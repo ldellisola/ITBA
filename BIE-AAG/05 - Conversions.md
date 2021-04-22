@@ -47,6 +47,8 @@ We can also see the algorithm here and it returns a NFA with no $\epsilon$-trans
 
 7. We assign the set $F$ to the final states set of the automaton.
 
+The result is a non-deterministic, Homogeneous finite automaton without epsilon transitions.
+
 We can see now a more formal definition of the algorithm.
 
 <img src="Resources/05 - Convertsions/image-20201031194622538.png" alt="image-20201031194622538" style="zoom:50%;" />
@@ -91,6 +93,8 @@ The actual algorithm can be found here:
 6. The transitions are defined by which symbol derives what regular expression.
 
 7. The formulas that can express $\epsilon$ are the final states.
+
+The result is a total deterministic finite automaton.
 
 A more formal version of the algorithm can be found here.
 
@@ -220,9 +224,8 @@ This method is very similar to the elimination of states and it follows this alg
 
 3. For each non-terminal symbol we remove them in the following way:
    $$
-   \array{S \rarr A1|A2 & \Rarr & S\rarr A(1+2)}
+   \array{S \rarr A1|A2 & \Rarr & S\rarr A(1+2)}
    $$
-
 ## Between RE and RG
 
 ### Method of derivatives
@@ -237,7 +240,7 @@ $$
 G_\empty = (\{S\},\empty,\empty,S)\\
 G_a = (\{S\},\{a\},\{S\rarr a\},S)}
 $$
-  Another change here are the operations. The standard operations for grammars are defined as:
+Another change here are the operations. The standard operations for grammars are defined as:
 $$
 \array{
 A + B &= &G(A) \cup G(B)\\
@@ -259,13 +262,10 @@ There only is one conversion between regular grammars and finite automata. We ne
 4. For each production rule we add a transition in the following way:
    $$
    \array{A\rarr aB &\Rarr &  A \overset a \rarr B \\
-   A \rarr a & \Rarr & A \overset a \rarr K \\
-   A \rarr b|aB & \Rarr & B \overset a \larr A \overset b \rarr K
-   
-   }
+      A \rarr a & \Rarr & A \overset a \rarr K \\
+      A \rarr b|aB & \Rarr & B \overset a \larr A \overset b \rarr K
+     }
    $$
-
-5. 
 
 ## Between FA and RG
 
@@ -278,20 +278,20 @@ This algorithm is the reverse as the conversion from RG to FA:
 3. For each transition we add a new  production rule in the following way:
    $$
    \array{
-   A \overset a \rarr B & \Rarr &A \rarr aB\\
-   A \overset a \rarr |B| & \Rarr & A \rarr a| aB
-   
-   }
+      A \overset a \rarr B & \Rarr &A \rarr aB\\
+      A \overset a \rarr |B| & \Rarr & A \rarr a| aB
+      }
    $$
-   Where $|B|$ means that $B$ is a final state.
+   Where $|B|$ means that $B$ is a final state
 
-4. If the initial state is also final, we need to add an $\epsilon$-rule to the initial state. This may transform the grammar into a non-regular one and in that case we need to fix it by adding a new rule and initial state:
-   $$
-   \array{\array{S \rarr \epsilon|aS|\dots\\A \rarr bS|\dots\\\vdots} &\Rarr & \array{S' \rarr \epsilon | aS|a|\dots\\
+4. If the initial state is also final, we need to add an $\epsilon$-rule to the initial state. 
+
+This may transform the grammar into a non-regular one and in that case we need to fix it by adding a new rule and initial state: 
+$$
+\array{\array{S \rarr \epsilon|aS|\dots\\A \rarr bS|\dots\\\vdots} &\Rarr & \array{S' \rarr \epsilon | aS|a|\dots\\
    S \rarr aS|a|\dots\\
    A \rarr bS|b|\dots\\
    \vdots
    }}
-   $$
-   
-
+  
+$$

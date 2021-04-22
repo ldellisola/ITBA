@@ -79,7 +79,7 @@ This operation works by swapping the final states for non-final states. It can b
 
 The product of 2 languages is defined as the concatenation of the strings of both automaton. In this case, we have to connect all outputs from the first automata to all inputs of the second automata.
 
-We can do this by merging both automataon with $\epsilon$-transitions:
+We can do this by merging both automaton with $\epsilon$-transitions:
 
 <img src="Resources/Untitled/image-20201015124408991.png" alt="image-20201015124408991" style="zoom:50%;" />
 

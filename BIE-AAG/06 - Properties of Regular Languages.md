@@ -28,7 +28,7 @@ We will use this lemma to **prove that languages are not regular**. To do this w
 We can also look for the smallest value of $p$ valid. This depends on the language:
 
 - If it is a finite language, then the smallest value of $p$ is the same as the length of the longest word $+1$.
-- If the language is infinite, then $p$ is the value for which all $w_k$ is valid. 
+- If the language is infinite, then $p$ is the value for which all $w_k$ is valid. Also we can construct the minimal finite automaton and then the number of states is equal to $p$. 
 
 ## Myhill-Nerode Theorem
 
@@ -98,5 +98,5 @@ Often the key for proving that a language is not regular with the Myhill-Nerode 
    w_iv \in L \land w_jv \not\in L
    $$
 
-5. From one side, the Language is regular and because of that the MH theorem applies. On the other side,  the second proposition of the theorem is not valid for the language $L$. This is an absurd conclusion and it means that our initial assumption is incorrect. So $L$ is not regular.
+5. From one side, the Language is regular and because of that the MN theorem applies. On the other side,  the second proposition of the theorem is not valid for the language $L$. This is an absurd conclusion and it means that our initial assumption is incorrect. So $L$ is not regular.
 
