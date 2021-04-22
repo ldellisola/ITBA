@@ -5,209 +5,75 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>02 - Algoritmos de Busqueda</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {  background-color: #f8f8f8; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ef2929; } /* Alert */
-    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #c4a000; } /* Attribute */
-    code span.bn { color: #0000cf; } /* BaseN */
-    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4e9a06; } /* Char */
-    code span.cn { color: #000000; } /* Constant */
-    code span.co { color: #8f5902; font-style: italic; } /* Comment */
-    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-    code span.dt { color: #204a87; } /* DataType */
-    code span.dv { color: #0000cf; } /* DecVal */
-    code span.er { color: #a40000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #0000cf; } /* Float */
-    code span.fu { color: #000000; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-    code span.ot { color: #8f5902; } /* Other */
-    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-    code span.sc { color: #000000; } /* SpecialChar */
-    code span.ss { color: #4e9a06; } /* SpecialString */
-    code span.st { color: #4e9a06; } /* String */
-    code span.va { color: #000000; } /* Variable */
-    code span.vs { color: #4e9a06; } /* VerbatimString */
-    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1662,148 +1528,148 @@ blockquote {
 </tbody>
 </table>
 <p>Aca esta la implementacion en Java 1.8 del algoritmo:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Guardo la primera letra del string</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> firstLetter = searchableText.<span class="fu">substring</span>(<span class="dv">0</span>,<span class="dv">1</span>);</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Reemplazo las letras que suenan similar por valores numericos</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Esta busqueda todavia teien que ser procesada.</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> arr[] = (searchableText.<span class="fu">replaceAll</span>(<span class="st">&quot;(A|E|I|O|U|Y)&quot;</span>,<span class="st">&quot;0&quot;</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(H|W)&quot;</span>, <span class="st">&quot;9&quot;</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(B|P|V|F)&quot;</span>,<span class="st">&quot;1&quot;</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(C|G|J|K|Q|S|X|Z)&quot;</span>, <span class="st">&quot;2&quot;</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(D|T)&quot;</span>, <span class="st">&quot;3&quot;</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replace</span>(<span class="ch">&#39;L&#39;</span>, <span class="ch">&#39;4&#39;</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(M|N)&quot;</span>, <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replace</span>(<span class="ch">&#39;R&#39;</span>, <span class="ch">&#39;6&#39;</span>).<span class="fu">toCharArray</span>();</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">// Si encuentro una H o W, que esta entre dos letras con el mismo sonido, entonces</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">// agrego una H o W en la letra anterior</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">1</span> ; i &lt; arr.<span class="fu">length</span>-<span class="dv">1</span> ; i++) {</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span>(arr[i] == <span class="ch">&#39;9&#39;</span> &amp;&amp; arr[i-<span class="dv">1</span>] == arr[i+<span class="dv">1</span>]) {</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        arr[i-<span class="dv">1</span>] = <span class="ch">&#39;9&#39;</span>;</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">// Si hay dos letras iguales, borro las repetidas y solo dejo una</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; arr.<span class="fu">length</span>-<span class="dv">1</span> ; i++) {       </span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> t = i+<span class="dv">1</span>;    </span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">while</span>(t &lt; arr.<span class="fu">length</span> &amp;&amp; arr[i] == arr[t]) {</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        arr[t]=<span class="ch">&#39;0&#39;</span>;</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        t++;</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    }   </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Calculo la el sonido de la primer letra</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> temp = firstLetter.<span class="fu">replaceAll</span>(<span class="st">&quot;(A|E|I|O|U|Y)&quot;</span>,<span class="st">&quot;0&quot;</span>)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(H|W)&quot;</span>, <span class="st">&quot;9&quot;</span>)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(B|P|V|F)&quot;</span>,<span class="st">&quot;1&quot;</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(C|G|J|K|Q|S|X|Z)&quot;</span>, <span class="st">&quot;2&quot;</span>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(D|T)&quot;</span>, <span class="st">&quot;3&quot;</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replace</span>(<span class="ch">&#39;L&#39;</span>, <span class="ch">&#39;4&#39;</span>)</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(M|N)&quot;</span>, <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                        .<span class="fu">replace</span>(<span class="ch">&#39;R&#39;</span>, <span class="ch">&#39;6&#39;</span>);</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> addLetter = <span class="kw">false</span>;</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">// Si el sonido de la primer letra es igual al que quedo despues de procesar al sting, escribo el </span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">// caracter en el primer lugar. (saco el sonido).</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">// Si son distintos, voy a tener que eliminar el primer sonido</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span>(temp.<span class="fu">charAt</span>(<span class="dv">0</span>) == arr[<span class="dv">0</span>]) {</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    arr[<span class="dv">0</span>] = firstLetter.<span class="fu">charAt</span>(<span class="dv">0</span>);</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>}<span class="kw">else</span> {</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    addLetter = <span class="kw">true</span>;</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co">// Elimino los sonidos 0 y 9</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> str = <span class="kw">new</span> <span class="bu">String</span>(arr).<span class="fu">replaceAll</span>(<span class="st">&quot;(0|9)&quot;</span>, <span class="st">&quot;&quot;</span>);</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co">// Agrego al primer letra en caso de que no sean iguales los sonidos</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span>(addLetter) {</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    str = firstLetter + str;</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">// Aseguro que devuelva un codigo de 4 caracteres</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="kw">while</span>(str.<span class="fu">length</span>()&lt;<span class="dv">4</span> ) {</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    str += <span class="ch">&#39;0&#39;</span>;</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span> str.<span class="fu">substring</span>(<span class="dv">0</span>, <span class="dv">4</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// Guardo la primera letra del string</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="bu">String</span> firstLetter = searchableText.<span class="fu">substring</span>(<span class="dv">0</span>,<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb1-3" title="3">        </a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">// Reemplazo las letras que suenan similar por valores numericos</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">// Esta busqueda todavia teien que ser procesada.</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="dt">char</span> arr[] = (searchableText.<span class="fu">replaceAll</span>(<span class="st">&quot;(A|E|I|O|U|Y)&quot;</span>,<span class="st">&quot;0&quot;</span>))</a>
+<a class="sourceLine" id="cb1-7" title="7">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(H|W)&quot;</span>, <span class="st">&quot;9&quot;</span>)</a>
+<a class="sourceLine" id="cb1-8" title="8">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(B|P|V|F)&quot;</span>,<span class="st">&quot;1&quot;</span>)</a>
+<a class="sourceLine" id="cb1-9" title="9">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(C|G|J|K|Q|S|X|Z)&quot;</span>, <span class="st">&quot;2&quot;</span>)</a>
+<a class="sourceLine" id="cb1-10" title="10">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(D|T)&quot;</span>, <span class="st">&quot;3&quot;</span>)</a>
+<a class="sourceLine" id="cb1-11" title="11">                        .<span class="fu">replace</span>(<span class="ch">&#39;L&#39;</span>, <span class="ch">&#39;4&#39;</span>)</a>
+<a class="sourceLine" id="cb1-12" title="12">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(M|N)&quot;</span>, <span class="st">&quot;5&quot;</span>)</a>
+<a class="sourceLine" id="cb1-13" title="13">                        .<span class="fu">replace</span>(<span class="ch">&#39;R&#39;</span>, <span class="ch">&#39;6&#39;</span>).<span class="fu">toCharArray</span>();</a>
+<a class="sourceLine" id="cb1-14" title="14">        </a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="co">// Si encuentro una H o W, que esta entre dos letras con el mismo sonido, entonces</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">// agrego una H o W en la letra anterior</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">1</span> ; i &lt; arr.<span class="fu">length</span>-<span class="dv">1</span> ; i++) {</a>
+<a class="sourceLine" id="cb1-18" title="18">    <span class="kw">if</span>(arr[i] == <span class="ch">&#39;9&#39;</span> &amp;&amp; arr[i-<span class="dv">1</span>] == arr[i+<span class="dv">1</span>]) {</a>
+<a class="sourceLine" id="cb1-19" title="19">        arr[i-<span class="dv">1</span>] = <span class="ch">&#39;9&#39;</span>;</a>
+<a class="sourceLine" id="cb1-20" title="20">    }</a>
+<a class="sourceLine" id="cb1-21" title="21">}</a>
+<a class="sourceLine" id="cb1-22" title="22">        </a>
+<a class="sourceLine" id="cb1-23" title="23"><span class="co">// Si hay dos letras iguales, borro las repetidas y solo dejo una</span></a>
+<a class="sourceLine" id="cb1-24" title="24"><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; arr.<span class="fu">length</span>-<span class="dv">1</span> ; i++) {       </a>
+<a class="sourceLine" id="cb1-25" title="25">    <span class="dt">int</span> t = i+<span class="dv">1</span>;    </a>
+<a class="sourceLine" id="cb1-26" title="26">    <span class="kw">while</span>(t &lt; arr.<span class="fu">length</span> &amp;&amp; arr[i] == arr[t]) {</a>
+<a class="sourceLine" id="cb1-27" title="27">        arr[t]=<span class="ch">&#39;0&#39;</span>;</a>
+<a class="sourceLine" id="cb1-28" title="28">        t++;</a>
+<a class="sourceLine" id="cb1-29" title="29">    }   </a>
+<a class="sourceLine" id="cb1-30" title="30">}</a>
+<a class="sourceLine" id="cb1-31" title="31">        </a>
+<a class="sourceLine" id="cb1-32" title="32">        <span class="co">// Calculo la el sonido de la primer letra</span></a>
+<a class="sourceLine" id="cb1-33" title="33"><span class="bu">String</span> temp = firstLetter.<span class="fu">replaceAll</span>(<span class="st">&quot;(A|E|I|O|U|Y)&quot;</span>,<span class="st">&quot;0&quot;</span>)</a>
+<a class="sourceLine" id="cb1-34" title="34">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(H|W)&quot;</span>, <span class="st">&quot;9&quot;</span>)</a>
+<a class="sourceLine" id="cb1-35" title="35">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(B|P|V|F)&quot;</span>,<span class="st">&quot;1&quot;</span>)</a>
+<a class="sourceLine" id="cb1-36" title="36">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(C|G|J|K|Q|S|X|Z)&quot;</span>, <span class="st">&quot;2&quot;</span>)</a>
+<a class="sourceLine" id="cb1-37" title="37">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(D|T)&quot;</span>, <span class="st">&quot;3&quot;</span>)</a>
+<a class="sourceLine" id="cb1-38" title="38">                        .<span class="fu">replace</span>(<span class="ch">&#39;L&#39;</span>, <span class="ch">&#39;4&#39;</span>)</a>
+<a class="sourceLine" id="cb1-39" title="39">                        .<span class="fu">replaceAll</span>(<span class="st">&quot;(M|N)&quot;</span>, <span class="st">&quot;5&quot;</span>)</a>
+<a class="sourceLine" id="cb1-40" title="40">                        .<span class="fu">replace</span>(<span class="ch">&#39;R&#39;</span>, <span class="ch">&#39;6&#39;</span>);</a>
+<a class="sourceLine" id="cb1-41" title="41">        </a>
+<a class="sourceLine" id="cb1-42" title="42"><span class="dt">boolean</span> addLetter = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb1-43" title="43"><span class="co">// Si el sonido de la primer letra es igual al que quedo despues de procesar al sting, escribo el </span></a>
+<a class="sourceLine" id="cb1-44" title="44"><span class="co">// caracter en el primer lugar. (saco el sonido).</span></a>
+<a class="sourceLine" id="cb1-45" title="45"><span class="co">// Si son distintos, voy a tener que eliminar el primer sonido</span></a>
+<a class="sourceLine" id="cb1-46" title="46"><span class="kw">if</span>(temp.<span class="fu">charAt</span>(<span class="dv">0</span>) == arr[<span class="dv">0</span>]) {</a>
+<a class="sourceLine" id="cb1-47" title="47">    arr[<span class="dv">0</span>] = firstLetter.<span class="fu">charAt</span>(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb1-48" title="48">}<span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb1-49" title="49">    addLetter = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb1-50" title="50">}</a>
+<a class="sourceLine" id="cb1-51" title="51"><span class="co">// Elimino los sonidos 0 y 9</span></a>
+<a class="sourceLine" id="cb1-52" title="52"><span class="bu">String</span> str = <span class="kw">new</span> <span class="bu">String</span>(arr).<span class="fu">replaceAll</span>(<span class="st">&quot;(0|9)&quot;</span>, <span class="st">&quot;&quot;</span>);</a>
+<a class="sourceLine" id="cb1-53" title="53">        </a>
+<a class="sourceLine" id="cb1-54" title="54"><span class="co">// Agrego al primer letra en caso de que no sean iguales los sonidos</span></a>
+<a class="sourceLine" id="cb1-55" title="55"><span class="kw">if</span>(addLetter) {</a>
+<a class="sourceLine" id="cb1-56" title="56">    str = firstLetter + str;</a>
+<a class="sourceLine" id="cb1-57" title="57">}</a>
+<a class="sourceLine" id="cb1-58" title="58">                </a>
+<a class="sourceLine" id="cb1-59" title="59"><span class="co">// Aseguro que devuelva un codigo de 4 caracteres</span></a>
+<a class="sourceLine" id="cb1-60" title="60"><span class="kw">while</span>(str.<span class="fu">length</span>()&lt;<span class="dv">4</span> ) {</a>
+<a class="sourceLine" id="cb1-61" title="61">    str += <span class="ch">&#39;0&#39;</span>;</a>
+<a class="sourceLine" id="cb1-62" title="62">}</a>
+<a class="sourceLine" id="cb1-63" title="63">        </a>
+<a class="sourceLine" id="cb1-64" title="64"><span class="kw">return</span> str.<span class="fu">substring</span>(<span class="dv">0</span>, <span class="dv">4</span>);</a></code></pre></div>
 <h3 id="metaphone">Metaphone</h3>
 <p>Metaphone es otro algoritmo fonetico, pero la diferencia en este caso es que no genera un codigo de 4 caracteres, sino que para cada string se genera una codificacion especial, y esta codificacion es la que va a ser utilizada para calcular la simialridad.</p>
 <p>No se vio en clase este algoritmo por que tiene muchas reglas, por eso utilizamos una libreria de Java que lo calculaba. Pero para ver si dos strings eran similares, tuvimos que implementarlo nosotros.</p>
 <p>Esta implementacion en sencilla, simplemente tomas a la codificacion mas larga y luego vas iterando sobre ambas, si tienen el mismo caracter en la misma posicion, aumentas un contador. Luego de iterar por el arrelgo de menor tama;o, se divide la cantidad de matches (contador) que se consiguieron por la longitud de la codificacion mas larga. Cuanto mas cercano a 1 sea el valor, mas similares son.</p>
 <p>Aca se muestra una implementacion en Java de esta comparacion:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> encA = <span class="fu">GenerateEncoding</span>(a);</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> encB = <span class="fu">GenerateEncoding</span>(b);      </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> max, actual=<span class="dv">0</span>;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span>(encA.<span class="fu">length</span>() &gt; encB.<span class="fu">length</span>()) {</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    max = encA.<span class="fu">length</span>();</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; encB.<span class="fu">length</span>() ; i++)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span>(encA.<span class="fu">charAt</span>(i) == encB.<span class="fu">charAt</span>(i))</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            actual++;</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}<span class="kw">else</span> {</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    max = encB.<span class="fu">length</span>();</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; encA.<span class="fu">length</span>() ; i++)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span>(encA.<span class="fu">charAt</span>(i) == encB.<span class="fu">charAt</span>(i))</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            actual++;</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span> actual/max;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"><span class="bu">String</span> encA = <span class="fu">GenerateEncoding</span>(a);</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="bu">String</span> encB = <span class="fu">GenerateEncoding</span>(b);      </a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="dt">double</span> max, actual=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-4" title="4">        </a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">if</span>(encA.<span class="fu">length</span>() &gt; encB.<span class="fu">length</span>()) {</a>
+<a class="sourceLine" id="cb2-6" title="6">    max = encA.<span class="fu">length</span>();</a>
+<a class="sourceLine" id="cb2-7" title="7">    <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; encB.<span class="fu">length</span>() ; i++)</a>
+<a class="sourceLine" id="cb2-8" title="8">        <span class="kw">if</span>(encA.<span class="fu">charAt</span>(i) == encB.<span class="fu">charAt</span>(i))</a>
+<a class="sourceLine" id="cb2-9" title="9">            actual++;</a>
+<a class="sourceLine" id="cb2-10" title="10">}<span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb2-11" title="11">    max = encB.<span class="fu">length</span>();</a>
+<a class="sourceLine" id="cb2-12" title="12">    <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; encA.<span class="fu">length</span>() ; i++)</a>
+<a class="sourceLine" id="cb2-13" title="13">        <span class="kw">if</span>(encA.<span class="fu">charAt</span>(i) == encB.<span class="fu">charAt</span>(i))</a>
+<a class="sourceLine" id="cb2-14" title="14">            actual++;</a>
+<a class="sourceLine" id="cb2-15" title="15">}</a>
+<a class="sourceLine" id="cb2-16" title="16">        </a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="kw">return</span> actual/max;</a></code></pre></div>
 <h2 id="otros-algoritmos">Otros Algoritmos</h2>
 <p>Los siguentes algoritmos tambien permiten encontrar la similaridad entre strings pero no lo hacen de manera fonetica.</p>
 <h3 id="qgram">QGram</h3>
 <p>QGram consiste en partir a las palabras en tokens de longitud Q y luego ser cuantos de esos tokens estan presentes en cada palabra.</p>
 <p>El algoritmo para crear estos tokens se puede ver en la siguente implementacion de java:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span>&lt;<span class="bu">String</span>&gt; tokens = <span class="kw">new</span> <span class="bu">LinkedList</span>();</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">1</span>-q; i &lt; input.<span class="fu">length</span>(); i++) {</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">StringBuilder</span> bld = <span class="kw">new</span> <span class="bu">StringBuilder</span>();</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Caso en el que no hay suficientes caracteres por que es el comienzo del string</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span>(i&lt;<span class="dv">0</span>) {</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> t = i;</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span>(t &lt; <span class="dv">0</span>) {</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            bld.<span class="fu">append</span>(<span class="ch">&#39;#&#39;</span>);</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            t++;</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span>(<span class="bu">Math</span>.<span class="fu">abs</span>(t-i) &lt; q) {</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            bld.<span class="fu">append</span>(input.<span class="fu">charAt</span>(t++));</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>     <span class="co">// Caso general, hay suficientes caracteres para llenar el token</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    }<span class="kw">else</span> <span class="kw">if</span>(i &gt; input.<span class="fu">length</span>() - q) {</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> t = i;</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span>(t &lt; input.<span class="fu">length</span>()) {</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            bld.<span class="fu">append</span>(input.<span class="fu">charAt</span>(t++));</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span>(<span class="bu">Math</span>.<span class="fu">abs</span>(t++-i) &lt; q) {</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            bld.<span class="fu">append</span>(<span class="ch">&#39;#&#39;</span>);</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Caso particular donde el stirng esta terminando y no hay suficientes caracteres para completar</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">// el token</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">else</span> {</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> t = i;</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span>(<span class="bu">Math</span>.<span class="fu">abs</span>(t-i) &lt; q) {</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            bld.<span class="fu">append</span>(input.<span class="fu">charAt</span>(t++));</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    tokens.<span class="fu">add</span>(bld.<span class="fu">toString</span>());     </span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>}   </span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span> tokens;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1"><span class="bu">List</span>&lt;<span class="bu">String</span>&gt; tokens = <span class="kw">new</span> <span class="bu">LinkedList</span>();</a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">1</span>-q; i &lt; input.<span class="fu">length</span>(); i++) {</a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="bu">StringBuilder</span> bld = <span class="kw">new</span> <span class="bu">StringBuilder</span>();</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="co">// Caso en el que no hay suficientes caracteres por que es el comienzo del string</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="kw">if</span>(i&lt;<span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb3-8" title="8">        <span class="dt">int</span> t = i;</a>
+<a class="sourceLine" id="cb3-9" title="9">        <span class="kw">while</span>(t &lt; <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb3-10" title="10">            bld.<span class="fu">append</span>(<span class="ch">&#39;#&#39;</span>);</a>
+<a class="sourceLine" id="cb3-11" title="11">            t++;</a>
+<a class="sourceLine" id="cb3-12" title="12">        }</a>
+<a class="sourceLine" id="cb3-13" title="13">        <span class="kw">while</span>(<span class="bu">Math</span>.<span class="fu">abs</span>(t-i) &lt; q) {</a>
+<a class="sourceLine" id="cb3-14" title="14">            bld.<span class="fu">append</span>(input.<span class="fu">charAt</span>(t++));</a>
+<a class="sourceLine" id="cb3-15" title="15">        }</a>
+<a class="sourceLine" id="cb3-16" title="16">     <span class="co">// Caso general, hay suficientes caracteres para llenar el token</span></a>
+<a class="sourceLine" id="cb3-17" title="17">    }<span class="kw">else</span> <span class="kw">if</span>(i &gt; input.<span class="fu">length</span>() - q) {</a>
+<a class="sourceLine" id="cb3-18" title="18">        <span class="dt">int</span> t = i;</a>
+<a class="sourceLine" id="cb3-19" title="19">        <span class="kw">while</span>(t &lt; input.<span class="fu">length</span>()) {</a>
+<a class="sourceLine" id="cb3-20" title="20">            bld.<span class="fu">append</span>(input.<span class="fu">charAt</span>(t++));</a>
+<a class="sourceLine" id="cb3-21" title="21">        }</a>
+<a class="sourceLine" id="cb3-22" title="22">        <span class="kw">while</span>(<span class="bu">Math</span>.<span class="fu">abs</span>(t++-i) &lt; q) {</a>
+<a class="sourceLine" id="cb3-23" title="23">            bld.<span class="fu">append</span>(<span class="ch">&#39;#&#39;</span>);</a>
+<a class="sourceLine" id="cb3-24" title="24">        }</a>
+<a class="sourceLine" id="cb3-25" title="25">    }</a>
+<a class="sourceLine" id="cb3-26" title="26">    <span class="co">// Caso particular donde el stirng esta terminando y no hay suficientes caracteres para completar</span></a>
+<a class="sourceLine" id="cb3-27" title="27">    <span class="co">// el token</span></a>
+<a class="sourceLine" id="cb3-28" title="28">    <span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb3-29" title="29">        <span class="dt">int</span> t = i;</a>
+<a class="sourceLine" id="cb3-30" title="30">        <span class="kw">while</span>(<span class="bu">Math</span>.<span class="fu">abs</span>(t-i) &lt; q) {</a>
+<a class="sourceLine" id="cb3-31" title="31">            bld.<span class="fu">append</span>(input.<span class="fu">charAt</span>(t++));</a>
+<a class="sourceLine" id="cb3-32" title="32">        }</a>
+<a class="sourceLine" id="cb3-33" title="33">    }</a>
+<a class="sourceLine" id="cb3-34" title="34">    tokens.<span class="fu">add</span>(bld.<span class="fu">toString</span>());     </a>
+<a class="sourceLine" id="cb3-35" title="35">}   </a>
+<a class="sourceLine" id="cb3-36" title="36"><span class="kw">return</span> tokens;</a></code></pre></div>
 <p>Para calcular la similaridad entre dos listas de tokens generados con el algoritmo anterior solo necesito contar la cantidad de tokens que se repiten en ambos y los que no, por lo que se calcula como: <span class="math display">\[
 \frac{\#A\cap B}{\#A\cup B}
 \]</span> Aca se puede ver una implementacion en java de este calculo:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Double</span> a= (<span class="dt">double</span>) (TriGramA.<span class="fu">size</span>() + TrigramB.<span class="fu">size</span>() - <span class="fu">GetNonIntesectors</span>());</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Double</span> b = (<span class="dt">double</span>)(TriGramA.<span class="fu">size</span>() + TrigramB.<span class="fu">size</span>());</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span> <span class="bu">Double</span>.<span class="fu">valueOf</span>(a /b );</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">Double</span> a= (<span class="dt">double</span>) (TriGramA.<span class="fu">size</span>() + TrigramB.<span class="fu">size</span>() - <span class="fu">GetNonIntesectors</span>());</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="bu">Double</span> b = (<span class="dt">double</span>)(TriGramA.<span class="fu">size</span>() + TrigramB.<span class="fu">size</span>());</a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="kw">return</span> <span class="bu">Double</span>.<span class="fu">valueOf</span>(a /b );</a></code></pre></div>
 <h3 id="levenshtein-distance">Levenshtein Distance</h3>
 <p>Este algoritmo sirve para calcular la distancia (diferencia) que existe entre dos palabras. Para calcular esto se debe construir una matriz donde en la fila superior este ubicado el primer string y en la primer columa el segundo string:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>                                        *        C  H  A  U </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                        *     <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                        *  H  <span class="dv">1</span>             </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                        *  O  <span class="dv">2</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                        *  L  <span class="dv">3</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                                        *  A  <span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1">                                        *        C  H  A  U </a>
+<a class="sourceLine" id="cb5-2" title="2">                                        *     <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span> </a>
+<a class="sourceLine" id="cb5-3" title="3">                                        *  H  <span class="dv">1</span>             </a>
+<a class="sourceLine" id="cb5-4" title="4">                                        *  O  <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-5" title="5">                                        *  L  <span class="dv">3</span></a>
+<a class="sourceLine" id="cb5-6" title="6">                                        *  A  <span class="dv">4</span></a></code></pre></div>
 <p>Luego, el resto de las posiciones de la matriz se calcula con la siguente regla:</p>
 <p>Tomo el menor valor de los siguentes:</p>
 <ul>
@@ -1819,54 +1685,54 @@ blockquote {
 </ul>
 <p>Y como el minimo valor de estos es <code>1</code>, entonces <code>[C,H] = 1</code>.</p>
 <p>La matriz de este ejemplo terminaria como:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>                                        *        C  H  A  U</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                        *     <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                        *  H  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                        *  O  <span class="dv">2</span>  <span class="dv">2</span>  <span class="dv">2</span>  <span class="dv">2</span>  <span class="dv">3</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                        *  L  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                                        *  A  <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">3</span>  <span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1">                                        *        C  H  A  U</a>
+<a class="sourceLine" id="cb6-2" title="2">                                        *     <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span></a>
+<a class="sourceLine" id="cb6-3" title="3">                                        *  H  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span></a>
+<a class="sourceLine" id="cb6-4" title="4">                                        *  O  <span class="dv">2</span>  <span class="dv">2</span>  <span class="dv">2</span>  <span class="dv">2</span>  <span class="dv">3</span></a>
+<a class="sourceLine" id="cb6-5" title="5">                                        *  L  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span></a>
+<a class="sourceLine" id="cb6-6" title="6">                                        *  A  <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">3</span>  <span class="dv">4</span></a></code></pre></div>
 <p>Y la distancia entre los dos strings seria <code>4</code>, es decir el elemento en el tope inferior derecho.</p>
 <p>Ahora se va a mostrar una implementacion en java:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// SetUp</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>iSize = a.<span class="fu">length</span>()+<span class="dv">1</span>;</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>jSize = b.<span class="fu">length</span>()+<span class="dv">1</span>;</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Genero una matriz, poniendo una palabra como titulo de las filas y la otra como titulo de las columnas</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span>[][] matrix = <span class="kw">new</span> <span class="dt">int</span>[iSize][jSize];</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; a.<span class="fu">length</span>()+<span class="dv">1</span> ; i ++) {</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    matrix[i][<span class="dv">0</span>] = i;</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; b.<span class="fu">length</span>()+<span class="dv">1</span> ; i ++)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    matrix[<span class="dv">0</span>][i] = i;</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>a = a.<span class="fu">toUpperCase</span>();</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>b = b.<span class="fu">toUpperCase</span>();</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> values[] = <span class="kw">new</span> <span class="dt">int</span>[<span class="dv">3</span>];</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; a.<span class="fu">length</span>() + <span class="dv">1</span> ; i ++ ) {</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span>(<span class="dt">int</span> j = <span class="dv">1</span>; j &lt; b.<span class="fu">length</span>()+<span class="dv">1</span> ; j++) {</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Si los caracteres anteriores son iguales, entonces la distancia puede ser</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">// la distancia anterior. Si son distintos es la anterior +1</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        values[<span class="dv">0</span>] = matrix[i-<span class="dv">1</span>][j-<span class="dv">1</span>] + (a.<span class="fu">charAt</span>(i-<span class="dv">1</span>) == b.<span class="fu">charAt</span>(j-<span class="dv">1</span>)? <span class="dv">0</span>:<span class="dv">1</span>);</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// La distancia tambien puede ser la de arriba +1</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        values[<span class="dv">1</span>] = matrix[i-<span class="dv">1</span>][j] + <span class="dv">1</span>;</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">// o la de abajo +1</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        values[<span class="dv">2</span>] = matrix[i][j-<span class="dv">1</span>] + <span class="dv">1</span>;</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Elijo el menor valor de los 3</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Arrays</span>.<span class="fu">sort</span>(values);</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        matrix[i][j] =values[<span class="dv">0</span>];                </span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span> matrix[iSize-<span class="dv">1</span>][jSize-<span class="dv">1</span>];</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// SetUp</span></a>
+<a class="sourceLine" id="cb7-2" title="2">iSize = a.<span class="fu">length</span>()+<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb7-3" title="3">jSize = b.<span class="fu">length</span>()+<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb7-4" title="4">        </a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">// Genero una matriz, poniendo una palabra como titulo de las filas y la otra como titulo de las columnas</span></a>
+<a class="sourceLine" id="cb7-6" title="6">        </a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="dt">int</span>[][] matrix = <span class="kw">new</span> <span class="dt">int</span>[iSize][jSize];</a>
+<a class="sourceLine" id="cb7-8" title="8">    </a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; a.<span class="fu">length</span>()+<span class="dv">1</span> ; i ++) {</a>
+<a class="sourceLine" id="cb7-10" title="10">    matrix[i][<span class="dv">0</span>] = i;</a>
+<a class="sourceLine" id="cb7-11" title="11">}</a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span> ; i &lt; b.<span class="fu">length</span>()+<span class="dv">1</span> ; i ++)</a>
+<a class="sourceLine" id="cb7-13" title="13">{</a>
+<a class="sourceLine" id="cb7-14" title="14">    matrix[<span class="dv">0</span>][i] = i;</a>
+<a class="sourceLine" id="cb7-15" title="15">}</a>
+<a class="sourceLine" id="cb7-16" title="16">    </a>
+<a class="sourceLine" id="cb7-17" title="17">a = a.<span class="fu">toUpperCase</span>();</a>
+<a class="sourceLine" id="cb7-18" title="18">b = b.<span class="fu">toUpperCase</span>();</a>
+<a class="sourceLine" id="cb7-19" title="19"></a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="dt">int</span> values[] = <span class="kw">new</span> <span class="dt">int</span>[<span class="dv">3</span>];</a>
+<a class="sourceLine" id="cb7-21" title="21">            </a>
+<a class="sourceLine" id="cb7-22" title="22"><span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; a.<span class="fu">length</span>() + <span class="dv">1</span> ; i ++ ) {</a>
+<a class="sourceLine" id="cb7-23" title="23">    <span class="kw">for</span>(<span class="dt">int</span> j = <span class="dv">1</span>; j &lt; b.<span class="fu">length</span>()+<span class="dv">1</span> ; j++) {</a>
+<a class="sourceLine" id="cb7-24" title="24">        </a>
+<a class="sourceLine" id="cb7-25" title="25">        <span class="co">// Si los caracteres anteriores son iguales, entonces la distancia puede ser</span></a>
+<a class="sourceLine" id="cb7-26" title="26">        <span class="co">// la distancia anterior. Si son distintos es la anterior +1</span></a>
+<a class="sourceLine" id="cb7-27" title="27">        values[<span class="dv">0</span>] = matrix[i-<span class="dv">1</span>][j-<span class="dv">1</span>] + (a.<span class="fu">charAt</span>(i-<span class="dv">1</span>) == b.<span class="fu">charAt</span>(j-<span class="dv">1</span>)? <span class="dv">0</span>:<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb7-28" title="28">        <span class="co">// La distancia tambien puede ser la de arriba +1</span></a>
+<a class="sourceLine" id="cb7-29" title="29">        values[<span class="dv">1</span>] = matrix[i-<span class="dv">1</span>][j] + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb7-30" title="30">        <span class="co">// o la de abajo +1</span></a>
+<a class="sourceLine" id="cb7-31" title="31">        values[<span class="dv">2</span>] = matrix[i][j-<span class="dv">1</span>] + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb7-32" title="32">            </a>
+<a class="sourceLine" id="cb7-33" title="33">        <span class="co">// Elijo el menor valor de los 3</span></a>
+<a class="sourceLine" id="cb7-34" title="34">        <span class="bu">Arrays</span>.<span class="fu">sort</span>(values);</a>
+<a class="sourceLine" id="cb7-35" title="35">        matrix[i][j] =values[<span class="dv">0</span>];                </a>
+<a class="sourceLine" id="cb7-36" title="36">            </a>
+<a class="sourceLine" id="cb7-37" title="37">    }</a>
+<a class="sourceLine" id="cb7-38" title="38">}</a>
+<a class="sourceLine" id="cb7-39" title="39"></a>
+<a class="sourceLine" id="cb7-40" title="40"><span class="kw">return</span> matrix[iSize-<span class="dv">1</span>][jSize-<span class="dv">1</span>];</a></code></pre></div>
 <h3 id="kmp">KMP</h3>
 <p>??</p>
 </body>

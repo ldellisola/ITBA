@@ -5,148 +5,13 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>06 - Solving Normal Form Games</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1543,8 +1408,12 @@ u_i(a_i,s_{-i}) = u_i(a_i&#39;,s_{-i})
 \mathbb E u_1(U)= \mathbb E u_1(D) \\
 2p + 0(1-p) = 0p + 1(1-p) \\
 p= \frac 1 3
-\]</span> If we do the same with player one, we’ll find that there are 2 equilibriums at <span class="math inline">\([(2,1);(1,2)]\)</span>.</p>
-<p>In games with more actions we cannot directly apply this method, but we can try to remove dominated strategies and search for a possible support.</p>
+\]</span> If we do the same with player one, we’ll find that there are 2 equilibriums at <span class="math inline">\([(\frac 2 3,\frac 1 3);(\frac 1 3,\frac 2 3)]\)</span>. This is calculated using the probabilities obtained previously. We know that player <span class="math inline">\(2\)</span> has probability <span class="math inline">\(p\)</span> and we can calculate the probability for player <span class="math inline">\(1\)</span> with <span class="math inline">\(q\)</span>. This will result in the mixed strategies: <span class="math display">\[
+\array{
+\text{player 1}&amp; (q,1-q)\\
+\text{player 2}&amp; (p,1-p)
+}
+\]</span> In games with more actions we cannot directly apply this method, but we can try to remove dominated strategies and search for a possible support.</p>
 <h3 id="the-equilibrium-selection-problem">The Equilibrium Selection Problem</h3>
 <p>When there are multiple Nash equilibriums in a game, how do we know which one the player should play?</p>
 <p>Because playing the Nash strategy doesn’t guarantee the outcome, we have to use other methods that seek to maximize the outcome.</p>
@@ -1562,7 +1431,7 @@ p= \frac 1 3
 </blockquote>
 <p>This has the following consequences:</p>
 <ul>
-<li><p><span class="math inline">\(\max_{s_i} \min_{s_{-i}} u_i(s_i,s_{-i}) = \min_{s_{-i}} \max_{s_i}u_i(s_i,s_{-i})\)</span></p></li>
+<li><span class="math inline">\(\max_{s_i} \min_{s_{-i}} u_i(s_i,s_{-i}) = \min_{s_{-i}} \max_{s_i}u_i(s_i,s_{-i})\)</span></li>
 <li><p>We can safely play Nash strategies in zero-sum games.</p></li>
 <li><p>All Nash equilibria have the same payoff.</p></li>
 </ul>
@@ -1575,8 +1444,7 @@ p= \frac 1 3
     (4) &amp;&amp; s(a_1) \ge 0~~\forall a_1 \in \mathcal A_1
 }
 \]</span> With this strategy, Nash equilibrium can be computed in polynomial time.</p>
-<p>In <strong>general-sum</strong> games, we can also use linear programing, but it is more complex: $$ \ q(a_1) , w(a_2) , s_1(a_1) , s_2(a_2)  ~~a_1A_1, a_2 A_2 \ s_1(a_1) q(a_1) = 0, s_2(a_2) w(a_2) = 0 ~~ a_1A_1, a_2 A_2</p>
-<p>$$ This problem gets more complicated as you add more players.</p>
+<p>In <strong>general-sum</strong> games, we can also use linear programing, but it is more complex: $$ \ q(a_1) 0, w(a_2) 0, s_1(a_1) 0, s_2(a_2) 0 ~~a_1A_1, a_2 A_2 \ s_1(a_1) q(a_1) = 0, s_2(a_2) w(a_2) = 0 ~~ a_1A_1, a_2 A_2 $$ This problem gets more complicated as you add more players.</p>
 <h3 id="regret">Regret</h3>
 <p>The concept of regret is useful when the other players are not playing completely malicious. By definition, a player <span class="math inline">\(i\)</span>’s regret for playing an action <span class="math inline">\(a_i\)</span> if the other agents adopt action profile <span class="math inline">\(a_{-i}\)</span> is defined as: <span class="math display">\[
 \left[ \max_{a&#39;_j \in \mathcal A_i} u_i(a&#39;_i,a_{-i}) \right] - u_i(a_i,a_{-i})
@@ -1586,8 +1454,11 @@ p= \frac 1 3
 \arg \min_{a_i\in \mathcal A_i} \max_{a_{-i} \in \mathcal A_{-i}} \left(\left[ \max_{a&#39;_j \in \mathcal A_i} u_i(a&#39;_i,a_{-i}) \right] - u_i(a_i,a_{-i})\right)
 \]</span></p>
 <h2 id="correlated-equilibrium">Correlated Equilibrium</h2>
-<p>In a normal-form game <span class="math inline">\(\mathcal G = (\mathcal N,\mathcal A,u)\)</span> and let <span class="math inline">\(\sigma\)</span> be a probability distribution over joint pure strategy profiles, <span class="math inline">\(\sigma \in \Delta(\mathcal A)\)</span>. We say that <span class="math inline">\(\sigma\)</span> is a <strong>correlated equilibrium</strong> if for every player <span class="math inline">\(i\)</span>, every signal <span class="math inline">\(a_i \in \mathcal A_i\)</span> and every possible action <span class="math inline">\(a_i&#39; \in \mathcal A_i\)</span> it holds: $$ <em>{a</em>{-i} A_{-i}} (a_i,a_{-i})u_i(a_i,a_{-i})</p>
-<p><em>{a</em>{-i} A_{-i}} (a_i,a_{-i})u_i(a_i’,a_{-i}) $$ The intuitive idea behind correlated equilibrium is that you have a randomizing factor that recommends actions to agents such that no agent wants to deviate.</p>
+<p>In a normal-form game <span class="math inline">\(\mathcal G = (\mathcal N,\mathcal A,u)\)</span> and let <span class="math inline">\(\sigma\)</span> be a probability distribution over joint pure strategy profiles, <span class="math inline">\(\sigma \in \Delta(\mathcal A)\)</span>. We say that <span class="math inline">\(\sigma\)</span> is a <strong>correlated equilibrium</strong> if for every player <span class="math inline">\(i\)</span>, every signal <span class="math inline">\(a_i \in \mathcal A_i\)</span> and every possible action <span class="math inline">\(a_i&#39; \in \mathcal A_i\)</span> it holds: <span class="math display">\[
+\sum_{a_{-i} \in \mathcal A_{-i}} \sigma(a_i,a_{-i})u_i(a_i,a_{-i})
+\ge 
+\sum_{a_{-i} \in \mathcal A_{-i}} \sigma(a_i,a_{-i})u_i(a_i&#39;,a_{-i})
+\]</span> <u>The intuitive idea behind correlated equilibrium is that you have a randomizing factor that recommends actions to agents such that no agent wants to deviate.</u></p>
 <p>For every Nash equilibrium there exists a corresponding Correlated Equilibrium.</p>
 <p>We can compute the correlated equilibrium using linear programing: <span class="math display">\[
 \array{

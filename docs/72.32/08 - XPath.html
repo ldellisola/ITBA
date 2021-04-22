@@ -5,147 +5,12 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>08 - XPath</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1556,11 +1421,11 @@ blockquote {
 <h3 id="axis">Axis</h3>
 <p>En esta tabla se pueden ver las diferentes combinaciones para el Axis:</p>
 <figure>
-<img src="../../Carpeta%20ITBA/72.32/Resources/TablaStepXPATH.png" alt="1563137557676" /><figcaption aria-hidden="true">1563137557676</figcaption>
+<img src="../../Carpeta%20ITBA/72.32/Resources/TablaStepXPATH.png" alt="1563137557676" /><figcaption>1563137557676</figcaption>
 </figure>
 <p>Tambien se puede ver en este árbol como son las relaciones:</p>
 <figure>
-<img src="../../Carpeta%20ITBA/72.32/Resources/XPATHRelacionesTree.png" alt="1563137716925" /><figcaption aria-hidden="true">1563137716925</figcaption>
+<img src="../../Carpeta%20ITBA/72.32/Resources/XPATHRelacionesTree.png" alt="1563137716925" /><figcaption>1563137716925</figcaption>
 </figure>
 <h4 id="nodos-hijo">Nodos hijo</h4>
 <p>Con el axis <code>child::</code> se seleccionan a todos los elementos hijos de un elemento. Cuando se esta moviendo por el documento, si no se le especifica un axis, va a tomar a <code>child::</code> por defecto.</p>
@@ -1573,7 +1438,7 @@ blockquote {
 <h3 id="nodetest">NodeTest</h3>
 <p>En esta tabla se puede ver la lista de NodeTest:</p>
 <figure>
-<img src="../../Carpeta%20ITBA/72.32/Resources/TablaXPathNodeTest.png" alt="1563137815357" /><figcaption aria-hidden="true">1563137815357</figcaption>
+<img src="../../Carpeta%20ITBA/72.32/Resources/TablaXPathNodeTest.png" alt="1563137815357" /><figcaption>1563137815357</figcaption>
 </figure>
 <h3 id="predicado">Predicado</h3>
 <p>Se le puede agregar un predicado mediante el cual se filtraran los nodos que no cumplan con el.</p>
@@ -1586,7 +1451,7 @@ blockquote {
 </ul>
 <p>Estas expresiones van entre brackets <code>[ ]</code> y pueden utilizar operadores lógicos y matemáticos como <code>&gt;</code>, <code>&lt;</code>, <code>and</code> y <code>or</code>, entre otros. Por ejemplo:</p>
 <figure>
-<img src="Resources/EjemploPredicadoXPath.png" alt="1563138889733" /><figcaption aria-hidden="true">1563138889733</figcaption>
+<img src="Resources/EjemploPredicadoXPath.png" alt="1563138889733" /><figcaption>1563138889733</figcaption>
 </figure>
 <p>Tambien se pueden utilizar funciones.</p>
 <h4 id="combinación-de-conjuntos">Combinación de conjuntos</h4>
@@ -1601,27 +1466,27 @@ blockquote {
 </ul>
 <h3 id="funciones-numéricas">Funciones Numéricas</h3>
 <figure>
-<img src="Resources/1563139066529.png" alt="1563139066529" /><figcaption aria-hidden="true">1563139066529</figcaption>
+<img src="Resources/1563139066529.png" alt="1563139066529" /><figcaption>1563139066529</figcaption>
 </figure>
 <p>Para aplicar una función sobre un elemento se toma su contenido y si se puede (y es necesario) se lo transforma en un numero.</p>
 <h3 id="funciones-sobre-strings">Funciones sobre Strings</h3>
 <figure>
-<img src="Resources/1563139166884.png" alt="1563139166884" /><figcaption aria-hidden="true">1563139166884</figcaption>
+<img src="Resources/1563139166884.png" alt="1563139166884" /><figcaption>1563139166884</figcaption>
 </figure>
 <h3 id="funciones-sobre-nodeset">Funciones sobre NodeSet</h3>
 <figure>
-<img src="Resources/1563139204287.png" alt="1563139204287" /><figcaption aria-hidden="true">1563139204287</figcaption>
+<img src="Resources/1563139204287.png" alt="1563139204287" /><figcaption>1563139204287</figcaption>
 </figure>
 <h3 id="funciones-lógicas">Funciones Lógicas</h3>
 <figure>
-<img src="Resources/1563139257324.png" alt="1563139257324" /><figcaption aria-hidden="true">1563139257324</figcaption>
+<img src="Resources/1563139257324.png" alt="1563139257324" /><figcaption>1563139257324</figcaption>
 </figure>
 <h2 id="evaluador">Evaluador</h2>
 <p>El motor evaluador de XPath toma al documento XML y la expresión XPath. La evaluación utiliza el concepto de <strong>nodo contexto actual</strong>. A medida que evalúa una subexpresion cambia la lista de nodos contexto actuales por una nueva lista.</p>
 <p>Antes de comenzar a evaluar, XPath selecciona como primer nodo a la raíz XPath, que no es el primer elemento del documento, sino que esta afuera de ese.</p>
 <p>Ejemplo:</p>
 <figure>
-<img src="Resources/EjemploXPath.png" alt="1563137299029" /><figcaption aria-hidden="true">1563137299029</figcaption>
+<img src="Resources/EjemploXPath.png" alt="1563137299029" /><figcaption>1563137299029</figcaption>
 </figure>
 <h2 id="observaciones">Observaciones</h2>
 <ul>
