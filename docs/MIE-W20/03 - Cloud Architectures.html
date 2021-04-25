@@ -4,76 +4,13 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>09 - XQuery</title>
+  <title>03 - Cloud Architectures</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1453,70 +1390,7 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="xquery">XQuery</h1>
-<p>XQuery nació para resolver algunas de las insuficiencias de XPath, ya que esta puede <strong>agrupar</strong>, <strong>ordenar</strong> y <strong>crear nodos</strong>. XQuery esta basado en XPath 2.0 y es un superset de XPath 1.0.</p>
-<p>Tambien permite consultar informacion en otros documentos, agregando como primer nodo de la expresión a <code>doc("file.xml")</code>, de la misma forma permite abrir al mismo tiempo a todos los documentos XML de un directorio con el comando <code>collection("directory")</code>. Esta ultima función tambien se puede utilizar para leer los documentos XML linkeados en un archivo XML especial. Para este caso, el documento XML debe estar estructurado de la siguiente forma:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;collection&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;doc</span><span class="ot"> href=</span><span class="st">&quot;doc1.xml&quot;</span><span class="kw">/&gt;</span></a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;doc</span><span class="ot"> href-</span><span class="er">&quot;doc2.xml&quot;/&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="er">&lt;/collection&gt;</span></a></code></pre></div>
-<h2 id="expresiones">Expresiones</h2>
-<h3 id="expresiones-primarias">Expresiones Primarias</h3>
-<p>Hay 3 tipos de expresiones primarias:</p>
-<ul>
-<li><strong>Literal</strong>: Una instancia de un tipo atómico tal como fue definido en XML Scheme (<code>String</code>, <code>int</code>, etc)</li>
-<li><strong>Llamada a una función</strong>.</li>
-<li><strong>Variable</strong>: La variable debe comenzar con el símbolo <code>$</code>.</li>
-</ul>
-<h3 id="expresiones-xpath">Expresiones XPath</h3>
-<p>Son las mismas que se vieron en la <a href="08%20-%20XPath.html">clase de XPath</a></p>
-<h3 id="secuencia">Secuencia</h3>
-<p>Las secuencias están formadas por 0 o mas ítems, no pueden ser anidadas y tampoco se puede diferenciar entre una secuencia de un solo ítem y un ítem por separado. Se pueden afectar con los operadores de <strong>unión</strong>, <strong>intersect</strong> y <strong>except</strong>.</p>
-<h4 id="operador-coma">Operador Coma (<code>,</code>)</h4>
-<p>Evalúa a cada una de las expresiones de forma recursiva y concatena todos los resultados en una secuencia. Por ejemplo, la expresión <code>(1,(2,4,(5)),(),3)</code> devuelve <code>1 2 3 4 5</code>.</p>
-<h4 id="operador-to">Operador <code>to</code></h4>
-<p>Similar al rango de Ruby, genera un rango entre 2 números. Por ejemplo, la expresión <code>(2 to 4)</code> devuelve <code>2 3 4</code>. No se pueden hacer rangos que vayan de un numero mayor a un numero menor.</p>
-<h3 id="expresión-condicional">Expresión Condicional</h3>
-<p>Son las clásicas expresiones <code>if Condition then do1 else do2</code> pero es necesario poner el <code>else</code>.</p>
-<h3 id="nuevos-nodos">Nuevos Nodos</h3>
-<p>Se pueden generar de forma directa o invocando a los constructores. Si se desea que se evalúa el contenido del nodo, entonces hay que envolverlo entre llaves <code>{ }</code>.</p>
-<p>Así se construye de forma directa:</p>
-<p><code>&lt;elem&gt;{1+2}&lt;/elem&gt;</code> devuelve un elemento con el valor 5<span class="math inline">\(\rightarrow\)</span><code>&lt;elem&gt;5&lt;/elem&gt;</code></p>
-<p>Si se quiere hacer con el constructor, hay que llamar al constructor de <code>element</code>.</p>
-<h3 id="expresiones-aritméticasrelacionales">Expresiones Aritméticas/Relacionales</h3>
-<p>Para las expresiones aritméticas, se utilizan las mismas que vimos con XPath: <code>+</code>, <code>-</code>, <code>*</code>, <code>div</code>, <code>mod</code>.</p>
-<p>Luego hay dos tipos de operaciones muy similares, las <strong>value comparison</strong> y las <strong>general comparison</strong>.</p>
-<p>En el caso de las <strong>value comparison</strong> se utilizan los operadores <code>eq</code>, <code>ne</code>, <code>lt</code>, <code>le</code>, <code>gt</code>, <code>ge</code>. Sirven para comparar 2 valores sueltos, para lo cual se aplica el siguiente algoritmo:</p>
-<ul>
-<li><p>Se atomizan los operandos (se genera una secuencia de valores subyacentes). Si uno de los operandos atómicos es una secuencia vacía, entonces el resultado es una secuencia vacía.</p></li>
-<li><p>Si hay una secuencia de longitud mayor a 1 se lanza error, pero si ambas tienen longitud 1, se compara la semántica esperada.</p></li>
-</ul>
-<p>Luego, las <strong>general comparison</strong> utiliza a los operadores <code>=</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>. Estos <strong>operadores nunca lanzan error</strong>, sino que devuelven verdadero o falso. En el caso que no se pueda realizar la comparación, se devuelve falso.</p>
-<h3 id="expresiones-flwor">Expresiones FLWOR</h3>
-<p>Es un conjunto de expresiones que contienen a <code>for</code>, <code>let</code>, <code>where</code>, <code>order by</code> y <code>return</code>.</p>
-<p>Para este tipo de expresiones es necesario utilizar al menos 1 <code>for</code> o un <code>let</code> y al final de todo un <code>return</code>. La expresión <code>for</code> permite iterar sobre una secuencia, mientras que <code>let</code> no itera sobre la secuencia, sino que se le asigna un valor.</p>
-<p><code>order by</code> se utiliza para ordenar a los elementos de la secuencia dentro del <code>for</code>, mientras que el <code>where</code> permite filtrar elementos. Por ejemplo, si quiero tomar una lista de alumnos, obtener solo la lista de alumnos que aprobaron y ordenarlos por su atributo <code>ID</code>, así se hace:</p>
-<pre class="xquery"><code>for$var in doc(&quot;test.xml&quot;)/alumno
-    where $var/@nota &gt; 4
-    order by$var/@ID
-return $var</code></pre>
-<h3 id="expresiones-cuantificadas">Expresiones Cuantificadas</h3>
-<p>Hay dos tipos de expresiones cuantificadas, los <strong>cuantificadores existenciales</strong> y los <strong>cuantificadores universales</strong>. Los primeros devuelven <code>true</code> si al menos uno de los elementos cumplen con la condición, mientras que los segundos solo lo hacen si todos los elementos la cumplen. Otra diferencia es que al tener 0 elementos, los existenciales devuelven <code>false</code> y los universales <code>true</code>.</p>
-<p>La sintaxis de los cuantificadores existenciales es:</p>
-<pre class="xquery"><code>some$var in expression satisfies (Condition)</code></pre>
-<p>Por otro lado, la de los cuantificadores universales es:</p>
-<pre class="xquery"><code>every $var in expression satisfies (Condition)</code></pre>
-<h2 id="funciones">Funciones</h2>
-<p>Ahora podemos declarar e invocar funciones localmente. Los parámetros pueden declarase sin anunciar su tipo y los tipos que pueden devolver son los mismos que el XML Scheme, <code>node</code>, <code>element</code> o <code>attribute</code>.</p>
-<p>La sintaxis si no se indica el tipo es:</p>
-<pre class="xquery"><code>declare function local:Nombre($par1,...) as tipo{
-    XQuery Expression
-};</code></pre>
-<p>Si se quiere indicar el tipo:</p>
-<pre class="xquery"><code>declare function local:Nombre($par1 as Type1,...) as tipo{
-    XQuery Expression
-};</code></pre>
-<p>Y para poder invocar a una función solo es necesario llamar al namespace y luego a la función, de esta forma:</p>
-<pre class="xquery"><code>local:Nombre(par1,...)</code></pre>
+<h1 id="cloud-architectures">Cloud Architectures</h1>
+<p>The Cloud is a different way of thinking applications where data is your major asset and not server infraestructure. It has benefits such as high reliability and availability, with lowe costs (pay-per-use) and a lot of elasticity. This is all obtained by outsourcing server infraestructure and renting it monthly.</p>
 </body>
 </html>
