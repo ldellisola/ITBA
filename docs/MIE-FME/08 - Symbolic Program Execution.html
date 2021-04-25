@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>08 - Symbolic Program Execution</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1390,29 +1391,45 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="materias">Materias</h1>
+<h1 id="symbolic-program-execution">Symbolic Program Execution</h1>
+<p>We want to test programs as completely as possible, ideally covering all possible execution paths (sequence of program lines).</p>
+<p>To do this first we must formalize the lines of code into a basic path. Here we have an example where we want to extract the condition along the execution path <span class="math inline">\(1,2,3,4,1,2,3,6\)</span>:</p>
+<p><img src="Resources/08 - Symbolic Program Execution/image-20210419165052209.png" alt="image-20210419165052209" style="zoom:33%;" /></p>
+<p>This will also be noted as: <span class="math display">\[
+\text{BP}_{1,2,3,4,1,2,3,6}(P)
+\]</span> Later, we must apply SSA to be able to deal with this execution path:</p>
+<p><img src="Resources/08 - Symbolic Program Execution/image-20210419165331751.png" alt="image-20210419165331751" style="zoom:33%;" /></p>
+<p>The lines <span class="math inline">\(l_1,\dots,l_n\)</span> of a program <span class="math inline">\(P\)</span> can be executed in this order if <span class="math inline">\(X_{l_1,\dots,l_n}\)</span>(P) is satisfiable: <span class="math display">\[
+X_{l_!,\dots,l_n}(P):\iff F_{\text{pre}}(\text{SSA}(\text{BP}_{l_1,\dots,l_n}(P)))
+\]</span> where <span class="math inline">\(F\)</span> and <span class="math inline">\(F_{\text{pre }}\)</span> are defined as: $$ F_{}(c_1;;c_n; @):= _{i {1,,n}, F(c_i) } F(c_i)\</p>
+<p>F( ) := \ F( v) := \ F(v t) := v = t $$ If it is satisfiable, then the satisfying assignment results in a test case.</p>
+<p>This can also be accomplished with verification conditions: <span class="math display">\[
+\text{The Lines $l_1,\dots,l_n$ of a program $P$ can be executed in this order}\\
+\iff \\
+x_{l_1,\dots,l_n}(P) \text{ is satisfiable}\\
+\iff \\
+F_{\text{pre}}(\text{SSA}(\text{BP}_{l_1,\dots,l_n}(P))) \text{ is satisfiable}\\
+\iff \\
+\text{verification condition } \text{VC}(\text{BP}_{l_1,\dots,l_n}(P)) \text{ does not hold} \\
+\iff \\
+\neg \text{VC}(\text{BP}_{l_1,\dots,l_n}(P)) \text{ is satisfiable}
+\]</span></p>
+<p>## Choosing Execution Paths</p>
+<p>First we have to select a set of execution paths, and then for each execution path find the corresponding test case by computing a satisfiable assignment of <span class="math inline">\(F_{\text{pre}}(\text{SSA}(\text{BP}_{l_1,\dots,l_n}(P)))\)</span>. This has it’s own problems though:</p>
 <ul>
-<li><a href="BIE-SIE.2/index.html">BIE-SIE.2 - Software Engineering II</a></li>
-<li><a href="93.35/index.html">93.35 - Logica Computacional</a></li>
-<li><a href="72.37/index.html">72.37 - Bases de Datos I</a></li>
-<li><a href="93.59/index.html">93.59 - Matematica Discreta</a></li>
-<li><a href="MIE-TES1.6/index.html">MIE-TES1.6 - Systems Theory</a></li>
-<li><a href="72.34/index.html">72.34 - Estructuras de Datos y Algoritmos</a></li>
-<li><a href="72.65/index.html">72.65 - Desarrollo de Videojuegos</a></li>
-<li><a href="93.58/index.html">93.58 - Algebra</a></li>
-<li><a href="MIE-W20/index.html">MIE-W20 - Web 2.0</a></li>
-<li><a href="72.08/index.html">72.08 - Arquitectura de Computadoras</a></li>
-<li><a href="93.07/index.html">93.07 - Metodos Numericos</a></li>
-<li><a href="BE4M36MAS/index.html">BE4M36MAS - Multiagent Systems</a></li>
-<li><a href="BIE-EMP/index.html">BIE-EMP - Economy Principles</a></li>
-<li><a href="72.32/index.html">72.32 - Diseño y Procesamiento de Documentos XML</a></li>
-<li><a href="93.24/index.html">93.24 - Probabilidad y Estadistica</a></li>
-<li><a href="BIE-AAG/index.html">BIE-AAG - Automata and Grammars</a></li>
-<li><a href="72.35/index.html">72.35 - Ingenieria de Software I</a></li>
-<li><a href="72.36/index.html">72.36 - Interaccion Hombre-Computadora</a></li>
-<li><a href="BE5B33RPZ/index.html">BE5B33RPZ - Pattern Recognition and Machine Learning</a></li>
-<li><a href="MIE-FME/index.html">MIE-FME - Formal Methods and Specifications</a></li>
-<li><a href="72.11/index.html">72.11 - Sistemas Operativos</a></li>
+<li>There are some undecidable theories</li>
+<li>Usage of external function with unknown source code.</li>
 </ul>
+<p>For the second problem, we can work around it with some tricks:</p>
+<ul>
+<li><p><strong>Over-Approximation</strong>:</p>
+<p>Here we are replacing our unknown constraint with a weaker constraint. If the result is <em>“unsatisfiable”</em> then the original formula is not satisfiable. If the result is <em>“satisfiable”</em>, then there is no guarantee that the original formula is satisfiable.</p>
+<p>Because of this we do not want to use over-approximation in this case.</p></li>
+<li><p><strong>Under-Approximation</strong>:</p>
+<p>Under-approximation is the opposite approach. Here we want to look for a stronger constraint so that if this formula is satisfiable, then the original one will also be satisfiable.</p></li>
+</ul>
+<h2 id="dynamic-test-generation">Dynamic Test Generation</h2>
+<p>Dynamic test generation, or Concolic testing is a technique that runs the program both concretely and symbolically.</p>
+<p>It creates the logical formula <span class="math inline">\(X_{l_1,\dots,l_n}(P)\)</span> line by line. As soon as formula creation arrives at a function that the solver cannot handle, let the program run until we receive the result of the function.</p>
 </body>
 </html>

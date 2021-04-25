@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>07 - Object Oriented Programming</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1390,29 +1391,75 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="materias">Materias</h1>
+<h1 id="object-oriented-programming">Object Oriented Programming</h1>
+<h2 id="abstract-data-type">Abstract Data Type</h2>
+<p>An abstract data type is a data type with certain operations that is independent of any implementation. It is described as a signature and a set of axioms. For example if we have the class <code>counter</code>:</p>
+<pre><code>Class counter:
+    constructor init(n)
+    method      val():N
+    methhod     dec()</code></pre>
+<p>It will be translated into the following signature: <span class="math display">\[
+\array{
+\text{init}:\mathcal N \rightarrow \text{counter}\\
+\text{val}:\text{counter} \rightarrow \mathcal N \\
+\text{dec}:\text{counter} \rightarrow \text{counter}
+}
+\]</span> And there are two ways to call out the methods of a class: <span class="math display">\[
+\array{i \leftarrow c.\text{val()} &amp; \text{or}&amp; i \leftarrow \text{val}(c)}
+\]</span> The axioms can also be converted into assertions for the functions. This example class has the following axioms defined: <span class="math display">\[
+\forall n \in \mathcal N. \text{val}(\text{init}(n)) = n \\
+\forall c \in \text{counter}. \left[ \array{
+\text{val}(c) = 0 \implies \text{val}(\text{dec}(c)) = 0 
+~~\land \\
+\text{val}(c) \neq 0 \implies \text{val}(\text{dec}(c))= \text{val}(c)-1
+}\right]
+\]</span> We can convert it to:</p>
+<pre><code>Class counter:
+    constructor init(n):
+        assume n in N
+        ...
+        @ val() = n
+    method      val():N
+    method      dec():
+        v = val()
+        ...
+        @[ v = 0 =&gt; val() = 0 ] &amp;&amp; [ v != 0 =&gt; val() = v-1 ]</code></pre>
+<h3 id="internal-consistency-of-data-types">Internal Consistency of Data Types</h3>
+<p>This type of consistency deals with assertions of the internal variables of classes. This would amount to an assertion at the beginning and and end of every method. Some object oriented languages have support for this type of assertions. We are going to be using the following convention: <span class="math display">\[
+\bold{\text{invariant  }} x \ge 0
+\]</span></p>
+<h3 id="implementation">Implementation</h3>
+<p>Let <span class="math inline">\(\Sigma\)</span> be a signature over types <span class="math inline">\(T_1,\dots,T_n\)</span>, a <strong><span class="math inline">\(\Sigma-\)</span>structure</strong> <span class="math inline">\(S\)</span> is defined as a tuple <span class="math inline">\((\Omega_1,\dots,\Omega_n,\mathcal I)\)</span> where:</p>
 <ul>
-<li><a href="BIE-SIE.2/index.html">BIE-SIE.2 - Software Engineering II</a></li>
-<li><a href="93.35/index.html">93.35 - Logica Computacional</a></li>
-<li><a href="72.37/index.html">72.37 - Bases de Datos I</a></li>
-<li><a href="93.59/index.html">93.59 - Matematica Discreta</a></li>
-<li><a href="MIE-TES1.6/index.html">MIE-TES1.6 - Systems Theory</a></li>
-<li><a href="72.34/index.html">72.34 - Estructuras de Datos y Algoritmos</a></li>
-<li><a href="72.65/index.html">72.65 - Desarrollo de Videojuegos</a></li>
-<li><a href="93.58/index.html">93.58 - Algebra</a></li>
-<li><a href="MIE-W20/index.html">MIE-W20 - Web 2.0</a></li>
-<li><a href="72.08/index.html">72.08 - Arquitectura de Computadoras</a></li>
-<li><a href="93.07/index.html">93.07 - Metodos Numericos</a></li>
-<li><a href="BE4M36MAS/index.html">BE4M36MAS - Multiagent Systems</a></li>
-<li><a href="BIE-EMP/index.html">BIE-EMP - Economy Principles</a></li>
-<li><a href="72.32/index.html">72.32 - Diseño y Procesamiento de Documentos XML</a></li>
-<li><a href="93.24/index.html">93.24 - Probabilidad y Estadistica</a></li>
-<li><a href="BIE-AAG/index.html">BIE-AAG - Automata and Grammars</a></li>
-<li><a href="72.35/index.html">72.35 - Ingenieria de Software I</a></li>
-<li><a href="72.36/index.html">72.36 - Interaccion Hombre-Computadora</a></li>
-<li><a href="BE5B33RPZ/index.html">BE5B33RPZ - Pattern Recognition and Machine Learning</a></li>
-<li><a href="MIE-FME/index.html">MIE-FME - Formal Methods and Specifications</a></li>
-<li><a href="72.11/index.html">72.11 - Sistemas Operativos</a></li>
+<li><span class="math inline">\(\Omega_1,\dots,\Omega_n\)</span> are sets (The carrier sets of <span class="math inline">\(S\)</span>).</li>
+<li><span class="math inline">\(\mathcal I\)</span> assigns to:
+<ul>
+<li>Every function symbol <span class="math inline">\(f:T_{i_1}\times \dots, \times T_{i_a} \rightarrow T_j\)</span> from <span class="math inline">\(\Sigma\)</span> to a function <span class="math inline">\(f:\Omega_{i_1}\times \dots \times \Omega_{i_a} \rightarrow \Omega_j\)</span></li>
+<li>Every predicate symbol <span class="math inline">\(p:T_{i_1} \times \dots \times T_{i_a}\)</span> from <span class="math inline">\(\Sigma\)</span> to a relation <span class="math inline">\(r \subseteq \Omega_{i_1} \times \dots \times\Omega_{i_a}\)</span></li>
+</ul></li>
 </ul>
+<p>We can think of this structure ad a concrete class in C++.</p>
+<h3 id="semantics">Semantics</h3>
+<p>A <span class="math inline">\(\Sigma-\)</span>structure <span class="math inline">\((\Omega_1,\dots,\Omega_n,\mathcal I)\)</span> is a model of a data type <span class="math inline">\(T\)</span> if:</p>
+<ul>
+<li><span class="math inline">\(T\)</span> has the signature <span class="math inline">\(\Sigma\)</span></li>
+<li>For every axiom <span class="math inline">\(\phi\)</span> of <span class="math inline">\(T\)</span>, <span class="math inline">\((\Omega_1,\dots,\Omega_n,\mathcal I) \models \phi\)</span></li>
+</ul>
+<p>A intuitive way to look at this is:</p>
+<ul>
+<li><strong>Abstract Data Type</strong>: Interface</li>
+<li><strong>Model</strong>: Implementation</li>
+</ul>
+<h3 id="extensions-of-data-types">Extensions of Data Types</h3>
+<p>Extensions are useful for adding properties to an existing specification.</p>
+<blockquote>
+<p>Given two data types <span class="math inline">\((\check\Sigma, \check A)\)</span> and <span class="math inline">\((\hat\Sigma, \hat A)\)</span>: <span class="math display">\[
+(\check\Sigma, \check A) \text{ is an extension of } (\hat\Sigma, \hat A)\\
+\iff\\
+\hat \Sigma\subseteq\check\Sigma  \land \hat A \subseteq \check A
+\]</span> It is denoted as : <span class="math display">\[
+(\check\Sigma, \check A) \preceq (\hat\Sigma, \hat A)
+\]</span></p>
+</blockquote>
 </body>
 </html>

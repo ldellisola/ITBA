@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>01 - Proofs</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1390,29 +1391,65 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="materias">Materias</h1>
-<ul>
-<li><a href="BIE-SIE.2/index.html">BIE-SIE.2 - Software Engineering II</a></li>
-<li><a href="93.35/index.html">93.35 - Logica Computacional</a></li>
-<li><a href="72.37/index.html">72.37 - Bases de Datos I</a></li>
-<li><a href="93.59/index.html">93.59 - Matematica Discreta</a></li>
-<li><a href="MIE-TES1.6/index.html">MIE-TES1.6 - Systems Theory</a></li>
-<li><a href="72.34/index.html">72.34 - Estructuras de Datos y Algoritmos</a></li>
-<li><a href="72.65/index.html">72.65 - Desarrollo de Videojuegos</a></li>
-<li><a href="93.58/index.html">93.58 - Algebra</a></li>
-<li><a href="MIE-W20/index.html">MIE-W20 - Web 2.0</a></li>
-<li><a href="72.08/index.html">72.08 - Arquitectura de Computadoras</a></li>
-<li><a href="93.07/index.html">93.07 - Metodos Numericos</a></li>
-<li><a href="BE4M36MAS/index.html">BE4M36MAS - Multiagent Systems</a></li>
-<li><a href="BIE-EMP/index.html">BIE-EMP - Economy Principles</a></li>
-<li><a href="72.32/index.html">72.32 - Diseño y Procesamiento de Documentos XML</a></li>
-<li><a href="93.24/index.html">93.24 - Probabilidad y Estadistica</a></li>
-<li><a href="BIE-AAG/index.html">BIE-AAG - Automata and Grammars</a></li>
-<li><a href="72.35/index.html">72.35 - Ingenieria de Software I</a></li>
-<li><a href="72.36/index.html">72.36 - Interaccion Hombre-Computadora</a></li>
-<li><a href="BE5B33RPZ/index.html">BE5B33RPZ - Pattern Recognition and Machine Learning</a></li>
-<li><a href="MIE-FME/index.html">MIE-FME - Formal Methods and Specifications</a></li>
-<li><a href="72.11/index.html">72.11 - Sistemas Operativos</a></li>
-</ul>
+<h1 id="proofs">Proofs</h1>
+<h2 id="d">2.D</h2>
+<blockquote>
+<p>Find the second largest number in an array of integers</p>
+</blockquote>
+<p><span class="math display">\[
+\text{Input: arr} \subseteq \mathbb{Z} \\
+\text{Output: } t \in \text{arr} / t \text{ is the second largest number}
+\]</span></p>
+<p><span class="math display">\[
+t \in \text{arr} \text{ such that } 
+\exists x \in \text{arr}.
+    \forall y \in \text{arr}.[x \ge y] 
+    \land 
+    \forall z \in \text{arr}\setminus\{x\}.[t \ge z ]
+\]</span></p>
+<p>First I select with x the largest number in the set: <span class="math display">\[
+\forall y \in \text{arr}.[x \ge y] 
+\]</span> And then I take out the largest element from the set and I choose the largest element in this new set, which would be the second largest element from the original set: <span class="math display">\[
+\forall z \in \text{arr}\setminus\{x\}.[t \ge z ]
+\]</span></p>
+<h2 id="section">3</h2>
+<h3 id="e">E</h3>
+<blockquote>
+<p>Prove the following formula: <span class="math display">\[
+q \implies [(p\land q) \lor (\neg p \land q)]
+\]</span></p>
+</blockquote>
+<p>$$  <span class="math display">\[
+To prove this I have to prove each part independently. I will begin with $\neg p$:
+\]</span>  <span class="math display">\[
+We can see that I have arrived to a contradiction, because my assumptions include a formula and its negation:
+\]</span>  $$ So the formula <span class="math inline">\(\neg p\)</span> is true.</p>
+<p>Now we will prove <span class="math inline">\(q\)</span>: $$  $$ In this case we can see that <span class="math inline">\(q\)</span> was already part of our assumptions.</p>
+<p>With both sections proven, we have proven that the formula holds.</p>
+<h3 id="f">F</h3>
+<blockquote>
+<p>Prove the following formula: <span class="math display">\[
+\neg (p \land q) \implies (\neg p \lor \neg q)
+\]</span></p>
+</blockquote>
+<p>$$  $$</p>
+<p>To prove this formula we have to arrive at a contradiction, so we assume <span class="math inline">\(q\)</span> as well and we reach to a contradiction because: <span class="math display">\[
+\array{\neg (p \land q)&amp;(p \land q)}
+\]</span></p>
+<p>### H</p>
+<blockquote>
+<p>Prove the following formula: <span class="math display">\[
+(p \land q) \implies \neg (\neg p \lor \neg q)
+\]</span></p>
+</blockquote>
+<p>$$  $$</p>
+<p>Here we also need to reach a contradiction, but instead we have to try two different cases:</p>
+<p>In the first case, we are assuming <span class="math inline">\(\neg p\)</span>: $$  <span class="math display">\[
+And we see we reach a contradiction, because between our assumptions we have:
+\]</span>  <span class="math display">\[
+For our second case we will assume $\neg q$:
+\]</span>  <span class="math display">\[
+And we see we reach a contradiction, because between our assumptions we have:
+\]</span>  $$ Having reached a contradiction in both cases, we can say that we have successfully proven the original formula.</p>
 </body>
 </html>

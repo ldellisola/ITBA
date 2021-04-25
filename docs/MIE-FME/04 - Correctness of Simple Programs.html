@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>04 - Correctness of Simple Programs</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1390,29 +1391,49 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="materias">Materias</h1>
+<h1 id="correctness-of-programs-without-control-structures">Correctness of Programs without Control Structures</h1>
+<p>In order to determine if a program is correct, we need to stablish assertions. This assertions come in two different forms:</p>
 <ul>
-<li><a href="BIE-SIE.2/index.html">BIE-SIE.2 - Software Engineering II</a></li>
-<li><a href="93.35/index.html">93.35 - Logica Computacional</a></li>
-<li><a href="72.37/index.html">72.37 - Bases de Datos I</a></li>
-<li><a href="93.59/index.html">93.59 - Matematica Discreta</a></li>
-<li><a href="MIE-TES1.6/index.html">MIE-TES1.6 - Systems Theory</a></li>
-<li><a href="72.34/index.html">72.34 - Estructuras de Datos y Algoritmos</a></li>
-<li><a href="72.65/index.html">72.65 - Desarrollo de Videojuegos</a></li>
-<li><a href="93.58/index.html">93.58 - Algebra</a></li>
-<li><a href="MIE-W20/index.html">MIE-W20 - Web 2.0</a></li>
-<li><a href="72.08/index.html">72.08 - Arquitectura de Computadoras</a></li>
-<li><a href="93.07/index.html">93.07 - Metodos Numericos</a></li>
-<li><a href="BE4M36MAS/index.html">BE4M36MAS - Multiagent Systems</a></li>
-<li><a href="BIE-EMP/index.html">BIE-EMP - Economy Principles</a></li>
-<li><a href="72.32/index.html">72.32 - Diseño y Procesamiento de Documentos XML</a></li>
-<li><a href="93.24/index.html">93.24 - Probabilidad y Estadistica</a></li>
-<li><a href="BIE-AAG/index.html">BIE-AAG - Automata and Grammars</a></li>
-<li><a href="72.35/index.html">72.35 - Ingenieria de Software I</a></li>
-<li><a href="72.36/index.html">72.36 - Interaccion Hombre-Computadora</a></li>
-<li><a href="BE5B33RPZ/index.html">BE5B33RPZ - Pattern Recognition and Machine Learning</a></li>
-<li><a href="MIE-FME/index.html">MIE-FME - Formal Methods and Specifications</a></li>
-<li><a href="72.11/index.html">72.11 - Sistemas Operativos</a></li>
+<li><strong>Assumptions</strong>: To be ensured by the user, from outside. When validating the correctness of a program we need to respect this conditions.</li>
+<li>**<span class="citation" data-cites="*">@*</span>*: To be ensured by the program. The result of the program should comply with these conditions.</li>
 </ul>
+<p>Assertions can also be internal or external. For example in a function we can only check the input and output and call the assertion external. If we also have assertions in the middle of the code then they are internal assertions.</p>
+<p>A program execution is <strong>regular</strong> if it satisfies all the <strong>assume</strong>-assertions. The program is <strong>partially correct</strong> if for every regular execution of the program, from the first program line to a program line with an **<span class="citation" data-cites="*">@*</span>*-assertion, satisfies the final **<span class="citation" data-cites="*">@*</span>*-assertion.</p>
+<p>We also have <strong>input</strong> commands that stablish the need for the user to input a value during runtime.</p>
+<h2 id="static-single-assignment-form-ssa">Static Single Assignment Form (SSA)</h2>
+<p>SSA is an optimization technique utilized by compilers to avoid compiling variables that are useless. This consists on renaming variables to avoid rewriting information on the same variables, variables are not modifiable.</p>
+<p>In the case of assignments, we have the following cases:</p>
+<ul>
+<li><p><strong>Variable Assignment</strong>: <span class="math display">\[
+x \leftarrow 1\\
+x \leftarrow x+1
+\]</span> Would be translated to: <span class="math display">\[
+x_0 \leftarrow 1\\
+x_1 \leftarrow x_0 +1
+\]</span></p></li>
+<li><p><strong>Array Assignment</strong>: <span class="math display">\[
+a[i] \leftarrow 1\\
+a[i] \leftarrow 1 + a[1]
+\]</span> Would be translated to: <span class="math display">\[
+a_1 = \text{write}(a,i,1)\\
+a_2 = \text{write}(a_1,i,a_1[i] + 1)
+\]</span></p></li>
+<li><p><strong>User Input</strong>: <span class="math display">\[
+x \leftarrow 7 \\
+\bold{\text{input }} x \\
+x \leftarrow x + 2
+\]</span> Would be translated to: <span class="math display">\[
+x_0 \leftarrow 7\\
+\bold{\text{input }}x_1\\
+x_2 \leftarrow x_1 + 2
+\]</span></p></li>
+</ul>
+<h2 id="verification-condition">Verification Condition</h2>
+<p>After obtaining the SSA form for our basic path, we can formulate the verification condition. This condition is formulated with the following formula: <span class="math display">\[
+F(\bold{\text{assume }} \phi) := \phi\\
+F(\bold{\text{input }} v) := \top\\
+F(v\leftarrow t) := v=t\\
+F(c_1,\dots,c_n,\bold{@}\alpha)=\left[\bigwedge_{i\in\{i,\dots,n\},F(c_i)\neq \top} F(c_i)\right] \implies \alpha
+\]</span> Now we can say that a basic path <span class="math inline">\(P\)</span> is correct <span class="math inline">\(\iff \models F(SSA(P))\)</span>. This is proven true with a formal proof or false with a counter example.</p>
 </body>
 </html>

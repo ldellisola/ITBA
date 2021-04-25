@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>04</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1390,29 +1391,183 @@ blockquote {
 </style >
 </head>
 <body>
-<h1 id="materias">Materias</h1>
+<h1 id="assignment-04">Assignment 04</h1>
+<h2 id="section">9</h2>
+<pre><code>assume [y &gt;= 1]
+r &lt;- x
+i &lt;- 1
+while i &lt; y do:
+    @ r = summation{from 1}{to i} x AND i &lt; y
+    r &lt;- r + x
+    i &lt;- i + 1
+@ r = summation{from 1}{to y} x
+return r
+</code></pre>
+<h3 id="c">C</h3>
+<p>For <code>x = 4</code> and <code>y = 5</code></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><code>r</code></th>
+<th style="text-align: center;"><code>i</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="d">D</h3>
+<p>Basic Paths:</p>
+<ol type="1">
+<li><pre><code>assume y &gt;= 1
+r &lt;- x
+i &lt;- 1
+assume i &gt;= y
+@ r = summation{from 1}{to y} x</code></pre>
+<p>Verification condition: <span class="math display">\[
+[y \ge 1 \land r = x \land i = 1 \land y \ge i] \implies r = \sum_{j=1}^{y} x
+\]</span> Proof: <span class="math display">\[
+\array{
+\text{My assumptions: } &amp;&amp; \\
+&amp;&amp; [y \ge 1 \land r = x \land i = 1 \land y \ge i]\\
+&amp;&amp; y \ge 1 \\
+&amp;&amp; i=1 \\
+&amp;&amp; i \le y\\
+&amp;&amp; y = 1 \\
+&amp;&amp; r = x
+\\\\
+\text{To prove: }&amp;&amp; r = \sum_{j=1}^{y} x
+}
+\]</span> Because <span class="math inline">\(1 \le y \le 1\)</span>, we can safely say that <span class="math inline">\(y=1\)</span>, and then we know that <span class="math inline">\(r=x\)</span>, and the summation from <span class="math inline">\(1\)</span> to <span class="math inline">\(1\)</span> of <span class="math inline">\(x\)</span> is <span class="math inline">\(x\)</span>, so the formula holds.</p></li>
+<li><pre><code>assume [y &gt;= 1]
+r &lt;- x
+i &lt;- 1
+assume i &lt; y
+@ r = summation{from 1}{to i} x AND i &lt; y</code></pre>
+<p>The verification condition is: <span class="math display">\[
+[y \ge 1 \land t = x \land i = 1 \land i &lt; y ] \implies r = \sum_{j=1}^{i}x
+\]</span> The proof is very similar to the first path.</p></li>
+<li></li>
+</ol>
+<pre><code>assume r = summation{from 1}{to i} x AND i &lt; y
+r_1 &lt;- r + x
+i_1 &lt;- i + 1
+assume i_1 &lt; y
+@ r_1 = summation{from 1}{to i_1} x</code></pre>
+<p>The verification condition is: <span class="math display">\[
+   \left[r = \sum_{1}^{i} x \land i &lt; y\land r_1 = r + x \land i_1 = i + 1 \land i_1 &lt; y\right] \implies r_1 = \sum_{1}^{i_1} x
+   \]</span> The proof is: $$  $$ This proof is valid because <span class="math inline">\(r_1 = \sum_1^ix + x = \sum_1^{i+1}x\)</span> and <span class="math inline">\(i_1 = i +1\)</span>.</p>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<pre><code>assume r = summation{from 1}{to i} x AND i &lt; y
+r_1 &lt;- r + x
+i_1 &lt;- i + 1
+assume i_1 &gt;= y 
+@ r = summation{from 1}{to y} x</code></pre>
+<p>The verification condition: <span class="math display">\[
+   \left[r = \sum_1^ix \land i &lt; y \land r_1 = r + x \land i_1 = i +1 \land i_1 \ge y \right] \implies r_1 = \sum_1^yx
+   \]</span> The proof: $$  $$ The formula holds because <span class="math inline">\(i_1 = i+1 \ge y\)</span> and <span class="math inline">\(i &lt; y\)</span>, so <span class="math inline">\(i_1 = y\)</span>. On the other side <span class="math inline">\(r_1 = r + x = \sum_1^{i+1}x = \sum_1^yx\)</span></p>
+<h2 id="section-1">10</h2>
+<pre><code>assume r = 0 AND s = 0
+for i &lt;- 1 to n do:
+    @
+    if a[i] &lt; 0 then:
+        r &lt;- r + 1
+    @ r = |{k in {1,...,i}/ a[k] != 0}|
+    if a[i] &gt; 0 then:
+        s &lt;- s + 1
+    @ s = |{k in {1,...,i}/ a[k] != 0}|
+@ r + s = |{k in {1,...,n}/ a[k] != 0}|</code></pre>
+<h3 id="a">A</h3>
+<blockquote>
+<p>For each verification condition of the program, write down whether it holds or not, and if not, also note the reason why. Apart from that, you do not have to write down anything, neither verification conditions themselves nor proofs.</p>
+</blockquote>
+<p>THIS IS ALL WRONG. THE PROBLEM HERE IS THAT WE DON’T KNOW THE VALUES FOR THE VARIABLES THAT WE ARE CHECKING IN THE ASSERTIONS.</p>
+<p>The assertions on line 6 and 9 do not hold all the time. The reason is quite simple, the both assertion check the same value against a counter which is updated on contradicting conditions, i.e. when the value is higher or lower than 0.</p>
+<h3 id="b">B</h3>
+<blockquote>
+<p>Change the assertions in the program in such a way that all verification conditions hold. Again, you do not have to prove anything. Still check each verification condition in an informal way.</p>
+</blockquote>
+<pre><code>assume r = 0 AND s = 0
+for i &lt;- 1 to n do:
+    @ r = |{k in {1,...,i-1}/ a[k] &lt; 0}| AND s = |{k in {1,...,i-1}/ a[k] &gt; 0}|
+    if a[i] &lt; 0 then:
+        r &lt;- r + 1
+    @ r = |{k in {1,...,i}/ a[k] &lt; 0}| AND s = |{k in {1,...,i-1}/ a[k] &gt; 0}|
+    if a[i] &gt; 0 then:
+        s &lt;- s + 1
+    @ s = |{k in {1,...,i}/ a[k] &gt; 0}| AND r = |{k in {1,...,i}/ a[k] &lt; 0}|
+@ r + s = |{k in {1,...,n}/ a[k] != 0}|</code></pre>
+<p>The updated program looks like this. This time we are validating against different values, made specifically for the counter they are using. The last assertion is not changed because it holds in the original version.</p>
+<h2 id="section-2">11</h2>
+<h3 id="a-1">A</h3>
+<blockquote>
+<p>Write down a first-order predicate logical formula that represents the following I/O-specification in the way discussed in the lecture on functions and procedures:</p>
+</blockquote>
+<p><img src="Resources/04/image-20210421191254837.png" alt="image-20210421191254837" style="zoom:33%;" /> <span class="math display">\[
+\forall a,k , r. k \ge 1 \land r = \text{s}(a,k)\implies r = 1+ \sum_{i =0}^{k-1}a[i]
+\]</span></p>
+<h3 id="b-1">B</h3>
+<blockquote>
+<p>Write down the verification condition of the following program:</p>
+</blockquote>
+<p><img src="Resources/04/image-20210421191744581.png" alt="image-20210421191744581" style="zoom:33%;" /> <span class="math display">\[
+\forall i.(p[i] \ge 5) \land r = \text{s}(p,2) \implies r \ge 7
+\]</span></p>
+<h3 id="c-1">C</h3>
+<blockquote>
+<p>Check, whether the verification condition from the previous item holds—assuming that the function s returns, what it should return according to its specification. You do not have to prove anything, you just should be able to explain why it holds/does not hold</p>
+</blockquote>
+<p>The verification condition holds because all the elements of the array are higher or equal than 5. Lets take the worst case where all the elements are 5, the function <span class="math inline">\(\text{s}\)</span> will return <span class="math inline">\(1 + 5 + 5 = 11\)</span> which is higher than 7.</p>
+<h3 id="d-1">D</h3>
+<blockquote>
+<p>Prove the verification condition, following the lecture on handling function calls (i.e., using the formula from item (a) as an assumption). Here, you may freely use whatever knowledge you have about arrays and integers (i.e., not only the axioms of the corresponding logical theories).</p>
+</blockquote>
+<p>$$  $$</p>
+<p>REAL PROOF: <span class="math display">\[
+\array{
+\text{My assumptions: } &amp;&amp; \\
+&amp;&amp; [\forall i.(p[i] \ge 5) \land r = \text{s}(p,2)]\\
+&amp;&amp; \forall i.(p[i] \ge 5)\\
+&amp;&amp;  r = \text{s}(p,2)\\
+&amp;&amp; r = 1 + p[0] + p[1] &amp; \text{lemma 1}\\
+&amp;&amp; p[0] \ge 5 \\
+&amp;&amp; p[1] \ge 5 \\
+&amp;&amp; p[0] + p[1] \ge 5 + 5 = 10 &amp; \text{lemma 2} \\
+&amp;&amp; 1+ (p[0] + p[1]) \ge 1 + 10 = 11 &amp; \text{lemma 2} \\
+&amp;&amp; r \ge 11 &amp; \text{lemma 3}\\
+&amp;&amp; 11 \ge 7
+\\\\
+\text{To prove: }&amp;&amp;   r \ge 7
+}
+\]</span></p>
 <ul>
-<li><a href="BIE-SIE.2/index.html">BIE-SIE.2 - Software Engineering II</a></li>
-<li><a href="93.35/index.html">93.35 - Logica Computacional</a></li>
-<li><a href="72.37/index.html">72.37 - Bases de Datos I</a></li>
-<li><a href="93.59/index.html">93.59 - Matematica Discreta</a></li>
-<li><a href="MIE-TES1.6/index.html">MIE-TES1.6 - Systems Theory</a></li>
-<li><a href="72.34/index.html">72.34 - Estructuras de Datos y Algoritmos</a></li>
-<li><a href="72.65/index.html">72.65 - Desarrollo de Videojuegos</a></li>
-<li><a href="93.58/index.html">93.58 - Algebra</a></li>
-<li><a href="MIE-W20/index.html">MIE-W20 - Web 2.0</a></li>
-<li><a href="72.08/index.html">72.08 - Arquitectura de Computadoras</a></li>
-<li><a href="93.07/index.html">93.07 - Metodos Numericos</a></li>
-<li><a href="BE4M36MAS/index.html">BE4M36MAS - Multiagent Systems</a></li>
-<li><a href="BIE-EMP/index.html">BIE-EMP - Economy Principles</a></li>
-<li><a href="72.32/index.html">72.32 - Diseño y Procesamiento de Documentos XML</a></li>
-<li><a href="93.24/index.html">93.24 - Probabilidad y Estadistica</a></li>
-<li><a href="BIE-AAG/index.html">BIE-AAG - Automata and Grammars</a></li>
-<li><a href="72.35/index.html">72.35 - Ingenieria de Software I</a></li>
-<li><a href="72.36/index.html">72.36 - Interaccion Hombre-Computadora</a></li>
-<li><a href="BE5B33RPZ/index.html">BE5B33RPZ - Pattern Recognition and Machine Learning</a></li>
-<li><a href="MIE-FME/index.html">MIE-FME - Formal Methods and Specifications</a></li>
-<li><a href="72.11/index.html">72.11 - Sistemas Operativos</a></li>
+<li><p>Lema 1: $$</p>
+<p>a := p\ k := 2\ 2 1 (p,2) = 1 + <em>{i=0}^1 a[i] \ 2 1 \ (p,2) =1 + </em>{i=0}^1 a[i] \ (p,2) =1 + <em>{i=0}^1 a[i] p((p,2)) p(1 + </em>{i=0}^1 a[i]) p() = x \\</p>
+<p>$$</p></li>
+<li><p>Lemma 2: <span class="math display">\[
+\forall a,b,c,d. ((a \ge c \land b \ge d) \implies a + b \ge c + d )
+\]</span></p></li>
+<li><p>Lemma 3: <span class="math display">\[
+1+ p[0] + p[1] = r \implies P(1+ p[0] + p[1]) \implies P(r)\\
+P(\alpha) \equiv \alpha \ge 11
+\]</span></p></li>
 </ul>
 </body>
 </html>
