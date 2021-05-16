@@ -64,5 +64,8 @@ For the second problem, we can work around it with some tricks:
 
 Dynamic test generation, or Concolic testing is a technique that runs the program both concretely and symbolically.
 
-It creates the logical formula $X_{l_1,\dots,l_n}(P)$ line by line. As soon as formula creation arrives at a function that the solver cannot handle, let the program run until we receive the result of the function. 
+It creates the logical formula $X_{l_1,\dots,l_n}(P)$ line by line. As soon as formula creation arrives at a function that the solver cannot handle, let the program run until we receive the result of the function. This function does not find all test cases, it is only an approximation.
 
+For the symbolic execution, we need to cover as much pieces of code as possible. For this we use a Cover tree of paths up to a certain depth. This brings a problem with the amount of paths that have to be covered, as they can be millions.
+
+A way to solve this is by either merging paths or choosing them.
