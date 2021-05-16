@@ -5,12 +5,147 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>index</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1392,10 +1527,6 @@ blockquote {
 <body>
 <h1 id="formal-methods-and-specifications">Formal Methods and Specifications</h1>
 <ol type="1">
-<li><a href="08%20-%20Symbolic%20Program%20Execution.html">Symbolic Program Execution</a>
-<ul>
-<li><a href="08%20-%20Symbolic%20Program%20Execution.html#dynamic-test-generation">Dynamic Test Generation</a></li>
-</ul></li>
 <li><a href="02%20-%20Proofs.html">Proofs</a>
 <ul>
 <li><a href="02%20-%20Proofs.html#the-method">The Method</a></li>
@@ -1403,10 +1534,17 @@ blockquote {
 <li><a href="02%20-%20Proofs.html#proof-rules-for-equivalences">Proof Rules for Equivalences</a></li>
 <li><a href="02%20-%20Proofs.html#lemmas">Lemmas</a></li>
 </ul></li>
-<li><a href="06%20-%20Functions%20and%20Procedures.html">Functions and Procedures</a>
+<li><a href="03%20-%20Logical%20Theories.html">Logical Theories</a>
 <ul>
-<li><a href="06%20-%20Functions%20and%20Procedures.html#function-specification">Function Specification</a></li>
-<li><a href="06%20-%20Functions%20and%20Procedures.html#procedure-specification">Procedure Specification</a></li>
+<li><a href="03%20-%20Logical%20Theories.html#pairs">Pairs</a></li>
+<li><a href="03%20-%20Logical%20Theories.html#lists">Lists</a></li>
+<li><a href="03%20-%20Logical%20Theories.html#natural-numbers">Natural Numbers</a></li>
+<li><a href="03%20-%20Logical%20Theories.html#arrays">Arrays</a></li>
+</ul></li>
+<li><a href="04%20-%20Correctness%20of%20Simple%20Programs.html">Correctness of Simple Programs</a>
+<ul>
+<li><a href="04%20-%20Correctness%20of%20Simple%20Programs.html#static-single-assignment-form-(ssa)">Static Single Assignment Form (SSA)</a></li>
+<li><a href="04%20-%20Correctness%20of%20Simple%20Programs.html#verification-condition">Verification Condition</a></li>
 </ul></li>
 <li><a href="05%20-%20Correctness%20of%20Programs.html">Correctness of Programs</a>
 <ul>
@@ -1416,10 +1554,10 @@ blockquote {
 <li><a href="05%20-%20Correctness%20of%20Programs.html#program-correctness-and-loops">Program Correctness and Loops</a></li>
 <li><a href="05%20-%20Correctness%20of%20Programs.html#assertions-and-verification-conditions">Assertions and Verification Conditions</a></li>
 </ul></li>
-<li><a href="04%20-%20Correctness%20of%20Simple%20Programs.html">Correctness of Simple Programs</a>
+<li><a href="06%20-%20Functions%20and%20Procedures.html">Functions and Procedures</a>
 <ul>
-<li><a href="04%20-%20Correctness%20of%20Simple%20Programs.html#static-single-assignment-form-(ssa)">Static Single Assignment Form (SSA)</a></li>
-<li><a href="04%20-%20Correctness%20of%20Simple%20Programs.html#verification-condition">Verification Condition</a></li>
+<li><a href="06%20-%20Functions%20and%20Procedures.html#function-specification">Function Specification</a></li>
+<li><a href="06%20-%20Functions%20and%20Procedures.html#procedure-specification">Procedure Specification</a></li>
 </ul></li>
 <li><a href="07%20-%20Object%20Oriented%20Programming.html">Object Oriented Programming</a>
 <ul>
@@ -1431,12 +1569,21 @@ blockquote {
 <li><a href="07%20-%20Object%20Oriented%20Programming.html#extensions-of-data-types">Extensions of Data Types</a></li>
 </ul></li>
 </ul></li>
-<li><a href="03%20-%20Logical%20Theories.html">Logical Theories</a>
+<li><a href="08%20-%20Symbolic%20Program%20Execution.html">Symbolic Program Execution</a>
 <ul>
-<li><a href="03%20-%20Logical%20Theories.html#pairs">Pairs</a></li>
-<li><a href="03%20-%20Logical%20Theories.html#lists">Lists</a></li>
-<li><a href="03%20-%20Logical%20Theories.html#natural-numbers">Natural Numbers</a></li>
-<li><a href="03%20-%20Logical%20Theories.html#arrays">Arrays</a></li>
+<li><a href="08%20-%20Symbolic%20Program%20Execution.html#dynamic-test-generation">Dynamic Test Generation</a></li>
+</ul></li>
+<li><a href="09%20-%20Program%20Termination.html">Program Termination</a>
+<ul>
+<li><a href="09%20-%20Program%20Termination.html#well-founded-relation">Well-Founded Relation</a></li>
+<li><a href="09%20-%20Program%20Termination.html#lexicographic-relation">Lexicographic Relation</a></li>
+<li><a href="09%20-%20Program%20Termination.html#partial-vs-total-correctness">Partial vs Total Correctness</a>
+<ul>
+<li><a href="09%20-%20Program%20Termination.html#loop-termination">Loop Termination</a></li>
+<li><a href="09%20-%20Program%20Termination.html#extra-basic-paths">Extra Basic Paths</a></li>
+<li><a href="09%20-%20Program%20Termination.html#temporal-logic">Temporal Logic</a></li>
+</ul></li>
+<li><a href="09%20-%20Program%20Termination.html#automatization">Automatization</a></li>
 </ul></li>
 </ol>
 </body>

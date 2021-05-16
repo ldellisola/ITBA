@@ -5,12 +5,148 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>05</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1391,11 +1527,123 @@ blockquote {
 </head>
 <body>
 <h1 id="section">5</h1>
-<h2 id="section-1">14</h2>
-<blockquote>
-<p>Consider the following two programs</p>
-</blockquote>
-<p><img src="Resources/05/image-20210422153641080.png" alt="image-20210422153641080" style="zoom:33%;" /></p>
+<h2 id="section-1">12</h2>
 <h3 id="a">A</h3>
+<blockquote>
+<p>Write down a first-order predicate logical formula that represents the following I/O-specification in the way discussed in the lecture on functions and procedures:</p>
+<p><img src="Resources/05/image-20210504135045733.png" alt="image-20210504135045733" style="zoom:67%;" /></p>
+</blockquote>
+<p><span class="math display">\[
+\forall a,a^*,r,x \in \mathcal{N}. r \ge 0 \land p(a,a*,r,x) \implies a^*. a^* = a + rx
+\]</span></p>
+<h2 id="section-2">13</h2>
+<blockquote>
+<p>Consider the following class</p>
+<p><img src="Resources/05/image-20210504135658474.png" alt="image-20210504135658474" style="zoom:33%;" /></p>
+<p>Whether the notation used is the object-oriented notation used in the lecture on abstract data types. Now translate the following basic path from object-oriented notation to procedural notation</p>
+<pre><code>x &lt;- init(0,1)
+y &lt;- x
+x.add(7)
+y.add(1)
+assume x.fst() = y.snd()
+@ x.snd() &lt; 10</code></pre>
+</blockquote>
+<p>The result is:</p>
+<pre><code>x &lt;- init(0,1)
+y &lt;- x
+x &lt;- add(x,7)
+y &lt;- add(y,1)
+assume fst(x) = snd(y)
+@ snd(x) &lt; 10</code></pre>
+<h2 id="section-3">14</h2>
+<blockquote>
+<p>Consider the following two programs<img src="Resources/05/image-20210422153641080.png" alt="image-20210422153641080" style="zoom:33%;" /></p>
+<p>Here, all variables range over the integers and, as usual in this course, the scope of control statements is given by indentation.</p>
+</blockquote>
+<h3 id="a-1">A</h3>
+<blockquote>
+<p>Write down a table showing the values of the program variables at the position of the missing loop invariant at all loop iterations for some non-trivial input.</p>
+</blockquote>
+<p>First program, with input <code>i = 2</code></p>
+<pre><code>i = 3, -3, -2, -1</code></pre>
+<p>Second Program, with input <code>i=7,k=0</code>:</p>
+<pre><code>i = 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1,
+k = 0, 7, 8, 9, 7, 8, 9, 7, 8, 9, 7, 8, 9, 7, 8, 9, 7, 8, 9,</code></pre>
+<h3 id="b">B</h3>
+<blockquote>
+<p>Provide a variant wrt. an arbitrary well-founded relation. Explain informally why your result is a variant (no assertions or formal proofs are necessary).</p>
+</blockquote>
+<p>For the first program I will use the following well-founded relation: <span class="math display">\[
+(a,b)\in R \subset \mathbb{Z}\times \mathbb{Z} \\ 
+\iff \\
+|a| &gt; |b| \lor (|a| = |b| \land a &gt; b)
+\]</span> This relation is well-founded because it is constantly decreasing the absolute value of the number. To equal numbers cannot be part of the relation, and if two numbers with equal absolute value are in the relation, the right value must always be positive and the left one negative.</p>
+<p>For example: <span class="math display">\[
+(3,-3) \in R \iff |3| &gt; |-3| \lor (|3| = |-3| \land 3 &gt; -3 )
+\]</span> Here the first section of the term fails because <span class="math inline">\(|3| = 3 =|-3|\)</span>. The second part holds because <span class="math inline">\(3 &gt; -3\)</span></p>
+<p>Another example: <span class="math display">\[
+(-3,-2) \in R \iff |-3| &gt; |-2| \lor (|-3| = |-2| \land -3 &gt; -2)
+\]</span> Here the first term is valid, thus the pair is part of the relation.</p>
+<p>For the second program I will use the following well-founded relation: <span class="math display">\[
+((i,k),(i&#39;,k&#39;)) \in Q \subset\mathbb{N}^2\times\mathbb{N}^2 \\ \iff\\
+i &gt; i&#39; \lor (i = i&#39; \land (k-1) \text{ mod } 3 &lt; (k&#39;-1) \text{ mod } 3)
+\]</span> This relation is well-founded because it will always drive the value of <span class="math inline">\(i\)</span> down to 0:</p>
+<p>For example: <span class="math display">\[
+((7,0),(6,7)) \in Q \iff 7 &gt; 6 \lor (7 = 6 \land (0-1) \text{ mod } 3 = 2 &lt;0= (1-1) \text{ mod } 3 )
+\]</span> The first part of the term is valid, so the pair is part of the relation.</p>
+<p>Another example&gt; <span class="math display">\[
+((6,8),(6,9)) \in Q \iff 6 &gt; 6 \lor (6=6\land (8-1) \text{ mod } 3 = 1 &lt; 2 = (9-1) \text{ mod } 3)
+\]</span></p>
+<h2 id="section-4">15</h2>
+<blockquote>
+<p>Consider the following program:</p>
+<pre class="pseudocode"><code>found &lt;- False
+for i &lt;- 0 to n-k do:
+  @
+  p &lt;- True
+  for j &lt;- 0 to k-1 do:
+      @
+      if a[i+j] != s[j] then:
+          p &lt;- False
+      @
+  if p then:
+      found &lt;- True
+  @
+@ found &lt;=&gt; exists r. substr(a,n,s,k,r)</code></pre>
+<p>Here is the definition used:</p>
+<p><img src="Resources/05/image-20210504151247098.png" alt="image-20210504151247098" style="zoom:33%;" /></p>
+</blockquote>
+<h3 id="a-2">A</h3>
+<blockquote>
+<p>Add logical formulas as assertions to the program lines starting with @, trying to ensure that all verification conditions hold. It is not important that your answer is correct. But you must be able to:</p>
+<ul>
+<li>Either explain why you think your solution satisfies all verification conditions, or to</li>
+<li>Show several possibilities that you tried, explain why those possibilities are not a correct answer, and why you were not able to come up with a correct answer</li>
+</ul>
+</blockquote>
+<pre class="pseudocode"><code>found &lt;- False
+// Se para en una posicion entre 0 y el final de la palabra menos el finial del subst
+for i &lt;- 0 to n-k do:
+    // found = true if I already found a substring
+    @ i &lt;= n-k AND [found  = Exists t in {0,...,i-1}. substr(a,n,s,k,t)]
+    p &lt;- True
+    // DEsde donde estoy parado,voy a chequear que el str chico este en los proximos
+    // k elementos
+    for j &lt;- 0 to k-1 do:
+        @ j &lt;= k-1 AND (p = For all t in {0,...,j-1}. a[t + i] = s[t]) AND [found  = Exists t in {0,...,i-1}. substr(a,n,s,k,t)]
+        // Si algun elemento no es del str chico, entonces es falso
+        if a[i+j] != s[j] then:
+            p &lt;- False
+        @ (p = For all t in {0,...,j}. a[t + i] = s[t]) AND AND [found  = Exists t in {0,...,i-1}. substr(a,n,s,k,t)]
+    if p then:
+        found &lt;- True
+    @ found = Exist t in [0,i]. substr(.)
+@ found &lt;=&gt; exists r. substr(a,n,s,k,r)</code></pre>
+<p>We can also reuse substring instad of forall …</p>
+<p>p = inicio</p>
+<p>n = len(a)</p>
+<p>a = arreglo frande</p>
+<p>s = arreglo chico</p>
+<p>k = len(s)</p>
 </body>
 </html>
