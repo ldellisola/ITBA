@@ -47,7 +47,7 @@ In a network, every address must be unique. There are also different types of ad
 
 - **Multicast**:
 
-  Multicast sends a message to multiple decides at the same time. In the IPv4 standard the multicast addresses are contained within the following range"
+  Multicast sends a message to multiple devices at the same time. In the IPv4 standard the multicast addresses are contained within the following range"
   $$
   \array{224.0.0.0 & - & 239.255.255.255}
   $$
@@ -91,7 +91,7 @@ The packet header looks like this, with the following fields:
 - Options: Used only for some special purpose
 - Padding: Alignment of the header length to 32 bits.
 
-### Fragmentation
+
 
 
 

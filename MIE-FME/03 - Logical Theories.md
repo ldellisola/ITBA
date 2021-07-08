@@ -60,6 +60,8 @@ For the axioms, we are using Peano Arithmetic:
 - $\forall x.~~ x \cdot0=0$
 - $\forall x,y.~~x\cdot(y+1) = x \cdot y + x$
 
+
+
 ## Arrays
 
 Its type is defined as $\mathcal A[T]$.

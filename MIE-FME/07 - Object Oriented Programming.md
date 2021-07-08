@@ -63,7 +63,7 @@ Let $\Sigma$ be a signature over types $T_1,\dots,T_n$, a **$\Sigma-$structure**
   - Every function symbol $f:T_{i_1}\times \dots, \times T_{i_a} \rarr T_j$ from $\Sigma$ to a function $f:\Omega_{i_1}\times \dots \times \Omega_{i_a} \rarr \Omega_j$
   - Every predicate symbol $p:T_{i_1} \times \dots \times T_{i_a}$ from $\Sigma$ to a relation $r \subseteq \Omega_{i_1} \times \dots \times\Omega_{i_a}$
 
-We can think of this structure ad a concrete class in C++.
+We can think of this structure of a concrete class in C++.
 
 ### Semantics
 
@@ -91,4 +91,3 @@ Extensions are useful for adding properties to an existing specification.
 > $$
 > (\check\Sigma, \check A) \preceq (\hat\Sigma, \hat A)
 > $$
-> 

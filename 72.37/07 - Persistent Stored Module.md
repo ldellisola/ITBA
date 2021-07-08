@@ -6,7 +6,7 @@
 
 <img src="Resources/Untitled/image-20200526141007064.png" alt="image-20200526141007064" style="zoom:50%;" />
 
-### Definicion
+### Definición
 
 ```mssql
 CREATE FUNCTION nombreFuncion ([Parametros])

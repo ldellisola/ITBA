@@ -10,7 +10,7 @@ Layers only interact with neighboring layers and they work using services from t
 
 ### Physical Layer
 
-The Physical Layers transmits bits from one device to another trough a channel. This can be any any physical medium such as cable, fiber optics or air through WIFI. This layer defines how the cable is attached to the network adapter and what transmission techniques are used to send data.
+The Physical Layers transmits bits from one device to another through a channel. This can be any any physical medium such as cable, fiber optics or air through WIFI. This layer defines how the cable is attached to the network adapter and what transmission techniques are used to send data.
 
 ### Data Link Layer
 

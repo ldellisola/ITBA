@@ -1,39 +1,39 @@
-# Teoria de Normalizacion
+# Teoría de Normalización
 
-Una base de datos relacional es un conjunto de esquemas relacionados y sus restricciones. La mala representacion de la informacion produce ciertas anomalias.
+Una base de datos relacional es un conjunto de esquemas relacionados y sus restricciones. La mala representación de la información produce ciertas anomalías.
 
-### Anomalias
+### Anomalías
 
-- **Anomalia de insercion**: 
+- **Anomalía de inserción**: 
 
   Cuando se carga una entrada que no tiene todos los valores se lo indica con null, entonces hay entradas con muchos valores necesarios en null
 
-- **Anomalia de Modificacion**:
+- **Anomalía de Modificación**:
 
-  Cuando hay muchas entradas con datos repetidos y hay que actualizar alguno de estos datos, es muy ineficiente ir cambiandolo en todas las entradas donde esta actualemnte.
+  Cuando hay muchas entradas con datos repetidos y hay que actualizar alguno de estos datos, es muy ineficiente ir cambiándolo en todas las entradas donde esta actualmente.
 
-- **Anomalia de Borrado**:
+- **Anomalía de Borrado**:
 
-  Similar a la anomalia de insercion. Causa los mismos problemas.
+  Similar a la anomalía de inserción. Causa los mismos problemas.
 
 
 
-**Enfoque sintetico**: tomar tablas gigantes y empezar a partirlo en pedacitos.
+**Enfoque sintético**: tomar tablas gigantes y empezar a partirlo en pedacitos.
 
-**Enfoque analitico**: consiste en realizar un modelo de entidad/relacion bien realizado y genero a las tablas. Luego tengo que chequear que en las tablas creadas no haya anomalias.
+**Enfoque analítico**: consiste en hacer un modelo de entidad/relaciona bien realizado y generar a las tablas. Luego tengo que chequear que en las tablas creadas no haya anomalías.
 
-La teoria de normalizacion presenta un mecanismo con dos importantes utilidadesÑ
+La teoría de normalización presenta un mecanismo con dos importantes utilidades:
 
-- Reorganizar viejos sistemas donde no se conocen detalles de la implementacion inicial.
-- Evaluar la calidad de dise;o.
+- Reorganizar viejos sistemas donde no se conocen detalles de la implementación inicial.
+- Evaluar la calidad de diseño.
 
 ### Dependencia Funcional
 
-Sea $X$ e $Y$ dos conjuntos de atributos de un esquema de relacion $R$. Se dice que $X$ determina funcionalmente a $Y$ o que $Y$ depende funcionalmente de $X$ ($X\rightarrow Y$), si se cumple:
+Sea $X$ e $Y$ dos conjuntos de atributos de un esquema de relación $R$. Se dice que $X$ determina funcionalmente a $Y$ o que $Y$ depende funcionalmente de $X$ ($X\rightarrow Y$), si se cumple:
 $$
 \forall t_1,t_2 \in R :(t_1[X] =t_2[X] \Rightarrow t_1[Y] = t_2[Y])
 $$
-Al conjunto de dependencias funcionales basicas se lo llama $F$.
+Al conjunto de dependencias funcionales básicas se lo llama $F$.
 
 ##### Propiedades
 
@@ -43,16 +43,16 @@ $$
 
 ### Claves y Superclaves
 
-Podemos utilizar el concepto de dependencia funcional para definir la superclave y clave y de un esquema relacion.
+Podemos utilizar el concepto de dependencia funcional para definir la superclave y clave y de un esquema relación.
 
-Podemos definir a una <u>superclave</u>  de la siguente forma:
+Podemos definir a una <u>superclave</u> de la siguiente forma:
 $$
 \text{Sea un esquema de relacion $R$, } X \subseteq R \text{ es superclave para } R \text{ si cumple:}\\
 \array{
  (1) && X \rightarrow R &\text{(determina funcionalmente todo el esquema)}
 }
 $$
-De la misma forma, tenemos una nueva definicion para la <u>clave</u>:
+De la misma forma, tenemos una nueva definición para la <u>clave</u>:
 $$
 \text{Sea un esquema de relacion $R$, } X \subseteq R \text{ es clave para } R \text{ si cumple:}\\
 \array{
@@ -60,13 +60,13 @@ $$
  (2) && \not \exists Y \subset X / Y \rightarrow R & \text{(condicion minimal)}
 }
 $$
-Tambien tenemos una nueva definicion. Podemos definir a un <u>atributo primo</u> como un atributo que forma parte de alguna clave.
+También tenemos una nueva definición. Podemos definir a un <u>atributo primo</u> como un atributo que forma parte de alguna clave.
 
 ### Clausura de Dependencias Funcionales
 
-Denotaremos con $F$ al <u>conjunto de dependencias funcionales</u> de un esqiema de relacion $R$. Dicho conjunto se obtiene con las dependencias qiue son semanticamente obvias sobre dico esquema. Sin embargo, de estas dependencias obvias pueden surgir muchas otras.
+Denotaremos con $F$ al <u>conjunto de dependencias funcionales</u> de un esquema de relación $R$. Dicho conjunto se obtiene con las dependencias que son semánticamente obvias sobre dicho esquema. Sin embargo, de estas dependencias obvias pueden surgir muchas otras.
 
-Se denomica <u>clausura</u> del conjunto $F$, correspondiente a un esquema,  al conjunto que contiene todas las posibles dependencias funcionales de dicho esquema. Tambien se lo puede definir de la siguente forma:
+Se denomina <u>clausura</u> del conjunto $F$, correspondiente a un esquema,  al conjunto que contiene todas las posibles dependencias funcionales de dicho esquema. También se lo puede definir de la siguiente forma:
 $$
 \text{Se denomina } F^+ \text{ a la clausura de } F \text{ y es el conjunto de todas las dependencias}\\ \text{ funcionales inferidas logicamente de } F :\\
 F^+ = \{X \rightarrow Y / F \mid= X\rightarrow Y\}
@@ -74,24 +74,24 @@ $$
 
 ### Axioma de Armstrong y Reglas de Inferencia
 
-Sean $X, Y, Z$ conjuntos de atributos de un esquema de relacion $R$, los siguentes axiomas constituyen un conjunto:
+Sean $X, Y, Z$ conjuntos de atributos de un esquema de relación $R$, los siguientes axiomas constituyen un conjunto:
 
-- **Correcto**: Significa que no se pueden derivar dependencias funcionales que no se puedan implicar logicamente de $F$. Al aplicar los axiomas solo se obtienen dependencias funcionales que estan en $F^+$ (No por fuera de $F^+$).
+- **Correcto**: Significa que no se pueden derivar dependencias funcionales que no se puedan implicar lógicamente de $F$. Al aplicar los axiomas solo se obtienen dependencias funcionales que están en $F^+$ (No por fuera de $F^+$).
 
-  En otras palabras: Si $X\rightarrow Y$ se deriva logicamente de $F$ usando axiomas de Armstrong, entonces $X\rightarrow Y$ vale para toda relacion $R$ en la cual valgan las dependencias funcionales en $F$.
+  En otras palabras: Si $X\rightarrow Y$ se deriva lógicamente de $F$ usando axiomas de Armstrong, entonces $X\rightarrow Y$ vale para toda relación $R$ en la cual valgan las dependencias funcionales en $F$.
 
-- **Completo**: Significa que al aplciar dichos axiomas se genear todo $F^+$.
+- **Completo**: Significa que al aplicar dichos axiomas se generar todo $F^+$.
 
   Si una dependencia funcional de $X\rightarrow Y$ pertenece a $F^+$, entonces puede deducirse usando los axiomas de Armstrong sobre $F$.
 
-Los Axiomas de Armstrong son los siguentes:
+Los Axiomas de Armstrong son los siguientes:
 
 - Reflexividad:
   $$
   Y \subseteq X \Rightarrow X\rightarrow Y
   $$
 
-- Aumentacion:
+- Aumentación:
   $$
   X\rightarrow Y \Rightarrow XZ\rightarrow YZ
   $$
@@ -109,9 +109,9 @@ Los Axiomas de Armstrong son los siguentes:
   X \rightarrow Z
   $$
 
-Ademas, a partir de estos axiomas, se pueden obtener las siguentes reglas:
+Además, a partir de estos axiomas, se pueden obtener las siguientes reglas:
 
-- Union:
+- Unión:
   $$
   \left .
   \array{
@@ -137,7 +137,7 @@ Ademas, a partir de estos axiomas, se pueden obtener las siguentes reglas:
   XU \rightarrow Z
   $$
 
-- Descomposicion:
+- Descomposición:
   $$
   X \rightarrow YZ
   \Rightarrow 
@@ -149,11 +149,10 @@ Ademas, a partir de estos axiomas, se pueden obtener las siguentes reglas:
   
   \right .
   $$
-  
 
-Para encontrar una clausura $F^+$ hay que aplicar estas relgas y axiomas a todas las dependencias funcionales de $F$ hasta que no se encuentren mas. Este problema tiene una dificultad exponencial y es muy costoso.
+Para encontrar una clausura $F^+$ hay que aplicar estas reglas y axiomas a todas las dependencias funcionales de $F$ hasta que no se encuentren mas. Este problema tiene una dificultad exponencial y es muy costoso.
 
-Existe un problema mas acotado pero igual de util llamado <u>Pertenencia de una dependencia Funcional</u>:
+Existe un problema mas acotado pero igual de útil llamado <u>Pertenencia de una dependencia Funcional</u>:
 $$
 \text{Dado un esquema } R \text{ y el conjunto de dependencias funcionales } F \text{. Siempre es posible} \\ \text{ decidir si una dependencia funcional } X\rightarrow Y \text{ con } X \text{ y } Z \text{ atributos de } R \text{, pertenece a }F^+.
 $$
@@ -161,7 +160,7 @@ Lo interesante de ese problema es que no es necesario calcular $F^+$ para resolv
 
 ### Clausura de Atributos
 
-En muchos casos se necesita saber si una dependencia funcional $X \rightarrow B$ pertenece a $F^+$. En este caso conviene trabajar con la clausura del conjunto de atributos que se encuantran a la izquierda de la dependencia a investigar y evitar calcular $F^+$.
+En muchos casos se necesita saber si una dependencia funcional $X \rightarrow B$ pertenece a $F^+$. En este caso conviene trabajar con la clausura del conjunto de atributos que se encuentran a la izquierda de la dependencia a investigar y evitar calcular $F^+$.
 
 La clausura de atributos se puede definir como:
 $$
@@ -169,7 +168,7 @@ $$
 X^+:\{ A / X \rightarrow A \in F^+ \}
 $$
 
-A continuacion vamos a ver un algoritmo de tiempo lineal para calcular $X^+$:
+A continuación vamos a ver un algoritmo de tiempo lineal para calcular $X^+$:
 
 ```pseudocode
 X+ = {X}
@@ -183,22 +182,20 @@ while( X+ cambie ) {
 }
 ```
 
+### Proceso de Normalización
 
+La normalización de una base de datos consiste en un proceso por el cual los esquemas de relaciona que presentan anomalías se descomponen en esquemas mas peque;os que cumplen con propiedades deseables para el mantenimiento de la misma.
 
-### Proceso de Normalizacion
+El proceso de normalización consiste en verificar que un esquema de relación cumple con 4 <u>formas</u> llamadas formas normales **primera**, **segunda** y **tercera**. Además existe una forma Codd-Boyce. Estas 4 formas se basan en dependencias funcionales entre atributos.
 
-La normalizacion de una base de datos consiste en un proceso por el cual los esquemas de relacion que presentan anomalias se descomponene en esquemas mas peque;os que cumplen con propiedades deseables para el mantenimiento de la misma.
+Sin embargo, la descomposición que introduce toda normalización no garantiza un buen diseño. Para lograrlo se tienen que considerar las siguientes propiedades:
 
-El proceso de normalizacion consiste en verificar que un esquema de relaion cumple con 4 <u>formas</u> llamadas formas normales **primera**, **segunda** y **tercera**. Ademas existe una forma Codd-Boyce. Estas 4 formas se basan en dependencias funcionales entre atributos.
-
-Sin embargo, la descomposicion que introduce toda normalizacion no garantiza un buen dise;o. Para lograrlo se tienen que considerar las siguentes propiedades:
-
-- **No perder informacion**
+- **No perder información**
 - **Preservar Dependencias**
 
 #### Descomposición sin perdida de información
 
-Cuando un sistema maneja informacion redundante, puede ser necesario descomponerlo en otros esquemas, pero esta division no puede ser arbitraria.
+Cuando un sistema maneja información redundante, puede ser necesario descomponerlo en otros esquemas, pero esta división no puede ser arbitraria.
 $$
 \text{El conjunto de subesquemas }R_1, R_2,\dots,R_k \text{ es una descomposicion } \\ \text{sin perdida de informacion } R \text{ si cumple:}\\
 \array{
@@ -206,22 +203,22 @@ $$
 (2) && r_1 \Join r_2 \Join \dots \Join r_k = r \text{ donde } r_i = \pi_{R_i}(r)
 }
 $$
-#### Condicion de Descomposicion sin Perdida para Dos Esquemas
+#### Condición de Descomposición sin Perdida para Dos Esquemas
 
-Si un esquema de relacion $R$ se descompone solo en $R_1, R_2$, la descomposicion debe realizarse de manera tal que por lo menos una de las siguientes dependencias funcionales pertenezcan a $F^+$:
+Si un esquema de relación $R$ se descompone solo en $R_1, R_2$, la descomposición debe realizarse de manera tal que por lo menos una de las siguientes dependencias funcionales pertenezcan a $F^+$:
 $$
 \array{
 	(R_1 \cap R_2) \rightarrow R_1 - R_2 \\
 	(R_1 \cap R_2) \rightarrow R_2 - R_1
 }
 $$
-#### Condicion de Descomposicion sin Perdida para N Esquemas
+#### Condición de Descomposición sin Perdida para N Esquemas
 
-Para determinar si al descomposicion en mas de dos esquemas tienen perdida de informacion o no hay que usar una matriz especial denominada <u>tableau</u>.
+Para determinar si al descomposición en mas de dos esquemas tienen perdida de información o no hay que usar una matriz especial denominada <u>tableau</u>.
 
-Esta matriz consiste en una matriz bidimensional que tiene una columna por cada atributo del esquema al cual corresponde dicho tableau. Sus filas estan compuestas por varaibles distinguidas (representadas por la letra *a*, que aparece subindizado con el numero de la columna) y por variables ligadas o no distinguidas (representadas por la letra *b*, que aparece subindicada con el numero de fila y columna). Cada variable puede aparecer sollo en una columna y en una misma columna no puede haber mas de una variable distinguida.
+Esta matriz consiste en una matriz bidimensional que tiene una columna por cada atributo del esquema al cual corresponde dicho tableau. Sus filas están compuestas por variables distinguidas (representadas por la letra *a*, que aparece subindicador con el numero de la columna) y por variables ligadas o no distinguidas (representadas por la letra *b*, que aparece subindicada con el numero de fila y columna). Cada variable puede aparecer solo en una columna y en una misma columna no puede haber mas de una variable distinguida.
 
-Para poder detectar la perdida de informacion en una descomposicion, se arma un tableau inicial con una fila por cada subesquema $R_i$, completando dicha fila de la siguente forma:
+Para poder detectar la perdida de información en una descomposición, se arma un tableau inicial con una fila por cada subesquema $R_i$, completando dicha fila de la siguiente forma:
 $$
 T(i,j) =
 
@@ -232,24 +229,24 @@ T(i,j) =
 }
 \right .
 $$
-A partir de la configuracion inicial se van haciendo los cambios necesarios para que se cumplan las dependencias funcionales de $R$, obteniendo nuevos tableaus equivalentes al inicial.
+A partir de la configuración inicial se van haciendo los cambios necesarios para que se cumplan las dependencias funcionales de $R$, obteniendo nuevos tableaus equivalentes al inicial.
 
-Para que una descomposicion de N esquemas no tenga perdidas, se tiene que cumplir que:
+Para que una descomposición de N esquemas no tenga perdidas, se tiene que cumplir que:
 $$
 \text{Si un esquema de relacion } R \text{ se descompone en } R_1, R_2, \dots, R_N \\
 \text{esquemas, la descomposicion debe realizarse de manera tal que por lo menos exista } \\ \text{una fila de variables distinguidas en el tableau correspondiente o en uno equivalente}
 $$
-#### Descomposicion Preservando Dependencias (Sin perdida de DFs)
+#### Descomposición Preservando Dependencias (Sin perdida de DFs)
 
-Mediante el metodo anterior podemos asegurar que no haya perdida de informacion, pero podemos haber perdido alguna dependencia funcional. Para asegurarse que no se peirdan estas dependencias, hay que seguir la siguente regla:
+Mediante el método anterior podemos asegurar que no haya perdida de información, pero podemos haber perdido alguna dependencia funcional. Para asegurarse que no se pierdan estas dependencias, hay que seguir la siguiente regla:
 $$
 \text{Dado un esquema } R \text{, se dice que no haya perdida de dependencias al descomponerlo } \\ \text{ en } N \text{ esquemas } R_i \text{, si sus clausuras de dependencias funcionales son equivalentes:}\\\\
 \ \\
 {F'}^+ = F^+ \text{ donde } F' = \bigcup_{i=1}^N \pi_{R_i}(F^+)
 $$
-Basicamente tengo que hacer union de todas las $F_i$ y a partir de esta union tenes que poder crear todas las dependencias del $F$ original.
+Básicamente tengo que hacer unión de todas las $F_i$ y a partir de esta unión tenes que poder crear todas las dependencias del $F$ original.
 
-A continuacion se puede ver un algoritmo que permite calcular la proyeccion de $F^+$ sobre un subesquema de $R$
+A continuación se puede ver un algoritmo que permite calcular la proyección de $F^+$ sobre un subesquema de $R$
 
 ```pseudocode
 F_1 = F
@@ -279,7 +276,7 @@ while( X != NULL){
 
 ## Formas Normales sobre Dependencias entre Atributos
 
-A continuacion veremos las condiciones que se deben cumplir para que un esquema cumpla las 4 formas normales que se basan en las dependencias entre atributos
+A continuación veremos las condiciones que se deben cumplir para que un esquema cumpla las 4 formas normales que se basan en las dependencias entre atributos
 
 #### Primera forma normal (1NF)
 $$
@@ -287,29 +284,29 @@ $$
 $$
 #### Segunda forma normal (2NF)
 
-Esta forma normal se basa en el concepto de dependencia funcional total. A continuacion vamos a definir los conceptos dependencia total y parcial.
+Esta forma normal se basa en el concepto de dependencia funcional total. A continuación vamos a definir los conceptos dependencia total y parcial.
 
 - **Dependencia total**:
 $$
   \text{Una dependencia } \alpha \rightarrow\beta 
   \text{ es total si } \forall A \in \alpha :(\alpha - \{A\}) \not \rightarrow \beta
 $$
-  En otras palabras, una dependencia $\alpha \rightarrow \beta$ es total si $\beta$ no depende funcionalmente de ningun subconjunto de $\alpha$.
+En otras palabras, una dependencia $\alpha \rightarrow \beta$ es total si $\beta$ no depende funcionalmente de ningún subconjunto de $\alpha$.
 
 - **Dependencia parcial**:
 $$
   \text{Una dependencia } \alpha \rightarrow\beta 
   \text{ es parcial si } \exists A \in \alpha :(\alpha - \{A\})  \rightarrow \beta
 $$
-  En otras palabras, $\beta$ depende parcialmente de $\alpha$ si depende funcionalmente solo de algun subconjunto de $\alpha$. Obviamente que $\alpha \rightarrow \beta$ sea parcial obliga a que $\alpha$ sea compuesto.
+En otras palabras, $\beta$ depende parcialmente de $\alpha$ si depende funcionalmente solo de algún subconjunto de $\alpha$. Obviamente que $\alpha \rightarrow \beta$ sea parcial obliga a que $\alpha$ sea compuesto.
 
-La definicion de 2NF es:
+La definición de 2NF es:
 $$
 \text{Un esquema de relacion } R \text{ se encuentra en } \bold{\text{segunda forma normal}}  \text{ si no existe } \\ \text{ningun atributo } A  \text{ no primo en } R \text{ que no sea parcialmente dependiente de alguna clave}
 $$
-Tradicionalmente se decia que un esquema estaba en 2NF si estaba en 1NF y ademas todo atributo no primo era totalmente dependiente de la clave.
+Tradicionalmente se decía que un esquema estaba en 2NF si estaba en 1NF y además todo atributo no primo era totalmente dependiente de la clave.
 
-**Normalizacion de un esquema $R$ en 2NF**
+**Normalización de un esquema $R$ en 2NF**
 $$
 \text{Para normalizar un esquema que viona 2NF hay que quitarle los atributos no primos } \\ \text{ que dependen parcialmente de la clave y formar un nuevo esquema con ellos y la } \\ \text{ porcion de clave de la que dependian}
 $$
@@ -326,9 +323,9 @@ También vamos a definir a las **dependencias transitivas**:
 $$
 \text{Una dependencia } X \rightarrow Y \text{ es transitiva si existe un conjunto de  atributos} \\ Z\text{ no primos para el cual } X \rightarrow Z \text{ y } Z \rightarrow Y
 $$
-Tradicionalmente se definia como 3NF a aquellos esquemas que estaban en 2NF y que ademas para todo conjunto de atributos no primos $\alpha$ se cumplia que $\alpha$ no depende transitivamente de una clave.
+Tradicionalmente se definía como 3NF a aquellos esquemas que estaban en 2NF y que además para todo conjunto de atributos no primos $\alpha$ se cumplía que $\alpha$ no depende transitivamente de una clave.
 
-Por otro lado, la definicion formal de la **tercera forma normal** es :
+Por otro lado, la definición formal de la **tercera forma normal** es :
 $$
 \text{Un esquema de relacion } R \text{ se encuentra en tercera forma normal si para toda} \\ \text{dependencia } \alpha \rightarrow \beta \text{ no trivial de } F^+ \text{ se cumple:}
 \\
@@ -336,15 +333,15 @@ $$
 	\alpha \text{ es superclave} & \text{o} & \beta \text{ es primo}
 }
 $$
- Para realizar una normalización hacia la tercera forma normal, se deben seguir los siguentes pasos:
+ Para realizar una normalización hacia la tercera forma normal, se deben seguir los siguientes pasos:
 
 1. Hallar $F_m$, un recubrimiento minimal de $F$
-2. Juntar las dependencias que coincidan en su lado izquierdo (aplicar regla de union)
-3. Para cada $X \rightarrow Y$ de $F_m$, crear una relacion con el esquema $XY$
-4. Eliminar toda relacion cuyo esquema sea subconjunto de otro.
-5. Si ninguno de los esquemas creados contiene una clave candidata de $R$, agregar un esquema conteniendola, a los efecots de que no tenga perdida de informacion.
+2. Juntar las dependencias que coincidan en su lado izquierdo (aplicar regla de unión)
+3. Para cada $X \rightarrow Y$ de $F_m$, crear una relación con el esquema $XY$
+4. Eliminar toda relación cuyo esquema sea subconjunto de otro.
+5. Si ninguno de los esquemas creados contiene una clave candidata de $R$, agregar un esquema conteniéndola, a los efectos de que no tenga perdida de información.
 
-Esta forma asegura la <u>no perdida de informacion</u> y la <u>conservacion  de las dependencias funcionales</u>
+Esta forma asegura la <u>no perdida de información</u> y la <u>conservación de las dependencias funcionales</u>
 
 
 

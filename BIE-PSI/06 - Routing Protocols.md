@@ -58,7 +58,7 @@ The routing tables synchronize between the neighbors at startup, and then send s
 
 ## Routing in the Internet
 
-The internet can be described as a collection of connected autonomous systems (AS). Each AS themselves are a collection of connected IP networks under the control of  one network operator or company (ISP). Each AS is identified by an Autonomous System Number (ASN).
+The internet can be described as a collection of connected autonomous systems (AS). Each AS themselves are a collection of connected IP networks under the control of one network operator or company (ISP). Each AS is identified by an Autonomous System Number (ASN).
 
 Inside each of these AS, the Internal Gateway Protocol (IGP) is used, where some of the previous protocols (RIP, OSPF, EIGRP) is used. For connection between autonomous systems we use the Exterior Gateway Protocol (EGP), that uses the Border Gateway Protocol (BGP) and it is based on the path-vector routing protocol.
 
