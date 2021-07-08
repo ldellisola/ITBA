@@ -5,12 +5,147 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>07 - Transport Layer</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1394,7 +1529,7 @@ blockquote {
 <h3 id="transport-layer-services">Transport Layer Services</h3>
 <p>The transport layer is the boundary between the applications and the network. It ensures transparent data transfer between end-users, providing reliability, flow control, data segmentation and correction of errors.</p>
 <h4 id="addressing">Addressing</h4>
-<p>The service must have an address, in this case it is known as <strong>Transport Service Access Point</strong> (TSAP). There are some predefined TSAPs like port 80 for http services. There are also some dynamically allocated addresses that need special software, such as portmapper, that registers TSAP for other services like BitTorrent.</p>
+<p>The service must have an address, in this case it is known as <strong>Transport Service Access Point</strong> (TSAP). There are some predefined TSAPs like port 80 for HTTP services. There are also some dynamically allocated addresses that need special software, such as portmapper, that registers TSAP for other services like BitTorrent.</p>
 <h2 id="connection">Connection</h2>
 <p>There are different ways to stablish a connection, the most simple one is to just send a request and accept it:</p>
 <p><img src="Resources/07 - Transport Layer/image-20210507151857261.png" alt="image-20210507151857261" style="zoom:33%;" /></p>
@@ -1409,5 +1544,80 @@ blockquote {
 <li><strong>Symmetric Termination</strong>: Here both sides must agree on closing the connection. While this solution does not have any data loss, there is no fully reliable solution if the communication is not secured. This problem can bee seen with the <em>“Two Armies Problem”</em>.</li>
 </ul>
 <h3 id="the-two-armies-problem">The Two Armies Problem</h3>
+<p>This problem looks simple, let’s say there are two armies surrounding a third, enemy army in the middle.</p>
+<p><img src="Resources/07 - Transport Layer/image-20210522114551361.png" alt="image-20210522114551361" style="zoom:33%;" /></p>
+<p>If either army attacks the enemy alone, they will loose, but if both attack at the same time, then they will win. The problem here is coordinating the attack across the enemy army without it noticing it.</p>
+<p>### Flow Control</p>
+<p>This layer follows the same principles as the link layer:</p>
+<ul>
+<li>Detection of errors</li>
+<li>Elimination of duplicated packets</li>
+<li>Limited number of unacknowledged packets</li>
+<li>Sliding window</li>
+</ul>
+<p>It also allows for congestion control, preventing the network from overwhelming.</p>
+<h2 id="tcp">TCP</h2>
+<p>TCP is the <strong>Transmission Control Protocol</strong>, which is a service on the layer 4 that is <strong>connection-oriented</strong>,guarantees <strong>error free data</strong> transmissions and it fully <strong>duplex</strong>.</p>
+<p>The data delivery systems guarantees:</p>
+<ul>
+<li>Checksum</li>
+<li>Detection of duplicate packets</li>
+<li>Retransmission</li>
+<li>Correct ordering</li>
+<li>Timeout</li>
+</ul>
+<h3 id="header">Header</h3>
+<p><img src="Resources/07 - Transport Layer/image-20210522115145549.png" alt="image-20210522115145549" style="zoom:33%;" /></p>
+<h3 id="connection-establishment">Connection Establishment</h3>
+<p><img src="Resources/07 - Transport Layer/image-20210522115300450.png" alt="image-20210522115300450" style="zoom:33%;" /></p>
+<h3 id="connection-termination-1">Connection Termination</h3>
+<p><img src="Resources/07 - Transport Layer/image-20210522115352310.png" alt="image-20210522115352310" style="zoom:33%;" /></p>
+<h3 id="sliding-window">Sliding Window</h3>
+<p>The receiver reserves a buffer for receiving data and the sender will notify the window size in the packet. The sender must not send more data than the size of the window, then waits for acknowledgement. The window size is decreased if the receiver does not manage to process the data and the windows may be shrunk to improve flow control.</p>
+<h3 id="acknowledgment">Acknowledgment</h3>
+<p>The receiver sends ACK, where is the sequence number of the byte, which was expected. This confirms that all the previous bytes have been received. The receiver does not need to send individual acknowledgments for each packet.</p>
+<ul>
+<li><p><strong>Timeout on the sender</strong>: The sender has no ACK up to the expected time, and the unacknowledged data will be retransmitted.</p></li>
+<li><p><strong>Duplicate ACK</strong>: If the packet does not arrive, but the following does, the receiver repeats the last ACK. This is used as an indicator that the package might have been lost.</p></li>
+<li><p><strong>Timeout on the receiver</strong>: If no packet arrived up to the expected time, the sender will send the last ACK again up to a maximum of 3 retries.</p></li>
+</ul>
+<h3 id="window-size">Window Size</h3>
+<p>The window size can go from 16 bits to 64 kilobytes. This poses a problem on fast links, as for example, in a 1Gbps link, sending 64kB takes 0.5 ms, and for a delay of 50 ms link is used only for 1% of its capacity.</p>
+<p>This is solved using the <strong>window scale option</strong>, where a maximum value of 14 may be used for the scale factor and 30 bits can be used for window size.</p>
+<h3 id="congestion-control">Congestion Control</h3>
+<p>There are several variables to do congestion control:</p>
+<ul>
+<li><strong>Maximum Segment Size (MSS)</strong>: The maximum size of the packet to be sent, defined by the receiver.</li>
+<li><strong>Slow-start Threshold (SSTHRESH)</strong>: It is a limit for likely congestion. It estimates how many unconfirmed data can be sent and it is written in multiples of MSS.</li>
+<li><strong>Congestion Window (CWND)</strong>: It is the sender window. It counts how many unconfirmed data the sender sends.</li>
+</ul>
+<p>Congestion is caused by a packet or its acknowledgment that is lost. There are two cases:</p>
+<ul>
+<li><u>If ACK did not come at all</u>: The transmission is repeated from the last acknowledged packet and the slow start is repeated.</li>
+<li><u>If duplicate ACK comes 3 times</u>: A <em>fast retransmit</em> and <em>fast recovery</em> method is activated and the lost packet is sent again, but not the following ones. The CWND is decreased by half.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>TCP is good for applications which need a reliable data channel to send medium to large blocks of data. Because of its big overhead, it is not suitable for real-time applications and it is too complex for embedded systems.</p>
+<h2 id="udp">UDP</h2>
+<p>The <strong>User Datagram Protocol</strong> is a connection-less service on layer 4. The datagram in this service may be lost, and it uses ports for multiplexing in the same way TCP does. The maximum size of the packet to be sent is 64 kB.</p>
+<h3 id="header-1">Header</h3>
+<p><img src="Resources/07 - Transport Layer/image-20210522123922320.png" alt="image-20210522123922320" style="zoom:33%;" /></p>
+<h3 id="usage-1">Usage</h3>
+<p>UDP is used when we want to send small blocks of data and :</p>
+<ul>
+<li>Packet losses are not critical</li>
+<li>TCP overhead is not acceptable</li>
+</ul>
+<h2 id="rtp">RTP</h2>
+<p>The <strong>Real-time Transport Protocol</strong> handles streaming data between endpoints in real time. The header contains a <em>timestamp</em> with the time from the beginning of the stream. The unit depends on the application and it allows to interpret the received block.</p>
+<p>This protocol is mostly implemented over UDP and its usage covers:</p>
+<ul>
+<li>Multimedia formats</li>
+<li>Videoconferencing</li>
+<li>Data Streaming</li>
+<li>VoIP</li>
+</ul>
+<h4 id="rtcp">RTCP</h4>
+<p>RTCP is the STP control protocol. It provides statistics and control information for an RTP session. It does not transport any media data itself and it is used to control quality of service.</p>
 </body>
 </html>

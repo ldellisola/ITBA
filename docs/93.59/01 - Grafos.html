@@ -5,13 +5,148 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>01 - Grafos</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
-  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1495,7 +1630,7 @@ A_D[u,v]=
 <p>Se los denomina <span class="math inline">\(\mathbb K_m\)</span>, siendo <span class="math inline">\(m\)</span> la cantidad de vértices.</p>
 <h5 id="ejemplos">Ejemplos</h5>
 <figure>
-<img src="Resources/1565004409238.png" alt="1565004409238" /><figcaption>1565004409238</figcaption>
+<img src="Resources/1565004409238.png" alt="1565004409238" /><figcaption aria-hidden="true">1565004409238</figcaption>
 </figure>
 <h3 id="grafos-caminos">Grafos Caminos</h3>
 <p>Son grafos cuyos vértices tienen como máximo 2 conexiones.</p>
@@ -1503,7 +1638,7 @@ A_D[u,v]=
 <p>Se los denomina <span class="math inline">\(\mathbb P_n\)</span> siendo <span class="math inline">\(n\)</span> la cantidad de vértices.</p>
 <h5 id="ejemplos-1">Ejemplos</h5>
 <figure>
-<img src="Resources/1565004647933.png" alt="1565004647933" /><figcaption>1565004647933</figcaption>
+<img src="Resources/1565004647933.png" alt="1565004647933" /><figcaption aria-hidden="true">1565004647933</figcaption>
 </figure>
 <h2 id="grafos-ciclos">Grafos Ciclos</h2>
 <p>Son grafos en los que cada vértice se conectan con 2 aristas cada uno.</p>
@@ -1511,7 +1646,7 @@ A_D[u,v]=
 <p>Se los nota como <span class="math inline">\(\mathbb C _n\)</span> y <span class="math inline">\(n\)</span> son los vértices.</p>
 <h5 id="ejemplos-2">Ejemplos</h5>
 <figure>
-<img src="Resources/1565004816406.png" alt="1565004816406" /><figcaption>1565004816406</figcaption>
+<img src="Resources/1565004816406.png" alt="1565004816406" /><figcaption aria-hidden="true">1565004816406</figcaption>
 </figure>
 <h2 id="grafos-dipolo">Grafos Dipolo</h2>
 <p>Son Grafos con 2 vértices y distinta cantidad de aristas entre si.</p>
@@ -1519,7 +1654,7 @@ A_D[u,v]=
 <p><span class="math inline">\(\mathbb D_n\)</span> y <span class="math inline">\(n\)</span> es la cantidad de aristas.</p>
 <h5 id="ejemplos-3">Ejemplos</h5>
 <figure>
-<img src="Resources/1565005134966.png" alt="1565005134966" /><figcaption>1565005134966</figcaption>
+<img src="Resources/1565005134966.png" alt="1565005134966" /><figcaption aria-hidden="true">1565005134966</figcaption>
 </figure>
 <h2 id="grafos-cubo">Grafos Cubo</h2>
 <p>Estos grafos tienen <span class="math inline">\(2^n\)</span> vértices. Si los notamos como números binarios, 2 vértices son adyacentes si difieren exactamente en 1 bit. La cantidad de aristas se puede calcular de la siguiente forma: <span class="math display">\[
@@ -1529,7 +1664,7 @@ A_D[u,v]=
 <p>Se los nota <span class="math inline">\(Q_n\)</span> y <span class="math inline">\(n\)</span> es la cantidad de bits con los que pueden ser representados los vértices.</p>
 <h5 id="ejemplos-4">Ejemplos</h5>
 <figure>
-<img src="Resources/1565005407162.png" alt="1565005407162" /><figcaption>1565005407162</figcaption>
+<img src="Resources/1565005407162.png" alt="1565005407162" /><figcaption aria-hidden="true">1565005407162</figcaption>
 </figure>
 <h3 id="grafo-bipartito-final">Grafo Bipartito ==Final==</h3>
 <p>Sea el grafo <span class="math inline">\(G=(V,E)\)</span> simple y sin lazos, es bipartito si <span class="math inline">\(V\)</span> = <span class="math inline">\(V_1 \cup V_2\)</span> u <span class="math inline">\(V_1 \cap V_2 = \emptyset\)</span>. Debe existir una partición donde se cumple con la condición, pero no es necesario que todas las posibles particiones cumplan con la condición para ser bipartito.</p>
@@ -1547,7 +1682,7 @@ G \text{ es bipartito} \Leftrightarrow G \text{ no tiene ciclos de longitud impa
 <p><a href="Demostraciones\01%20-%20Grafos\Proposicion%2003.html">Demostración</a></p>
 <h4 id="grafo-bipartito-completo">Grafo Bipartito Completo</h4>
 <figure>
-<img src="Resources/1565009731760.png" alt="1565009731760" /><figcaption>1565009731760</figcaption>
+<img src="Resources/1565009731760.png" alt="1565009731760" /><figcaption aria-hidden="true">1565009731760</figcaption>
 </figure>
 <p>Este es un grafo <span class="math inline">\(\mathbb K_{4,3}\)</span>.</p>
 <h3 id="grafo-rueda">Grafo Rueda</h3>
@@ -1580,7 +1715,7 @@ G \text{ es bipartito} \Leftrightarrow G \text{ no tiene ciclos de longitud impa
 <p><img src="Resources/1565010619842.png" style="zoom:50%"></p>
 <p>Y le quiero eliminar el vértice <span class="math inline">\(C\)</span>, entonces obtengo el grafo <span class="math inline">\(G-\{C\}\)</span>:</p>
 <figure>
-<img src="Resources/1565010704540.png" alt="1565010704540" /><figcaption>1565010704540</figcaption>
+<img src="Resources/1565010704540.png" alt="1565010704540" /><figcaption aria-hidden="true">1565010704540</figcaption>
 </figure>
 <h4 id="borrado-de-una-arista">Borrado de una Arista</h4>
 <p>Si e es una arista del grafo (dirigido o no) <span class="math inline">\(G\)</span>, entonces <span class="math inline">\(G−e\)</span> es el subgrafo cuyo conjunto de aristas es <span class="math inline">\(E_G −{e}\)</span> y el conjunto de vértices es <span class="math inline">\(V_G\)</span>.</p>

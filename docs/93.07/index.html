@@ -5,13 +5,148 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>index</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
-  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1393,6 +1528,43 @@ blockquote {
 <body>
 <h1 id="metodos-numericos">Metodos Numericos</h1>
 <ol type="1">
+<li><a href="01%20-%20Errores%20de%20Truncamiento.html">Errores de Truncamiento</a>
+<ul>
+<li><a href="01%20-%20Errores%20de%20Truncamiento.html#aproximaciones-iterativas-simples">Aproximaciones Iterativas Simples</a>
+<ul>
+<li><a href="01%20-%20Errores%20de%20Truncamiento.html#implementación-del-algoritmo">Implementación del Algoritmo</a></li>
+<li><a href="01%20-%20Errores%20de%20Truncamiento.html#ejemplo">Ejemplo</a></li>
+</ul></li>
+<li><a href="01%20-%20Errores%20de%20Truncamiento.html#punto-flotante">Punto Flotante</a>
+<ul>
+<li><a href="01%20-%20Errores%20de%20Truncamiento.html#como-convertir-un-numero-en-decimal-a-punto-flotante">Como Convertir un numero en decimal a Punto Flotante</a></li>
+<li><a href="01%20-%20Errores%20de%20Truncamiento.html#ejemplo">Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html">Ecuaciones No Lineales</a>
+<ul>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#método-de-la-bisección">Método de la Bisección</a>
+<ul>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#teorema">Teorema</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#algoritmo">Algoritmo</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#error">Error</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#longitud-del-intervalo">Longitud del Intervalo</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#código-matlab">Código Matlab</a></li>
+</ul></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#método-de-newton">Método de Newton</a>
+<ul>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#hipótesis">Hipótesis</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#algoritmo">Algoritmo</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#error">Error</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#código-matlab">Código Matlab</a></li>
+</ul></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#método-de-punto-fijo">Método de Punto Fijo</a>
+<ul>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#hipótesis">Hipótesis</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#algoritmo">Algoritmo</a></li>
+<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#error">Error</a></li>
+</ul></li>
+</ul></li>
 <li><a href="03%20-%20PVI%20para%20EDOs.html">PVI para EDOs</a>
 <ul>
 <li><a href="03%20-%20PVI%20para%20EDOs.html#métodos-de-ruge-kutta">Métodos de Ruge-Kutta</a></li>
@@ -1416,6 +1588,22 @@ blockquote {
 <li><a href="03%20-%20PVI%20para%20EDOs.html#método-de-taylor">Método de Taylor</a>
 <ul>
 <li><a href="03%20-%20PVI%20para%20EDOs.html#error">Error</a></li>
+</ul></li>
+</ul></li>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html">Interpolacion Polinomica</a>
+<ul>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#forma-de-potencias">Forma de Potencias</a></li>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#forma-de-lagrange">Forma de Lagrange</a></li>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#forma-de-newton">Forma de Newton</a></li>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#tabla-de-diferencias-divididas">Tabla de Diferencias Divididas</a></li>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#matriz-de-vandermonde-$\mathbb-v$">Matriz de Vandermonde <span class="math inline">\(\mathbb V\)</span></a>
+<ul>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#ejemplo">Ejemplo</a></li>
+</ul></li>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#aplicaciones">Aplicaciones</a>
+<ul>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#derivadas">Derivadas</a></li>
+<li><a href="04%20-%20Interpolacion%20Polinomica.html#integrales">Integrales</a></li>
 </ul></li>
 </ul></li>
 <li><a href="05%20-%20Integracion%20Numerica.html">Integracion Numerica</a>
@@ -1461,59 +1649,6 @@ blockquote {
 <ul>
 <li><a href="06%20-%20Sistemas%20de%20Ecuaciones.html#norma-p">Norma P</a></li>
 <li><a href="06%20-%20Sistemas%20de%20Ecuaciones.html#propiedades">Propiedades</a></li>
-</ul></li>
-</ul></li>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html">Interpolacion Polinomica</a>
-<ul>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#forma-de-potencias">Forma de Potencias</a></li>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#forma-de-lagrange">Forma de Lagrange</a></li>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#forma-de-newton">Forma de Newton</a></li>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#tabla-de-diferencias-divididas">Tabla de Diferencias Divididas</a></li>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#matriz-de-vandermonde-$\mathbb-v$">Matriz de Vandermonde <span class="math inline">\(\mathbb V\)</span></a>
-<ul>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#ejemplo">Ejemplo</a></li>
-</ul></li>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#aplicaciones">Aplicaciones</a>
-<ul>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#derivadas">Derivadas</a></li>
-<li><a href="04%20-%20Interpolacion%20Polinomica.html#integrales">Integrales</a></li>
-</ul></li>
-</ul></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html">Ecuaciones No Lineales</a>
-<ul>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#método-de-la-bisección">Método de la Bisección</a>
-<ul>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#teorema">Teorema</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#algoritmo">Algoritmo</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#error">Error</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#longitud-del-intervalo">Longitud del Intervalo</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#código-matlab">Código Matlab</a></li>
-</ul></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#método-de-newton">Método de Newton</a>
-<ul>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#hipótesis">Hipótesis</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#algoritmo">Algoritmo</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#error">Error</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#código-matlab">Código Matlab</a></li>
-</ul></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#método-de-punto-fijo">Método de Punto Fijo</a>
-<ul>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#hipótesis">Hipótesis</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#algoritmo">Algoritmo</a></li>
-<li><a href="02%20-%20Ecuaciones%20No%20Lineales.html#error">Error</a></li>
-</ul></li>
-</ul></li>
-<li><a href="01%20-%20Errores%20de%20Truncamiento.html">Errores de Truncamiento</a>
-<ul>
-<li><a href="01%20-%20Errores%20de%20Truncamiento.html#aproximaciones-iterativas-simples">Aproximaciones Iterativas Simples</a>
-<ul>
-<li><a href="01%20-%20Errores%20de%20Truncamiento.html#implementación-del-algoritmo">Implementación del Algoritmo</a></li>
-<li><a href="01%20-%20Errores%20de%20Truncamiento.html#ejemplo">Ejemplo</a></li>
-</ul></li>
-<li><a href="01%20-%20Errores%20de%20Truncamiento.html#punto-flotante">Punto Flotante</a>
-<ul>
-<li><a href="01%20-%20Errores%20de%20Truncamiento.html#como-convertir-un-numero-en-decimal-a-punto-flotante">Como Convertir un numero en decimal a Punto Flotante</a></li>
-<li><a href="01%20-%20Errores%20de%20Truncamiento.html#ejemplo">Ejemplo</a></li>
 </ul></li>
 </ul></li>
 </ol>

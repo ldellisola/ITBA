@@ -5,74 +5,208 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Parcial</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f8f8f8; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ef2929; } /* Alert */
+    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #c4a000; } /* Attribute */
+    code span.bn { color: #0000cf; } /* BaseN */
+    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4e9a06; } /* Char */
+    code span.cn { color: #000000; } /* Constant */
+    code span.co { color: #8f5902; font-style: italic; } /* Comment */
+    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+    code span.dt { color: #204a87; } /* DataType */
+    code span.dv { color: #0000cf; } /* DecVal */
+    code span.er { color: #a40000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #0000cf; } /* Float */
+    code span.fu { color: #000000; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+    code span.ot { color: #8f5902; } /* Other */
+    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+    code span.sc { color: #000000; } /* SpecialChar */
+    code span.ss { color: #4e9a06; } /* SpecialString */
+    code span.st { color: #4e9a06; } /* String */
+    code span.va { color: #000000; } /* Variable */
+    code span.vs { color: #4e9a06; } /* VerbatimString */
+    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 <style type='text/css' >
 html {
     overflow-x: initial !important;
@@ -1459,58 +1593,58 @@ blockquote {
 </ol>
 <h2 id="section">12</h2>
 <p>Implementar el pseudo-código correspondiente para lograr la sincronización de cuatro procesos (P1, P2, P3 y P4) de forma que el mensaje del proceso P4 “Termina P4” se imprima por pantalla una vez que P1, P2 y P3 impriman sus mensajes respectivos de terminación. Para lograr la sincronización se deben emplear semáforos.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">int</span> sem = <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb1-2" title="2"></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="dt">void</span> sem_post(<span class="dt">int</span> * sem){</a>
-<a class="sourceLine" id="cb1-4" title="4">    *sem--;</a>
-<a class="sourceLine" id="cb1-5" title="5">}</a>
-<a class="sourceLine" id="cb1-6" title="6"></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="dt">void</span> sem_wait(<span class="dt">int</span> * sem){</a>
-<a class="sourceLine" id="cb1-8" title="8">    <span class="cf">while</span>(*sem != <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb1-9" title="9">    { }</a>
-<a class="sourceLine" id="cb1-10" title="10">    *sem++;</a>
-<a class="sourceLine" id="cb1-11" title="11">}</a>
-<a class="sourceLine" id="cb1-12" title="12"></a>
-<a class="sourceLine" id="cb1-13" title="13">Proceso P1() {</a>
-<a class="sourceLine" id="cb1-14" title="14">    </a>
-<a class="sourceLine" id="cb1-15" title="15">    <span class="dt">int</span> cont;</a>
-<a class="sourceLine" id="cb1-16" title="16">    <span class="cf">for</span>(cont=<span class="dv">1</span>;cont&lt;=<span class="dv">3</span>;cont++) {</a>
-<a class="sourceLine" id="cb1-17" title="17">        S1;</a>
-<a class="sourceLine" id="cb1-18" title="18">    }</a>
-<a class="sourceLine" id="cb1-19" title="19">    printf(“Termina P1\n”);</a>
-<a class="sourceLine" id="cb1-20" title="20">    sem_post(&amp;sem);</a>
-<a class="sourceLine" id="cb1-21" title="21">}</a>
-<a class="sourceLine" id="cb1-22" title="22"></a>
-<a class="sourceLine" id="cb1-23" title="23">Proceso P2() {</a>
-<a class="sourceLine" id="cb1-24" title="24">    <span class="dt">int</span> cont;</a>
-<a class="sourceLine" id="cb1-25" title="25">    <span class="cf">for</span>(cont=<span class="dv">1</span>;cont&lt;=<span class="dv">3</span>;cont++) {</a>
-<a class="sourceLine" id="cb1-26" title="26">        S2;</a>
-<a class="sourceLine" id="cb1-27" title="27">    }</a>
-<a class="sourceLine" id="cb1-28" title="28">    printf(“Termina P2\n”);</a>
-<a class="sourceLine" id="cb1-29" title="29">    </a>
-<a class="sourceLine" id="cb1-30" title="30">    sem_post(&amp;sem);</a>
-<a class="sourceLine" id="cb1-31" title="31">}</a>
-<a class="sourceLine" id="cb1-32" title="32"></a>
-<a class="sourceLine" id="cb1-33" title="33">Proceso P3() {</a>
-<a class="sourceLine" id="cb1-34" title="34">    <span class="dt">int</span> cont;</a>
-<a class="sourceLine" id="cb1-35" title="35">    <span class="cf">for</span>(cont=<span class="dv">1</span>;cont&lt;=<span class="dv">3</span>;cont++) {</a>
-<a class="sourceLine" id="cb1-36" title="36">        S3;</a>
-<a class="sourceLine" id="cb1-37" title="37">    }</a>
-<a class="sourceLine" id="cb1-38" title="38">    printf(“Termina P3\n”);</a>
-<a class="sourceLine" id="cb1-39" title="39">    </a>
-<a class="sourceLine" id="cb1-40" title="40">    sem_post(&amp;sem);</a>
-<a class="sourceLine" id="cb1-41" title="41">}</a>
-<a class="sourceLine" id="cb1-42" title="42"></a>
-<a class="sourceLine" id="cb1-43" title="43">Proceso P4() {</a>
-<a class="sourceLine" id="cb1-44" title="44">    </a>
-<a class="sourceLine" id="cb1-45" title="45">    sem_wait(&amp;sem);</a>
-<a class="sourceLine" id="cb1-46" title="46">    </a>
-<a class="sourceLine" id="cb1-47" title="47">    <span class="dt">int</span> cont;</a>
-<a class="sourceLine" id="cb1-48" title="48">    <span class="cf">for</span>(cont=<span class="dv">1</span>;cont&lt;=<span class="dv">3</span>;cont++) {</a>
-<a class="sourceLine" id="cb1-49" title="49">        S4;</a>
-<a class="sourceLine" id="cb1-50" title="50">    }</a>
-<a class="sourceLine" id="cb1-51" title="51">    printf(“Termina P4\n”);</a>
-<a class="sourceLine" id="cb1-52" title="52">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sem = <span class="dv">3</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> sem_post(<span class="dt">int</span> * sem){</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    *sem--;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> sem_wait(<span class="dt">int</span> * sem){</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(*sem != <span class="dv">0</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    { }</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    *sem++;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Proceso P1() {</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> cont;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(cont=<span class="dv">1</span>;cont&lt;=<span class="dv">3</span>;cont++) {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        S1;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    printf(“Termina P1\n”);</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    sem_post(&amp;sem);</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Proceso P2() {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> cont;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(cont=<span class="dv">1</span>;cont&lt;=<span class="dv">3</span>;cont++) {</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        S2;</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    printf(“Termina P2\n”);</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    sem_post(&amp;sem);</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Proceso P3() {</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> cont;</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(cont=<span class="dv">1</span>;cont&lt;=<span class="dv">3</span>;cont++) {</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        S3;</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    printf(“Termina P3\n”);</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    sem_post(&amp;sem);</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Proceso P4() {</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    sem_wait(&amp;sem);</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> cont;</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(cont=<span class="dv">1</span>;cont&lt;=<span class="dv">3</span>;cont++) {</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        S4;</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    printf(“Termina P4\n”);</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="section-1">13</h2>
 <p>En una fábrica se tienen tres tipos de procesos que modelan una planta embotelladora de bebidas, y que trabajan en paralelo:</p>
 <ul>
@@ -1525,112 +1659,112 @@ blockquote {
 <p>• Extra 2 (+1 punto). Modifique el sistema de tal forma que los procesos embotelladores puedan colocar botellas mientras el almacenista está realizando su tarea.</p>
 <h3 id="entrega-base">Entrega Base</h3>
 <h4 id="variables-globales">Variables Globales</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// Semaforos</span></a>
-<a class="sourceLine" id="cb2-2" title="2">    <span class="co">// Semaforo para garantizar el acceso atomico a la caja por parte de los </span></a>
-<a class="sourceLine" id="cb2-3" title="3">    <span class="co">// embotelladores</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="dt">int</span> semCaja_embotelladores = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb2-5" title="5">    <span class="co">// Semaforo para garantizar el acceso atomico a la caja por parte del empaquetador</span></a>
-<a class="sourceLine" id="cb2-6" title="6">    <span class="co">// y los embotelladores</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="dt">int</span> semCaja_Empaquetador = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb2-8" title="8">    <span class="co">// Semaforo para garantizar el accesso atomico al pallet por parte del empaquetador</span></a>
-<a class="sourceLine" id="cb2-9" title="9">    <span class="co">//  y el almacenista</span></a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="dt">int</span> semPallet = <span class="dv">0</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Semaforos</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Semaforo para garantizar el acceso atomico a la caja por parte de los </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// embotelladores</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> semCaja_embotelladores = <span class="dv">1</span>;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Semaforo para garantizar el acceso atomico a la caja por parte del empaquetador</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// y los embotelladores</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> semCaja_Empaquetador = <span class="dv">0</span>;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Semaforo para garantizar el accesso atomico al pallet por parte del empaquetador</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">//  y el almacenista</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> semPallet = <span class="dv">0</span>;</span></code></pre></div>
 <h4 id="embotellador">Embotellador</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb3-1" title="1"><span class="dt">void</span> embotellador(){</a>
-<a class="sourceLine" id="cb3-2" title="2">    </a>
-<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">while</span>(true){</a>
-<a class="sourceLine" id="cb3-4" title="4">        <span class="co">// Aseguro acceso unico entre los embotelladores</span></a>
-<a class="sourceLine" id="cb3-5" title="5">        <span class="cf">while</span>(semCaja_embotelladores != <span class="dv">0</span>){ }</a>
-<a class="sourceLine" id="cb3-6" title="6">        semCaja_embotelladores++;</a>
-<a class="sourceLine" id="cb3-7" title="7"></a>
-<a class="sourceLine" id="cb3-8" title="8">        <span class="co">// Aseguro acceso unico entre embotellador y empaquetador</span></a>
-<a class="sourceLine" id="cb3-9" title="9">        <span class="cf">while</span>(semCaja_Empaquetador == <span class="dv">12</span>){ }</a>
-<a class="sourceLine" id="cb3-10" title="10">        semCaja_Empaquetador++;</a>
-<a class="sourceLine" id="cb3-11" title="11"></a>
-<a class="sourceLine" id="cb3-12" title="12">        <span class="co">// Permito que otro embotellador trabaje</span></a>
-<a class="sourceLine" id="cb3-13" title="13">        semCaja_embotelladores--;</a>
-<a class="sourceLine" id="cb3-14" title="14">    }</a>
-<a class="sourceLine" id="cb3-15" title="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> embotellador(){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(true){</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Aseguro acceso unico entre los embotelladores</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semCaja_embotelladores != <span class="dv">0</span>){ }</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        semCaja_embotelladores++;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Aseguro acceso unico entre embotellador y empaquetador</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semCaja_Empaquetador == <span class="dv">12</span>){ }</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        semCaja_Empaquetador++;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Permito que otro embotellador trabaje</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        semCaja_embotelladores--;</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h4 id="empaquetador">Empaquetador</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb4-1" title="1"><span class="dt">void</span> empaquetador(){    </a>
-<a class="sourceLine" id="cb4-2" title="2">    <span class="cf">while</span>(true){</a>
-<a class="sourceLine" id="cb4-3" title="3">        <span class="co">// Empaquetador solo actua cuando la caja esta llena</span></a>
-<a class="sourceLine" id="cb4-4" title="4">        <span class="cf">while</span>(semCaja_Empaquetador != <span class="dv">12</span>){ }</a>
-<a class="sourceLine" id="cb4-5" title="5"></a>
-<a class="sourceLine" id="cb4-6" title="6">        <span class="co">// Cargo la caja al pallet, si es que no esta completo. Si lo esta espero a que</span></a>
-<a class="sourceLine" id="cb4-7" title="7">        <span class="co">// se cambie la caja</span></a>
-<a class="sourceLine" id="cb4-8" title="8">        <span class="cf">while</span>(semPallet == <span class="dv">24</span>){}</a>
-<a class="sourceLine" id="cb4-9" title="9">        semPallet++;</a>
-<a class="sourceLine" id="cb4-10" title="10"></a>
-<a class="sourceLine" id="cb4-11" title="11">        <span class="co">// Pongo caja nueva</span></a>
-<a class="sourceLine" id="cb4-12" title="12">        semCaja_Empaquetador = <span class="dv">0</span></a>
-<a class="sourceLine" id="cb4-13" title="13">    }</a>
-<a class="sourceLine" id="cb4-14" title="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> empaquetador(){    </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(true){</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Empaquetador solo actua cuando la caja esta llena</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semCaja_Empaquetador != <span class="dv">12</span>){ }</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Cargo la caja al pallet, si es que no esta completo. Si lo esta espero a que</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// se cambie la caja</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semPallet == <span class="dv">24</span>){}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        semPallet++;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Pongo caja nueva</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        semCaja_Empaquetador = <span class="dv">0</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h4 id="almacenador">Almacenador</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb5-1" title="1"><span class="dt">void</span> almacenista(){</a>
-<a class="sourceLine" id="cb5-2" title="2">    <span class="cf">while</span>(true){</a>
-<a class="sourceLine" id="cb5-3" title="3">        <span class="co">// Espero a que se llene el pallet</span></a>
-<a class="sourceLine" id="cb5-4" title="4">        <span class="cf">while</span>(semPallet != <span class="dv">24</span>){}</a>
-<a class="sourceLine" id="cb5-5" title="5"></a>
-<a class="sourceLine" id="cb5-6" title="6">        <span class="co">// Pongo un pallet nuevo</span></a>
-<a class="sourceLine" id="cb5-7" title="7">        semPallet = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb5-8" title="8">    }</a>
-<a class="sourceLine" id="cb5-9" title="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> almacenista(){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(true){</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Espero a que se llene el pallet</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semPallet != <span class="dv">24</span>){}</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Pongo un pallet nuevo</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        semPallet = <span class="dv">0</span>;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h3 id="entrega-extra">Entrega Extra</h3>
 <h4 id="variables-globales-1">Variables Globales</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb6-1" title="1">    <span class="co">// Semaforo para garantizar el acceso atomico a la caja por parte de los </span></a>
-<a class="sourceLine" id="cb6-2" title="2">    <span class="co">// embotelladores</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="dt">int</span> semCaja_embotelladores = <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb6-4" title="4">    <span class="co">// Semaforo para garantizar el acceso atomico a la caja por parte del empaquetador</span></a>
-<a class="sourceLine" id="cb6-5" title="5">    <span class="co">// y los embotelladores</span></a>
-<a class="sourceLine" id="cb6-6" title="6"><span class="dt">int</span> semCaja_Empaquetador = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb6-7" title="7">    <span class="co">// Semaforo para garantizar el accesso atomico al pallet por parte del empaquetador</span></a>
-<a class="sourceLine" id="cb6-8" title="8">    <span class="co">//  y el almacenista</span></a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="dt">int</span> semPallet = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb6-10" title="10"></a>
-<a class="sourceLine" id="cb6-11" title="11">    <span class="co">// Controla que se cierre el programa cuando se llega a 20 pallets</span></a>
-<a class="sourceLine" id="cb6-12" title="12"><span class="dt">int</span> pallets = <span class="dv">20</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Semaforo para garantizar el acceso atomico a la caja por parte de los </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// embotelladores</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> semCaja_embotelladores = <span class="dv">1</span>;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Semaforo para garantizar el acceso atomico a la caja por parte del empaquetador</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// y los embotelladores</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> semCaja_Empaquetador = <span class="dv">0</span>;</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Semaforo para garantizar el accesso atomico al pallet por parte del empaquetador</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">//  y el almacenista</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> semPallet = <span class="dv">0</span>;</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Controla que se cierre el programa cuando se llega a 20 pallets</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> pallets = <span class="dv">20</span>;</span></code></pre></div>
 <h4 id="embotellador-1">Embotellador</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb7-1" title="1"><span class="dt">void</span> embotellador(){</a>
-<a class="sourceLine" id="cb7-2" title="2">    <span class="cf">while</span>(pallets  != <span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb7-3" title="3">        <span class="co">// Aseguro acceso unico entre los embotelladores</span></a>
-<a class="sourceLine" id="cb7-4" title="4">        <span class="cf">while</span>(semCaja_embotelladores != <span class="dv">0</span>){ }</a>
-<a class="sourceLine" id="cb7-5" title="5">        semCaja_embotelladores++;</a>
-<a class="sourceLine" id="cb7-6" title="6"></a>
-<a class="sourceLine" id="cb7-7" title="7">        <span class="co">// Permito que otro embotellador trabaje</span></a>
-<a class="sourceLine" id="cb7-8" title="8">        semCaja_embotelladores--;</a>
-<a class="sourceLine" id="cb7-9" title="9"></a>
-<a class="sourceLine" id="cb7-10" title="10">        <span class="co">// Aseguro acceso unico entre embotellador y empaquetador</span></a>
-<a class="sourceLine" id="cb7-11" title="11">        <span class="cf">while</span>(semCaja_Empaquetador == <span class="dv">12</span>){ }</a>
-<a class="sourceLine" id="cb7-12" title="12">        semCaja_Empaquetador++;</a>
-<a class="sourceLine" id="cb7-13" title="13">    }</a>
-<a class="sourceLine" id="cb7-14" title="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> embotellador(){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(pallets  != <span class="dv">0</span>){</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Aseguro acceso unico entre los embotelladores</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semCaja_embotelladores != <span class="dv">0</span>){ }</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        semCaja_embotelladores++;</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Permito que otro embotellador trabaje</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        semCaja_embotelladores--;</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Aseguro acceso unico entre embotellador y empaquetador</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semCaja_Empaquetador == <span class="dv">12</span>){ }</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        semCaja_Empaquetador++;</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h4 id="empaquetador-1">Empaquetador</h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">void</span> empaquetador(){    </a>
-<a class="sourceLine" id="cb8-2" title="2">    <span class="cf">while</span>(pallets != <span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb8-3" title="3">        </a>
-<a class="sourceLine" id="cb8-4" title="4">        <span class="co">// Empaquetador solo actua cuando la caja esta llena</span></a>
-<a class="sourceLine" id="cb8-5" title="5">        <span class="cf">while</span>(semCaja_Empaquetador != <span class="dv">12</span>){ }</a>
-<a class="sourceLine" id="cb8-6" title="6">        </a>
-<a class="sourceLine" id="cb8-7" title="7">        <span class="co">// Pongo caja nueva</span></a>
-<a class="sourceLine" id="cb8-8" title="8">        semCaja_Empaquetador = <span class="dv">0</span></a>
-<a class="sourceLine" id="cb8-9" title="9"></a>
-<a class="sourceLine" id="cb8-10" title="10">        <span class="co">// Cargo la caja al pallet, si es que no esta completo. Si lo esta espero a que</span></a>
-<a class="sourceLine" id="cb8-11" title="11">        <span class="co">// se cambie la caja</span></a>
-<a class="sourceLine" id="cb8-12" title="12">        <span class="cf">while</span>(semPallet == <span class="dv">24</span>){}</a>
-<a class="sourceLine" id="cb8-13" title="13">        semPallet++;</a>
-<a class="sourceLine" id="cb8-14" title="14">    }</a>
-<a class="sourceLine" id="cb8-15" title="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> empaquetador(){    </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(pallets != <span class="dv">0</span>){</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Empaquetador solo actua cuando la caja esta llena</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semCaja_Empaquetador != <span class="dv">12</span>){ }</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Pongo caja nueva</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        semCaja_Empaquetador = <span class="dv">0</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Cargo la caja al pallet, si es que no esta completo. Si lo esta espero a que</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// se cambie la caja</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semPallet == <span class="dv">24</span>){}</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        semPallet++;</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h4 id="almacenador-1">Almacenador</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb9-1" title="1"><span class="dt">void</span> almacenista(){</a>
-<a class="sourceLine" id="cb9-2" title="2">    <span class="cf">while</span>(pallets != <span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb9-3" title="3">        <span class="co">// Espero a que se llene el pallet</span></a>
-<a class="sourceLine" id="cb9-4" title="4">        <span class="cf">while</span>(semPallet != <span class="dv">24</span>){}</a>
-<a class="sourceLine" id="cb9-5" title="5"></a>
-<a class="sourceLine" id="cb9-6" title="6">        <span class="co">// Pongo un pallet nuevo</span></a>
-<a class="sourceLine" id="cb9-7" title="7">        semPallet = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb9-8" title="8">        pallets--;</a>
-<a class="sourceLine" id="cb9-9" title="9">    }</a>
-<a class="sourceLine" id="cb9-10" title="10">}</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> almacenista(){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(pallets != <span class="dv">0</span>){</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Espero a que se llene el pallet</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span>(semPallet != <span class="dv">24</span>){}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Pongo un pallet nuevo</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        semPallet = <span class="dv">0</span>;</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        pallets--;</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </body>
 </html>
