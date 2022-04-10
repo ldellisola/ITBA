@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>02 - Non-Bayesian Decision Theory</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>02 - Non-Bayesian Decision Theory.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,116 +1385,169 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="non-bayesian-methods">Non-Bayesian Methods</h1>
 <h2 id="limitations-of-bayesian-decision-theory">Limitations of Bayesian Decision Theory</h2>
 <p>The limitations on Bayesian decision theory comes from its own components, the necessity to know all the probabilities and the loss function.</p>
-<p>With Bayesian methods, the loss function <span class="math inline">\(W\)</span> must make sense, but there are a lot of cases where it doesn’t make sense to have one.</p>
-<p>Another problem is that the prior probabilities must exist and be known. But given that some events are not random, it doesn’t make sense to talk about prior probabilities.</p>
+<p>With Bayesian methods, the loss function <span class="math">\(W\)</span> must make sense, but there are a lot of cases where it doesn't make sense to have one.</p>
+<p>Another problem is that the prior probabilities must exist and be known. But given that some events are not random, it doesn't make sense to talk about prior probabilities.</p>
 <p>Lastly, the conditionals may be subject to non-random interventions.</p>
 <h2 id="neyman-pearson-task">Neyman Pearson Task</h2>
-<p>The Neyman Pearson Task looks for the optimal strategy <span class="math inline">\(q^*\)</span> for which the error of classification of a dangerous state is lower than a predefined threshold (<span class="math inline">\(0 &lt; \epsilon_D &lt;1\)</span>), while keeping the classification error for the normal state (<span class="math inline">\(\epsilon_N\)</span>) as low as possible.</p>
+<p>The Neyman Pearson Task looks for the optimal strategy <span class="math">\(q^*\)</span> for which the error of classification of a dangerous state is lower than a predefined threshold (<span class="math">\(0 &lt; \epsilon_D &lt;1\)</span>), while keeping the classification error for the normal state (<span class="math">\(\epsilon_N\)</span>) as low as possible.</p>
 <p>This task is usually used with only 2 states (normal and dangerous) but it can be generalized to 3 hidden states where 2 of them are dangerous. For this we have 2 inequality constraints and we have to minimize the classification error for the normal state.</p>
-<p>The strength of this approach is that the likelihood ratio or even <span class="math inline">\(p(x/N)\)</span> don’t need to be known. It is enough to know the <span class="math inline">\(p(x/D)\)</span> and the rank order of the likelihood ratio.</p>
+<p>The strength of this approach is that the likelihood ratio or even <span class="math">\(p(x/N)\)</span> don't need to be known. It is enough to know the <span class="math">\(p(x/D)\)</span> and the rank order of the likelihood ratio.</p>
 <h3 id="formulation-of-the-neyman-pearson-task">Formulation of the Neyman Pearson Task</h3>
 <p>The Neyman Pearson task has the following components:</p>
 <ul>
-<li><span class="math inline">\(K = \{D,N\}\)</span>: It must have a <strong>dangerous</strong> and <strong>normal</strong> state.</li>
-<li><span class="math inline">\(X\)</span> is the set of observations.</li>
-<li>The conditional probabilities <span class="math inline">\(p(x/D),p(x/N)\)</span> are known.</li>
-<li>The prior probabilities <span class="math inline">\(p(D), p(N)\)</span> are unknown or don’t exist.</li>
-<li><span class="math inline">\(q:X\rightarrow K\)</span> is a strategy</li>
+<li><span class="math">\(K = \{D,N\}\)</span>: It must have a <strong>dangerous</strong> and <strong>normal</strong> state.</li>
+<li><span class="math">\(X\)</span> is the set of observations.</li>
+<li>The conditional probabilities <span class="math">\(p(x/D),p(x/N)\)</span> are known.</li>
+<li>The prior probabilities <span class="math">\(p(D), p(N)\)</span> are unknown or don't exist.</li>
+<li><span class="math">\(q:X\rightarrow K\)</span> is a strategy</li>
 </ul>
-<p>This is formulated as an optimization task with an inequality constraint. We need to find the best <span class="math inline">\(q^*\)</span>: <span class="math display">\[
+<p>This is formulated as an optimization task with an inequality constraint. We need to find the best <span class="math">\(q^*\)</span>:</p>
+<div class="math">
+\[
 q^* = \underset {q:X\rightarrow K} {\text{argmin}}\ \sum_{x:q(x)\neq N} p(x/N)
-\]</span> while the error for the dangerous state is less than out threshold: <span class="math display">\[
+\]</div>
+<p>while the error for the dangerous state is less than out threshold:</p>
+<div class="math">
+\[
 \sum_{x:q(x)\neq D} p(x/D) \le  \overline \epsilon_D
-\]</span> A strategy is characterized by the classification error: <span class="math display">\[
+\]</div>
+<p>A strategy is characterized by the classification error:</p>
+<div class="math">
+\[
 \array{
-    \epsilon_N = \sum_{x:q(x)\neq N}p(x/N) &amp;&amp; (false alarm) \\
-    \epsilon_D = \sum_{x:q(x)\neq D}p(x/D) &amp;&amp; (overlooked danger) \\
+	\epsilon_N = \sum_{x:q(x)\neq N}p(x/N) &amp;&amp; (false alarm) \\
+	\epsilon_D = \sum_{x:q(x)\neq D}p(x/D) &amp;&amp; (overlooked danger) \\
 }
-\]</span> The optimal strategy <span class="math inline">\(q^*\)</span> for a given <span class="math inline">\(x\in X\)</span> is constructed using the likelihood ratio: <span class="math display">\[
+\]</div>
+<p>The optimal strategy <span class="math">\(q^*\)</span> for a given <span class="math">\(x\in X\)</span> is constructed using the likelihood ratio:</p>
+<div class="math">
+\[
 \frac {p(x/N)}{p(x/D)}
-\]</span> We have to estimate a constant <span class="math inline">\(\mu \ge 0\)</span>, and with it we can construct our strategy <span class="math inline">\(q\)</span>: <span class="math display">\[
+\]</div>
+<p>We have to estimate a constant <span class="math">\(\mu \ge 0\)</span>, and with it we can construct our strategy <span class="math">\(q\)</span>:</p>
+<div class="math">
+\[
 q:X\rightarrow K/q(x)=
 \left \{
-    \array{
-        N   &amp;&amp;  \frac {p(x/N)}{p(x/D)} &gt; \mu \\
-        D   &amp;&amp;  \frac {p(x/N)}{p(x/D)} \le \mu \\
-    }
+	\array{
+		N	&amp;&amp;	\frac {p(x/N)}{p(x/D)} &gt; \mu \\
+		D	&amp;&amp;	\frac {p(x/N)}{p(x/D)} \le \mu \\
+	}
 \right.
-\]</span> The optimal strategy <span class="math inline">\(q^*\)</span> is obtained by selecting the minimal <span class="math inline">\(\mu\)</span> for which there still holds that: <span class="math display">\[
+\]</div>
+<p>The optimal strategy <span class="math">\(q^*\)</span> is obtained by selecting the minimal <span class="math">\(\mu\)</span> for which there still holds that:</p>
+<div class="math">
+\[
 \overline \epsilon_D \ge \epsilon_D
-\]</span> Using the likelihood ratio, we can <strong>rank</strong> our results, and order them. The lowest likelihood ratio will be named as <span class="math inline">\(r_1\)</span>, and subsequently all other results will follow it until the highest value.</p>
-<p>The optimal way to pick <span class="math inline">\(\mu\)</span> is choosing the right <span class="math inline">\(\mu_i\)</span>: <span class="math display">\[
+\]</div>
+<p>Using the likelihood ratio, we can <strong>rank</strong> our results, and order them. The lowest likelihood ratio will be named as <span class="math">\(r_1\)</span>, and subsequently all other results will follow it until the highest value.</p>
+<p>The optimal way to pick <span class="math">\(\mu\)</span> is choosing the right <span class="math">\(\mu_i\)</span>:</p>
+<div class="math">
+\[
 \mu_0 = 0\\
 \mu_i = \frac {r_i+r_{i+1}}{2}
-\]</span></p>
-<p>Such that: <span class="math display">\[
+\]</div>
+<p>Such that:</p>
+<div class="math">
+\[
 \mu_i &lt; \mu &lt; \mu_{i+1}
-\]</span></p>
+\]</div>
 <h3 id="randomized-strategies">Randomized Strategies</h3>
-<p>It is common to use randomized strategies to obtain a better decision model. We do this so that <span class="math inline">\(\epsilon_D\)</span> is as close as possible to <span class="math inline">\(\overline \epsilon_D\)</span> as possible, and when we are dealing with discrete probabilities, it is often necessary.</p>
-<p>The idea is to construct our ideal strategy and identify the rank <span class="math inline">\(r_i\)</span> where if we add <span class="math inline">\(\mu_i\)</span>, <span class="math inline">\(\epsilon_D &gt; \overline \epsilon_D\)</span>. Now, when we evaluate this rank with our strategy, there should be some probability that it will return our normal state or dangerous state. This probability should be calculated so that <span class="math inline">\(\epsilon_D = \overline \epsilon_D\)</span>. For example: <span class="math display">\[
+<p>It is common to use randomized strategies to obtain a better decision model. We do this so that <span class="math">\(\epsilon_D\)</span> is as close as possible to <span class="math">\(\overline \epsilon_D\)</span> as possible, and when we are dealing with discrete probabilities, it is often necessary.</p>
+<p>The idea is to construct our ideal strategy and identify the rank <span class="math">\(r_i\)</span> where if we add <span class="math">\(\mu_i\)</span>, <span class="math">\(\epsilon_D &gt; \overline \epsilon_D\)</span>. Now, when we evaluate this rank with our strategy, there should be some probability that it will return our normal state or dangerous state. This probability should be calculated so that <span class="math">\(\epsilon_D = \overline \epsilon_D\)</span>. For example:</p>
+<div class="math">
+\[
 q(x_1) = D\\
 q(x_2) = 
 \left\{
 \array{
-    D &amp;&amp; 1/3 \text{ of the time}\\
-    N &amp;&amp; 2/3 \text{ of the time}
+	D &amp;&amp; 1/3 \text{ of the time}\\
+	N &amp;&amp; 2/3 \text{ of the time}
 }\\
 q(x_3) =N
 \right.
-\]</span> This problem is caused by the discrete nature of <span class="math inline">\(X\)</span>, and it does not affect us when <span class="math inline">\(X\)</span> is continuous.</p>
+\]</div>
+<p>This problem is caused by the discrete nature of <span class="math">\(X\)</span>, and it does not affect us when <span class="math">\(X\)</span> is continuous.</p>
 <h2 id="minimax-task">Minimax Task</h2>
 <h3 id="formulation-of-the-minimax-task">Formulation of the Minimax Task</h3>
 <p>The Minimax task has the following components:</p>
 <ul>
-<li><span class="math inline">\(K=\{1,2,\dots,N\}\)</span> is the set of possible classes.</li>
-<li><span class="math inline">\(X\)</span> is the set of observations.</li>
-<li>The conditional probabilities <span class="math inline">\(p(x/k)\)</span> are known for all classes.</li>
-<li>The prior probabilities <span class="math inline">\(p(k)\)</span> are unknown or don’t exist</li>
-<li><span class="math inline">\(q:X\rightarrow K\)</span></li>
+<li><span class="math">\(K=\{1,2,\dots,N\}\)</span> is the set of possible classes.</li>
+<li><span class="math">\(X\)</span> is the set of observations.</li>
+<li>The conditional probabilities  <span class="math">\(p(x/k)\)</span> are known for all classes.</li>
+<li>The prior probabilities <span class="math">\(p(k)\)</span> are unknown or don't exist</li>
+<li><span class="math">\(q:X\rightarrow K\)</span></li>
 </ul>
-<p>The minimax task looks for the optimum strategy <span class="math inline">\(q^*\)</span> which minimizes the classification error of the worst classified class: <span class="math display">\[
+<p>The minimax task looks for the optimum strategy <span class="math">\(q^*\)</span> which minimizes the classification error of the worst classified class:</p>
+<div class="math">
+\[
 q^* = \underset {q:X\rightarrow K}{\text{argmin }} \underset{k \in K}{\text{max }} \epsilon(k)
-\]</span> where the error function is calculated as: <span class="math display">\[
+\]</div>
+<p>where the error function is calculated as:</p>
+<div class="math">
+\[
 \epsilon(k) = \sum_{x:q(x) \neq k} p(x/k)
-\]</span> If we only have 2 classes, the strategy is calculated using the <strong>likelihood ratio</strong>.</p>
+\]</div>
+<p>If we only have 2 classes, the strategy is calculated using the <strong>likelihood ratio</strong>.</p>
 <h3 id="comparison-with-bayesian-decision-with-unknown-priors">Comparison with Bayesian Decision with unknown priors</h3>
-<p>Considering the same setting as in the minimax task, but let the priors <span class="math inline">\(p(k)\)</span> exists but be unknown. The <strong>Bayesian error</strong> for the strategy <span class="math inline">\(q\)</span> is: <span class="math display">\[
+<p>Considering the same setting as in the minimax task, but let the priors <span class="math">\(p(k)\)</span> exists but be unknown. The <strong>Bayesian error</strong> for the strategy <span class="math">\(q\)</span> is:</p>
+<div class="math">
+\[
 \epsilon = \sum_k p(k) \sum_{x:q(x) \neq k} p(x/k) = \sum_k {p(k)}\  \epsilon(k)
-\]</span> We want to minimize <span class="math inline">\(\epsilon\)</span>, but we don’t know <span class="math inline">\(p(k)\)</span>. Looking at the equation we can tell that the maximum Bayesian error is obtained when <span class="math inline">\(p(k) = 1\)</span> for the class <span class="math inline">\(k\)</span> with the highest class error <span class="math inline">\(\epsilon(k)\)</span>.</p>
-<p>Thus, to minimize the Bayesian error <span class="math inline">\(\epsilon\)</span> under this setting, we need to minimize the error of the hardest-to-classify class. This is why the Minimax formulation and the Bayesian formulation with unknown priors lead to the same solution.</p>
+\]</div>
+<p>We want to minimize <span class="math">\(\epsilon\)</span>, but we don't know <span class="math">\(p(k)\)</span>. Looking at the equation we can tell that the maximum Bayesian error is obtained when <span class="math">\(p(k) = 1\)</span> for the class <span class="math">\(k\)</span> with the highest class error <span class="math">\(\epsilon(k)\)</span>.</p>
+<p>Thus, to minimize the Bayesian error <span class="math">\(\epsilon\)</span> under this setting, we need to minimize the error of the hardest-to-classify class. This is why the Minimax formulation and the Bayesian formulation with unknown priors lead to the same solution.</p>
 <h2 id="wald-task">Wald Task</h2>
-<p>Let’s consider a classification with 2 states: <span class="math inline">\(K=\{1,2\}\)</span>. We want to set a threshold <span class="math inline">\(\epsilon\)</span> on the classification error of both classes: <span class="math display">\[
+<p>Let's consider a classification with 2 states: <span class="math">\(K=\{1,2\}\)</span>. We want to set a threshold <span class="math">\(\epsilon\)</span> on the classification error of both classes:</p>
+<div class="math">
+\[
 \array{\epsilon_1 \le \epsilon &amp;&amp; \epsilon_2 \le \epsilon}
-\]</span> If <span class="math inline">\(\epsilon\)</span> is too low, there may not be a possible solution. For this reason, we introduce the decision <em>don’t know</em>, thus <span class="math inline">\(D= K \cup \{?\}\)</span>.</p>
-<p>A strategy <span class="math inline">\(q:X\rightarrow D\)</span> is characterized by: <span class="math display">\[
+\]</div>
+<p>If <span class="math">\(\epsilon\)</span> is too low, there may not be a possible solution. For this reason, we introduce the decision <em>don't know</em>, thus <span class="math">\(D= K \cup \{?\}\)</span>.</p>
+<p>A strategy  <span class="math">\(q:X\rightarrow D\)</span> is characterized by:</p>
+<div class="math">
+\[
 \array{
-    \epsilon_1 = \sum_{x:q(x) = 2} p(x/1) &amp;&amp; (\text{classification error for 1})\\
-    \epsilon_2 = \sum_{x:q(x) = 1} p(x/2) &amp;&amp; (\text{classification error for 2})\\
-    k_1 = \sum_{x:q(x) = ?} p(x/1) &amp;&amp; (\text{undecided rate for 1})\\
-    k_1 = \sum_{x:q(x) = ?} p(x/2) &amp;&amp; (\text{undecided rate for 2})\\
+	\epsilon_1 = \sum_{x:q(x) = 2} p(x/1) &amp;&amp; (\text{classification error for 1})\\
+	\epsilon_2 = \sum_{x:q(x) = 1} p(x/2) &amp;&amp; (\text{classification error for 2})\\
+	k_1 = \sum_{x:q(x) = ?} p(x/1) &amp;&amp; (\text{undecided rate for 1})\\
+	k_1 = \sum_{x:q(x) = ?} p(x/2) &amp;&amp; (\text{undecided rate for 2})\\
 }
-\]</span> From this, we can say that the optimal strategy <span class="math inline">\(q^*\)</span> is: <span class="math display">\[
+\]</div>
+<p>From this, we can say that the optimal strategy <span class="math">\(q^*\)</span> is:</p>
+<div class="math">
+\[
 q^*=\underset {q:X\rightarrow D} {\text{argmin }} \underset {i=\{1,2\}}{\text{max}} k_i
-\]</span> while considering our restrictions: <span class="math display">\[
+\]</div>
+<p>while considering our restrictions:</p>
+<div class="math">
+\[
 \array{\epsilon_1 \le \epsilon &amp;&amp; \epsilon_2 \le \epsilon}
-\]</span> The optimal solution is again based on the likelihood ratio: <span class="math display">\[
+\]</div>
+<p>The optimal solution is again based on the likelihood ratio:</p>
+<div class="math">
+\[
 r(x) = \frac {p(x/1)}{p(x/2)}
-\]</span> And the optimal strategy is constructed by choosing two thresholds <span class="math inline">\(\mu_1,\mu_2\)</span> such that: <span class="math display">\[
+\]</div>
+<p>And the optimal strategy is constructed by choosing two thresholds <span class="math">\(\mu_1,\mu_2\)</span> such that:</p>
+<div class="math">
+\[
 q(x) = 
 \left \{
-    \array{
-        2 &amp;&amp; r(x) &lt; \mu_1 \\
-        1 &amp;&amp; r(x) &gt; \mu_2 \\
-        ? &amp;&amp; else
-    }
+	\array{
+		2 &amp;&amp; r(x) &lt; \mu_1 \\
+		1 &amp;&amp; r(x) &gt; \mu_2 \\
+		? &amp;&amp; else
+	}
 \right.
-\]</span></p>
+\]</div>
+
 </body>
 </html>

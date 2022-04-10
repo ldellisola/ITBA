@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - Sintaxis</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - Sintaxis.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,83 +1385,109 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="sintaxis">Sintaxis</h1>
-<p>Sea <span class="math inline">\(A\)</span> el alfabeto de la lógica proposicional: <span class="math display">\[
+<p>Sea <span class="math">\(A\)</span> el alfabeto de la lógica proposicional:</p>
+<div class="math">
+\[
 A=Var \cup \{(,)\} \cup C
-\]</span> Siendo <span class="math inline">\(Var=\{P_n/n\in \mathbb{N}\}\)</span> las variables y <span class="math inline">\(C=\{\land,\lor,\rightarrow,\neg\}\)</span> los conectivos</p>
-<p>Observación: <span class="math inline">\(\#A=\chi_o\)</span></p>
+\]</div>
+<p>Siendo <span class="math">\(Var=\{P_n/n\in \mathbb{N}\}\)</span> las variables y <span class="math">\(C=\{\land,\lor,\rightarrow,\neg\}\)</span> los conectivos</p>
+<p>Observación: <span class="math">\(\#A=\chi_o\)</span></p>
 <h2 id="formula">Formula</h2>
-<p><span class="math inline">\(F\in A^*\)</span> es la formula, es decir, el lenguaje de la lógica proposicional.</p>
+<p><span class="math">\(F\in A^*\)</span> es la formula, es decir, el lenguaje de la lógica proposicional.</p>
 <ul>
 <li>Propiedades:</li>
 </ul>
-<ol type="1">
-<li><span class="math inline">\(Var \subset F\)</span></li>
-<li><span class="math inline">\(\alpha \in F \Rightarrow \neg \alpha \in F\)</span></li>
-<li><span class="math inline">\(\alpha,\beta \in F \Rightarrow (\alpha \land \beta),(\alpha \lor \beta),(\alpha \rightarrow \beta) \in F\)</span></li>
-<li>Si <span class="math inline">\(\alpha \in A^*\)</span>, entonces <span class="math inline">\(\alpha \in F \Leftrightarrow\)</span> se obtiene aplicando finitas veces 1),2) o 3)</li>
+<ol>
+<li><span class="math">\(Var \subset F\)</span></li>
+<li><span class="math">\(\alpha \in F \Rightarrow \neg \alpha \in F\)</span></li>
+<li><span class="math">\(\alpha,\beta \in F \Rightarrow (\alpha \land \beta),(\alpha \lor \beta),(\alpha \rightarrow \beta) \in F\)</span></li>
+<li>Si <span class="math">\(\alpha \in A^*\)</span>, entonces $ \alpha \in F \Leftrightarrow$ se obtiene aplicando finitas veces 1),2) o 3)</li>
 </ol>
 <h2 id="cadena">Cadena</h2>
-<p>Una cadena de fórmulas es una sucesión finita de <span class="math inline">\(X_1,\dots,X_n\)</span> de elementos de <span class="math inline">\(A^*\)</span> que verifica la siguiente propiedad:</p>
-<p>Dado <span class="math inline">\(1 \le i \le n\)</span>, <span class="math inline">\(X_i\in Var\)</span> o <span class="math inline">\(\exists j&lt;i/ 1\le j\le n, X_i=\neg X_j\)</span> y <span class="math inline">\(\exists j,k&lt;i, e \le j,k\le n/X_i=(X_j * x_k)\)</span></p>
-<p>Con <span class="math inline">\(* \in C\)</span></p>
-<p>Y a cada <span class="math inline">\(X_i\)</span> se lo llama eslabón</p>
-<h3 id="cadena-de-formación">Cadena de Formación</h3>
-<p>Decimos que <span class="math inline">\(X_1,\dots,X_n\)</span> es una cadena de formación <span class="math inline">\(\alpha \in A^*\)</span> si <span class="math inline">\(X_n = \alpha\)</span></p>
+<p>Una cadena de fórmulas es una sucesión finita de <span class="math">\(X_1,\dots,X_n\)</span> de elementos de <span class="math">\(A^*\)</span> que verifica la siguiente propiedad:</p>
+<p>Dado <span class="math">\(1 \le i \le n\)</span>, <span class="math">\(X_i\in Var\)</span> o <span class="math">\(\exists j&lt;i/ 1\le j\le n, X_i=\neg X_j\)</span> y <span class="math">\(\exists j,k&lt;i, e \le j,k\le n/X_i=(X_j * x_k)\)</span></p>
+<p>Con <span class="math">\(* \in C\)</span></p>
+<p>Y a cada <span class="math">\(X_i\)</span> se lo llama eslabón</p>
+<h3 id="cadena-de-formacion">Cadena de Formación</h3>
+<p>Decimos que <span class="math">\(X_1,\dots,X_n\)</span> es una cadena de formación <span class="math">\(\alpha \in A^*\)</span> si <span class="math">\(X_n = \alpha\)</span></p>
 <ul>
-<li><p><strong>Teorema</strong>: <span class="math inline">\(\alpha \in F \Leftrightarrow \exists X_1,\dots,X_n \text{ candea de formacion de } \alpha\)</span></p>
-<p><a href="Demostraciones\04%20-%20Sintaxis\Teorema%20-%2001.html">Demostración</a></p></li>
+<li><p><strong>Teorema</strong>: <span class="math">\(\alpha \in F \Leftrightarrow \exists X_1,\dots,X_n \text{ candea de formacion de } \alpha\)</span></p>
+<p>[Demostración](Demostraciones\04 - Sintaxis\Teorema - 01.html)</p>
+</li>
 </ul>
-<h3 id="cadena-de-formación-minimal">Cadena de Formación Minimal</h3>
+<h3 id="cadena-de-formacion-minimal">Cadena de Formación Minimal</h3>
 <p>Una cadena de formación es minimal si no tiene mas eslabones de los necesarios para completar a la cadena.</p>
-<h3 id="subcadena-de-formación">Subcadena de Formación</h3>
-<p>Dada <span class="math inline">\(X_1,\dots,X_n\)</span> una cadena de formación, se define a <span class="math inline">\(X_{i_1},\dots,X_{i_k}\)</span> como una subcadena de formación de la cadena anterior si cumple con:</p>
+<h3 id="subcadena-de-formacion">Subcadena de Formación</h3>
+<p>Dada <span class="math">\(X_1,\dots,X_n\)</span> una cadena de formación, se define a <span class="math">\(X_{i_1},\dots,X_{i_k}\)</span> como una subcadena de formación de la cadena anterior si cumple con:</p>
 <ul>
-<li><span class="math inline">\(X_{i_k} = X_n\)</span></li>
-<li><span class="math inline">\(1\leq i_1 \le \dots \le i_k=n\)</span></li>
+<li><span class="math">\(X_{i_k} = X_n\)</span></li>
+<li><span class="math">\(1\leq i_1 \le \dots \le i_k=n\)</span></li>
 <li>Es una cadena de formación.</li>
 </ul>
 <h2 id="operaciones">Operaciones</h2>
 <h3 id="complejidad">Complejidad</h3>
-<p>Sea <span class="math inline">\(\alpha \in F\)</span>, la complejidad de <span class="math inline">\(\alpha\)</span> es la cantidad de conectivos de <span class="math inline">\(\alpha\)</span>. Notación: <span class="math inline">\(C(\alpha)\)</span>.</p>
-<p>Ejemplo: <span class="math display">\[
+<p>Sea <span class="math">\(\alpha \in F\)</span>, la complejidad de <span class="math">\(\alpha\)</span> es la cantidad de conectivos de <span class="math">\(\alpha\)</span>. Notación: <span class="math">\(C(\alpha)\)</span>.</p>
+<p>Ejemplo:</p>
+<div class="math">
+\[
 \alpha=(P_1 \land \neg P_2) \rightarrow C(\alpha)=3
-\]</span></p>
+\]</div>
 <h3 id="complejidad-binaria">Complejidad Binaria</h3>
-<p>Sea <span class="math inline">\(\alpha \in F\)</span>, la complejidad binaria de <span class="math inline">\(\alpha\)</span> es la cantidad de conectivos binarios (<span class="math inline">\(\rightarrow,\lor,\land\)</span>) de <span class="math inline">\(\alpha\)</span>. Notación <span class="math inline">\(Cb(\alpha)\)</span>.</p>
+<p>Sea <span class="math">\(\alpha \in F\)</span>, la complejidad binaria de <span class="math">\(\alpha\)</span> es la cantidad de conectivos binarios (<span class="math">\(\rightarrow,\lor,\land\)</span>) de <span class="math">\(\alpha\)</span>. Notación <span class="math">\(Cb(\alpha)\)</span>.</p>
 <h3 id="peso">Peso</h3>
-<p>El peso de una expresión es la suma de los paréntesis, siendo el inicio de un paréntesis equivalente a <span class="math inline">\(+1\)</span> y el cierre de un paréntesis a <span class="math inline">\(-1\)</span>. Notación <span class="math inline">\(P(\alpha)\)</span></p>
-<p>Ejemplo: <span class="math display">\[
+<p>El peso de una expresión es la suma de los paréntesis, siendo el inicio de un paréntesis equivalente a <span class="math">\(+1\)</span> y el cierre de un paréntesis a <span class="math">\(-1\)</span>. Notación <span class="math">\(P(\alpha)\)</span></p>
+<p>Ejemplo:</p>
+<div class="math">
+\[
 \alpha=(p_1 \lor p_2 \Rightarrow P(\alpha)=1
-\]</span></p>
+\]</div>
 <ul>
-<li><p><strong>Teorema</strong>: Si <span class="math inline">\(\alpha\)</span> es una formula, entonces el peso es <span class="math inline">\(0\)</span></p>
-<p><a href="Demostraciones\04%20-%20Sintaxis\Teorema%20-%2002.html">Demostración</a></p></li>
-<li><p><strong>Teorema</strong>: Si <span class="math inline">\(\alpha\)</span> es una formula y si tiene un conectivo binario, llamo <span class="math inline">\(E\)</span> a la expresión a la izquierda del conectivo y el peso de <span class="math inline">\(E\)</span> es positivo (<span class="math inline">\(P(E)&gt;0\)</span>).</p>
-<p><a href="Demostraciones\04%20-%20Sintaxis\Teorema%20-%2003.html">Demostración</a></p></li>
-<li><p><strong>Corolario: <u>Unicidad de Escritura</u></strong>: Si <span class="math inline">\(\alpha \in F \Rightarrow\)</span> <span class="math display">\[
- \exists !\beta \in F/\alpha =\neg\beta \lor \exists !\beta_1,\beta_2\in F, \exists ! * \in \{\rightarrow,\lor,\land\}/ \alpha=(\beta_1 * \beta_2)
- \]</span> <a href="Demostraciones\04%20-%20Sintaxis\Corolario%20-%2001.html">Demostración</a></p></li>
+<li><p><strong>Teorema</strong>: Si <span class="math">\(\alpha\)</span> es una formula, entonces el peso es <span class="math">\(0\)</span></p>
+<p>[Demostración](Demostraciones\04 - Sintaxis\Teorema - 02.html)</p>
+</li>
+<li><p><strong>Teorema</strong>: Si <span class="math">\(\alpha\)</span> es una formula y si  tiene un conectivo binario, llamo <span class="math">\(E\)</span> a la expresión a la izquierda del conectivo y el peso de <span class="math">\(E\)</span> es positivo (<span class="math">\(P(E)&gt;0\)</span>).</p>
+<p>[Demostración](Demostraciones\04 - Sintaxis\Teorema - 03.html)</p>
+</li>
+<li><p><strong>Corolario: <u>Unicidad de Escritura</u></strong>: Si $\alpha \in F \Rightarrow $</p>
+<div class="math">
+\[
+\exists !\beta \in F/\alpha =\neg\beta \lor \exists !\beta_1,\beta_2\in F, \exists ! * \in \{\rightarrow,\lor,\land\}/ \alpha=(\beta_1 * \beta_2)
+\]</div>
+<p>[Demostración](Demostraciones\04 - Sintaxis\Corolario - 01.html)</p>
+</li>
 </ul>
 <h2 id="subformula">Subformula</h2>
-<p>Sea <span class="math inline">\(\alpha \in F\)</span>, con <span class="math inline">\(C(\alpha)=n\)</span>. <span class="math inline">\(\beta\)</span> es una subformula de <span class="math inline">\(\alpha\)</span> si cumple con:</p>
-<ol type="1">
-<li><p>Si <span class="math inline">\(n=0 \Rightarrow \alpha = P_1 \in Var\)</span>: <span class="math display">\[
+<p>Sea <span class="math">\(\alpha \in F\)</span>, con <span class="math">\(C(\alpha)=n\)</span>. <span class="math">\(\beta\)</span> es una subformula de <span class="math">\(\alpha\)</span> si cumple con:</p>
+<ol>
+<li><p>Si <span class="math">\(n=0 \Rightarrow \alpha = P_1 \in Var\)</span>:</p>
+<div class="math">
+\[
 \beta \in S(\alpha) \Leftrightarrow \beta = \alpha
-\]</span></p></li>
-<li><p>Si <span class="math inline">\(n&gt;0\)</span>:</p>
-<ol type="1">
-<li><p>Si <span class="math inline">\(\alpha=\neg \gamma, \gamma \in F\)</span>: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Si <span class="math">\(n&gt;0\)</span>:</p>
+<ol>
+<li><p>Si <span class="math">\(\alpha=\neg \gamma, \gamma \in F\)</span>:</p>
+<div class="math">
+\[
 \beta \in S(\alpha) \Leftrightarrow \beta = \alpha \lor \beta = S(\gamma)
-\]</span></p></li>
-<li><p>Si <span class="math inline">\(\alpha=(\gamma_1 * \gamma_2)\)</span>, con <span class="math inline">\(* \in C, \gamma_1,\gamma_2 \in F\)</span>: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Si <span class="math">\(\alpha=(\gamma_1 * \gamma_2)\)</span>, con <span class="math">\(* \in C, \gamma_1,\gamma_2 \in F\)</span>:</p>
+<div class="math">
+\[
 \beta \in S(\alpha) \Leftrightarrow \beta = \alpha \lor \beta = S(\gamma_1) \lor \beta = S(\gamma_2)
-\]</span></p></li>
-</ol></li>
+\]</div>
+</li>
 </ol>
-<p>Notación: <span class="math inline">\(S(\alpha)\)</span> es la subformula de <span class="math inline">\(\alpha\)</span></p>
+</li>
+</ol>
+<p>Notación: <span class="math">\(S(\alpha)\)</span> es la subformula de <span class="math">\(\alpha\)</span></p>
+
 </body>
 </html>

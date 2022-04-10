@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>10 - KMeans</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>10 - KMeans.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,62 +1385,91 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="k-means">K-Means</h1>
-<p>The <strong>K-Means</strong> algorithm comes to solve the Least-Squares Clustering Problem. The main objective for this algorithm is to find points that represent the center of the best distribution of <span class="math inline">\(K\)</span> clusters of points. The algorithm looks like this:</p>
-<ol type="1">
-<li><p>Initialize the cluster centers <span class="math inline">\(\{c_k\}^K_{k=1}\)</span> with some value. This can be a random selection of data points from the training set <span class="math inline">\(\mathcal T\)</span>.</p></li>
-<li><p>Split the training set <span class="math inline">\(\mathcal T\)</span> into <span class="math inline">\(k\)</span> groups <span class="math inline">\((\mathcal T_k)\)</span>. This decision will be based on de closes cluster center to each data point: <span class="math display">\[
+<p>The <strong>K-Means</strong> algorithm comes to solve the Least-Squares Clustering Problem. The main objective for this algorithm is to find points that represent the center of the best distribution of <span class="math">\(K\)</span> clusters of points. The algorithm looks like this:</p>
+<ol>
+<li><p>Initialize the cluster centers <span class="math">\(\{c_k\}^K_{k=1}\)</span> with some value. This can be a random selection of data points from the training set <span class="math">\(\mathcal T\)</span>.</p>
+</li>
+<li><p>Split the training set <span class="math">\(\mathcal T\)</span> into <span class="math">\(k\)</span> groups <span class="math">\((\mathcal T_k)\)</span>. This decision will be based on de closes cluster center to each data point:</p>
+<div class="math">
+\[
 \array{\mathcal T_k=\{x \in \mathcal T : \forall j.|\!|x-c_k|\!| ^2 \le |\!| x - c_j |\!|^2 \} &amp;\forall k \in 1,\dots,K}
-\]</span></p></li>
-<li><p>Now we will analyze the classification and decide the new cluster centers: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Now we will analyze the classification and decide the new cluster centers:</p>
+<div class="math">
+\[
 \array{c_k = 
 \left\{\array{
 \frac{1}{|\mathcal T_k|} \sum_{x\in \mathcal T_k} x&amp;|\mathcal T_k| &gt; 0\\
 \text{re-initialize}&amp; \mathcal T_k = \emptyset
 }\right. &amp; \forall k = 1,\dots, K}
-\]</span></p></li>
-<li><p>If <span class="math inline">\(\forall k: \mathcal T^{t+1}_k = \mathcal T^t_k\)</span> then we can exit the algorithm, otherwise go back to step 2.</p></li>
+\]</div>
+</li>
+<li><p>If <span class="math">\(\forall k: \mathcal T^{t+1}_k = \mathcal T^t_k\)</span> then we can exit the algorithm, otherwise go back to step 2.</p>
+</li>
 </ol>
-<p>This algorithm always converges and the least squares criterion <span class="math inline">\(J\)</span> monotonically decreases. Also, because of the finite number of assignments and that no assignment is visited twice, the algorithm reaches a <em>local minimum</em> after a finite number of steps.</p>
-<p>The complexity of this algorithm depends on the amount of clusters <span class="math inline">\((K)\)</span> and size of the training data set <span class="math inline">\((L)\)</span>. The complexity is <span class="math inline">\(O(KL)\)</span>, but it can be speed up.</p>
+<p>This algorithm always converges and the least squares criterion <span class="math">\(J\)</span> monotonically decreases. Also, because of the finite number of assignments and that no assignment is visited twice, the algorithm reaches a <em>local minimum</em> after a finite number of steps.</p>
+<p>The complexity of this algorithm depends on the amount of clusters <span class="math">\((K)\)</span> and size of the training data set <span class="math">\((L)\)</span>. The complexity is <span class="math">\(O(KL)\)</span>, but it can be speed up.</p>
 <h2 id="k-means-1">K-Means++</h2>
 <p>A good initialization can help you avoid bad local minima. This is the motivation for the K-means++ algorithm.</p>
-<ol type="1">
-<li><p>Choose the first cluster center <span class="math inline">\(c_1\)</span> uniformly at random from <span class="math inline">\(\mathcal T\)</span> and set <span class="math inline">\(\mathcal C=\{c_1\}\)</span></p></li>
-<li><p>For each data point <span class="math inline">\(x_l\)</span>, compute the distance <span class="math inline">\(d_l\)</span> to its nearest cluster in <span class="math inline">\(\mathcal C\)</span>: <span class="math display">\[
+<ol>
+<li><p>Choose the first cluster center <span class="math">\(c_1\)</span> uniformly at random from <span class="math">\(\mathcal T\)</span> and set <span class="math">\(\mathcal C=\{c_1\}\)</span></p>
+</li>
+<li><p>For each data point <span class="math">\(x_l\)</span>, compute the distance <span class="math">\(d_l\)</span> to its nearest cluster in <span class="math">\(\mathcal C\)</span>:</p>
+<div class="math">
+\[
 \array{d_l = \min_{c\in\mathcal C} |\!|x_l - c|\!| &amp; \forall l \in 1,\dots,L}
-\]</span></p></li>
-<li><p>Select a point <span class="math inline">\(x_l\)</span> from <span class="math inline">\(\mathcal T\)</span> with probability proportional to <span class="math inline">\(d_l^2\)</span> . This involves construction a distribution <span class="math inline">\(p(l)\)</span> with <span class="math inline">\(d_n\)</span> as <span class="math inline">\(p(n)= \frac{d_n^2}{\sum_{i=1}^L d_i^2}\)</span> and sampling from it to get the index <span class="math inline">\(l\)</span></p></li>
-<li><p>We add that new point <span class="math inline">\(x_l\)</span> to our set of cluster centers: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Select a point <span class="math">\(x_l\)</span> from <span class="math">\(\mathcal T\)</span> with probability proportional to <span class="math">\(d_l^2\)</span> . This involves construction a distribution <span class="math">\(p(l)\)</span> with <span class="math">\(d_n\)</span> as <span class="math">\(p(n)= \frac{d_n^2}{\sum_{i=1}^L d_i^2}\)</span> and sampling from it to get the index <span class="math">\(l\)</span></p>
+</li>
+<li><p>We add that new point <span class="math">\(x_l\)</span> to our set of cluster centers:</p>
+<div class="math">
+\[
 \mathcal C \leftarrow \mathcal C \cup \{x_l\}
-\]</span></p></li>
-<li><p>If <span class="math inline">\(|\mathcal C| = K\)</span>, we exit the algorithm, else go back to step 2.</p></li>
+\]</div>
+</li>
+<li><p>If <span class="math">\(|\mathcal C| = K\)</span>, we exit the algorithm, else go back to step 2.</p>
+</li>
 </ol>
 <p>After running the algorithm we have a good set of initial cluster centers that we need to run through the normal K-means algorithm.</p>
-<p>If we initialize K-means with the K-means++ algorithm, then we can have an upper bound on the expectation on the criterion value <span class="math inline">\(E(J)\)</span>: <span class="math display">\[
+<p>If we initialize K-means with the K-means++ algorithm, then we can have an upper bound on the expectation on the criterion value <span class="math">\(E(J)\)</span>:</p>
+<div class="math">
+\[
 E(J) \le 8 (\ln(K) + 2) J_{opt}
-\]</span></p>
+\]</div>
 <h2 id="generalizations">Generalizations</h2>
 <p>K-means can be generalized for minimized a criterion other than squared Euclidean distance. For this we are going to modify the algorithm:</p>
-<p>The input for the algorithm now is the set of observations <span class="math inline">\(\mathcal T =\{x_l\}^L_{l=1}\)</span>, the desired number of clusters <span class="math inline">\(K\)</span> and the distance function <span class="math inline">\(d(x,y)\)</span>.</p>
-<p>The output is the same as before, a set of cluster centers <span class="math inline">\(\{c_k\}^K_{k=1}\)</span> and the partition of the set data based on the centers <span class="math inline">\(\{\mathcal T_k\}^K_{k=1}\)</span>.</p>
+<p>The input for the algorithm now is the set of observations <span class="math">\(\mathcal T =\{x_l\}^L_{l=1}\)</span>, the desired number of clusters <span class="math">\(K\)</span> and the distance function <span class="math">\(d(x,y)\)</span>.</p>
+<p>The output is the same as before, a set of cluster centers <span class="math">\(\{c_k\}^K_{k=1}\)</span> and the partition of the set data based on the centers <span class="math">\(\{\mathcal T_k\}^K_{k=1}\)</span>.</p>
 <p>Now the algorithm looks like this:</p>
-<ol type="1">
-<li><p>Initialize the cluster centers <span class="math inline">\(\{c_k\}^K_{k=1}\)</span> with some value. This can be a random selection of data points from the training set <span class="math inline">\(\mathcal T\)</span>.</p></li>
-<li><p>Split the training set <span class="math inline">\(\mathcal T\)</span> into <span class="math inline">\(k\)</span> groups <span class="math inline">\((\mathcal T_k)\)</span>. This decision will be based on de closes cluster center to each data point: <span class="math display">\[
+<ol>
+<li><p>Initialize the cluster centers <span class="math">\(\{c_k\}^K_{k=1}\)</span> with some value. This can be a random selection of data points from the training set <span class="math">\(\mathcal T\)</span>.</p>
+</li>
+<li><p>Split the training set <span class="math">\(\mathcal T\)</span> into <span class="math">\(k\)</span> groups <span class="math">\((\mathcal T_k)\)</span>. This decision will be based on de closes cluster center to each data point:</p>
+<div class="math">
+\[
 \array{\mathcal T_k=\{x \in \mathcal T : \forall j.d(x-c_k) \le d(x,c_j) \} &amp;\forall k \in 1,\dots,K}
-\]</span></p></li>
-<li><p>Now we will analyze the classification and decide the new cluster centers: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Now we will analyze the classification and decide the new cluster centers:</p>
+<div class="math">
+\[
 \array{c_k = 
 \left\{\array{
 \text{argmin}_c\sum_{x\in \mathcal T_k} d(x,c)&amp;|\mathcal T_k| &gt; 0\\
 \text{re-initialize}&amp; \mathcal T_k = \emptyset
 }\right. &amp; \forall k = 1,\dots, K}
-\]</span></p></li>
-<li><p>If <span class="math inline">\(\forall k: \mathcal T^{t+1}_k = \mathcal T^t_k\)</span> then we can exit the algorithm, otherwise go back to step 2.</p></li>
+\]</div>
+</li>
+<li><p>If <span class="math">\(\forall k: \mathcal T^{t+1}_k = \mathcal T^t_k\)</span> then we can exit the algorithm, otherwise go back to step 2.</p>
+</li>
 </ol>
+
 </body>
 </html>

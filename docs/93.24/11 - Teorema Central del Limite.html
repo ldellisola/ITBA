@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>11 - Teorema Central del Limite</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>11 - Teorema Central del Limite.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,84 +1385,116 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="teorema-central-del-limite">Teorema Central del Limite</h1>
 <p>La distribución de probabilidades de una suma de variables aleatorias se parece a la distribucion Normal cuando crece el numero.</p>
-<p>Sean <span class="math inline">\(X_1,X_2,\dots,X_n\)</span> VA continuas o discretas que tengan <span class="math inline">\(\mu=E[x]\)</span> y <span class="math inline">\(\sigma^2=var(X_n)\)</span></p>
+<p>Sean <span class="math">\(X_1,X_2,\dots,X_n\)</span> VA continuas o discretas que tengan <span class="math">\(\mu=E[x]\)</span> y <span class="math">\(\sigma^2=var(X_n)\)</span></p>
 <p>Hay dos formas de utilizarlo:</p>
 <ul>
-<li>Sea <span class="math inline">\(\overline {X_n} = \frac 1 n \cdot \sum_{k=1}^n X_k\)</span>, con <span class="math inline">\(E[\overline {X_n}] = \mu\)</span> y <span class="math inline">\(var[\overline {X_n}] = \frac {\sigma^2} n\)</span>, entonces</li>
+<li>Sea <span class="math">\(\overline {X_n} = \frac 1 n \cdot \sum_{k=1}^n X_k\)</span>, con <span class="math">\(E[\overline {X_n}] = \mu\)</span> y <span class="math">\(var[\overline {X_n}] = \frac {\sigma^2} n\)</span>, entonces</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 P(\overline {X_n} \leq x) \sim \Phi \left( \frac {x-\mu} {\sigma/\sqrt n} \right)
-\]</span></p>
+\]</div>
 <ul>
-<li>Sea <span class="math inline">\(S_n= \sum_{k=1}^n X_k\)</span>, con <span class="math inline">\(E[S_n] = n\cdot\mu\)</span> y <span class="math inline">\(var[S_n] = n\cdot\sigma^2\)</span>, entonces</li>
+<li>Sea <span class="math">\(S_n= \sum_{k=1}^n X_k\)</span>, con <span class="math">\(E[S_n] = n\cdot\mu\)</span> y <span class="math">\(var[S_n] = n\cdot\sigma^2\)</span>, entonces</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 P(S_n \leq s) \sim \Phi\left( \frac {s - \mu \cdot n}{\sigma \cdot \sqrt n}\right)
-\]</span></p>
-<h3 id="ejemplo-s_n">Ejemplo <span class="math inline">\(S_n\)</span></h3>
-<p>Sea <span class="math inline">\(X_i\)</span> el contenido de leche del tambor <span class="math inline">\(i\)</span>, sea <span class="math inline">\(S_n = \sum_{k=1}^n X_k\)</span>.</p>
-<p>Si sabemos que el valor medio de los tambores es <span class="math inline">\(\mu = 30,01\)</span>, que el desvío estándar de los tambores es <span class="math inline">\(\sigma = 0.1\)</span></p>
-<ol type="1">
+\]</div>
+<h3 id="ejemplo">Ejemplo <span class="math">\(S_n\)</span></h3>
+<p>Sea <span class="math">\(X_i\)</span> el contenido de leche del tambor <span class="math">\(i\)</span>, sea <span class="math">\(S_n = \sum_{k=1}^n X_k\)</span>.</p>
+<p>Si sabemos que el valor medio de los tambores es <span class="math">\(\mu = 30,01\)</span>, que el desvío estándar de los tambores es <span class="math">\(\sigma = 0.1\)</span></p>
+<ol>
 <li><strong>Cual es la probabilidad de que la cantidad total contenida en 50 tambores sea mayor a 1500 litros?</strong></li>
 </ol>
-<p>Me piden la cantidad en 50 tambores, por lo que <span class="math inline">\(n = 50\)</span> y me dicen que tiene que ser mayor a 1500 litros, por lo que <span class="math inline">\(s = 1500\)</span>.</p>
-<p>Podemos sumar las variables aleatorias por ser independientes, por lo que nos queda <span class="math display">\[
+<p>Me piden la cantidad en 50 tambores, por lo que <span class="math">\(n = 50\)</span> y me dicen que tiene que ser mayor a 1500 litros, por lo que <span class="math">\(s = 1500\)</span>.</p>
+<p>Podemos sumar las variables aleatorias por ser independientes, por lo que nos queda</p>
+<div class="math">
+\[
 S_{50} = \sum_{k=1}^{50} X_k
-\]</span> con <span class="math inline">\(E[S_{50}] = n \cdot \mu =50 \cdot 30.01 = 1500,5\)</span> y <span class="math inline">\(var[S_{50}] = n \cdot \sigma^2 =50 \cdot 0.01 = 0.5\)</span>.</p>
-<p>Y como <span class="math inline">\(n\)</span> es grande <span class="math inline">\((n \geq 30)\)</span>, puedo aplicar el Teorema Central del Limite: <span class="math display">\[
+\]</div>
+<p>con <span class="math">\(E[S_{50}] = n \cdot \mu =50 \cdot 30.01 = 1500,5\)</span> y <span class="math">\(var[S_{50}] = n \cdot \sigma^2 =50 \cdot 0.01 = 0.5\)</span>.</p>
+<p>Y como  <span class="math">\(n\)</span> es grande <span class="math">\((n \geq 30)\)</span>, puedo aplicar el Teorema Central del Limite:</p>
+<div class="math">
+\[
 P(S_{50} &gt; 1500 ) = 1- P(S_{50} \leq 1500) \sim 1 - \Phi \left( \frac {1500 - 1500.5} {\sqrt {0.5}} \right)= \Phi(\sqrt{0.5}) \sim0.76025
-\]</span> <span class="math inline">\(\therefore\)</span> La probabilidad de que el total contenido en 50 tambores sea de 1500 litros es del <span class="math inline">\(76\%\)</span>.</p>
-<ol start="2" type="1">
+\]</div>
+<p><span class="math">\(\therefore\)</span> La probabilidad de que el total contenido en 50 tambores sea de 1500 litros es del  <span class="math">\(76\%\)</span>.</p>
+<ol start="2">
 <li><strong>Si la cantidad total de solucion en el tanque es de 2041 litros, cual es la probabilidad de que puedan llenarse 80 tambores sin vaciar al tanque?</strong></li>
 </ol>
-<p>Acá me piden la probabilidad de que 80 tambores <span class="math inline">\((n=80)\)</span> puedan contener menos de 2041 litros <span class="math inline">\((s = 2041)\)</span> de solucion.</p>
-<p>Entonces puedo sumar las 80 VA independientes: <span class="math display">\[
+<p>Acá me piden la probabilidad de que 80 tambores <span class="math">\((n=80)\)</span> puedan contener menos de 2041 litros  <span class="math">\((s = 2041)\)</span> de solucion.</p>
+<p>Entonces puedo sumar las 80 VA independientes:</p>
+<div class="math">
+\[
 S_{80} = \sum_{k=1}^{80} X_k
-\]</span> Con <span class="math inline">\(E[S_{80}] = n \cdot \mu =80 \cdot 30.01 = 2400.8\)</span> y <span class="math inline">\(var[S_{80}] = n \cdot \sigma^2 =80 \cdot 0.01 = 0.8\)</span>.</p>
-<p>Y como <span class="math inline">\(n\)</span> es grande, puedo utilizar el Teorema Central del Limite: <span class="math display">\[
+\]</div>
+<p>Con <span class="math">\(E[S_{80}] = n \cdot \mu =80 \cdot 30.01 = 2400.8\)</span> y <span class="math">\(var[S_{80}] = n \cdot \sigma^2 =80 \cdot 0.01 = 0.8\)</span>.</p>
+<p>Y como <span class="math">\(n\)</span> es grande, puedo utilizar el Teorema Central del Limite:</p>
+<div class="math">
+\[
 P(S_{80}\leq 2041) \sim\Phi\left( \frac {2041 - 2040.8} {\sqrt{0.8}} \right) \sim 0.58847
-\]</span> <span class="math inline">\(\therefore\)</span> Hay un <span class="math inline">\(59\%\)</span> de probabilidades de que pueda llenar 80 tambores con 2041 litros.</p>
-<ol start="3" type="1">
-<li><strong>Que cantidad de solucion debe contener el tanque para tener una probabilidad del <span class="math inline">\(90\%\)</span> de que puedan llenarse 100 tambores sin que se vacíe el tanque?</strong></li>
+\]</div>
+<p><span class="math">\(\therefore\)</span> Hay un <span class="math">\(59\%\)</span> de probabilidades de que pueda llenar 80 tambores con 2041 litros.</p>
+<ol start="3">
+<li><strong>Que cantidad de solucion debe contener el tanque para tener una probabilidad del <span class="math">\(90\%\)</span> de que puedan llenarse 100 tambores sin que se vacíe el tanque?</strong></li>
 </ol>
-<p>Acá me piden el volumen del tanque <span class="math inline">\((s)\)</span> para el cual tenga una probabilidad del <span class="math inline">\(90\%\)</span> de llenar 100 tambores <span class="math inline">\((n = 100)\)</span>.</p>
-<p>Entonces puedo sumar las 100 VA independientes: <span class="math display">\[
+<p>Acá me piden el volumen del tanque <span class="math">\((s)\)</span> para el cual tenga una probabilidad del <span class="math">\(90\%\)</span> de llenar 100 tambores <span class="math">\((n = 100)\)</span>.</p>
+<p>Entonces puedo sumar las 100 VA independientes:</p>
+<div class="math">
+\[
 S_{100} = \sum_{k=1}^{100} X_k
-\]</span> Con <span class="math inline">\(E[S_{100}] = n \cdot \mu =100 \cdot 30.01 = 3001\)</span> y <span class="math inline">\(var[S_{80}] = n \cdot \sigma^2 =100 \cdot 0.01 = 1\)</span>.</p>
-<p>Y como <span class="math inline">\(n\)</span> es grande, puedo utilizar el Teorema Central del Limite: <span class="math display">\[
+\]</div>
+<p>Con <span class="math">\(E[S_{100}] = n \cdot \mu =100 \cdot 30.01 = 3001\)</span> y <span class="math">\(var[S_{80}] = n \cdot \sigma^2 =100 \cdot 0.01 = 1\)</span>.</p>
+<p>Y como <span class="math">\(n\)</span> es grande, puedo utilizar el Teorema Central del Limite:</p>
+<div class="math">
+\[
 P(S_{100} \leq s) = 0.9\\
 \Phi\left( \frac {s-3001} {\sqrt 1} \right) = 0.9\\
 s-3001 = \Phi^{-1}(0.9) = 1.2816 \\
 s = 3002.2816
-\]</span> <span class="math inline">\(\therefore\)</span> El tanque tiene que contener <span class="math inline">\(3002.28\)</span> litros de solucion para poder llenar a 100 tambores con una probabilidad de <span class="math inline">\(90\%\)</span>.</p>
-<h2 id="corrección-por-continuidad">Corrección por Continuidad</h2>
+\]</div>
+<p><span class="math">\(\therefore\)</span> El tanque tiene que contener <span class="math">\(3002.28\)</span> litros de solucion para poder llenar a 100 tambores con una probabilidad de <span class="math">\(90\%\)</span>.</p>
+<h2 id="correccion-por-continuidad">Corrección por Continuidad</h2>
 <p>La corrección por continuidad sirve para convertir VAD en VAC para poder aplicar el Teorema Central del Limite. Gracias a esto podemos aproximar VA Binomiales a Normales.</p>
-<p>Sea <span class="math inline">\(X\sim Binomial(n,p)\)</span> con <span class="math inline">\(\mu = n \cdot p\)</span> y <span class="math inline">\(\sigma = n\cdot p \cdot (1-p)\)</span>, entonces: <span class="math display">\[
+<p>Sea <span class="math">\(X\sim Binomial(n,p)\)</span> con $\mu = n \cdot p <span class="math">\(y\)</span>\sigma = n\cdot p \cdot (1-p)$, entonces:</p>
+<div class="math">
+\[
 P(X = k) = P(k-0.5 \leq X \leq k+0.5) = \Phi\left( \frac {k+0.5- \mu} {\sigma} \right) - \Phi\left( \frac {k - 0.5 - \mu} {\sigma} \right)
-\]</span></p>
-<h3 id="ejemplo">Ejemplo</h3>
-<p>Una central telefónica A da servicio a <strong>1800 usuarios</strong> de una central cercana B. Como seria costoso instalar 1800 líneas directas de A a B, se pueden instalar solo <span class="math inline">\(k\)</span> líneas de forma tal que solamente <strong>1 de cada 100</strong> llamadas en promedio no encuentre inmediatamente una línea tronca disponible. Supóngase que en la hora mas ocupada del día, cada usuario requiere una línea troncal de B <strong>durante un promedio de 2 minutos.</strong> En un momento fijo de la hora de máximo trafico, puede suponerse la situación como un conjunto de <strong>1800 ensayos independientes</strong> con una probabilidad <span class="math inline">\(p = \frac 1 {30}\)</span> (obtenida de 2 minutos en 60 minutos) en que cada uno requiere una línea. Determinar el numero <span class="math inline">\(k\)</span> de líneas a instalar entre A y B.</p>
-<p>Como cada ensayo tiene una distribución de Bernoulli, se lo puede modelar de la siguiente forma: <span class="math display">\[
+\]</div>
+<h3 id="ejemplo-1">Ejemplo</h3>
+<p>Una central telefónica A da servicio a <strong>1800 usuarios</strong> de una central cercana  B. Como seria costoso instalar 1800 líneas directas de A a B, se pueden instalar solo <span class="math">\(k\)</span> líneas de forma tal que solamente <strong>1 de cada 100</strong> llamadas en promedio no encuentre inmediatamente una línea tronca disponible. Supóngase que en la hora mas ocupada del día, cada usuario requiere una línea troncal de B <strong>durante un promedio de 2 minutos.</strong> En un momento fijo de la hora de máximo trafico, puede suponerse la situación como un conjunto de <strong>1800 ensayos independientes</strong> con una probabilidad <span class="math">\(p = \frac 1 {30}\)</span> (obtenida de 2 minutos en 60 minutos) en que cada uno requiere una línea. Determinar el numero <span class="math">\(k\)</span> de líneas a instalar entre A y B.</p>
+<p>Como cada ensayo tiene una distribución de Bernoulli, se lo puede modelar de la siguiente forma:</p>
+<div class="math">
+\[
 X_i \left\{
-    \begin{array}{}
-        1 &amp; si~el~i-esimo~usuario~utilizo~la~linea\\
-        0 &amp; si~no~utiliza~la~linea.
-    \end{array}
+	\begin{array}{}
+		1 &amp; si~el~i-esimo~usuario~utilizo~la~linea\\
+		0 &amp; si~no~utiliza~la~linea.
+	\end{array}
 \right.
  \sim Bernoulli(1/30)
-\]</span> Sea <span class="math inline">\(S_{1800}\)</span> el numero de usuarios que requieren una llamada. <span class="math display">\[
+\]</div>
+<p>Sea <span class="math">\(S_{1800}\)</span> el numero de usuarios que requieren una llamada.</p>
+<div class="math">
+\[
 S_{1800} = \sum_{i=1}^{1800} X_i \sim Binomial(1800,1/30)
-\]</span> Con <span class="math inline">\(\mu = n \cdot p = 1800 \cdot 1/30 = 60\)</span>, <span class="math inline">\(\sigma = \sqrt{n \cdot p \cdot (1-p)} = \sqrt{59}\)</span> <span class="math display">\[
+\]</div>
+<p>Con <span class="math">\(\mu = n \cdot p = 1800 \cdot 1/30 = 60\)</span>,  <span class="math">\(\sigma = \sqrt{n \cdot p \cdot (1-p)} = \sqrt{59}\)</span></p>
+<div class="math">
+\[
 P(S_{1800} \gt k) = 0.01\\
 1-P(S_{1800} \leq k) \sim 1- \Phi\left( \frac {n - 60} {\sqrt{59}} \right) \leq 0.01\\
 0.01 - 1 \leq \Phi \left( \frac {n-60} {\sqrt{59}} \right) \\
-\Phi^{-1}(-0.99) \leq  \frac{n-60}{\sqrt{59}}   \\
+\Phi^{-1}(-0.99) \leq  \frac{n-60}{\sqrt{59}}	\\
 n \geq 77.71 \rightarrow n = 78
-\]</span></p>
+\]</div>
+
 </body>
 </html>

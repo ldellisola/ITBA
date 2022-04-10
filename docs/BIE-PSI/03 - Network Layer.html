@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Network Layer</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>03 - Network Layer.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,52 +1385,71 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="network-layer">Network Layer</h1>
 <p>The network layer manages data transfer between the source and destination addresses. It provides the following services to the upper layers:</p>
 <ul>
-<li><p><strong>Independence of forwarding method</strong></p></li>
-<li><p><strong>Independence of network topology</strong></p></li>
-<li><p><strong>Provide a network numbering schema</strong></p></li>
+<li><p><strong>Independence of forwarding method</strong></p>
+</li>
+<li><p><strong>Independence of network topology</strong></p>
+</li>
+<li><p><strong>Provide a network numbering schema</strong></p>
+</li>
 <li><p><strong>Connection-oriented Services</strong>:</p>
-<p>It tries to simulate virtual circuits. The first stage is to register the circuit on all routers on the path, transfer the data to the circuit and them delete the data. Each packet has a header with virtual circuit specifier.</p></li>
+<p>It tries to simulate virtual circuits. The first stage is to register the circuit on all routers on the path, transfer the data to the circuit and them delete the data. Each packet has a header with virtual circuit specifier.</p>
+</li>
 <li><p><strong>Connectionless services</strong>:</p>
-<p>The block of data from the transport layer is divided into packets that are routed individually. The packet has a header where that contains the address and then the router implements an algorithm to deliver them.</p></li>
+<p>The block of data from the transport layer is divided into packets that are routed individually. The packet has a header where that contains the address and then the router implements an algorithm to deliver them.</p>
+</li>
 </ul>
 <p>We can compare connectionless and connection-oriented services in the following chart:</p>
-<p><img src="Resources/03 - Network Layer/image-20210318190917164.png" alt="image-20210318190917164" style="zoom:33%;" /></p>
+<img src="Resources/03 - Network Layer/a0deffbf-ba10-4d96-9c52-2e9c4da35baa.png" alt="a0deffbf-ba10-4d96-9c52-2e9c4da35baa" style="scale:0.33;" />
 <h2 id="addressing">Addressing</h2>
 <p>In a network, every address must be unique. There are also different types of addressing:</p>
 <ul>
 <li><p><strong>Unicast</strong>:</p>
-<p>Its a direct connection from one machine to another, used in IPv4 and IPv6.</p></li>
+<p>Its a direct connection from one machine to another, used in IPv4 and IPv6.</p>
+</li>
 <li><p><strong>Broadcast</strong>:</p>
-<p>It sends a message to all known hosts in a local network. For example if the broadcast address is defined as: <span class="math display">\[
+<p>It sends a message to all known hosts in a local network. For example if the broadcast address is defined as:</p>
+<div class="math">
+\[
 \text{IP address: } 192.113.147.16/25\\
 \text{Mask: } 255.255.255.128
-\]</span> The broadcast address will be defined as: <span class="math display">\[
+\]</div>
+<p>The broadcast address will be defined as:</p>
+<div class="math">
+\[
 \text{Broadcast: } 192.133.147.127
-\]</span> And it will contact all machines on IP 192.113.147.0 up to 192.113.147.127</p></li>
+\]</div>
+<p>And it will contact all machines on IP 192.113.147.0 up to 192.113.147.127</p>
+</li>
 <li><p><strong>Anycast</strong>:</p>
-<p>It tries to send a message to a device when multiple devices have the same address. It has low latency and does load balancing.</p></li>
+<p>It tries to send a message to a device when multiple devices have the same address. It has low latency and does load balancing.</p>
+</li>
 <li><p><strong>Multicast</strong>:</p>
-<p>Multicast sends a message to multiple devices at the same time. In the IPv4 standard the multicast addresses are contained within the following range" <span class="math display">\[
+<p>Multicast sends a message to multiple devices at the same time. In the IPv4 standard the multicast addresses are contained within the following range&quot;</p>
+<div class="math">
+\[
 \array{224.0.0.0 &amp; - &amp; 239.255.255.255}
-\]</span> It uses the Internet Group Management Protocol (IGMP) for hosts registration and the Protocol Independent Multicast (PIM) for multicast routing.</p></li>
+\]</div>
+<p>It uses the Internet Group Management Protocol (IGMP) for hosts registration and the Protocol Independent Multicast (PIM) for multicast routing.</p>
+</li>
 </ul>
 <h2 id="ipv4">IPv4</h2>
 <p>An IPv4 address is a 32-bit number split into 4 groups of 8 bits each:</p>
-<p><img src="Resources/03 - Network Layer/image-20210318194953877.png" alt="image-20210318194953877" style="zoom:33%;" /></p>
+<img src="Resources/03 - Network Layer/4f237795-c095-46cb-bd8c-7c7ccd5c0768.png" alt="4f237795-c095-46cb-bd8c-7c7ccd5c0768" style="scale:0.33;" />
 <p>There were different classes of IPv4 in the past:</p>
-<p><img src="Resources/03 - Network Layer/image-20210318195142751.png" alt="image-20210318195142751" style="zoom:33%;" /></p>
+<img src="Resources/03 - Network Layer/f0e0a0fe-e59a-40bf-b979-b45bfec7f555.png" alt="f0e0a0fe-e59a-40bf-b979-b45bfec7f555" style="scale:0.33;" />
 <p>Classes A, B and C are normal unicast addresses, class D are multicast and E are reserved.</p>
-<p>Currently the Classless Inter-Domain Routing (CIDR) schema is being used to manage the addresses of class A,B and C. With this schema the network prefix has an arbitrary length that is expressed with a mask. The mask has demarks with <span class="math inline">\(1\)</span> the elements of the network prefix.</p>
+<p>Currently the Classless Inter-Domain Routing (CIDR) schema is being used to manage the addresses of class  A,B and C. With this schema the network prefix has an arbitrary length that is expressed with a mask. The mask has demarks with <span class="math">\(1\)</span> the elements of the network prefix.</p>
 <h3 id="private-ip-addresses">Private IP Addresses</h3>
 <p>In private networks, all IPs are available. Usually each network has one or a few public addresses and the router handles the conversion of a large number of private addresses to them.</p>
 <h3 id="ipv4-packet-header">IPv4 Packet Header</h3>
-<p><img src="Resources/03 - Network Layer/image-20210319124943106.png" alt="image-20210319124943106" style="zoom:33%;" /></p>
+  <img src="Resources/03 - Network Layer/d2665918-fa9e-42b5-9768-0a7329c5b947.png" alt="d2665918-fa9e-42b5-9768-0a7329c5b947" style="scale:0.33;" />
 <p>The packet header looks like this, with the following fields:</p>
 <ul>
 <li>Version: 4</li>
@@ -1585,5 +1466,6 @@ blockquote {
 <li>Options: Used only for some special purpose</li>
 <li>Padding: Alignment of the header length to 32 bits.</li>
 </ul>
+
 </body>
 </html>

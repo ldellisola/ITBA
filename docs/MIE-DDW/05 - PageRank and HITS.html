@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>05 - PageRank and HITS</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>05 - PageRank and HITS.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,14 +1385,15 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="pagerank-and-hits">PageRank and HITS</h1>
 <h2 id="web-graph">Web Graph</h2>
 <p>A <strong>web graph</strong> is a directed graph that represents the web. Each node represents a web page and edges are hyperlinks. In-links are links pointing to the node, while out-links are links generated from the node.</p>
 <p>This graph has a bow tie structure, and this information is very important when designing crawlers or search engines.</p>
-<p>&lt;img src=“Resources/05 - PageRank and HITS/tttbowtie.JPG” alt=“The Durability of the “Bow-Tie Structure of the Web” : Networks Course blog for INFO 2040/CS 2850/Econ 2040/SOC 2090" style=“zoom: 67%;” /&gt;</p>
+<p>&lt;img src=&quot;Resources/05 - PageRank and HITS/tttbowtie.JPG&quot; alt=&quot;The Durability of the “Bow-Tie Structure of the Web&quot; : Networks Course blog  for INFO 2040/CS 2850/Econ 2040/SOC 2090&quot; style=&quot;zoom: 67%;&quot; /&gt;</p>
 <p>The web is not a fully interconnected network, in fact is has several different types of components:</p>
 <ul>
 <li><strong>SCC</strong>: It is a giant strongly connected component. It can be thought as the central core, all of whose can reach one another along directed links.</li>
@@ -1543,38 +1406,56 @@ blockquote {
 <h2 id="search-results">Search Results</h2>
 <p>We can build web search algorithms on top of existing boolean vector models. The main problem of using these basic models alone is that the results are too large and all documents are treated equally according to the relevance point of view. We need other ways to rank them.</p>
 <h3 id="pagerank">PageRank</h3>
-<p><strong>PageRank</strong> was introduced in 1008 by Google cofounders. This algorithm uses link structure as an indicator of an individual page’s quality. The prestige of a page is proportional to the sum of the prestige scores of the pages linking to it and it is independent of any information need or query.</p>
-<p>This algorithm is able to fight spam, global measure and is query independent, computed ahead of time and very efficient at query time. The main formula is: <span class="math display">\[
+<p><strong>PageRank</strong> was introduced in 1008 by Google cofounders. This algorithm uses link structure as an indicator of an individual page's quality. The prestige of a page is proportional to the sum of the prestige scores of the pages linking to it and it is independent of any information need or query.</p>
+<p>This algorithm is able to fight spam, global measure and is query independent, computed ahead of time and very efficient at query time. The main formula is:</p>
+<div class="math">
+\[
 \pi^{(k+1)T} = \pi^{(k)T}(\alpha S + (1-\alpha)E)
-\]</span> Each page has it own rank, and it is calculated as: <span class="math display">\[
+\]</div>
+<p>Each page has it own rank, and it is calculated as:</p>
+<div class="math">
+\[
 r(P_i) = \sum_{P_j \in B_{P_i}  }\frac{r(P_j)}{|P_j|}
-\]</span> Where <span class="math inline">\(B_{P_i}\)</span> is the set of pages linking to <span class="math inline">\(P_i\)</span> and <span class="math inline">\(|P_i|\)</span> is the number of out-links from <span class="math inline">\(P_j\)</span>.</p>
-<p>We can also calculate the matrix representation of the algorithm as: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(B_{P_i}\)</span> is the set of pages linking to <span class="math">\(P_i\)</span> and <span class="math">\(|P_i|\)</span> is the number of out-links from <span class="math">\(P_j\)</span>.</p>
+<p>We can also calculate the matrix representation of the algorithm as:</p>
+<div class="math">
+\[
 \pi^{k+1} = \pi^k H
-\]</span> Where <span class="math inline">\(\pi^k = (r_k(P_1),\dots,r_k(P_n))\)</span> and <span class="math inline">\(H\)</span> is an <span class="math inline">\(n\times n\)</span> matrix where: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(\pi^k = (r_k(P_1),\dots,r_k(P_n))\)</span>  and <span class="math">\(H\)</span> is an <span class="math">\(n\times n\)</span> matrix where:</p>
+<div class="math">
+\[
 H_{ij} = \left\{\array{\frac1{|P_i|}&amp;&amp; \exists \text{ link from $P_i$ to $P_j$}\\
 0&amp;&amp; \text{else}}\right.
-\]</span> This equation is the characteristic equation used for finding the eigensystem of the matrix, <span class="math inline">\(\pi\)</span> is the eigen vector with the corresponding eigenvalue of <span class="math inline">\(1\)</span>.</p>
+\]</div>
+<p>This equation is the characteristic equation used for finding the eigensystem of the matrix, <span class="math">\(\pi\)</span> is the eigen vector with the corresponding eigenvalue of <span class="math">\(1\)</span>.</p>
 <p>The problem with this approach is that the web graph does not meet all conditions, meaning that there are many pages without out-links, as well as directed paths leading into a cycle.</p>
-<p>Every iteration of this algorithm has a time complexity of <span class="math inline">\(O(n^2)\)</span> but the matrix is sparse, meaning that other representations can be used and reduce the complexity to <span class="math inline">\(O(\text{nze})\)</span> where <span class="math inline">\(\text{nze}\)</span> means <em>“non-zero elements”</em>.</p>
+<p>Every iteration of this algorithm has a time complexity of <span class="math">\(O(n^2)\)</span> but the matrix is sparse, meaning that other representations can be used and reduce the complexity to <span class="math">\(O(\text{nze})\)</span> where <span class="math">\(\text{nze}\)</span> means <em>&quot;non-zero elements&quot;</em>.</p>
 <h3 id="alternative-pagerank-definition">Alternative PageRank Definition</h3>
-<p>We can also calculate PageRank using random walks, meaning that the probability of being at page <span class="math inline">\(X\)</span> after <span class="math inline">\(k\)</span> steps of this random walk is precisely the PageRank of <span class="math inline">\(X\)</span> after <span class="math inline">\(k\)</span> applications of the basic PageRank update rule.</p>
+<p>We can also calculate PageRank using random walks, meaning that the probability of being at page <span class="math">\(X\)</span> after <span class="math">\(k\)</span> steps of this random walk is precisely the PageRank of <span class="math">\(X\)</span> after <span class="math">\(k\)</span> applications of the basic PageRank update rule.</p>
 <p>This method still has a problem with rank sinks and cycles, although they can be minimized by moving to a random node.</p>
 <h3 id="google-matrix">Google Matrix</h3>
-<p>The <strong>Google Matrix</strong> is the solution for irreducible and aperiodic situations. In this matrix we add a link from each page to every page and give each link a small transition probability controlled by a parameter <span class="math inline">\(d\)</span> called the <strong>damping factor</strong>.</p>
-<p>Now the updated model has two options, with probability <span class="math inline">\(d\)</span> it can choose an out-link to follow, or with probability <span class="math inline">\(1-d\)</span> it can jump to a random page without a link. Now the matrix becomes strongly connected and the random surfer does not have to transverse a fixed cycle.</p>
-<p>The google matrix looks like this: <span class="math display">\[
+<p>The <strong>Google Matrix</strong> is the solution for irreducible and aperiodic situations. In this matrix we add a link from each page to every page and give each link a small transition probability controlled by a parameter <span class="math">\(d\)</span> called the <strong>damping factor</strong>.</p>
+<p>Now the updated model has two options, with probability <span class="math">\(d\)</span> it can choose an out-link to follow, or with probability <span class="math">\(1-d\)</span> it can jump to a random page without a link. Now the matrix becomes strongly connected and the random surfer does not have to transverse a fixed cycle.</p>
+<p>The google matrix looks like this:</p>
+<div class="math">
+\[
 G = d \times S + (1-d) \times \frac E n
-\]</span> Where <span class="math inline">\(E\)</span> is an <span class="math inline">\(n \times n\)</span> matrix composed of all <span class="math inline">\(1\)</span>s.</p>
-<p>The iteration now is calculated as: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(E\)</span> is an <span class="math">\(n \times n\)</span> matrix composed of all $1$s.</p>
+<p>The iteration now is calculated as:</p>
+<div class="math">
+\[
 \pi^{k+1} = \pi^k G
-\]</span> And now the matrix is not sparse anymore, so we cannot optimize the multiplication and the time complexity is <span class="math inline">\(O(n^2)\)</span>.</p>
-<p>In the end, the iteration will end when the <span class="math inline">\(1\)</span>-norm of the residual vector is less than a pre-specified threshold <span class="math inline">\(\delta\)</span></p>
+\]</div>
+<p>And now the matrix is not sparse anymore, so we cannot optimize the multiplication and the time complexity is <span class="math">\(O(n^2)\)</span>.</p>
+<p>In the end, the iteration will end when the <span class="math">\(1\)</span>-norm of the residual vector is less than a pre-specified threshold <span class="math">\(\delta\)</span></p>
 <h3 id="pagerank-modifications">PageRank Modifications</h3>
 <h4 id="intelligent-surfer">Intelligent Surfer</h4>
 <p>It modifies the probabilities in the transition matrix taking into account analysis of user behavior and similarity of pages among other variables.</p>
 <h4 id="personalization">Personalization</h4>
-<p>We can modify the teleportation system so that the matrix <span class="math inline">\(E\)</span> is instead bias with preferences for specific pages.</p>
+<p>We can modify the teleportation system so that the matrix <span class="math">\(E\)</span> is instead bias with preferences for specific pages.</p>
 <h2 id="hits">HITS</h2>
 <p><strong>Hypertextual Induced Topic Search</strong> is an algorithm that uses the web structure as an important aspect, and the query is used to select a subgraph from the web. For a search query, HITS will first expand the list of relevant pages returned by a search engine and then produces rankings of the expanded set of pages.</p>
 <p>This method has two main characteristics:</p>
@@ -1584,18 +1465,28 @@ G = d \times S + (1-d) \times \frac E n
 </ul>
 <p>A <strong>hub</strong> is a page with many out-links, it is usually a source of many important links to authority pages relevant for the topic. An <strong>authority</strong> is a page with many in-links, meaning that people trust the page. The goal is to find the best hubs and authorities.</p>
 <h3 id="the-algorithm">The Algorithm</h3>
-<p>First, the HITS algorithm has to collect pages. It sends a query to a search engine and collects top <span class="math inline">\(t\)</span> highest ranked pages that are relevant to the query, this set is called <span class="math inline">\(W\)</span>. Later it will grow <span class="math inline">\(W\)</span> by including pages that link to any page in it or that are linked by any page from <span class="math inline">\(W\)</span>, at most <span class="math inline">\(k\)</span> per page. Now the set is renamed as a base set <span class="math inline">\(S\)</span>.</p>
-<p>After collection the information, HITS works with a graph made out of all the pages in the base set <span class="math inline">\(S\)</span> with <span class="math inline">\(L\)</span> adjacency matrix.</p>
-<p>After the Graph is created, we can calculate bot the authority score (<span class="math inline">\(a\)</span>) and the hub score (<span class="math inline">\(h\)</span>): <span class="math display">\[
+<p>First, the HITS algorithm has to collect pages. It sends a query to a search engine and collects top <span class="math">\(t\)</span> highest ranked pages that are relevant to the query, this set is called <span class="math">\(W\)</span>. Later it will grow <span class="math">\(W\)</span> by including pages that link to any page in it or that are linked by any page from <span class="math">\(W\)</span>, at most <span class="math">\(k\)</span> per page. Now the set is renamed as a base set <span class="math">\(S\)</span>.</p>
+<p>After collection the information, HITS works with a graph made out of all the pages in the base set <span class="math">\(S\)</span> with <span class="math">\(L\)</span> adjacency matrix.</p>
+<p>After the Graph is created, we can calculate bot the authority score (<span class="math">\(a\)</span>) and the hub score (<span class="math">\(h\)</span>):</p>
+<div class="math">
+\[
 a(i)^k = \sum_{(j,i) \in E} j(i)^{k-1} \\
 h(i)^k = \sum_{(j,i) \in E} a(i)^{k-1}
-\]</span> The HITS algorithm also ahs a matrix representation similar to PageRank: <span class="math display">\[
+\]</div>
+<p>The HITS algorithm also ahs a matrix representation similar to PageRank:</p>
+<div class="math">
+\[
 \array{a = L^Th &amp;&amp; h = La}
-\]</span> Both matrixes can be computed in an iterative way: <span class="math display">\[
+\]</div>
+<p>Both matrixes can be computed in an iterative way:</p>
+<div class="math">
+\[
 \array{1. &amp;&amp; a_0 = (1,\dots,1) &amp; h_0 = (1,\dots,1) \\
 2. &amp;&amp; a_k = L^T\times L \times a_{k-1} &amp; h_k = L\times L^T \times h_{k-1}
 }
-\]</span> The iteration will end after the <span class="math inline">\(1\)</span>-norms of the residual vectors are less than some threshold and we return the top ranked pages as authorities and hubs. HITS will always converge and it can provide different hub and authority vectors.</p>
+\]</div>
+<p>The iteration will end after the <span class="math">\(1\)</span>-norms of the residual vectors are less than some threshold and we return the top ranked pages as authorities and hubs. HITS will always converge and it can provide different hub and authority vectors.</p>
 <p>HITS is also able to provide more relevant results because it ranks pages according to the query topic, but this comes at the cost of performance.</p>
+
 </body>
 </html>

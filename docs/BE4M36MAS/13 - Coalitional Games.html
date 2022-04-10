@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>13 - Coalitional Games</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>13 - Coalitional Games.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,86 +1385,134 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="coalitional-games">Coalitional Games</h1>
 <p>Coalitional Games are a set of games where the agents have to collaborate. Players can form coalitions and coordinate strategies in order to maximize the utility of the coalition.</p>
-<p>The player set is described as: <span class="math display">\[
+<p>The player set is described as:</p>
+<div class="math">
+\[
 N =\{1,\dots,n\}
-\]</span></p>
-<p>And a coalition is a subset <span class="math inline">\(A\subseteq N\)</span> where:</p>
+\]</div>
+<p>And a coalition is a subset <span class="math">\(A\subseteq N\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(\emptyset\)</span> is the <strong>empty coalition</strong>.</li>
-<li><span class="math inline">\(N\)</span> is the <strong>grand coalition</strong>.</li>
-<li><span class="math inline">\(\{i\}\)</span> is a <strong>one-player coalition</strong></li>
+<li><span class="math">\(\emptyset\)</span> is the <strong>empty coalition</strong>.</li>
+<li><span class="math">\(N\)</span> is the <strong>grand coalition</strong>.</li>
+<li><span class="math">\(\{i\}\)</span> is a <strong>one-player coalition</strong></li>
 </ul>
-<p>The set of all coalitions is the powerset: <span class="math display">\[
+<p>The set of all coalitions is the powerset:</p>
+<div class="math">
+\[
 \mathcal P(N) = \{A:A\subseteq N\}
-\]</span> Formally, a <strong>coalitional game</strong> is a pair <span class="math inline">\((N,v)\)</span> where <span class="math inline">\(v\)</span> is a function such that: <span class="math display">\[
+\]</div>
+<p>Formally, a <strong>coalitional game</strong> is a pair <span class="math">\((N,v)\)</span> where <span class="math">\(v\)</span> is a function such that:</p>
+<div class="math">
+\[
 \array{v:\mathcal P(N) \rightarrow \mathbb{R} &amp; \text{such that }v(\emptyset) = 0 }
-\]</span> The players in coalition <span class="math inline">\(A\)</span> receive the worth <span class="math inline">\(v(A)\)</span> independently of the actions of players in <span class="math inline">\(N\setminus A\)</span>. We will identify a coalitional game <span class="math inline">\((N,v)\)</span> with the function <span class="math inline">\(v\)</span> and simply call <span class="math inline">\(v\)</span> a game.</p>
-<p>We say that a game <span class="math inline">\(v\)</span> is super-additive if: <span class="math display">\[
+\]</div>
+<p>The players in coalition <span class="math">\(A\)</span> receive the worth <span class="math">\(v(A)\)</span> independently of the actions of players in <span class="math">\(N\setminus A\)</span>. We will identify a coalitional game <span class="math">\((N,v)\)</span> with the function <span class="math">\(v\)</span> and simply call <span class="math">\(v\)</span> a game.</p>
+<p>We say that a game <span class="math">\(v\)</span> is super-additive if:</p>
+<div class="math">
+\[
 \array{v(A) + v(B) \le v(A\cup B) &amp; A,B \subseteq N : A \cap B = \emptyset}
-\]</span> The game can be supper-additive and simple if: <span class="math display">\[
+\]</div>
+<p>The game can be supper-additive and simple if:</p>
+<div class="math">
+\[
 v(A) \in \{0,1\}\\
 v \text{ is monotone and } v(N) = 1
-\]</span></p>
+\]</div>
 <h2 id="coalitional-structure">Coalitional Structure</h2>
-<p>A <strong>coalitional structure</strong> is a partition <span class="math inline">\(S\)</span> of <span class="math inline">\(N\)</span>: <span class="math display">\[
+<p>A <strong>coalitional structure</strong> is a partition <span class="math">\(S\)</span> of <span class="math">\(N\)</span>:</p>
+<div class="math">
+\[
 S = \{A_1,\dots,A_k\}
-\]</span> where:</p>
+\]</div>
+<p>where:</p>
 <ul>
-<li><span class="math inline">\(A_1 \cup \dots\cup A_k = N\)</span>, <span class="math inline">\(A_i \neq \emptyset\)</span></li>
-<li><span class="math inline">\(A_i \cap A_j = \emptyset, \forall i \neq j\)</span></li>
+<li><span class="math">\(A_1 \cup \dots\cup A_k = N\)</span>, <span class="math">\(A_i \neq \emptyset\)</span></li>
+<li><span class="math">\(A_i \cap A_j = \emptyset, \forall i \neq j\)</span></li>
 </ul>
-<p>The total utility of the coalitional structure <span class="math inline">\(S\)</span> is: <span class="math display">\[
+<p>The total utility of the coalitional structure <span class="math">\(S\)</span> is:</p>
+<div class="math">
+\[
 V(S) = \sum_{i=1}^k  v(A_i)
-\]</span> The coalition formulation problem can be described as:</p>
-<blockquote>
-<p>Find a collational structure <span class="math inline">\(S^*\)</span> satisfying: <span class="math display">\[
+\]</div>
+<p>The coalition formulation problem can be described as:</p>
+<blockquote class="blockquote">
+<p>Find a collational structure <span class="math">\(S^*\)</span> satisfying:</p>
+<div class="math">
+\[
 V(S^*) = \max\{V(S): S \text{ is a colational strucutre}\}
-\]</span></p>
+\]</div>
 </blockquote>
-<p>The <strong>bell numbers</strong> <span class="math inline">\(B_n\)</span> count the number of coalitional structures you can form, and it grows exponentially. This is an NP-complete problem. Luckily there is a trivial solution for supper-additive games:</p>
-<blockquote>
-<p>Let <span class="math inline">\(v\)</span> be a super-additive game, for any coalitional structure <span class="math inline">\(S\)</span>: <span class="math display">\[
+<p>The <strong>bell numbers</strong> <span class="math">\(B_n\)</span> count the number of coalitional structures you can form, and it grows exponentially. This is an NP-complete problem. Luckily there is a trivial solution for supper-additive games:</p>
+<blockquote class="blockquote">
+<p>Let <span class="math">\(v\)</span> be a super-additive game, for any coalitional structure <span class="math">\(S\)</span>:</p>
+<div class="math">
+\[
 V(S) = \sum_{i=1}^k v(A_i) \le v(N) = V(\{N\})
-\]</span> This implies that <span class="math inline">\(S^*\)</span> ={N}</p>
+\]</div>
+<p>This implies that <span class="math">\(S^*\)</span> ={N}</p>
 </blockquote>
-<p>From now on we will assume that players form a grand coalition <span class="math inline">\(N\)</span>. Also the coalition will allocate its worth in the following way. An allocation is a vector <span class="math inline">\(x=(x_1,\dots,x_n) \in \mathbb{R}^n\)</span>. If <span class="math inline">\(x\)</span> is allocated to players, coalition <span class="math inline">\(A\subseteq N\)</span> obtains: <span class="math display">\[
+<p>From now on we will assume that players form a grand coalition <span class="math">\(N\)</span>. Also the coalition will allocate its worth in the following way. An allocation is a vector <span class="math">\(x=(x_1,\dots,x_n) \in \mathbb{R}^n\)</span>. If <span class="math">\(x\)</span> is allocated to players, coalition <span class="math">\(A\subseteq N\)</span> obtains:</p>
+<div class="math">
+\[
 x(A) = \sum_{i\in A} x_i
-\]</span> The solution of a game <span class="math inline">\(v\)</span> is some set of allocations <span class="math inline">\(x\in \mathbb{R}^n\)</span>.</p>
+\]</div>
+<p>The solution of a game <span class="math">\(v\)</span> is some set of allocations <span class="math">\(x\in \mathbb{R}^n\)</span>.</p>
 <h2 id="the-core">The Core</h2>
-<p>The core is a set of efficient allocations upon which no coalition can improve. It is formally defined as: <span class="math display">\[
+<p>The core is a set of efficient allocations upon which no coalition can improve. It is formally defined as:</p>
+<div class="math">
+\[
 C(v) = \{x\in \mathbb{R}^n : x(N) = v(N) \land  \forall A\subseteq N.~ x(A) \ge v(A)\}
-\]</span> The core is a complex polytope in <span class="math inline">\(\mathbb{R}^n\)</span> of dimension <span class="math inline">\(\le n-1\)</span>.</p>
-<p>We can decide if the core of a game is empty with the following linear program: <span class="math display">\[
+\]</div>
+<p>The core is a complex polytope in <span class="math">\(\mathbb{R}^n\)</span> of dimension <span class="math">\(\le n-1\)</span>.</p>
+<p>We can decide if the core of a game is empty with the following linear program:</p>
+<div class="math">
+\[
 \array{
 \text{minimize} &amp; x_1+\dots+x_n \\
 \text{subject to}&amp;\sum_{i\in A} x_i \ge v(A)&amp;\forall A \subseteq N:A \neq \emptyset
 }
-\]</span> We can also say that the following are equivalent:</p>
+\]</div>
+<p>We can also say that the following are equivalent:</p>
 <ul>
-<li>The optimal value is <span class="math inline">\(v(N)\)</span></li>
-<li><span class="math inline">\(C(v) \neq \emptyset\)</span></li>
+<li>The optimal value is <span class="math">\(v(N)\)</span></li>
+<li><span class="math">\(C(v) \neq \emptyset\)</span></li>
 </ul>
-<p>To find all vertices of the core <span class="math inline">\(C(v)\)</span> is a hard problem, but there are closed-form solutions for some games.</p>
-<p>A game <span class="math inline">\(v\)</span> is <strong>super-modular</strong> if: <span class="math display">\[
+<p>To find all vertices of the core <span class="math">\(C(v)\)</span> is a hard problem, but there are closed-form solutions for some games.</p>
+<p>A game <span class="math">\(v\)</span> is <strong>super-modular</strong> if:</p>
+<div class="math">
+\[
 \array{v(A) + v(B) \le v(A\cup B) + v(A \cap B) &amp; \forall A,B \subseteq N}
-\]</span> Also, the following propositions are equivalent:</p>
+\]</div>
+<p>Also, the following propositions are equivalent:</p>
 <ul>
-<li><p>The game <span class="math inline">\(v\)</span> is super-modular.</p></li>
-<li><p><span class="math inline">\(\forall A,B \subseteq N: A \subseteq B\)</span>, and each <span class="math inline">\(i \in N\setminus B\)</span>: <span class="math display">\[
+<li><p>The game <span class="math">\(v\)</span> is super-modular.</p>
+</li>
+<li><p><span class="math">\(\forall A,B \subseteq N: A \subseteq B\)</span>, and each <span class="math">\(i \in N\setminus B\)</span>:</p>
+<div class="math">
+\[
 v(A\cup i) - v(A) \le v(B\cup i)-v(B)
-\]</span></p></li>
-<li><p>The vertices of <span class="math inline">\(C(v)\)</span> are precisely marginal vectors</p></li>
+\]</div>
+</li>
+<li><p>The vertices of <span class="math">\(C(v)\)</span> are precisely marginal vectors</p>
+</li>
 </ul>
 <h3 id="marginal-vector">Marginal Vector</h3>
-<p>Given a permutation <span class="math inline">\(\pi\)</span> of <span class="math inline">\(N\)</span>, the rank of player <span class="math inline">\(i\)</span> is <span class="math inline">\(\pi(i)\)</span>. The coalition preceding player <span class="math inline">\(i\)</span> is then: <span class="math display">\[
+<p>Given a permutation <span class="math">\(\pi\)</span> of <span class="math">\(N\)</span>, the rank of player <span class="math">\(i\)</span> is <span class="math">\(\pi(i)\)</span>. The coalition preceding player <span class="math">\(i\)</span> is then:</p>
+<div class="math">
+\[
 A_i^\pi = \{j\in N: \pi(j) &lt; \pi(i)\}
-\]</span> A <strong>marginal vector</strong> is an allocation <span class="math inline">\(x^\pi \in \mathbb{R}^n\)</span> such that: <span class="math display">\[
+\]</div>
+<p>A <strong>marginal vector</strong> is an allocation <span class="math">\(x^\pi \in \mathbb{R}^n\)</span> such that:</p>
+<div class="math">
+\[
 \array{x_i^\pi = v(A_i^\pi \cup i)- v(A_i^\pi) &amp; i\in N}
-\]</span></p>
+\]</div>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Conexidad</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>03 - Conexidad.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,118 +1385,123 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="conexidad">Conexidad</h1>
-<p>Un grafo es conexo si <span class="math inline">\(∀ \text{ par de vertices } u \text{ y } v \text{ hay un camino } u−v\)</span>.</p>
+<p>Un grafo es conexo si <span class="math">\(∀ \text{ par de vertices } u \text{ y } v \text{ hay un camino } u−v\)</span>.</p>
 <h2 id="digrafo-conexo">Digrafo Conexo</h2>
 <p>Un digrafo puede ser al mismo tiempo fuerte y debilmente conexo. Por ejempo, todo grafo fuertemente conexo va a ser debilmente conexo</p>
 <h3 id="debilmente-conexo">Debilmente Conexo</h3>
 <p>Un digrafo es debilmente conexo si al considerarlo no dirigido es conexo.</p>
 <h3 id="fuertemente-conexo">Fuertemente Conexo</h3>
-<p>Un digrafo es fuertemente conexo si todo par de vertices en el digrafo es mutuamente alcanzable. Dos vertices <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> son mutuamente alcanzables si existen en el digrafo un camino directo <span class="math inline">\(u−v\)</span> y un camino directo <span class="math inline">\(v−u\)</span>.</p>
+<p>Un digrafo es fuertemente conexo si todo par de vertices en el digrafo es mutuamente alcanzable. Dos vertices <span class="math">\(u\)</span> y <span class="math">\(v\)</span> son mutuamente alcanzables si existen en el digrafo un camino directo <span class="math">\(u−v\)</span> y un camino directo <span class="math">\(v−u\)</span>.</p>
 <h2 id="componentes">Componentes</h2>
-<p>Se llama componente de un grafo a un subgrafo conexo maximal del grafo <span class="math inline">\(G\)</span>. Es decir, un subgrafo es maximal si no es un subgrafo propio de otro subgrafo de <span class="math inline">\(G\)</span>.</p>
-<p>Por ejemplo, tanto el subgrafo formado por los vertices <span class="math inline">\(C_1=\{A,B,C\}\)</span>, o por <span class="math inline">\(C_2=\{D,E\}\)</span>, o por <span class="math inline">\(C_3=\{F\}\)</span> son todos componentes.</p>
-<figure>
-<img src="Resources/1567422862367.png" alt="1567422862367" /><figcaption aria-hidden="true">1567422862367</figcaption>
-</figure>
-<p>En el grafo <span class="math inline">\(G\)</span>, la componente 1 (<span class="math inline">\(C_1\)</span>) tambien se puede llamar como <span class="math inline">\(C(A)=C(B)=C(C)\)</span>.</p>
-<p>Si definimos la relacion <span class="math inline">\(v_iRv_j\)</span> ==<strong>PEDIR</strong>==</p>
-<p><span class="math inline">\(R\)</span> es de equivalencia. Cada clase de equivalencia contiene a todos los vertices de una componente de <span class="math inline">\(G\)</span>.</p>
+<p>Se llama componente de un grafo a un subgrafo conexo maximal del grafo <span class="math">\(G\)</span>. Es decir, un subgrafo es maximal si no es un subgrafo propio de otro subgrafo de <span class="math">\(G\)</span>.</p>
+<p>Por ejemplo, tanto el subgrafo formado por los vertices <span class="math">\(C_1=\{A,B,C\}\)</span>, o por <span class="math">\(C_2=\{D,E\}\)</span>, o por <span class="math">\(C_3=\{F\}\)</span> son todos componentes.</p>
+<p><img src="Resources/e65cb9a9-e2fd-4189-931b-804d1d0bb5f1.png" class="img-fluid" alt="1567422862367" /></p>
+<p>En el grafo <span class="math">\(G\)</span>, la componente 1 (<span class="math">\(C_1\)</span>) tambien se puede llamar como <span class="math">\(C(A)=C(B)=C(C)\)</span>.</p>
+<p>Si definimos la relacion <span class="math">\(v_iRv_j\)</span> <mark><strong>PEDIR</strong></mark></p>
+<p><span class="math">\(R\)</span> es de equivalencia. Cada clase de equivalencia contiene a todos los vertices de una componente de <span class="math">\(G\)</span>.</p>
 <h3 id="observaciones">Observaciones</h3>
-<p>Si <span class="math inline">\(G\)</span> es conexo, tiene solo una componente.</p>
+<p>Si <span class="math">\(G\)</span> es conexo, tiene solo una componente.</p>
 <h2 id="vertice-de-corte">Vertice de Corte</h2>
-<p>Tambien llamado punto de articulacion, es un vertice que al removerlo, se generan mas componentes. Si <span class="math inline">\(v\)</span> es es vertice de corte y <span class="math inline">\(G\)</span> es un grafo, entonces la cantidad de componentes conexas de <span class="math inline">\(G\)</span> es menor a <span class="math inline">\(G-\{v\}\)</span>.</p>
-<p>Se denomina <span class="math inline">\(\scr{K}\)</span><span class="math inline">\((G)\)</span> a la cantidad de componentes de <span class="math inline">\(G\)</span>.</p>
-<figure>
-<img src="Resources/1567423331727.png" alt="1567423331727" /><figcaption aria-hidden="true">1567423331727</figcaption>
-</figure>
-<p>En este caso, se puede ver que el vértice <span class="math inline">\(F\)</span> y <span class="math inline">\(E\)</span> son vértices de corte ya que si los remuevo genero nuevos subgrafos</p>
+<p>Tambien llamado punto de articulacion, es un vertice que al removerlo, se generan mas componentes. Si <span class="math">\(v\)</span> es es vertice de corte y <span class="math">\(G\)</span> es un grafo, entonces la cantidad de componentes conexas de <span class="math">\(G\)</span> es menor a <span class="math">\(G-\{v\}\)</span>.</p>
+<p>Se denomina <span class="math">\(\scr{K}$\)</span>(G)$ a la cantidad de componentes de <span class="math">\(G\)</span>.</p>
+<p><img src="Resources/4205dc85-0aad-4508-b8c6-eeded3065315.png" class="img-fluid" alt="1567423331727" /></p>
+<p>En este caso, se puede ver que el vértice <span class="math">\(F\)</span> y <span class="math">\(E\)</span> son vértices de corte ya que si los remuevo genero nuevos subgrafos</p>
 <h3 id="proposiciones">Proposiciones</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 v\in V_G \text{ es vertice de corte de }G \\ \Leftrightarrow \\\exists \mu,v,w \in V_G/ \mu \neq v, v \neq w, \mu \neq w \text{ tal que todo camino de } \mu-w \text{ pasa por } v
-\]</span></p>
-<p><a href="Demostraciones\03%20-%20Conexidad\Proposicion%20-%2001.html">Demostración</a> ==FINAL==</p>
+\]</div>
+<p>[Demostración](Demostraciones\03 - Conexidad\Proposicion - 01.html) <mark>FINAL</mark></p>
 <h2 id="aristas-de-corte-o-puente">Aristas de corte o Puente</h2>
-<p><span class="math inline">\(e\)</span> es una arista de corte si: <span class="math inline">\(\scr{K}\)</span><span class="math inline">\((G-\{e\}) \gt\)</span> <span class="math inline">\(\scr{K}\)</span><span class="math inline">\((G)\)</span></p>
-<figure>
-<img src="Resources/1567424425647.png" alt="1567424425647" /><figcaption aria-hidden="true">1567424425647</figcaption>
-</figure>
-<p>La arista marcada con un <span class="math inline">\(1\)</span> es una arista de corte, ya que al eliminarla obtengo 2 componentes.</p>
+<p><span class="math">\(e\)</span> es una arista de corte si: <span class="math">\(\scr{K}$\)</span>(G-{e}) \gt$ <span class="math">\(\scr{K}$\)</span>(G)$</p>
+<p><img src="Resources/0d5f0a6b-f42f-44ce-b7d4-5ef18b5c6007.png" class="img-fluid" alt="1567424425647" /></p>
+<p>La arista marcada con un <span class="math">\(1\)</span> es una arista de corte, ya que al eliminarla obtengo 2 componentes.</p>
 <h3 id="observaciones-1">Observaciones</h3>
-<p>Si <span class="math inline">\(v\)</span> es de corte <span class="math inline">\(\scr{K}\)</span><span class="math inline">\((G-\{v\}) \gt\)</span> <span class="math inline">\(\scr{K}\)</span><span class="math inline">\((G)\)</span> no sabemos por cuanto difieren.</p>
-<p>Si <span class="math inline">\(e\)</span> es de corte <span class="math inline">\(\scr{K}\)</span><span class="math inline">\((G-\{e\}) =\)</span><span class="math inline">\(\scr{K}\)</span><span class="math inline">\((G)+1\)</span></p>
-<p>Si la arista <span class="math inline">\(e=\{a,b\}\)</span> es de corte y el <span class="math inline">\(gr(a)\gt 1 \Rightarrow a\)</span> es de corte.</p>
+<p>Si <span class="math">\(v\)</span> es de corte  <span class="math">\(\scr{K}$\)</span>(G-{v}) \gt$ <span class="math">\(\scr{K}$\)</span>(G)$ no sabemos por cuanto difieren.</p>
+<p>Si <span class="math">\(e\)</span> es de corte  <span class="math">\(\scr{K}$\)</span>(G-{e}) =<span class="math">\(\scr{K}\)</span>(G)+1$</p>
+<p>Si la arista <span class="math">\(e=\{a,b\}\)</span> es de corte y el <span class="math">\(gr(a)\gt 1 \Rightarrow a\)</span> es de corte.</p>
 <h3 id="proposiciones-1">Proposiciones</h3>
-<p>Sea <span class="math inline">\(G\)</span> conexo: <span class="math display">\[
+<p>Sea <span class="math">\(G\)</span> conexo:</p>
+<div class="math">
+\[
 e\in E_G \text{ es arista de corte } \Leftrightarrow e \text{ no pertenece a un ciclo en }G
-\]</span></p>
-<p><a href="Demostraciones\03%20-%20Conexidad\Proposicion%20-%2002.html">Demostración</a></p>
-<p>## Conexidad por Vertices</p>
+\]</div>
+<p>[Demostración](Demostraciones\03 - Conexidad\Proposicion - 02.html)</p>
+<h2 id="conexidad-por-vertices">Conexidad por Vertices</h2>
 <p>Es la minima cantidad de vertices que hay que remover del grafo para que deje de ser conexo <u>o se transforme en el grafo trivial</u>.</p>
-<p>Notacion <span class="math inline">\(K_v(G)\)</span></p>
+<p>Notacion <span class="math">\(K_v(G)\)</span></p>
 <h3 id="ejemplos">Ejemplos</h3>
-<figure>
-<img src="Resources/1567426095801.png" alt="1567426095801" /><figcaption aria-hidden="true">1567426095801</figcaption>
-</figure>
-<p><span class="math inline">\(K_v(G)=2\)</span>, siendo los vertices de corte <span class="math inline">\(C,D,E,F\)</span>. Eliminando 2 de esos vertices se obtienen 2 componentes.</p>
-<p>Para Grafos <span class="math inline">\(K_n\)</span>: <span class="math inline">\(K_v(K_n)=n-1\)</span></p>
+<p><img src="Resources/430133a4-3f4e-43c0-943f-8d675f8a47b0.png" class="img-fluid" alt="1567426095801" /></p>
+<p><span class="math">\(K_v(G)=2\)</span>, siendo los vertices de corte <span class="math">\(C,D,E,F\)</span>. Eliminando 2 de esos vertices se obtienen 2 componentes.</p>
+<p>Para Grafos <span class="math">\(K_n\)</span>: <span class="math">\(K_v(K_n)=n-1\)</span></p>
 <h3 id="observaciones-2">Observaciones</h3>
-<p>Si <span class="math inline">\(G\)</span> tiene vertice de corte <span class="math inline">\(\Rightarrow K_v(G)=1\)</span></p>
-<p>Si <span class="math inline">\(G\)</span> no es conexo, decimos que <span class="math inline">\(K_v(G)=0\)</span></p>
-<h2 id="grafo-k-conexo">Grafo <span class="math inline">\(k-conexo\)</span></h2>
-<p>Si <span class="math inline">\(k \leq K_v(G) \Rightarrow\)</span> decimos que <span class="math inline">\(G\)</span> es <span class="math inline">\(k-conexo\)</span>.</p>
+<p>Si <span class="math">\(G\)</span> tiene vertice de corte <span class="math">\(\Rightarrow K_v(G)=1\)</span></p>
+<p>Si <span class="math">\(G\)</span> no es conexo, decimos que <span class="math">\(K_v(G)=0\)</span></p>
+<h2 id="grafo">Grafo <span class="math">\(k-conexo\)</span></h2>
+<p>Si <span class="math">\(k \leq K_v(G) \Rightarrow\)</span> decimos que <span class="math">\(G\)</span> es <span class="math">\(k-conexo\)</span>.</p>
 <h3 id="ejemplos-1">Ejemplos</h3>
-<p>Si tomo al grafo <span class="math inline">\(K_4\)</span> , veo que <span class="math inline">\(K_v(K_4)=3\)</span>, entonces puedo decir que es <span class="math inline">\(conexo\)</span>, <span class="math inline">\(2-conexo\)</span> y <span class="math inline">\(3-conexo\)</span></p>
+<p>Si tomo al grafo <span class="math">\(K_4\)</span> , veo que <span class="math">\(K_v(K_4)=3\)</span>, entonces puedo decir que es <span class="math">\(conexo\)</span>, <span class="math">\(2-conexo\)</span> y <span class="math">\(3-conexo\)</span></p>
 <h3 id="proposicion">Proposicion</h3>
-<p>Sea <span class="math inline">\(G~k-conexo\)</span> con <span class="math inline">\(k\ge 3 \Rightarrow G-\{e\}\)</span> es <span class="math inline">\((k-1)-conexo~~~~ \forall e \in E_G\)</span></p>
+<p>Sea <span class="math">\(G~k-conexo\)</span> con <span class="math">\(k\ge 3 \Rightarrow G-\{e\}\)</span> es $(k-1)-conexo~~~~ \forall e \in E_G $</p>
 <p><u>Analisis de la Hipotesis:</u></p>
-<p>Sea <span class="math inline">\(G~k-conexo\)</span></p>
+<p>Sea $G~k-conexo $</p>
 <ul>
-<li>Si saco <span class="math inline">\(q \lt k\)</span> vertices, el grafo no se desconecta.</li>
-<li><span class="math inline">\(K_v(G)\ge k\)</span></li>
-<li><span class="math inline">\(\#V_G \ge k+1\)</span></li>
+<li>Si saco <span class="math">\(q \lt k\)</span> vertices, el grafo no se desconecta.</li>
+<li><span class="math">\(K_v(G)\ge k\)</span></li>
+<li><span class="math">\(\#V_G \ge k+1\)</span></li>
 </ul>
 <p><u>Tesis:</u></p>
-<p>Sea <span class="math inline">\(G-\{e\} ~(k-1)-conexo\)</span></p>
+<p>Sea <span class="math">\(G-\{e\} ~(k-1)-conexo\)</span></p>
 <ul>
-<li>Si saco <span class="math inline">\(q&#39; &lt; k-1\)</span> vertices, el grafo se desconecta.</li>
-<li><span class="math inline">\(K_v(G) \ge k-1\)</span></li>
-<li><span class="math inline">\(\#V_{G-\{e\}} = \#V_G\)</span></li>
+<li>Si saco <span class="math">\(q' &lt; k-1\)</span> vertices, el grafo se desconecta.</li>
+<li><span class="math">\(K_v(G) \ge k-1\)</span></li>
+<li><span class="math">\(\#V_{G-\{e\}} = \#V_G\)</span></li>
 </ul>
-<p><a href="Demostraciones\03%20-%20Conexidad\Proposicion%20-%2003.html">Demostración</a></p>
+<p>[Demostración](Demostraciones\03 - Conexidad\Proposicion - 03.html)</p>
 <h4 id="corolario">Corolario</h4>
-<p>Sea que <span class="math inline">\(G~k-conexo\)</span> y sea <span class="math inline">\(M\)</span> un conjunto de aristas <span class="math inline">\(M\subset E_G/ \#M = m \le k-1\)</span></p>
-<p><span class="math inline">\(\Rightarrow G-M\)</span> es conexo.</p>
-<h3 id="proposicion-final">Proposicion ==FINAL==</h3>
-<p>la relacion entre <span class="math inline">\(K_e(G)\)</span> y <span class="math inline">\(K_v(G)\)</span>.</p>
-<p><span class="math display">\[
+<p>Sea que <span class="math">\(G~k-conexo\)</span> y sea <span class="math">\(M\)</span> un conjunto de aristas <span class="math">\(M\subset E_G/ \#M = m \le k-1\)</span></p>
+<p><span class="math">\(\Rightarrow G-M\)</span> es conexo.</p>
+<h3 id="proposicion-final">Proposicion <mark>FINAL</mark></h3>
+<p>la relacion entre <span class="math">\(K_e(G)\)</span> y <span class="math">\(K_v(G)\)</span>.</p>
+<div class="math">
+\[
 k \le K_v(G)\le K_e(G) \le \delta
-\]</span></p>
-<p><a href="Demostraciones\03%20-%20Conexidad\Proposicion%20-%2004.html">Demostración</a></p>
+\]</div>
+<p>[Demostración](Demostraciones\03 - Conexidad\Proposicion - 04.html)</p>
 <h2 id="conexidad-por-aristas">Conexidad por aristas</h2>
 <p>Es la minima cantidad de aristas que hay que remover del grafo para que deje de ser conexo.</p>
-<p>Notacion <span class="math inline">\(K_e(G)\)</span></p>
+<p>Notacion <span class="math">\(K_e(G)\)</span></p>
 <h3 id="observaciones-3">Observaciones</h3>
-<p>Sea <span class="math inline">\(\delta_{min}=min\{v_i\}\)</span>, entonces <span class="math inline">\(K_e(G)\leq \delta_{min}\)</span>. Basta tomar las aristas incidentes en el tiene de grado minimo para que el grafo deje de ser conexo.</p>
-<h2 id="grafo-k-aristaconexo">Grafo <span class="math inline">\(k-arista~conexo\)</span></h2>
-<p>Si <span class="math inline">\(k \leq K_e(G)\)</span> podemos decir que <span class="math inline">\(G\)</span> es <span class="math inline">\(k-arista~conexo\)</span>.</p>
+<p>Sea <span class="math">\(\delta_{min}=min\{v_i\}\)</span>, entonces  <span class="math">\(K_e(G)\leq \delta_{min}\)</span>. Basta tomar las aristas incidentes en el tiene de grado minimo para que el grafo deje de ser conexo.</p>
+<h2 id="grafo-1">Grafo <span class="math">\(k-arista~conexo\)</span></h2>
+<p>Si <span class="math">\(k \leq K_e(G)\)</span> podemos decir que <span class="math">\(G\)</span> es <span class="math">\(k-arista~conexo\)</span>.</p>
 <h2 id="vertice-interno">Vertice Interno</h2>
-<p>Dado un camino <span class="math inline">\(u-v\)</span> en <span class="math inline">\(G\)</span>, un vertice interno del camino es un vertice <span class="math inline">\(w/w\neq u \land w \neq v\)</span>.</p>
+<p>Dado un camino <span class="math">\(u-v\)</span> en <span class="math">\(G\)</span>, un vertice interno del camino es un vertice <span class="math">\(w/w\neq u \land w \neq v\)</span>.</p>
 <h2 id="coleccion-de-caminos-internamente-disjuntos-ccid">Coleccion de Caminos Internamente Disjuntos (CCID)</h2>
-<p>Una CCID <span class="math inline">\(u-v\)</span> es una coleccion de caminos <span class="math inline">\(u-v\)</span> tales que ningun camino contiene vertices internos de otros caminos en la coleccion.</p>
+<p>Una CCID <span class="math">\(u-v\)</span> es una coleccion de caminos <span class="math">\(u-v\)</span> tales que ningun camino contiene vertices internos de otros caminos en la coleccion.</p>
 <h3 id="ejemplo">Ejemplo</h3>
-<p><img src="Resources/1567429128678.png" alt="1567429223658" style="zoom:50%;" /></p>
-<p>La CCID <span class="math inline">\(A-D\)</span> contiene 3 caminos disjuntos.</p>
-<p><img src="Resources/1567429223658.png" alt="1567429223658" style="zoom:50%;" /></p>
+<img src="Resources/3a46cc28-e49b-4fec-8be2-4542aee40aeb.png" alt="3a46cc28-e49b-4fec-8be2-4542aee40aeb" style="scale:0.50;" />
+<p>La CCID <span class="math">\(A-D\)</span> contiene 3 caminos disjuntos.</p>
+<img src="Resources/4786b4ea-b577-4c5c-a5ae-aabb68037260.png" alt="4786b4ea-b577-4c5c-a5ae-aabb68037260" style="scale:0.50;" />
 <p>En este caso los 3 caminos no son internamente disjuntos pero sin <u>disjuntos por aristas</u>.</p>
 <h2 id="particion-por-corte-de-aristas">Particion por Corte de Aristas</h2>
-<p>Sean <span class="math inline">\(V_1 \subset V_G \land V_2 \subset V_G/V_1\cap V_2 = \emptyset \land V_1 \cup V_2 = V_G\)</span> $$ &lt;V_1,V_2&gt;={</p>
-<pre><code>e\in E_G / e=\{v_1,v_2\} \text{ con } v_1 \in V_1 \land v_2 \in V2</code></pre>
-<p>} $$ Es decir, el conjunto <span class="math inline">\(&lt;V_2,V_2&gt;\)</span> es el conjunto de aristas que empiezan en algun vertice de <span class="math inline">\(V_1\)</span> y terminan en algun vertice de <span class="math inline">\(V_2\)</span> o viceversa.</p>
+<p>Sean <span class="math">\(V_1 \subset V_G \land V_2 \subset V_G/V_1\cap V_2 = \emptyset \land V_1 \cup V_2 = V_G\)</span></p>
+<div class="math">
+\[
+&lt;V_1,V_2&gt;=\{
+
+	e\in E_G / e=\{v_1,v_2\} \text{ con } v_1 \in V_1 \land v_2 \in V2
+
+\}
+\]</div>
+<p>Es decir, el conjunto <span class="math">\(&lt;V_2,V_2&gt;\)</span> es el conjunto de aristas que empiezan en algun vertice de <span class="math">\(V_1\)</span> y terminan en algun vertice de <span class="math">\(V_2\)</span> o viceversa.</p>
 <h3 id="observacion">Observacion</h3>
-<p>Para cualquier particion de <span class="math inline">\(V_G\)</span>, se cumple que <span class="math inline">\(\#&lt;V_1,V_2&gt; \geq K_e(G)\)</span></p>
+<p>Para cualquier particion de <span class="math">\(V_G\)</span>, se cumple que <span class="math">\(\#&lt;V_1,V_2&gt; \geq K_e(G)\)</span></p>
+
 </body>
 </html>

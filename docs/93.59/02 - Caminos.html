@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>02 - Caminos</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>02 - Caminos.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,33 +1385,34 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="caminos">Caminos</h1>
 <h2 id="camino">Camino</h2>
-<p>Un camino desde el vértice <span class="math inline">\(v_0\)</span> al vértice <span class="math inline">\(v_n\)</span> es una secuencia alternada <span class="math inline">\(w =&lt; v_0,e_1,v_1,e_2,...,v_{n−1},e_n,v_n &gt;\)</span> de vértices y aristas donde <span class="math inline">\(e_i = \{v_{i−1},v_i\}\)</span> con <span class="math inline">\(i = 1,...,n\)</span> . Notación: camino <span class="math inline">\(v_0 −v_n\)</span></p>
+<p>Un camino desde el vértice <span class="math">\(v_0\)</span> al vértice <span class="math">\(v_n\)</span> es una secuencia alternada <span class="math">\(w =&lt; v_0,e_1,v_1,e_2,...,v_{n−1},e_n,v_n &gt;\)</span> de vértices y aristas donde <span class="math">\(e_i = \{v_{i−1},v_i\}\)</span> con <span class="math">\(i = 1,...,n\)</span> . Notación: camino <span class="math">\(v_0 −v_n\)</span></p>
 <h3 id="camino-directo">Camino Directo</h3>
-<p>Un camino directo en un dígrafo de <span class="math inline">\(v_0\)</span> a <span class="math inline">\(v_n\)</span> es una secuencia alternada <span class="math inline">\(w =&lt; v_0,e_1,v_1,e_2,...,v_{n−1},e_n,v_n &gt;\)</span> de vértices y aristas donde <span class="math inline">\(e_i = (v_{i−1},v_i)\)</span> con <span class="math inline">\(i = 1,...,n\)</span>. Notación: camino directo <span class="math inline">\(v_0 −v_n\)</span></p>
+<p>Un camino directo en un dígrafo de <span class="math">\(v_0\)</span> a <span class="math">\(v_n\)</span> es una secuencia alternada <span class="math">\(w =&lt; v_0,e_1,v_1,e_2,...,v_{n−1},e_n,v_n &gt;\)</span> de vértices y aristas donde <span class="math">\(e_i = (v_{i−1},v_i)\)</span> con <span class="math">\(i = 1,...,n\)</span>. Notación: camino directo <span class="math">\(v_0 −v_n\)</span></p>
 <h3 id="longitud">Longitud</h3>
 <p>La longitud de un camino o camino directo es el numero de aristas que recorre el camino.</p>
 <h3 id="camino-cerrado">Camino Cerrado</h3>
-<p>Un camino o camino directo <span class="math inline">\(x−y\)</span> es cerrado si <span class="math inline">\(x = y\)</span> sino es abierto.</p>
-<h3 id="concatenación">Concatenación</h3>
-<p>La concatenación de dos caminos <span class="math inline">\(w_1 =&lt; v_0,e_1,v_1,e_2,...,v_{k−1},e_k,v_k &gt;\)</span> y <span class="math inline">\(w_2 =&lt; v_k,e_{k+1},v_{k+1},e_{k+2},...,v_{n−1},e_n,v_n &gt;\)</span> tal que <span class="math inline">\(w_2\)</span> empieza donde termina <span class="math inline">\(w_1\)</span> es el camino <span class="math inline">\(w_1◦w_2 =&lt; v_0,e_1,v_1,e_2,...,v_{n−1},e_n,v_n &gt;\)</span></p>
+<p>Un camino o camino directo <span class="math">\(x−y\)</span> es cerrado si <span class="math">\(x = y\)</span> sino es abierto.</p>
+<h3 id="concatenacion">Concatenación</h3>
+<p>La concatenación de dos caminos <span class="math">\(w_1 =&lt; v_0,e_1,v_1,e_2,...,v_{k−1},e_k,v_k &gt;\)</span> y <span class="math">\(w_2 =&lt; v_k,e_{k+1},v_{k+1},e_{k+2},...,v_{n−1},e_n,v_n &gt;\)</span> tal que <span class="math">\(w_2\)</span> empieza donde termina <span class="math">\(w_1\)</span> es el camino <span class="math">\(w_1◦w_2 =&lt; v_0,e_1,v_1,e_2,...,v_{n−1},e_n,v_n &gt;\)</span></p>
 <h3 id="subcamino">Subcamino</h3>
-<p>Un subcamino de <span class="math inline">\(w =&lt; v_0,e_1,v_1,e_2,...,v_{n−1},e_n,v_n &gt;\)</span> es una subsecuencia de entradas consecutivas <span class="math inline">\(s =&lt; v_j,e_{j+1},v_{j+1},e_{j+2},...,v_{k−1},e_k,v_k &gt;\)</span> con <span class="math inline">\(0≤ j ≤ k ≤ n\)</span> que comienza y termina en un vértice. Un subcamino es en sı mismo un camino.</p>
-<h3 id="vértice-alcanzable">Vértice Alcanzable</h3>
-<p>Un vértice <span class="math inline">\(v\)</span> es alcanzable desde un vértice <span class="math inline">\(u\)</span> si <span class="math inline">\(∃\)</span> un camino <span class="math inline">\(u−v\)</span>.</p>
+<p>Un subcamino de <span class="math">\(w =&lt; v_0,e_1,v_1,e_2,...,v_{n−1},e_n,v_n &gt;\)</span> es una subsecuencia de entradas consecutivas <span class="math">\(s =&lt; v_j,e_{j+1},v_{j+1},e_{j+2},...,v_{k−1},e_k,v_k &gt;\)</span> con <span class="math">\(0≤ j ≤ k ≤ n\)</span> que comienza y termina en un vértice. Un subcamino es en sı mismo un camino.</p>
+<h3 id="vertice-alcanzable">Vértice Alcanzable</h3>
+<p>Un vértice <span class="math">\(v\)</span> es alcanzable desde un vértice <span class="math">\(u\)</span> si $∃ $ un camino <span class="math">\(u−v\)</span>.</p>
 <h3 id="distancia">Distancia</h3>
-<p>En un grafo la distancia de <span class="math inline">\(s\)</span> a <span class="math inline">\(t\)</span> es la longitud del camino mas corto de <span class="math inline">\(s\)</span> a <span class="math inline">\(t\)</span> o inﬁnito si no hay camino. En los dígrafos la distancia directa es el largo del camino directo mas corto. Notación: <span class="math inline">\(d(s,t)\)</span>.</p>
-<h3 id="reducción-de-un-camino">Reducción de un camino</h3>
-<p>Dado un camino <span class="math inline">\(w_1 =&lt; v_0,e_1,v_1,e_2,...,v_{k−1},e_k,v_k &gt;\)</span> que contiene un subcamino cerrado <span class="math inline">\(\overline w =&lt; v_k,e_{k+1},v_{k+1},e_{k+2},...,v_{m−1},e_m,v_k &gt;\)</span> la reducción de <span class="math inline">\(w\)</span> por <span class="math inline">\(\overline w\)</span> denotada por <span class="math inline">\(w−\overline w\)</span> es el camino <span class="math inline">\(w−\overline w =&lt; v_0,e_1,...,v_{k−1},e_k,v_k,e_{m+1},v_{m+1},...,v_{n−1},e_n,v_n &gt;\)</span>, es decir que borra todas las aristas y vértices de <span class="math inline">\(\overline w\)</span> menos <span class="math inline">\(v_k\)</span></p>
+<p>En un grafo la distancia de <span class="math">\(s\)</span> a <span class="math">\(t\)</span> es la longitud del camino mas corto de <span class="math">\(s\)</span> a <span class="math">\(t\)</span> o inﬁnito si no hay camino. En los dígrafos la distancia directa es el largo del camino directo mas corto. Notación: <span class="math">\(d(s,t)\)</span>.</p>
+<h3 id="reduccion-de-un-camino">Reducción de un camino</h3>
+<p>Dado un camino <span class="math">\(w_1 =&lt; v_0,e_1,v_1,e_2,...,v_{k−1},e_k,v_k &gt;\)</span> que contiene un subcamino cerrado <span class="math">\(\overline w =&lt; v_k,e_{k+1},v_{k+1},e_{k+2},...,v_{m−1},e_m,v_k &gt;\)</span> la reducción de <span class="math">\(w\)</span> por <span class="math">\(\overline w\)</span> denotada por <span class="math">\(w−\overline w\)</span> es el camino <span class="math">\(w−\overline w =&lt; v_0,e_1,...,v_{k−1},e_k,v_k,e_{m+1},v_{m+1},...,v_{n−1},e_n,v_n &gt;\)</span>, es decir que borra todas las aristas y vértices de <span class="math">\(\overline w\)</span> menos <span class="math">\(v_k\)</span></p>
 <h2 id="camino-simple-path">Camino Simple (Path)</h2>
 <p>Es un camino que no repite vertices</p>
 <h3 id="adicion-de-un-camino-simple">Adicion de un Camino Simple</h3>
-<p>Adicionar un camino simple entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> es agregar un camino <span class="math inline">\(x-y\)</span> al grafo <span class="math inline">\(G\)</span> cuyos vertices internos no esten en <span class="math inline">\(G\)</span></p>
-<p><img src="Resources/clip_image001-1568030408265.png" alt="img" style="zoom:33%;" /></p>
+<p>Adicionar un camino simple entre <span class="math">\(x\)</span> e <span class="math">\(y\)</span> es agregar un camino <span class="math">\(x-y\)</span> al grafo <span class="math">\(G\)</span> cuyos vertices internos no esten en <span class="math">\(G\)</span></p>
+<img src="Resources/888482a8-08fa-49a9-9a98-08037357a06f.png" alt="888482a8-08fa-49a9-9a98-08037357a06f" style="scale:0.33;" />
 <h3 id="camino-hamiltoniano">Camino Hamiltoniano</h3>
 <p>Es un camino simple (no ciclo) en el grafo que contiene todos sus vértices.</p>
 <h2 id="recorrido-trail">Recorrido (Trail)</h2>
@@ -1563,25 +1426,31 @@ blockquote {
 <h3 id="grafo-euleriano">Grafo Euleriano</h3>
 <p>Es un grafo que tiene un circuito euleriano</p>
 <h4 id="teorema">Teorema</h4>
-<p>Sea <span class="math inline">\(G\)</span> un grafo o multígrafo sin vértices aislados: <span class="math display">\[
+<p>Sea <span class="math">\(G\)</span> un grafo o multígrafo sin vértices aislados:</p>
+<div class="math">
+\[
 G \text{ es un grafo euleriano } \Leftrightarrow \text{ todos los vertices tienen grado par}
-\]</span></p>
-<p><a href="Demostraciones\02%20-%20Caminos\Teorema%20-%2001.html">Demostración</a></p>
+\]</div>
+<p>[Demostración](Demostraciones\02 - Caminos\Teorema - 01.html)</p>
 <ul>
 <li><p>Corolario:</p>
-<p>Sea <span class="math inline">\(G\)</span> un grafo o multígrafo sin vértices asociados: <span class="math display">\[
+<p>Sea <span class="math">\(G\)</span> un grafo o multígrafo sin vértices asociados:</p>
+<div class="math">
+\[
 G \text{ tiene un recorrido euleriano} \Leftrightarrow G \text{ tiene extactamente 2 vertices de grado impar y los demas pares}
-\]</span></p>
-<p><a href="Demostraciones\02%20-%20Caminos\Corolario%20-%2001.html">Demostración</a></p></li>
+\]</div>
+<p>[Demostración](Demostraciones\02 - Caminos\Corolario - 01.html)</p>
+</li>
 </ul>
 <h4 id="teorema-1">Teorema</h4>
-<p>Todo circuito <span class="math inline">\(T\)</span> se puede descomponer en ciclos de aristas disjuntas.</p>
-<p><a href="Demostraciones\02%20-%20Caminos\Teorema%20-%2002.html">Demostración</a></p>
+<p>Todo circuito <span class="math">\(T\)</span> se puede descomponer en ciclos de aristas disjuntas.</p>
+<p>[Demostración](Demostraciones\02 - Caminos\Teorema - 02.html)</p>
 <h2 id="ciclo-cycle">Ciclo (Cycle)</h2>
 <p>Es un camino simple cerrado.</p>
-<h3 id="colección-de-ciclos-de-aristas-disjuntas">Colección de Ciclos de Aristas Disjuntas</h3>
-<p>Una colección de ciclos de aristas disjuntas <span class="math inline">\(G_1,G_2,...,G_m\)</span> es llamada una descomposición de un circuito <span class="math inline">\(T\)</span> si los <span class="math inline">\(G_i\)</span> son subcaminos de <span class="math inline">\(T\)</span> y <span class="math inline">\(E_T =\cup_m^1 E_{G_i}\)</span> y <span class="math inline">\(\cap_m^1 E_{G_i} =∅\)</span></p>
-<p>### Ciclo Hamiltoniano</p>
-<p>Si <span class="math inline">\(G\)</span> es un grafo o multígrafo y <span class="math inline">\(\#V ≥3\)</span> decimos que <span class="math inline">\(G\)</span> tiene un ciclo hamiltoniano si existe un ciclo en <span class="math inline">\(G\)</span> que contenga cada vértice de <span class="math inline">\(V\)</span>.</p>
+<h3 id="coleccion-de-ciclos-de-aristas-disjuntas">Colección de Ciclos de Aristas Disjuntas</h3>
+<p>Una colección de ciclos de aristas disjuntas <span class="math">\(G_1,G_2,...,G_m\)</span> es llamada una descomposición de un circuito <span class="math">\(T\)</span> si los <span class="math">\(G_i\)</span> son subcaminos de <span class="math">\(T\)</span> y <span class="math">\(E_T =\cup_m^1 E_{G_i}\)</span> y <span class="math">\(\cap_m^1 E_{G_i} =∅\)</span></p>
+<h3 id="ciclo-hamiltoniano">Ciclo Hamiltoniano</h3>
+<p>Si <span class="math">\(G\)</span> es un grafo o multígrafo y $#V ≥3 $ decimos que <span class="math">\(G\)</span> tiene un ciclo hamiltoniano si existe un ciclo en <span class="math">\(G\)</span> que contenga cada vértice de <span class="math">\(V\)</span>.</p>
+
 </body>
 </html>

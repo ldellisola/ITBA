@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>20 - Redes de Flujo</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>20 - Redes de Flujo.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,70 +1385,92 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="redes-de-flujo">Redes de Flujo</h1>
-<p>Las redes de flujos son dígrafos con dos vértices especiales llamados fuente <span class="math inline">\((f)\)</span> y sumidero <span class="math inline">\((s)\)</span> tal que el grado de salida de la fuente es mayor a cero y el grado de entrada del sumidero es mayor a cero. Las aristas poseen una capacidad positiva <span class="math inline">\(cap(e)&gt;0\)</span></p>
-<p><img src="Resources/image-20191104104347404.png" alt="image-20191104104347404" style="zoom:33%;" /></p>
-<p>El dígrafo debe ser conexo, ya que para que tenga sentido debe existir al menos un camino <span class="math inline">\(f-s\)</span>.</p>
+<p>Las redes de flujos son dígrafos con dos vértices especiales llamados fuente <span class="math">\((f)\)</span> y sumidero <span class="math">\((s)\)</span> tal que el grado de salida de la fuente es mayor a cero y el grado de entrada del sumidero es mayor a cero. Las aristas poseen una capacidad positiva <span class="math">\(cap(e)&gt;0\)</span></p>
+<img src="Resources/434b2730-e972-4a13-85d9-a462412096fb.png" alt="434b2730-e972-4a13-85d9-a462412096fb" style="scale:0.33;" />
+<p>El dígrafo debe ser conexo, ya que para que tenga sentido debe existir al menos un camino <span class="math">\(f-s\)</span>.</p>
 <p>El problema a resolver es: <em>Cual es el máximo de elementos que puedo transportar desde la fuente hasta el sumidero?</em></p>
-<p>Esto se resuelve mediante una función llamada <span class="math inline">\(flujo:E_N \rightarrow\mathbb{N}\)</span>, siendo <span class="math inline">\(N\)</span> el grafo al cual quiero analizar, y tiene las siguientes características:</p>
+<p>Esto se resuelve mediante una función llamada <span class="math">\(flujo:E_N \rightarrow\mathbb{N}\)</span>, siendo <span class="math">\(N\)</span> el grafo al cual quiero analizar, y tiene las siguientes características:</p>
 <ul>
-<li><span class="math inline">\(flujo(e) \le cap(e)\)</span></li>
-<li><span class="math inline">\(\forall v \neq f \land v\neq s, \sum_{e\in Ent(v)} flujo(e) = \sum_{e\in Sal(v)} flujo(e)\)</span></li>
+<li><span class="math">\(flujo(e) \le cap(e)\)</span></li>
+<li><span class="math">\(\forall v \neq f \land v\neq s, \sum_{e\in Ent(v)} flujo(e) = \sum_{e\in Sal(v)} flujo(e)\)</span></li>
 </ul>
-<p>Siendo <span class="math inline">\(Ent(v)\)</span> las aristas que entran a <span class="math inline">\(v\)</span> y <span class="math inline">\(Sal(v)\)</span> las aristas que salen de <span class="math inline">\(v\)</span>.</p>
+<p>Siendo <span class="math">\(Ent(v)\)</span> las aristas que entran a <span class="math">\(v\)</span> y <span class="math">\(Sal(v)\)</span> las aristas que salen de <span class="math">\(v\)</span>.</p>
 <p>Tengo la siguente red de fujo, donde con verde estan marcadas las capacidades de cada arista.</p>
-<p><img src="Resources/Mon, 11 Nov 2019 102339.png" alt="img" style="zoom:50%;" /></p>
+<img src="Resources/e8fb4501-35b0-46f2-a30b-a232921717d9.png" alt="e8fb4501-35b0-46f2-a30b-a232921717d9" style="scale:0.50;" />
 <p>Para aumentar el flujo de la red debo seguir los siguentes pasos:</p>
-<ol type="1">
-<li><p><span class="math inline">\(f(e)=0 ~~\forall e \in E_N\)</span></p></li>
-<li><p>Buscamos <span class="math inline">\(Q\)</span> haciendo un BFS segun el orden lexicografico (marcado en celeste). De esta forma obtenemos Q:</p>
-<p><img src="Resources/Mon, 11 Nov 2019 102541.png" alt="img" style="zoom:33%;" /></p>
-<p><span class="math inline">\(\Delta Q=1\)</span></p></li>
-<li><p>Para cada arista de <span class="math inline">\(Q\)</span>, asignamos un nuevo flujo igual a la suma del anterior y <span class="math inline">\(\Delta Q\)</span></p>
-<p><img src="Resources/Mon, 11 Nov 2019 102828.png" alt="img" style="zoom:33%;" /></p></li>
-<li><p>Repetir el paso 2 hasta que no haya mas <span class="math inline">\(Q\)</span> de aumento.</p></li>
+<ol>
+<li><p><span class="math">\(f(e)=0 ~~\forall e \in E_N\)</span></p>
+</li>
+<li><p>Buscamos <span class="math">\(Q\)</span> haciendo un BFS segun el orden lexicografico (marcado en celeste). De esta forma obtenemos Q:</p>
+<img src="Resources/3857d713-75ce-44c9-b7af-016997eb93c6.png" alt="3857d713-75ce-44c9-b7af-016997eb93c6" style="scale:0.33;" />
+<p><span class="math">\(\Delta Q=1\)</span></p>
+</li>
+<li><p>Para cada arista de  <span class="math">\(Q\)</span>, asignamos un nuevo flujo igual a la suma del anterior y <span class="math">\(\Delta Q\)</span></p>
+<img src="Resources/be14e906-3054-4f5c-a271-18abcd9c769e.png" alt="be14e906-3054-4f5c-a271-18abcd9c769e" style="scale:0.33;" />
+</li>
+<li><p>Repetir el paso 2 hasta que no haya mas <span class="math">\(Q\)</span> de aumento.</p>
+</li>
 </ol>
 <p>Finalmente nos queda el siguente grafo:</p>
-<p><img src="Resources/Mon, 11 Nov 2019 104342.png" alt="img" style="zoom:33%;" /></p>
-<p>Donde en <span class="math inline">\(V_f\)</span> ponemos todos los vértices etiquetados y en <span class="math inline">\(V_s\)</span> quedan los que no.</p>
-<p>Tambien se obtiene que <span class="math inline">\(K^* = &lt;V_f,V_s&gt;\)</span> es el corte mínimo.</p>
-<p><span class="math inline">\(val(f^*) = \sum_{\forall i}Q_i = 11= cap(K^*)\)</span></p>
+<img src="Resources/f6c5165e-b0d8-417b-9d2d-017c43892183.png" alt="f6c5165e-b0d8-417b-9d2d-017c43892183" style="scale:0.33;" />
+<p>Donde en <span class="math">\(V_f\)</span> ponemos todos los vértices etiquetados y en <span class="math">\(V_s\)</span> quedan los que no.</p>
+<p>Tambien se obtiene que <span class="math">\(K^* = &lt;V_f,V_s&gt;\)</span> es el corte mínimo.</p>
+<p><span class="math">\(val(f^*) = \sum_{\forall i}Q_i = 11= cap(K^*)\)</span></p>
 <h2 id="definiciones">Definiciones</h2>
 <ul>
-<li><p><strong>Redes de Flujo</strong>: Es un dígrafo con dos vértices distinguidos (<span class="math inline">\(f:\)</span> fuente, <span class="math inline">\(s:\)</span> sumidero) tal que <span class="math inline">\(g_s(f)&gt;0\)</span> y <span class="math inline">\(g_e(s)&gt;0\)</span>.</p></li>
-<li><p><strong>Valores de Flujo</strong>: Dado un flujo en la red, definimos <span class="math inline">\(val(f)=\sum_{e \in Sal(f)} - \sum_{e \in Ent(f)}\)</span>.</p>
-<p>Por lo general la segunda sumatoria va a valer <span class="math inline">\(0\)</span>.</p></li>
-<li><p><strong>Flujo Máximo</strong>: un flujo es máximo si para todo flujo asociado a la red se verifica <span class="math inline">\(val(f) \leq val(f^*)\)</span>.</p>
-<p>Se lo nota como <span class="math inline">\(f^*\)</span></p>
-<p><strong>Capacidad de Corte</strong>: <span class="math inline">\(cap&lt;V_f,V_s&gt; = \sum_{e \in &lt;V_f,V_s&gt;} cap(e)\)</span></p></li>
-<li><p><strong>Corte Mínimo</strong>: <span class="math inline">\(K^*\)</span> es un corte tal que <span class="math inline">\(\forall k=&lt;V_f,V_s&gt;\)</span></p></li>
-<li><p><strong>Cuasicamino de Aumento</strong>: Un cuasi camino de aumento es un camino <span class="math inline">\(f-s\)</span> en el grafo subyacente de la red (no importa el sentido de las aristas), tal que si la arista es directa <span class="math inline">\(f(e)&lt;cap(e)\)</span> siendo <span class="math inline">\(\Delta e = cap(e)-f(e)\)</span>.</p>
-<p>Si la arista es inversa <span class="math inline">\(f(e)&gt;0\)</span> y <span class="math inline">\(\Delta e = f(e)\)</span>.</p>
-<p><img src="Resources/Mon, 11 Nov 2019 101230.png" alt="img" style="zoom:33%;" /> <span class="math display">\[
+<li><p><strong>Redes de Flujo</strong>: Es un dígrafo con dos vértices distinguidos (<span class="math">\(f:\)</span> fuente, <span class="math">\(s:\)</span> sumidero) tal que <span class="math">\(g_s(f)&gt;0\)</span> y <span class="math">\(g_e(s)&gt;0\)</span>.</p>
+</li>
+<li><p><strong>Valores de Flujo</strong>: Dado un flujo en la red, definimos <span class="math">\(val(f)=\sum_{e \in Sal(f)} - \sum_{e \in Ent(f)}\)</span>.</p>
+<p>Por lo general la segunda sumatoria va a valer <span class="math">\(0\)</span>.</p>
+</li>
+<li><p><strong>Flujo Máximo</strong>: un flujo es máximo si para todo flujo asociado a la red se verifica <span class="math">\(val(f) \leq val(f^*)\)</span>.</p>
+<p>Se lo nota como <span class="math">\(f^*\)</span></p>
+<p><strong>Capacidad de Corte</strong>: <span class="math">\(cap&lt;V_f,V_s&gt; = \sum_{e \in &lt;V_f,V_s&gt;} cap(e)\)</span></p>
+</li>
+<li><p><strong>Corte Mínimo</strong>: <span class="math">\(K^*\)</span> es un corte tal que <span class="math">\(\forall k=&lt;V_f,V_s&gt;\)</span></p>
+</li>
+<li><p><strong>Cuasicamino de Aumento</strong>: Un cuasi camino de aumento es un camino <span class="math">\(f-s\)</span> en el grafo subyacente de la red (no importa el sentido de las aristas), tal que si la arista es directa <span class="math">\(f(e)&lt;cap(e)\)</span> siendo <span class="math">\(\Delta e = cap(e)-f(e)\)</span>.</p>
+<p>Si la arista es inversa <span class="math">\(f(e)&gt;0\)</span> y <span class="math">\(\Delta e = f(e)\)</span>.</p>
+<img src="Resources/19457459-9a45-4832-9a82-eb9420ee0618.png" alt="19457459-9a45-4832-9a82-eb9420ee0618" style="scale:0.33;" />
+$$
 \Delta Q = min_{e \in Q} \{ \Delta e \} = 7
-\]</span></p></li>
+$$
+</li>
 </ul>
 <h2 id="proposiciones">Proposiciones</h2>
 <ul>
-<li><p>Dado un corte <span class="math inline">\(&lt;V_f,V_s&gt;\)</span>, todo camino directo <span class="math inline">\(f-s\)</span> contiene una arista en el conjunto <span class="math inline">\(&lt;V_f,V_s&gt;\)</span></p>
-<p><img src="Resources/Mon, 11 Nov 2019 083043.png" alt="img" style="zoom:33%;" /></p>
-<p><span class="math inline">\(\Rightarrow \exists v_i, v_{i+1}\)</span> en el camino <span class="math inline">\(/v_i \in V_f \land v_{i+1}\in V_s, (v_i,v_{i+1}) \in &lt;V_f,V_s&gt;\)</span></p></li>
-<li><p><span class="math inline">\(Val(f) = \sum_{e \in &lt;V_f,V_s&gt; }f(e) = \sum_{e \in &lt;V_s,V_f&gt;} f(e)\)</span> para todo corte <span class="math inline">\(&lt;V_f,V_s&gt;\)</span> y <span class="math inline">\(&lt;V_s,V_f&gt;\)</span> en la red.</p></li>
-<li><p>Si en la red el <span class="math inline">\(val(f)=cap(k)\)</span> para algun corte <span class="math inline">\(\Rightarrow f = f^* \land k = k^*\)</span></p>
-<p><a href="Demostraciones\20%20-%20Redes%20de%20Flujo\Proposicion%20-%2003.html">Demostración</a></p></li>
+<li><p>Dado un corte <span class="math">\(&lt;V_f,V_s&gt;\)</span>, todo camino directo <span class="math">\(f-s\)</span> contiene una arista en el conjunto <span class="math">\(&lt;V_f,V_s&gt;\)</span></p>
+<img src="Resources/ff4cd60d-f158-4f79-af17-f4590f8579e2.png" alt="ff4cd60d-f158-4f79-af17-f4590f8579e2" style="scale:0.33;" />
+<p><span class="math">\(\Rightarrow \exists v_i, v_{i+1}\)</span> en el camino <span class="math">\(/v_i \in V_f \land v_{i+1}\in V_s, (v_i,v_{i+1}) \in &lt;V_f,V_s&gt;\)</span></p>
+</li>
+<li><p><span class="math">\(Val(f) = \sum_{e \in &lt;V_f,V_s&gt; }f(e) = \sum_{e \in &lt;V_s,V_f&gt;} f(e)\)</span> para todo corte <span class="math">\(&lt;V_f,V_s&gt;\)</span> y <span class="math">\(&lt;V_s,V_f&gt;\)</span> en la red.</p>
+</li>
+<li><p>Si en la red el <span class="math">\(val(f)=cap(k)\)</span> para algun corte  <span class="math">\(\Rightarrow f = f^* \land k = k^*\)</span></p>
+<p>[Demostración](Demostraciones\20 - Redes de Flujo\Proposicion - 03.html)</p>
+</li>
 </ul>
 <h2 id="observaciones">Observaciones</h2>
 <ul>
-<li><p>Sea un corte <span class="math inline">\(&lt;V_f,V_s&gt;\)</span> en la red: <span class="math display">\[
+<li><p>Sea un corte <span class="math">\(&lt;V_f,V_s&gt;\)</span> en la red:</p>
+<div class="math">
+\[
 \bigcup_{v \in V_f} Sal(v) = &lt;V_f,V_f&gt; \cup &lt;V_f,V_s&gt; 
-\]</span> <img src="Resources/image-20191111085523830.png" alt="image-20191111085523830" style="zoom: 50%;" /></p>
-<p>Donde se puede ver que <span class="math inline">\(&lt;V_f,V_f&gt;=\{e_1,e_3\}\)</span> y que <span class="math inline">\(&lt;V_f,V_s&gt;=\{e_1,e_4,e_5,e_6,e_7\}\)</span> <span class="math display">\[
+\]</div>
+<img src="Resources/image-20191111085523830.png" alt="image-20191111085523830" style="zoom: 50%;" />
+<p>Donde se puede ver que <span class="math">\(&lt;V_f,V_f&gt;=\{e_1,e_3\}\)</span> y que <span class="math">\(&lt;V_f,V_s&gt;=\{e_1,e_4,e_5,e_6,e_7\}\)</span></p>
+<div class="math">
+\[
 \bigcup_{v \in V_f} Ent(v)= &lt;V_f,V_f&gt; \cup &lt;V_s,V_f&gt;
-\]</span> <img src="Resources/image-20191111085942585.png" alt="image-20191111085942585" style="zoom:50%;" /></p>
-<p>Donde <span class="math inline">\(&lt;V_f,V_f&gt; = \{e_1,e_3\}\)</span> y <span class="math inline">\(&lt;V_s,V_f&gt;=\{e_6\}\)</span></p></li>
+\]</div>
+<img src="Resources/3a8bcbd4-412a-4cb0-b7cb-f00e061c4241.png" alt="3a8bcbd4-412a-4cb0-b7cb-f00e061c4241" style="scale:0.50;" />
+<p>Donde <span class="math">\(&lt;V_f,V_f&gt; = \{e_1,e_3\}\)</span> y <span class="math">\(&lt;V_s,V_f&gt;=\{e_6\}\)</span></p>
+</li>
 </ul>
+
 </body>
 </html>

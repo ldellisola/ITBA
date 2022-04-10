@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>07 - Object Oriented Programming</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>07 - Object Oriented Programming.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,62 +1385,77 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="object-oriented-programming">Object Oriented Programming</h1>
 <h2 id="abstract-data-type">Abstract Data Type</h2>
 <p>An abstract data type is a data type with certain operations that is independent of any implementation. It is described as a signature and a set of axioms. For example if we have the class <code>counter</code>:</p>
 <pre><code>Class counter:
-    constructor init(n)
-    method      val():N
-    methhod     dec()</code></pre>
-<p>It will be translated into the following signature: <span class="math display">\[
+	constructor init(n)
+	method 		val():N
+	methhod		dec()
+</code></pre>
+<p>It will be translated into the following signature:</p>
+<div class="math">
+\[
 \array{
 \text{init}:\mathcal N \rightarrow \text{counter}\\
 \text{val}:\text{counter} \rightarrow \mathcal N \\
 \text{dec}:\text{counter} \rightarrow \text{counter}
 }
-\]</span> And there are two ways to call out the methods of a class: <span class="math display">\[
+\]</div>
+<p>And there are two ways to call out the methods of a class:</p>
+<div class="math">
+\[
 \array{i \leftarrow c.\text{val()} &amp; \text{or}&amp; i \leftarrow \text{val}(c)}
-\]</span> The axioms can also be converted into assertions for the functions. This example class has the following axioms defined: <span class="math display">\[
+\]</div>
+<p>The axioms can also be converted into assertions for the functions. This example class has the following axioms defined:</p>
+<div class="math">
+\[
 \forall n \in \mathcal N. \text{val}(\text{init}(n)) = n \\
 \forall c \in \text{counter}. \left[ \array{
 \text{val}(c) = 0 \implies \text{val}(\text{dec}(c)) = 0 
 ~~\land \\
 \text{val}(c) \neq 0 \implies \text{val}(\text{dec}(c))= \text{val}(c)-1
 }\right]
-\]</span> We can convert it to:</p>
+\]</div>
+<p>We can convert it to:</p>
 <pre><code>Class counter:
-    constructor init(n):
-        assume n in N
-        ...
-        @ val() = n
-    method      val():N
-    method      dec():
-        v = val()
-        ...
-        @[ v = 0 =&gt; val() = 0 ] &amp;&amp; [ v != 0 =&gt; val() = v-1 ]</code></pre>
+	constructor	init(n):
+		assume n in N
+		...
+		@ val() = n
+	method		val():N
+	method 		dec():
+		v = val()
+		...
+		@[ v = 0 =&gt; val() = 0 ] &amp;&amp; [ v != 0 =&gt; val() = v-1 ]
+</code></pre>
 <h3 id="internal-consistency-of-data-types">Internal Consistency of Data Types</h3>
-<p>This type of consistency deals with assertions of the internal variables of classes. This would amount to an assertion at the beginning and and end of every method. Some object oriented languages have support for this type of assertions. We are going to be using the following convention: <span class="math display">\[
+<p>This type of consistency deals with assertions of the internal variables of classes. This would amount to an assertion at the beginning and and end of every method. Some object oriented languages have support for this type of assertions. We are going to be using the following convention:</p>
+<div class="math">
+\[
 \bold{\text{invariant  }} x \ge 0
-\]</span></p>
+\]</div>
 <h3 id="implementation">Implementation</h3>
-<p>Let <span class="math inline">\(\Sigma\)</span> be a signature over types <span class="math inline">\(T_1,\dots,T_n\)</span>, a <strong><span class="math inline">\(\Sigma-\)</span>structure</strong> <span class="math inline">\(S\)</span> is defined as a tuple <span class="math inline">\((\Omega_1,\dots,\Omega_n,\mathcal I)\)</span> where:</p>
+<p>Let <span class="math">\(\Sigma\)</span> be a signature over types <span class="math">\(T_1,\dots,T_n\)</span>, a <strong>$\Sigma-$structure</strong> <span class="math">\(S\)</span> is defined as a tuple <span class="math">\((\Omega_1,\dots,\Omega_n,\mathcal I)\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(\Omega_1,\dots,\Omega_n\)</span> are sets (The carrier sets of <span class="math inline">\(S\)</span>).</li>
-<li><span class="math inline">\(\mathcal I\)</span> assigns to:
+<li><span class="math">\(\Omega_1,\dots,\Omega_n\)</span> are sets (The carrier sets of <span class="math">\(S\)</span>).</li>
+<li><span class="math">\(\mathcal I\)</span> assigns to:
 <ul>
-<li>Every function symbol <span class="math inline">\(f:T_{i_1}\times \dots, \times T_{i_a} \rightarrow T_j\)</span> from <span class="math inline">\(\Sigma\)</span> to a function <span class="math inline">\(f:\Omega_{i_1}\times \dots \times \Omega_{i_a} \rightarrow \Omega_j\)</span></li>
-<li>Every predicate symbol <span class="math inline">\(p:T_{i_1} \times \dots \times T_{i_a}\)</span> from <span class="math inline">\(\Sigma\)</span> to a relation <span class="math inline">\(r \subseteq \Omega_{i_1} \times \dots \times\Omega_{i_a}\)</span></li>
-</ul></li>
+<li>Every function symbol <span class="math">\(f:T_{i_1}\times \dots, \times T_{i_a} \rightarrow T_j\)</span> from <span class="math">\(\Sigma\)</span> to a function <span class="math">\(f:\Omega_{i_1}\times \dots \times \Omega_{i_a} \rightarrow \Omega_j\)</span></li>
+<li>Every predicate symbol <span class="math">\(p:T_{i_1} \times \dots \times T_{i_a}\)</span> from <span class="math">\(\Sigma\)</span> to a relation <span class="math">\(r \subseteq \Omega_{i_1} \times \dots \times\Omega_{i_a}\)</span></li>
+</ul>
+</li>
 </ul>
 <p>We can think of this structure of a concrete class in C++.</p>
 <h3 id="semantics">Semantics</h3>
-<p>A <span class="math inline">\(\Sigma-\)</span>structure <span class="math inline">\((\Omega_1,\dots,\Omega_n,\mathcal I)\)</span> is a model of a data type <span class="math inline">\(T\)</span> if:</p>
+<p>A $\Sigma-$structure <span class="math">\((\Omega_1,\dots,\Omega_n,\mathcal I)\)</span> is a model of a data type <span class="math">\(T\)</span> if:</p>
 <ul>
-<li><span class="math inline">\(T\)</span> has the signature <span class="math inline">\(\Sigma\)</span></li>
-<li>For every axiom <span class="math inline">\(\phi\)</span> of <span class="math inline">\(T\)</span>, <span class="math inline">\((\Omega_1,\dots,\Omega_n,\mathcal I) \models \phi\)</span></li>
+<li><span class="math">\(T\)</span> has the signature <span class="math">\(\Sigma\)</span></li>
+<li>For every axiom <span class="math">\(\phi\)</span> of <span class="math">\(T\)</span>, <span class="math">\((\Omega_1,\dots,\Omega_n,\mathcal I) \models \phi\)</span></li>
 </ul>
 <p>A intuitive way to look at this is:</p>
 <ul>
@@ -1587,14 +1464,20 @@ blockquote {
 </ul>
 <h3 id="extensions-of-data-types">Extensions of Data Types</h3>
 <p>Extensions are useful for adding properties to an existing specification.</p>
-<blockquote>
-<p>Given two data types <span class="math inline">\((\check\Sigma, \check A)\)</span> and <span class="math inline">\((\hat\Sigma, \hat A)\)</span>: <span class="math display">\[
+<blockquote class="blockquote">
+<p>Given two data types <span class="math">\((\check\Sigma, \check A)\)</span> and <span class="math">\((\hat\Sigma, \hat A)\)</span>:</p>
+<div class="math">
+\[
 (\check\Sigma, \check A) \text{ is an extension of } (\hat\Sigma, \hat A)\\
 \iff\\
 \hat \Sigma\subseteq\check\Sigma  \land \hat A \subseteq \check A
-\]</span> It is denoted as : <span class="math display">\[
+\]</div>
+<p>It is denoted as :</p>
+<div class="math">
+\[
 (\check\Sigma, \check A) \preceq (\hat\Sigma, \hat A)
-\]</span></p>
+\]</div>
 </blockquote>
+
 </body>
 </html>

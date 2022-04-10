@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>05 - Arquitectura</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>05 - Arquitectura.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,32 +1385,35 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
-<h1 id="transmisión">Transmisión</h1>
+<h1 id="transmision">Transmisión</h1>
 <p>Hay dos formas principales de transmitir informacion:</p>
 <ul>
-<li><p><strong>En serie</strong>: Se utiliza solo un medio para transmitir solo un flujo de informacion.</p></li>
+<li><p><strong>En serie</strong>: Se utiliza solo un medio para transmitir solo un flujo de informacion.</p>
+</li>
 <li><p><strong>Paralelo</strong>: Se utilizan varios medios, por lo que puedo mandar mas de un flujo de informacion y transmitir mas rápido. La desventaja de este sistema es que suele ser mas caro.</p>
-<p>Se suele llamar a un <strong>bus</strong> al conjunto de medios que conectan a un dispositivo con otro y llevan un mismo mensaje.</p></li>
+<p>Se suele llamar a un <strong>bus</strong> al conjunto de medios que conectan a un dispositivo con otro y llevan un mismo mensaje.</p>
+</li>
 </ul>
-<h2 id="codificación">Codificación</h2>
+<h2 id="codificacion">Codificación</h2>
 <p>La forma de pasar e interpretar informacion en las computadoras es mediante distintos voltajes. En la realidad estos voltajes no son tan lindo como en la teoría, sino que suelen tener ruido, por eso se utilizan valores bastante distintos para signar a un 1 y a un 0.</p>
-<h3 id="codificación-unipolar">Codificación Unipolar</h3>
-<p>Para representar memoria en las computadoras, se utiliza diferencia de potencial (voltaje) de modo tal que se asigna un valor (<span class="math inline">\(5V\)</span> o <span class="math inline">\(3V\)</span>) al 1, mientras que se le asigna <span class="math inline">\(0V\)</span> al 0.</p>
-<h3 id="codificación-de-línea">Codificación de línea</h3>
-<p>De forma similar a la codificación anterior, se asigna un valor positivo al 1 y el mismo valor pero negativo para el cero. Normalmente se asigna <span class="math inline">\(5V\)</span> para 1 y <span class="math inline">\((-5)V\)</span> para el 0</p>
+<h3 id="codificacion-unipolar">Codificación Unipolar</h3>
+<p>Para representar memoria en las computadoras, se utiliza diferencia de potencial (voltaje) de modo tal que se asigna un valor (<span class="math">\(5V\)</span> o <span class="math">\(3V\)</span>) al 1, mientras que se le asigna <span class="math">\(0V\)</span> al 0.</p>
+<h3 id="codificacion-de-linea">Codificación de línea</h3>
+<p>De forma similar a la codificación anterior, se asigna un valor positivo al 1 y el mismo valor pero negativo para el cero. Normalmente se asigna <span class="math">\(5V\)</span> para 1 y <span class="math">\((-5)V\)</span> para el 0</p>
 <h1 id="arquitecturas">Arquitecturas</h1>
 <h2 id="von-neumann">Von Neumann</h2>
-<p><img src="Resources/1568057788465.png" alt="1568057788465" style="zoom: 50%;" /></p>
+<img src="Resources/1568057788465.png" alt="1568057788465" style="zoom: 50%;" />
 <p>La arquitectura de Von Neumann se conecte con un solo bus con la memoria de código y de los datos. Esta arquitectura es la mas utilizada por su simplicidad y su bajo costo:</p>
 <ul>
 <li>Tiene solo una memoria en vez de 2</li>
 <li>Menor complejidad en la toma de decisiones. Esto afecta a la complejidad del procesador.</li>
 </ul>
 <h2 id="harvard">Harvard</h2>
-<p><img src="Resources/1568057844917.png" alt="1568057844917" style="zoom:50%;" /></p>
+<img src="Resources/3905a355-f7cb-4de5-83a9-1b5f4de90cfb.png" alt="3905a355-f7cb-4de5-83a9-1b5f4de90cfb" style="scale:0.50;" />
 <p>La arquitectura de Harvard utiliza 2 buses, uno para conectarse a la memoria de código y otro para conectarse a la memoria de datos. Esto paraleliza el acceso a la informacion (en algunos casos) y haría que sea mas rápido el acceso.</p>
 <p>Hay pocos dispositivos con un procesador con estructura Harvard, entre los cuales se esta aplicando cada vez mas en los dispositivos móviles con estructura ARM.</p>
 <h1 id="memoria">Memoria</h1>
@@ -1558,12 +1423,12 @@ blockquote {
 <p>Además, las memorias compatibles con la arquitectura <code>x86</code> tiene otro bus para indicar si están accediendo a la memoria con una instrucción de <code>8-bits</code>, <code>16-bits</code> o <code>32-bits</code>.</p>
 <h3 id="mapa-de-memoria">Mapa de memoria</h3>
 <p>El mapa de memoria te dice la cantidad de memoria que el procesador puede manejar, pero no necesariamente es la memoria real que tenés en tu sistema. Un mapa de memoria esta definido por el bus de datos y por el bus de direcciones. El bus de datos indica el tamaño que va a tener cada posición de memoria mientras que el bus de direcciones representa la cantidad máxima de direcciones que se pueden utilizar en la memoria.</p>
-<p>Si le asignamos <span class="math inline">\(n=\)</span> tamaño del bus de direcciones y <span class="math inline">\(t=\)</span> tamaño del bus de datos, hay <span class="math inline">\(2^n\)</span> posibles direcciones de memoria, de las cuales cada una tiene <span class="math inline">\(t\)</span> bits de tamaño, por lo que esta memoria tiene <span class="math inline">\(2^n \times t\)</span> bits de memoria.</p>
-<h2 id="clasificación-de-memorias">Clasificación de Memorias</h2>
+<p>Si le asignamos <span class="math">\(n=\)</span> tamaño del bus de direcciones y <span class="math">\(t=\)</span> tamaño del bus de datos, hay <span class="math">\(2^n\)</span> posibles direcciones de memoria, de las cuales cada una tiene <span class="math">\(t\)</span> bits de tamaño, por lo que esta memoria tiene <span class="math">\(2^n \times t\)</span> bits de memoria.</p>
+<h2 id="clasificacion-de-memorias">Clasificación de Memorias</h2>
 <h3 id="memoria-rom">Memoria ROM</h3>
 <p>Esta memoria es normalmente llamada BIOS. Es memoria estática (no se elimina al apagar la computadora) y es de rápido acceso. A la hora de iniciar la computadora, el Instruction Pointer (IP) apunta a una dirección de memoria ROM en la BIOS y ahí comienza a ejecutar instrucciones.</p>
 <p>Este tipo de memoria no son solo de lectura, como lo eran antes, sino que utiliza una tecnología EEPROM, por lo que son muy rápidas al leer informacion, pero lentas al escribir.</p>
-<p>Estas memorias tampoco tienen una vida infinita, sino que lentamente van perdiendo energía y duran alrededor de 40 años. Para poder <em>“recargar”</em> la energía, hay que leer y reescribir la memoria de vuelta.</p>
+<p>Estas memorias tampoco tienen una vida infinita, sino que lentamente van perdiendo energía y duran alrededor de 40 años. Para poder <em>&quot;recargar&quot;</em> la energía, hay que leer y reescribir la memoria de vuelta.</p>
 <p>Los pendrives, disco de estado solido y demás memorias <em>Flash</em> son de esta familia.</p>
 <h3 id="memoria-ram">Memoria RAM</h3>
 <p>Por el contrario, la memoria RAM tiene una lectura y escritura muy rápida, además de una volatilidad muy alta, ya que el procesador debe leer y reescribir todos el contenido de la RAM cada algunos milisegundos.</p>
@@ -1578,26 +1443,32 @@ blockquote {
 <p>A la hora de armar un sistema, se debe tener en cuenta el tamaño del mapa de memoria del procesador como el tamaño de nuestra memoria.</p>
 <p>El Instruction Pointer es el registro donde se va apuntar a la dirección de memoria donde se almacena el código. Este puntero no siempre apunta al mismo lugar, sino que distintos fabricantes lo apuntan a donde ellos prefieren (esta hardcodeado). Por lo que tengo que chequear que en mi memoria exista la posición de memoria a donde apunta el IP.</p>
 <p>No siempre se va a tener solo memoria RAM o ROM, o los tamaños van a ser similares al del mapa de memoria del procesador. En estos casos, como se quieren utilizar ambas memorias, ambas tienen que estar incluidas dentro del mapa de memoria. En estos casos se suele asignarle el espacio primero a la ROM, ya que debemos tener en cuenta a la posición de memoria a la que apunta el IP.</p>
-<p>A la hora de asignarle un lugar a la memoria RAM, puedo elegir cualquier posición siempre que no se pise con la ROM. Pero mientras que es técnicamente posible, se suele poner a la RAM luego de la ROM, por si en algún momento se le asigna una memoria RAM con mayor capacidad, se le puede asignar un lugar en el mapa de memoria mas grande y listo, ya que no se puede “dividir” la memoria RAM en varias partes.</p>
+<p>A la hora de asignarle un lugar a la memoria RAM, puedo elegir cualquier posición siempre que no se pise con la ROM. Pero mientras que es técnicamente posible, se suele poner a la RAM luego de la ROM, por si en algún momento se le asigna una memoria RAM con mayor capacidad, se le puede asignar un lugar en el mapa de memoria mas grande y listo, ya que no se puede &quot;dividir&quot; la memoria RAM en varias partes.</p>
 <p>Este proceso explicado previamente se realiza con un <strong>circuito decodificador</strong>. Esto permite que solo se active el bus del <code>chip select</code> cuando se quiere acceder a una memoria especifica. Este bus solo se debe activar cuando se esta interactuando con la memoria en cuestión. Si el tamaño de la memoria es igual al tamaño del mapa de memoria, no es necesario implementar un circuito decodificador.</p>
-<p>Intel, al desarrollar el procesador de 16 bits, se estaba quedando con poco espacio para los periféricos en el mapa de memoria, por lo que desarrollaron un pin especial llamado <code>IO/M-</code> que permitía utilizar un mapa de memoria secundario, del mismo tamaño que el mapa de memoria regular, pero solo para periféricos. En realidad, este pin seria el bit 17 de la dirección de memoria. Este mapa de memoria se puede acceder con las instrucciones <code>in</code> y <code>out</code>. Estas instrucciones son iguales a la instrucción <code>mov</code> pero solo para acceder a periféricos (<code>in</code> permite leer y <code>out</code> escribir informacion).</p>
+<p>Intel, al desarrollar el procesador de 16 bits, se estaba quedando con poco espacio para los periféricos en el mapa de memoria, por lo que desarrollaron un pin especial llamado <code>IO/M-</code>  que permitía utilizar un mapa de memoria secundario, del mismo tamaño que el mapa de memoria regular, pero solo para periféricos. En realidad, este pin seria el bit 17 de la dirección de memoria. Este mapa de memoria se puede acceder con las instrucciones <code>in</code> y <code>out</code>. Estas instrucciones son iguales a la instrucción <code>mov</code> pero solo para acceder a periféricos (<code>in</code> permite leer y <code>out</code> escribir informacion).</p>
 <h2 id="ejemplos">Ejemplos</h2>
 <ul>
 <li><p><strong>Tengo un Procesador conectado con el bus de dirección de 16 bits y bus de datos de 8 bits conectado a una memoria ROM con las mismas entradas:</strong></p>
-<p>Si armo el mapa de memoria del procesador, me queda que tiene un tamaño de <span class="math inline">\(2^{16}\times 8\)</span> bits <span class="math inline">\(= 64\)</span>kb.</p>
-<p>Vemos el tamaño de nuestra memoria ROM, como nuestra memoria tiene una entrada de 16 bits para el bus de dirección y 8 bits para el bus de datos, vemos que el tamaño tambien es de <span class="math inline">\(64\)</span>kb.</p>
-<p>Como el tamaño máximo del mapa de memoria es igual al tamaño de nuestra memoria, nuestro procesador puede operar perfectamente.</p></li>
+<p>Si armo el mapa de memoria del procesador, me queda que tiene un tamaño de <span class="math">\(2^{16}\times 8\)</span> bits $= 64$kb.</p>
+<p>Vemos el tamaño de nuestra memoria ROM, como nuestra memoria tiene una entrada de 16 bits para el bus de dirección y 8 bits para el bus de datos, vemos que el tamaño tambien es de $64$kb.</p>
+<p>Como el tamaño máximo del mapa de memoria es igual al tamaño de nuestra memoria, nuestro procesador puede operar perfectamente.</p>
+</li>
 <li><p><strong>Tengo un Procesador conectado con el <u>bus de dirección 16 bits</u> y <u>bus de datos de 8 bits</u> conectado a una <u>memoria ROM</u> cuyo <u>bus de datos es de 8 bits</u>, pero su <u>bus de direcciones tiene 8 bits</u>. Tambien lo conecto a una <u>memoria RAM</u> con la <u>misma configuración de entradas</u> que la memoria ROM. Por otro lado sabemos que el IP apunta a la dirección de memoria <code>2000h</code> :</strong></p>
-<p>En este caso el mapa de memoria de mi procesador es de <span class="math inline">\(64\)</span>kb, pero nuestra memoria ROM, al igual que la RAM, solo tienen <span class="math inline">\(2^8 \times 8 =256\)</span> bytes.</p>
-<p>En este caso tengo que “meter” tanto la memoria RAM como la ROM dentro del mapa de memoria del procesador. Como el IP apunta a la posición <code>2000h</code>, le asignamos la memoria entre la posición <code>2000h</code> y <code>20FFh</code> a la ROM. Elijo para la memoria RAM las posiciones entre <code>3000h</code> y <code>30FFh</code>.</p></li>
-<li><p><strong>Tengo un procesador con un <u>bus de direcciones de 16 bits</u> y un <u>bus de datos de 8 bits</u>. Quiero conectar una <u>memoria ROM de <span class="math inline">\(2k\times 8\)</span> bits</u>. El IP apunta a la dirección <code>2000h</code>:</strong></p>
-<p>Como la memoria ROM es de <span class="math inline">\(2k \times 8\)</span>, puedo decir que el bus de datos es de 8 bits, mientras que el bus de direcciones es de 11 bits (<span class="math inline">\(2k=2 \times 2^{10} = 2^{11}\)</span>).</p>
-<p>Por otro lado vemos que el tamaño del mapa de memoria es <span class="math inline">\(64\)</span>kb, con las direcciones entre <code>0000h</code> y <code>FFFFh</code>.</p>
+<p>En este caso el mapa de memoria de mi procesador es de $64$kb, pero nuestra memoria ROM, al igual que la RAM, solo tienen <span class="math">\(2^8 \times 8 =256\)</span> bytes.</p>
+<p>En este caso tengo que &quot;meter&quot; tanto la memoria RAM como la ROM dentro del mapa de memoria del procesador. Como el IP apunta a la posición <code>2000h</code>, le asignamos la memoria entre la posición <code>2000h</code> y <code>20FFh</code> a la ROM. Elijo para la memoria RAM las posiciones entre <code>3000h</code> y <code>30FFh</code>.</p>
+</li>
+<li><p><strong>Tengo un procesador con un <u>bus de direcciones de 16 bits</u> y un <u>bus de datos de 8 bits</u>. Quiero conectar una <u>memoria ROM de <span class="math">\(2k\times 8\)</span> bits</u>. El IP apunta a la dirección <code>2000h</code>:</strong></p>
+<p>Como la memoria ROM es de <span class="math">\(2k \times 8\)</span>, puedo decir que el bus de datos es de 8 bits, mientras que el bus de direcciones es de 11 bits (<span class="math">\(2k=2 \times 2^{10} = 2^{11}\)</span>).</p>
+<p>Por otro lado vemos que el tamaño del mapa de memoria es $64$kb, con las direcciones entre <code>0000h</code> y <code>FFFFh</code>.</p>
 <p>Le asignamos a la ROM, las posiciones de memoria desde <code>2000h</code> hasta <code>27FFh</code>.</p>
 <p>Tambien tenemos que involucrar un codificador de hardware, para que solo se pueda acceder a la memoria cuando se quiere acceder a una de las posiciones de memoria de la ROM y en otro lado. Para esto analizamos las posiciones de comienzo y de fin de la ROM en el mapa de memoria.</p>
-<p><code>2000h = 0010 0000 0000 0000</code> y <code>27FFh = 0010 0111 1111 1111</code>, tambien llamamos a las posiciones de memoria <span class="math inline">\(A_n\)</span>, siendo <span class="math inline">\(n\)</span> la enésima posición de los bits, siendo la primera posición la que esta al final de la cadena. Según esto vemos que los últimos 5 bits son iguales, y solo son así para las posiciones de memoria validas dentro de nuestro mapa de memoria para la ROM. Por esto uso un codificador de memoria que tome <span class="math inline">\(A_{15}, A_{14}, A_{13}, A_{12}, A_{11}\)</span> para poder activar al bus <code>chip select</code>, y que solo active cuando estos valores tengan la siguiente configuración: <span class="math display">\[
+<p><code>2000h = 0010 0000 0000 0000</code> y <code>27FFh = 0010 0111 1111 1111</code>, tambien llamamos a las posiciones de memoria <span class="math">\(A_n\)</span>, siendo <span class="math">\(n\)</span> la enésima posición de los bits, siendo la primera posición la que esta al final de la cadena. Según esto vemos que los últimos 5 bits son iguales, y solo son así para las posiciones de memoria validas dentro de nuestro mapa de memoria para la ROM. Por esto uso un codificador de memoria que tome <span class="math">\(A_{15}, A_{14}, A_{13}, A_{12}, A_{11}\)</span> para poder activar al bus <code>chip select</code>, y que solo active cuando estos valores tengan la siguiente configuración:</p>
+<div class="math">
+\[
 \array{ A_{15}=0 &amp; A_{14}=0 &amp; A_{13}=1 &amp; A_{12}=0 &amp; A_{11}=0 }
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>13 - Decision Trees</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>13 - Decision Trees.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="decision-trees">Decision Trees</h1>
@@ -1531,62 +1394,86 @@ blockquote {
 <p>This process is made up of 2 phases:</p>
 <ul>
 <li><strong>Growth Phase</strong>: The tree is constructed top-down.:
-<ol type="1">
-<li>We find the <em>“Best”</em> attribute</li>
-<li>We partition examples based on on the attribute’s value</li>
+<ol>
+<li>We find the <em>&quot;Best&quot;</em> attribute</li>
+<li>We partition examples based on on the attribute's value</li>
 <li>We apply recursively to each partition</li>
-</ol></li>
-<li><strong>Pruning Phase</strong>: The tree is pruned button-up. For each node, we keep the subtree or change it for a leaf by comparing the estimated error.</li>
+</ol>
+</li>
+<li><strong>Pruning Phase</strong>: The tree is pruned button-up. For each node, we keep the subtree or change it for a  leaf by comparing the estimated error.</li>
 </ul>
-<p>When splitting a node into branches, we need to define a splitting function <span class="math inline">\(S(P,\theta)\)</span> as a mapping which takes a set <span class="math inline">\(P\)</span> (data points at a node) and splitting parameters <span class="math inline">\(\theta\)</span> and partitions <span class="math inline">\(P\)</span> into <span class="math inline">\(\{P_1,\dots,P_k\}\)</span>: <span class="math display">\[
+<p>When splitting a node into branches, we need to define a splitting function <span class="math">\(S(P,\theta)\)</span> as a mapping which takes a set <span class="math">\(P\)</span> (data points at a node) and splitting parameters <span class="math">\(\theta\)</span> and partitions <span class="math">\(P\)</span> into <span class="math">\(\{P_1,\dots,P_k\}\)</span>:</p>
+<div class="math">
+\[
 S:P,\theta \rightarrow \{P_1,\dots,P_k\}\\
 P_i \cap P_j =\emptyset \Leftrightarrow i \neq j \\
 \cup_{i=1}^k P_i = P
-\]</span> Where <span class="math inline">\(\theta\)</span> is a set of parameters that may contain the breaching factor <span class="math inline">\(k\)</span>, the index <span class="math inline">\(i\)</span> of the splitting dimension <span class="math inline">\(X_i\)</span>.</p>
+\]</div>
+<p>Where <span class="math">\(\theta\)</span> is a set of parameters that may contain the breaching factor <span class="math">\(k\)</span>, the index <span class="math">\(i\)</span> of the splitting dimension <span class="math">\(X_i\)</span>.</p>
 <h3 id="maximization-of-information-gain">Maximization of Information Gain</h3>
-<p>One approach to splitting is <strong>greedy maximization of information gain</strong>, where information gain <span class="math inline">\((IG)\)</span> measures the expected reduction in entropy <span class="math inline">\((H)\)</span> when a set <span class="math inline">\(P\)</span> is partitioned to subsets <span class="math inline">\(P_1,\dots,P_k\)</span>. The information gain for an attribute <span class="math inline">\(A\)</span> is <span class="math inline">\(IG(A)\)</span>: <span class="math display">\[
+<p>One approach to splitting is <strong>greedy maximization of information gain</strong>, where information gain <span class="math">\((IG)\)</span> measures the expected reduction in entropy <span class="math">\((H)\)</span> when a set <span class="math">\(P\)</span> is partitioned to subsets <span class="math">\(P_1,\dots,P_k\)</span>. The information gain for an attribute <span class="math">\(A\)</span> is <span class="math">\(IG(A)\)</span>:</p>
+<div class="math">
+\[
 IG(A) = H(P) - \sum_{i=1}^k\frac{|P_i|}{|P|} H(P_i)\\
 H(P) = - \sum_{j}\frac{|P^{j}|}{|P|} \log\frac{|P^{j}|}{|P|}\\
 H(P_i) = -\sum_j \frac{|P^{j}_i|}{|P_i|} \log \frac{|P_i^{j}|}{|P_i|}
-\]</span> Where <span class="math inline">\(P^{(j)}\)</span> is the number of points of class <span class="math inline">\(j\)</span> in <span class="math inline">\(P\)</span>.</p>
-<p>The attributes with the highest entropy should be decided first. We can reformulate this process into an algorithm. The input is the training set <span class="math inline">\(\mathcal T\)</span> and a class <span class="math inline">\(S\)</span> of allowed splitting parameters:</p>
-<ol type="1">
-<li><p>Set the partition <span class="math inline">\(P\)</span> to the training set: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(P^{(j)}\)</span> is the number of points of class <span class="math">\(j\)</span> in <span class="math">\(P\)</span>.</p>
+<p>The attributes with the highest entropy should be decided first. We can reformulate this process into an algorithm. The input is the training set <span class="math">\(\mathcal T\)</span> and a class <span class="math">\(S\)</span> of allowed splitting parameters:</p>
+<ol>
+<li><p>Set the partition <span class="math">\(P\)</span> to the training set:</p>
+<div class="math">
+\[
 P = \mathcal T
-\]</span></p></li>
-<li><p>Find the best splitting function as measured by the Information Gain: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Find the best splitting function as measured by the Information Gain:</p>
+<div class="math">
+\[
 S = \underset {\theta \in S}{\arg\min} \left(
 \sum_{P_i \in S(P,\theta)}\frac{|P_i|}{|P|} H(P_i)  
 \right)\\
 H(P_i) = - \sum_j \frac{|P_i^{(j)}|}{|P_i|} \log \frac{|P_i^{(j)}|}{|P_i|}\\
-\]</span></p></li>
-<li><p>Go recursively to branches</p></li>
+\]</div>
+</li>
+<li><p>Go recursively to branches</p>
+</li>
 </ol>
 <h3 id="minimization-of-training-error">Minimization of Training Error</h3>
 <p>This algorithm is similar to the previous one but instead of using Information gain and entropy, it uses the training error:</p>
-<ol type="1">
-<li><p>Set the partition <span class="math inline">\(P\)</span> to the training set: <span class="math display">\[
+<ol>
+<li><p>Set the partition <span class="math">\(P\)</span> to the training set:</p>
+<div class="math">
+\[
 P = \mathcal T
-\]</span></p></li>
-<li><p>Find the best splitting function as measured by the Information Gain: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Find the best splitting function as measured by the Information Gain:</p>
+<div class="math">
+\[
 S = \underset {\theta \in S}{\arg\min} \left(
 \sum_{P_i \in S(P,\theta)}\frac{|P_i|}{|P|} \epsilon(P_i)  
 \right)\\
 H(P_i) = 1- \max_j \frac{|P_i^{(j)}|}{|P_i|}
-\]</span></p></li>
-<li><p>Go recursively to branches</p></li>
+\]</div>
+</li>
+<li><p>Go recursively to branches</p>
+</li>
 </ol>
 <h2 id="random-decision-forests">Random Decision Forests</h2>
 <p>Decision trees tend to overfit, but combining multiple decision trees offers a solution to this problem. This raises two problems:</p>
 <ul>
 <li><p>How should multiple trees be combined?</p>
-<p>Generally a majority of votes for a given class is used, similar to NNs</p></li>
+<p>Generally a majority of votes for a given class is used, similar to NNs</p>
+</li>
 <li><p>How should multiple trees be constructed?</p>
 <p>Constructing multiple different trees requires randomization that can be employed for:</p>
 <ul>
 <li>Randomly sampling the training set for individual decision trees, using <strong>bagging</strong>.</li>
 <li>Randomly sampling a subset of features for individual decision trees.</li>
-</ul></li>
 </ul>
+</li>
+</ul>
+
 </body>
 </html>

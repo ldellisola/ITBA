@@ -35,11 +35,11 @@ La combinación entre Axis y NodeTest indican cual será el nuevo nodo contexto,
 
 En esta tabla se pueden ver las diferentes combinaciones para el Axis:
 
-![1563137557676](../../Carpeta%20ITBA/72.32/Resources/TablaStepXPATH.png)
+![1563137557676](Resources/TablaStepXPATH.png)
 
 Tambien se puede ver en este árbol como son las relaciones:
 
-![1563137716925](../../Carpeta%20ITBA/72.32/Resources/XPATHRelacionesTree.png)
+![1563137716925](Resources/XPATHRelacionesTree.png)
 
 #### Nodos hijo
 
@@ -61,7 +61,7 @@ Con el axis `ancestor::` se obtienen todos los nodos predecesores del contexto a
 
 En esta tabla se puede ver la lista de NodeTest:
 
-![1563137815357](../../Carpeta%20ITBA/72.32/Resources/TablaXPathNodeTest.png)
+![1563137815357](Resources/TablaXPathNodeTest.png)
 
 ### Predicado
 

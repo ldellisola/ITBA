@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>11 - Decision Procedures</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>11 - Decision Procedures.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,87 +1385,135 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="decision-procedures">Decision Procedures</h1>
 <p>Until now we discussed about the need to check verification conditions and conditions for execution paths, that can, to an extent, be done automatically due to advances on solvers in recent years.</p>
 <h2 id="abstraction">Abstraction</h2>
 <p>On very complicated formulas, we can use abstraction and boolean solvers to determine if the program can run. We start by ignoring details and incrementally use more and more properties:</p>
-<ol type="1">
+<ol>
 <li>Properties of Boolean constants</li>
 <li>Properties of Boolean operations</li>
-<li><span class="math inline">\(&lt;\)</span> is the negation of <span class="math inline">\(\ge\)</span></li>
+<li><span class="math">\(&lt;\)</span> is the negation of <span class="math">\(\ge\)</span></li>
 </ol>
 <p>By removing these details, we can say that if the abstraction is unsatisfiable, then the original formula will be as well, but not the other way around. If the abstraction is satisfiable, and we want to prove unsatisfiability, we have to add additional properties.</p>
 <p>For example, if we have the following program:</p>
-<pre class="pseudocode"><code>q &lt;- False
+<pre><code class="language-pseudocode">q &lt;- False
 if 10 * x &gt; 0 AND w &lt; 1 then:
-    q &lt;- True
+	q &lt;- True
 if  [10 * x &lt;= 0 OR w &gt;= 1] AND q then:
-    Throw Exception()</code></pre>
-<p>If we want to be sure that an exception is not going to be thrown, we can reduce the program to: <span class="math display">\[
+	Throw Exception()
+</code></pre>
+<p>If we want to be sure that an exception is not going to be thrown, we can reduce the program to:</p>
+<div class="math">
+\[
 \neg q \land 10 \times x &gt; 0 \land w &lt; 1 \land q_1 \land  [10 \times x \le 0 \lor w \ge  1 ] \land q_1
-\]</span> We can reduce this to: <span class="math display">\[
+\]</div>
+<p>We can reduce this to:</p>
+<div class="math">
+\[
 \neg Q \land A \land B \land Q_1 \land  [\neg A \lor C] \land Q_1
-\]</span> This is still satisfiable, we need to see that <span class="math inline">\(B \equiv \neg C\)</span>: <span class="math display">\[
+\]</div>
+<p>This is still satisfiable, we need to see that <span class="math">\(B \equiv \neg C\)</span>:</p>
+<div class="math">
+\[
 \neg Q \land A \land B \land Q_1 \land  [\neg A \lor \neg B] \land Q_1
-\]</span> Now all possible cases will result in a contradiction.</p>
+\]</div>
+<p>Now all possible cases will result in a contradiction.</p>
 <h2 id="equality">Equality</h2>
 <p>We know the equality has the following axioms:</p>
 <ul>
-<li><p><strong>Reflexivity</strong>: <span class="math inline">\(\forall x. x = x\)</span></p></li>
-<li><p><strong>Symmetry</strong>: <span class="math inline">\(\forall x,y. x = y \implies y = x\)</span></p></li>
-<li><p><strong>Transitivity</strong>: <span class="math inline">\(\forall x,y,z. [x = y \land y = z] \implies x = z\)</span></p></li>
-<li><p>For every function symbol <span class="math inline">\(f\)</span> of arity <span class="math inline">\(n\)</span>: <span class="math display">\[
+<li><p><strong>Reflexivity</strong>: 	<span class="math">\(\forall x. x = x\)</span></p>
+</li>
+<li><p><strong>Symmetry</strong>:      <span class="math">\(\forall x,y.  x = y \implies y = x\)</span></p>
+</li>
+<li><p><strong>Transitivity</strong>:    <span class="math">\(\forall x,y,z. [x = y \land y = z] \implies x = z\)</span></p>
+</li>
+<li><p>For every function symbol <span class="math">\(f\)</span> of arity <span class="math">\(n\)</span>:</p>
+<div class="math">
+\[
 \forall x_1,\dots,x_n. [x_1 = y_1,\dots,x_n = y_n] \implies f(x_1,\dots,x_n) = f(y_1,\dots,y_n)
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
 <p>If the first three axioms hold, it is a equivalence relation, if the fourth axiom holds as well, then it is a congruence relation.</p>
 <h2 id="congruence-closure-algorithm">Congruence Closure Algorithm</h2>
-<p>This algorithm will take as input a formula like: <span class="math display">\[
+<p>This algorithm will take as input a formula like:</p>
+<div class="math">
+\[
 s_1 = t_1 \land \dots\land s_m = t_m \land s_{m+1} \neq t_{m+1} \land\dots\land s_{n} \neq t_{n}
-\]</span> And it will tell us if the formula is satisfiable or not, using the theory of free function symbols. The algorithm goes like this:</p>
-<p>Let <span class="math inline">\(\tau\)</span> be the set of sub-terms of: <span class="math display">\[
+\]</div>
+<p>And it will tell us if the formula is satisfiable or not, using the theory of free function symbols. The algorithm goes like this:</p>
+<p>Let <span class="math">\(\tau\)</span> be the set of sub-terms of:</p>
+<div class="math">
+\[
 s_1 = t_1 \land \dots\land s_m = t_m \land s_{m+1} \neq t_{m+1} \land\dots\land s_{n} \neq t_{n}
-\]</span> And <span class="math inline">\(\sim\)</span> a equivalence relation on <span class="math inline">\(\tau\)</span> such that: <span class="math display">\[
+\]</div>
+<p>And  $\sim <span class="math">\(a equivalence relation on\)</span>\tau$ such that:</p>
+<div class="math">
+\[
 \forall u,v \in \tau. u\neq v \implies u \nsim v
-\]</span></p>
-<pre class="pseudocode"><code>while there is i in {1,...,m}, u,v in tau such that
-        u !~ v AND (u[s_i &lt;- t_i] = v OR u[t_i &lt;- s_i] = v) do:
-    merge equivalence classes of u and v in ~
-    while there is u,v in tau, p,q in tau such that
-            u !~ v AND p ~ q AND (u[p &lt;- q] = v OR u[q &lt;- p] = v) do:
-        merge equivalence classes of u and v in ~
+\]</div>
+<pre><code class="language-pseudocode">while there is i in {1,...,m}, u,v in tau such that
+		u !~ v AND (u[s_i &lt;- t_i] = v OR u[t_i &lt;- s_i] = v) do:
+	merge equivalence classes of u and v in ~
+	while there is u,v in tau, p,q in tau such that
+			u !~ v AND p ~ q AND (u[p &lt;- q] = v OR u[q &lt;- p] = v) do:
+		merge equivalence classes of u and v in ~
 
 if there is i in {m+1,...,n} such that s_i ~ t_i then:
-    return unsatisfiable
+	return unsatisfiable
 else:
-    return satisfiable</code></pre>
+	return satisfiable
+</code></pre>
 <h3 id="example">Example</h3>
-<p>An example of this is the following formula: <span class="math display">\[
+<p>An example of this is the following formula:</p>
+<div class="math">
+\[
 f(a,b) = a \land f(f(a,b),b) \neq a
-\]</span> Initially we assume that every sub-term is in a separate class: <span class="math display">\[
+\]</div>
+<p>Initially we assume that every sub-term is in a separate class:</p>
+<div class="math">
+\[
 \{\{a\},\{b\},\{f(a,b)\},\{f(f(a,b),b)\}\}
-\]</span> From <span class="math inline">\(f(a,b) = a\)</span> we get: <span class="math display">\[
+\]</div>
+<p>From <span class="math">\(f(a,b) = a\)</span> we get:</p>
+<div class="math">
+\[
 \{\{a, f(a,b)\},\{b\},\{f(f(a,b),b)\}\}
-\]</span> Applying congruence propagation from <span class="math inline">\(\{a,f(a,b)\}\)</span> we get that <span class="math inline">\(f(a,b) = f(f(a,b),b)\)</span>: <span class="math display">\[
+\]</div>
+<p>Applying congruence propagation from <span class="math">\(\{a,f(a,b)\}\)</span> we get that <span class="math">\(f(a,b) = f(f(a,b),b)\)</span>:</p>
+<div class="math">
+\[
 \{\{a, f(a,b),f(f(a,b),b)\},\{b\}\}
-\]</span> And we reach a contradiction with inequality!</p>
+\]</div>
+<p>And we reach a contradiction with inequality!</p>
 <h3 id="extension-to-disjunctions-and-quantifiers">Extension to Disjunctions and Quantifiers</h3>
-<p>To prove that a formula with disjunctions <span class="math inline">\(\phi_1 \lor \dots\lor \phi_n\)</span> is satisfiable, we need to show that at least one of the sub formulas <span class="math inline">\(\phi_i\)</span> is satisfiable. So, in our case we want to probe unsatisfiability, so we must be sure that all of the sub formulas are not satisfiable.</p>
-<p>If we have the <span class="math inline">\(a \implies b\)</span> operator in a formula, it can easily be converted to <span class="math inline">\(\neg a \lor b\)</span> and solved.</p>
+<p>To prove that a formula with disjunctions $\phi_1 \lor \dots\lor \phi_n <span class="math">\(is satisfiable, we need to show that at least one of the sub formulas\)</span>\phi_i$ is satisfiable. So, in our case we want to probe unsatisfiability, so we must be sure that all of the sub formulas are not satisfiable.</p>
+<p>If we have the <span class="math">\(a \implies b\)</span> operator in a formula, it can easily be converted to <span class="math">\(\neg a \lor b\)</span> and solved.</p>
 <p>If quantifiers are present, then the problem is undecidable.</p>
 <h3 id="extension-using-the-theory-of-free-function-symbols">Extension using the Theory of Free Function Symbols</h3>
-<p>This theory says that anything can be transformed into a function, whether it is access to a element of a data structure, an array or a pointer. This is also called abstraction. For example: <span class="math display">\[
+<p>This theory says that anything can be transformed into a function, whether it is access to a element of a data structure, an array or a pointer. This is also called abstraction. For example:</p>
+<div class="math">
+\[
 a[x] = 0 \land x = y \land a[y] = 1
-\]</span> We can abstract the formula into: <span class="math display">\[
+\]</div>
+<p>We can abstract the formula into:</p>
+<div class="math">
+\[
 f(a,x) = c \land x = y \land f(a,y) = d
-\]</span> This formula is satisfiable, but only because we forgot of a condition: <span class="math display">\[
+\]</div>
+<p>This formula is satisfiable, but only because we forgot of a condition:</p>
+<div class="math">
+\[
 f(a,x) = c \land x = y \land f(a,y) = d \land c \neq d
-\]</span> Now we can see that it is not satisfiable.</p>
+\]</div>
+<p>Now we can see that it is not satisfiable.</p>
 <h2 id="witnesses">Witnesses</h2>
 <p>Decision procedures sometimes also return satisfying assignments, meaning a witness for satisfiability. This allows automatic execution of I/O specifications.</p>
-<p>For a given input <span class="math inline">\(a\)</span>, the corresponding output is the witness of satisfiability of <span class="math inline">\(I(a)\land O(a,y)\)</span>.</p>
+<p>For a given input <span class="math">\(a\)</span>, the corresponding output is the witness of satisfiability of <span class="math">\(I(a)\land O(a,y)\)</span>.</p>
+
 </body>
 </html>

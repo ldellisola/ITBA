@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="assignment-04">Assignment 04</h1>
@@ -1532,35 +1395,36 @@ blockquote {
 r &lt;- x
 i &lt;- 1
 while i &lt; y do:
-    @ r = summation{from 1}{to i} x AND i &lt; y
-    r &lt;- r + x
-    i &lt;- i + 1
+	@ r = summation{from 1}{to i} x AND i &lt; y
+	r &lt;- r + x
+	i &lt;- i + 1
 @ r = summation{from 1}{to y} x
 return r
+
 </code></pre>
 <h3 id="c">C</h3>
 <p>For <code>x = 4</code> and <code>y = 5</code></p>
-<table>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"><code>r</code></th>
 <th style="text-align: center;"><code>i</code></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">4</td>
 <td style="text-align: center;">1</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">8</td>
 <td style="text-align: center;">2</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">3</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">4</td>
 </tr>
@@ -1568,114 +1432,181 @@ return r
 </table>
 <h3 id="d">D</h3>
 <p>Basic Paths:</p>
-<ol type="1">
-<li><pre><code>assume y &gt;= 1
+<p>1.</p>
+<pre><code>assume y &gt;= 1
 r &lt;- x
 i &lt;- 1
 assume i &gt;= y
-@ r = summation{from 1}{to y} x</code></pre>
-<p>Verification condition: <span class="math display">\[
-[y \ge 1 \land r = x \land i = 1 \land y \ge i] \implies r = \sum_{j=1}^{y} x
-\]</span> Proof: <span class="math display">\[
-\array{
-\text{My assumptions: } &amp;&amp; \\
-&amp;&amp; [y \ge 1 \land r = x \land i = 1 \land y \ge i]\\
-&amp;&amp; y \ge 1 \\
-&amp;&amp; i=1 \\
-&amp;&amp; i \le y\\
-&amp;&amp; y = 1 \\
-&amp;&amp; r = x
-\\\\
-\text{To prove: }&amp;&amp; r = \sum_{j=1}^{y} x
-}
-\]</span> Because <span class="math inline">\(1 \le y \le 1\)</span>, we can safely say that <span class="math inline">\(y=1\)</span>, and then we know that <span class="math inline">\(r=x\)</span>, and the summation from <span class="math inline">\(1\)</span> to <span class="math inline">\(1\)</span> of <span class="math inline">\(x\)</span> is <span class="math inline">\(x\)</span>, so the formula holds.</p></li>
-<li><pre><code>assume [y &gt;= 1]
+@ r = summation{from 1}{to y} x
+</code></pre>
+<p>Verification condition:</p>
+<div class="math">
+\[
+   [y \ge 1 \land r = x \land i = 1 \land y \ge i] \implies r = \sum_{j=1}^{y} x
+\]</div>
+<p>Proof:</p>
+<div class="math">
+\[
+   \array{
+   \text{My assumptions: } &amp;&amp; \\
+   &amp;&amp; [y \ge 1 \land r = x \land i = 1 \land y \ge i]\\
+   &amp;&amp; y \ge 1 \\
+   &amp;&amp; i=1 \\
+   &amp;&amp; i \le y\\
+   &amp;&amp; y = 1 \\
+   &amp;&amp; r = x
+   \\\\
+   \text{To prove: }&amp;&amp; r = \sum_{j=1}^{y} x
+   }
+\]</div>
+<p>Because <span class="math">\(1 \le y \le 1\)</span>, we can safely say that <span class="math">\(y=1\)</span>, and then we know that <span class="math">\(r=x\)</span>, and the summation from <span class="math">\(1\)</span> to <span class="math">\(1\)</span> of <span class="math">\(x\)</span> is <span class="math">\(x\)</span>, so the formula holds.</p>
+<p>2.</p>
+<pre><code>assume [y &gt;= 1]
 r &lt;- x
 i &lt;- 1
 assume i &lt; y
-@ r = summation{from 1}{to i} x AND i &lt; y</code></pre>
-<p>The verification condition is: <span class="math display">\[
-[y \ge 1 \land t = x \land i = 1 \land i &lt; y ] \implies r = \sum_{j=1}^{i}x
-\]</span> The proof is very similar to the first path.</p></li>
-<li></li>
-</ol>
+@ r = summation{from 1}{to i} x AND i &lt; y
+</code></pre>
+<p>The verification condition is:</p>
+<div class="math">
+\[
+   [y \ge 1 \land t = x \land i = 1 \land i &lt; y ] \implies r = \sum_{j=1}^{i}x
+\]</div>
+<p>The proof is very similar to the first path.</p>
+<p>3.</p>
 <pre><code>assume r = summation{from 1}{to i} x AND i &lt; y
 r_1 &lt;- r + x
 i_1 &lt;- i + 1
 assume i_1 &lt; y
-@ r_1 = summation{from 1}{to i_1} x</code></pre>
-<p>The verification condition is: <span class="math display">\[
+@ r_1 = summation{from 1}{to i_1} x
+</code></pre>
+<p>The verification condition is:</p>
+<div class="math">
+\[
    \left[r = \sum_{1}^{i} x \land i &lt; y\land r_1 = r + x \land i_1 = i + 1 \land i_1 &lt; y\right] \implies r_1 = \sum_{1}^{i_1} x
-   \]</span> The proof is: $$  $$ This proof is valid because <span class="math inline">\(r_1 = \sum_1^ix + x = \sum_1^{i+1}x\)</span> and <span class="math inline">\(i_1 = i +1\)</span>.</p>
-<ol start="4" type="1">
-<li></li>
-</ol>
+\]</div>
+<p>The proof is:</p>
+<div class="math">
+\[
+   \array{
+   \text{My assumptions: } &amp;&amp; \\
+   &amp;&amp; \left[r = \sum_{1}^{i} x  \land i &lt; y \land r_1 = r + x \land i_1 = i + 1 \land i_1 &lt; y\right] \\
+   &amp;&amp; r = \sum_{1}^{i} x \\
+   &amp;&amp; r_1 = r + x  \\
+   &amp;&amp; i_1 = i + 1\\
+   &amp;&amp; i_1 &lt; y
+   
+   \\\\
+   \text{To prove: }&amp;&amp; r_1 = \sum_{1}^{i_1} x
+   }
+\]</div>
+<p>This proof is valid because <span class="math">\(r_1 = \sum_1^ix + x = \sum_1^{i+1}x\)</span> and <span class="math">\(i_1 = i +1\)</span>.</p>
+<p>4.</p>
 <pre><code>assume r = summation{from 1}{to i} x AND i &lt; y
 r_1 &lt;- r + x
 i_1 &lt;- i + 1
 assume i_1 &gt;= y 
-@ r = summation{from 1}{to y} x</code></pre>
-<p>The verification condition: <span class="math display">\[
+@ r = summation{from 1}{to y} x
+</code></pre>
+<p>The verification condition:</p>
+<div class="math">
+\[
    \left[r = \sum_1^ix \land i &lt; y \land r_1 = r + x \land i_1 = i +1 \land i_1 \ge y \right] \implies r_1 = \sum_1^yx
-   \]</span> The proof: $$  $$ The formula holds because <span class="math inline">\(i_1 = i+1 \ge y\)</span> and <span class="math inline">\(i &lt; y\)</span>, so <span class="math inline">\(i_1 = y\)</span>. On the other side <span class="math inline">\(r_1 = r + x = \sum_1^{i+1}x = \sum_1^yx\)</span></p>
+\]</div>
+<p>The proof:</p>
+<div class="math">
+\[
+   \array{
+   \text{My assumptions: } &amp;&amp; \\
+   &amp;&amp; \left[r = \sum_1^ix \land i &lt; y \land r_1 = r + x \land i_1 = i +1 \land i_1 \ge y \right]\\
+   &amp;&amp; r = \sum_1^ix\\
+   &amp;&amp;  i_1 = i +1 \\
+   &amp;&amp; r_1 = r + x\\
+   &amp;&amp; i &lt; y \\
+   &amp;&amp; i_1 \ge y\\
+   &amp;&amp; i_1 = y
+   
+   \\\\
+   \text{To prove: }&amp;&amp;  r_1 = \sum_1^yx
+   }
+\]</div>
+<p>The formula holds because <span class="math">\(i_1 = i+1  \ge y\)</span> and <span class="math">\(i &lt; y\)</span>, so <span class="math">\(i_1 = y\)</span>. On the other side <span class="math">\(r_1 = r + x = \sum_1^{i+1}x = \sum_1^yx\)</span></p>
 <h2 id="section-1">10</h2>
 <pre><code>assume r = 0 AND s = 0
 for i &lt;- 1 to n do:
-    @
-    if a[i] &lt; 0 then:
-        r &lt;- r + 1
-    @ r = |{k in {1,...,i}/ a[k] != 0}|
-    if a[i] &gt; 0 then:
-        s &lt;- s + 1
-    @ s = |{k in {1,...,i}/ a[k] != 0}|
-@ r + s = |{k in {1,...,n}/ a[k] != 0}|</code></pre>
+	@
+	if a[i] &lt; 0 then:
+		r &lt;- r + 1
+	@ r = |{k in {1,...,i}/ a[k] != 0}|
+	if a[i] &gt; 0 then:
+		s &lt;- s + 1
+	@ s = |{k in {1,...,i}/ a[k] != 0}|
+@ r + s = |{k in {1,...,n}/ a[k] != 0}|
+</code></pre>
 <h3 id="a">A</h3>
-<blockquote>
+<blockquote class="blockquote">
 <p>For each verification condition of the program, write down whether it holds or not, and if not, also note the reason why. Apart from that, you do not have to write down anything, neither verification conditions themselves nor proofs.</p>
 </blockquote>
-<p>THIS IS ALL WRONG. THE PROBLEM HERE IS THAT WE DON’T KNOW THE VALUES FOR THE VARIABLES THAT WE ARE CHECKING IN THE ASSERTIONS.</p>
-<p>The assertions on line 6 and 9 do not hold all the time. The reason is quite simple, the both assertion check the same value against a counter which is updated on contradicting conditions, i.e. when the value is higher or lower than 0.</p>
+<p>THIS IS ALL WRONG. THE PROBLEM HERE IS THAT WE DON'T KNOW THE VALUES FOR THE VARIABLES THAT WE ARE CHECKING IN THE ASSERTIONS.</p>
+<p>The assertions on line 6 and 9 do not hold all the time. The reason is quite simple, the both assertion check the same value against a counter which is updated on contradicting conditions, i.e. when the value is higher or lower than 0.</p>
 <h3 id="b">B</h3>
-<blockquote>
+<blockquote class="blockquote">
 <p>Change the assertions in the program in such a way that all verification conditions hold. Again, you do not have to prove anything. Still check each verification condition in an informal way.</p>
 </blockquote>
 <pre><code>assume r = 0 AND s = 0
 for i &lt;- 1 to n do:
-    @ r = |{k in {1,...,i-1}/ a[k] &lt; 0}| AND s = |{k in {1,...,i-1}/ a[k] &gt; 0}|
-    if a[i] &lt; 0 then:
-        r &lt;- r + 1
-    @ r = |{k in {1,...,i}/ a[k] &lt; 0}| AND s = |{k in {1,...,i-1}/ a[k] &gt; 0}|
-    if a[i] &gt; 0 then:
-        s &lt;- s + 1
-    @ s = |{k in {1,...,i}/ a[k] &gt; 0}| AND r = |{k in {1,...,i}/ a[k] &lt; 0}|
-@ r + s = |{k in {1,...,n}/ a[k] != 0}|</code></pre>
+	@ r = |{k in {1,...,i-1}/ a[k] &lt; 0}| AND s = |{k in {1,...,i-1}/ a[k] &gt; 0}|
+	if a[i] &lt; 0 then:
+		r &lt;- r + 1
+	@ r = |{k in {1,...,i}/ a[k] &lt; 0}| AND s = |{k in {1,...,i-1}/ a[k] &gt; 0}|
+	if a[i] &gt; 0 then:
+		s &lt;- s + 1
+	@ s = |{k in {1,...,i}/ a[k] &gt; 0}| AND r = |{k in {1,...,i}/ a[k] &lt; 0}|
+@ r + s = |{k in {1,...,n}/ a[k] != 0}|
+</code></pre>
 <p>The updated program looks like this. This time we are validating against different values, made specifically for the counter they are using. The last assertion is not changed because it holds in the original version.</p>
 <h2 id="section-2">11</h2>
 <h3 id="a-1">A</h3>
-<blockquote>
+<blockquote class="blockquote">
 <p>Write down a first-order predicate logical formula that represents the following I/O-specification in the way discussed in the lecture on functions and procedures:</p>
 </blockquote>
-<p><img src="Resources/04/image-20210421191254837.png" alt="image-20210421191254837" style="zoom:33%;" /> <span class="math display">\[
+<img src="Resources/04/ec6116b7-f335-468f-bd30-984a95d4ee1d.png" alt="ec6116b7-f335-468f-bd30-984a95d4ee1d" style="scale:0.33;" />
+$$
 \forall a,k , r. k \ge 1 \land r = \text{s}(a,k)\implies r = 1+ \sum_{i =0}^{k-1}a[i]
-\]</span></p>
+$$
 <h3 id="b-1">B</h3>
-<blockquote>
+<blockquote class="blockquote">
 <p>Write down the verification condition of the following program:</p>
 </blockquote>
-<p><img src="Resources/04/image-20210421191744581.png" alt="image-20210421191744581" style="zoom:33%;" /> <span class="math display">\[
+<img src="Resources/04/1b7eeba3-f7c5-4436-aa20-0776c4203cfd.png" alt="1b7eeba3-f7c5-4436-aa20-0776c4203cfd" style="scale:0.33;" />
+$$
 \forall i.(p[i] \ge 5) \land r = \text{s}(p,2) \implies r \ge 7
-\]</span></p>
+$$
 <h3 id="c-1">C</h3>
-<blockquote>
+<blockquote class="blockquote">
 <p>Check, whether the verification condition from the previous item holds—assuming that the function s returns, what it should return according to its specification. You do not have to prove anything, you just should be able to explain why it holds/does not hold</p>
 </blockquote>
-<p>The verification condition holds because all the elements of the array are higher or equal than 5. Lets take the worst case where all the elements are 5, the function <span class="math inline">\(\text{s}\)</span> will return <span class="math inline">\(1 + 5 + 5 = 11\)</span> which is higher than 7.</p>
+<p>The verification condition holds because all the elements of the array are higher or equal than 5. Lets take the worst case where all the elements are 5, the function <span class="math">\(\text{s}\)</span> will return <span class="math">\(1 + 5 + 5 = 11\)</span> which is higher than 7.</p>
 <h3 id="d-1">D</h3>
-<blockquote>
+<blockquote class="blockquote">
 <p>Prove the verification condition, following the lecture on handling function calls (i.e., using the formula from item (a) as an assumption). Here, you may freely use whatever knowledge you have about arrays and integers (i.e., not only the axioms of the corresponding logical theories).</p>
 </blockquote>
-<p>$$  $$</p>
-<p>REAL PROOF: <span class="math display">\[
+<div class="math">
+\[
+\array{
+\text{My assumptions: } &amp;&amp; \\
+&amp;&amp; [\forall i.(p[i] \ge 5) \land r = \text{s}(p,2)]\\
+&amp;&amp; \forall i.(p[i] \ge 5)\\
+&amp;&amp;  r = \text{s}(p,2)\\
+&amp;&amp;  r = 1+ \sum_{i =0}^{1}p[i] = 1 + p[0] + p[1] \ge 1 + 5 + 5 = 11
+
+\\\\
+\text{To prove: }&amp;&amp;   r \ge 7
+}
+\]</div>
+<p>REAL PROOF:</p>
+<div class="math">
+\[
 \array{
 \text{My assumptions: } &amp;&amp; \\
 &amp;&amp; [\forall i.(p[i] \ge 5) \land r = \text{s}(p,2)]\\
@@ -1691,9 +1622,11 @@ for i &lt;- 1 to n do:
 \\\\
 \text{To prove: }&amp;&amp;   r \ge 7
 }
-\]</span></p>
+\]</div>
 <ul>
-<li><p>Lema 1: <span class="math display">\[
+<li><p>Lema 1:</p>
+<div class="math">
+\[
 a := p\\
 k := 2\\
 2 \ge 1 \implies \text{s}(p,2) = 1 + \sum_{i=0}^1 a[i] \\
@@ -1701,14 +1634,22 @@ k := 2\\
 \text{s}(p,2) =1 + \sum_{i=0}^1 a[i] \\
 \text{s}(p,2) =1 + \sum_{i=0}^1 a[i] \implies p(\text{s}(p,2)) \implies p(1 + \sum_{i=0}^1 a[i]) \text{ with }p(\alpha) \equiv \alpha = x
 \\\\
-\]</span></p></li>
-<li><p>Lemma 2: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Lemma 2:</p>
+<div class="math">
+\[
 \forall a,b,c,d. ((a \ge c \land b \ge d) \implies a + b \ge c + d )
-\]</span></p></li>
-<li><p>Lemma 3: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Lemma 3:</p>
+<div class="math">
+\[
 1+ p[0] + p[1] = r \implies P(1+ p[0] + p[1]) \implies P(r)\\
 P(\alpha) \equiv \alpha \ge 11
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
+
 </body>
 </html>

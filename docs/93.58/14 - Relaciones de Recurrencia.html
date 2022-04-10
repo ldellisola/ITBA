@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>14 - Relaciones de Recurrencia</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>14 - Relaciones de Recurrencia.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,92 +1385,144 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="relaciones-de-recurrencia">Relaciones de Recurrencia</h1>
-<h2 id="relaciones-de-recurrencia-lineales-rrl">Relaciones de Recurrencia Lineales (RRL)</h2>
-<p>Relación de Recurrencia Lineal de orden <span class="math inline">\(k\)</span> (<span class="math inline">\(k\geq 1\)</span>) <span class="math display">\[
-x_n+\alpha_1x_{n-1}+\alpha_2x_{n-2}+\dots+\alpha_kx_{n-k}=f_n   ~~~~~   n\geq k
-\]</span> Con <span class="math inline">\(\alpha_1,\alpha_2,\dots,\alpha_k \in \mathbb K\)</span> y <span class="math inline">\(\alpha_k \neq 0\)</span></p>
-<p>La Relación es <strong>homogénea</strong> si <span class="math inline">\(f_n = 0 ~~~\forall n\)</span>. Si la Relación no es homogénea, se la denomina <strong>no homogénea</strong> o <strong>heterogénea</strong>.</p>
-<p>La sucesion <span class="math inline">\(\{a_n\}\)</span> es solucion de la RRL <span class="math display">\[
-x_n+\alpha_1x_{n-1}+\alpha_2x_{n-2}+\dots+\alpha_kx_{n-k}=f_n   ~~~~~   n\geq k
-\]</span> si cumple con: <span class="math display">\[
-a_n+\alpha_1a_{n-1}+\alpha_2a_{n-2}+\dots+\alpha_ka_{n-k}=f_n   ~~~~~   n\geq k
-\]</span></p>
+<h2 id="relaciones-de-recurrencia-lineales-rrl">Relaciones de Recurrencia Lineales  (RRL)</h2>
+<p>Relación de Recurrencia Lineal de orden <span class="math">\(k\)</span>  (<span class="math">\(k\geq 1\)</span>)</p>
+<div class="math">
+\[
+x_n+\alpha_1x_{n-1}+\alpha_2x_{n-2}+\dots+\alpha_kx_{n-k}=f_n	~~~~~	n\geq k
+\]</div>
+<p>Con <span class="math">\(\alpha_1,\alpha_2,\dots,\alpha_k \in \mathbb K\)</span>  y <span class="math">\(\alpha_k \neq 0\)</span></p>
+<p>La Relación es <strong>homogénea</strong> si <span class="math">\(f_n = 0 ~~~\forall n\)</span>. Si la Relación no es homogénea, se la denomina <strong>no homogénea</strong> o <strong>heterogénea</strong>.</p>
+<p>La sucesion <span class="math">\(\{a_n\}\)</span> es solucion de la RRL</p>
+<div class="math">
+\[
+x_n+\alpha_1x_{n-1}+\alpha_2x_{n-2}+\dots+\alpha_kx_{n-k}=f_n	~~~~~	n\geq k
+\]</div>
+<p>si cumple con:</p>
+<div class="math">
+\[
+a_n+\alpha_1a_{n-1}+\alpha_2a_{n-2}+\dots+\alpha_ka_{n-k}=f_n	~~~~~	n\geq k
+\]</div>
 <p>Las soluciones de las relaciones de recurrencia suelen ser infinitas, por eso se aplican restricciones, conocidas como <strong>condiciones iniciales</strong>.</p>
-<h3 id="solución-homogénea">Solución Homogénea</h3>
-<p>Sea la RRL: <span class="math display">\[
-x_n+\alpha_1x_{n-1}+\alpha_2x_{n-2}+\dots+\alpha_kx_{n-k}=0 ~~~~~   n\geq k
-\]</span></p>
-<h4 id="er-paso-búsqueda-del-polinomio-característico"><span class="math inline">\(1^{er}\)</span> Paso : Búsqueda del Polinomio Característico</h4>
-<p>Proponemos la solución <span class="math inline">\(x_n = r^n\)</span> y despejamos <span class="math display">\[
+<h3 id="solucion-homogenea">Solución Homogénea</h3>
+<p>Sea la RRL:</p>
+<div class="math">
+\[
+x_n+\alpha_1x_{n-1}+\alpha_2x_{n-2}+\dots+\alpha_kx_{n-k}=0	~~~~~	n\geq k
+\]</div>
+<h4 id="section" er="">$1^</h4>
+<p>Proponemos la solución <span class="math">\(x_n = r^n\)</span> y despejamos</p>
+<div class="math">
+\[
 r^{n-k}\ .\ (\alpha_1r^k + \dots + \alpha_{k-1} r + \alpha_k) = 0
-\]</span> Como <span class="math inline">\(r \neq 0\)</span> entonces podemos eliminarlo: <span class="math display">\[
+\]</div>
+<p>Como <span class="math">\(r \neq 0\)</span> entonces podemos eliminarlo:</p>
+<div class="math">
+\[
 P(r)=\alpha_1r^k + \dots + \alpha_{k-1} r + \alpha_k = 0
-\]</span></p>
-<h4 id="do-paso-proponemos-soluciones"><span class="math inline">\(2^{do}\)</span> Paso: Proponemos Soluciones</h4>
-<p>Luego de encontrar el polinomio característico, llamemos <span class="math inline">\(q\)</span> a las raíces del mismo, las solución propuesta es: <span class="math display">\[
+\]</div>
+<h4 id="section-1" do="">$2^</h4>
+<p>Luego de encontrar el polinomio característico, llamemos <span class="math">\(q\)</span> a las raíces del mismo, las solución propuesta es:</p>
+<div class="math">
+\[
 x_n^h=\beta_1\ .\ q_1^n +\beta_2\ .\ q_2^n +\dots+\beta_k\ .\ q_k^n
-\]</span> Si las hay <span class="math inline">\(q\)</span> raíces iguales, entonces a esas raíces particulares se las transforma como: <span class="math display">\[
+\]</div>
+<p>Si las hay <span class="math">\(q\)</span> raíces iguales, entonces a esas raíces particulares se las transforma como:</p>
+<div class="math">
+\[
 \sum_{k=0}^{t}\beta_k\ .\ q^n\ .\ n^k
-\]</span> siendo <span class="math inline">\(t\)</span> la cantidad de veces que ser repite. (cada raíz aporta tantas soluciones como su multiplicidad)</p>
-<p>Si tenemos <a href="#Numeros-Complejos">raices imaginarias conjugadas</a>, se puede expresar como: <span class="math display">\[
+\]</div>
+<p>siendo <span class="math">\(t\)</span> la cantidad de veces que ser repite. (cada raíz aporta tantas soluciones como su multiplicidad)</p>
+<p>Si tenemos <a href="#Numeros-Complejos">raices imaginarias conjugadas</a>, se puede expresar como:</p>
+<div class="math">
+\[
 x_n^h=  |q|^n\ .\ (\beta\ .\ cos(n\ .\ \phi) + \gamma\ .\ sen(n\ .\ \phi))
-\]</span></p>
-<h4 id="er-paso-aplicamos-las-condiciones-iniciales"><span class="math inline">\(3^{er}\)</span> Paso: Aplicamos las condiciones iniciales</h4>
-<p>Tenemos que reemplazar nuestra solución propuesta en las condiciones iniciales y conseguir los valores <span class="math inline">\(\beta_i\)</span>.</p>
-<h3 id="solución-particular">Solución Particular</h3>
-<p>Sea la relación de recurrencia: <span class="math display">\[
+\]</div>
+<h4 id="section-2" er="">$3^</h4>
+<p>Tenemos que reemplazar nuestra solución propuesta en las condiciones iniciales y conseguir los valores <span class="math">\(\beta_i\)</span>.</p>
+<h3 id="solucion-particular">Solución Particular</h3>
+<p>Sea la relación de recurrencia:</p>
+<div class="math">
+\[
 x_n+\alpha_1x_{n-1}+\alpha_2x_{n-2}+\dots+\alpha_kx_{n-k}=f_n
-\]</span> Propongo la solución particular: <span class="math display">\[
+\]</div>
+<p>Propongo la solución particular:</p>
+<div class="math">
+\[
 x_n^p=\psi\ .\ f_n
-\]</span> y reemplazando esta solución particular en la relación de recurrencia, podemos averiguar el parámetro <span class="math inline">\(\psi\)</span>.</p>
-<h3 id="solución-general">Solución General</h3>
-<p>La solución general es la combinación lineal de la <a href="#Solucion-Homogenea">solucion homogenea</a> y la <a href="#solucion-particular">solucion particular</a> . <span class="math display">\[
+\]</div>
+<p>y reemplazando esta solución particular en la relación de recurrencia, podemos averiguar el parámetro <span class="math">\(\psi\)</span>.</p>
+<h3 id="solucion-general">Solución General</h3>
+<p>La solución general es la combinación lineal de la <a href="#Solucion-Homogenea">solucion homogenea</a> y la <a href="#solucion-particular">solucion particular</a> .</p>
+<div class="math">
+\[
 x_n = x_n^h + x_n^p
-\]</span></p>
+\]</div>
 <ul>
 <li>Que pasa si la solución homogénea ya incluye a la particular?</li>
 </ul>
-<p>En ese caso, se multiplica a la solución particular por <span class="math inline">\(n\)</span>.</p>
-<h3 id="aplicación">Aplicación</h3>
-<h4 id="interés-financiero">Interés Financiero</h4>
-<p>Se suele utilizar este tipo de relaciones para plantear problemas de <strong>interés financiero</strong>. Estos casos suelen darse como: <span class="math display">\[
+<p>En ese caso, se multiplica a la solución particular por <span class="math">\(n\)</span>.</p>
+<h3 id="aplicacion">Aplicación</h3>
+<h4 id="interes-financiero">Interés Financiero</h4>
+<p>Se suele utilizar este tipo de relaciones para plantear problemas de <strong>interés financiero</strong>. Estos casos suelen darse como:</p>
+<div class="math">
+\[
 \left\{
-    \begin{array}{}
-        x_n= x_{n-1} + x_{n-1}\ .\ interes \\
-        x_0 = plata
-    \end{array}
+	\begin{array}{}
+		x_n= x_{n-1} + x_{n-1}\ .\ interes \\
+		x_0 = plata
+	\end{array}
 \right.
-\]</span> Donde <span class="math inline">\(n\)</span> suele ser cantidad de meses, trimestres o años, según diga el enunciado.</p>
+\]</div>
+<p>Donde <span class="math">\(n\)</span> suele ser cantidad de meses, trimestres o años, según diga el enunciado.</p>
 <h4 id="subconjuntos">Subconjuntos</h4>
-<p>No me acuerdo bien el caso. Básicamente era contar la cantidad de subconjuntos que se pueden crear a partir de un conjunto de <span class="math inline">\(n\)</span> elementos. <span class="math display">\[
+<p>No me acuerdo bien el caso. Básicamente era contar la cantidad de subconjuntos que se pueden crear a partir de un conjunto de <span class="math">\(n\)</span> elementos.</p>
+<div class="math">
+\[
 \left\{
-    \begin{array}{}
-        x_n= \#P(A_n) \\
-        x_1 =\#P(A_1) = 2
-    \end{array}
+	\begin{array}{}
+		x_n= \#P(A_n) \\
+		x_1 =\#P(A_1) = 2
+	\end{array}
 \right.
-\]</span> Por lo que la solución es: <span class="math display">\[
+\]</div>
+<p>Por lo que la solución es:</p>
+<div class="math">
+\[
 x_n=\#P(A_n)= 2^n
-\]</span></p>
-<h3 id="método-de-determinación-de-constantes">Método de Determinación de Constantes</h3>
-<p>Sea <span class="math display">\[
+\]</div>
+<h3 id="metodo-de-determinacion-de-constantes">Método de Determinación de Constantes</h3>
+<p>Sea</p>
+<div class="math">
+\[
 x_n+\alpha_1x_{n-1}+\dots+\alpha_kx_{n-k} = Q(n)\lambda^n
-\]</span> Con <span class="math inline">\(Q(n)\)</span> un polinomio de grado <span class="math inline">\(m\)</span> y <span class="math inline">\(\lambda \in \mathbb{C}-\{0\}\)</span></p>
-<p>Se propone la solucion particular <span class="math display">\[
+\]</div>
+<p C="">Con <span class="math">\(Q(n)\)</span> un polinomio de grado <span class="math">\(m\)</span> y $\lambda \in \mathbb-{0} $</p>
+<p>Se propone la solucion particular</p>
+<div class="math">
+\[
 x_n^p=n^s\ .\ \hat Q(n)\ .\ \lambda^n  
-\]</span> Con <span class="math inline">\(\hat Q(n)\)</span> un polinomio del mismo grado que <span class="math inline">\(Q(n)\)</span> y <span class="math inline">\(s\)</span> la multiplicidad de <span class="math inline">\(\lambda\)</span> como raiz del polinomio caracteristico de la relacion.</p>
+\]</div>
+<p>Con <span class="math">\(\hat Q(n)\)</span> un polinomio del mismo grado que <span class="math">\(Q(n)\)</span> y <span class="math">\(s\)</span> la multiplicidad de <span class="math">\(\lambda\)</span> como raiz del polinomio caracteristico de la relacion.</p>
 <hr />
 <h2 id="anexo">Anexo</h2>
-<h3 id="números-complejos">Números Complejos</h3>
-<p>Si <span class="math inline">\(q_1, q_2\)</span> son raíces complejas del polinomio característico, podemos reescribir a la solución como: <span class="math display">\[
+<h3 id="numeros-complejos">Números Complejos</h3>
+<p>Si <span class="math">\(q_1, q_2\)</span> son raíces complejas del polinomio característico, podemos reescribir a la solución como:</p>
+<div class="math">
+\[
 x_n= \beta_1\ .\ |q_1|^n\ .\ (cos(n\ .\ \phi_1) + i\ .\ sen(n\ .\ \phi_1)) + \beta_1\ .\ |q_1|^n\ .\ (cos(n\ .\ \phi_1) + i\ .\ sen(n\ .\ \phi_1))
-\]</span> con <span class="math inline">\(\phi_i = arg(q_i)\)</span></p>
-<p>Como queremos sacarnos de encima a la parte imaginaria, sumamos ambas partes y llamamos <span class="math inline">\(\beta = \beta_1 + \beta_2\)</span>, <span class="math inline">\(\gamma = (\beta_1 - \beta_2)i\)</span>, <span class="math inline">\(|q |= |q_1| = |q_2|\)</span>, <span class="math inline">\(\phi = \phi_1 = \phi_2\)</span> <span class="math display">\[
+\]</div>
+<p>con <span class="math">\(\phi_i  = arg(q_i)\)</span></p>
+<p>Como queremos sacarnos de encima a la parte imaginaria, sumamos ambas partes y llamamos <span class="math">\(\beta = \beta_1 + \beta_2\)</span>, <span class="math">\(\gamma = (\beta_1 - \beta_2)i\)</span>, <span class="math">\(|q |= |q_1| = |q_2|\)</span>, <span class="math">\(\phi = \phi_1 = \phi_2\)</span></p>
+<div class="math">
+\[
 x_n=  |q|^n\ .\ (\beta\ .\ cos(n\ .\ \phi) + \gamma\ .\ sen(n\ .\ \phi))
-\]</span></p>
+\]</div>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>14 - The Shapley Value</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>14 - The Shapley Value.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,61 +1385,105 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="the-shapley-value">The Shapley Value</h1>
 <p>The Shapley value quantifies the effect of individual components on the performance of the entire system.</p>
-<p>Let <span class="math inline">\(\Gamma\)</span> be the set of all games over <span class="math inline">\(N\)</span>, the <strong>value</strong> is a mapping: <span class="math display">\[
+<p>Let <span class="math">\(\Gamma\)</span> be the set of all games over <span class="math">\(N\)</span>, the <strong>value</strong> is a mapping:</p>
+<div class="math">
+\[
 \array{\gamma:\Gamma\rightarrow \mathbb{R}^n &amp; \gamma = (\gamma_1,\dots,\gamma_n)}
-\]</span> A value <span class="math inline">\(\gamma\)</span>:</p>
+\]</div>
+<p>A value <span class="math">\(\gamma\)</span>:</p>
 <ul>
-<li><p>is <strong>Efficient</strong> if <span class="math inline">\(\sum_{i\le n} \gamma_i = v(N)\)</span> for each <span class="math inline">\(v\in \Gamma\)</span></p></li>
-<li><p>is <strong>Additive</strong> if <span class="math inline">\(\gamma(u+v) = \gamma(u) + \gamma(v)\)</span> for all <span class="math inline">\(u,v \in \Gamma\)</span></p></li>
-<li><p>is <strong>Symmetric</strong> if the following implication holds for each game <span class="math inline">\(v\)</span>, players <span class="math inline">\(i,j \in N\)</span> and each coalition <span class="math inline">\(A \subseteq N\setminus \{i,j\}\)</span>: <span class="math display">\[
+<li><p>is <strong>Efficient</strong> if <span class="math">\(\sum_{i\le n} \gamma_i = v(N)\)</span> for each <span class="math">\(v\in \Gamma\)</span></p>
+</li>
+<li><p>is <strong>Additive</strong> if <span class="math">\(\gamma(u+v) = \gamma(u) + \gamma(v)\)</span>  for all <span class="math">\(u,v \in \Gamma\)</span></p>
+</li>
+<li><p>is <strong>Symmetric</strong> if the following implication holds for each game <span class="math">\(v\)</span>, players <span class="math">\(i,j \in N\)</span> and each coalition <span class="math">\(A \subseteq N\setminus \{i,j\}\)</span>:</p>
+<div class="math">
+\[
 v(A \cup i ) = v(A \cup j) \implies \gamma_i(v) = \gamma_j(v)
-\]</span> Informally we can think that this means players get the same reward for the same contribution.</p></li>
-<li><p>satisfies the <strong>Null Player Property</strong>, if the following implication holds for each game <span class="math inline">\(v\)</span>, each player <span class="math inline">\(i \in N\)</span> and all <span class="math inline">\(A \subseteq N \setminus \{i\}\)</span>: <span class="math display">\[
+\]</div>
+<p>Informally we can think that this means players get the same reward for the same contribution.</p>
+</li>
+<li><p>satisfies the <strong>Null Player Property</strong>, if the following implication holds for each game <span class="math">\(v\)</span>, each player <span class="math">\(i \in N\)</span> and all <span class="math">\(A \subseteq N \setminus \{i\}\)</span>:</p>
+<div class="math">
+\[
 v(A\cup i) = v(A) \implies \gamma_i(v) =0
-\]</span> Informally we can express it as <em>“The player who doesn’t work, doesn’t get a reward”</em>.</p></li>
+\]</div>
+<p>Informally we can express it as <em>&quot;The player who doesn't work, doesn't get a reward&quot;</em>.</p>
+</li>
 </ul>
-<blockquote>
-<p>There is an unique value: <span class="math display">\[
+<blockquote class="blockquote">
+<p>There is an unique value:</p>
+<div class="math">
+\[
 \gamma^S: \Gamma \rightarrow \mathbb{R}^n
-\]</span> Which is efficient, additive, symmetric and satisfies the null player property. The <strong>Shapley value</strong> of a player <span class="math inline">\(i\in N\)</span> is: <span class="math display">\[
+\]</div>
+<p>Which is efficient, additive, symmetric and satisfies the null player property. The <strong>Shapley value</strong> of a player <span class="math">\(i\in N\)</span> is:</p>
+<div class="math">
+\[
 \gamma_i^S(v) = \sum_{A\subseteq N\setminus\{i\}} \frac{|A|! \times (n-|A|-1)!}{n!} \times (v(A\cup i) - v(A))
-\]</span></p>
+\]</div>
 </blockquote>
-<p>We can also calculate this value using a marginal vector: <span class="math display">\[
+<p>We can also calculate this value using a marginal vector:</p>
+<div class="math">
+\[
 \gamma_i^S(v) = \sum_{\pi \in \Pi} \frac 1 {n!} (v(A_i^\pi \cup i) - v(A_i^\pi))
-\]</span> Here players arrive in a random order given by permutation <span class="math inline">\(\pi\)</span>, and each permutation <span class="math inline">\(\pi\)</span> of players has a <span class="math inline">\(\frac 1 {n!}\)</span> changes of happening.</p>
+\]</div>
+<p>Here players arrive in a random order given by permutation <span class="math">\(\pi\)</span>, and each permutation <span class="math">\(\pi\)</span> of players has a <span class="math">\(\frac 1 {n!}\)</span> changes of happening.</p>
 <h3 id="estimation">Estimation</h3>
 <p>We can estimate the Shapley value with the following algorithm:</p>
-<p>The input is a game <span class="math inline">\(v\)</span> over <span class="math inline">\(n\)</span> players and a selected player <span class="math inline">\(i\)</span></p>
-<ol type="1">
-<li><p>Pick the size of the random sample <span class="math inline">\(m &lt;\!&lt;n!\)</span></p></li>
-<li><p>Sample with replacement permutations <span class="math inline">\((\pi_1,\dots,\pi_m)\)</span> with uniform probability <span class="math inline">\(\frac 1{n!}\)</span></p></li>
-<li><p>Estimate the Shapley value of player <span class="math inline">\(i\)</span>: <span class="math display">\[
+<p>The input is a game <span class="math">\(v\)</span> over <span class="math">\(n\)</span> players and a selected player <span class="math">\(i\)</span></p>
+<ol>
+<li><p>Pick the size of the random sample <span class="math">\(m &lt;\!&lt;n!\)</span></p>
+</li>
+<li><p>Sample with replacement permutations <span class="math">\((\pi_1,\dots,\pi_m)\)</span> with uniform probability <span class="math">\(\frac 1{n!}\)</span></p>
+</li>
+<li><p>Estimate the Shapley value of player <span class="math">\(i\)</span>:</p>
+<div class="math">
+\[
 \sum_{k=1}^m \frac 1 m x_i^{\pi_k} = \sum_{k=1}^m \frac 1 m \times(v(A_i^\pi \cup i) - v(A_i^\pi))
-\]</span></p></li>
+\]</div>
+</li>
 </ol>
-<p>The algorithm is polynomial provided that <span class="math inline">\(v(A)\)</span> can be calculated in polynomial time.</p>
+<p>The algorithm is polynomial provided that <span class="math">\(v(A)\)</span> can be calculated in polynomial time.</p>
 <h2 id="shapley-shubik-index">Shapley-Shubik Index</h2>
-<p>The Shapley-Shubik index helps determine the voting power of players in simple games. This index is defined as: <span class="math display">\[
+<p>The Shapley-Shubik index helps determine the voting power of players in simple games. This index is defined as:</p>
+<div class="math">
+\[
 \gamma_i^S(v) = \sum_{\array{A \subseteq N\setminus\{i\}\\ i \text{ pivotal to }A}} \frac 1 {n \left(\array{n-1\\|A|}\right)}
-\]</span> For a player <span class="math inline">\(i\)</span> in a simple game <span class="math inline">\(v\)</span>.</p>
-<p>A player <span class="math inline">\(i\)</span> is pivotal to a coalition <span class="math inline">\(A \subseteq N\setminus\{i\}\)</span> if: <span class="math display">\[
+\]</div>
+<p>For a player <span class="math">\(i\)</span> in a simple game <span class="math">\(v\)</span>.</p>
+<p>A player <span class="math">\(i\)</span> is pivotal to a coalition <span class="math">\(A \subseteq N\setminus\{i\}\)</span> if:</p>
+<div class="math">
+\[
 \array{v(A\cup i) = 1 &amp; \land &amp; v(A)=0}
-\]</span> The probability that player <span class="math inline">\(i\)</span> casts the decisive vote in an order given by a randomly chosen permutation <span class="math inline">\(\pi \in \Pi\)</span> is: <span class="math display">\[
+\]</div>
+<p>The probability that player <span class="math">\(i\)</span>  casts the decisive vote in an order given by a randomly chosen permutation <span class="math">\(\pi \in \Pi\)</span> is:</p>
+<div class="math">
+\[
 \gamma_i^S(v) = \frac 1 {n!} \times |\{\pi \in \Pi:i \text{ is pivotal to }A_i^\pi\}|
-\]</span></p>
+\]</div>
 <h2 id="banzhaf-index">Banzhaf Index</h2>
-<p>A <strong>swing</strong> for player <span class="math inline">\(i\)</span> is a coalition in which <span class="math inline">\(i\)</span> is pivotal and it is defined as: <span class="math display">\[
+<p>A <strong>swing</strong> for player <span class="math">\(i\)</span> is a coalition in which <span class="math">\(i\)</span> is pivotal and it is defined as:</p>
+<div class="math">
+\[
 s_i(v) = |\{A \subseteq N \setminus \{i\}: v(A\cup i) - v(a) = 1\}|
-\]</span> The <strong>Banzhaf index</strong> of player <span class="math inline">\(i\)</span> in a simple game <span class="math inline">\(v\)</span> is : <span class="math display">\[
+\]</div>
+<p>The <strong>Banzhaf index</strong> of player <span class="math">\(i\)</span> in a simple game <span class="math">\(v\)</span> is :</p>
+<div class="math">
+\[
 \gamma_i^B(v) - \frac{1}{2^{n-1}} \times s_i(v)
-\]</span> We also have the <strong>normalized Banzhaf Index</strong> for player <span class="math inline">\(i\)</span> in a simple game <span class="math inline">\(v\)</span>: <span class="math display">\[
+\]</div>
+<p>We also have the <strong>normalized Banzhaf Index</strong> for player <span class="math">\(i\)</span> in a simple game <span class="math">\(v\)</span>:</p>
+<div class="math">
+\[
 \beta_i(b) = \frac{s_i(v)}{s_1(v) + \dots + s_n(v)}
-\]</span></p>
+\]</div>
+
 </body>
 </html>

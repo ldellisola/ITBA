@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>08 - Numeros Primos y Compuestos</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>08 - Numeros Primos y Compuestos.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,134 +1385,161 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
-<h1 id="números-primos-y-compuestos">Números Primos y Compuestos</h1>
+<h1 id="numeros-primos-y-compuestos">Números Primos y Compuestos</h1>
 <ul>
-<li><span class="math inline">\(q \in \mathbb{Z}\)</span> es primo si tiene exactamente 4 divisores<span class="math inline">\(/~ div(q)=\{\pm1 , \pm q \}\)</span>.</li>
-<li><span class="math inline">\(a\in\mathbb{Z}\)</span> es compuesto si no es primo y <span class="math inline">\(|a|\neq1\)</span>.</li>
+<li><span class="math">\(q \in \mathbb{Z}\)</span> es primo si tiene exactamente 4 divisores$/~ div(q)={\pm1 , \pm q }$.</li>
+<li><span class="math">\(a\in\mathbb{Z}\)</span> es compuesto si no es primo y <span class="math">\(|a|\neq1\)</span>.</li>
 </ul>
-<p>Si <span class="math inline">\(a \in \mathbb{N}\)</span> y <span class="math inline">\(a\)</span> es compuesto <span class="math inline">\(\Rightarrow \exists a_1,a_2 \in \mathbb{N} ~/~ a = a_1\ .\ a_2~~,~~2\leq a_i\leq a-1\)</span></p>
+<p>Si <span class="math">\(a \in \mathbb{N}\)</span> y <span class="math">\(a\)</span> es compuesto <span class="math">\(\Rightarrow \exists a_1,a_2 \in \mathbb{N} ~/~ a = a_1\ .\ a_2~~,~~2\leq a_i\leq a-1\)</span></p>
 <h3 id="propiedades">Propiedades</h3>
 <ul>
-<li>Si <span class="math inline">\(p\in P\)</span> (primos) y <span class="math inline">\(a\in\mathbb{Z} \Rightarrow\)</span></li>
+<li>Si <span class="math">\(p\in P\)</span> (primos) y <span class="math">\(a\in\mathbb{Z} \Rightarrow\)</span></li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 (a:p)=
 \left\{
-    \begin{array}{}
-        1   ~~~~    p\cancel{|}a    \\
-        p   ~~~~    p | a
-    \end{array}
+	\begin{array}{}
+		1	~~~~	p\cancel{|}a	\\
+        p	~~~~	p | a
+	\end{array}
 \right.
-\]</span></p>
+\]</div>
 <ul>
-<li>Si <span class="math inline">\(p\in P\)</span> y <span class="math inline">\(p\cancel{|}a \Rightarrow a\bot p\)</span></li>
-<li>Si <span class="math inline">\(p\in P\)</span> y <span class="math inline">\(p|(a\ .\ b)~~~,~~~ a,b\in\mathbb{Z}\Rightarrow p|a \lor p|b\)</span></li>
+<li>Si $p\in P $ y <span class="math">\(p\cancel{|}a \Rightarrow  a\bot p\)</span></li>
+<li>Si <span class="math">\(p\in P\)</span> y <span class="math">\(p|(a\ .\ b)~~~,~~~ a,b\in\mathbb{Z}\Rightarrow p|a \lor p|b\)</span></li>
 </ul>
 <h2 id="teorema-fundamental-algebraico-tfa">Teorema Fundamental Algebraico (TFA)</h2>
-<h3 id="hipótesis">Hipótesis</h3>
+<h3 id="hipotesis">Hipótesis</h3>
 <p>Sea:</p>
 <ul>
-<li><span class="math inline">\(a\in \mathbb{Z}-\{0,\pm1\}\)</span></li>
+<li><span class="math">\(a\in \mathbb{Z}-\{0,\pm1\}\)</span></li>
 </ul>
 <h3 id="tesis">Tesis</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 a=Signo(a)\ .\ p_1\ .\ p_2\ .\ p_n~~~~~~,~~~~~~ p_1\lt p_2\lt \dots \lt p_n
-\]</span></p>
+\]</div>
 <p>y la factorización es unica.</p>
-<h3 id="demostración">Demostración</h3>
+<h3 id="demostracion">Demostración</h3>
 <p>La demostración se divide en varios casos:</p>
-<ol type="1">
-<li><span class="math inline">\(a \geq 2 \Rightarrow~a\)</span> puede ser expresado como el producto de uno o mas factores primos.</li>
+<ol>
+<li><span class="math">\(a \geq 2 \Rightarrow~a\)</span> puede ser expresado como el producto de uno o mas factores primos.</li>
 </ol>
-<p><strong>Pruebo por el Absurdo</strong>: Supongo que <span class="math inline">\(a\geq 2\)</span> no puede expresarse como el producto de números primos.</p>
-<p>Sea <span class="math inline">\(A=\{b\in\mathbb{N}:b\geq 2\)</span> y <span class="math inline">\(b\)</span> no puede expresarse como el producto de primos<span class="math inline">\(\}\)</span></p>
-<p>Podemos decir que <span class="math inline">\(A\neq \emptyset\)</span> por que suponemos que al menos 1 numero puede expresarse como factor de primos.</p>
-<p><span class="math inline">\(A\subset\mathbb{N}\)</span>. Sea <span class="math inline">\(a=min(A),~m\geq2\)</span> y <span class="math inline">\(a\)</span> no es primo, entonces es compuesto: <span class="math display">\[
+<p><strong>Pruebo por el Absurdo</strong>: Supongo que <span class="math">\(a\geq 2\)</span> no puede expresarse como el producto de números primos.</p>
+<p>Sea <span class="math">\(A=\{b\in\mathbb{N}:b\geq 2\)</span> y <span class="math">\(b\)</span> no puede expresarse como el producto de primos$}$</p>
+<p>Podemos decir que <span class="math">\(A\neq \emptyset\)</span> por que suponemos que al menos 1 numero puede expresarse como factor de primos.</p>
+<p><span class="math">\(A\subset\mathbb{N}\)</span>. Sea <span class="math">\(a=min(A),~m\geq2\)</span> y <span class="math">\(a\)</span> no es primo, entonces es compuesto:</p>
+<div class="math">
+\[
 (1)~~~~~~~~~~a = a_1\ .\ a_2~~~~~~~~~~2\leq a_i\leq a-1
-\]</span> Entonces <span class="math inline">\(a_1\)</span> y <span class="math inline">\(a_2\)</span> son mayores o iguales a <span class="math inline">\(2\)</span> y no pertenecen a <span class="math inline">\(A\)</span> , por ser menores a <span class="math inline">\(a=min(A)\)</span>.</p>
-<p>Entonces <span class="math inline">\(a_1\)</span> y <span class="math inline">\(a_2\)</span> se puede expresar como un producto de primos. <span class="math inline">\((2)\)</span></p>
-<p>Entonces, como <span class="math inline">\(a\)</span> es el producto de <span class="math inline">\(a_1\)</span> y <span class="math inline">\(a_2\)</span> <span class="math inline">\((1)\)</span>, por lo que es el producto de primos. <strong>ABS!</strong></p>
-<ol start="2" type="1">
-<li><span class="math inline">\(a\geq 2 \Rightarrow \exists p_1,p_2,\dots,p_i~/~~~~p_i\in P~,~p_i\lt p_{i+1}~,~ a = p_1\ .\ p_2\ .\ p_i~~\forall i\)</span></li>
+\]</div>
+<p>Entonces <span class="math">\(a_1\)</span> y <span class="math">\(a_2\)</span> son mayores o iguales a <span class="math">\(2\)</span> y no pertenecen a <span class="math">\(A\)</span> , por ser menores a <span class="math">\(a=min(A)\)</span>.</p>
+<p>Entonces <span class="math">\(a_1\)</span> y <span class="math">\(a_2\)</span> se puede expresar como un producto de primos. <span class="math">\((2)\)</span></p>
+<p>Entonces, como <span class="math">\(a\)</span> es el producto de <span class="math">\(a_1\)</span> y <span class="math">\(a_2\)</span> <span class="math">\((1)\)</span>, por lo que es el producto de primos. <strong>ABS!</strong></p>
+<ol start="2">
+<li>$a\geq 2 \Rightarrow \exists p_1,p_2,\dots,p_i~/<del><sub><sub>p_i\in P</sub>,<sub>p_i\lt p_{i+1}</sub>,</sub> a = p_1\ .\ p_2\ .\ p_i</del>\forall i  $</li>
 </ol>
 <p>Este caso es valido.</p>
-<ol start="3" type="1">
-<li><span class="math inline">\(a\leq -2 \Rightarrow |a|\geq 2\)</span></li>
+<ol start="3">
+<li><span class="math">\(a\leq -2 \Rightarrow |a|\geq 2\)</span></li>
 </ol>
 <p>Es análogo al segundo punto.</p>
-<ol start="4" type="1">
+<ol start="4">
 <li>Unicidad de la Factorización</li>
 </ol>
-<p><span class="math display">\[
+<div class="math">
+\[
 a =Sg(a)\ .\ p_1\ .\ p_2\ .\ p_i = Sg(a)\ .\ q_1\ .\ q_2\ .\ q_j
-\]</span></p>
-<p>Siendo: <span class="math inline">\(p_i&lt;p_{i+1}~~,~~q_j&lt;q_{j+1}~~,~~p_i,q_i\in P\)</span></p>
-<p>Supongo que <span class="math inline">\(i\leq j \Rightarrow p_1\ .\ p_2\ .\ p_i = q_1\ .\ q_2\ .\ q_j \Rightarrow p_1 | q_1\ .\ q_2\ .\ q_j\)</span></p>
-<p>Como <span class="math inline">\(p_1\in P\)</span>, <span class="math inline">\(p_1\)</span> debe ser divisor de al menos un <span class="math inline">\(q_j\)</span>.</p>
+\]</div>
+<p>Siendo:  <span class="math">\(p_i&lt;p_{i+1}~~,~~q_j&lt;q_{j+1}~~,~~p_i,q_i\in P\)</span></p>
+<p>Supongo que $i\leq j \Rightarrow p_1\ .\ p_2\ .\ p_i = q_1\ .\ q_2\ .\ q_j \Rightarrow p_1 | q_1\ .\ q_2\ .\ q_j    $</p>
+<p>Como <span class="math">\(p_1\in P\)</span>, <span class="math">\(p_1\)</span> debe ser divisor de al menos un <span class="math">\(q_j\)</span>.</p>
 <ul>
-<li>Sea <span class="math inline">\(j&#39; /~~p_1|q_{j&#39;}\)</span> como <span class="math inline">\(q_{j&#39;}\)</span>,<span class="math inline">\(p_1 \in P\)</span> y <span class="math inline">\(p_1\in P\)</span> y <span class="math inline">\(p_1&gt;0\)</span> y <span class="math inline">\(q_{j&#39;} &gt; 0 \Rightarrow p_1=q_{j&#39;}\geq q_1\)</span></li>
+<li>Sea <span class="math">\(j' /~~p_1|q_{j'}\)</span> como <span class="math">\(q_{j'}\)</span>,<span class="math">\(p_1 \in P\)</span> y <span class="math">\(p_1\in P\)</span> y <span class="math">\(p_1&gt;0\)</span> y <span class="math">\(q_{j'} &gt; 0 \Rightarrow p_1=q_{j'}\geq q_1\)</span></li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 \therefore p_1 \geq q_1~~~~(1)
-\]</span></p>
+\]</div>
 <ul>
-<li>De forma análoga se obtiene <span class="math inline">\(q_1\geq p_1~~~(2)\)</span></li>
+<li>De forma análoga se obtiene <span class="math">\(q_1\geq p_1~~~(2)\)</span></li>
 </ul>
-<p>Entonces por <span class="math inline">\((1)\)</span> y <span class="math inline">\((2)\)</span> , <span class="math inline">\(p_1 = q_1\)</span>.</p>
-<p>Se puede repetir este proceso hasta que se obtenga: <span class="math display">\[
+<p>Entonces por <span class="math">\((1)\)</span> y <span class="math">\((2)\)</span> , <span class="math">\(p_1 = q_1\)</span>.</p>
+<p>Se puede repetir este proceso hasta que se obtenga:</p>
+<div class="math">
+\[
 1 = q_{i+1}\ .\ \dots\  .\ q_j
-\]</span> Que es absurdo, por lo que llegamos a que <span class="math inline">\(i=j\)</span></p>
+\]</div>
+<p>Que es absurdo, por lo que llegamos a que <span class="math">\(i=j\)</span></p>
 <h3 id="teorema">Teorema</h3>
-<p>Si <span class="math inline">\(a\in\mathbb{Z}-\{0,1,-1\}\)</span>, entonces podemos expresar a <span class="math inline">\(a\)</span> como: <span class="math display">\[
+<p>Si <span class="math">\(a\in\mathbb{Z}-\{0,1,-1\}\)</span>, entonces podemos expresar a <span class="math">\(a\)</span> como:</p>
+<div class="math">
+\[
 a= Signo(a)\ .\ p_1^{n_1}\ .\ p_2^{n_2}\ .\ \dots \ \ .\ p_k^{n_k} ~~~~,~~~k \in \mathbb{N}
-\]</span> Siendo: <span class="math inline">\(p_i \in P~~,~~n_i\in\mathbb{N}~~,~~p_i&lt;p_{i+1}\)</span>.</p>
+\]</div>
+<p>Siendo: <span class="math">\(p_i \in P~~,~~n_i\in\mathbb{N}~~,~~p_i&lt;p_{i+1}\)</span>.</p>
 <h2 id="consecuencias-del-tfa">Consecuencias del TFA</h2>
 <h3 id="cantidad-de-divisores">Cantidad de Divisores</h3>
-<p>Sea <span class="math inline">\(a= Signo(a)\ .\ p_1^{n_1}\ .\ p_2^{n_2}\ .\ \dots \ \ .\ p_k^{n_k}\)</span>, la cantidad de divisores es: <span class="math display">\[
+<p>Sea <span class="math">\(a= Signo(a)\ .\ p_1^{n_1}\ .\ p_2^{n_2}\ .\ \dots \ \ .\ p_k^{n_k}\)</span>, la cantidad de divisores es:</p>
+<div class="math">
+\[
 \#div(a) = 2\ .\ (\prod_{j=1}^i(n_i+1))
-\]</span></p>
-<h3 id="máximo-común-divisor-mcd">Máximo Común Divisor (MCD)</h3>
+\]</div>
+<h3 id="maximo-comun-divisor-mcd">Máximo Común Divisor (MCD)</h3>
 <p>Sea:</p>
 <ul>
-<li><span class="math inline">\(a= Signo(a)\ .\ p_1^{n_1}\ .\ p_2^{n_2}\ .\ \dots \ \ .\ p_k^{n_k}\)</span></li>
-<li><span class="math inline">\(b= Signo(b)\ .\ p_1^{m_1}\ .\ p_2^{m_2}\ .\ \dots \ \ .\ p_k^{m_j}\)</span></li>
+<li><span class="math">\(a= Signo(a)\ .\ p_1^{n_1}\ .\ p_2^{n_2}\ .\ \dots \ \ .\ p_k^{n_k}\)</span></li>
+<li><span class="math">\(b= Signo(b)\ .\ p_1^{m_1}\ .\ p_2^{m_2}\ .\ \dots \ \ .\ p_k^{m_j}\)</span></li>
 </ul>
-<p>Entonces <span class="math inline">\((a:b) = a= p_1^{min(n_1,m_1)}\ .\ p_2^{min(n_2,m_2)}\ .\ \dots \ \ .\ p_k^{min(n_k,m_k)}\)</span></p>
-<h3 id="mínimo-común-múltiplo-mcm">Mínimo Común Múltiplo (MCM)</h3>
-<p>Dados <span class="math inline">\(a\)</span> y <span class="math inline">\(b~\in \mathbb{Z}-\{0\}\)</span> el mínimo común múltiplo es el menor múltiplo positivo de <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>. <span class="math display">\[
+<p>Entonces <span class="math">\((a:b) = a=  p_1^{min(n_1,m_1)}\ .\ p_2^{min(n_2,m_2)}\ .\ \dots \ \ .\ p_k^{min(n_k,m_k)}\)</span></p>
+<h3 id="minimo-comun-multiplo-mcm">Mínimo Común Múltiplo (MCM)</h3>
+<p>Dados <span class="math">\(a\)</span> y <span class="math">\(b~\in \mathbb{Z}-\{0\}\)</span>  el mínimo común múltiplo es el menor múltiplo positivo de <span class="math">\(a\)</span> y <span class="math">\(b\)</span>.</p>
+<div class="math">
+\[
 m=[a:b] = \frac{|a|\ .\ |b|}{(a:b)}
-\]</span></p>
-<h3 id="función-v_p">Función <span class="math inline">\(v_p\)</span></h3>
-<p>Es una función que devuelve el exponente <span class="math inline">\(p\)</span> en la factorización de <span class="math inline">\(a\)</span>.</p>
-<p>Si <span class="math inline">\(p \in P\)</span> <span class="math display">\[
+\]</div>
+<h3 id="funcion">Función <span class="math">\(v_p\)</span></h3>
+<p>Es una función que devuelve el exponente <span class="math">\(p\)</span> en la factorización de <span class="math">\(a\)</span>.</p>
+<p>Si <span class="math">\(p \in P\)</span></p>
+<div class="math">
+\[
 v_p:\mathbb{Z}-{0}\rightarrow \mathbb{N}_0
-\]</span> <strong>Definición equivalente</strong>: <span class="math display">\[
+\]</div>
+<p><strong>Definición equivalente</strong>:</p>
+<div class="math">
+\[
 v_p(a)=k \Leftrightarrow p^k|a~~y~~p^{k+1}\cancel{|}a
-\]</span></p>
+\]</div>
 <h4 id="ejemplo">Ejemplo</h4>
-<p><span class="math display">\[
+<div class="math">
+\[
 v_3(9) = 2, por~que~9=3^2
-\]</span></p>
+\]</div>
 <h4 id="propiedades-1">Propiedades</h4>
-<ol type="1">
-<li><span class="math inline">\(v_p(a\ .\ b) =v_p(a)+ v_p(b)\)</span></li>
-<li><span class="math inline">\(v_p(a^n)= n\ .\ v_p(a)\)</span></li>
-<li>Si <span class="math inline">\(d|a\Rightarrow v_p(d) \leq v_p(a)\)</span></li>
+<ol>
+<li><span class="math">\(v_p(a\ .\ b) =v_p(a)+ v_p(b)\)</span></li>
+<li><span class="math">\(v_p(a^n)= n\ .\ v_p(a)\)</span></li>
+<li>Si <span class="math">\(d|a\Rightarrow v_p(d) \leq v_p(a)\)</span></li>
 </ol>
 <h4 id="aplicaciones">Aplicaciones</h4>
-<ol type="1">
-<li>Si <span class="math inline">\(p\in P \Rightarrow \root{n}\of{p} \notin \mathbb{Q} \forall n\geq2\)</span></li>
+<ol>
+<li>Si <span class="math">\(p\in P \Rightarrow \root{n}\of{p} \notin \mathbb{Q} \forall n\geq2\)</span></li>
 </ol>
-<p><strong>Demostración</strong>: <span class="math display">\[
-\root n \of p = \frac a b~~~~,~~a,b\in\mathbb{N}    \\
-p = \frac{a^n}{b^n} \\
+<p><strong>Demostración</strong>:</p>
+<div class="math">
+\[
+\root n \of p = \frac a b~~~~,~~a,b\in\mathbb{N}	\\
+p = \frac{a^n}{b^n}	\\
 v_p(p\ .\ b^n)=v_p(a^n)\\
 1 + n\ .\ v_p(b) = v_p(a)\\
 1 = n(v_p(a)-v_p(b))\\
 \Rightarrow n|1 \Rightarrow n = 1 ~~ABS!
-\]</span></p>
+\]</div>
+
 </body>
 </html>

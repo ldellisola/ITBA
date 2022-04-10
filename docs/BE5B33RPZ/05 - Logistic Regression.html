@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>05 - Logistic Regression</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>05 - Logistic Regression.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,75 +1385,114 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="logistic-regression">Logistic Regression</h1>
-<p>Consider a classification problem with <span class="math inline">\(0/1\)</span> loss matrix. If we have only two classes, we call the ratio of posterior the <strong>odds ratio</strong>: <span class="math display">\[
+<p>Consider a classification problem with <span class="math">\(0/1\)</span> loss matrix. If we have only two classes, we call the ratio of posterior the <strong>odds ratio</strong>:</p>
+<div class="math">
+\[
 \frac {p(1/x)}{p(2/x)}
-\]</span> And the logarithm of the ratio is called <strong>log odds</strong>: <span class="math display">\[
+\]</div>
+<p>And the logarithm of the ratio is called <strong>log odds</strong>:</p>
+<div class="math">
+\[
 \ln\frac{p(1/x)}{p(2/x)}
-\]</span> We are interested in the log odds because they are linear, and thus simple function of the observation variable <span class="math inline">\(x\)</span>, whether it is one of the following distributions:</p>
+\]</div>
+<p>We are interested in the log odds because they are linear, and thus simple function of the observation variable <span class="math">\(x\)</span>, whether it is one of the following distributions:</p>
 <ul>
 <li>Normal distributions with equal variance.</li>
 <li>Independent features with binary outcomes.</li>
 <li>Multinomial naïve Bayes.</li>
 </ul>
-<p>In all cases, we can obtain the log odds in the following shape: <span class="math display">\[
+<p>In all cases, we can obtain the log odds in the following shape:</p>
+<div class="math">
+\[
 a(\vec x) = \vec w \times \vec x + w_0
 \\ \vec w\in \mathbb{R}^D
-\]</span> Where <span class="math inline">\(w_0\)</span> is the bias term. We ca rewrite this equation as: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(w_0\)</span> is the bias term. We ca rewrite this equation as:</p>
+<div class="math">
+\[
 a(\vec x) = w_0 \times 1 + \vec w \times \vec x = 
 \left[\array{w_0,w_1,\dots,w_D}\right]\times 
 \left[\array{1 \\ x_1\\\vdots \\x_D}\right] =
-\vec w&#39; \times \vec x&#39;
-\]</span> Here we added the bias term to the front of the <span class="math inline">\(\vec w\)</span> vector and to match it we inserted the number <span class="math inline">\(1\)</span> in front of the <span class="math inline">\(\vec x\)</span> vector. From now on we will write <span class="math inline">\(x,w\)</span> assuming we are talking about <span class="math inline">\(\vec x&#39;,\vec w&#39;\)</span> respectively.</p>
-<p>Considering the log odds again, we can obtain the probability density function as: <span class="math display">\[
+\vec w' \times \vec x'
+\]</div>
+<p>Here we added the bias term to the front of the <span class="math">\(\vec w\)</span> vector and to match it we inserted the number <span class="math">\(1\)</span> in front of the <span class="math">\(\vec x\)</span> vector. From now on we will write <span class="math">\(x,w\)</span> assuming we are talking about <span class="math">\(\vec x',\vec w'\)</span> respectively.</p>
+<p>Considering the log odds again, we can obtain the probability density function as:</p>
+<div class="math">
+\[
 \array{
 \frac {p(1/x)}{p(2/x)} = e^{w \times x} &amp;&amp; \frac {p(2/x)}{p(1/x)} = e^{-w \times x} \\
 p(1/x) = \frac 1 {a+e^{-w\times x}} &amp;&amp; p(2/x) = \frac 1 {a+e^{w\times x}}
 }
-\]</span> We can also use the <em>logistic sigmoid function</em> <span class="math inline">\(\sigma(u) = \frac{1}{1+e^{-u}}\)</span> and rename the classes from <span class="math inline">\(\{1,2\}\)</span> to <span class="math inline">\(\{-1,1\}\)</span>. We will obtain the following function: <span class="math display">\[
+\]</div>
+<p>We can also use the <em>logistic sigmoid function</em> <span class="math">\(\sigma(u) = \frac{1}{1+e^{-u}}\)</span> and rename the classes from <span class="math">\(\{1,2\}\)</span> to <span class="math">\(\{-1,1\}\)</span>. We will obtain the following function:</p>
+<div class="math">
+\[
 p(k/x) = \frac 1 {1 + e^{-k w\times x}}
-\]</span> With <span class="math inline">\(k \in \{-1,1\}\)</span>.</p>
-<p>Now we need to find <span class="math inline">\(w\)</span>, to do this we will apply the <em>Maximum Likelihood</em>. Let us have a training set <span class="math inline">\(\mathcal T\)</span>: <span class="math display">\[
+\]</div>
+<p>With <span class="math">\(k \in \{-1,1\}\)</span>.</p>
+<p>Now we need to find <span class="math">\(w\)</span>, to do this we will apply the <em>Maximum Likelihood</em>. Let us have a training set <span class="math">\(\mathcal T\)</span>:</p>
+<div class="math">
+\[
 \mathcal T = \{(x_1,k_1),\dots,(x_N,k_N)\}
-\]</span> The optimal <span class="math inline">\(w^*\)</span> would be the one maximizing the log-likelihood <span class="math inline">\(l(w)\)</span>: <span class="math display">\[
+\]</div>
+<p>The optimal <span class="math">\(w^*\)</span> would be the one maximizing the log-likelihood <span class="math">\(l(w)\)</span>:</p>
+<div class="math">
+\[
 l(w) = \sum_{(x,k) \in \mathcal T}\ln p(k/x) + \sum_{(x,k) \in \mathcal T}\ln p(k)
-\]</span> Because there are no assumptions about the form of the prior probability as a function of <span class="math inline">\(w\)</span>, logistic regression uses the maximization of conditional log-likelihood <span class="math inline">\(l&#39;(w)\)</span>: <span class="math display">\[
-l&#39;(w) = \sum_{(x,k) \in \mathcal T}\ln p(k/x) = - \sum_{(x,k) \in \mathcal T}\ln (1 + e^{-kw\times x})\\
-w^* = \underset w {\arg\max}~~ l&#39;(w)
-\]</span> In order for the optimization to fit into the minimization framework, we define the objective function <span class="math inline">\(E(w)\)</span> as the negative conditional log likelihood: <span class="math display">\[
-E(w) = - l&#39;(w)
-\]</span> This objective function corresponds to <strong>cross entropy</strong>. We need to find the optimal <span class="math inline">\(w^*\)</span>, and for this we need to calculate the point where <span class="math inline">\(\nabla E(w) = 0\)</span>. The problem here is that we can’t solve it analytically, so we resort to numerical methods.</p>
-<p>For this we need to probe that <span class="math inline">\(E(w)\)</span> is convex, so we need to calculate the Hessian matrix. If the Hessian matrix is positive for all <span class="math inline">\(w\)</span>, the we can say it is convex, and thus has an unique minimum. We can now implement the gradient descent algorithm to solve this problem:</p>
-<pre class="pseudocode"><code># input: x (observations), k (class labels), w_init (initial w)
+\]</div>
+<p>Because there are no assumptions about the form of the prior probability as a function of <span class="math">\(w\)</span>, logistic regression uses the maximization of conditional log-likelihood <span class="math">\(l'(w)\)</span>:</p>
+<div class="math">
+\[
+l'(w) = \sum_{(x,k) \in \mathcal T}\ln p(k/x) = - \sum_{(x,k) \in \mathcal T}\ln (1 + e^{-kw\times x})\\
+w^* = \underset w {\arg\max}~~ l'(w)
+\]</div>
+<p>In order for the optimization to fit into the minimization framework, we define the objective function <span class="math">\(E(w)\)</span> as the negative conditional log likelihood:</p>
+<div class="math">
+\[
+E(w) = - l'(w)
+\]</div>
+<p>This objective function corresponds to <strong>cross entropy</strong>. We need to find the optimal <span class="math">\(w^*\)</span>, and for this we need to calculate the point where <span class="math">\(\nabla E(w) = 0\)</span>. The problem here is that we can't solve it analytically, so we resort to numerical methods.</p>
+<p>For this we need to probe that <span class="math">\(E(w)\)</span> is convex, so we need to calculate the Hessian matrix. If the Hessian matrix is positive for all  <span class="math">\(w\)</span>, the we can say it is convex, and thus has an unique minimum. We can now implement the gradient descent algorithm to solve this problem:</p>
+<pre><code class="language-pseudocode"># input: x (observations), k (class labels), w_init (initial w)
 
 w = w_init
 step_size = 1.0
 E,g = compute_E_and_Gradient(x,k,w)
 
 while not TERMINATION_CONDITION:
-    E_new, g_new = compute_E_and_Gradient(x, k, w - step_size * g)
-    
-    if E_new &lt; E:
-        # success
-        w -= step_size * g
-        g = g_new
-        E= E_new
-        step_size *= 2
-    else:
-        step_size /= 2
-        
-return w</code></pre>
+	E_new, g_new = compute_E_and_Gradient(x, k, w - step_size * g)
+	
+	if E_new &lt; E:
+		# success
+		w -= step_size * g
+		g = g_new
+		E= E_new
+		step_size *= 2
+	else:
+		step_size /= 2
+		
+return w
+</code></pre>
 <p>The logistic regression cannot provide the two thresholds the optimal strategy requires, but it provides a the one threshold which matters more in reducing the classification error</p>
 <h2 id="logistic-regression-with-multiple-classes">Logistic Regression with Multiple Classes</h2>
-<p>The logistic regression can be generalized to multiple classes using the <strong>softmax</strong> function. For each class <span class="math inline">\(k\in\{1,2,\dots,K\}\)</span> there exists an associated weight vector <span class="math inline">\(w_k\)</span>, and the conditional probability for the <span class="math inline">\(k^{th}\)</span> function is computed as: <span class="math display">\[
+<p>The logistic regression can be generalized to multiple classes using the <strong>softmax</strong> function. For each class <span class="math">\(k\in\{1,2,\dots,K\}\)</span> there exists an associated weight vector <span class="math">\(w_k\)</span>, and the conditional probability for the <span class="math">\(k^{th}\)</span> function is computed as:</p>
+<div class="math">
+\[
 p(k/x) = \frac{e^{w_k \times x}}{\sum_i^K e^{w_i\times x}}
-\]</span> This function should sum to 1 to be considered a probability.</p>
-<p>Having the same training set as before <span class="math inline">\((\mathcal T)\)</span>, we have to find the set of parameters <span class="math inline">\(W = [w_1,\dots,w_K]\)</span>. We are using the conditional log likelihood <span class="math inline">\((l&#39;(W))\)</span> to fund the optimal parameters <span class="math inline">\(W^*\)</span>: <span class="math display">\[
-l&#39;(W) = \sum_{(x,k)\in \mathcal T}\ln p(k/x) = \sum_{(x,k)\in \mathcal T} w_k\times x - \sum_{(x,k)\in \mathcal T} \ln \left(\sum_i^K e^{w_i\times x} \right)\\
-W^* = \underset W {\arg\max} ~l&#39;(W) = \underset W {\arg\min} ~ E(W)
-\]</span> Where <span class="math inline">\(E(W)\)</span> is the cross entropy, as in the previous case.</p>
+\]</div>
+<p>This function should sum to 1 to be considered a probability.</p>
+<p>Having the same training set as before <span class="math">\((\mathcal T)\)</span>, we have to find the set of parameters <span class="math">\(W = [w_1,\dots,w_K]\)</span>. We are using the conditional log likelihood <span class="math">\((l'(W))\)</span> to fund the optimal parameters <span class="math">\(W^*\)</span>:</p>
+<div class="math">
+\[
+l'(W) = \sum_{(x,k)\in \mathcal T}\ln p(k/x) = \sum_{(x,k)\in \mathcal T} w_k\times x - \sum_{(x,k)\in \mathcal T} \ln \left(\sum_i^K e^{w_i\times x} \right)\\
+W^* = \underset W {\arg\max} ~l'(W) = \underset W {\arg\min} ~ E(W)
+\]</div>
+<p>Where <span class="math">\(E(W)\)</span> is the cross entropy, as in the previous case.</p>
+
 </body>
 </html>

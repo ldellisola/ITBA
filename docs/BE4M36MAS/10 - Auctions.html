@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>10 - Auctions</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>10 - Auctions.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="auctions">Auctions</h1>
@@ -1538,7 +1401,9 @@ blockquote {
 <li><strong>Information rules</strong>: It discusses what information about the state of the negotiation is revealed to whom and when.</li>
 </ul>
 <h2 id="payoff">Payoff</h2>
-<p>An agents payoff for participating in an auction is determined by the result of the auction. The payoff is calculated as: <span class="math display">\[
+<p>An agents payoff for participating in an auction is determined by the result of the auction. The payoff is calculated as:</p>
+<div class="math">
+\[
 \text{payoff} = 
 \left\{
 \array{
@@ -1547,7 +1412,8 @@ blockquote {
 \text{0} &amp;\text{lost}
 }
 \right.
-\]</span> Agents can also have different <strong>risk attitudes</strong>:</p>
+\]</div>
+<p>Agents can also have different <strong>risk attitudes</strong>:</p>
 <ul>
 <li><strong>Risk Neutrality</strong>: the payoff is a linear function as we calculated before.</li>
 <li><strong>Risk Seeking</strong>: the payoff is a convex function of the difference, aggressively seeking high gains.</li>
@@ -1555,7 +1421,7 @@ blockquote {
 </ul>
 <p>There are also 2 valuation models for agents:</p>
 <ul>
-<li><strong>Independent Private Value (IPV)</strong>: Here an agent’s valuation of a good is independent from the other agent’s valuation of the same good.</li>
+<li><strong>Independent Private Value (IPV)</strong>: Here an agent's valuation of a good is independent from the other agent's valuation of the same good.</li>
 <li><strong>Correlated Value</strong>: The valuation of the good is related between agents. An example of this situation is when the winner is planning to resell the items later.</li>
 </ul>
 <h2 id="types-of-auctions">Types of Auctions</h2>
@@ -1565,47 +1431,59 @@ blockquote {
 <ul>
 <li><strong>English Auction</strong>: Here, the auctioneer start the bidding at a reservation price and the bidders will shout out ascending prices with minimum increments. Once the bidders stop shouting, the highest bidder gets the good at that price.</li>
 <li><strong>Japanese Auction</strong>: The overall mechanism is similar to the English auction but there all bidders start standing up while the auctioneer calls out the prices, when the price reaches a level they are not willing to pay, they sit down. The last bidder standing wins the auction.</li>
-<li><strong>Dutch Auction</strong>: This auction starts up at high price and it starts descending with a timer. The first person who claims the lot wins the auction and pays the price. This is a good method when goods need to be sold quickly. No information is revealed during the auction.</li>
+<li><strong>Dutch Auction</strong>: This auction starts up at  high price and it starts descending with a timer. The first person who claims the lot wins the auction and pays the price. This is a good method when goods need to be sold quickly. No information is revealed during the auction.</li>
 <li><strong>First-Price Sealed Auction</strong>: All bidders write down their bids in a piece of paper. The auctioneer awards the good to the highest bidder and has to pay for his bid.</li>
 <li><strong>Second-Price Sealed Auction</strong>: Similar to the first-price version, all bidders write their bids in a piece of paper and the auctioneer awards the good to the highest bidder. The difference now is that the winner has to pay the second highest bid.</li>
 </ul>
 <h2 id="analyzing-auctions">Analyzing Auctions</h2>
 <p>Auction analysis is useful to solve two problems:</p>
 <ul>
-<li><strong>Analysis of Auction Mechanisms</strong>: It is useful to determine the properties of a given auction mechanism. To do this, we need to treat the auction as an extended-form Bayesian Game and analyze bidder’s strategies.</li>
+<li><strong>Analysis of Auction Mechanisms</strong>: It is useful to determine the properties of a given auction mechanism. To do this, we need to treat the auction as an extended-form Bayesian Game and analyze bidder's strategies.</li>
 <li><strong>Design of Auction Mechanisms</strong>: It is useful when we need to create an auction with some specific properties and we apply mechanisms design techniques.</li>
 </ul>
 <h3 id="bayesian-games">Bayesian Games</h3>
-<p>A Bayesian Game is a tuple <span class="math display">\[
+<p>A Bayesian Game is a tuple</p>
+<div class="math">
+\[
 &lt;N,A,O,p,u&gt;
-\]</span> where:</p>
+\]</div>
+<p>where:</p>
 <ul>
-<li><span class="math inline">\(N\)</span> is the set of players</li>
-<li><span class="math inline">\(A = A_1 \times \dots \times A_n\)</span>, where <span class="math inline">\(A_i\)</span> is the set of actions for player <span class="math inline">\(i\)</span></li>
-<li><span class="math inline">\(O = O_1 \times\dots\times O_n\)</span> where <span class="math inline">\(O_i\)</span> is the type space of player <span class="math inline">\(i\)</span></li>
-<li><span class="math inline">\(p:O \mapsto[0,1]\)</span> is a common prior over types</li>
-<li><span class="math inline">\(u = (u_1,\dots,u_n)\)</span> where <span class="math inline">\(u_i:A \times O\mapsto \mathbb{R}\)</span> is the utility function of player <span class="math inline">\(i\)</span></li>
+<li><span class="math">\(N\)</span> is the set of players</li>
+<li><span class="math">\(A = A_1 \times \dots \times A_n\)</span>, where <span class="math">\(A_i\)</span> is the set of actions for player <span class="math">\(i\)</span></li>
+<li><span class="math">\(O = O_1 \times\dots\times O_n\)</span> where <span class="math">\(O_i\)</span> is the type space of player <span class="math">\(i\)</span></li>
+<li><span class="math">\(p:O \mapsto[0,1]\)</span> is a common prior over types</li>
+<li><span class="math">\(u = (u_1,\dots,u_n)\)</span> where <span class="math">\(u_i:A \times O\mapsto \mathbb{R}\)</span> is the utility function of player <span class="math">\(i\)</span></li>
 </ul>
-<p>We assume that all of the above is common knowledge among players and that each agent know his own type. In this game we have a <strong>Bayes-Nash Equilibrium</strong> where rational, risk-neutral players are seeking to maximize their expected payoff, given their beliefs about the other players’ types.</p>
+<p>We assume that all of the above is common knowledge among players and that each agent know his own type. In this game we have a <strong>Bayes-Nash Equilibrium</strong> where rational, risk-neutral players are seeking to maximize their expected payoff, given their beliefs about the other players' types.</p>
 <h4 id="relation-to-auctions">Relation to Auctions</h4>
 <p>We can formulate a sealed bid auction as a Bayesian game where:</p>
 <ul>
-<li>Player <span class="math inline">\(i\)</span>’s actions correspond to his bids <span class="math inline">\(\hat v_i\)</span></li>
-<li>Player types <span class="math inline">\(O_i\)</span> correspond to players’ private valuations <span class="math inline">\(v_i\)</span> over the auctioned items</li>
-<li>The payoff of player <span class="math inline">\(i\)</span> corresponds to their valuation minus the paid price or 0 if they lose.</li>
+<li>Player <span class="math">\(i\)</span>'s actions correspond to his bids <span class="math">\(\hat v_i\)</span></li>
+<li>Player types <span class="math">\(O_i\)</span> correspond to players' private valuations <span class="math">\(v_i\)</span> over the auctioned items</li>
+<li>The payoff of player <span class="math">\(i\)</span> corresponds to their valuation minus the paid price or 0 if they lose.</li>
 </ul>
 <p>We can formulate similar analogies with more complicated auction mechanisms.</p>
 <h4 id="desired-properties">Desired Properties</h4>
 <ul>
-<li><p><strong>Truthfulness</strong>: bidders are incentivized to bid their true valuations: <span class="math display">\[
+<li><p><strong>Truthfulness</strong>: bidders are incentivized to bid their true valuations:</p>
+<div class="math">
+\[
 \array{v_i = \hat v_i &amp;&amp; \forall i \forall v_i}
-\]</span></p></li>
-<li><p><strong>Efficiency</strong>: The aggregated value of bidders is maximized: <span class="math display">\[
-\array{ \sum_i v_i(x) \ge \sum_i v_i(x&#39;) &amp;&amp; \forall v \forall x,x&#39;,}
-\]</span></p></li>
-<li><p><strong>Optimality</strong>: It maximizes the seller’s revenue.</p></li>
-<li><p><strong>Strategy</strong>: Existence of a dominant strategy.</p></li>
-<li><p><strong>Manipulation vulnerability</strong>: we must minimize collusion, lying, cheating, etc.</p></li>
+\]</div>
+</li>
+<li><p><strong>Efficiency</strong>: The aggregated value of bidders is maximized:</p>
+<div class="math">
+\[
+\array{ \sum_i v_i(x) \ge \sum_i v_i(x') &amp;&amp; \forall v \forall x,x',}
+\]</div>
+</li>
+<li><p><strong>Optimality</strong>: It maximizes the seller's revenue.</p>
+</li>
+<li><p><strong>Strategy</strong>: Existence of a dominant strategy.</p>
+</li>
+<li><p><strong>Manipulation vulnerability</strong>: we must minimize collusion, lying, cheating, etc.</p>
+</li>
 </ul>
 <h3 id="second-price-sealed-bid">Second-price Sealed Bid</h3>
 <p>In this type of auction, truth-telling is a dominant strategy, assuming independent private values. This auction has the following advantages:</p>
@@ -1622,27 +1500,31 @@ blockquote {
 <li>Not revenue maximizing</li>
 </ul>
 <h3 id="first-price-sealed-bid">First-Price Sealed Bid</h3>
-<p>The Dutch auction and the first-price sealed bid are strategically equivalent. The agents bid without knowing about the other agents’ bids. The only difference between these auctions is that the first-price auctions are held asynchronously and the Dutch auctions are fast.</p>
-<p>In this case there is a trade-off between the probability of wining and the amount paid upon wining. Here there is not dominant strategy because individually optimal strategies depend on the assumption about others’ valuation.</p>
-<p>In a first-price sealed bid auction with <span class="math inline">\(n\)</span> risk-neutral agents whose valuations <span class="math inline">\(v_1,\dots,v_n\)</span> are independently drawn from a uniform distribution on the same bounded interval of real numbers, the unique symmetric equilibrium is given by the strategy profile: <span class="math display">\[
+<p>The Dutch auction and the first-price sealed bid are strategically equivalent. The agents bid without knowing about the other agents' bids. The only difference between these auctions is that the first-price auctions are held asynchronously and the Dutch auctions are fast.</p>
+<p>In this case there is a trade-off between the probability of wining and the amount paid upon wining. Here there is not dominant strategy because individually optimal strategies depend on the assumption about others' valuation.</p>
+<p>In a first-price sealed bid auction with <span class="math">\(n\)</span> risk-neutral agents whose valuations <span class="math">\(v_1,\dots,v_n\)</span> are independently drawn from a uniform distribution on the same bounded interval of real numbers, the unique symmetric equilibrium is given by the strategy profile:</p>
+<div class="math">
+\[
 \left(\frac{n-1}{n}v_1 , \dots,\frac{n-1}{n}v_n \right)
-\]</span> For non-uniform valuation distributions, each bidder should bid the expectation of the second-highest valuation, conditioned on the assumption that their own valuation is the highest.</p>
+\]</div>
+<p>For non-uniform valuation distributions, each bidder should bid the expectation of the second-highest valuation, conditioned on the assumption that their own valuation is the highest.</p>
 <p>Here we have incentives to counter-speculate.</p>
 <h3 id="english-and-japanese-auctions">English and Japanese Auctions</h3>
 <p>Within this two types of auctions, their strategy space is much more complicated, but intuitively the revealed information does not make any difference in the independent-private value setting.</p>
 <p>Under the IPV model, it is a dominant strategy to bid up to their own valuations and not more. In correlated-value auctions it can be worthwhile to counter-speculate.</p>
 <h3 id="revenue-equivalence">Revenue Equivalence</h3>
-<p>Up to some extent, the type of auction an auctioneer chooses doesn’t have a big effect on profit.</p>
-<blockquote>
-<p>Assuming that each of <span class="math inline">\(n\)</span> risk-neutral agents has an independent private valuation for a single good at auction, drawn from a common cumulative distribution <span class="math inline">\(F(v)\)</span> that is strictly increasing and atomless on <span class="math inline">\([\underline v,\overline v]\)</span>. Then the any auction mechanism in which both items hold</p>
-<ol type="1">
+<p>Up to some extent, the type of auction an auctioneer chooses doesn't have a big effect on profit.</p>
+<blockquote class="blockquote">
+<p>Assuming that each of <span class="math">\(n\)</span> risk-neutral agents has an independent private valuation for a single good at auction, drawn from a common cumulative distribution <span class="math">\(F(v)\)</span> that is strictly increasing and atomless on <span class="math">\([\underline v,\overline v]\)</span>. Then the any auction mechanism in which both items hold</p>
+<ol>
 <li>The good will be allocated to the agent with the highest valuation</li>
-<li>Any agent with valuation <span class="math inline">\(\underline v\)</span> has an expected utility of zero</li>
+<li>Any agent with valuation <span class="math">\(\underline v\)</span> has an expected utility of zero</li>
 </ol>
-<p>Yields the same expected revenue, and hence results in any bidder with valuation<span class="math inline">\(v\)</span> making the same expected payment.</p>
+<p>Yields the same expected revenue, and hence results in any bidder with valuation$v$ making the same expected payment.</p>
 </blockquote>
-<p>Informally, as long as two mechanisms allocate in the same way and they don’t charge anything to the agent with the lowest valuation, the rest of the payment functions is the same. This holds beyond IPV and a single good.</p>
+<p>Informally, as long as two mechanisms allocate in the same way and they don't charge anything to the agent with the lowest valuation, the rest of the payment functions is the same. This holds beyond IPV and a single good.</p>
 <h3 id="efficiency">Efficiency</h3>
 <p>Efficiency in a single-item auction is measured as the item allocated to the agent with values it the most. With IPV all auctions are efficient except for Dutch and First-Price Sealed Bid. When we change to correlated value, the efficiency is often lost.</p>
+
 </body>
 </html>

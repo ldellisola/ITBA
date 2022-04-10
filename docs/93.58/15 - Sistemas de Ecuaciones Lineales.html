@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>15 - Sistemas de Ecuaciones Lineales</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>15 - Sistemas de Ecuaciones Lineales.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,58 +1385,73 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="sistemas-de-ecuaciones-lineales">Sistemas de Ecuaciones Lineales</h1>
-$$ {
-<span class="math display">\[\begin{array}{}
-        a_{11}x_1 + a_{12}x_2+\dots+a_{1m}x_m=b_1\\
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~\vdots\\
-        a_{n1}x_1 + a_{n2}x_2+\dots+a_{nm}x_m=b_n\
+<div class="math">
+\[
+\left\{
+	\begin{array}{}
+		a_{11}x_1 + a_{12}x_2+\dots+a_{1m}x_m=b_1\\
+		~~~~~~~~~~~~~~~~~~~~~~~~~~\vdots\\
+		a_{n1}x_1 + a_{n2}x_2+\dots+a_{nm}x_m=b_n\
 
-        
-    \end{array}\]</span>
-<p>. $$</p>
-<p>Siendo <span class="math inline">\(a_{ij},b_i \in \mathbb K\)</span>, <span class="math inline">\(\mathbb K = \mathbb{Q},\mathbb{R}~o~\mathbb{C}\)</span> .</p>
-<p><span class="math inline">\(x_m\)</span> son las incógnitas, <span class="math inline">\(a_{ij}\)</span> son los coeficientes del sistema y <span class="math inline">\(b_i\)</span> los términos independientes.</p>
+		
+	\end{array}
+\right.
+\]</div>
+<p Q="" R="" C="">Siendo <span class="math">\(a_{ij},b_i \in \mathbb K\)</span>, $\mathbb K = \mathbb,\mathbb<sub>o</sub>\mathbb $ .</p>
+<p><span class="math">\(x_m\)</span> son las incógnitas, <span class="math">\(a_{ij}\)</span> son los coeficientes del sistema y <span class="math">\(b_i\)</span> los términos independientes.</p>
 <h3 id="matrices-asociadas-al-sistema">Matrices asociadas al sistema:</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 A = 
 \begin{pmatrix}
-    a_{11}  &amp;   a_{12}  &amp;   \dots   &amp; a_{1m}    \\
-    a_{21}  &amp;   a_{22}  &amp;   \dots   &amp; a_{2m}    \\
-    &amp;\ddots\\
-    a_{n1}  &amp;   a_{n2}  &amp;   \dots   &amp; a_{nm}    \\
+	a_{11}	&amp;	a_{12}	&amp;	\dots	&amp; a_{1m}	\\
+	a_{21}	&amp;	a_{22}	&amp;	\dots	&amp; a_{2m}	\\
+	&amp;\ddots\\
+	a_{n1}	&amp;	a_{n2}	&amp;	\dots	&amp; a_{nm}	\\
 \end{pmatrix}
 ~~~~~~~~~~
 B = 
 \begin{pmatrix}
-    b_1\\b_2\\\vdots\\b_n
+	b_1\\b_2\\\vdots\\b_n
 \end{pmatrix}
-\]</span></p>
-<p>Y la <strong>matriz ampliada</strong> es: <span class="math display">\[
+\]</div>
+<p>Y la <strong>matriz ampliada</strong> es:</p>
+<div class="math">
+\[
 [A|B]
-\]</span></p>
+\]</div>
 <h3 id="teorema">Teorema</h3>
-<p>Considerando que el sistema de ecuaciones lineales con <span class="math inline">\(n\)</span> ecuaciones y <span class="math inline">\(m\)</span> incógnitas, por lo que la matriz ampliada <span class="math inline">\([A|B], A\in \mathbb K^{n\times m}\)</span>, entonces:</p>
-<ol type="1">
-<li>El sistema es compatible <span class="math inline">\(\Leftrightarrow R(A) = R([A|B])\)</span>.</li>
-<li>Suponiendo que el sistema es compatible, Numero de Variables libres <span class="math inline">\(=\)</span> Numero de Variables <span class="math inline">\(-R(A)\)</span>.</li>
-<li>El sistema es determinado <span class="math inline">\(\Leftrightarrow m = R(A)\)</span>.</li>
+<p>Considerando que el sistema de ecuaciones lineales con <span class="math">\(n\)</span> ecuaciones y <span class="math">\(m\)</span> incógnitas, por lo que la matriz ampliada <span class="math">\([A|B], A\in \mathbb K^{n\times m}\)</span>, entonces:</p>
+<ol>
+<li>El sistema es compatible <span class="math">\(\Leftrightarrow R(A) = R([A|B])\)</span>.</li>
+<li>Suponiendo que el sistema es compatible, Numero de Variables libres <span class="math">\(=\)</span> Numero de Variables <span class="math">\(-R(A)\)</span>.</li>
+<li>El sistema es determinado <span class="math">\(\Leftrightarrow m = R(A)\)</span>.</li>
 </ol>
 <h4 id="corolarios">Corolarios</h4>
-<ol type="1">
-<li><p>Si <span class="math inline">\(R(A) = n\)</span> entonces:</p>
-<p>​ Como <span class="math inline">\(R([A|B]) \leq min(n,m+1) \leq n\)</span> y <span class="math inline">\(R(A) \leq R([A|B])\)</span>: <span class="math display">\[
+<ol>
+<li><p>Si <span class="math">\(R(A) = n\)</span> entonces:</p>
+<p>​	Como <span class="math">\(R([A|B]) \leq min(n,m+1) \leq n\)</span> y <span class="math">\(R(A) \leq R([A|B])\)</span>:</p>
+<div class="math">
+\[
 n = R(A)\leq R([A|B])\leq n
-\]</span> ​ Por lo que obtenemos: <span class="math display">\[
+\]</div>
+<p>​	Por lo que obtenemos:</p>
+<div class="math">
+\[
 R(A)=R([A|B])~~~~y~~~~ el~sistema~es~compatible
-\]</span></p></li>
-<li><p>Si <span class="math inline">\(R(A)=m\)</span> y el sistema es compatible, entonces el sistema es determinado.</p></li>
-<li><p>Si <span class="math inline">\(m=n\)</span> y <span class="math inline">\(R(A)=n\)</span>, entonces el sistema siempre es compatible determinado, independiente de <span class="math inline">\(B\)</span>.</p></li>
+\]</div>
+</li>
+<li><p>Si <span class="math">\(R(A)=m\)</span> y el sistema es compatible, entonces el sistema es determinado.</p>
+</li>
+<li><p>Si <span class="math">\(m=n\)</span> y <span class="math">\(R(A)=n\)</span>, entonces el sistema siempre es compatible determinado, independiente de <span class="math">\(B\)</span>.</p>
+</li>
 </ol>
-<h2 id="método-de-eliminación-de-gauss">Método de Eliminación de Gauss</h2>
+<h2 id="metodo-de-eliminacion-de-gauss">Método de Eliminación de Gauss</h2>
 <p>Se efectúan operaciones sobre las ecuaciones, que cambian a las mismas, pero no modifican a la solucion.</p>
 <p>Operaciones permitidas:</p>
 <ul>
@@ -1585,18 +1462,21 @@ R(A)=R([A|B])~~~~y~~~~ el~sistema~es~compatible
 <p>Se aplican estas operaciones con el objetivo de obtener un sistema equivalente cuya solucion es sencilla, es decir, para que sea mas simple operar sobre las matriz ampliada.</p>
 <p>El sistema es <strong>compatible</strong> si tiene solucion. Luego, puede ser <strong>determinado</strong> si tiene solo una solucion o <strong>indeterminado</strong> si tiene infinitas.</p>
 <h2 id="equivalencia-de-matrices">Equivalencia de Matrices</h2>
-<p>Sea <span class="math inline">\(A \in \mathbb K^{n\times m}\)</span>, es equivalente a la matriz <span class="math inline">\(B \in \mathbb K^{n\times m}\)</span> si aplicando las operaciones elementales detalladas en el método de eliminación de Gauss sobre <span class="math inline">\(A\)</span> se obtiene <span class="math inline">\(B\)</span>. Se nota: <span class="math display">\[
+<p>Sea <span class="math">\(A \in \mathbb K^{n\times m}\)</span>, es equivalente a la matriz <span class="math">\(B \in \mathbb K^{n\times m}\)</span> si aplicando las operaciones elementales detalladas en el método de eliminación de Gauss sobre <span class="math">\(A\)</span> se obtiene <span class="math">\(B\)</span>. Se nota:</p>
+<div class="math">
+\[
 A\sim B
-\]</span> Esta relación es de equivalencia, por lo que:</p>
+\]</div>
+<p>Esta relación es de equivalencia, por lo que:</p>
 <ul>
-<li><span class="math inline">\(A\sim A\)</span></li>
-<li><span class="math inline">\(A\sim B \Rightarrow B\sim A\)</span></li>
-<li><span class="math inline">\(A\sim B \land B\sim C \rightarrow A\sim C\)</span></li>
+<li><span class="math">\(A\sim A\)</span></li>
+<li><span class="math">\(A\sim B \Rightarrow B\sim A\)</span></li>
+<li>$A\sim B \land B\sim C \rightarrow A\sim C $</li>
 </ul>
-<h3 id="aplicación-a-sist.-de-ecuaciones">Aplicación a Sist. de Ecuaciones</h3>
-<p>Si <span class="math inline">\([A|B]\)</span> y <span class="math inline">\([A&#39;|B&#39;]\)</span> son las matrices aplicadas de dos sistemas de <span class="math inline">\(n\)</span> ecuaciones y <span class="math inline">\(m\)</span> incógnitas, y e cumple que <span class="math inline">\([A|B]\sim[A&#39;|B&#39;]\)</span>, entonces los sistemas de ecuaciones tienen la misma solucion.</p>
+<h3 id="aplicacion-a-sist.de-ecuaciones">Aplicación a Sist. de Ecuaciones</h3>
+<p>Si <span class="math">\([A|B]\)</span> y <span class="math">\([A'|B']\)</span> son las matrices aplicadas de dos sistemas de <span class="math">\(n\)</span> ecuaciones y <span class="math">\(m\)</span> incógnitas, y e cumple que <span class="math">\([A|B]\sim[A'|B']\)</span>, entonces los sistemas de ecuaciones tienen la misma solucion.</p>
 <h2 id="matrices-escalonadas-y-reducidas">Matrices Escalonadas y Reducidas</h2>
-<p>La matriz <span class="math inline">\(A\in\mathbb K^{n\times m}\)</span> esta de forma escalonada si cumple con:</p>
+<p>La matriz <span class="math">\(A\in\mathbb K^{n\times m}\)</span> esta de forma escalonada si cumple con:</p>
 <ul>
 <li>El primer coeficiente no nulo de la izquierda de una fila no nula es 1 (Se lo denomina 1 principal).</li>
 <li>El uno principal de la fila superior siempre esta a la izquierda del de la fila inferior.</li>
@@ -1607,21 +1487,25 @@ A\sim B
 <li>En la columna del 1 principal, el resto de los coeficientes es 0.</li>
 </ul>
 <h3 id="teorema-1">Teorema</h3>
-<p>Sea <span class="math inline">\(A\in\mathbb K^{n\times m} \Rightarrow \exists!B\in\mathbb K^{n\times m}\)</span> de forma escalonada reducida tal que: <span class="math display">\[
+<p>Sea <span class="math">\(A\in\mathbb K^{n\times m} \Rightarrow \exists!B\in\mathbb K^{n\times m}\)</span> de forma escalonada reducida tal que:</p>
+<div class="math">
+\[
 A\sim B
-\]</span></p>
+\]</div>
 <h2 id="rango-de-una-matriz">Rango de una Matriz</h2>
-<p>Sea <span class="math inline">\(A \in \mathbb K^{n\times m}\)</span>, el rango de A <span class="math inline">\(R(A)\)</span> es el numero de 1s principales que tiene la forma escalonada reducida de <span class="math inline">\(A\)</span>.</p>
+<p>Sea <span class="math">\(A \in \mathbb K^{n\times m}\)</span>, el rango de A <span class="math">\(R(A)\)</span> es el numero de 1s principales  que tiene la forma escalonada reducida de <span class="math">\(A\)</span>.</p>
 <p>Por lo general:</p>
-<ol type="1">
-<li>Si <span class="math inline">\(A,B\in \mathbb K^{n\times m}/~~A=[A_1A_2]~~,~~B=[B_1B_2]\)</span>, con <span class="math inline">\(A_1,B_1 \in \mathbb K^{n\times m_1}\)</span>, <span class="math inline">\(A_2,B_2\in \mathbb K^{n\times (m-m_1)}\)</span>, si <span class="math inline">\(A\sim B\)</span>, entonces:</li>
+<ol>
+<li>Si $A,B\in \mathbb K^{n\times m}/<del>A=[A_1A_2]</del>,~~B=[B_1B_2] $, con <span class="math">\(A_1,B_1 \in \mathbb K^{n\times m_1}\)</span>, <span class="math">\(A_2,B_2\in \mathbb K^{n\times (m-m_1)}\)</span>, si <span class="math">\(A\sim B\)</span>, entonces:</li>
 </ol>
-<p><span class="math display">\[
+<div class="math">
+\[
 A_1\sim B_1~~~~~~A_2 \sim B_2 
-\]</span></p>
-<ol start="2" type="1">
-<li>Si <span class="math inline">\(E = [E_1E_2]\)</span>, con <span class="math inline">\(E_1\in \mathbb K^{n\times m_1}\)</span> y <span class="math inline">\(E_2\in \mathbb K^{n\times (m-m_1)}\)</span>, <span class="math inline">\(E\)</span> es de forma escalonada reducida, por lo que <span class="math inline">\(E_1\)</span> es de forma escalonada reducida, y <span class="math inline">\([A_1A_2]\sim[E_1E_2]\)</span>, entonces:</li>
+\]</div>
+<ol start="2">
+<li>Si <span class="math">\(E = [E_1E_2]\)</span>, con <span class="math">\(E_1\in \mathbb K^{n\times m_1}\)</span> y <span class="math">\(E_2\in \mathbb K^{n\times (m-m_1)}\)</span>, <span class="math">\(E\)</span> es de forma escalonada reducida, por lo que <span class="math">\(E_1\)</span> es de forma escalonada reducida, y <span class="math">\([A_1A_2]\sim[E_1E_2]\)</span>, entonces:</li>
 </ol>
-<p><span class="math inline">\(E_1\)</span> es la forma escalonada reducida equivalente a <span class="math inline">\(A_1\)</span>.</p>
+<p><span class="math">\(E_1\)</span> es la forma escalonada reducida equivalente a <span class="math">\(A_1\)</span>.</p>
+
 </body>
 </html>

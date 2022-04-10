@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>06 - Properties of Regular Languages</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>06 - Properties of Regular Languages.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,81 +1385,118 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="properties-of-regular-languages">Properties of Regular Languages</h1>
 <h2 id="pumping-lemma">Pumping Lemma</h2>
-<p>Let <span class="math inline">\(L\)</span> be a regular language, then for language <span class="math inline">\(L\)</span> there exists a constant <span class="math inline">\(p\ge 1\)</span> such that for every sentence <span class="math inline">\(w \in L\)</span> it holds that, if <span class="math inline">\(|w| \ge p\)</span>, then <span class="math inline">\(w\)</span> has the form <span class="math inline">\(w=xyz\)</span> such that:</p>
+<p>Let <span class="math">\(L\)</span> be a regular language, then for language <span class="math">\(L\)</span> there exists a constant <span class="math">\(p\ge 1\)</span> such that for every sentence <span class="math">\(w \in L\)</span> it holds that, if <span class="math">\(|w| \ge p\)</span>, then <span class="math">\(w\)</span> has the form <span class="math">\(w=xyz\)</span> such that:</p>
 <ul>
-<li><span class="math inline">\(y \not = \epsilon\)</span></li>
-<li><span class="math inline">\(|xy| \le p\)</span></li>
-<li><span class="math inline">\(\forall k \ge 0 / xy^kz \in L\)</span></li>
+<li><span class="math">\(y \not = \epsilon\)</span></li>
+<li><span class="math">\(|xy| \le p\)</span></li>
+<li><span class="math">\(\forall k \ge 0 / xy^kz \in L\)</span></li>
 </ul>
 <p>We will use this lemma to <strong>prove that languages are not regular</strong>. To do this we are going to use the counter-reciprocal method:</p>
-<ol type="1">
-<li><p>We assume that the language <span class="math inline">\(L\)</span> is regular, and because of this it must hold the pumping property and the counter-reciprocal: <span class="math display">\[
+<ol>
+<li><p>We assume that the language <span class="math">\(L\)</span> is regular, and because of this it must hold the pumping property and the counter-reciprocal:</p>
+<div class="math">
+\[
 \forall p \ge 1. \exists w \in L/ |w| \ge p \land\\ 
 \forall x,y,x\in \Sigma^*.[(w = xyz \land |xy| \le p \land |y| \ge 1) \Rightarrow
 \exists k \ge 0. xy^kz \not\in L]
-\]</span></p></li>
-<li><p>We have to look for a convenient word <span class="math inline">\(w\)</span> such that <span class="math inline">\(|w| \ge p\)</span></p></li>
-<li><p>We need to split <span class="math inline">\(w\)</span> into <span class="math inline">\(xyz\)</span> and all its possible partitions. If the recursive part of the word has a sequence before it, then there are <span class="math inline">\(2^n\)</span> partitions, where <span class="math inline">\(n\)</span> is the size of the prefix.</p></li>
-<li><p>We need to find <span class="math inline">\(k\)</span> such that <span class="math inline">\(w_k = xy^kz \not\in L\)</span></p></li>
-<li><p><span class="math inline">\(L\)</span> is regular but the pumping property is not met, this is absurd and it means that our assumption is wrong, meaning the language <span class="math inline">\(L\)</span> is not regular.</p></li>
+\]</div>
+</li>
+<li><p>We have to look for a convenient word <span class="math">\(w\)</span> such that <span class="math">\(|w| \ge p\)</span></p>
+</li>
+<li><p>We need to split <span class="math">\(w\)</span> into <span class="math">\(xyz\)</span> and all its possible partitions. If the recursive part of the word has a sequence before it, then there are <span class="math">\(2^n\)</span> partitions, where <span class="math">\(n\)</span> is the size of the prefix.</p>
+</li>
+<li><p>We need to find <span class="math">\(k\)</span> such that <span class="math">\(w_k = xy^kz \not\in L\)</span></p>
+</li>
+<li><p><span class="math">\(L\)</span> is regular but the pumping property is not met, this is absurd and it means that our assumption is wrong, meaning the language <span class="math">\(L\)</span> is not regular.</p>
+</li>
 </ol>
-<p>We can also look for the smallest value of <span class="math inline">\(p\)</span> valid. This depends on the language:</p>
+<p>We can also look for the smallest value of <span class="math">\(p\)</span> valid. This depends on the language:</p>
 <ul>
-<li>If it is a finite language, then the smallest value of <span class="math inline">\(p\)</span> is the same as the length of the longest word <span class="math inline">\(+1\)</span>.</li>
-<li>If the language is infinite, then <span class="math inline">\(p\)</span> is the value for which all <span class="math inline">\(w_k\)</span> is valid. Also we can construct the minimal finite automaton and then the number of states is equal to <span class="math inline">\(p\)</span>.</li>
+<li>If it is a finite language, then the smallest value of <span class="math">\(p\)</span> is the same as the length of the longest word <span class="math">\(+1\)</span>.</li>
+<li>If the language is infinite, then <span class="math">\(p\)</span> is the value for which all <span class="math">\(w_k\)</span> is valid. Also we can construct the minimal finite automaton and then the number of states is equal to <span class="math">\(p\)</span>.</li>
 </ul>
 <h2 id="myhill-nerode-theorem">Myhill-Nerode Theorem</h2>
-<p>This theorem characterizes the fundamental relationships between finite automata over alphabet <span class="math inline">\(\Sigma\)</span> and certain equivalence relations over strings in <span class="math inline">\(\Sigma^*\)</span>. It describes some of the necessary and sufficient conditions for a language to be regular and it provides a formal basis for an elegant proof of existence of a unique minimal DFA for a given regular language.</p>
+<p>This theorem characterizes the fundamental relationships between finite automata over alphabet <span class="math">\(\Sigma\)</span> and certain equivalence relations over strings in <span class="math">\(\Sigma^*\)</span>. It describes some of the necessary and sufficient conditions for a language to be regular and it provides a formal basis for an elegant proof of existence of a unique minimal DFA for a given regular language.</p>
 <p>We will go over some necessary definitions for this topic:</p>
 <ul>
-<li><p><strong>Equivalence (~)</strong> is a binary relation that is reflexive, symmetric and transitive.</p></li>
-<li><p><strong>Equivalence Class</strong> of an element <span class="math inline">\(a\)</span> (denoted as <span class="math inline">\([a]\)</span>) in the set <span class="math inline">\(X\)</span> is the subset of all the elements in <span class="math inline">\(X\)</span> that are equivalent to <span class="math inline">\(a\)</span>.</p></li>
-<li><p><strong>Quotient Set</strong> is the set of all equivalence classes in <span class="math inline">\(X\)</span>. It is denoted as <span class="math inline">\(X\setminus \sim\)</span></p></li>
-<li><p><strong>Index of Equivalence</strong> is the number of equivalence classes in the quotient set <span class="math inline">\(\Sigma\setminus\sim\)</span>. If there are infinitely many equivalence classes, the index is defined to be <span class="math inline">\(\infty\)</span>.</p></li>
-<li><p><strong>Right Congruence</strong>: Let <span class="math inline">\(\Sigma\)</span> be an alphabet ant <span class="math inline">\(\sim\)</span> an equivalence on <span class="math inline">\(\Sigma^*\)</span>. The equivalence <span class="math inline">\(\sim\)</span> is a right congruence if: <span class="math display">\[
+<li><p><strong>Equivalence (~)</strong> is a binary relation that is reflexive, symmetric and transitive.</p>
+</li>
+<li><p><strong>Equivalence Class</strong> of an element <span class="math">\(a\)</span> (denoted as <span class="math">\([a]\)</span>) in the set <span class="math">\(X\)</span> is the subset of all the elements in <span class="math">\(X\)</span> that are equivalent to <span class="math">\(a\)</span>.</p>
+</li>
+<li><p><strong>Quotient Set</strong> is the set of all equivalence classes in <span class="math">\(X\)</span>. It is denoted as <span class="math">\(X\setminus \sim\)</span></p>
+</li>
+<li><p><strong>Index of Equivalence</strong> is the number of equivalence classes in the quotient set <span class="math">\(\Sigma\setminus\sim\)</span>. If there are infinitely many equivalence classes, the index is defined to be <span class="math">\(\infty\)</span>.</p>
+</li>
+<li><p><strong>Right Congruence</strong>: Let <span class="math">\(\Sigma\)</span> be an alphabet ant <span class="math">\(\sim\)</span> an equivalence on <span class="math">\(\Sigma^*\)</span>. The equivalence <span class="math">\(\sim\)</span> is a right congruence if:</p>
+<div class="math">
+\[
 u \sim v \Rightarrow uw \sim vw,~~ \forall u,v,w \in \Sigma^*
-\]</span></p></li>
-<li><p><strong>Prefix Equivalence</strong>: Let <span class="math inline">\(L\)</span> be an arbitrary language over alphabet <span class="math inline">\(\Sigma\)</span>, We define prefix equivalence for <span class="math inline">\(L\)</span>, a relation <span class="math inline">\(\sim_L\)</span> on the set <span class="math inline">\(\Sigma^*\)</span> as: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Prefix Equivalence</strong>: Let <span class="math">\(L\)</span> be an arbitrary language over alphabet <span class="math">\(\Sigma\)</span>, We define prefix equivalence for <span class="math">\(L\)</span>, a relation <span class="math">\(\sim_L\)</span> on the set <span class="math">\(\Sigma^*\)</span> as:</p>
+<div class="math">
+\[
 u \sim_L v \iff \forall w \in \Sigma^*/ uw \in L \iff vw \in L
-\]</span> For each language <span class="math inline">\(L\)</span> its prefix equivalence is its right congruence.</p></li>
+\]</div>
+<p>For each language <span class="math">\(L\)</span> its prefix equivalence is its right congruence.</p>
+</li>
 </ul>
 <p>The <strong>Myhill-Nerode</strong> Theorem says as follows:</p>
-<blockquote>
-<p>Let <span class="math inline">\(L\)</span> be a language over <span class="math inline">\(\Sigma\)</span>, the following statements are equivalent:</p>
-<ol type="1">
-<li><p><span class="math inline">\(L\)</span> is a language accepted by a finite automaton</p></li>
-<li><p><span class="math inline">\(L\)</span> is a union of certain equivalence classes of the quotient set of <span class="math inline">\(\Sigma^*\)</span> by the right congruence on <span class="math inline">\(\Sigma^*\)</span> with a finite index.</p></li>
-<li><p>The relation <span class="math inline">\(\sim_L\)</span> has a finite index.</p></li>
+<blockquote class="blockquote">
+<p>Let <span class="math">\(L\)</span> be a language over <span class="math">\(\Sigma\)</span>, the following statements are equivalent:</p>
+<ol>
+<li><p><span class="math">\(L\)</span> is a language accepted by a finite automaton</p>
+</li>
+<li><p><span class="math">\(L\)</span> is a union of certain equivalence classes of the quotient set of <span class="math">\(\Sigma^*\)</span> by the right congruence on <span class="math">\(\Sigma^*\)</span> with a finite index.</p>
+</li>
+<li><p>The relation <span class="math">\(\sim_L\)</span> has a finite index.</p>
+</li>
 </ol>
 </blockquote>
-<p>To prove this theorem we have to do it in the following way: <span class="math display">\[
+<p>To prove this theorem we have to do it in the following way:</p>
+<div class="math">
+\[
 1 \Rightarrow 2\\
 2 \Rightarrow 3 \\
 3 \Rightarrow 1
-\]</span> To use this theorem to prove the irregularity of a language, we need to fin an example where the language fails to hold any of those 3 statements. If we can find it, we can say that the language is not regular.</p>
+\]</div>
+<p>To use this theorem to prove the irregularity of a language, we need to fin an example where the language fails to hold any of those 3 statements. If we can find it, we can say that the language is not regular.</p>
 <p>There is a second version of this theorem:</p>
-<blockquote>
-<p>The number of states of any minimal DFA accepting <span class="math inline">\(L\)</span> is equal to the index of <span class="math inline">\(\sim_L\)</span>.</p>
+<blockquote class="blockquote">
+<p>The number of states of any minimal DFA accepting <span class="math">\(L\)</span> is equal to the index of <span class="math">\(\sim_L\)</span>.</p>
 </blockquote>
 <h3 id="proving-that-a-language-is-not-regular">Proving that a language is not regular</h3>
-<p>Often the key for proving that a language is not regular with the Myhill-Nerode Theorem is to prove that the second property isn’t valid for a given language. We can follow this steps:</p>
-<ol type="1">
-<li><p>I will assume that the language <span class="math inline">\(L\)</span> is regular, meaning that the Myhill-Nerode theorem applies.</p></li>
-<li><p>I will enumerate <span class="math inline">\(k+1\)</span> convenient words: <span class="math display">\[
+<p>Often the key for proving that a language is not regular with the Myhill-Nerode Theorem is to prove that the second property isn't valid for a given language. We can follow this steps:</p>
+<ol>
+<li><p>I will assume that the language <span class="math">\(L\)</span> is regular, meaning that the Myhill-Nerode theorem applies.</p>
+</li>
+<li><p>I will enumerate <span class="math">\(k+1\)</span> convenient words:</p>
+<div class="math">
+\[
 W = \{w_1,\dots,w_{k+1}\}
-\]</span></p></li>
-<li><p>Because there are only <span class="math inline">\(k\)</span> equivalence classes and I’m choosing <span class="math inline">\(k+1\)</span> words, some words must be in the same equivalence class: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Because there are only <span class="math">\(k\)</span> equivalence classes and I'm choosing <span class="math">\(k+1\)</span> words, some words must be in the same equivalence class:</p>
+<div class="math">
+\[
 \exists i,j \in \{1,k+1\}. w_i \sim w_j  \Rightarrow w_iv \sim w_jv ~~\forall v
-\]</span></p></li>
-<li><p>Now I have to find a word <span class="math inline">\(v\)</span> such that: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Now I have to find a word <span class="math">\(v\)</span> such that:</p>
+<div class="math">
+\[
 w_iv \in L \land w_jv \not\in L
-\]</span></p></li>
-<li><p>From one side, the Language is regular and because of that the MN theorem applies. On the other side, the second proposition of the theorem is not valid for the language <span class="math inline">\(L\)</span>. This is an absurd conclusion and it means that our initial assumption is incorrect. So <span class="math inline">\(L\)</span> is not regular.</p></li>
+\]</div>
+</li>
+<li><p>From one side, the Language is regular and because of that the MN theorem applies. On the other side,  the second proposition of the theorem is not valid for the language <span class="math">\(L\)</span>. This is an absurd conclusion and it means that our initial assumption is incorrect. So <span class="math">\(L\)</span> is not regular.</p>
+</li>
 </ol>
+
 </body>
 </html>

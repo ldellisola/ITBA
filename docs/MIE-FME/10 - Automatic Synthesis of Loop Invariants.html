@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>10 - Automatic Synthesis of Loop Invariants</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>10 - Automatic Synthesis of Loop Invariants.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,113 +1385,156 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="automatic-synthesis-of-loop-invariants">Automatic Synthesis of Loop Invariants</h1>
 <h2 id="weakest-preconditions">Weakest Preconditions</h2>
-<p>A formula <span class="math inline">\(I\)</span> is a <strong>precondition</strong> of a program <span class="math inline">\(P\)</span> and a formula <span class="math inline">\(O\)</span> if:</p>
+<p>A formula <span class="math">\(I\)</span> is a <strong>precondition</strong> of a program <span class="math">\(P\)</span> and a formula <span class="math">\(O\)</span> if:</p>
 <ul>
-<li>Every free variable of <span class="math inline">\(I\)</span> is a program variable of <span class="math inline">\(P\)</span></li>
-<li>The program <span class="math inline">\(\bold{\text{assume }} I;P;@O\)</span> is correct</li>
+<li>Every free variable of <span class="math">\(I\)</span> is a program variable of <span class="math">\(P\)</span></li>
+<li>The program <span class="math">\(\bold{\text{assume }} I;P;@O\)</span> is correct</li>
 </ul>
-<p>Every precondition <span class="math inline">\(I\)</span> of a program <span class="math inline">\(P\)</span> and a formula <span class="math inline">\(O\)</span> is a <strong>weakest precondition</strong> of <span class="math inline">\(P\)</span> and <span class="math inline">\(O\)</span> if for every precondition <span class="math inline">\(I&#39;\)</span> of <span class="math inline">\(P\)</span> and <span class="math inline">\(O\)</span>: <span class="math display">\[
-\models I&#39; \implies I
-\]</span></p>
+<p>Every precondition <span class="math">\(I\)</span> of a program <span class="math">\(P\)</span> and a formula <span class="math">\(O\)</span> is a <strong>weakest precondition</strong> of <span class="math">\(P\)</span> and <span class="math">\(O\)</span> if for every precondition <span class="math">\(I'\)</span> of <span class="math">\(P\)</span> and <span class="math">\(O\)</span>:</p>
+<div class="math">
+\[
+\models I' \implies I
+\]</div>
 <h3 id="computation">Computation</h3>
-<p>We can see the weakest precondition in quantified form: <span class="math display">\[
+<p>We can see the weakest precondition in quantified form:</p>
+<div class="math">
+\[
 \forall \vec v. \text{VC}(P;@O)
-\]</span> Where <span class="math inline">\(\vec v\)</span> is a tuple of the auxiliary variables of <span class="math inline">\(\text{VC}(P;@O)\)</span>. From here we have to remove the quantifiers corresponding to the variables introduced by assignments. This is a very difficult problem, but the idea is to start from the formula <span class="math inline">\(\phi\)</span> and to find a formula <span class="math inline">\(\phi&#39;\)</span> such that <span class="math inline">\(\models \phi \iff \phi&#39;\)</span> but that is quantifier free.</p>
+\]</div>
+<p>Where <span class="math">\(\vec v\)</span> is a tuple of the auxiliary variables of <span class="math">\(\text{VC}(P;@O)\)</span>. From here we have to remove the quantifiers corresponding to the variables introduced by assignments. This is a very difficult problem, but the idea is to start from the formula <span class="math">\(\phi\)</span> and to find a formula <span class="math">\(\phi'\)</span> such that <span class="math">\(\models \phi \iff \phi'\)</span> but that is quantifier free.</p>
 <p>For example, we have the program:</p>
-<pre class="pseudocode"><code>input x
-@ x * x + a &gt;= 1</code></pre>
-<p>We can compute the weakest precondition as: <span class="math display">\[
+<pre><code class="language-pseudocode">input x
+@ x * x + a &gt;= 1
+</code></pre>
+<p>We can compute the weakest precondition as:</p>
+<div class="math">
+\[
 \forall x. \ x^2 + a \ge 1\\
 \forall x.\ x^2 \ge 1-a \\
 0 \ge 1-a\\
 a \ge 1
-\]</span></p>
+\]</div>
 <h2 id="strongest-postconditions">Strongest Postconditions</h2>
-<p>A formula <span class="math inline">\(O\)</span> is a <strong>postcondition</strong> of a program <span class="math inline">\(P\)</span> and a formula <span class="math inline">\(I\)</span> if:</p>
+<p>A formula <span class="math">\(O\)</span> is a <strong>postcondition</strong> of a program <span class="math">\(P\)</span> and a formula <span class="math">\(I\)</span> if:</p>
 <ul>
-<li>Every free variable of <span class="math inline">\(O\)</span> is a program variable of <span class="math inline">\(P\)</span></li>
-<li>The program <span class="math inline">\(\bold{\text{assume }}I;P;@O\)</span> is correct</li>
+<li>Every free variable of <span class="math">\(O\)</span> is a program variable of <span class="math">\(P\)</span></li>
+<li>The program <span class="math">\(\bold{\text{assume }}I;P;@O\)</span> is correct</li>
 </ul>
-<p>Every postcondition <span class="math inline">\(O\)</span> of a program <span class="math inline">\(P\)</span> and a formula <span class="math inline">\(I\)</span> is a <strong>strongest postcondition</strong> of <span class="math inline">\(P\)</span> and <span class="math inline">\(I\)</span> if for every postcondition <span class="math inline">\(O&#39;\)</span> of <span class="math inline">\(P\)</span> and <span class="math inline">\(I\)</span>: <span class="math display">\[
-\models O \implies O&#39;
-\]</span></p>
+<p>Every postcondition <span class="math">\(O\)</span> of a program <span class="math">\(P\)</span> and a formula <span class="math">\(I\)</span> is a <strong>strongest postcondition</strong> of <span class="math">\(P\)</span> and <span class="math">\(I\)</span> if for every postcondition <span class="math">\(O'\)</span> of <span class="math">\(P\)</span> and <span class="math">\(I\)</span>:</p>
+<div class="math">
+\[
+\models O \implies O'
+\]</div>
 <h3 id="computation-1">Computation</h3>
-<p>We can see the strongest postcondition in quantifies for, with indexed variables is: <span class="math display">\[
+<p>We can see the strongest postcondition in quantifies for, with indexed variables is:</p>
+<div class="math">
+\[
 \exists \vec v.\ F_{\text{pre}}(\bold{\text{assume }}I;P)
-\]</span> Where <span class="math inline">\(\vec v\)</span> is a tuple of the variables in <span class="math inline">\(F_{\text{pre}}(\bold{\text{assume }}I;P)\)</span> not corresponding to the final value. Now we just need to get rid of the quantifiers. Here’s an example:</p>
-<pre class="pseudocode"><code>assume x &gt;= 10
+\]</div>
+<p>Where <span class="math">\(\vec v\)</span> is a tuple of the variables in <span class="math">\(F_{\text{pre}}(\bold{\text{assume }}I;P)\)</span> not corresponding to the final value. Now we just need to get rid of the quantifiers. Here's an example:</p>
+<pre><code class="language-pseudocode">assume x &gt;= 10
 y &lt;- x
 x &lt;- -10
 z &lt;- x + y
-@ O(x,y,z)</code></pre>
-<p>We can execute the program before the assertion if: <span class="math display">\[
+@ O(x,y,z)
+</code></pre>
+<p>We can execute the program before the assertion if:</p>
+<div class="math">
+\[
 x\ge 10 \land y_1 = x \land x_1 = -10 \land z_1 = x_1 + y_1
-\]</span> is satisfiable. We can define <span class="math inline">\(O\)</span> as: <span class="math display">\[
+\]</div>
+<p>is satisfiable. We can define <span class="math">\(O\)</span> as:</p>
+<div class="math">
+\[
 \exists x,y,z. [x \ge 10 \land y_1 = x \land x_1 = -10 \land z_1 = x_1 + y_1 ]
-\]</span> We can add one more constraint based on these ones: <span class="math display">\[
+\]</div>
+<p>We can add one more constraint based on these ones:</p>
+<div class="math">
+\[
 \exists x,y,z. [x \ge 10 \land y_1 = x \land y_1 \ge 10\land x_1 = -10 \land z_1 = x_1 + y_1 ]
-\]</span> and now we can remove the quantifiers: <span class="math display">\[
+\]</div>
+<p>and now we can remove the quantifiers:</p>
+<div class="math">
+\[
  y_1 \ge 10 \land x_1 = -10 \land z_1 = x_1 + y_1 
-\]</span></p>
+\]</div>
 <h2 id="loop-invariant-computation">Loop Invariant Computation</h2>
 <p>The loops invariants have to hold on three verification conditions:</p>
-<ol type="1">
+<ol>
 <li>Hold in the first loop iteration.</li>
 <li>If it holds, and the loop is re-entered, then it must hold again.</li>
 <li>If it holds and the loop is left, then the assertion after the loop must hold.</li>
 </ol>
 <h3 id="forward-direction">Forward Direction</h3>
-<p>When we are calculating the loop invariant in a forward direction, we need to calculate the strongest postcondition. The loop invariant will be composed with 3 formulas united by <span class="math inline">\(\lor\)</span>, where each formula represents the strongest postcondition for each basic path.</p>
-<p>This approach is based on iteratively adding (using disjunctions) strongest postconditions, with the strongest possible assertion after <span class="math inline">\(0,1,2,\dots\)</span> loop iterations.</p>
+<p>When we are calculating the loop invariant in a forward direction, we need to calculate the strongest postcondition. The loop invariant will be composed with 3 formulas united by <span class="math">\(\lor\)</span>, where each formula represents the strongest postcondition for each basic path.</p>
+<p>This approach is based on iteratively adding (using disjunctions) strongest postconditions, with the strongest possible assertion after <span class="math">\(0,1,2,\dots\)</span> loop iterations.</p>
 <p>For example, if we have the program:</p>
-<pre class="pseudocode"><code>r &lt;- False
+<pre><code class="language-pseudocode">r &lt;- False
 for i &lt;- 1 to n do:
-    @ ??
-    if a[i] = 7 then:
-        r &lt;- True
-@ r &lt;=&gt; [Exists k. 1 &lt;= k &lt;= n AND  a[k] = 7]</code></pre>
+	@ ??
+	if a[i] = 7 then:
+		r &lt;- True
+@ r &lt;=&gt; [Exists k. 1 &lt;= k &lt;= n AND  a[k] = 7]
+</code></pre>
 <p>We have the following basic paths:</p>
-<pre class="pseudocode"><code>t &lt;- False
-ASSUME i = 1</code></pre>
-<p>The strongest postcondition is: <span class="math display">\[
+<pre><code class="language-pseudocode">t &lt;- False
+ASSUME i = 1
+</code></pre>
+<p>The strongest postcondition is:</p>
+<div class="math">
+\[
 i = 1 \land \neg r
-\]</span> Now our program looks like this:</p>
-<pre class="pseudocode"><code>r &lt;- False
+\]</div>
+<p>Now our program looks like this:</p>
+<pre><code class="language-pseudocode">r &lt;- False
 for i &lt;- 1 to n do:
-    @ [i=1 AND NOT r]
-    if a[i] = 7 then:
-        r &lt;- True
-@ r &lt;=&gt; [Exists k. 1 &lt;= k &lt;= n AND  a[k] = 7]</code></pre>
+	@ [i=1 AND NOT r]
+	if a[i] = 7 then:
+		r &lt;- True
+@ r &lt;=&gt; [Exists k. 1 &lt;= k &lt;= n AND  a[k] = 7]
+</code></pre>
 <p>And we will look into the basic paths that stay within the loop:</p>
-<pre class="pseudocode"><code>ASSUME i = 1 AND NOT r
+<pre><code class="language-pseudocode">ASSUME i = 1 AND NOT r
 ASSUME a[i] = 7
 r &lt;- True
-i&lt;- i + 1</code></pre>
-<p>The strongest postcondition is: <span class="math display">\[
+i&lt;- i + 1
+</code></pre>
+<p>The strongest postcondition is:</p>
+<div class="math">
+\[
 a[i] = 7 \land r \land i = 2
-\]</span></p>
-<pre class="pseudocode"><code>ASSUME i = 1 AND NOT r
+\]</div>
+<pre><code class="language-pseudocode">ASSUME i = 1 AND NOT r
 ASSUME a[i] != 7
-i&lt;- i + 1</code></pre>
-<p>The strongest postcondition is: <span class="math display">\[
+i&lt;- i + 1
+</code></pre>
+<p>The strongest postcondition is:</p>
+<div class="math">
+\[
 a[1] \neq 7 \land \neg r \land i=2
-\]</span> So the program will look like:</p>
-<pre class="pseudocode"><code>r &lt;- False
+\]</div>
+<p>So the program will look like:</p>
+<pre><code class="language-pseudocode">r &lt;- False
 for i &lt;- 1 to n do:
-    @ [i=1 AND NOT r] OR [a[1] = 7 AND r AND i=2] OR [a[1] != 7 ANd NOT r AND i=2]
-    if a[i] = 7 then:
-        r &lt;- True
-@ r &lt;=&gt; [Exists k. 1 &lt;= k &lt;= n AND  a[k] = 7]</code></pre>
-<p>We can start to see a pattern. It looks like the invariant will look like: <span class="math display">\[
+	@ [i=1 AND NOT r] OR [a[1] = 7 AND r AND i=2] OR [a[1] != 7 ANd NOT r AND i=2]
+	if a[i] = 7 then:
+		r &lt;- True
+@ r &lt;=&gt; [Exists k. 1 &lt;= k &lt;= n AND  a[k] = 7]
+</code></pre>
+<p>We can start to see a pattern. It looks like the invariant will look like:</p>
+<div class="math">
+\[
 r \iff [\exists k. 1 \le k \le i-1 \land a[k] = 7]
-\]</span></p>
+\]</div>
 <h3 id="backward-direction">Backward Direction</h3>
 <p>We can also place the invariant after the <code>if</code>, for this process we can use the weakest precondition, to ensure that the result is correct when we leave the loop.</p>
-<p>The process iteratively adds (using conjunctions) the weakest preconditions to ensure the correct result after <span class="math inline">\(0,1,2,\dots\)</span> loop iterations.</p>
+<p>The process iteratively adds (using conjunctions) the weakest preconditions to ensure the correct result after <span class="math">\(0,1,2,\dots\)</span> loop iterations.</p>
+
 </body>
 </html>

@@ -1,153 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>08 - Architecture and Design</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>08 - Architecture and Design.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -156,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -213,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -277,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -360,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -379,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -401,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -498,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -590,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -631,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -674,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -861,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -917,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1240,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1365,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1522,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="architecture-and-design">Architecture and Design</h1>
@@ -1541,138 +1405,137 @@ blockquote {
 <li><strong>Opacity</strong>: disorganized expression.</li>
 </ul>
 <h2 id="design-principles">Design Principles</h2>
-<p>While the following are not patterns to implement in your code, they are principles that you should respect to maintain a good design. They don’t try to solve a specific problem but the overall structure of the program.</p>
+<p>While the following are not patterns to implement in your code, they are principles that you should respect to maintain a good design. They don't try to solve a specific problem but the overall structure of the program.</p>
 <ul>
 <li><p><strong>DRY</strong></p>
-<p>Do not Repeat Yourself. Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</p></li>
+<p>Do not Repeat Yourself. Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</p>
+</li>
 <li><p><strong>KISS</strong></p>
-<p>Keep It Simple, Stupid. Simple code is often less code, and it takes less time to write, has less bugs and is easier to modify. Extra complexity should be avoided.</p></li>
+<p>Keep It Simple, Stupid. Simple code is often less code, and it takes less time to write, has less bugs and is easier to modify. Extra complexity should be avoided.</p>
+</li>
 <li><p><strong>SoC</strong></p>
-<p>Separation of Concerns tries to separate a computer program into distinct sections such that each addresses a separate concern. Programs that employ this principle are called modular and they are achieved by encapsulating information and hiding it behind an interface.</p></li>
+<p>Separation of Concerns tries to separate a computer program into distinct sections such that each addresses a separate concern. Programs that employ this principle are called modular and they are achieved by encapsulating information and hiding it behind an interface.</p>
+</li>
 <li><p><strong>YAGNI</strong></p>
-<p>You Aren’t Going to Need It. A programmer should only add the needed functionality and abstain to add anything else.</p></li>
+<p>You Aren't Going to Need It. A programmer should only add the needed functionality and abstain to add anything else.</p>
+</li>
 <li><p><strong>Law of Demter</strong></p>
-<p>Each unit should only have limited knowledge about other units. In OOP terms, a class can only call its methods and not the methods of their variables.</p></li>
+<p>Each unit should only have limited knowledge about other units. In OOP terms, a class can only call its methods and not the methods of their variables.</p>
+</li>
 <li><p><strong>ZOI Rule</strong></p>
-<p>The Zero One Infinity rule talks about setting an arbitrary limit to the number of instances of a particular entity. This rule says that you can either have 0 instances, 1 instance or infinite instances.</p></li>
+<p>The Zero One Infinity rule talks about setting an arbitrary limit to the number of instances of a particular entity. This rule says that you can either have 0 instances, 1 instance or infinite instances.</p>
+</li>
 <li><p><strong>SOLID</strong></p>
 <p>SOLID stands for a set of principles that complement each other well:</p>
 <ul>
 <li><u><strong>S</strong>ingle Responsibility Principle (SRP)</u>: Each class should handle 1 thing or have one responsibility. If they have more they should be split into two or more.</li>
-<li><u><strong>O</strong>pen-Closed Principle (OCP)</u>: Classes should be open for extension, but closed for modification. This means that you can add functionality to a class by extending, but you shouldn’t modify it.</li>
+<li><u><strong>O</strong>pen-Closed Principle (OCP)</u>: Classes should be open for extension, but closed for modification. This means that you can add functionality to a class by extending, but you shouldn't modify it.</li>
 <li><u><strong>L</strong>iskov Substitution Principle</u>: Subtypes must be substitutable for their base types in structural way and also in a behavioral way.</li>
-<li><u><strong>I</strong>nterface Segregation Principle (ISP)</u>: Clients should not be forced to depend on methods that they don’t use. The clients should receive interfaces only with the necessary methods.</li>
+<li><u><strong>I</strong>nterface Segregation Principle (ISP)</u>: Clients should not be forced to depend on methods that they don't use. The clients should receive interfaces only with the necessary methods.</li>
 <li><u><strong>D</strong>ependency-Inversion Principle (DIP)</u>: The main idea here is that high level modules should not depend on low level modules, both must depend on abstractions.</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <h2 id="design-patterns">Design Patterns</h2>
 <h3 id="mvc">MVC</h3>
 <p>MVC or Model View Controller is an architectural pattern that decouples interactive applications into 3 components.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201210200708420.png" alt="image-20201210200708420" style="zoom:50%;" /></p>
-<p>This pattern has the benefit that you can have multiple views for the same model and change freely the “look and feel” of the application, but it can also lead to increased complexity and a close connection between the view and the controller.</p>
+<img src="Resources/08 - Architecture and Design/8922de4a-0900-42a5-9bab-1e6eb29390a5.png" alt="8922de4a-0900-42a5-9bab-1e6eb29390a5" style="scale:0.50;" />
+<p>This pattern has the benefit that you can have multiple views for the same model and change freely the &quot;look and feel&quot; of the application, but it can also lead to increased complexity and a close connection between the view and the controller.</p>
 <h3 id="mvp">MVP</h3>
 <p>This pattern is similar to MVC, with the difference that now there is no controller and all inputs and outputs are managed by the view. This queries and changes go through the presenter, which will affect the model and send the changes back to the view.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201210200950244.png" alt="image-20201210200950244" style="zoom:50%;" /></p>
+<img src="Resources/08 - Architecture and Design/e45f3984-3e82-4cc8-b8d8-bdfcf6f9c2b4.png" alt="e45f3984-3e82-4cc8-b8d8-bdfcf6f9c2b4" style="scale:0.50;" />
 <h3 id="mvvm">MVVM</h3>
 <p>Model View View-Model is an attempt to solve the GUI testing problem of MVP. Here the view is stateless and the state container is the View-Model.</p>
 <h3 id="observer">Observer</h3>
 <p>The Observer pattern tries to abstract coupling between Subject and Observers. The main idea is that observers can be added to a given subject without making any changes and the subject can broadcast messages to them.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201210202459536.png" alt="image-20201210202459536" style="zoom:35%;" /></p>
+<img src="Resources/08 - Architecture and Design/a8d2abac-684c-4eb2-85ac-07d3f48503dc.png" alt="a8d2abac-684c-4eb2-85ac-07d3f48503dc" style="scale:0.35;" />
 <p>When implementing this patter, the programmer has to be aware of possible deadlocks and unexpected updates.</p>
 <h3 id="factory-method">Factory Method</h3>
 <p>The creation of concrete instances violates the Dependency inversion principle and this pattern tries to tackle that problem.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201210202856612.png" alt="image-20201210202856612" style="zoom:43%;" /></p>
+<img src="Resources/08 - Architecture and Design/712eb900-ab4b-48e0-9097-9737cf724285.png" alt="712eb900-ab4b-48e0-9097-9737cf724285" style="scale:0.43;" />
 <h3 id="factory">Factory</h3>
 <p>It is very similar to the previous pattern but now every class has its own factory class that only creates it.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211110607418.png" alt="image-20201211110607418" style="zoom:100%;" /></p>
+<img src="Resources/08 - Architecture and Design/c516c887-56c1-4f0c-ac3b-857d5e793045.png" alt="c516c887-56c1-4f0c-ac3b-857d5e793045" style="scale:0.100;" />
 <h3 id="abstract-factory">Abstract Factory</h3>
 <p>Abstract factories are used to create a set of objects that extend a main object. There is a main abstract factory and then, according to the differences in the objects we can create different factories to create them.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211110828051.png" alt="image-20201211110828051" style="zoom:67%;" /></p>
+<img src="Resources/08 - Architecture and Design/c050da1a-9958-4abe-9a9a-cbcf9528469e.png" alt="c050da1a-9958-4abe-9a9a-cbcf9528469e" style="scale:0.67;" />
 <p>The benefits of this approach is that the clients is isolated from the concrete implementation of classes and it makes exchanging product families very easy. On the other side, supporting new kinds of products requires changing the abstract factory interface.</p>
 <h3 id="strategy">Strategy</h3>
 <p>The Strategy pattern tries to define a family of algorithms and encapsulate them in a base class, making them interchangeable.</p>
-<figure>
-<img src="Resources/08%20-%20Architecture%20and%20Design/image-20201211111339040.png" alt="image-20201211111339040" /><figcaption aria-hidden="true">image-20201211111339040</figcaption>
-</figure>
+<p>![image-20201211111339040](Resources/08 - Architecture and Design/dc3ffadc-4bf9-4976-b7c2-d4a6167fc3ff.png)</p>
 <h3 id="state">State</h3>
 <p>The State pattern allows an object to alter its behavior when its internal state changes.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211111522174.png" alt="image-20201211111522174" style="zoom:80%;" /></p>
+<img src="Resources/08 - Architecture and Design/12e47472-778d-4da2-a32a-4ca186194130.png" alt="12e47472-778d-4da2-a32a-4ca186194130" style="scale:0.80;" />
 <h3 id="visitor">Visitor</h3>
 <p>It allows to add new operations to a class hierarchy without changing its classes.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211111822642.png" alt="image-20201211111822642" style="zoom:67%;" /></p>
+<img src="Resources/08 - Architecture and Design/b6f7bf0d-fad9-410c-a052-568bd7638b81.png" alt="b6f7bf0d-fad9-410c-a052-568bd7638b81" style="scale:0.67;" />
 <p>It is applicable when you want many distinct and unrelated operations without messing with the structural classes.</p>
 <h3 id="proxy">Proxy</h3>
 <p>The Proxy provides a surrogate or a placeholder for another object to control access to it.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211112115518.png" alt="image-20201211112115518" style="zoom:80%;" /></p>
+<img src="Resources/08 - Architecture and Design/df68852c-7863-4a51-a3df-80e8debf7f7b.png" alt="df68852c-7863-4a51-a3df-80e8debf7f7b" style="scale:0.80;" />
 <h3 id="command">Command</h3>
 <p>The Command pattern encapsulates a message request as an object that will later be invoked.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211112254230.png" alt="image-20201211112254230" style="zoom:80%;" /></p>
+<img src="Resources/08 - Architecture and Design/6a2df6f7-70df-4b01-a1ed-1a2507a36527.png" alt="6a2df6f7-70df-4b01-a1ed-1a2507a36527" style="scale:0.80;" />
 <p>This pattern is useful when you need to queue different actions and the commands may have different life times than the original object.</p>
 <h3 id="memento">Memento</h3>
-<p>It creates an snapshot of an object’s internal state which can be later restored.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211112454073.png" alt="image-20201211112454073" style="zoom:80%;" /></p>
+<p>It creates an snapshot of an object's internal state which can be later restored.</p>
+<img src="Resources/08 - Architecture and Design/c7cad188-0002-4e4f-b096-d272f77d0168.png" alt="c7cad188-0002-4e4f-b096-d272f77d0168" style="scale:0.80;" />
 <p>It provides a way of recording the internal state of an object in a separate object without violating the encapsulation principle and it eliminates the need for multiple creation of the same object for the sole purpose of saving its state.</p>
 <p>The issue with it is that it must provide 2 types of interfaces, a narrow interface for the care taker and a wider interface for the originator.</p>
 <h3 id="bridge">Bridge</h3>
-<p>The Bridge pattern aims to provide portability and “bridge” the differences between non-compatible standards or operating systems.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211113156898.png" alt="image-20201211113156898" style="zoom:80%;" /></p>
+<p>The Bridge pattern aims to provide portability and &quot;bridge&quot; the differences between non-compatible standards or operating systems.</p>
+<img src="Resources/08 - Architecture and Design/b5305d53-ac46-41a2-83a5-dc56301eaad1.png" alt="b5305d53-ac46-41a2-83a5-dc56301eaad1" style="scale:0.80;" />
 <h3 id="builder">Builder</h3>
 <p>The Builder separates the construction process from the concrete representation.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211113310340.png" alt="image-20201211113310340" style="zoom:80%;" /></p>
+<img src="Resources/08 - Architecture and Design/27fd327b-4c41-4ead-894f-d4baae8358bb.png" alt="27fd327b-4c41-4ead-894f-d4baae8358bb" style="scale:0.80;" />
 <h3 id="prototype">Prototype</h3>
 <p>Prototype specifies the kind of objects to create using a prototype and creating new objects by copying it</p>
-<figure>
-<img src="Resources/08%20-%20Architecture%20and%20Design/image-20201211115214487.png" alt="image-20201211115214487" /><figcaption aria-hidden="true">image-20201211115214487</figcaption>
-</figure>
+<p>![image-20201211115214487](Resources/08 - Architecture and Design/240aa4b7-4102-4edc-9792-980f5fb494eb.png)</p>
 <h3 id="singleton">Singleton</h3>
-<p>It ensures a class has only one instance and provides a global access point to it. While it’s easy to use, it is a bad practice because it introduces a global state and makes your code not portable</p>
+<p>It ensures a class has only one instance and provides a global access point to it. While it's easy to use, it is a bad practice because it introduces a global state and makes your code not portable</p>
 <h3 id="facade">Facade</h3>
 <p>It provides a simple interface to a group of objects that have complex and general interfaces. The pattern enforces low coupling with external subsystems and libraries.</p>
 <h3 id="adapter">Adapter</h3>
 <p>The Adapter convers the interface of a class into another interface, which the client expects.</p>
-<figure>
-<img src="Resources/08%20-%20Architecture%20and%20Design/image-20201211115856369.png" alt="image-20201211115856369" /><figcaption aria-hidden="true">image-20201211115856369</figcaption>
-</figure>
+<p>![image-20201211115856369](Resources/08 - Architecture and Design/f6de8cbc-3501-4e90-a931-34d37fc223e6.png)</p>
 <h3 id="flyweight">Flyweight</h3>
 <p>It uses sharing to support a large number of fine-grained objects efficiently.</p>
-<figure>
-<img src="Resources/08%20-%20Architecture%20and%20Design/image-20201211115956710.png" alt="image-20201211115956710" /><figcaption aria-hidden="true">image-20201211115956710</figcaption>
-</figure>
+<p>![image-20201211115956710](Resources/08 - Architecture and Design/1bba8738-58bc-4932-9bb9-ebd4b6d8c949.png)</p>
 <p>It is used when the application uses a large number of objects and the storage costs are high.</p>
 <h3 id="composite">Composite</h3>
 <p>It is a tree structure that represents part-whole relationships.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211120300202.png" alt="image-20201211120300202" style="zoom: 40%;" /></p>
+<img src="Resources/08 - Architecture and Design/image-20201211120300202.png" alt="image-20201211120300202" style="zoom: 40%;" />
 <h3 id="decorator">Decorator</h3>
 <p>The decorator attaches additional responsibilities to an object dynamically.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211120536195.png" alt="image-20201211120536195" style="zoom:43%;" /></p>
+<img src="Resources/08 - Architecture and Design/515b2753-128c-443a-b6a7-4a8d412556a0.png" alt="515b2753-128c-443a-b6a7-4a8d412556a0" style="scale:0.43;" />
 <p>This provides more flexibility than static inheritance but it also has a lot of little objects.</p>
 <h3 id="chain-of-responsibility">Chain of Responsibility</h3>
 <p>The Chain of responsibility is a method of passing a request among a chain of objects.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211120823548.png" alt="image-20201211120823548" style="zoom:33%;" /></p>
+<img src="Resources/08 - Architecture and Design/3f645355-9781-4369-982c-93b944eaad28.png" alt="3f645355-9781-4369-982c-93b944eaad28" style="scale:0.33;" />
 <p>It reduces coupling between sender and receiver and it has a lot of flexibility in assigning responsibilities to objects, but it has performance issues.</p>
 <h3 id="template-method">Template Method</h3>
 <p>It defines a skeleton for an algorithm in a base class and lets the subclasses redefine the steps.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211121016869.png" alt="image-20201211121016869" style="zoom:33%;" /></p>
+<img src="Resources/08 - Architecture and Design/e6301282-31c2-4aa7-898f-2299739c6d63.png" alt="e6301282-31c2-4aa7-898f-2299739c6d63" style="scale:0.33;" />
 <h3 id="mediator">Mediator</h3>
 <p>It encapsulates the interaction of a set of objects.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211121724330.png" alt="image-20201211121724330" style="zoom:33%;" /></p>
+<img src="Resources/08 - Architecture and Design/510aa710-92b6-4981-a51e-72c403e39115.png" alt="510aa710-92b6-4981-a51e-72c403e39115" style="scale:0.33;" />
 <p>This pattern centralizes controls, abstracts object cooperation and limits subclassing of colleague classes.</p>
 <h3 id="iterator">Iterator</h3>
 <p>It represents sequential access to container elements without exposing its underlying representation.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211122019075.png" alt="image-20201211122019075" style="zoom:33%;" /></p>
+<img src="Resources/08 - Architecture and Design/27651f72-09f3-46c9-9d77-1216dd52e3df.png" alt="27651f72-09f3-46c9-9d77-1216dd52e3df" style="scale:0.33;" />
 <h3 id="interpreter">Interpreter</h3>
 <p>It defines a grammatical representation for a language and an interpreter to interpret the grammar.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211122118746.png" alt="image-20201211122118746" style="zoom:40%;" /></p>
+<img src="Resources/08 - Architecture and Design/6d78507d-0458-4e3f-a9b4-5e4530fb5816.png" alt="6d78507d-0458-4e3f-a9b4-5e4530fb5816" style="scale:0.40;" />
 <h3 id="marker-interface">Marker Interface</h3>
-<p>It provides a means to associate metadata with a class where the language does not have explicit support for such metadata. Sort of expanding the concept of reflection to and adding new data to a class.</p>
+<p>It provides a means to associate metadata with a class where the language does not  have explicit support for such metadata. Sort of expanding the concept of reflection to and adding new data to a class.</p>
 <h3 id="mock-object">Mock Object</h3>
 <p>It simulates objects that mimic the behavior of real object in controlled ways. One use case it unit testing.</p>
 <h3 id="module">Module</h3>
 <p>It implements the concept of software modules in a programming language with incomplete direct support for the concept. It organizes code in certain ways to accomplish a particular function. It can be implemented using a specialization of the singleton pattern.</p>
 <h3 id="twin">Twin</h3>
 <p>It allows developers to model multiple inheritance in programming languages that do not support it.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211141133459.png" alt="image-20201211141133459" style="zoom: 33%;" /></p>
-<p>It’s applicable to model multiple inheritance and to avoid some of its problems. It requires message forwarding, may be less efficient than inheritance.</p>
+<img src="Resources/08 - Architecture and Design/image-20201211141133459.png" alt="image-20201211141133459" style="zoom: 33%;" />
+<p>It's applicable to model multiple inheritance and to avoid some of its problems. It requires message forwarding, may be less efficient than inheritance.</p>
 <h3 id="servant">Servant</h3>
 <p>An object used to offer some functionality to a group of classes without defining that functionality in each of them. It promotes separation of concerns.</p>
 <h3 id="active-record">Active Record</h3>
@@ -1681,8 +1544,8 @@ blockquote {
 <p>A data access layer that performs bidirectional transfer of data between a data store and an in-memory data representation. It is an improvement over Active Record and its goal is to keep an in-memory persistent representation of another data store.</p>
 <h2 id="architectural-patterns">Architectural Patterns</h2>
 <p>The following patterns are not designed to do a specific thing, but to organize the structure of a whole project.</p>
-<h3 id="component--based-architecture">Component- Based Architecture</h3>
-<p>It is the idea that software is made up of different components and its an answer to the <em>“software crisis”</em> where monolithic applications where hard to maintain. It heavily enforces the separation of Concerns principle and so, each component must be easily substitutable.</p>
+<h3 id="component-based-architecture">Component- Based Architecture</h3>
+<p>It is the idea that software is made up of different components and its an answer to the <em>&quot;software crisis&quot;</em> where monolithic applications where hard to maintain. It heavily enforces the separation of Concerns principle and so, each component must be easily substitutable.</p>
 <p>An example of this are web services, libraries, and classes.</p>
 <h3 id="layered-architecture">Layered Architecture</h3>
 <p>A layered architecture is a design with different levels of abstraction which partitions the concerns of the application into stacked groups</p>
@@ -1696,7 +1559,7 @@ blockquote {
 <p>It is used in systems where the databases play a crucial role. It is similar to the client-server architecture, but here the server only takes CRUD operations. An application state is represented by its data and it can be stored, stopped, and restored from a database like it neve stopped.</p>
 <h3 id="rule-based-architecture">Rule-Based Architecture</h3>
 <p>It is used as a way to codify the problem-solving capabilities of human experts into programs. It interprets the situation in a <strong>match-resolve-act</strong> cycle:</p>
-<ol type="1">
+<ol>
 <li><strong>Match</strong>: The left-hand side matches against the known contents of the memory and it returns a conflict set, which consist of instantiations of all satisfied rules.</li>
 <li><strong>Conflict-Resolution</strong>: One of the rules instantiated in the conflict set if selected for execution.</li>
 <li><strong>Act</strong>: the actions of the rule are executed. This actions may change the contents of the working memory.</li>
@@ -1710,12 +1573,13 @@ blockquote {
 <p>It is an architecture promoting the production, detection, consumption and reaction of events. It can be implemented with a mediator or broker topology.</p>
 <h3 id="publish-subscribe-architecture">Publish-Subscribe Architecture</h3>
 <p>Publishers categorize published messages and subscribers express their interest in messages from a certain category and only receive messages of those categories, without knowing the publishers.</p>
-<p><img src="Resources/08 - Architecture and Design/image-20201211152205814.png" alt="image-20201211152205814" style="zoom:50%;" /></p>
+<img src="Resources/08 - Architecture and Design/dea34450-8ed0-41e0-a76e-659953c95e7f.png" alt="dea34450-8ed0-41e0-a76e-659953c95e7f" style="scale:0.50;" />
 <h3 id="dsls">DSLs</h3>
 <p>DSL is a computer language specialized to a particular application domain. It contrasts to a general-purpose language and it is used to model an specific domain.</p>
 <h3 id="reflection">Reflection</h3>
 <p>it give the ability to examine, introspect and modify its behavior at runtime.</p>
 <h3 id="plug-ins-architecture">Plug-ins Architecture</h3>
 <p>A plug-in is a software component that adds a specific feature to an existing computer program.</p>
+
 </body>
 </html>

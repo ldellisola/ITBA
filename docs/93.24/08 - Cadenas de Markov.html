@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>08 - Cadenas de Markov</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>08 - Cadenas de Markov.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,77 +1385,107 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
-<h1 id="cadenas-de-márkov">Cadenas de Márkov</h1>
-<p>Las cadenas de Márkov son procesos de Márkov en tiempo discreto. Es decir, la probabilidad de que suceda un estad nuevo depende solo del estado actual. Se puede modelar a la probabilidad de transición como: <span class="math display">\[
+<h1 id="cadenas-de-markov">Cadenas de Márkov</h1>
+<p>Las cadenas de Márkov son procesos de Márkov en tiempo discreto. Es decir, la probabilidad de que suceda un estad nuevo depende solo del estado actual. Se puede modelar a la probabilidad de transición como:</p>
+<div class="math">
+\[
 P(X_{n+1}=x_{n+1}~|~X_n=x_n, X_{n-1}=x_{n-1},\dots)=P(X_{n+1}=x_{n+1}~|~X_n=x_n)
-\]</span> Se puede modelar la probabilidad de pasar de un estado <span class="math inline">\((i)\)</span> a otro estado <span class="math inline">\((j)\)</span> en <span class="math inline">\(t\)</span> pasos de la siguiente forma: <span class="math display">\[
+\]</div>
+<p>Se puede modelar la probabilidad de pasar de un estado <span class="math">\((i)\)</span> a otro estado <span class="math">\((j)\)</span> en <span class="math">\(t\)</span> pasos de la siguiente forma:</p>
+<div class="math">
+\[
 P_{i,j}^{(t)}(n)=P(X_{n+1}=e_j~|~X_n=e_i)
-\]</span> Siendo <span class="math inline">\(e_k\)</span> los estados posibles.</p>
-<h2 id="representación-matricial">Representación Matricial</h2>
-Para facilitar el calculo, se puede representar a las cadenas de Márkov como matrices: $$ = .
-<span class="math display">\[\begin{array}{11}
-        e_1 \\
-        e_2\\
-        \vdots \\
-        e_m
-    \end{array}\]</span>
-.
-<span class="math display">\[\begin{pmatrix}
-    P_{1,1}^{(1)} &amp; P_{1,2}^{(1)} &amp; \dots &amp; P_{1,m}^{(1)}\\
-    P_{2,1}^{(1)} &amp; P_{2,2}^{(1)} &amp; \dots &amp; \vdots \\
-    \vdots        &amp; \ddots  \\
-    P_{m,1}^{(1)} &amp; P_{m,2}^{(1)} &amp;\dots &amp; P_{m,m}^{(1)}
-    
-\end{pmatrix}\]</span>
-\
-<span class="math display">\[\begin{array}{}
+\]</div>
+<p>Siendo <span class="math">\(e_k\)</span> los estados posibles.</p>
+<h2 id="representacion-matricial">Representación Matricial</h2>
+<p>Para facilitar el calculo, se puede representar a las cadenas de Márkov como matrices:</p>
+<div class="math">
+\[
+\mathbb{P}=
+\left.
+	\begin{array}{11}
+		e_1 \\
+		e_2\\
+		\vdots \\
+		e_m
+	\end{array}
+\right.
+\begin{pmatrix}
+	P_{1,1}^{(1)} &amp; P_{1,2}^{(1)} &amp; \dots &amp; P_{1,m}^{(1)}\\
+	P_{2,1}^{(1)} &amp; P_{2,2}^{(1)} &amp; \dots &amp; \vdots \\
+	\vdots		  &amp; \ddots	\\
+	P_{m,1}^{(1)} &amp; P_{m,2}^{(1)} &amp;\dots &amp; P_{m,m}^{(1)}
+	
+\end{pmatrix}
+\\
+\begin{array}{}
 ~~~~~~~~~~~~~~\ e_1 &amp; ~~~e_2 &amp; ~\dots ~&amp; e_m
-\end{array}\]</span>
-<p>$$ Siendo los estados de la columna el estado actual y estado en la fila es estado al que quiero llegar.</p>
-<p>Una forma practica de calcular cuantos pasos se requieren para llegar de un estado a otro seria elevando la matriz <span class="math inline">\(t\)</span> veces hasta que la probabilidad de llegar a ese estado sea distinto de cero: <span class="math display">\[
+\end{array}
+\]</div>
+<p>Siendo los estados de la columna el estado actual y estado en la fila es estado al que quiero llegar.</p>
+<p>Una forma practica de calcular cuantos pasos se requieren para llegar de un estado a otro seria elevando la matriz <span class="math">\(t\)</span> veces hasta que la probabilidad de llegar a ese estado sea distinto de cero:</p>
+<div class="math">
+\[
 \mathbb{P}^{(t)} = \mathbb P^{~t}
-\]</span> Entonces la nueva matriz <span class="math inline">\(\mathbb P^{~t}\)</span> dice las probabilidades de llegar desde un estado hasta otro en <span class="math inline">\(t\)</span> pasos.</p>
+\]</div>
+<p>Entonces la nueva matriz <span class="math">\(\mathbb P^{~t}\)</span> dice las probabilidades de llegar desde un estado hasta otro en <span class="math">\(t\)</span> pasos.</p>
 <h2 id="cadenas-regulares">Cadenas Regulares</h2>
-<h3 id="definición">Definición</h3>
-<p>Se dice que una cadena de Márkov es regular <span class="math inline">\(\Leftrightarrow\)</span> Existe un <span class="math inline">\(t\)</span> tal que <span class="math inline">\(\mathbb P ^{~t}\)</span> tiene todos sus elementos mayores a 0, es decir, es posible ir de un estado a cualquier otro en alguna cantidad de pasos.</p>
+<h3 id="definicion">Definición</h3>
+<p>Se dice que una cadena de Márkov es regular <span class="math">\(\Leftrightarrow\)</span> Existe un <span class="math">\(t\)</span> tal que <span class="math">\(\mathbb P ^{~t}\)</span> tiene todos sus elementos mayores a 0, es decir, es posible ir de un estado a cualquier otro en alguna cantidad de pasos.</p>
 <h3 id="teorema">Teorema</h3>
-<p>Si una cadena de Márkov de estados finitos es regular (Condición suficiente) <span class="math inline">\(\Rightarrow\)</span> <span class="math display">\[
+<p>Si una cadena de Márkov de estados finitos es regular (Condición suficiente) <span class="math">\(\Rightarrow\)</span></p>
+<div class="math">
+\[
 \exists \vec\prod_\infty~ /~ lim_{n\rightarrow\infty}\vec\prod_n = \vec\prod_\infty~
-\]</span> y es independiente de la condición inicial.</p>
-<p>Una forma mas sencilla de ponerlo seria que <span class="math inline">\(\exists~t ~/~\mathbb P^{~t+1} = \mathbb P^{~t}\)</span></p>
-<p><span class="math inline">\(\vec\prod_t\)</span> es la distribución de probabilidades de estados luego de <span class="math inline">\(t\)</span> pasos, y se consigue a partir de la distribución inicial. Se calcula de la siguiente forma: <span class="math display">\[
+\]</div>
+<p>y es independiente de la condición inicial.</p>
+<p>Una forma mas sencilla de ponerlo seria que  <span class="math">\(\exists~t ~/~\mathbb P^{~t+1} = \mathbb P^{~t}\)</span></p>
+<p><span class="math">\(\vec\prod_t\)</span> es la distribución de probabilidades de estados luego de <span class="math">\(t\)</span> pasos, y se consigue a partir de la distribución inicial. Se calcula de la siguiente forma:</p>
+<div class="math">
+\[
 \vec\prod_t = [a_1,a_2,\dots,a_n]\times \mathbb P^{~t}
-\]</span> Siendo el vector <span class="math inline">\([a_1,a_2,\dots,a_n]\)</span> las condiciones iniciales del sistema.</p>
+\]</div>
+<p>Siendo el vector <span class="math">\([a_1,a_2,\dots,a_n]\)</span> las condiciones iniciales del sistema.</p>
 <h3 id="como-verificar-si-una-cadena-es-regular">Como verificar si una cadena es regular</h3>
-<h4 id="método-1-calculadora-programable">Método 1 (Calculadora programable)</h4>
+<h4 id="metodo-1-calculadora-programable">Método 1 (Calculadora programable)</h4>
 <p>Simplemente multiplica a la matriz con sigo misma para verifica que eventualmente llega a un valor estacionario. Si alguno de los elementos de esa nueva matriz es igual al 0, entonces la cadena no es regular.</p>
-<h4 id="método-2-analítico">Método 2 (Analítico)</h4>
-<p>==Acá hay algo raro. Tengo que preguntar==</p>
-<p>Según el teorema, se puede plantear que: <span class="math display">\[
+<h4 id="metodo-2-analitico">Método 2 (Analítico)</h4>
+<p><mark>Acá hay algo raro. Tengo que preguntar</mark></p>
+<p>Según el teorema, se puede plantear que:</p>
+<div class="math">
+\[
 \vec\prod_\infty = 
 \begin{pmatrix}
-    a   &amp;   b   &amp;   c
+	a	&amp;	b	&amp;	c
 \end{pmatrix}
 =
 \vec\prod_\infty \times\mathbb P
-\]</span> Por lo que nos quedaría el siguiente sistema de ecuaciones $$ {</p>
-<span class="math display">\[\begin{array}{ll}
+\]</div>
+<p>Por lo que nos quedaría el siguiente sistema de ecuaciones</p>
+<div class="math">
+\[
+\left\{
+
+\begin{array}{ll}
 
     \begin{pmatrix}
-        a   &amp;   b &amp;\dots    &amp;   c
+        a	&amp;	b &amp;\dots	&amp;	c
     \end{pmatrix}
     =
     \begin{pmatrix}
-        a   &amp;   b &amp;\dots    &amp;   c
+        a	&amp;	b &amp;\dots	&amp;	c
     \end{pmatrix}
     \times
     \mathbb P \\
     a+b+\dots+c =1
 
-\end{array}\]</span>
-<p>. $$</p>
+\end{array}
+\right.
+\]</div>
+
 </body>
 </html>

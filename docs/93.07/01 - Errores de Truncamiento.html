@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>01 - Errores de Truncamiento</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>01 - Errores de Truncamiento.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="error-de-truncamiento">Error de Truncamiento</h1>
@@ -1531,92 +1394,115 @@ blockquote {
 <ul>
 <li>Error Absoluto:</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 \mid X_{aprox} - X_{exacto} \mid
-\]</span></p>
+\]</div>
 <ul>
 <li>Error Relativo:</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 \frac{ErrorAbs}{X_{exacto}}
-\]</span></p>
+\]</div>
 <p>Dentro de los errores, hay dos tipos de errores:</p>
 <ul>
 <li>Error de Redondeo: Corresponden a los problemas donde la computadora no puede guardar todos los decimales de la respuesta, entonces lo redondea hacia un valor.</li>
-<li>Error de Aproximación: Dependiendo de la implementación del algoritmo. Esto significa que el algoritmo no da una respuesta perfecta, sino que se trata de acercarse al valor exacto.</li>
+<li>Error de  Aproximación: Dependiendo de la implementación del algoritmo. Esto significa que el algoritmo no da una respuesta perfecta, sino que se trata de acercarse al valor exacto.</li>
 </ul>
 <h2 id="aproximaciones-iterativas-simples">Aproximaciones Iterativas Simples</h2>
 <p>Se pueden resolver ecuaciones de forma iterativa aplicando un simple algoritmo, pero primero debe cumplir con las siguientes hipótesis:</p>
-<ol type="1">
-<li>Sea <span class="math inline">\(f:[a,b]\rightarrow R\)</span> continua en <span class="math inline">\([a,b]\)</span></li>
-<li>Sea <span class="math inline">\(f(a) \cdot f(b) \lt 0\)</span></li>
-<li>Sea <span class="math inline">\(f\)</span> derivable en <span class="math inline">\((a,b)/~ Sign(f&#39;)\)</span> sea constante en <span class="math inline">\((a,b)\)</span></li>
+<ol>
+<li>Sea <span class="math">\(f:[a,b]\rightarrow R\)</span> continua en <span class="math">\([a,b]\)</span></li>
+<li>Sea <span class="math">\(f(a) \cdot f(b) \lt 0\)</span></li>
+<li>Sea <span class="math">\(f\)</span> derivable en <span class="math">\((a,b)/~ Sign(f')\)</span> sea constante en <span class="math">\((a,b)\)</span></li>
 </ol>
-<p>Entonces <span class="math inline">\(\exists!x_0 \in (a,b) /~~f(x_0) = 0\)</span></p>
-<h3 id="implementación-del-algoritmo">Implementación del Algoritmo</h3>
+<p>Entonces <span class="math">\(\exists!x_0 \in (a,b) /~~f(x_0) = 0\)</span></p>
+<h3 id="implementacion-del-algoritmo">Implementación del Algoritmo</h3>
 <p>Pasos del algoritmo:</p>
-<ol type="1">
-<li>Igualo la función al valor de <span class="math inline">\(y\)</span> donde quiero encontrar <span class="math inline">\(x_0\)</span></li>
-<li>Despejo la ecuación para que me quede de la siguiente forma: <span class="math inline">\(x = q(x)\)</span></li>
-<li>Reescribo la ecuación de la forma <span class="math inline">\(x_{n+1} = q(x)\)</span></li>
+<ol>
+<li>Igualo la función al valor de <span class="math">\(y\)</span> donde quiero encontrar <span class="math">\(x_0\)</span></li>
+<li>Despejo la ecuación para que me quede de la siguiente forma: <span class="math">\(x = q(x)\)</span></li>
+<li>Reescribo la ecuación de la forma <span class="math">\(x_{n+1} = q(x)\)</span></li>
 <li>Itero varias veces hasta llegar al error deseado.</li>
 </ol>
 <h3 id="ejemplo">Ejemplo</h3>
-<p>Tengo la función <span class="math inline">\(f(x)=x^3-x-1\)</span> y quiero encontrar <span class="math inline">\(x/f(x)=0\)</span></p>
+<p>Tengo la función <span class="math">\(f(x)=x^3-x-1\)</span> y quiero encontrar <span class="math">\(x/f(x)=0\)</span></p>
 <ul>
 <li><p>Hipótesis:</p>
-<p>Como <span class="math inline">\(f\)</span> es un polinomio, es continua en <span class="math inline">\(\mathbb{R}\)</span>. Elijo <span class="math inline">\(a = 1\)</span> y <span class="math inline">\(b=2\)</span>, por lo que <span class="math inline">\(f(1) \cdot f(2) = -1 \cdot5=-5 \lt 0\)</span>. Por ultimo, como es un polinomio, <span class="math inline">\(f\)</span> es derivable <span class="math inline">\(n\)</span> veces. Como queremos ver si la derivada es constante, derivo <span class="math inline">\(f&#39;\)</span> y veo que <span class="math inline">\(f&#39;&#39;(x)=6 \cdot x\)</span> y <span class="math inline">\(f&#39;&#39;(x) \neq 0~~ \forall x\in(1,2)\)</span>, entonces el signo de <span class="math inline">\(f&#39;\)</span> es constante .</p></li>
+<p>Como <span class="math">\(f\)</span> es un polinomio, es continua en <span class="math">\(\mathbb{R}\)</span>. Elijo <span class="math">\(a = 1\)</span> y <span class="math">\(b=2\)</span>, por lo que <span class="math">\(f(1) \cdot f(2) = -1 \cdot5=-5 \lt 0\)</span>. Por ultimo, como es un polinomio, <span class="math">\(f\)</span> es derivable <span class="math">\(n\)</span> veces. Como queremos ver si la derivada es constante, derivo <span class="math">\(f'\)</span> y veo que <span class="math">\(f''(x)=6 \cdot x\)</span> y <span class="math">\(f''(x) \neq 0~~ \forall x\in(1,2)\)</span>, entonces el signo de <span class="math">\(f'\)</span> es constante .</p>
+</li>
 <li><p>Algoritmo</p>
-<ol type="1">
-<li><span class="math inline">\(x^3-x-1 = 0\)</span></li>
-<li><span class="math inline">\(x = \root{3} \of{x+1} = q(x)\)</span></li>
-<li><span class="math inline">\(x_{n+1} = q(x_n) = \root 3 \of {x_n+1}\)</span></li>
-<li><span class="math inline">\(x\sim 1.324717\)</span></li>
-</ol></li>
+<ol>
+<li><span class="math">\(x^3-x-1 = 0\)</span></li>
+<li><span class="math">\(x = \root{3} \of{x+1} = q(x)\)</span></li>
+<li><span class="math">\(x_{n+1} = q(x_n) = \root 3 \of {x_n+1}\)</span></li>
+<li><span class="math">\(x\sim 1.324717\)</span></li>
+</ol>
+</li>
 </ul>
 <h2 id="punto-flotante">Punto Flotante</h2>
 <p>El punto flotante es un estándar de la IEEE que permite crear números con alta precisión. Este tipo de notación permite mucha precisión en números muy peque;os, pero a medida que los números se van agrandando, el espacio entre los números tambien va creciendo.</p>
-<p>La notación correspondiente es: <span class="math display">\[
+<p>La notación correspondiente es:</p>
+<div class="math">
+\[
 x = (-1)^b \cdot(1+m) \cdot 2^{exp}
-\]</span> Siendo:</p>
+\]</div>
+<p>Siendo:</p>
 <ul>
-<li><span class="math inline">\(b= \left\{ \array{ 0 &amp; x&gt;0 \\ 1 &amp; x \le 0 } \right.\)</span></li>
-<li><span class="math inline">\(m \in \{0, 2^{-52}, 2^{-51}, \dots, 1 - 2^{-52} \}\)</span></li>
-<li><span class="math inline">\(exp \in [-1022,1023]\)</span></li>
+<li><span class="math">\(b= \left\{ \array{   0 &amp; x&gt;0 \\ 1 &amp; x \le 0   } \right.\)</span></li>
+<li>$m \in {0, 2^{-52}, 2^{-51}, \dots, 1 - 2^{-52} } $</li>
+<li><span class="math">\(exp \in [-1022,1023]\)</span></li>
 </ul>
 <h3 id="como-convertir-un-numero-en-decimal-a-punto-flotante">Como Convertir un numero en decimal a Punto Flotante</h3>
-<p>Sea <span class="math inline">\(d\)</span> un numero en decimal.</p>
+<p>Sea <span class="math">\(d\)</span> un numero en decimal.</p>
 <p>Pasos:</p>
-<ol type="1">
+<ol>
 <li>Busco el exponente:</li>
 </ol>
-<p><span class="math display">\[
+<div class="math">
+\[
 sea~exp/~~2^{exp} \leq d \leq2^{exp+1}
-\]</span></p>
-<ol start="2" type="1">
+\]</div>
+<ol start="2">
 <li><p>Busco la Mantisa:</p>
-<ol type="1">
-<li><p>Busco <span class="math inline">\(m\)</span>: <span class="math display">\[
+<ol>
+<li><p>Busco <span class="math">\(m\)</span>:</p>
+<div class="math">
+\[
 m=\frac d {2^{exp}}-1
-\]</span></p></li>
-<li><p>Reescribo <span class="math inline">\(m\)</span> como una suma de potencias de <span class="math inline">\(2\)</span>: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Reescribo <span class="math">\(m\)</span> como una suma de potencias de <span class="math">\(2\)</span>:</p>
+<div class="math">
+\[
 m = 2^q+2^w + \dots+2^z
-\]</span></p></li>
-</ol></li>
+\]</div>
+</li>
+</ol>
+</li>
 </ol>
 <h3 id="ejemplo-1">Ejemplo</h3>
 <p>Quiero convertir 23 a punto flotante:</p>
-<ol type="1">
-<li><p>Busco el exponente: <span class="math inline">\(exp = 4\)</span> <span class="math display">\[
+<ol>
+<li><p>Busco el exponente: <span class="math">\(exp = 4\)</span></p>
+<div class="math">
+\[
 16 = 2^4 \leq 23 \leq 2^5 = 32
-\]</span></p></li>
-<li><p>Busco la mantisa::</p></li>
+\]</div>
+</li>
+<li><p>Busco la mantisa::</p>
+</li>
 </ol>
-<p><span class="math display">\[
+<div class="math">
+\[
 m=\frac {23} {16} - 1 = \frac 7 {16} = 7 \cdot 2^{-4} = (4+2+1) \cdot 2^{-4}=2^{-2} + 2^{-3} + 2^{-4}
-\]</span></p>
-<p>Entonces 23 se puede expresar como: <span class="math display">\[
+\]</div>
+<p>Entonces 23 se puede expresar como:</p>
+<div class="math">
+\[
 23 = (-1)^0 \cdot (1+ 2^{-2} + 2^{-3}+2^{-4}) \cdot 2^4
-\]</span></p>
+\]</div>
+
 </body>
 </html>

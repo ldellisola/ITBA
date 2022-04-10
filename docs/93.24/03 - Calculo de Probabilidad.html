@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Calculo de Probabilidad</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>03 - Calculo de Probabilidad.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,90 +1385,106 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="calculo-de-probabilidad">Calculo de Probabilidad</h1>
 <h2 id="regla-de-laplace">Regla de Laplace</h2>
-<h3 id="hipótesis">Hipótesis</h3>
+<h3 id="hipotesis">Hipótesis</h3>
 <p>Sean:</p>
 <ul>
-<li><span class="math inline">\(S=\{S_1,S_2,\dots,S_n\}\ \ \#S=n\)</span> (Es un espacio finito)</li>
-<li><span class="math inline">\(P(S_i)=p\)</span> (Todos los casos son igual de probables)</li>
-<li><span class="math inline">\(A=\bigcup_{j\ \in\  J} (S_j)\ \ \#A=\#J\)</span> (Un suceso es la unión de algunos resultados)</li>
+<li>$S={S_1,S_2,\dots,S_n}\ \ #S=n $   (Es un espacio finito)</li>
+<li><span class="math">\(P(S_i)=p\)</span>      (Todos los casos son igual de probables)</li>
+<li>$A=\bigcup_{j\ \in\  J} (S_j)\ \ #A=#J $  (Un suceso es la unión de algunos resultados)</li>
 </ul>
 <h3 id="teorema">Teorema</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 P(A)=\frac{\#A}{\#S} = \frac{Numero\ de\ casos\ deseados}{Numero\ Total\ de\ casos}
-\]</span></p>
+\]</div>
 <h3 id="axiomas-del-calculo-de-probabilidades">Axiomas del Calculo de Probabilidades</h3>
 <ul>
-<li><span class="math inline">\(P(A)\geq0\)</span></li>
-<li><span class="math inline">\(P(S)=1\)</span></li>
-<li><span class="math inline">\(A\cap B=\phi \Rightarrow P(A\cup B)=P(A)+P(B)\)</span></li>
-<li><span class="math inline">\(P(A)\leq 1\)</span></li>
-<li><span class="math inline">\(P(\overline A) = 1- P(A)\)</span></li>
-<li><span class="math inline">\(P(\phi)=0\)</span></li>
-<li><span class="math inline">\(P(A\cup B) = P(A) + P(B) - P(A\cap B)\)</span></li>
+<li><span class="math">\(P(A)\geq0\)</span></li>
+<li><span class="math">\(P(S)=1\)</span></li>
+<li><span class="math">\(A\cap B=\phi \Rightarrow P(A\cup B)=P(A)+P(B)\)</span></li>
+<li><span class="math">\(P(A)\leq 1\)</span></li>
+<li><span class="math">\(P(\overline A) = 1- P(A)\)</span></li>
+<li><span class="math">\(P(\phi)=0\)</span></li>
+<li><span class="math">\(P(A\cup B) = P(A) + P(B) - P(A\cap B)\)</span></li>
 </ul>
 <h4 id="ejemplo">Ejemplo</h4>
 <p>Se tienen 3 dados y se quiere saber la probabilidad de que al tirarlos salgan al menos 2 números iguales.</p>
 <p>Tenemos los siguientes sucesos:</p>
 <ul>
-<li><span class="math inline">\(A\)</span>: Todos los números son distintos. <span class="math inline">\((A = 120)\)</span></li>
-<li><span class="math inline">\(B\)</span>: Exactamente 2 números son iguales. <span class="math inline">\(( B = 90)\)</span></li>
-<li><span class="math inline">\(C\)</span>: Todos los los números son iguales. <span class="math inline">\(( C = 6 )\)</span></li>
-<li><span class="math inline">\(S = (A\cup B\cup C) = 216\)</span></li>
+<li><span class="math">\(A\)</span>: Todos los números son distintos. <span class="math">\((A = 120)\)</span></li>
+<li><span class="math">\(B\)</span>: Exactamente 2 números son iguales. <span class="math">\(( B = 90)\)</span></li>
+<li><span class="math">\(C\)</span>: Todos los los números son iguales. <span class="math">\(( C = 6 )\)</span></li>
+<li><span class="math">\(S = (A\cup B\cup C) = 216\)</span></li>
 </ul>
-<p>Tengo que buscar cuando caigan exactamente 2 números iguales <span class="math inline">\((B)\)</span> o 3 números iguales <span class="math inline">\((C)\)</span> <span class="math inline">\(\Rightarrow\)</span> quiero calcular <span class="math inline">\(B\cup C\)</span>. <span class="math display">\[
+<p>Tengo que buscar cuando caigan exactamente 2 números iguales <span class="math">\((B)\)</span> o 3 números iguales <span class="math">\((C)\)</span> $\Rightarrow $ quiero calcular <span class="math">\(B\cup C\)</span>.</p>
+<div class="math">
+\[
 P(B\cup C)=1-P(A) = 1-\frac{120}{216} = 0.4444
-\]</span> Calculo <span class="math inline">\(P(A)\)</span> en vez de <span class="math inline">\(P(B\cup C)\)</span> por que es mas fácil de calcular.</p>
+\]</div>
+<p>Calculo <span class="math">\(P(A)\)</span> en vez de <span class="math">\(P(B\cup C)\)</span> por que es mas fácil de calcular.</p>
 <h2 id="probabilidad-condicional">Probabilidad Condicional</h2>
 <p>Un suceso modifica las chances de ocurrencia de otro suceso.</p>
 <h3 id="probabilidad-de-a-dado-b">Probabilidad de A dado B</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 P(A/B)=\frac{P(A\cap B)}{P(B)}\ \ ,\ \ P(B)&gt;0
-\]</span></p>
+\]</div>
 <h3 id="propiedades">Propiedades</h3>
 <ul>
-<li><span class="math inline">\(P(A/B)\geq 0\)</span></li>
-<li><span class="math inline">\(P(S/B) = 1\)</span></li>
-<li><span class="math inline">\(A\cup B=\phi \Rightarrow P(A\cup B/C)=\frac{P(A\cap C)}{P(C)} + \frac{P(B\cap C)}{P(C)}\)</span></li>
-<li>Si <span class="math inline">\(P(A/B)=P(A) \Rightarrow\)</span> <span class="math inline">\(B\)</span> no condiciona a <span class="math inline">\(A\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(P(A/B)\ .\ P(B) = P(A)\ .\ P(B/A)\)</span></li>
-<li><span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son <strong>independientes</strong> <span class="math inline">\(\Leftrightarrow \ \ P(A\cap B) = P(A)\ .\ P(B)\)</span></li>
-<li>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> sin independientes <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\overline A\)</span> y <span class="math inline">\(B\)</span> , <span class="math inline">\(A\)</span> y <span class="math inline">\(\overline B\)</span> , <span class="math inline">\(\overline A\)</span> y <span class="math inline">\(\overline B\)</span> son independientes.</li>
-<li>Valen todos los <a href="#Axiomas%20del%20Calculo%20de%20Probabilidades">axiomas</a> del las probabilidades no condicionales</li>
+<li><span class="math">\(P(A/B)\geq 0\)</span></li>
+<li><span class="math">\(P(S/B) = 1\)</span></li>
+<li><span class="math">\(A\cup B=\phi \Rightarrow P(A\cup B/C)=\frac{P(A\cap C)}{P(C)} + \frac{P(B\cap C)}{P(C)}\)</span></li>
+<li>Si <span class="math">\(P(A/B)=P(A) \Rightarrow\)</span> <span class="math">\(B\)</span> no condiciona a <span class="math">\(A\)</span> <span class="math">\(\Rightarrow\)</span> <span class="math">\(P(A/B)\ .\ P(B) = P(A)\ .\ P(B/A)\)</span></li>
+<li><span class="math">\(A\)</span> y <span class="math">\(B\)</span> son <strong>independientes</strong> $\Leftrightarrow \ \ P(A\cap B) = P(A)\ .\ P(B)  $</li>
+<li>Si <span class="math">\(A\)</span> y <span class="math">\(B\)</span> sin independientes <span class="math">\(\Rightarrow\)</span> <span class="math">\(\overline A\)</span> y <span class="math">\(B\)</span> , <span class="math">\(A\)</span> y <span class="math">\(\overline B\)</span> , <span class="math">\(\overline A\)</span> y <span class="math">\(\overline B\)</span>  son independientes.</li>
+<li>Valen todos los [axiomas](#Axiomas del Calculo de Probabilidades) del las probabilidades no condicionales</li>
 </ul>
 <h3 id="ejemplo-1">Ejemplo</h3>
-<p>Se tiran 2 dados, calcular la probabilidad de que <u>la suma de los dados sea menor a 8</u> <span class="math inline">\((A)\)</span> dado que <u>la suma de los dados es impar</u> <span class="math inline">\((B)\)</span>.</p>
-<p>Cálculos Auxiliares: <span class="math display">\[
+<p>Se tiran 2 dados, calcular la probabilidad de que <u>la suma de los dados sea menor a 8</u> <span class="math">\((A)\)</span> dado que <u>la suma de los dados es impar</u> <span class="math">\((B)\)</span>.</p>
+<p>Cálculos Auxiliares:</p>
+<div class="math">
+\[
 P(A)=\frac{21}{36} \ \ -\ \ P(B)=\frac{18}{36}\ \ -\ \ P(A\cap B)=\frac{12}{36} \\
 P(A/B) = \frac{P(A\cap B)}{P(A)}=\frac{\frac{12}{36}}{\frac{18}{36}} = \frac{12}{18} = 0.6667
-\]</span></p>
-<h2 id="diagrama-de-árbol">Diagrama de Árbol</h2>
-<p><img src="Resources\ProbabilityTree.png" style="zoom:50%" /></p>
-<p><span class="math display">\[
-P(B\cap A)=P(B/A)\ .\ P(A) = p_1\ .\ p      \\
-P(\overline B\cap A)=P(\overline B/A)\ .\ P(\overline A) = (1-p_1)\ .\ p        \\
-P(B\cap \overline A)=P(B/\overline A)\ .\ P(\overline A) = (1-p)\ .\ p_2        \\
-P(\overline B\cap \overline A)=P(\overline B/\overline A)\ .\ P(\overline A) = (1-p)\ .\ (1-p_2)        \\
-\]</span></p>
+\]</div>
+<h2 id="diagrama-de-arbol">Diagrama de Árbol</h2>
+<img src="Resources\ProbabilityTree.png" style="zoom:50%" />
+<div class="math">
+\[
+P(B\cap A)=P(B/A)\ .\ P(A) = p_1\ .\ p 		\\
+P(\overline B\cap A)=P(\overline B/A)\ .\ P(\overline A) = (1-p_1)\ .\ p 		\\
+P(B\cap \overline A)=P(B/\overline A)\ .\ P(\overline A) = (1-p)\ .\ p_2 		\\
+P(\overline B\cap \overline A)=P(\overline B/\overline A)\ .\ P(\overline A) = (1-p)\ .\ (1-p_2) 		\\
+\]</div>
 <h2 id="particiones">Particiones</h2>
 <p>Sea:</p>
 <ul>
-<li><p><span class="math inline">\(A_i\)</span> una partición, <span class="math inline">\(A_i \neq\phi\)</span></p></li>
-<li><p><span class="math inline">\(A_i \cap A_j = \phi ,\ \ i\neq j\)</span></p></li>
-<li><p><span class="math inline">\(S = \bigcup_{i=1}^{n}A_i\)</span></p></li>
-<li><p><span class="math inline">\(B\)</span> un conjunto superpuesto sobre S.</p>
-<p><img src="Resources/Particiones.png"></p></li>
+<li><p><span class="math">\(A_i\)</span> una partición, <span class="math">\(A_i \neq\phi\)</span></p>
+</li>
+<li><p><span class="math">\(A_i \cap A_j = \phi ,\ \ i\neq j\)</span></p>
+</li>
+<li><p><span class="math">\(S = \bigcup_{i=1}^{n}A_i\)</span></p>
+</li>
+<li><p><span class="math">\(B\)</span> un conjunto superpuesto sobre S.</p>
+<img src="Resources/Particiones.png">
+</li>
 </ul>
 <h3 id="teorema-de-la-probabilidad-total">Teorema de la Probabilidad Total</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 P(B) = \sum_{i=1}^{n}P(B\cap A_i) = \sum_{i=1}^{n}P(B/A_i)\ .\ P(A_i)
-\]</span></p>
+\]</div>
 <h3 id="teorema-de-bayes">Teorema de Bayes</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 P(A_j/B)=\frac{P(a_j\cap B)}{P(B)} = \frac{P(B/A_j)\ .\ P(A_j) }{\sum_{i=1}^{n}P(B/A_i)\ .\ P(A_i)}
-\]</span></p>
+\]</div>
+
 </body>
 </html>

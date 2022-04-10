@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>01</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>01.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,14 +1385,15 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="lab-1">Lab 1</h1>
 <h2 id="section">1.1</h2>
-<p>For this exercise I’m going to model a plane as a means of transportation. For this model, I’m only going to consider the aerodynamics of the plane, as well as the jet turbines, flaps and control center from the pilot’s cabin. We only need these components because they are the only ones needed to successfully simulate an airplane flying in the air.</p>
+<p>For this exercise I'm going to model a plane as a means of transportation. For this model, I'm only going to consider the aerodynamics of the plane, as well as the jet turbines, flaps and control center from the pilot's cabin. We only need these components because they are the only ones needed to successfully simulate an airplane flying in the air.</p>
 <p>We could think of a worst level of abstraction that could also include non essential parts of the airplane for this specific task, like for example, taking into consideration the entertainment system or even the bathroom disposal system. But these would be bad choices because they are not necessary parts of an airplane to fly, but make flights more comfortable for the users.</p>
-<p>Given that the model’s outputs will be different depending on time, and that their order will not be interchangeable, this model is dynamic.</p>
+<p>Given that the model's outputs will be different depending on time, and that their order will not be interchangeable, this model is dynamic.</p>
 <h2 id="section-1">1.2</h2>
 <ul>
 <li>Plane:
@@ -1542,46 +1405,61 @@ blockquote {
 <li>Asps: Modeled by some differential equations that optimize aerodynamics for speed and air intake for the engine.</li>
 <li>Jet Engine: Modeled using mathematical equations that take into account the air and fuel coming into the plane, and calculates the thrust this engine should produce.</li>
 <li>Fuel delivery: A set of mathematical equations that take into consideration altitude, temperature and speed to calculate how much fuel must be delivered to the jet engines.</li>
-</ul></li>
+</ul>
+</li>
 <li>Control Center:
 <ul>
 <li>Analog controls: Input device from the pilot to control the aircraft</li>
-<li>Main Computer: Electronic device that communicates the pilots actions to the component of the plane responsible for it. It also takes receives measurements from those components and shows them to the pilot.<br />
+<li>Main Computer: Electronic device that communicates the pilots actions to the component of the plane responsible for it. It also takes receives measurements from those components and shows them to the pilot.</li>
+</ul>
 </li>
-</ul></li>
 <li>Flaps:
 <ul>
 <li>Mechanical activators: A set of valves and levers that move the flaps to change the direction or speed of the aircraft.</li>
 <li>Shape: Modeled by some differential equations that optimize aerodynamics.</li>
-</ul></li>
+</ul>
+</li>
 <li>Body of the ship: Modeled by some differential equations that optimize aerodynamics for take off, landing and cruising</li>
-</ul></li>
+</ul>
+</li>
 <li>Entertainment component:
 <ul>
 <li>Displays</li>
 <li>Wifi</li>
 <li>Phone calls</li>
-<li>…</li>
-</ul></li>
-<li>…</li>
-</ul></li>
+<li>...</li>
+</ul>
+</li>
+<li>...</li>
+</ul>
+</li>
 </ul>
 <h2 id="section-2">1.3</h2>
-<p>### A)</p>
-<p><img src="Resources/01/image-20201018112424713.png" alt="image-20201018112424713" style="zoom:20%;" /></p>
-<h3 id="b">B)</h3>
-<p>Free variables: <span class="math inline">\(z\)</span></p>
-<p>Bound variables: <span class="math inline">\(x,y\)</span></p>
-<h3 id="c">C)</h3>
-<p>$$ := \ := x.[P(x,z)y. [Q(y,x) P(y,z)]]\</p>
-<p>:= x.[P(w,f(x)) y.[Q(y,x)P(y,f(x))]] $$</p>
-<h3 id="d">D)</h3>
-<p>$$ ’ :=</p>
-<p>x.[P(2^u+()+u!,z) y.[Q(y,x) P(y,z)]] $$</p>
-<p><img src="Resources/Untitled/image-20201016174953329.png" alt="image-20201016174953329" style="zoom:20%;" /></p>
-<h2 id="section-3">1.4</h2>
 <h3 id="a">A)</h3>
-<p><span class="math display">\[
+<img src="Resources/01/c43df846-a73c-4ad5-b137-df7fd626296e.png" alt="c43df846-a73c-4ad5-b137-df7fd626296e" style="scale:0.20;" />
+<h3 id="b">B)</h3>
+<p>Free variables: <span class="math">\(z\)</span></p>
+<p>Bound variables: <span class="math">\(x,y\)</span></p>
+<h3 id="c">C)</h3>
+<div class="math">
+\[
+\emptyset[x\leftarrow w] := \emptyset \\
+\emptyset[y \leftarrow w]:= \forall x.[P(x,z)\land \exists y. [\neg Q(y,x) \lor P(y,z)]]\\
+
+\emptyset[z \leftarrow f(x)] := \forall x.[P(w,f(x)) \land \exists y.[\neg Q(y,x)\lor P(y,f(x))]]
+\]</div>
+<h3 id="d">D)</h3>
+<div class="math">
+\[
+\emptyset' := 
+
+\forall x.[P(2^u+\sin(\sqrt{uv})+u!,z) \land \exists y.[\neg Q(y,x) \lor P(y,z)]]
+\]</div>
+<img src="Resources/Untitled/220f2ec0-8e7d-4bc4-889f-cf0b073b7e8a.png" alt="220f2ec0-8e7d-4bc4-889f-cf0b073b7e8a" style="scale:0.20;" />
+<h2 id="section-3">1.4</h2>
+<h3 id="a-1">A)</h3>
+<div class="math">
+\[
 Q \Rightarrow [\neg Q \Rightarrow R] \\
 Q \Rightarrow [Q \lor R] \\
 \neg Q \lor [Q \lor R] \\
@@ -1589,24 +1467,27 @@ Q \Rightarrow [Q \lor R] \\
 \top \lor R \\
 \top \\
 R \lor \neg R
-\]</span></p>
+\]</div>
 <h3 id="b-1">B)</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 P \Rightarrow [Q \land R] \\
 \neg P \lor [Q \land R] \\
 [\neg P \lor Q] \land [\neg P \lor R] \\
 [P \Rightarrow Q] \land [P \Rightarrow R]
-\]</span></p>
+\]</div>
 <h3 id="c-1">C)</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 \neg \forall x.[A(f(x)) \Rightarrow B(x)]\\
 \exists x.\neg[A(f(x)) \Rightarrow B(x)] \\
 \exists x.\neg [\neg A(f(x)) \lor B(x)] \\
 \exists x.[\neg\neg A(f(x)) \land \neg B(x)] \\
 \exists x.[A(f(x)) \land \neg B(x)]
-\]</span></p>
+\]</div>
 <h2 id="section-4">1.5</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 A \setminus(B\cup A) \subseteq \emptyset \\
 \forall x.[x\in A\setminus(B\cup A)] \Rightarrow x \in \emptyset \\
 \forall x. [x \in \{a/ a\in A \land \neg a\in (B\cup A) \}] \Rightarrow x\in \emptyset \\
@@ -1617,15 +1498,18 @@ A \setminus(B\cup A) \subseteq \emptyset \\
 \forall x.\bot \Rightarrow x \in \emptyset\\
 \forall x. \top\\
 \top
-\]</span></p>
+\]</div>
 <h2 id="section-5">1.6</h2>
-<h3 id="a-1">A)</h3>
-<p><span class="math display">\[
+<h3 id="a-2">A)</h3>
+<div class="math">
+\[
 R =\{(\text{Danube},\text{AT}),(\text{Danube},\text{RO})\} \subseteq \text{Rivers} \times \text{Countries}
-\]</span></p>
+\]</div>
 <h3 id="b-2">B)</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 S = \{(0,0),(1,2),(2,4),(3,1),(4,3)\}
-\]</span></p>
+\]</div>
+
 </body>
 </html>

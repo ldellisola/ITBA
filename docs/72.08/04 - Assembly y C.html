@@ -1,214 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - Assembly y C</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {  background-color: #f8f8f8; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ef2929; } /* Alert */
-    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #c4a000; } /* Attribute */
-    code span.bn { color: #0000cf; } /* BaseN */
-    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4e9a06; } /* Char */
-    code span.cn { color: #000000; } /* Constant */
-    code span.co { color: #8f5902; font-style: italic; } /* Comment */
-    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-    code span.dt { color: #204a87; } /* DataType */
-    code span.dv { color: #0000cf; } /* DecVal */
-    code span.er { color: #a40000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #0000cf; } /* Float */
-    code span.fu { color: #000000; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-    code span.ot { color: #8f5902; } /* Other */
-    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-    code span.sc { color: #000000; } /* SpecialChar */
-    code span.ss { color: #4e9a06; } /* SpecialString */
-    code span.st { color: #4e9a06; } /* String */
-    code span.va { color: #000000; } /* Variable */
-    code span.vs { color: #4e9a06; } /* VerbatimString */
-    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - Assembly y C.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -217,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -274,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -338,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -421,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -440,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -462,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -559,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -651,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -692,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -735,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -922,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -978,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1301,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1426,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1583,15 +1385,17 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="assembly-y-c">Assembly y C</h1>
 <h2 id="compilacion-y-linkedicion">Compilacion y Linkedicion</h2>
 <p>A la hora de utilizar tanto archivos escritos en C como rutinas de assembly, se los debe compilar de la siguente forma:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nasm</span> -f elf32 file1ASM.asm file2ASM.asm ... fileNASM.asm</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gcc</span> -c -m32 file1C.c file2C.c ... fileNC.c</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gcc</span> -m32 file1C.o file1ASM.o file2C.o file2ASM.o ... fileNC.o fileNASM.o -o exec</span></code></pre></div>
+<pre><code class="language-bash">nasm -f elf32 file1ASM.asm file2ASM.asm ... fileNASM.asm
+gcc -c -m32 file1C.c file2C.c ... fileNC.c
+gcc -m32 file1C.o file1ASM.o file2C.o file2ASM.o ... fileNC.o fileNASM.o -o exec
+</code></pre>
 <p>De esta forma se compilan los archivos de assembly y los de C por separado, pero despues se unen a la hora de linkeditarlos.</p>
 <p>El flag <code>-m32</code> indica que se va a compilar y linkeditar para 32-bits. Si no se especifica esto se compila para 64 bits.</p>
 <h2 id="punto-de-entrada">Punto de Entrada</h2>
@@ -1605,34 +1409,35 @@ blockquote {
 <h3 id="pasaje-de-argumentos-por-stack">Pasaje de Argumentos por Stack</h3>
 <p>Al pasar los argumentos por el stack, se deben pushear de derecha a izquierda.</p>
 <p>Por ejemplo, si tengo la función:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>func(paramA,paramB,paramC);</span></code></pre></div>
+<pre><code class="language-c">func(paramA,paramB,paramC);
+</code></pre>
 <p>Como los parámetros se pushean de derecha a izquierda primero tengo que pushear <code>paramC</code>, después <code>paramB</code> y por ultimo <code>paramA</code></p>
 <p>Luego, la funcion que recibe los argumentos, puede acceder a los mismos de la siguente forma:</p>
-<table>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;">Direccion del ESP</th>
 <th style="text-align: center;">Valor</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>EBP</code></td>
 <td style="text-align: center;">EBP del Contexto Anterior</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>EBP+4</code></td>
 <td style="text-align: center;">Direccion de Retorno</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>EBP+8</code></td>
 <td style="text-align: center;">Primer Argumento</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>EBP+12</code></td>
 <td style="text-align: center;">Segundo Argumento</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>EBP+(n+1)*4</code></td>
 <td style="text-align: center;">n-simo Argumento</td>
 </tr>
@@ -1647,13 +1452,14 @@ blockquote {
 <h3 id="stackframe">StackFrame</h3>
 <p>El stackframe permite a cada función utilizar el stack sin la posibilidad de que estas pierdan su dirección de retorno o accedan a las variables que están fuera de su scope. Este proceso implica guardar el principio de nuestra parte del stack y modificarlo luego para que la próxima función sepa donde comienza su parte del stack (Todo esto se hace con el registro <code>EBP</code>).</p>
 <p>Entonces, cada función que quiera ser llamada por C tiene que seguir esta forma:</p>
-<pre class="assembly"><code>push ebp
+<pre><code class="language-assembly">push ebp
 mov ebp, esp
 
 ; El codigo de tu funcion
 
 mov esp,ebp
-pop ebp</code></pre>
+pop ebp
+</code></pre>
 <h3 id="alinemiento-a-palabra">Alinemiento a Palabra</h3>
 <p>Cuando el procesador quiere acceder a un dato que esta des-alineado (su tama;o es menor igual a 4 bytes y no esta dentro de la misma posicion del stack), debe hacer 2 lecturas, una para pedir la primera parte de los datos y otra para la segunda parte. Cuando intentamos de escribir y tenemos un dato des-alineado, es todavia peor, ya que debe leer de memoria para guardar el dato y no sobreescribirlo, luego combinar el dato anterior con la primera parte de mi dato y guardarlo, y por ultimo escribir la segunda parte de mi dato.</p>
 <p>La forma de solucionar este problema es negar los ultimos 4 bits. Como el stack crece hacia valores menores de <code>ESP</code>, seguro esta opcion esta por detras del puntero actual y va a hacer el acceso a memoria mas eficiente.</p>
@@ -1664,48 +1470,52 @@ pop ebp</code></pre>
 <h3 id="variables">Variables</h3>
 <p>Para hacer que las variables de cada funcion vivan solo en el scope de la misma, se las debe reservar en el stack. Esto se hace haciendo que el stack pointer (<code>ESP</code>) crezca, es decir, restandole la cantidad de bytes necesarios. Por ejemplo, si queremos guardar un numero entero en el stack, debemos hacer <code>sub ESP,4</code>.</p>
 <h3 id="llamada-de-funciones-de-c-en-assembly">Llamada de funciones de C en Assembly</h3>
-<pre class="assembly"><code>GLOBAL main
+<pre><code class="language-assembly">GLOBAL main
 extern printf
 
 section .text
 main:
 
-    
-    push dword string
-    call prinf
-    
-    
-    ret
+	
+	push dword string
+	call prinf
+	
+	
+	ret
 
 section .data
-string db &quot;hello world&quot;,0</code></pre>
+string db &quot;hello world&quot;,0
+</code></pre>
 <p>En este caso, nuestro programa simplemente va a utilizar la función <code>printf</code> de C para poder imprimir en un string en pantalla. Para esto pasamos al stack a nuestro string que queremos imprimir, que es parámetro de la función, y luego la llamamos.</p>
 <h3 id="llamada-de-funciones-de-assembly-en-c">Llamada de funciones de Assembly en C</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> <span class="dt">unsigned</span> <span class="dt">int</span> siete(<span class="dt">void</span>);</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main(<span class="dt">void</span>){</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    printf(<span class="st">&quot;Numero Siente:%d&quot;</span>,siete());</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+extern unsigned int siete(void);
+
+int main(void){
+    printf(&quot;Numero Siente:%d&quot;,siete());
+    return 0;
+}
+</code></pre>
 <p>Desde el punto de vista de C, la función de assembly es simplemente una función mas externa.</p>
-<pre class="assembly"><code>GLOBAL siete
+<pre><code class="language-assembly">GLOBAL siete
 
 section .text
 
 siete:
-    push ebp
-    mov ebp, esp
-    
-    mov eax,7
-    
-    mov esp,ebp
-    pop ebp
-    
-    ret</code></pre>
+	push ebp
+	mov ebp, esp
+	
+	mov eax,7
+	
+	mov esp,ebp
+	pop ebp
+	
+	ret
+</code></pre>
 <p>Y la función de assembly es una función normal, que podría ser llamada tambien desde assembly.</p>
 <h2 id="interoperabilidad-entre-c-y-assembly-64-bits">Interoperabilidad entre C y Assembly (<code>64-bits</code>)</h2>
 <p>Lo unico que cambia aca son los registros a preservar, ya que se deben mantener los valores de los registros <code>RBP</code>, <code>RSP</code>, <code>RBX</code>, <code>R12</code>, <code>R13</code> y <code>R15</code>.</p>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>11 - Optimal Auctions</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>11 - Optimal Auctions.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,57 +1385,78 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="optimal-auctions">Optimal Auctions</h1>
-<p>The Seller’s problem is to design an auction mechanism which has a Nash equilibrium giving him the highest possible expected utility.</p>
+<p>The Seller's problem is to design an auction mechanism which has a Nash equilibrium giving him the highest possible expected utility.</p>
 <h2 id="design">Design</h2>
-<p>Assuming the IPV setting and risk-neutral bidders, each bidder <span class="math inline">\(i\)</span>’s valuation is drawn from some strictly increasing cumulative density function <span class="math inline">\(F_i(v)\)</span>, having probability density function <span class="math inline">\(f_i(v)\)</span> that is continuous and bounded below.</p>
-<p>The risk neutral seller knows each <span class="math inline">\(F_j\)</span> and has zero value for the object. The auction that maximizes the seller’s expected revenue subject to individual rationality and Bayesian incentive-compatibility for the buyers is an <strong>optimal auction</strong>.</p>
+<p>Assuming the IPV setting and risk-neutral bidders, each bidder <span class="math">\(i\)</span>'s valuation is drawn from some strictly increasing cumulative density function <span class="math">\(F_i(v)\)</span>, having probability density function <span class="math">\(f_i(v)\)</span> that is continuous and bounded below.</p>
+<p>The risk neutral seller knows each <span class="math">\(F_j\)</span> and has zero value for the object. The auction that maximizes the seller's expected revenue subject to individual rationality and Bayesian incentive-compatibility for the buyers is an <strong>optimal auction</strong>.</p>
 <p>Auctions can be made with a base or <strong>reserve price</strong>, and bidding the true value is still the dominant strategy.</p>
-<p><img src="Resources/11 - Optimal Auctions/image-20210115121152259.png" alt="image-20210115121152259" style="zoom:33%;" /></p>
+<img src="Resources/11 - Optimal Auctions/b11b345b-2361-431c-a1a2-94c36d91c52a.png" alt="b11b345b-2361-431c-a1a2-94c36d91c52a" style="scale:0.33;" />
 <p>The following holds:</p>
 <ul>
-<li><p>If both bidders are below <span class="math inline">\(R\)</span>, then there is no sale. Also if this happens with probability <span class="math inline">\(R^2\)</span> then revenue is <span class="math inline">\(0\)</span>.</p></li>
-<li><p>If one bid is above the reserve and another one below, the sale is at reserve price <span class="math inline">\(R\)</span>. This happens with probability <span class="math inline">\(2(1-R)R\)</span> and the revenue is also <span class="math inline">\(R\)</span>.</p></li>
-<li><p>If both bids are above the reserve price, then the sale is at the second highest bid and this happens with probability <span class="math inline">\((1-R)^2\)</span>. The revenue in this case is : <span class="math display">\[
+<li><p>If both bidders are below <span class="math">\(R\)</span>, then there is no sale. Also if this happens with probability <span class="math">\(R^2\)</span> then revenue is <span class="math">\(0\)</span>.</p>
+</li>
+<li><p>If one bid is above the reserve and another one below, the sale is at reserve price <span class="math">\(R\)</span>. This happens with probability <span class="math">\(2(1-R)R\)</span> and the revenue is also <span class="math">\(R\)</span>.</p>
+</li>
+<li><p>If both bids are above the reserve price, then the sale is at the second highest bid and this happens with probability <span class="math">\((1-R)^2\)</span>. The revenue in this case is :</p>
+<div class="math">
+\[
 \text{revenue} = E[\min v_i | \min v_i \ge R]= \frac{1 + 2R}{3}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>Taking all three scenarios into account we can say that the expected revenue is: <span class="math display">\[
+<p>Taking all three scenarios into account we can say that the expected revenue is:</p>
+<div class="math">
+\[
 \text{expected revenue} = 2(1-R)R^2 + (1-R)^2\frac{1+2R}{3}
-\]</span> And if we want to maximize it, we can select <span class="math inline">\(R =0.5\)</span>. At this reserve price we can expect a revenue of <span class="math inline">\(5/12\)</span>, while a reserve price of <span class="math inline">\(0\)</span> will lead to <span class="math inline">\(4/12\)</span>. This has some tradeoffs:</p>
+\]</div>
+<p>And if we want to maximize it, we can select <span class="math">\(R =0.5\)</span>. At this reserve price we can expect a revenue of <span class="math">\(5/12\)</span>, while a reserve price of <span class="math">\(0\)</span> will lead to <span class="math">\(4/12\)</span>. This has some tradeoffs:</p>
 <ul>
-<li>You may loose the sale hen both bids are below <span class="math inline">\(0.5\)</span>, but the revenue would be very low if you accepted it. This can happen with a probability of <span class="math inline">\(1/4\)</span>.</li>
-<li>You may increate the sale price when one bidder has a loss valuation and the other high. This happens with a probability of <span class="math inline">\(0.5\)</span></li>
+<li>You may loose the sale hen both bids are below <span class="math">\(0.5\)</span>, but the revenue would be very low if you accepted it. This can happen with a probability of <span class="math">\(1/4\)</span>.</li>
+<li>You may increate the sale price when one bidder has a loss valuation and the other high. This happens with a probability of <span class="math">\(0.5\)</span></li>
 </ul>
 <h2 id="optimal-single-item-auction">Optimal Single Item Auction</h2>
-<p>In an IPV setting where bidders are risk-neutral, and each bidder <span class="math inline">\(i\)</span>’s valuation is drawn from some strictly increasing cumulative density function <span class="math inline">\(F_i(v)\)</span>, with a probability density function <span class="math inline">\(f_i(v)\)</span>, we define:</p>
+<p>In an IPV setting where bidders are risk-neutral, and each bidder <span class="math">\(i\)</span>'s valuation is drawn from some strictly increasing cumulative density function <span class="math">\(F_i(v)\)</span>, with a probability density function <span class="math">\(f_i(v)\)</span>, we define:</p>
 <ul>
-<li><p>Bidder <span class="math inline">\(i\)</span>’s <strong>virtual valuation</strong> as: <span class="math display">\[
+<li><p>Bidder <span class="math">\(i\)</span>'s <strong>virtual valuation</strong> as:</p>
+<div class="math">
+\[
 \psi_i(v_i) = v_i- \frac{1-F_i(v_i)}{f_i(v_i)}
-\]</span></p></li>
-<li><p>Bidder <span class="math inline">\(i\)</span>’s <strong>bidder-specific reserve price</strong> as : <span class="math display">\[
+\]</div>
+</li>
+<li><p>Bidder <span class="math">\(i\)</span>'s <strong>bidder-specific reserve price</strong> as :</p>
+<div class="math">
+\[
 r_i^*/ \psi_i(r_i^*) = 0
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<blockquote>
-<p>The optimal single good auction is a sealed-bid auction in which every agent is asked to declare his valuation. The good is sold to the agent <span class="math inline">\(i = \arg\max_i \psi_i(\hat v_i)\)</span> as long as <span class="math inline">\(v_i &gt; r_i^*\)</span>.</p>
-<p>If the good is sold, the winning agent <span class="math inline">\(i\)</span> is charged the smallest valuation that it could have declared while still remaining the winner: <span class="math display">\[
+<blockquote class="blockquote">
+<p>The optimal single good auction is a sealed-bid auction in which every agent is asked to declare his valuation. The good is sold to the agent <span class="math">\(i = \arg\max_i \psi_i(\hat v_i)\)</span> as long as <span class="math">\(v_i &gt; r_i^*\)</span>.</p>
+<p>If the good is sold, the winning agent <span class="math">\(i\)</span> is charged the smallest valuation that it could have declared while still remaining the winner:</p>
+<div class="math">
+\[
 \inf\{v_i^*:\psi_i(v_i^*) \ge 0 \land \forall j \neq i. \psi_i(v_i^*) \ge \psi_j(\hat v_j)\}
-\]</span></p>
+\]</div>
 </blockquote>
 <p>This can be understood as a second price auction with a reserve price, held in a virtual valuation space rather than the space of actual valuations. The dominant strategy is still to bid truthfully.</p>
-<p>There is a symmetric case: the second-price auction with reserve price <span class="math inline">\(r^*\)</span> satisfying: <span class="math display">\[
+<p>There is a symmetric case: the second-price auction with reserve price <span class="math">\(r^*\)</span> satisfying:</p>
+<div class="math">
+\[
 \psi(r^*) = r^* - \frac{1-F(r^*)}{f(r^*)} = 0
-\]</span> Here the truthful mechanisms is useful only when <span class="math inline">\(\psi(v)\)</span> is non-decreasing.</p>
+\]</div>
+<p>Here the truthful mechanisms is useful only when <span class="math">\(\psi(v)\)</span> is non-decreasing.</p>
 <p>The second-price sealed bid auction with reserve price is not efficient.</p>
 <h2 id="remarks">Remarks</h2>
-<p>For optimal revenue we must sacrifice some efficiency. Optimal auctions are not detail-free, they require the seller to incorporate information about the bidders’ valuation distribution into the mechanism and are rarely used in practice.</p>
-<p>We also know thanks to Bulow and Klemperer’s theorem that its better to spend energy on attracting more bidders:</p>
-<blockquote>
-<p>Revenue of an efficiency maximizing auction with <span class="math inline">\(k+1\)</span> bidders is at least as high as that of the revenue-maximizing auction with <span class="math inline">\(k\)</span> bidders.</p>
+<p>For optimal revenue we must sacrifice some efficiency. Optimal auctions are not detail-free, they require the seller to incorporate information about the bidders' valuation distribution into the mechanism and are rarely used in practice.</p>
+<p>We also know thanks to Bulow and Klemperer's theorem that its better to spend energy on attracting more bidders:</p>
+<blockquote class="blockquote">
+<p>Revenue of an efficiency maximizing auction with <span class="math">\(k+1\)</span> bidders is at least as high as that of the revenue-maximizing auction with <span class="math">\(k\)</span> bidders.</p>
 </blockquote>
+
 </body>
 </html>

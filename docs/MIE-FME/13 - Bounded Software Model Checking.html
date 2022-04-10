@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>13 - Bounded Software Model Checking</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>13 - Bounded Software Model Checking.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,30 +1385,47 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="bounded-software-model-checking">Bounded Software Model Checking</h1>
 <p>BSMC is a method for automatic program correctness proof. We say that a program execution is <strong>regular</strong> if it satisfies all the assume-assertions. The program is <strong>partially correct</strong> if for every regular execution, from the first line to a program line with the @-assertion, it satisfies the final @-assertion.</p>
-<p>A program is <strong>correct</strong> if for all states <span class="math inline">\(s\)</span> such that <span class="math inline">\(s \models I\)</span>, for all states <span class="math inline">\(s&#39;\)</span> such that <span class="math inline">\(s\rightarrow_P^* s&#39;\)</span>: <span class="math display">\[
-s&#39; \models O
-\]</span> Where <span class="math inline">\(I \equiv pc =1 \land \phi_I\)</span> and <span class="math inline">\(O \equiv \bigwedge_{l \in L} pc = l \implies \phi_l\)</span>, and <span class="math inline">\(L\)</span> is the set of all program lines with @-assertions and <span class="math inline">\(\phi_l\)</span> is the corresponding line.</p>
-<p>Now everything relates to program states, but we need to define it in a first-order formula. This formula can be translated to: <span class="math display">\[
-\not \exists x,x&#39;.[I(x) \land R(x,x&#39;) \land O(x&#39;)]
-\]</span> If this holds, then the program is not satisfiable, meaning there is a bug. Here, the <span class="math inline">\(R(x,x&#39;)\)</span> formula contains all the states of the program.</p>
+<p>A program is <strong>correct</strong> if for all states <span class="math">\(s\)</span> such that <span class="math">\(s \models I\)</span>, for all states <span class="math">\(s'\)</span> such that <span class="math">\(s\rightarrow_P^* s'\)</span>:</p>
+<div class="math">
+\[
+s' \models O
+\]</div>
+<p>Where $I \equiv pc =1 \land \phi_I $ and <span class="math">\(O \equiv \bigwedge_{l \in L} pc = l \implies \phi_l\)</span>, and <span class="math">\(L\)</span> is the set of all program lines with @-assertions and <span class="math">\(\phi_l\)</span> is the corresponding line.</p>
+<p>Now everything relates to program states, but we need to define it in a first-order formula. This formula can be translated to:</p>
+<div class="math">
+\[
+\not \exists x,x'.[I(x) \land R(x,x') \land O(x')]
+\]</div>
+<p>If this holds, then the program is not satisfiable, meaning there is a bug. Here, the <span class="math">\(R(x,x')\)</span> formula contains all the states of the program.</p>
 <h2 id="bounded-program-correctness">Bounded Program Correctness</h2>
-<p>Even though programs can have an arbitrary large set of states, we can assume that this number is fixed to <span class="math inline">\(n\)</span> and try to solve them using solvers. Here is here <span class="math inline">\(\text{BMC}\)</span> comes into play: <span class="math display">\[
-\text{BMC}_{I,O,P}(n) := \neg \exists v_1,\dots,v_n. I[v \leftarrow v_1]\land \bigwedge_{i = 1,\dots,n-1} \phi_P[v\leftarrow v_i,v&#39; \leftarrow v_{i+1}] \land \neg O[v \leftarrow v_n]
-\]</span> Where <span class="math inline">\(v\)</span> is a placeholder for all program variables, with respective indices and primes. If we only use data types from decidable theories, we can check this formula automatically.</p>
-<p>A sequence of states <span class="math inline">\(s_1,\dots,s_n\)</span> such that: <span class="math display">\[
-\pi^1(s_1) \sqcup\dots \sqcup \pi^n(s_n) \models  I[v \leftarrow v_1]\land \bigwedge_{i = 1,\dots,n-1} \phi_P[v\leftarrow v_i,v&#39; \leftarrow v_{i+1}] \land \neg O[v \leftarrow v_n]
-\]</span> Where for a state <span class="math inline">\(s\)</span>, <span class="math inline">\(\pi^i(s)\)</span> is a function that assigns the same values to variables with index <span class="math inline">\(i\)</span>. This is called a <strong>counter-example</strong> or <strong>error trace</strong>.</p>
+<p>Even though programs can have an arbitrary large set of states, we can assume that this number is fixed to <span class="math">\(n\)</span> and try to solve them using solvers. Here is here <span class="math">\(\text{BMC}\)</span> comes into play:</p>
+<div class="math">
+\[
+\text{BMC}_{I,O,P}(n) := \neg \exists v_1,\dots,v_n. I[v \leftarrow v_1]\land \bigwedge_{i = 1,\dots,n-1} \phi_P[v\leftarrow v_i,v' \leftarrow v_{i+1}] \land \neg O[v \leftarrow v_n]
+\]</div>
+<p>Where <span class="math">\(v\)</span> is a placeholder for all program variables, with respective indices and primes. If we only use data types from decidable theories, we can check this formula automatically.</p>
+<p>A sequence of states <span class="math">\(s_1,\dots,s_n\)</span> such that:</p>
+<div class="math">
+\[
+\pi^1(s_1) \sqcup\dots \sqcup \pi^n(s_n) \models  I[v \leftarrow v_1]\land \bigwedge_{i = 1,\dots,n-1} \phi_P[v\leftarrow v_i,v' \leftarrow v_{i+1}] \land \neg O[v \leftarrow v_n]
+\]</div>
+<p>Where for a state <span class="math">\(s\)</span>, <span class="math">\(\pi^i(s)\)</span> is a function that assigns the same values to variables with index <span class="math">\(i\)</span>. This is called a <strong>counter-example</strong> or <strong>error trace</strong>.</p>
 <h2 id="bounded-verification">Bounded Verification</h2>
-<p>We can prove the correctness for a program within a given number of steps: <span class="math display">\[
+<p>We can prove the correctness for a program within a given number of steps:</p>
+<div class="math">
+\[
 \models \text{BMC}(n)
-\]</span> But proving that <span class="math inline">\(\text{BMC(i+1)}\)</span> does not imply that <span class="math inline">\(\text{BMC(i)}\)</span> holds. Another thing to denote is that <span class="math inline">\(\models \text{BMC}_{I,O,P}\)</span> does not imply that the program <span class="math inline">\(P\)</span> is correct if there is I/O involved, but <span class="math inline">\(\not \models \text{BMC}_{I,O,P}(n)\)</span> means that there is a bug in <span class="math inline">\(P\)</span>.</p>
+\]</div>
+<p>But proving that <span class="math">\(\text{BMC(i+1)}\)</span> does not imply that <span class="math">\(\text{BMC(i)}\)</span> holds. Another thing to denote is that <span class="math">\(\models \text{BMC}_{I,O,P}\)</span> does not imply that the program <span class="math">\(P\)</span> is correct if there is I/O involved, but <span class="math">\(\not \models \text{BMC}_{I,O,P}(n)\)</span> means that there is a bug in <span class="math">\(P\)</span>.</p>
 <p>Counter-examples always have a certain length, so we can always find them if we have enough time. Hence, finding errors in programs with decidable data types is semi-decidable.</p>
 <h2 id="testing">Testing</h2>
 <p>For software in safety critical applications, there are standards that require completeness of tests according to certain criteria. Usually this criteria is that the tests must cover the code in a certain way, for example, all lines must be in at least one test.</p>
+
 </body>
 </html>

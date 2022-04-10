@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - Variables Aleatorias</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - Variables Aleatorias.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,190 +1385,225 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="variables-aleatorias">Variables Aleatorias</h1>
-<h3 id="definición">Definición</h3>
-<p>Una <strong>variable aleatoria</strong> (VA) es una función que va del espacio muestral hacia los números reales <span class="math inline">\((X:S\rightarrow \mathbb{R})\)</span></p>
-<p>El <strong>recorrido</strong> <span class="math inline">\((R)\)</span> de la variable discreta es la Imagen de <span class="math inline">\(X\)</span>. Este puede ser continuo o discreto.</p>
-<p>Las VAs tienen dos funciones características, una llamada <strong>función de densidad de probabilidad</strong><span class="math inline">\((P_x(k))\)</span>, que mide la probabilidad individual de cada elemento, y luego esta <strong>función de probabilidad acumulada</strong> <span class="math inline">\((F_x(k) = P(X\leq k))\)</span>, que mide la probabilidad acumulada.</p>
+<h3 id="definicion">Definición</h3>
+<p>Una <strong>variable aleatoria</strong> (VA) es una función que va del espacio muestral hacia los números reales <span class="math">\((X:S\rightarrow \mathbb{R})\)</span></p>
+<p>El <strong>recorrido</strong> <span class="math">\((R)\)</span> de la variable discreta es la Imagen de <span class="math">\(X\)</span>. Este puede ser continuo o discreto.</p>
+<p>Las VAs tienen dos funciones características, una llamada <strong>función de densidad de probabilidad</strong><span class="math">\((P_x(k))\)</span>, que mide la probabilidad individual de cada elemento, y luego esta <strong>función de probabilidad acumulada</strong> <span class="math">\((F_x(k) = P(X\leq k))\)</span>, que mide la probabilidad acumulada.</p>
 <p>Tambien tienen funciones como el <strong>valor esperado</strong>, el <strong>momento</strong>, el <strong>valor medio o media</strong>, los <strong>momentos centrales</strong> y la <strong>varianza</strong>.</p>
 <h3 id="propiedades">Propiedades</h3>
-<h4 id="función-de-densidad">Función de Densidad</h4>
-<ol type="1">
-<li><span class="math inline">\(0\leq P_x(k)\leq1\)</span></li>
-<li><span class="math inline">\(\sum_{k\ \in\ R_x} P_x(k) = 1\)</span></li>
+<h4 id="funcion-de-densidad">Función de Densidad</h4>
+<ol>
+<li><span class="math">\(0\leq P_x(k)\leq1\)</span></li>
+<li><span class="math">\(\sum_{k\ \in\ R_x} P_x(k) = 1\)</span></li>
 </ol>
-<h4 id="función-de-probabilidad-acumulada">Función de Probabilidad Acumulada</h4>
-<ol type="1">
-<li><span class="math inline">\(\lim_{k\rightarrow -\inf} F_x(k) = 0\)</span></li>
-<li><span class="math inline">\(\lim_{k\rightarrow \inf} F_x(k) = 1\)</span></li>
-<li><span class="math inline">\(F_X(k)\)</span> es monótona creciente.</li>
-<li><span class="math inline">\(lim_{k\rightarrow k_0} F_X(k) = F_X(k_0)\)</span></li>
-<li><span class="math inline">\(P(A&lt;X\leq B) = F_X(B) - F_X(A)\)</span></li>
+<h4 id="funcion-de-probabilidad-acumulada">Función de Probabilidad Acumulada</h4>
+<ol>
+<li><span class="math">\(\lim_{k\rightarrow -\inf} F_x(k) =  0\)</span></li>
+<li><span class="math">\(\lim_{k\rightarrow \inf} F_x(k) =  1\)</span></li>
+<li><span class="math">\(F_X(k)\)</span> es monótona creciente.</li>
+<li><span class="math">\(lim_{k\rightarrow k_0} F_X(k) = F_X(k_0)\)</span></li>
+<li><span class="math">\(P(A&lt;X\leq B) = F_X(B) - F_X(A)\)</span></li>
 </ol>
 <h1 id="variables-aleatorias-discretas">Variables Aleatorias Discretas</h1>
-<h3 id="definición-1">Definición</h3>
+<h3 id="definicion-1">Definición</h3>
 <p>Una <strong>variable aleatoria discreta</strong> (VADs) son aquellas cuyo recorrido es discreto.</p>
 <h3 id="valor-esperado">Valor Esperado</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 E[g(x)] = \sum_{k\ \in\ R_x}g(k)\ .\ P_x(k)
-\]</span></p>
+\]</div>
 <h3 id="momentos">Momentos</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 \mu_n=E[x^n]\ \ ,\ \ n\in\mathbb{N}
-\]</span></p>
+\]</div>
 <h4 id="valor-medio-1er-momento">Valor Medio (1er Momento)</h4>
-<p><span class="math display">\[
+<div class="math">
+\[
 \mu=E[x]=\sum_{k\in R_x} k\ .\ P_x(k)
-\]</span></p>
+\]</div>
 <h3 id="momentos-centrales">Momentos Centrales</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 \gamma_n=E[(x-\mu)^n]\ \ ,\ \ n\in \mathbb{N}
-\]</span></p>
+\]</div>
 <h4 id="er-momento-central">1er Momento Central</h4>
-<p><span class="math display">\[
+<div class="math">
+\[
 \gamma_1=E[(x-\mu)]=\sum_{k\in R_x} k\ .\ P_x(k) + \sum_{k\in R_x} \mu\ .\ P_x(k)
-\]</span></p>
+\]</div>
 <h4 id="varianza-2do-momento">Varianza (2do Momento)</h4>
-<p><span class="math display">\[
+<div class="math">
+\[
 \sigma^2=\gamma_2=E[(x-\mu)^2] = E[x^2]-E[x]^2
-\]</span></p>
+\]</div>
 <h2 id="variable-aleatoria-de-bernoulli">Variable Aleatoria de Bernoulli</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 Y\sim Bernoulli(p)
-\]</span></p>
-El experimento puede ser exitoso o no, con probabilidad <span class="math inline">\(p\)</span>. $$ Y{
-<span class="math display">\[\begin{array}{ll}
-        1\ \ existoso \\
-        0\ \ no\ exitoso\\
-    \end{array}\]</span>
-<p>.\</p>
-<p>p_0 = q = 1-p  ,  p_1=p  ,  = p  ,  ^2=p . q $$</p>
-<h4 id="aproximación">Aproximación</h4>
+\]</div>
+<p>El experimento puede ser exitoso o no, con probabilidad <span class="math">\(p\)</span>.</p>
+<div class="math">
+\[
+Y\left\{
+	\begin{array}{ll}
+		1\ \ existoso \\
+		0\ \ no\ exitoso\\
+	\end{array}
+\right.\\
+
+
+p_0 = q = 1-p\ \ ,\ \ p_1=p\ \ ,\ \ \mu = p\ \ ,\ \ \sigma^2=p\ .\ q
+\]</div>
+<h4 id="aproximacion">Aproximación</h4>
 <ul>
 <li>La variable aleatoria de Bernoulli se puede aproximar a una binomial de la siguiente forma:</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 Y\sim Bernoulli(p) \rightarrow\ Y\sim Binomial(1,p)
-\]</span></p>
+\]</div>
 <h2 id="variable-aleatoria-binomial">Variable Aleatoria Binomial</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 X\sim Binomial(n,p)
-\]</span></p>
+\]</div>
 <p>Se repite un experimento <strong>n</strong> veces, cada experimento es <strong>independiente</strong> de los demás y la probabilidad de éxito en cada experimento es <strong>p</strong>.</p>
 <ul>
-<li><p><span class="math inline">\(x = \#\ de\ exitos\ en\ los~n~experimentos\)</span>.</p></li>
-<li><p><span class="math inline">\(P_k = P(x=k)=\begin{pmatrix} n\\k \end{pmatrix}\ .\ p^k\ .\ q^{n-k}\)</span></p></li>
-<li><p><span class="math inline">\(\mu = n\ .\ p\)</span></p></li>
-<li><p><span class="math inline">\(\sigma^2=q\ .\ n\ .\ p\)</span></p></li>
+<li><p>$x = #\ de\ exitos\ en\ los<sub>n</sub>experimentos $.</p>
+</li>
+<li><p><span class="math">\(P_k = P(x=k)=\begin{pmatrix} n\\k \end{pmatrix}\ .\ p^k\ .\ q^{n-k}\)</span></p>
+</li>
+<li><p><span class="math">\(\mu = n\ .\ p\)</span></p>
+</li>
+<li><p><span class="math">\(\sigma^2=q\ .\ n\ .\ p\)</span></p>
+</li>
 </ul>
-<h3 id="aproximación-1">Aproximación</h3>
+<h3 id="aproximacion-1">Aproximación</h3>
 <ul>
 <li>La VAD binomial se aproxima a la VAD Bernoulli de la siguiente forma</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 X \sim Bernoulli(p) \rightarrow X \sim Binomial(1,p)
-\]</span></p>
+\]</div>
 <ul>
-<li>La VAD binomial se puede aproximar a la VAD de Poisson de la siguiente forma cuando <span class="math inline">\(n\)</span> es <strong>grande</strong>, <span class="math inline">\(p\)</span> es <strong>chico</strong> y <span class="math inline">\(k\sim p\ .\ n\)</span> :</li>
+<li>La VAD binomial se puede aproximar a la VAD de Poisson de la siguiente forma cuando <span class="math">\(n\)</span> es <strong>grande</strong>, <span class="math">\(p\)</span> es <strong>chico</strong> y <span class="math">\(k\sim p\ .\ n\)</span> :</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 Binomial(n,p) \sim Poisson(n\ .\ p)
-\]</span></p>
+\]</div>
 <h2 id="variable-aleatoria-poisson">Variable Aleatoria Poisson</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 X\sim Poisson(\lambda)
-\]</span></p>
+\]</div>
 <p>Las VADs de Poisson se suelen cuando se trata de contar al tiempo.</p>
 <ul>
-<li><span class="math inline">\(P_k = P(x=k)=\frac{\lambda^k}{k!}\times e^{-\lambda}\)</span></li>
-<li><span class="math inline">\(\mu = \lambda\)</span></li>
-<li><span class="math inline">\(\sigma^2 = \lambda\)</span></li>
+<li><span class="math">\(P_k = P(x=k)=\frac{\lambda^k}{k!}\times e^{-\lambda}\)</span></li>
+<li><span class="math">\(\mu = \lambda\)</span></li>
+<li><span class="math">\(\sigma^2 = \lambda\)</span></li>
 </ul>
-<h3 id="aproximación-2">Aproximación</h3>
+<h3 id="aproximacion-2">Aproximación</h3>
 <ul>
-<li>La VAD Poisson se puede aproximar a la VAD de binomial de la siguiente forma cuando <span class="math inline">\(n\)</span> es <strong>grande</strong>, <span class="math inline">\(p\)</span> es <strong>chico</strong> y <span class="math inline">\(k\sim p\ .\ n\)</span> :</li>
+<li>La VAD Poisson se puede aproximar a la VAD de binomial  de la siguiente forma cuando <span class="math">\(n\)</span> es <strong>grande</strong>, <span class="math">\(p\)</span> es <strong>chico</strong> y <span class="math">\(k\sim p\ .\ n\)</span> :</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 Binomial(n,p) \sim Poisson(n\ .\ p)
-\]</span></p>
+\]</div>
 <h1 id="variables-aleatorias-continuas">Variables Aleatorias Continuas</h1>
 <p>En este tipo de VACs buscamos la probabilidad que que ocurra un intervalo, por lo que se redefinen las siguientes funciones:</p>
 <ul>
 <li>Función de densidad:</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 f_x(y)
-\]</span></p>
+\]</div>
 <ul>
 <li>Función de probabilidad acumulada:</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 sea~ P(a\leq X\leq b) = \int_a^bf_x(y)dy
-\]</span></p>
-<h2 id="distribución-uniforme">Distribución Uniforme</h2>
-<p><span class="math display">\[
+\]</div>
+<h2 id="distribucion-uniforme">Distribución Uniforme</h2>
+<div class="math">
+\[
 X\sim U(a,b)\\
 f_x=
 \left\{
-    \begin{array}{ll}
-    \frac{1}{b-a}\ \ ,\ \ x\in (a,b)\\
-    0\ \ ,\ \ x\notin(a,b)
-    \end{array}
+	\begin{array}{ll}
+	\frac{1}{b-a}\ \ ,\ \ x\in (a,b)\\
+	0\ \ ,\ \ x\notin(a,b)
+	\end{array}
 \right.
 \ \ ,\ \ 
 F_x=
 \left\{
-    \begin{array}{ll}
-    0\ \ ,\ \ x \lt a\\
-    \frac{x-a}{b-a}\ \ ,\ \ x\in (a,b)\\
-    1\ \ ,\ \ x \gt b
-    \end{array}
+	\begin{array}{ll}
+	0\ \ ,\ \ x \lt a\\
+	\frac{x-a}{b-a}\ \ ,\ \ x\in (a,b)\\
+	1\ \ ,\ \ x \gt b
+	\end{array}
 \right.\\
 \mu = \frac{a+b}{2}\ \ ,\ \ \sigma^2=\frac{(b-a)^2}{12}
-\]</span></p>
-<h2 id="distribución-exponencial">Distribución Exponencial</h2>
-<p>Sirve cuando se trata de tiempos. <span class="math display">\[
+\]</div>
+<h2 id="distribucion-exponencial">Distribución Exponencial</h2>
+<p>Sirve cuando se trata de tiempos.</p>
+<div class="math">
+\[
 X\sim e(\lambda)
 \\
 f_t(x)=
 \left\{
-    \begin{array}{ll}
-        0\ \ ,\ \ x\lt 0\\
-        \lambda\ .\ e^{-\lambda\ .\ x}\ \ ,\ \ x&gt;0
-    \end{array}
+	\begin{array}{ll}
+		0\ \ ,\ \ x\lt 0\\
+		\lambda\ .\ e^{-\lambda\ .\ x}\ \ ,\ \ x&gt;0
+	\end{array}
 \right.
 \ \ ,\ \ 
 F_t(x)=
 \left\{
-    \begin{array}{ll}
-        0\ \ ,\ \ x\lt 0\\
-        1- e^{-\lambda\ .\ x}\ \ ,\ \ x&gt;0
-    \end{array}
+	\begin{array}{ll}
+		0\ \ ,\ \ x\lt 0\\
+		1- e^{-\lambda\ .\ x}\ \ ,\ \ x&gt;0
+	\end{array}
 \right.
 \\
 \mu=\frac{1}{\lambda}\ \ ,\ \ \sigma^2=\frac{1}{\lambda^2}
-\]</span></p>
-<h2 id="distribución-normal-gaussiana">Distribución Normal (Gaussiana)</h2>
-<p><span class="math display">\[
+\]</div>
+<h2 id="distribucion-normal-gaussiana">Distribución Normal (Gaussiana)</h2>
+<div class="math">
+\[
 X\sim N(\mu,\sigma)\ \ ,\ \ \sigma \gt0\\
 f_X(x)=\frac{e^{\frac{-(x-\mu)^2}{2\ .\ \sigma^2}}}{\sqrt{2\ .\ \pi\ .\ \sigma^2}}
 \ \ ,\ \ 
 F_X(x) = \int_{-\infty}^{x}{f_X(y)dy}
-\]</span></p>
-<h2 id="distribución-normal-standard">Distribución Normal Standard</h2>
-<p>Es igual a la distribución normal <span class="math inline">\((X)\)</span> pero se realiza un cambio de variable. No es necesario calcularlo siempre con la formula ya que existe una <a href="Resources/TablaNormal.pdf">tabla</a> para calcularlo. <span class="math display">\[
+\]</div>
+<h2 id="distribucion-normal-standard">Distribución Normal Standard</h2>
+<p>Es igual a la distribución normal <span class="math">\((X)\)</span> pero se realiza un cambio de variable. No es necesario calcularlo siempre con la formula ya que existe una <a href="Resources/TablaNormal.pdf">tabla</a> para calcularlo.</p>
+<div class="math">
+\[
 Z=\frac{X-\mu}{\sigma}\\
 f_Z(x)=\frac{1}{\sqrt{2\ .\ \pi}}\times e^{\frac{Z^2}{2}}\\
 \Phi(Z) = F_Z(x)=\int_{-\infty}^{x}f_Z(y)dy\\
 \Phi(-Z)=1-\Phi(Z)\\
 \mu = 0\ \ ,\ \ \sigma=0
-\]</span></p>
+\]</div>
 <h3 id="inversa">Inversa</h3>
-<p>Tambien existe una <a href="Resources/TablaNormalInversa.pdf">tabla inversa</a> para poder calcular con facilidad la inversa de esta función. <span class="math display">\[
+<p>Tambien existe una <a href="Resources/TablaNormalInversa.pdf">tabla inversa</a> para poder calcular con facilidad la inversa de esta función.</p>
+<div class="math">
+\[
 Z_\alpha = \Phi(\alpha)^{-1}
-\]</span></p>
+\]</div>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - Interpolacion Polinomica</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - Interpolacion Polinomica.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,66 +1385,70 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
-<h1 id="interpolación-polinómica">Interpolación Polinómica</h1>
+<h1 id="interpolacion-polinomica">Interpolación Polinómica</h1>
 <h2 id="forma-de-potencias">Forma de Potencias</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 P_n(x)=a_0 + a_1x+ \dots+a_n x^n
-\]</span></p>
+\]</div>
 <h2 id="forma-de-lagrange">Forma de Lagrange</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 P_n(x)=\sum_{i=0}^n y_i \cdot \prod_{k=0}^i \frac {x-x_k}{x_i-x_k}~~~~~k \neq i
-\]</span></p>
+\]</div>
 <h2 id="forma-de-newton">Forma de Newton</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 P_n(x) = c_0 + \sum_{i=1}^n c_i \cdot \prod_{k=0}^{n-1} (x-x_k)
-\]</span></p>
+\]</div>
 <h2 id="tabla-de-diferencias-divididas">Tabla de Diferencias Divididas</h2>
-<p>La tabla de diferencias divididas se forma a partir de una tabla donde se tienen algunos valores de <span class="math inline">\(x\)</span> y de <span class="math inline">\(f(x)\)</span>.</p>
+<p>La tabla de diferencias divididas se forma a partir de una tabla donde se tienen algunos valores de <span class="math">\(x\)</span> y de <span class="math">\(f(x)\)</span>.</p>
 <p>Si se tiene la tabla</p>
-<table>
+<table class="table">
 <thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(f(x)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(c_1\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(c_2\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(c_3\)</span></th>
+<tr>
+<th style="text-align: center;"><span class="math">\(x\)</span></th>
+<th style="text-align: center;"><span class="math">\(f(x)\)</span></th>
+<th style="text-align: center;"><span class="math">\(c_1\)</span></th>
+<th style="text-align: center;"><span class="math">\(c_2\)</span></th>
+<th style="text-align: center;"><span class="math">\(c_3\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(x_1\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(y_1\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\frac{y_1 - y_2}{}\)</span></td>
+<tr>
+<td style="text-align: center;"><span class="math">\(x_1\)</span></td>
+<td style="text-align: center;"><span class="math">\(y_1\)</span></td>
+<td style="text-align: center;"><span class="math">\(\frac{y_1 - y_2}{}\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(x_2\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(y_2\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(x_3\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(y_3\)</span></td>
+<tr>
+<td style="text-align: center;"><span class="math">\(x_2\)</span></td>
+<td style="text-align: center;"><span class="math">\(y_2\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(x_4\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(y_4\)</span></td>
+<tr>
+<td style="text-align: center;"><span class="math">\(x_3\)</span></td>
+<td style="text-align: center;"><span class="math">\(y_3\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(x_5\)</span></td>
+<tr>
+<td style="text-align: center;"><span class="math">\(x_4\)</span></td>
+<td style="text-align: center;"><span class="math">\(y_4\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math">\(x_5\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1590,77 +1456,89 @@ P_n(x) = c_0 + \sum_{i=1}^n c_i \cdot \prod_{k=0}^{n-1} (x-x_k)
 </tr>
 </tbody>
 </table>
-<h2 id="matriz-de-vandermonde-mathbb-v">Matriz de Vandermonde <span class="math inline">\(\mathbb V\)</span></h2>
-<p>Para calcular la Matriz de Vandermonde se necesita una lista con distintos valores de <span class="math inline">\(x\)</span> y <span class="math inline">\(f(x)\)</span>, y luego evaluamos un polinomio genérico en esos valores, y a partir de eso formamos un sistema de ecuaciones lineales.</p>
-<p>La matriz <span class="math inline">\(\mathbb V\)</span> esta compuesta por los elementos <span class="math inline">\(\mathbb {V}_{i,j} = x_{i-1}^{n-j+1}\)</span>, <span class="math inline">\(i,j \in[1,2,\dots,n+1]\)</span></p>
+<h2 id="matriz-de-vandermonde">Matriz de Vandermonde <span class="math">\(\mathbb V\)</span></h2>
+<p>Para calcular la Matriz de Vandermonde se necesita una lista con distintos valores de <span class="math">\(x\)</span> y <span class="math">\(f(x)\)</span>, y luego evaluamos un polinomio genérico en esos valores, y a partir de eso formamos un sistema de ecuaciones lineales.</p>
+<p>La matriz <span class="math">\(\mathbb V\)</span> esta compuesta por los elementos <span class="math">\(\mathbb {V}_{i,j} = x_{i-1}^{n-j+1}\)</span>, <span class="math">\(i,j \in[1,2,\dots,n+1]\)</span></p>
 <p>A partir de esto podemos obtener las siguientes conclusiones:</p>
-<ol type="1">
-<li><span class="math inline">\(\begin{pmatrix} a_n\\a_{n-1} \\ \vdots \\ a_0 \end{pmatrix} = \mathbb V^{-1} \times Y\)</span></li>
-<li><span class="math inline">\(\mathbb V\)</span> esta completa</li>
+<ol>
+<li><span class="math">\(\begin{pmatrix} a_n\\a_{n-1} \\ \vdots \\ a_0 \end{pmatrix} = \mathbb V^{-1} \times Y\)</span></li>
+<li><span class="math">\(\mathbb V\)</span> esta completa</li>
 <li>El sistema lineal esta mal condicionado, por lo que peque;os cambios en los datos traen grandes cambios en la solucion, entonces no vale la pena utilizar este método si hay muchos puntos a evaluar.</li>
 </ol>
 <h4 id="ejemplo">Ejemplo</h4>
-<p>Sea <span class="math inline">\(f(x)\)</span> :</p>
-<table>
+<p>Sea <span class="math">\(f(x)\)</span> :</p>
+<table class="table">
 <thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(f(x)\)</span></th>
+<tr>
+<th style="text-align: center;"><span class="math">\(x\)</span></th>
+<th style="text-align: center;"><span class="math">\(f(x)\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">-1</td>
-<td style="text-align: center;"><span class="math inline">\(y_{-1}\)</span></td>
+<td style="text-align: center;"><span class="math">\(y_{-1}\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="math inline">\(y_0\)</span></td>
+<td style="text-align: center;"><span class="math">\(y_0\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;"><span class="math inline">\(y_1\)</span></td>
+<td style="text-align: center;"><span class="math">\(y_1\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Evaluamos cada valor de <span class="math inline">\(x\)</span> en un polinomio genérico: <span class="math display">\[
+<p>Evaluamos cada valor de <span class="math">\(x\)</span> en un polinomio genérico:</p>
+<div class="math">
+\[
 a_0 + a_1 \cdot(-1) + a_2 \cdot (-1)^2 = y_{-1}\\
 a_0 + a_1 \cdot (0) + a_2 \cdot (0)^2  = y_0 \\
 a_0 + a_1 \cdot (1) + a_2 \cdot (1)^2  = y_1
-\]</span> Entonces si planteamos al sistema de ecuaciones lineales como un producto de matrices: <span class="math display">\[
+\]</div>
+<p>Entonces si planteamos al sistema de ecuaciones lineales como un producto de matrices:</p>
+<div class="math">
+\[
 \begin{pmatrix}
-    1   &amp;   -1  &amp;   1   \\
-    0   &amp;   0   &amp;   1   \\
-    1   &amp;   1   &amp;   1   \\
+	1	&amp;	-1	&amp;	1	\\
+	0	&amp;	0	&amp;	1	\\
+	1	&amp;	1	&amp;	1	\\
 \end{pmatrix}
 \times
 \begin{pmatrix}
-    a_2 \\
-    a_1 \\
-    a_0
+	a_2	\\
+	a_1	\\
+	a_0
 \end{pmatrix}
 =
 \begin{pmatrix}
-    y_{-1}  \\
-    y_0     \\
-    y_1
+	y_{-1}	\\
+	y_0		\\
+	y_1
 \end{pmatrix}
-\]</span> Donde <span class="math display">\[
+\]</div>
+<p>Donde</p>
+<div class="math">
+\[
 \mathbb V =
 \begin{pmatrix}
-    1   &amp;   -1  &amp;   1   \\
-    0   &amp;   0   &amp;   1   \\
-    1   &amp;   1   &amp;   1   \\
+	1	&amp;	-1	&amp;	1	\\
+	0	&amp;	0	&amp;	1	\\
+	1	&amp;	1	&amp;	1	\\
 \end{pmatrix}
-\]</span> Y si resolvemos el sistema podemos encontrar el valor de cada valor de <span class="math inline">\(a_i\)</span> .</p>
+\]</div>
+<p>Y si resolvemos el sistema podemos encontrar el valor de cada valor de <span class="math">\(a_i\)</span> .</p>
 <h2 id="aplicaciones">Aplicaciones</h2>
 <h3 id="derivadas">Derivadas</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 f^{(r)}(x) \sim P_n^{(r)}(x)
-\]</span></p>
+\]</div>
 <h3 id="integrales">Integrales</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 \int^a_b f(x) dx \sim \int^a_b P_n(x) dx
-\]</span></p>
+\]</div>
+
 </body>
 </html>

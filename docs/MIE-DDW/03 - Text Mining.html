@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Text Mining</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>03 - Text Mining.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,20 +1385,27 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="text-mining">Text Mining</h1>
 <p>Text mining is primarily aimed at extracting information and knowledge previously unknown to the user from text. This information may not even be known by the writer. This process involves several steps:</p>
 <ul>
-<li><p>Assemble a large number of documents</p></li>
+<li><p>Assemble a large number of documents</p>
+</li>
 <li><p><u>Preprocess those documents</u>:</p>
 <p>The main idea of this step is to convert the raw text file into a well-defines sequence of linguistically-meaningful units. It is usually split into sentences or tokens (words).</p>
-<p>For Tokenization we usually split the text into sentences or words using characters such as whitespace or punctuation symbols. This process is t</p></li>
-<li><p>Perform text transformation and feature generation</p></li>
-<li><p>Select only some features that are important to you</p></li>
-<li><p>Pattern recognition</p></li>
-<li><p>Interpret the patterns</p></li>
+<p>For Tokenization we usually split the text into sentences or words using characters such as whitespace or punctuation symbols. This process is t</p>
+</li>
+<li><p>Perform text transformation and feature generation</p>
+</li>
+<li><p>Select only some features that are important to you</p>
+</li>
+<li><p>Pattern recognition</p>
+</li>
+<li><p>Interpret the patterns</p>
+</li>
 </ul>
 <h2 id="issues">Issues</h2>
 <p>There are a lot of issues with this process:</p>
@@ -1547,7 +1416,7 @@ blockquote {
 <li>The text is not structured</li>
 </ul>
 <h2 id="applications">Applications</h2>
-<p>Text mining has a lots of applications, the most general uses are information retrieval for recommendation systems and information extraction. Among other uses we can find customer profile and social media analysis, document classifying and clustering, and spam filtering or fraud detection.</p>
+<p>Text mining has a lots of applications, the most general uses are information retrieval for recommendation systems and information extraction. Among other uses we can find customer profile and social media analysis, document classifying and clustering, and  spam filtering or fraud detection.</p>
 <h3 id="text-processing">Text Processing</h3>
 <p>Text needs to be preprocessed to be machine understandable. This is done by converting a raw text file into a well defined sequence of linguistically-meaningful units, basically splitting the string into tokens (words) and handling special symbols such as dots, and whitespaces.</p>
 <p>After this initial transformation, we may still need to process the text in many stages, such as part-of-speech tagging or Named Entity Recognition.</p>
@@ -1556,16 +1425,16 @@ blockquote {
 <h4 id="frequency-analysis">Frequency Analysis</h4>
 <p>This is a basic way to analyze textual data and it is focused on computing the frequency distribution as a ranked list of terms.</p>
 <h4 id="stemming-and-lemmatization">Stemming and Lemmatization</h4>
-<p>The goal of this process is to reduce the dimensionality by converting each token to a standard form. <strong>Lemmatization</strong> tries to find the canonical form for a given words, for example, <em>“are, is, was, were”</em> are all part of the lemma <em>“be”</em>.</p>
-<p><strong>Stemming</strong> does a similar thing by finding the root word from which suffixes can be attached. A good example of this is the word <em>“waiting”</em>, that comes the the root <em>“wait”</em>.</p>
-<p>We can also use other techniques to reduce the dimensionality of a dataset. The easiest way is to remove tokens that do not provide anything to the context, such as <em>“a, the, it, they”</em>. Another method similar to lemmatization is to remove tokens using synonyms and antonyms.</p>
+<p>The goal of this process is to reduce the dimensionality by converting each token to a standard form. <strong>Lemmatization</strong> tries to find the canonical form for a given words, for example, <em>&quot;are, is, was, were&quot;</em> are all part of the lemma <em>&quot;be&quot;</em>.</p>
+<p><strong>Stemming</strong> does a similar thing by finding the root word from which suffixes can be attached. A good example of this is the word <em>&quot;waiting&quot;</em>, that comes the the root <em>&quot;wait&quot;</em>.</p>
+<p>We can also use other techniques to reduce the dimensionality of a dataset. The easiest way is to remove tokens that do not provide anything to the context, such as <em>&quot;a, the, it, they&quot;</em>. Another method similar to lemmatization is to remove tokens using synonyms and antonyms.</p>
 <h4 id="sentence-splitting">Sentence Splitting</h4>
 <p>Identifying sentences in a txt is not a trivial process and heuristics can be used to improve it. This heuristics usually imply keeping track of words that are usually in the first or last position of sentences.</p>
 <h4 id="n-grams">N-Grams</h4>
 <p>N-Grams are a set of co-occurring words within a given window.</p>
 <h4 id="part-of-speech-tagging">Part-of-Speech Tagging</h4>
 <p>This is a linguistical analysis that assigns categories to words in a text. It cannot be 100% accurate because some words can be multiple things depending on the context. Here we can see a list of possible categories:</p>
-<p><img src="Resources/03 - Text Mining/image-20210510144138206.png" alt="image-20210510144138206" style="zoom:33%;" /></p>
+<img src="Resources/03 - Text Mining/5978e872-6bcc-4016-b05a-f5957ae7f501.png" alt="5978e872-6bcc-4016-b05a-f5957ae7f501" style="scale:0.33;" />
 <h4 id="phrase-detection">Phrase Detection</h4>
 <p>We can use tokens and extra information acquired from PoS tagging of group tokens into <strong>chunks</strong>. The PoS data is very important as it allows you to use more specific chunking methods, such as <strong>Noun Phrase Chunking</strong>. This method is based on chunk grammar and it represents a set of rules that indicate how sentences should be chunked, for example a determiner should be follower by a number or adjective, and terminated by a noun.</p>
 <h3 id="named-entity-recognition-ner">Named Entity Recognition (NER)</h3>
@@ -1575,10 +1444,10 @@ blockquote {
 <li><u>Classification</u>: Assigning class to an entity mention</li>
 <li><u>Disambiguation via Linking</u>: Assigning an URI describing the entity, usually a Wikipedia link.</li>
 </ul>
-<p>NER systems are usually trained on a large corpus and are based on previously defined rules or lists of proper nouns.</p>
+<p>NER systems are usually trained on a large corpus and are based on previously defined rules or lists of  proper nouns.</p>
 <p>The result has significantly lower dimension and it is richer thanks to the disambiguation.</p>
 <h3 id="relation-extraction">Relation Extraction</h3>
-<p>This refers to extracting semantic relations between entities, for example saying a person lives in a place. Naïve approaches don’t work well here, we have to use linguistic analysis.</p>
+<p>This refers to extracting semantic relations between entities, for example saying a person lives in a place. Naïve approaches don't work well here, we have to use linguistic analysis.</p>
 <h2 id="opinion-mining">Opinion Mining</h2>
 <p>Opinion mining studies opinions, sentiments, emotions and related topics, and it is interested in identifying it in a text. This has a lot of practical applications, such as reviews, political opinion or influences over the stock market.</p>
 <p>This process can be summarized in 3 stages:</p>
@@ -1598,37 +1467,52 @@ blockquote {
 <p>A <strong>lexicon</strong> is a list with opinion words used in sentiment classification tasks. The appearance of a word of the list in a text means that the text contains that sentiment. This is used in <strong>lexicon-based sentiment</strong>.</p>
 <p><strong>Supervised Sentiment Learning</strong> trains on annotated data such as reviews with ratings to categorize text whether as positive, negative or neutral. the learning is similar to classical document topic classification, the topic related words here are not important, but the sentiment is.</p>
 <p>We can also do the same but without any supervision in <strong>unsupervised sentiment learning</strong>. For this type of learning we have to use PoS tagging to identify the context of the sentences, because isolated adjectives may not reveal the real opinion.</p>
-<p>There are situations where adjectives can be good or bad depending on the context. This is called <strong>Sentiment Orientation of Phrases</strong> and we can estimate the semantic orientation using pointwise mutual information (PMI), which indicates the degree of statistical dependence between them: <span class="math display">\[
+<p>There are situations where adjectives can be good or bad depending on the context. This is called <strong>Sentiment Orientation of Phrases</strong> and we can estimate the semantic orientation using pointwise mutual information (PMI), which indicates the degree of statistical dependence between them:</p>
+<div class="math">
+\[
 \text{PMI}(\text{term}_1,\text{term}_2) = \log_2\left(\frac{Pr(\text{term}_1 \land \text{term}_2)}{Pr(\text{term}_1)Pr(\text{term}_2)}\right)
-\]</span> Where <span class="math inline">\(Pr(\text{term}_1 \land \text{term}_2)\)</span> is the co-occurrence probability of both terms and <span class="math inline">\(Pr(\text{term}_1)Pr(\text{term}_2)\)</span> is the probability that the two co-occur if the are statistically independent.</p>
-<p>The final formula is: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(Pr(\text{term}_1 \land \text{term}_2)\)</span> is the co-occurrence probability of both terms and <span class="math">\(Pr(\text{term}_1)Pr(\text{term}_2)\)</span> is the probability that the two co-occur if the are statistically independent.</p>
+<p>The final formula is:</p>
+<div class="math">
+\[
 \text{SO} = \text{PMI}(\text{phrase},\text{&quot;excellent&quot;}) - \text{PMI}(\text{phrase},\text{&quot;poor&quot;})
-\]</span> There are other methods to calculate this, such as the following based on hits (number of matching documents): <span class="math display">\[
+\]</div>
+<p>There are other methods to calculate this, such as the following based on hits (number of matching documents):</p>
+<div class="math">
+\[
 \text{SO} = \log_2\left(\frac{\text{hits}(\text{phrase NEAR &quot;excellent&quot;})\text{hits}(\text{&quot;poor&quot;})}{\text{hits}(\text{phrase NEAR &quot;poor&quot;})\text{hits}(\text{&quot;excellent&quot;})}\right)
-\]</span> And the sentiment of a text is computed by averaging the sentiment of all extracted phrases.</p>
+\]</div>
+<p>And the sentiment of a text is computed by averaging the sentiment of all extracted phrases.</p>
 <h4 id="lexicon-expansion">Lexicon Expansion</h4>
 <p>As we have seen before, lexicons are sets of words that are usually associated with a sentiment. This section explains how the lists are created.</p>
 <p>There are several approaches:</p>
 <ul>
-<li><p><u>Manual Approach</u>: We have to manually populate the lexicon. This is usually combined with an automated approach.</p></li>
-<li><p><u>Dictionary Based Approach</u>: We provide the initial seed of opinion words, and then we use a lexicon (such as WordNet) to expand the set of word. This is an iterative approach that recursively looks for new words based on the current set.</p></li>
+<li><p><u>Manual Approach</u>: We have to manually populate the lexicon. This is usually combined with an automated approach.</p>
+</li>
+<li><p><u>Dictionary Based Approach</u>: We provide the initial seed of opinion words, and then we use a lexicon (such as WordNet) to expand the set of word. This is an iterative approach that recursively looks for new words based on the current set.</p>
+</li>
 <li><p><u>Corpus Based Approach</u>: This is based on syntactic or co-occurrence patterns. It uses a seed list of opinion words to find other opinion words in a large corpus.</p>
-<p>This method will use the seed list in combination with linguistic constraints to identify new opinion words. This constraints can be <em>“AND”</em> or similar words, adding new words to our set that should be complementary of our seed set.</p></li>
+<p>This method will use the seed list in combination with linguistic constraints to identify new opinion words. This constraints can be <em>&quot;AND&quot;</em> or similar words, adding new words to our set that should be complementary of our seed set.</p>
+</li>
 </ul>
 <h3 id="aspect-based-opinion-mining">Aspect-Based Opinion Mining</h3>
-<p>Opinions are expressed on certain entity aspects, and these aspects are different for each context. For example, in the case of the following camera review: <span class="math display">\[
+<p>Opinions are expressed on certain entity aspects, and these aspects are different for each context. For example, in the case of the following camera review:</p>
+<div class="math">
+\[
 \text{&quot;The picture quality of this camera is not great, but the battery life is long&quot;}
-\]</span> The aspects are <em>“Picture Quality”</em> and <em>“Battery”</em>.</p>
+\]</div>
+<p>The aspects are <em>&quot;Picture Quality&quot;</em> and <em>&quot;Battery&quot;</em>.</p>
 <p>In order to recognize these aspects, we need to :</p>
-<ol type="1">
-<li><u>Mark opinion words and phrases</u>: We need to find the opinion words, such as <em>“Great”</em> in the example.</li>
-<li><u>Handle opinion shifters</u>: There are some words that change opinion orientation, such as <em>“No”</em>. If we find this type of words before the opinion words, then we have to mark it as negative.</li>
-<li><u>Handle BUT-clauses</u>: In English, the word <em>“but”</em> means contrary, so we must switch the orientation of the opinion before and after the <em>“but”</em> for its opposite.</li>
+<ol>
+<li><u>Mark opinion words and phrases</u>: We need to find the opinion words, such as <em>&quot;Great&quot;</em> in the example.</li>
+<li><u>Handle opinion shifters</u>: There are some words that change opinion orientation, such as <em>&quot;No&quot;</em>. If we find this type of words before the opinion words, then we have to mark it as negative.</li>
+<li><u>Handle BUT-clauses</u>: In English, the word <em>&quot;but&quot;</em> means contrary, so we must switch the orientation of the opinion before and after the <em>&quot;but&quot;</em> for its opposite.</li>
 </ol>
 <h3 id="comparative-opinion-mining">Comparative Opinion Mining</h3>
 <p>Opinions can be expressed in comparative manner, from here we can extract <strong>comparative expressions</strong> and <strong>superlative expressions</strong>. The first one is represented with the comparative form of an adjective or adverb. In contrast, for the superlative expression we use superlative forms of adjectives or adverbs.</p>
 <h3 id="sarcasm">Sarcasm</h3>
-<p>In discussions it is common for users to use sarcasm and say the opposite of what they mean. To combat this it is better to take a set of data where sarcasm is tagged, such as tweets with the hashtag <em>“sarcasm”</em> and train a machine learning model.</p>
+<p>In discussions it is common for users to use sarcasm and say the opposite of what they mean. To combat this it is better to take a set of data where sarcasm is tagged, such as tweets with the hashtag <em>&quot;sarcasm&quot;</em> and train a machine learning model.</p>
 <p>Even with this processing, it is hard to identify the individual sections of the text that contain sarcasm.</p>
 <h2 id="text-summarization">Text Summarization</h2>
 <p>The goal of text summarization is to automatically reduce a text to its most important content. It is generally used to generate abstracts or to summarize articles or websites. There are also different types of text summarization:</p>
@@ -1647,24 +1531,37 @@ blockquote {
 <p>This method uses PoS tagging and tokenization to split the text into sentences and then select them based on the frequency of the words.</p>
 <h3 id="baseline-single-document-summarization">Baseline Single Document Summarization</h3>
 <p>This technique is used to create abstracts out of papers and it is based on filtering out sentences containing frequently occurring words that appear near one another. The algorithm goes as follows:</p>
-<ol type="1">
-<li><p>Detect the most important words in a text and use only the top N (<em>“WORDS”</em>). During this process we can remove stop words, punctuations and use lemmatization and convert stems to reduce the dimensionality of the text.</p></li>
-<li><p>For each sentence find clusters of important words that are not far away from each other (<em>“DISTANCE”</em>)</p></li>
-<li><p>The score of the sentence is the max score of its clusters, and the score of each cluster can be calculated as: <span class="math display">\[
+<ol>
+<li><p>Detect the most important words in a text and use only the top N (<em>&quot;WORDS&quot;</em>). During this process we can remove stop words, punctuations and use lemmatization and convert stems to reduce the dimensionality of the text.</p>
+</li>
+<li><p>For each sentence find clusters of important words that are not far away from each other (<em>&quot;DISTANCE&quot;</em>)</p>
+</li>
+<li><p>The score of the sentence is the max score of its clusters, and the score of each cluster can be calculated as:</p>
+<div class="math">
+\[
 \text{score} = \frac{|\text{significant words in cluster}|\times |\text{significant words in cluster}|}{\text{|cluster words|}}
-\]</span></p></li>
-<li><p>Return the top sentences</p></li>
+\]</div>
+</li>
+<li><p>Return the top sentences</p>
+</li>
 </ol>
 <h2 id="text-models">Text Models</h2>
 <p>We have a wide selection of <strong>information retrieval models</strong>. This type of models specify how a document and a query are represented and how the relevance of a document to a user query is defined. There are some common characteristic among all of them:</p>
 <ul>
-<li><p><strong>Bag of Words (BoW)</strong>: A document or a query is represented as a bag of words</p></li>
-<li><p><strong>Vocabulary</strong>: It is a set of distinct words/terms for the collection of documents: <span class="math display">\[
+<li><p><strong>Bag of Words (BoW)</strong>: A document or a query is represented as a bag of words</p>
+</li>
+<li><p><strong>Vocabulary</strong>: It is a set of distinct words/terms for the collection of documents:</p>
+<div class="math">
+\[
 V = \{t_1,t_2,\dots,t_{|V|}\}
-\]</span></p></li>
-<li><p><strong>Term Vector</strong>: It represents each document as a vector of weights <span class="math inline">\(w_{ij}\)</span> <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Term Vector</strong>: It represents each document as a vector of weights <span class="math">\(w_{ij}\)</span></p>
+<div class="math">
+\[
 d_j = (w_{1j},\dots,w_{|V|j})
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
 <h3 id="boolean-model">Boolean Model</h3>
 <p>It is the simplest model and it is based on Boolean algebra. It represents the documents as a term vector where the weights represent the presence or absence of the term. The queries are precise semantic using boolean operators such as <code>AND,OR,NOT</code>.</p>
@@ -1672,23 +1569,34 @@ d_j = (w_{1j},\dots,w_{|V|j})
 <h3 id="vector-space-model">Vector Space Model</h3>
 <p>this is one of the most widely used models. It uses any number to represent the weight in the term vector. There are some variations of the weighting schema, but the most common one is <strong>TF-IDF</strong>.</p>
 <p>This schema takes into account the <strong>term frequency</strong>, counting how many times the term appears in the document and normalizes it. It also takes into consideration <strong>inverse document frequency</strong>, measuring how common a word is among all documents.</p>
-<p>Then we can create the matrix as: <span class="math display">\[
+<p>Then we can create the matrix as:</p>
+<div class="math">
+\[
 \text{TF-IDF} = \text{TF} \times \text{IDF}
-\]</span></p>
-<p>### Simple Scoring</p>
-<p>We can measure the overlap of two sets to calculate the score of the results of the query. This is called the <strong>Jaccard Coefficient</strong> and it assigns a number from 0 to 1. The formula is as follows: <span class="math display">\[
+\]</div>
+<h3 id="simple-scoring">Simple Scoring</h3>
+<p>We can measure the overlap of two sets to calculate the score of the results of the query. This is called the <strong>Jaccard Coefficient</strong> and it assigns a number from 0 to 1. The formula is as follows:</p>
+<div class="math">
+\[
 \text{jaccard}(\text{docA},\text{docB}) = \frac{|\text{docA} \cap \text{docB}|}{|\text{docA} \cup \text{docB}|}
-\]</span> The problem with this approach is that is doesn’t consider term frequency and that it gives more important to more frequent terms, that are usually less informative.</p>
+\]</div>
+<p>The problem with this approach is that is doesn't consider term frequency and that it gives more important to more frequent terms, that are usually less informative.</p>
 <h3 id="euclidian-based-proximity-measure">Euclidian Based Proximity Measure</h3>
-<p>Euclidean distance represents the query and document in a vector space model and computes the distance between them in a multi-dimensional space. Given tow vectors with <span class="math inline">\(n\)</span> dimensionality: <span class="math display">\[
+<p>Euclidean distance represents the query and document in a vector space model and computes the distance between them in a multi-dimensional space. Given tow vectors with <span class="math">\(n\)</span> dimensionality:</p>
+<div class="math">
+\[
 \text{d}(p,q) = \sqrt{\sum_{i=1}^{n} (q_i - p_i)^2}
-\]</span> This also has its own problems, mostly due to the fact that if a query term occurs more times in the documents, the distance will be larger, although the distribution of terms are similar.</p>
+\]</div>
+<p>This also has its own problems, mostly due to the fact that if a query term occurs more times in the documents, the distance will be larger, although the distribution of terms are similar.</p>
 <h3 id="cosine-based-proximity-measure">Cosine Based Proximity Measure</h3>
-<p>This method is similar to the previous one, as it represents the documents in a vector space. The difference is that here we are using the angle instead of the distance between 2 vectors. It can be calculated as: <span class="math display">\[
+<p>This method is similar to the previous one, as it represents the documents in a vector space. The difference is that here we are using the angle instead of the distance between 2 vectors. It can be calculated as:</p>
+<div class="math">
+\[
 \text{similarity}(Q,D) = \frac{Q \cdot D}{||Q||||D||} = \frac{\sum_{i=1}^n Q_i \times B_i}{\sqrt{\sum_{i=1}^n (D_i)^2}  \times \sqrt{\sum_{i=1}^n (Q_i)^2}}
-\]</span></p>
+\]</div>
 <h2 id="word-embeddings">Word Embeddings</h2>
 <p>Word embeddings are based on distributional hypothesis, words that occur in similar contexts tend to have similar meaning. This modeling technique is sued for mapping words to vectors of real numbers. It allows words with similar meanings to have a similar representation and it can be generated with various methods, such as neural networks, co-occurrence matrix, etc.</p>
 <p><strong>Word2Vec</strong> is the most popular tool to learn word embeddings and it uses a shallow neural network. It contains a Continuous bag-of-words used to predict the current word based on the context, and continuous skip-gram, taht predicts teh surrounding words given the current word.</p>
+
 </body>
 </html>

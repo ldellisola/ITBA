@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>06 - Normalizacion</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>06 - Normalizacion.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,19 +1385,23 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
-<h1 id="teoría-de-normalización">Teoría de Normalización</h1>
+<h1 id="teoria-de-normalizacion">Teoría de Normalización</h1>
 <p>Una base de datos relacional es un conjunto de esquemas relacionados y sus restricciones. La mala representación de la información produce ciertas anomalías.</p>
-<h3 id="anomalías">Anomalías</h3>
+<h3 id="anomalias">Anomalías</h3>
 <ul>
 <li><p><strong>Anomalía de inserción</strong>:</p>
-<p>Cuando se carga una entrada que no tiene todos los valores se lo indica con null, entonces hay entradas con muchos valores necesarios en null</p></li>
+<p>Cuando se carga una entrada que no tiene todos los valores se lo indica con null, entonces hay entradas con muchos valores necesarios en null</p>
+</li>
 <li><p><strong>Anomalía de Modificación</strong>:</p>
-<p>Cuando hay muchas entradas con datos repetidos y hay que actualizar alguno de estos datos, es muy ineficiente ir cambiándolo en todas las entradas donde esta actualmente.</p></li>
+<p>Cuando hay muchas entradas con datos repetidos y hay que actualizar alguno de estos datos, es muy ineficiente ir cambiándolo en todas las entradas donde esta actualmente.</p>
+</li>
 <li><p><strong>Anomalía de Borrado</strong>:</p>
-<p>Similar a la anomalía de inserción. Causa los mismos problemas.</p></li>
+<p>Similar a la anomalía de inserción. Causa los mismos problemas.</p>
+</li>
 </ul>
 <p><strong>Enfoque sintético</strong>: tomar tablas gigantes y empezar a partirlo en pedacitos.</p>
 <p><strong>Enfoque analítico</strong>: consiste en hacer un modelo de entidad/relaciona bien realizado y generar a las tablas. Luego tengo que chequear que en las tablas creadas no haya anomalías.</p>
@@ -1545,82 +1411,156 @@ blockquote {
 <li>Evaluar la calidad de diseño.</li>
 </ul>
 <h3 id="dependencia-funcional">Dependencia Funcional</h3>
-<p>Sea <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> dos conjuntos de atributos de un esquema de relación <span class="math inline">\(R\)</span>. Se dice que <span class="math inline">\(X\)</span> determina funcionalmente a <span class="math inline">\(Y\)</span> o que <span class="math inline">\(Y\)</span> depende funcionalmente de <span class="math inline">\(X\)</span> (<span class="math inline">\(X\rightarrow Y\)</span>), si se cumple: <span class="math display">\[
+<p>Sea <span class="math">\(X\)</span> e <span class="math">\(Y\)</span> dos conjuntos de atributos de un esquema de relación <span class="math">\(R\)</span>. Se dice que <span class="math">\(X\)</span> determina funcionalmente a <span class="math">\(Y\)</span> o que <span class="math">\(Y\)</span> depende funcionalmente de <span class="math">\(X\)</span> (<span class="math">\(X\rightarrow Y\)</span>), si se cumple:</p>
+<div class="math">
+\[
 \forall t_1,t_2 \in R :(t_1[X] =t_2[X] \Rightarrow t_1[Y] = t_2[Y])
-\]</span> Al conjunto de dependencias funcionales básicas se lo llama <span class="math inline">\(F\)</span>.</p>
+\]</div>
+<p>Al conjunto de dependencias funcionales básicas se lo llama <span class="math">\(F\)</span>.</p>
 <h5 id="propiedades">Propiedades</h5>
-<p><span class="math display">\[
+<div class="math">
+\[
 \text{La dependencia }X\rightarrow Y \text{ es trivial} \Leftrightarrow Y \subseteq X
-\]</span></p>
+\]</div>
 <h3 id="claves-y-superclaves">Claves y Superclaves</h3>
 <p>Podemos utilizar el concepto de dependencia funcional para definir la superclave y clave y de un esquema relación.</p>
-<p>Podemos definir a una <u>superclave</u> de la siguiente forma: <span class="math display">\[
+<p>Podemos definir a una <u>superclave</u> de la siguiente forma:</p>
+<div class="math">
+\[
 \text{Sea un esquema de relacion $R$, } X \subseteq R \text{ es superclave para } R \text{ si cumple:}\\
 \array{
  (1) &amp;&amp; X \rightarrow R &amp;\text{(determina funcionalmente todo el esquema)}
 }
-\]</span> De la misma forma, tenemos una nueva definición para la <u>clave</u>: <span class="math display">\[
+\]</div>
+<p>De la misma forma, tenemos una nueva definición para la <u>clave</u>:</p>
+<div class="math">
+\[
 \text{Sea un esquema de relacion $R$, } X \subseteq R \text{ es clave para } R \text{ si cumple:}\\
 \array{
  (1) &amp;&amp; X \rightarrow R &amp;\text{(es superclave)}\\
  (2) &amp;&amp; \not \exists Y \subset X / Y \rightarrow R &amp; \text{(condicion minimal)}
 }
-\]</span> También tenemos una nueva definición. Podemos definir a un <u>atributo primo</u> como un atributo que forma parte de alguna clave.</p>
+\]</div>
+<p>También tenemos una nueva definición. Podemos definir a un <u>atributo primo</u> como un atributo que forma parte de alguna clave.</p>
 <h3 id="clausura-de-dependencias-funcionales">Clausura de Dependencias Funcionales</h3>
-<p>Denotaremos con <span class="math inline">\(F\)</span> al <u>conjunto de dependencias funcionales</u> de un esquema de relación <span class="math inline">\(R\)</span>. Dicho conjunto se obtiene con las dependencias que son semánticamente obvias sobre dicho esquema. Sin embargo, de estas dependencias obvias pueden surgir muchas otras.</p>
-<p>Se denomina <u>clausura</u> del conjunto <span class="math inline">\(F\)</span>, correspondiente a un esquema, al conjunto que contiene todas las posibles dependencias funcionales de dicho esquema. También se lo puede definir de la siguiente forma: <span class="math display">\[
+<p>Denotaremos con <span class="math">\(F\)</span> al <u>conjunto de dependencias funcionales</u> de un esquema de relación <span class="math">\(R\)</span>. Dicho conjunto se obtiene con las dependencias que son semánticamente obvias sobre dicho esquema. Sin embargo, de estas dependencias obvias pueden surgir muchas otras.</p>
+<p>Se denomina <u>clausura</u> del conjunto <span class="math">\(F\)</span>, correspondiente a un esquema,  al conjunto que contiene todas las posibles dependencias funcionales de dicho esquema. También se lo puede definir de la siguiente forma:</p>
+<div class="math">
+\[
 \text{Se denomina } F^+ \text{ a la clausura de } F \text{ y es el conjunto de todas las dependencias}\\ \text{ funcionales inferidas logicamente de } F :\\
 F^+ = \{X \rightarrow Y / F \mid= X\rightarrow Y\}
-\]</span></p>
+\]</div>
 <h3 id="axioma-de-armstrong-y-reglas-de-inferencia">Axioma de Armstrong y Reglas de Inferencia</h3>
-<p>Sean <span class="math inline">\(X, Y, Z\)</span> conjuntos de atributos de un esquema de relación <span class="math inline">\(R\)</span>, los siguientes axiomas constituyen un conjunto:</p>
+<p>Sean <span class="math">\(X, Y, Z\)</span> conjuntos de atributos de un esquema de relación <span class="math">\(R\)</span>, los siguientes axiomas constituyen un conjunto:</p>
 <ul>
-<li><p><strong>Correcto</strong>: Significa que no se pueden derivar dependencias funcionales que no se puedan implicar lógicamente de <span class="math inline">\(F\)</span>. Al aplicar los axiomas solo se obtienen dependencias funcionales que están en <span class="math inline">\(F^+\)</span> (No por fuera de <span class="math inline">\(F^+\)</span>).</p>
-<p>En otras palabras: Si <span class="math inline">\(X\rightarrow Y\)</span> se deriva lógicamente de <span class="math inline">\(F\)</span> usando axiomas de Armstrong, entonces <span class="math inline">\(X\rightarrow Y\)</span> vale para toda relación <span class="math inline">\(R\)</span> en la cual valgan las dependencias funcionales en <span class="math inline">\(F\)</span>.</p></li>
-<li><p><strong>Completo</strong>: Significa que al aplicar dichos axiomas se generar todo <span class="math inline">\(F^+\)</span>.</p>
-<p>Si una dependencia funcional de <span class="math inline">\(X\rightarrow Y\)</span> pertenece a <span class="math inline">\(F^+\)</span>, entonces puede deducirse usando los axiomas de Armstrong sobre <span class="math inline">\(F\)</span>.</p></li>
+<li><p><strong>Correcto</strong>: Significa que no se pueden derivar dependencias funcionales que no se puedan implicar lógicamente de <span class="math">\(F\)</span>. Al aplicar los axiomas solo se obtienen dependencias funcionales que están en <span class="math">\(F^+\)</span> (No por fuera de <span class="math">\(F^+\)</span>).</p>
+<p>En otras palabras: Si <span class="math">\(X\rightarrow Y\)</span> se deriva lógicamente de <span class="math">\(F\)</span> usando axiomas de Armstrong, entonces <span class="math">\(X\rightarrow Y\)</span> vale para toda relación <span class="math">\(R\)</span> en la cual valgan las dependencias funcionales en <span class="math">\(F\)</span>.</p>
+</li>
+<li><p><strong>Completo</strong>: Significa que al aplicar dichos axiomas se generar todo <span class="math">\(F^+\)</span>.</p>
+<p>Si una dependencia funcional de <span class="math">\(X\rightarrow Y\)</span> pertenece a <span class="math">\(F^+\)</span>, entonces puede deducirse usando los axiomas de Armstrong sobre <span class="math">\(F\)</span>.</p>
+</li>
 </ul>
 <p>Los Axiomas de Armstrong son los siguientes:</p>
 <ul>
-<li><p>Reflexividad: <span class="math display">\[
+<li><p>Reflexividad:</p>
+<div class="math">
+\[
 Y \subseteq X \Rightarrow X\rightarrow Y
-\]</span></p></li>
-<li><p>Aumentación: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Aumentación:</p>
+<div class="math">
+\[
 X\rightarrow Y \Rightarrow XZ\rightarrow YZ
-\]</span></p></li>
-<li><p>Transitividad: $$ . </p>
-<p>}  X Z $$</p></li>
+\]</div>
+</li>
+<li><p>Transitividad:</p>
+<div class="math">
+\[
+\left .
+\array{
+  X \rightarrow Y\\
+  Y \rightarrow Z
+}
+
+\right \}
+\Rightarrow 
+X \rightarrow Z
+\]</div>
+</li>
 </ul>
 <p>Además, a partir de estos axiomas, se pueden obtener las siguientes reglas:</p>
 <ul>
-<li><p>Unión: $$ . </p>
-<p>}  X YZ $$</p></li>
-<li><p>PseudoTransitividad: $$ . </p>
-<p>}  XU Z $$</p></li>
-<li><p>Descomposición: $$ X YZ  { </p>
-<p>. $$</p></li>
+<li><p>Unión:</p>
+<div class="math">
+\[
+\left .
+\array{
+  X \rightarrow Y\\
+  X \rightarrow Z
+}
+
+\right \}
+\Rightarrow 
+X \rightarrow YZ
+\]</div>
+</li>
+<li><p>PseudoTransitividad:</p>
+<div class="math">
+\[
+\left .
+\array{
+  X \rightarrow Y\\
+  UY \rightarrow Z
+}
+
+\right \}
+\Rightarrow 
+XU \rightarrow Z
+\]</div>
+</li>
+<li><p>Descomposición:</p>
+<div class="math">
+\[
+X \rightarrow YZ
+\Rightarrow 
+\left \{
+\array{
+  X \rightarrow Y\\
+  X \rightarrow Z
+}
+
+\right .
+\]</div>
+</li>
 </ul>
-<p>Para encontrar una clausura <span class="math inline">\(F^+\)</span> hay que aplicar estas reglas y axiomas a todas las dependencias funcionales de <span class="math inline">\(F\)</span> hasta que no se encuentren mas. Este problema tiene una dificultad exponencial y es muy costoso.</p>
-<p>Existe un problema mas acotado pero igual de útil llamado <u>Pertenencia de una dependencia Funcional</u>: <span class="math display">\[
+<p>Para encontrar una clausura <span class="math">\(F^+\)</span> hay que aplicar estas reglas y axiomas a todas las dependencias funcionales de <span class="math">\(F\)</span> hasta que no se encuentren mas. Este problema tiene una dificultad exponencial y es muy costoso.</p>
+<p>Existe un problema mas acotado pero igual de útil llamado <u>Pertenencia de una dependencia Funcional</u>:</p>
+<div class="math">
+\[
 \text{Dado un esquema } R \text{ y el conjunto de dependencias funcionales } F \text{. Siempre es posible} \\ \text{ decidir si una dependencia funcional } X\rightarrow Y \text{ con } X \text{ y } Z \text{ atributos de } R \text{, pertenece a }F^+.
-\]</span> Lo interesante de ese problema es que no es necesario calcular <span class="math inline">\(F^+\)</span> para resolverlo.</p>
+\]</div>
+<p>Lo interesante de ese problema es que no es necesario calcular <span class="math">\(F^+\)</span> para resolverlo.</p>
 <h3 id="clausura-de-atributos">Clausura de Atributos</h3>
-<p>En muchos casos se necesita saber si una dependencia funcional <span class="math inline">\(X \rightarrow B\)</span> pertenece a <span class="math inline">\(F^+\)</span>. En este caso conviene trabajar con la clausura del conjunto de atributos que se encuentran a la izquierda de la dependencia a investigar y evitar calcular <span class="math inline">\(F^+\)</span>.</p>
-<p>La clausura de atributos se puede definir como: <span class="math display">\[
+<p>En muchos casos se necesita saber si una dependencia funcional <span class="math">\(X \rightarrow B\)</span> pertenece a <span class="math">\(F^+\)</span>. En este caso conviene trabajar con la clausura del conjunto de atributos que se encuentran a la izquierda de la dependencia a investigar y evitar calcular <span class="math">\(F^+\)</span>.</p>
+<p>La clausura de atributos se puede definir como:</p>
+<div class="math">
+\[
 \text{Si } X \text{ es un conjunto de atributos de } R \text{, la clausura de } X \text{, denotada como } X^+ \text{, respecto del } \\ \text{conjunto de dependencias } F \text{ de dicho esquema, es el conjunto de atributos} \\ \text{ determinados por } X \text{ a traves de las dependencias de } F^+:\\
 X^+:\{ A / X \rightarrow A \in F^+ \}
-\]</span></p>
-<p>A continuación vamos a ver un algoritmo de tiempo lineal para calcular <span class="math inline">\(X^+\)</span>:</p>
-<pre class="pseudocode"><code>X+ = {X}
+\]</div>
+<p>A continuación vamos a ver un algoritmo de tiempo lineal para calcular <span class="math">\(X^+\)</span>:</p>
+<pre><code class="language-pseudocode">X+ = {X}
 
 while( X+ cambie ) {
-    for( cada dependencia funcional Y-&gt; X que pertenece a F ) {
-        if(Y esta incluido en X+) {
-            X+ = X+ union {Z}
-        }
-    }
-}</code></pre>
-<h3 id="proceso-de-normalización">Proceso de Normalización</h3>
+	for( cada dependencia funcional Y-&gt; X que pertenece a F ) {
+		if(Y esta incluido en X+) {
+			X+ = X+ union {Z}
+		}
+	}
+}
+</code></pre>
+<h3 id="proceso-de-normalizacion">Proceso de Normalización</h3>
 <p>La normalización de una base de datos consiste en un proceso por el cual los esquemas de relaciona que presentan anomalías se descomponen en esquemas mas peque;os que cumplen con propiedades deseables para el mantenimiento de la misma.</p>
 <p>El proceso de normalización consiste en verificar que un esquema de relación cumple con 4 <u>formas</u> llamadas formas normales <strong>primera</strong>, <strong>segunda</strong> y <strong>tercera</strong>. Además existe una forma Codd-Boyce. Estas 4 formas se basan en dependencias funcionales entre atributos.</p>
 <p>Sin embargo, la descomposición que introduce toda normalización no garantiza un buen diseño. Para lograrlo se tienen que considerar las siguientes propiedades:</p>
@@ -1628,102 +1568,149 @@ while( X+ cambie ) {
 <li><strong>No perder información</strong></li>
 <li><strong>Preservar Dependencias</strong></li>
 </ul>
-<h4 id="descomposición-sin-perdida-de-información">Descomposición sin perdida de información</h4>
-<p>Cuando un sistema maneja información redundante, puede ser necesario descomponerlo en otros esquemas, pero esta división no puede ser arbitraria. <span class="math display">\[
+<h4 id="descomposicion-sin-perdida-de-informacion">Descomposición sin perdida de información</h4>
+<p>Cuando un sistema maneja información redundante, puede ser necesario descomponerlo en otros esquemas, pero esta división no puede ser arbitraria.</p>
+<div class="math">
+\[
 \text{El conjunto de subesquemas }R_1, R_2,\dots,R_k \text{ es una descomposicion } \\ \text{sin perdida de informacion } R \text{ si cumple:}\\
 \array{
 (1) &amp;&amp; R = \bigcup^{k}_{i=1}R_i \\
 (2) &amp;&amp; r_1 \Join r_2 \Join \dots \Join r_k = r \text{ donde } r_i = \pi_{R_i}(r)
 }
-\]</span> #### Condición de Descomposición sin Perdida para Dos Esquemas</p>
-<p>Si un esquema de relación <span class="math inline">\(R\)</span> se descompone solo en <span class="math inline">\(R_1, R_2\)</span>, la descomposición debe realizarse de manera tal que por lo menos una de las siguientes dependencias funcionales pertenezcan a <span class="math inline">\(F^+\)</span>: <span class="math display">\[
+\]</div>
+<h4 id="condicion-de-descomposicion-sin-perdida-para-dos-esquemas">Condición de Descomposición sin Perdida para Dos Esquemas</h4>
+<p>Si un esquema de relación <span class="math">\(R\)</span> se descompone solo en <span class="math">\(R_1, R_2\)</span>, la descomposición debe realizarse de manera tal que por lo menos una de las siguientes dependencias funcionales pertenezcan a <span class="math">\(F^+\)</span>:</p>
+<div class="math">
+\[
 \array{
-    (R_1 \cap R_2) \rightarrow R_1 - R_2 \\
-    (R_1 \cap R_2) \rightarrow R_2 - R_1
+	(R_1 \cap R_2) \rightarrow R_1 - R_2 \\
+	(R_1 \cap R_2) \rightarrow R_2 - R_1
 }
-\]</span> #### Condición de Descomposición sin Perdida para N Esquemas</p>
+\]</div>
+<h4 id="condicion-de-descomposicion-sin-perdida-para-n-esquemas">Condición de Descomposición sin Perdida para N Esquemas</h4>
 <p>Para determinar si al descomposición en mas de dos esquemas tienen perdida de información o no hay que usar una matriz especial denominada <u>tableau</u>.</p>
 <p>Esta matriz consiste en una matriz bidimensional que tiene una columna por cada atributo del esquema al cual corresponde dicho tableau. Sus filas están compuestas por variables distinguidas (representadas por la letra <em>a</em>, que aparece subindicador con el numero de la columna) y por variables ligadas o no distinguidas (representadas por la letra <em>b</em>, que aparece subindicada con el numero de fila y columna). Cada variable puede aparecer solo en una columna y en una misma columna no puede haber mas de una variable distinguida.</p>
-<p>Para poder detectar la perdida de información en una descomposición, se arma un tableau inicial con una fila por cada subesquema <span class="math inline">\(R_i\)</span>, completando dicha fila de la siguiente forma: $$ T(i,j) =</p>
-<p>{  . $$ A partir de la configuración inicial se van haciendo los cambios necesarios para que se cumplan las dependencias funcionales de <span class="math inline">\(R\)</span>, obteniendo nuevos tableaus equivalentes al inicial.</p>
-<p>Para que una descomposición de N esquemas no tenga perdidas, se tiene que cumplir que: <span class="math display">\[
+<p>Para poder detectar la perdida de información en una descomposición, se arma un tableau inicial con una fila por cada subesquema <span class="math">\(R_i\)</span>, completando dicha fila de la siguiente forma:</p>
+<div class="math">
+\[
+T(i,j) =
+
+\left \{
+\array{
+	a_j &amp; \text{Si } R_i \text{ contiene al atributo } A_j	\\
+	b_{ij}&amp; \text{Si } R_i \text{ no contiene al atributo} A_j
+}
+\right .
+\]</div>
+<p>A partir de la configuración inicial se van haciendo los cambios necesarios para que se cumplan las dependencias funcionales de <span class="math">\(R\)</span>, obteniendo nuevos tableaus equivalentes al inicial.</p>
+<p>Para que una descomposición de N esquemas no tenga perdidas, se tiene que cumplir que:</p>
+<div class="math">
+\[
 \text{Si un esquema de relacion } R \text{ se descompone en } R_1, R_2, \dots, R_N \\
 \text{esquemas, la descomposicion debe realizarse de manera tal que por lo menos exista } \\ \text{una fila de variables distinguidas en el tableau correspondiente o en uno equivalente}
-\]</span> #### Descomposición Preservando Dependencias (Sin perdida de DFs)</p>
-<p>Mediante el método anterior podemos asegurar que no haya perdida de información, pero podemos haber perdido alguna dependencia funcional. Para asegurarse que no se pierdan estas dependencias, hay que seguir la siguiente regla: <span class="math display">\[
+\]</div>
+<h4 id="descomposicion-preservando-dependencias-sin-perdida-de-dfs">Descomposición Preservando Dependencias (Sin perdida de DFs)</h4>
+<p>Mediante el método anterior podemos asegurar que no haya perdida de información, pero podemos haber perdido alguna dependencia funcional. Para asegurarse que no se pierdan estas dependencias, hay que seguir la siguiente regla:</p>
+<div class="math">
+\[
 \text{Dado un esquema } R \text{, se dice que no haya perdida de dependencias al descomponerlo } \\ \text{ en } N \text{ esquemas } R_i \text{, si sus clausuras de dependencias funcionales son equivalentes:}\\\\
 \ \\
-{F&#39;}^+ = F^+ \text{ donde } F&#39; = \bigcup_{i=1}^N \pi_{R_i}(F^+)
-\]</span> Básicamente tengo que hacer unión de todas las <span class="math inline">\(F_i\)</span> y a partir de esta unión tenes que poder crear todas las dependencias del <span class="math inline">\(F\)</span> original.</p>
-<p>A continuación se puede ver un algoritmo que permite calcular la proyección de <span class="math inline">\(F^+\)</span> sobre un subesquema de <span class="math inline">\(R\)</span></p>
-<pre class="pseudocode"><code>F_1 = F
+{F'}^+ = F^+ \text{ donde } F' = \bigcup_{i=1}^N \pi_{R_i}(F^+)
+\]</div>
+<p>Básicamente tengo que hacer unión de todas las <span class="math">\(F_i\)</span> y a partir de esta unión tenes que poder crear todas las dependencias del <span class="math">\(F\)</span> original.</p>
+<p>A continuación se puede ver un algoritmo que permite calcular la proyección de <span class="math">\(F^+\)</span> sobre un subesquema de <span class="math">\(R\)</span></p>
+<pre><code class="language-pseudocode">F_1 = F
 X = R - R_i
 while( X != NULL){
-    A / A pertenece a X
-    X = X - A
-    RES = NULL
-    for (cada dependencia del tipo Y -&gt; A en F_1){
-        for (cada dependencia del tipo AZ -&gt; B en F_1){
-            H = YX -&gt; B
-            if (H no es trivial){
-                RES = RES union { H }
-            }
-        }
-    }
-    for (cada dependencia f en F_1){
-        if(A esta en f){
-            F_1 = F_1 - { f }
-        }
-    }
-    F_1 = F_1 union RES
-}</code></pre>
+	A / A pertenece a X
+	X = X - A
+	RES = NULL
+	for (cada dependencia del tipo Y -&gt; A en F_1){
+		for (cada dependencia del tipo AZ -&gt; B en F_1){
+			H = YX -&gt; B
+			if (H no es trivial){
+				RES = RES union { H }
+			}
+		}
+	}
+	for (cada dependencia f en F_1){
+		if(A esta en f){
+			F_1 = F_1 - { f }
+		}
+	}
+	F_1 = F_1 union RES
+}
+</code></pre>
 <h2 id="formas-normales-sobre-dependencias-entre-atributos">Formas Normales sobre Dependencias entre Atributos</h2>
 <p>A continuación veremos las condiciones que se deben cumplir para que un esquema cumpla las 4 formas normales que se basan en las dependencias entre atributos</p>
 <h4 id="primera-forma-normal-1nf">Primera forma normal (1NF)</h4>
-<p><span class="math display">\[
+<div class="math">
+\[
 \text{Un esquema de relacion } R \text{ se encuentra en }\bold{\text{primera forma normal }} \\ \text{si sus atributos son atomicos}
-\]</span> #### Segunda forma normal (2NF)</p>
+\]</div>
+<h4 id="segunda-forma-normal-2nf">Segunda forma normal (2NF)</h4>
 <p>Esta forma normal se basa en el concepto de dependencia funcional total. A continuación vamos a definir los conceptos dependencia total y parcial.</p>
 <ul>
-<li><p><strong>Dependencia total</strong>: <span class="math display">\[
-\text{Una dependencia } \alpha \rightarrow\beta 
-\text{ es total si } \forall A \in \alpha :(\alpha - \{A\}) \not \rightarrow \beta
-\]</span> En otras palabras, una dependencia <span class="math inline">\(\alpha \rightarrow \beta\)</span> es total si <span class="math inline">\(\beta\)</span> no depende funcionalmente de ningún subconjunto de <span class="math inline">\(\alpha\)</span>.</p></li>
-<li><p><strong>Dependencia parcial</strong>: <span class="math display">\[
-\text{Una dependencia } \alpha \rightarrow\beta 
-\text{ es parcial si } \exists A \in \alpha :(\alpha - \{A\})  \rightarrow \beta
-\]</span> En otras palabras, <span class="math inline">\(\beta\)</span> depende parcialmente de <span class="math inline">\(\alpha\)</span> si depende funcionalmente solo de algún subconjunto de <span class="math inline">\(\alpha\)</span>. Obviamente que <span class="math inline">\(\alpha \rightarrow \beta\)</span> sea parcial obliga a que <span class="math inline">\(\alpha\)</span> sea compuesto.</p></li>
+<li><strong>Dependencia total</strong>:</li>
 </ul>
-<p>La definición de 2NF es: <span class="math display">\[
-\text{Un esquema de relacion } R \text{ se encuentra en } \bold{\text{segunda forma normal}}  \text{ si no existe } \\ \text{ningun atributo } A  \text{ no primo en } R \text{ que no sea parcialmente dependiente de alguna clave}
-\]</span> Tradicionalmente se decía que un esquema estaba en 2NF si estaba en 1NF y además todo atributo no primo era totalmente dependiente de la clave.</p>
-<p><strong>Normalización de un esquema <span class="math inline">\(R\)</span> en 2NF</strong> <span class="math display">\[
-\text{Para normalizar un esquema que viona 2NF hay que quitarle los atributos no primos } \\ \text{ que dependen parcialmente de la clave y formar un nuevo esquema con ellos y la } \\ \text{ porcion de clave de la que dependian}
-\]</span> #### Tercera forma normal (3NF)</p>
-<p>El <strong>recubrimiento minimal</strong> de <span class="math inline">\(F\)</span> es un conjunto <span class="math inline">\(F_m\)</span> de dependencias funcionales que cumple con:</p>
+<div class="math">
+\[
+  \text{Una dependencia } \alpha \rightarrow\beta 
+  \text{ es total si } \forall A \in \alpha :(\alpha - \{A\}) \not \rightarrow \beta
+\]</div>
+<p>En otras palabras, una dependencia <span class="math">\(\alpha \rightarrow \beta\)</span> es total si <span class="math">\(\beta\)</span> no depende funcionalmente de ningún subconjunto de <span class="math">\(\alpha\)</span>.</p>
 <ul>
-<li><span class="math inline">\(F_m\)</span> es equivalente a <span class="math inline">\(F\)</span></li>
-<li>El lado derecho de cada dependencia funcional de <span class="math inline">\(F_m\)</span>es un atributo simple</li>
-<li>Ninguna dependencia funcional en <span class="math inline">\(F_m\)</span> contiene atributos redundantes a izquierda</li>
-<li><span class="math inline">\(F_m\)</span> no tiene dependencias funcionales redundantes</li>
+<li><strong>Dependencia parcial</strong>:</li>
 </ul>
-<p>También vamos a definir a las <strong>dependencias transitivas</strong>: <span class="math display">\[
+<div class="math">
+\[
+  \text{Una dependencia } \alpha \rightarrow\beta 
+  \text{ es parcial si } \exists A \in \alpha :(\alpha - \{A\})  \rightarrow \beta
+\]</div>
+<p>En otras palabras, <span class="math">\(\beta\)</span> depende parcialmente de <span class="math">\(\alpha\)</span> si depende funcionalmente solo de algún subconjunto de <span class="math">\(\alpha\)</span>. Obviamente que <span class="math">\(\alpha \rightarrow \beta\)</span> sea parcial obliga a que <span class="math">\(\alpha\)</span> sea compuesto.</p>
+<p>La definición de 2NF es:</p>
+<div class="math">
+\[
+\text{Un esquema de relacion } R \text{ se encuentra en } \bold{\text{segunda forma normal}}  \text{ si no existe } \\ \text{ningun atributo } A  \text{ no primo en } R \text{ que no sea parcialmente dependiente de alguna clave}
+\]</div>
+<p>Tradicionalmente se decía que un esquema estaba en 2NF si estaba en 1NF y además todo atributo no primo era totalmente dependiente de la clave.</p>
+<p><strong>Normalización de un esquema <span class="math">\(R\)</span> en 2NF</strong></p>
+<div class="math">
+\[
+\text{Para normalizar un esquema que viona 2NF hay que quitarle los atributos no primos } \\ \text{ que dependen parcialmente de la clave y formar un nuevo esquema con ellos y la } \\ \text{ porcion de clave de la que dependian}
+\]</div>
+<h4 id="tercera-forma-normal-3nf">Tercera forma normal (3NF)</h4>
+<p>El <strong>recubrimiento minimal</strong> de <span class="math">\(F\)</span>  es un conjunto <span class="math">\(F_m\)</span> de dependencias funcionales que cumple con:</p>
+<ul>
+<li><span class="math">\(F_m\)</span> es equivalente a <span class="math">\(F\)</span></li>
+<li>El lado derecho de cada dependencia funcional de $F_m $es un atributo simple</li>
+<li>Ninguna dependencia funcional en $F_m $ contiene atributos redundantes a izquierda</li>
+<li>$F_m $ no tiene dependencias funcionales redundantes</li>
+</ul>
+<p>También vamos a definir a las <strong>dependencias transitivas</strong>:</p>
+<div class="math">
+\[
 \text{Una dependencia } X \rightarrow Y \text{ es transitiva si existe un conjunto de  atributos} \\ Z\text{ no primos para el cual } X \rightarrow Z \text{ y } Z \rightarrow Y
-\]</span> Tradicionalmente se definía como 3NF a aquellos esquemas que estaban en 2NF y que además para todo conjunto de atributos no primos <span class="math inline">\(\alpha\)</span> se cumplía que <span class="math inline">\(\alpha\)</span> no depende transitivamente de una clave.</p>
-<p>Por otro lado, la definición formal de la <strong>tercera forma normal</strong> es : <span class="math display">\[
+\]</div>
+<p>Tradicionalmente se definía como 3NF a aquellos esquemas que estaban en 2NF y que además para todo conjunto de atributos no primos <span class="math">\(\alpha\)</span> se cumplía que <span class="math">\(\alpha\)</span> no depende transitivamente de una clave.</p>
+<p>Por otro lado, la definición formal de la <strong>tercera forma normal</strong> es :</p>
+<div class="math">
+\[
 \text{Un esquema de relacion } R \text{ se encuentra en tercera forma normal si para toda} \\ \text{dependencia } \alpha \rightarrow \beta \text{ no trivial de } F^+ \text{ se cumple:}
 \\
 \array{
-    \alpha \text{ es superclave} &amp; \text{o} &amp; \beta \text{ es primo}
+	\alpha \text{ es superclave} &amp; \text{o} &amp; \beta \text{ es primo}
 }
-\]</span> Para realizar una normalización hacia la tercera forma normal, se deben seguir los siguientes pasos:</p>
-<ol type="1">
-<li>Hallar <span class="math inline">\(F_m\)</span>, un recubrimiento minimal de <span class="math inline">\(F\)</span></li>
+\]</div>
+<p>Para realizar una normalización hacia la tercera forma normal, se deben seguir los siguientes pasos:</p>
+<ol>
+<li>Hallar <span class="math">\(F_m\)</span>, un recubrimiento minimal de <span class="math">\(F\)</span></li>
 <li>Juntar las dependencias que coincidan en su lado izquierdo (aplicar regla de unión)</li>
-<li>Para cada <span class="math inline">\(X \rightarrow Y\)</span> de <span class="math inline">\(F_m\)</span>, crear una relación con el esquema <span class="math inline">\(XY\)</span></li>
+<li>Para cada <span class="math">\(X \rightarrow Y\)</span> de <span class="math">\(F_m\)</span>, crear una relación con el esquema <span class="math">\(XY\)</span></li>
 <li>Eliminar toda relación cuyo esquema sea subconjunto de otro.</li>
-<li>Si ninguno de los esquemas creados contiene una clave candidata de <span class="math inline">\(R\)</span>, agregar un esquema conteniéndola, a los efectos de que no tenga perdida de información.</li>
+<li>Si ninguno de los esquemas creados contiene una clave candidata de <span class="math">\(R\)</span>, agregar un esquema conteniéndola, a los efectos de que no tenga perdida de información.</li>
 </ol>
 <p>Esta forma asegura la <u>no perdida de información</u> y la <u>conservación de las dependencias funcionales</u></p>
+
 </body>
 </html>

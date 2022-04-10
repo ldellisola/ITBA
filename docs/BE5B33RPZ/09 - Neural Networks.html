@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>09 - Neural Networks</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>09 - Neural Networks.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,67 +1385,101 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="neural-networks">Neural Networks</h1>
-<p>In the perceptron algorithm we have two parameters <span class="math inline">\(w\in \mathbb{R}^n\)</span> and <span class="math inline">\(b \in \mathbb{R}\)</span> and then the classification <span class="math inline">\(\hat y\)</span> to two classes for a vector <span class="math inline">\(x\in \mathbb{R}^n\)</span> is performed as <span class="math display">\[
+<p>In the perceptron algorithm we have two parameters <span class="math">\(w\in \mathbb{R}^n\)</span> and <span class="math">\(b \in \mathbb{R}\)</span> and then the classification <span class="math">\(\hat y\)</span> to two classes for a vector <span class="math">\(x\in \mathbb{R}^n\)</span> is performed as</p>
+<div class="math">
+\[
 \hat y = \text{sign}(w \times x + b )
-\]</span> Another way we can define the perceptron algorithm is:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210112193815643.png" alt="image-20210112193815643" style="zoom:33%;" /></p>
+\]</div>
+<p>Another way we can define the perceptron algorithm is:</p>
+<img src="Resources/09 - Neural Networks/81708680-2230-4dd6-ab3c-eecb66eb8790.png" alt="81708680-2230-4dd6-ab3c-eecb66eb8790" style="scale:0.33;" />
 <p>From here we can combine different perceptron classifiers to make a complex classifier by letting them use the same input and have their own outputs into other perceptron:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210112194028157.png" alt="image-20210112194028157" style="zoom:33%;" /></p>
-<p>Another string motivation for forming such combinations of simple classifiers is the <strong>Universal Approximation Theorem</strong>. This theorem states that if <span class="math inline">\(\sigma:\mathbb{R} \rightarrow \mathbb{R}\)</span> is a non-constant, bounded and continuous function, and if <span class="math inline">\(f\)</span> is a continuous function on unity hypercube <span class="math inline">\([0,1]^n\)</span>, then for any <span class="math inline">\(\epsilon &gt; 0\)</span> there exists <span class="math inline">\(N \in \mathbb{N}, v_i,b_i \in \mathbb{R}, w_i \in \mathbb{R}^n\)</span> such that: <span class="math display">\[
+<img src="Resources/09 - Neural Networks/810cb375-c229-4415-9d13-c3f6e890bf4b.png" alt="810cb375-c229-4415-9d13-c3f6e890bf4b" style="scale:0.33;" />
+<p>Another string motivation for  forming such combinations of simple classifiers is the <strong>Universal Approximation Theorem</strong>. This theorem states that if <span class="math">\(\sigma:\mathbb{R} \rightarrow \mathbb{R}\)</span> is a non-constant, bounded and continuous function, and if <span class="math">\(f\)</span> is a continuous function on unity hypercube <span class="math">\([0,1]^n\)</span>, then for any $\epsilon &gt; 0 $ there exists <span class="math">\(N \in \mathbb{N}, v_i,b_i \in \mathbb{R}, w_i \in \mathbb{R}^n\)</span> such that:</p>
+<div class="math">
+\[
 F(x) = \sum_{i=1}^nv_i \sigma(w_i \times x + b_i)\\
 |F(x) - f(x)| &lt; \epsilon,~~ \forall x \in [0,1]^m
-\]</span> We can see that the approximation is exactly captured by the following network:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210112194453585.png" alt="image-20210112194453585" style="zoom:33%;" /></p>
+\]</div>
+<p>We can see that the approximation is exactly captured by the following network:</p>
+<img src="Resources/09 - Neural Networks/a138c0fc-7b95-478e-b327-995b777b6046.png" alt="a138c0fc-7b95-478e-b327-995b777b6046" style="scale:0.33;" />
 <h2 id="representation">Representation</h2>
 <p>Neural networks can be represented in layers. Here we have an example:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210112194712096.png" alt="image-20210112194712096" style="zoom:33%;" /></p>
+<img src="Resources/09 - Neural Networks/e876d5d3-a25a-42b7-9419-17268420d059.png" alt="e876d5d3-a25a-42b7-9419-17268420d059" style="scale:0.33;" />
 <p>But this can be rewritten more concisely as:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210112194750023.png" alt="image-20210112194750023" style="zoom:33%;" /></p>
+<img src="Resources/09 - Neural Networks/0031e411-0538-44f8-a7dc-c87ff9afa98c.png" alt="0031e411-0538-44f8-a7dc-c87ff9afa98c" style="scale:0.33;" />
 <p>We can keep adding more hidden layers and the network can be described as:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210112194903165.png" alt="image-20210112194903165" style="zoom:33%;" /></p>
+<img src="Resources/09 - Neural Networks/77eba302-baa0-4547-8961-a477df8779a3.png" alt="77eba302-baa0-4547-8961-a477df8779a3" style="scale:0.33;" />
 <h3 id="hidden-layers">Hidden Layers</h3>
 <p>Each hidden layer is composed of an affine function, followed by non-linearity. There are several different functions we can use for this part:</p>
 <ul>
-<li><span class="math inline">\(\sigma(z) = \text{sign}(z)\)</span>: Used for the original perceptron, but it is not usable in neural nets because it is not differentiable at 0, and everywhere else the gradient it 0, so we can’t optimize the parameters.</li>
-<li><span class="math inline">\(\sigma(z) = \tanh(z)\)</span></li>
-<li><span class="math inline">\(\sigma(z) = \max(0,z)\)</span></li>
-<li><span class="math inline">\(\sigma(z) = \max(0,z) + \min(9,sz)\)</span> <span class="math inline">\((0 &lt;s&lt;1)\)</span></li>
-<li><span class="math inline">\(\sigma(z) = \frac 1 {1+ e^{-z}}\)</span></li>
+<li><span class="math">\(\sigma(z) = \text{sign}(z)\)</span>: Used for the original perceptron, but it is not usable in neural nets because it is not differentiable at 0, and everywhere else the gradient it 0, so we can't optimize the parameters.</li>
+<li><span class="math">\(\sigma(z) = \tanh(z)\)</span></li>
+<li><span class="math">\(\sigma(z) = \max(0,z)\)</span></li>
+<li><span class="math">\(\sigma(z) = \max(0,z) + \min(9,sz)\)</span>  <span class="math">\((0 &lt;s&lt;1)\)</span></li>
+<li><span class="math">\(\sigma(z) = \frac 1 {1+ e^{-z}}\)</span></li>
 </ul>
 <h3 id="output-layers">Output Layers</h3>
-<p>In a <strong><span class="math inline">\(K\)</span>-class classification</strong> we normally label the classes from <span class="math inline">\(1,\dots, k\)</span> but that doesn’t mean that elements from class <span class="math inline">\(3\)</span> are more similar to those in class <span class="math inline">\(4\)</span> than any other class. This is way it makes no sense to have directly a one dimensionally output <span class="math inline">\(\hat y\)</span> trying to estimate the correct label. To solve this, the output layer will produce a <span class="math inline">\(K\)</span>-dimensional vector and then a SoftMax function will convert it to class probabilities:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210113110956503.png" alt="image-20210113110956503" style="zoom:33%;" /></p>
-<p>With: <span class="math display">\[
+<p>In a <strong><span class="math">\(K\)</span>-class classification</strong> we normally label the classes from <span class="math">\(1,\dots, k\)</span> but that doesn't mean that elements from class <span class="math">\(3\)</span> are more similar to those in class <span class="math">\(4\)</span> than any other class. This is way it makes no sense to have directly a one dimensionally output <span class="math">\(\hat y\)</span> trying to estimate the correct label. To solve this, the output layer will produce a <span class="math">\(K\)</span>-dimensional vector and then a SoftMax function will convert it to class probabilities:</p>
+<img src="Resources/09 - Neural Networks/31892957-a036-4371-a83a-ee19bb05f0e2.png" alt="31892957-a036-4371-a83a-ee19bb05f0e2" style="scale:0.33;" />
+<p>With:</p>
+<div class="math">
+\[
 [\text{softmax}(z)]_k = \frac {e^{z_k}}{\sum_{l=1}^K e^{z_l}}
-\]</span> For representing the class <span class="math inline">\(y\)</span> of a training data point <span class="math inline">\((x,y)\)</span>we use <strong>one-hot</strong> representation that creates a <span class="math inline">\(K\)</span>-dimensional vector and all the probabilities are zero except for the <span class="math inline">\(y^{th}\)</span> place: <span class="math display">\[
+\]</div>
+<p>For representing the class <span class="math">\(y\)</span> of a training data point $(x,y)$we use <strong>one-hot</strong> representation that creates a <span class="math">\(K\)</span>-dimensional vector and all the probabilities are zero except for the <span class="math">\(y^{th}\)</span> place:</p>
+<div class="math">
+\[
 \text{onehot}(y) = [\delta_{1y},\dots,\delta_{Ky}]^T = [0,\dots,1,\dots,0]^T \in \mathbb{R}^K
-\]</span> The <strong>loss function</strong> of the output layer measures how far the prediction <span class="math inline">\(\hat y \in [0,1]^K\)</span> is from the target vector generated by the one-hot function. The loss function can be one of these functions:</p>
+\]</div>
+<p>The <strong>loss function</strong> of the output layer measures how far the prediction <span class="math">\(\hat y \in [0,1]^K\)</span> is from the target vector generated by the one-hot function. The loss function can be one of these functions:</p>
 <ul>
-<li><p><strong>Squared Difference</strong>: This function will have 0 loss if the prediction matches the target but <span class="math inline">\(&gt;0\)</span> otherwise. The function is: <span class="math display">\[
+<li><p><strong>Squared Difference</strong>: This function will have 0 loss if the prediction matches the target but <span class="math">\(&gt;0\)</span> otherwise. The function is:</p>
+<div class="math">
+\[
 J(\hat y,y) = ||\hat y - y||^2
-\]</span></p></li>
-<li><p><strong>Negative lob-likelihood</strong>: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Negative lob-likelihood</strong>:</p>
+<div class="math">
+\[
 J(\hat y, y) = -y^T \log(\hat y) = - \sum_{i=1}^K y_i \log(\hat y_i) = -\log \hat y_l
-\]</span> Where <span class="math inline">\(l\)</span> is the index of the target class of the training data point <span class="math inline">\((x,l)\)</span>.</p></li>
+\]</div>
+<p>Where <span class="math">\(l\)</span> is the index of the target class of the training data point <span class="math">\((x,l)\)</span>.</p>
+</li>
 </ul>
 <h2 id="training">Training</h2>
-<p>Let the training data be <span class="math inline">\(\mathcal T = \{(x_1,y_1) ,\dots,(x_N,y_N)\}\)</span> where we can assume that the labels <span class="math inline">\(y_i\)</span>’s have been converted to their one-hot representation. Let <span class="math inline">\(\theta\)</span> represent all the parameters of the neural net, we want to minimize: <span class="math display">\[
+<p>Let the training data be <span class="math">\(\mathcal T = \{(x_1,y_1) ,\dots,(x_N,y_N)\}\)</span> where we can assume that the labels  <span class="math">\(y_i\)</span>'s have been  converted to their one-hot representation. Let <span class="math">\(\theta\)</span> represent all the parameters of the neural net, we want to minimize:</p>
+<div class="math">
+\[
 J(\mathcal T;\theta)=\sum_{(x,y) \in \mathcal T}J(\hat y(x),y)
-\]</span> To do this we are using gradient-based methods and minimizing with respect to <span class="math inline">\(\theta\)</span>. We need to evaluate the gradient of loss with respect to the neural net parameters and the derivative of the loss function to use it for updates of the gradient-descent type: <span class="math display">\[
-\theta_{t+1} \leftarrow (\theta_t - \mu) \sum_{(x,t) \in \mathcal{T&#39; \subseteq T}} \frac{\partial J(\hat y(x),y)}{\partial \theta} 
-\]</span> where <span class="math inline">\(\mu\)</span> is the learning rate and we do not need to do this over the entire dataset.</p>
+\]</div>
+<p>To do this we are using gradient-based methods and minimizing with respect to <span class="math">\(\theta\)</span>. We need to evaluate the gradient of loss with respect to the neural net parameters and the derivative of the loss function to use it for updates of the gradient-descent type:</p>
+<div class="math">
+\[
+\theta_{t+1} \leftarrow (\theta_t - \mu) \sum_{(x,t) \in \mathcal{T' \subseteq T}} \frac{\partial J(\hat y(x),y)}{\partial \theta} 
+\]</div>
+<p>where <span class="math">\(\mu\)</span> is the learning rate and we do not need to do this over the entire dataset.</p>
 <h3 id="computing-the-gradient">Computing the Gradient</h3>
-<p>When computing the gradient, we will make use of the chain rule. Let <span class="math inline">\(f:\mathbb{R}^n\rightarrow R\)</span> and <span class="math inline">\(g:\mathbb{R}^m\rightarrow\mathbb{R}^n\)</span> such that <span class="math inline">\(f(g(x)) = f(y)\)</span>, it holds that: <span class="math display">\[
+<p>When computing the gradient, we will make use of the chain rule. Let <span class="math">\(f:\mathbb{R}^n\rightarrow R\)</span> and <span class="math">\(g:\mathbb{R}^m\rightarrow\mathbb{R}^n\)</span> such that <span class="math">\(f(g(x)) = f(y)\)</span>, it holds that:</p>
+<div class="math">
+\[
 \frac{\partial f(g(\bold x)) }{\partial x_k} = \sum_{i=1}^n \frac{\partial f}{\partial y_i} \frac{\partial y_i}{\partial x_k}
-\]</span> We can rewrite this in matrix form as: <span class="math display">\[
-\frac{\partial f(g(\bold x)) }{\partial \bold x} = \frac {\partial f}{\partial \bold y} \frac {\partial \bold y}{\partial \bold x} = f&#39; \bold y&#39;
-\]</span> where <span class="math inline">\(f&#39; = \partial f / \partial \bold y\)</span> and <span class="math inline">\(\bold y&#39; = \partial \bold y / \partial \bold x\)</span> are the Jacobian matrices: <span class="math display">\[
-f&#39; = \left[\frac{\partial f}{\partial y_1},\dots,\frac{\partial f}{\partial y_n}\right] \\
-\bold y&#39; = 
+\]</div>
+<p>We can rewrite this in matrix form as:</p>
+<div class="math">
+\[
+\frac{\partial f(g(\bold x)) }{\partial \bold x} = \frac {\partial f}{\partial \bold y} \frac {\partial \bold y}{\partial \bold x} = f' \bold y'
+\]</div>
+<p>where <span class="math">\(f' = \partial f / \partial \bold y\)</span> and <span class="math">\(\bold y' = \partial \bold y / \partial \bold x\)</span>  are the Jacobian matrices:</p>
+<div class="math">
+\[
+f' = \left[\frac{\partial f}{\partial y_1},\dots,\frac{\partial f}{\partial y_n}\right] \\
+\bold y' = 
 \left[
 \array{
 \frac{\partial y_1}{\partial x_1} &amp; \frac{\partial y_1}{\partial x_2}&amp;\dots &amp;\frac{\partial y_1}{\partial x_m}\\
@@ -1592,18 +1488,24 @@ f&#39; = \left[\frac{\partial f}{\partial y_1},\dots,\frac{\partial f}{\partial 
 \frac{\partial y_n}{\partial x_1} &amp; \dots&amp; \dots &amp; \frac{\partial y_n}{\partial x_m}
 }
 \right]
-\]</span></p>
+\]</div>
 <h4 id="example">Example</h4>
 <p>We can calculate the gradient of the following neural net using back propagation:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210113121116118.png" alt="image-20210113121116118" style="zoom:33%;" /></p>
-<p>The set of parameters <span class="math inline">\(\theta= \{W_1,W_2,W_3,b_1,b_2,b_3\}\)</span>. For the loss function we will sue squared difference.</p>
-<ol type="1">
-<li><p>First we need to compute <span class="math inline">\(v_3 =\left. \frac {\partial J}{\partial \hat y}\right| _{\hat y}\)</span>, this is a row vector <span class="math inline">\(\bold v_3 = 2(\hat y -y)^T\in \mathbb{R}^K\)</span></p></li>
-<li><p>Then we need to calculate the derivatives of <span class="math inline">\(J\)</span> with respect to <span class="math inline">\(W_3\)</span> and <span class="math inline">\(b_3\)</span>: <span class="math display">\[
+<img src="Resources/09 - Neural Networks/050ec9b6-bbd7-42bc-a85b-c54fb1576521.png" alt="050ec9b6-bbd7-42bc-a85b-c54fb1576521" style="scale:0.33;" />
+<p>The set of parameters <span class="math">\(\theta= \{W_1,W_2,W_3,b_1,b_2,b_3\}\)</span>. For the loss function we will sue squared difference.</p>
+<ol>
+<li><p>First we need to compute <span class="math">\(v_3 =\left. \frac {\partial J}{\partial \hat y}\right| _{\hat y}\)</span>, this is a row vector <span class="math">\(\bold v_3 = 2(\hat y -y)^T\in \mathbb{R}^K\)</span></p>
+</li>
+<li><p>Then we need to calculate the derivatives of <span class="math">\(J\)</span> with respect to <span class="math">\(W_3\)</span> and <span class="math">\(b_3\)</span>:</p>
+<div class="math">
+\[
 \frac{\partial J}{\partial b_3} = \bold v_3 \left.\frac{\partial J}{\partial b_3}\right|_{\bold a_3} = \bold v_3\\
 \frac{\partial J}{\partial (W_3)_{kl}} = \bold v_3 \frac{\partial \hat y}{\partial (W_3)_{kl}}  = \bold v_3 [0,\dots,(\bold a_3)_l,\dots,0]^T = (\bold v_3)_k (\bold a_3)_l
-\]</span> Where in <span class="math inline">\([0,\dots,(a_3)_l,\dots,0]^T\)</span> <span class="math inline">\((a_3)_l\)</span> is at the <span class="math inline">\(k^{th}\)</span> position.</p>
-<p>Doing that process for all elements of the matrix <span class="math inline">\(W_3\)</span>,we can obtain the following matrix: <span class="math display">\[
+\]</div>
+<p>Where in <span class="math">\([0,\dots,(a_3)_l,\dots,0]^T\)</span> <span class="math">\((a_3)_l\)</span> is at the <span class="math">\(k^{th}\)</span> position.</p>
+<p>Doing that process for all elements of the matrix <span class="math">\(W_3\)</span>,we can obtain the following matrix:</p>
+<div class="math">
+\[
 \frac{\partial J}{\partial W_3} = 
 \left [\array{
 \frac{\partial J}{\partial (W_3)_{11}} &amp; \dots &amp; \frac{\partial J}{\partial (W_3)_{1m_1}}\\
@@ -1611,34 +1513,49 @@ f&#39; = \left[\frac{\partial f}{\partial y_1},\dots,\frac{\partial f}{\partial 
 \\
 \frac{\partial J}{\partial (W_3)_{K1}}&amp; \dots &amp; \frac{\partial J}{\partial (W_3)_{Km_1}}
 }\right] = \bold v_3 ^T \bold a_3^T
-\]</span></p></li>
-<li><p>Now we are going to compute <span class="math inline">\(\bold v_2\)</span>: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Now we are going to compute <span class="math">\(\bold v_2\)</span>:</p>
+<div class="math">
+\[
 \bold v_2 = \bold v_3 \left.\frac{\partial \hat y}{\partial \bold a_3} \right|_{\bold a_3}
  \left.\frac{\partial \bold a_3}{\partial \bold z_3} \right|_{\bold z_3}
  =
- \bold (v_3 W_3) \odot \sigma&#39;(\bold z_2)
-\]</span> Where <span class="math inline">\(\sigma&#39;(\bold x) = [\sigma&#39;(x_1),\dots,\sigma&#39;(x_n)]\)</span> and <span class="math inline">\(\sigma&#39;\)</span> is the derivative of <span class="math inline">\(\sigma\)</span>. The symbol <span class="math inline">\(\odot\)</span> represent the element-wise product of the matrices.</p></li>
-<li><p>We can now compute <span class="math inline">\(W_2,b_2\)</span> as: <span class="math display">\[
+ \bold (v_3 W_3) \odot \sigma'(\bold z_2)
+\]</div>
+<p>Where <span class="math">\(\sigma'(\bold x) = [\sigma'(x_1),\dots,\sigma'(x_n)]\)</span> and <span class="math">\(\sigma'\)</span> is the derivative of <span class="math">\(\sigma\)</span>. The symbol <span class="math">\(\odot\)</span> represent the element-wise product of the matrices.</p>
+</li>
+<li><p>We can now compute <span class="math">\(W_2,b_2\)</span> as:</p>
+<div class="math">
+\[
 \frac{\partial J}{\partial b_2} =\bold v_2\\
 \frac{\partial J}{\partial W_2} = \bold v_2^T\bold a_2^T
-\]</span></p></li>
-<li><p>For <span class="math inline">\(\bold v_1\)</span> we are repeating step 3: <span class="math display">\[
-\bold v_1 = (\bold v_2 W_2) \odot \sigma&#39;(\bold z_2)
-\]</span></p></li>
-<li><p>And lastly we can get the parameters <span class="math inline">\(W_1,b_2\)</span> as: <span class="math display">\[
+\]</div>
+</li>
+<li><p>For <span class="math">\(\bold v_1\)</span> we are repeating step 3:</p>
+<div class="math">
+\[
+\bold v_1 = (\bold v_2 W_2) \odot \sigma'(\bold z_2)
+\]</div>
+</li>
+<li><p>And lastly we can get the parameters <span class="math">\(W_1,b_2\)</span> as:</p>
+<div class="math">
+\[
 \frac{\partial J}{\partial b_1} =\bold v_1\\
 \frac{\partial J}{\partial W_1} = \bold v_1^T\bold a_1^T
-\]</span></p></li>
+\]</div>
+</li>
 </ol>
 <h2 id="deep-learning">Deep Learning</h2>
-<p>Deep learning is a very successful branch of machine learning that has made a lot of progress in recent years. This field includes Convolutional Neural Nets (CNNs), where the inputs are translation-invariant and warpable, like in images. It also includes Recurrent Neural Networks (RNNs) which allow previous outputs to be used as inputs and are very common in speech recognition. From now on we will only discus <strong>CNNs</strong></p>
-<p>The main advantage of CNNs is that they reduce the number of parameters needed. For example if we have a <span class="math inline">\(64\times 64\)</span> pixels image and we try to implement a NN with fully connected layers we end up with <span class="math inline">\((64^2)^2\)</span> connections. If we use CNNs with a <span class="math inline">\(5\times 5\)</span> neighborhood for each neuron in the second layer and we make the parameters for all <span class="math inline">\(5\times 5\)</span> connections shared, we only need <span class="math inline">\(25\)</span> connections.</p>
+<p>Deep learning is a very successful branch of machine learning that has made a lot of progress in recent years. This field includes Convolutional Neural Nets (CNNs), where the inputs are translation-invariant and warpable, like in images. It also includes Recurrent Neural Networks (RNNs) which allow previous outputs to be  used as inputs and are very common in speech recognition. From now on we will only discus <strong>CNNs</strong></p>
+<p>The main advantage of CNNs is that they reduce the number of parameters needed. For example if we have a <span class="math">\(64\times 64\)</span> pixels image and we try to implement a NN with fully connected layers we end up with <span class="math">\((64^2)^2\)</span> connections. If we use CNNs with a <span class="math">\(5\times 5\)</span> neighborhood for each neuron in the second layer and we make the parameters for all <span class="math">\(5\times 5\)</span> connections shared, we only need <span class="math">\(25\)</span> connections.</p>
 <p>The typical structure for a CNN involves many convolutions, subsampling and finally some full connection layers to generate the labels:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210113131441568.png" alt="image-20210113131441568" style="zoom:33%;" /></p>
+<img src="Resources/09 - Neural Networks/565d9441-4f66-4d2e-a750-242a0fb23eb7.png" alt="565d9441-4f66-4d2e-a750-242a0fb23eb7" style="scale:0.33;" />
 <h3 id="pooling">Pooling</h3>
 <p>Pooling is a method to subsample our data and keep the important features. The idea is that we have to select a filter and then the stride. The filter will represent the area we want to output of and the stride will gives us the area of the input. A very used function for pooling is max pooling, which takes the higher number from each section of the input and returns in tin the output:</p>
-<p><img src="Resources/09 - Neural Networks/image-20210113131739047.png" alt="image-20210113131739047" style="zoom:33%;" /></p>
+<img src="Resources/09 - Neural Networks/a10a0285-0863-41b7-b2ef-662f076fb8dd.png" alt="a10a0285-0863-41b7-b2ef-662f076fb8dd" style="scale:0.33;" />
 <h3 id="dropout">Dropout</h3>
 <p>Drop out increases significantly overfitting by removing neurons that are not useful for the classification.</p>
+
 </body>
 </html>

@@ -1,153 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>06 - Interrupciones</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>06 - Interrupciones.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -156,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -213,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -277,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -360,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -379,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -401,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -498,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -590,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -631,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -674,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -861,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -917,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1240,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1365,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1522,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="interrupciones">Interrupciones</h1>
@@ -1536,12 +1400,14 @@ blockquote {
 <ul>
 <li><strong>Interrupción Enmascarable</strong>: Al deshabilitar el flag <code>IF</code> este tipo de interrupciones no llegan al procesador.</li>
 <li><strong>Interrupción no Enmascarable</strong>: Estas interrupciones llegan por el pin <code>NMI</code> y no puede ser ignoradas. Un claro ejemplo de estas interrupciones suceden al apagar la computadora desde el botón o para mantener la temperatura.</li>
-</ul></li>
-<li><p><strong>Interrupción por Software</strong>: son las interrupciones generadas por código. Un buen ejemplo de esto son las interrupciones ejecutadas con la instrucción <code>int 80h</code>. Esto básicamente genera una instrucción, hace que el procesador vaya al <code>IDT</code> a buscar la posición <code>80h</code> y de ahí salta a la subrutina que se debe ejecutar al encontrarse con esa interrupción. Este tipo de rutinas son tambien llamadas rutinas globales y se suelen usar para que los programas de userspace tengan acceso al hardware (controlado por el kernel) mediante syscalls.</p></li>
+</ul>
+</li>
+<li><p><strong>Interrupción por Software</strong>: son las interrupciones generadas por código. Un buen ejemplo de esto son las interrupciones ejecutadas con la instrucción <code>int 80h</code>. Esto básicamente genera una instrucción, hace que el procesador vaya al <code>IDT</code> a buscar la posición <code>80h</code> y de ahí salta a la subrutina que se debe ejecutar al encontrarse con esa interrupción. Este tipo de rutinas son tambien llamadas rutinas globales y se suelen usar para que los programas de userspace tengan acceso al hardware (controlado por el kernel) mediante syscalls.</p>
+</li>
 </ul>
 <h2 id="pic">PIC</h2>
 <p>El PIC es el controlador programable de interrupciones, y es el encargado de registrar las interrupciones de los dispositivos conectados y notificarle al procesador. El proceso es bastante simple, primero un dispositivo conectado le comunica al PIC que tiene una interrupción, este le avisa al procesador que sucedió una interrupción, y el procesador es el encargado de responderle si puede atenderla en el momento (si esta bloqueando las interrupciones externas). Luego de que el procesador confirme que acepta la interrupción, el PIC le manda por el bus de datos el índice de la tabla de interrupciones (<code>IDT</code>) de interrupción que esta sucediente y de ahí el procesador recupera un puntero hacia la rutina que se debe ejecutar. En caso de que múltiples dispositivos le notifiquen al PIC, hay implementada una lista de prioridad donde se decide que interrupción va al procesador primero.</p>
-<p><img src="Resources/image-20191029195857576.png" alt="image-20191029195857576" style="zoom: 50%;" /></p>
+<img src="Resources/image-20191029195857576.png" alt="image-20191029195857576" style="zoom: 50%;" />
 <p>Los puertos de entrada y salida de la PC son el <code>20h</code> y el <code>21h</code>. El puerto <code>20h</code> es utilizado para programar el PIC (Lo utiliza la BIOS a la hora de arrancar el sistema), mientras que el puerto <code>21h</code> es utilizado para acceder al registro <code>IMR</code> (<strong>Interrupt Mask Register</strong>), donde podemos setear que interrupciones llegan al procesador y cuales no.</p>
 <p>Como en un PIC solo pueden conectarse una cantidad finita de dispositivos, pueden conectarse varios PICs en serie para soportar a mas dispositivos. En las PCs se utiliza el <code>IRQ2</code> para conectar a un segundo PIC.</p>
 <h2 id="interrupciones-en-modo-protegido">Interrupciones en Modo Protegido</h2>
@@ -1555,79 +1421,79 @@ blockquote {
 <li><strong>Abort</strong>: No siempre se puede obtener la instrucción que causo la excepción. Reporta errores importantes.</li>
 </ul>
 <p>Estas son las excepciones implementadas:</p>
-<table>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;">Id</th>
 <th style="text-align: center;">Descripción</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;"><code>Divide Error</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;"><code>Debug Exception</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">2</td>
 <td style="text-align: center;"><code>Nonmaskable Interrupt</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">3</td>
 <td style="text-align: center;"><code>Breakpoint</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">4</td>
 <td style="text-align: center;"><code>Overflow</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">5</td>
 <td style="text-align: center;"><code>Bounds Check</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;"><code>Invalid Opcode</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">7</td>
 <td style="text-align: center;"><code>Coprocessor not Available</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">8</td>
 <td style="text-align: center;"><code>Double Fault</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">9</td>
 <td style="text-align: center;"><code>(Reserved)</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">10</td>
 <td style="text-align: center;"><code>Invalid TSS</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">11</td>
 <td style="text-align: center;"><code>Segment not Present</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">12</td>
 <td style="text-align: center;"><code>Stack Exception</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;"><code>General Protection</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">14</td>
 <td style="text-align: center;"><code>Page Fault</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;"><code>(Reserved)</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">16</td>
 <td style="text-align: center;"><code>Coprocessor Error</code></td>
 </tr>
@@ -1635,5 +1501,6 @@ blockquote {
 </table>
 <h2 id="interrupciones-en-multi-core">Interrupciones en Multi-Core</h2>
 <p>A diferencia de los procesadores de un solo núcleo, en los procesadores multinúcleo se utiliza otro integrado para manejar las interrupciones llamado <code>APIC</code> (Advanced Programmable Interrupt Controller). En este caso el <code>I/O</code> posee un <code>APIC</code> mientras que cada núcleo tiene un <code>APIC</code> local. Este nuevo integrado se encarga de hacer el ruteo de los periféricos a los núcleos.</p>
+
 </body>
 </html>

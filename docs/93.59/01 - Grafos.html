@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>01 - Grafos</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>01 - Grafos.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,48 +1385,53 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="grafos">Grafos</h1>
 <h2 id="definiciones">Definiciones</h2>
 <h3 id="grafo">Grafo</h3>
-<p>Un grafo <strong>G=(V,E)</strong> es una estructura matemática que consta de dos conjuntos <strong>V</strong> y <strong>E</strong>. Los elementos de V son vértices o nodos y los elementos de E se llaman aristas. Cada arista tiene un conjunto de uno o mas vértices asociados que se llaman extremos (<span class="math inline">\(V\neq \emptyset\)</span>).</p>
+<p>Un grafo <strong>G=(V,E)</strong> es una estructura matemática que consta de dos conjuntos <strong>V</strong> y <strong>E</strong>. Los elementos de V son vértices o nodos y los elementos de E se llaman aristas. Cada arista tiene un conjunto de uno o mas vértices asociados que se llaman extremos (<span class="math">\(V\neq \emptyset\)</span>).</p>
 <h5 id="ejemplo-grafo-simple">Ejemplo Grafo Simple</h5>
-<p><img src="Resources/1565008592270.png" style="zoom:75%"></p>
+<img src="Resources/1565008592270.png" style="zoom:75%">
 <h3 id="grafo-trivial">Grafo Trivial</h3>
-<p>Un grafo es trivial cuando <span class="math inline">\(\#V=1\)</span> y <span class="math inline">\(\#E = 0\)</span>, es decir, cuando solo hay un punto.</p>
+<p>Un grafo es trivial cuando <span class="math">\(\#V=1\)</span> y <span class="math">\(\#E = 0\)</span>, es decir, cuando solo hay un punto.</p>
 <h3 id="grafo-lazo">Grafo Lazo</h3>
 <p>Un grafo es lazo cuando tiene una arista cuyos puntos extremos son coincidentes.</p>
 <h5 id="ejemplo">Ejemplo</h5>
-<p><img src="Resources/1565008639655.png" style="zoom:75%"></p>
+<img src="Resources/1565008639655.png" style="zoom:75%">
 <h3 id="arista-propia">Arista Propia</h3>
 <p>Es una arista que no es un lazo.</p>
-<h3 id="multígrafo">Multígrafo</h3>
-<p>Un grado <span class="math inline">\(G=(V,E)\)</span> es un multígrafo si existen <span class="math inline">\(a\)</span> y <span class="math inline">\(b \in V\)</span> con dos o mas aristas incidentes en <span class="math inline">\(a,b\)</span>. En caso contrario se lo llama grafo simple. Es decir, cuando hay dos aristas cuyos vértices son iguales.</p>
-<h5 id="notación">Notación</h5>
-<p>A cada arista se la nombra por los vértices, por ejemplo, <span class="math inline">\(e_1= \{a,b\}\)</span></p>
+<h3 id="multigrafo">Multígrafo</h3>
+<p>Un grado <span class="math">\(G=(V,E)\)</span> es un multígrafo si existen <span class="math">\(a\)</span> y <span class="math">\(b \in V\)</span> con dos o mas aristas incidentes en <span class="math">\(a,b\)</span>. En caso contrario se lo llama grafo simple. Es decir, cuando hay dos aristas cuyos vértices son iguales.</p>
+<h5 id="notacion">Notación</h5>
+<p>A cada arista se la nombra por los vértices, por ejemplo, <span class="math">\(e_1= \{a,b\}\)</span></p>
 <h5 id="ejemplo-1">Ejemplo</h5>
-<p><img src="Resources/1565008722573.png" style="zoom:75%"></p>
-<h3 id="grafo-dirigido-o-dígrafo">Grafo Dirigido o Dígrafo</h3>
+<img src="Resources/1565008722573.png" style="zoom:75%">
+<h3 id="grafo-dirigido-o-digrafo">Grafo Dirigido o Dígrafo</h3>
 <p>Es un grafo donde todas sus aristas son dirigidas (Tienen flechas).</p>
-<h5 id="notación-1">Notación</h5>
-<p>A cada arista se la nombra por los vértices de donde sale y a donde llega, en ese orden. Por ejemplo: <span class="math inline">\(e_1 = \{a,b\}\)</span> es una arista que sale del vértice <span class="math inline">\(a\)</span> y llega al vértice <span class="math inline">\(b\)</span>.</p>
+<h5 id="notacion-1">Notación</h5>
+<p>A cada arista se la nombra por los vértices de donde sale y a donde llega, en ese orden. Por ejemplo: <span class="math">\(e_1 = \{a,b\}\)</span> es una arista que sale del vértice <span class="math">\(a\)</span> y llega al vértice <span class="math">\(b\)</span>.</p>
 <h5 id="ejemplo-2">Ejemplo</h5>
-<p><img src="Resources/1565008877786.png" style="zoom:75%"></p>
-<h3 id="multígrafo-dirigido">Multígrafo Dirigido</h3>
+<img src="Resources/1565008877786.png" style="zoom:75%">
+<h3 id="multigrafo-dirigido">Multígrafo Dirigido</h3>
 <p>De forma similar a los multígrafos no dirigidos, un dígrafo es dirigido cuando hay dos aristas o mas que compartan el mismo vértice de inicio y el mismo vértice de fin.</p>
 <h5 id="ejemplo-3">Ejemplo</h5>
-<p><img src="Resources/1565008930385.png" style="zoom:75%"></p>
+<img src="Resources/1565008930385.png" style="zoom:75%">
 <h3 id="grafo-ponderado">Grafo Ponderado</h3>
-<p><span class="math inline">\(G\)</span> es un grafo podenrado si cada arista tiene un peso asociado. Notacion <span class="math inline">\(e\in E_G,p(e)\)</span></p>
+<p><span class="math">\(G\)</span> es un grafo podenrado si cada arista tiene un peso asociado. Notacion <span class="math">\(e\in E_G,p(e)\)</span></p>
 <h4 id="distancia-ponderada">Distancia ponderada</h4>
-<p>Sea <span class="math inline">\(G\)</span> un grafo ponderado con <span class="math inline">\(a,b \in V_G\)</span>, la distancia ponderada es la distancia ponderada minima entre todos los caminos entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>, Es decir, el camino con menor peso de todos los posibles. Notacion: <span class="math inline">\(dp(a,b)\)</span></p>
-<p>Sea <span class="math inline">\(c_j\)</span> un camino valido entre <span class="math inline">\(a,b\)</span>, compuesto por vertices <span class="math inline">\(e_i \in E_G\)</span>: <span class="math display">\[
+<p>Sea <span class="math">\(G\)</span> un grafo ponderado con $a,b \in V_G $, la distancia ponderada es la distancia ponderada minima entre todos los caminos entre <span class="math">\(a\)</span> y <span class="math">\(b\)</span>, Es decir, el camino con menor peso de todos los posibles. Notacion: <span class="math">\(dp(a,b)\)</span></p>
+<p>Sea <span class="math">\(c_j\)</span> un camino valido entre <span class="math">\(a,b\)</span>, compuesto por vertices <span class="math">\(e_i \in E_G\)</span>:</p>
+<div class="math">
+\[
 dp(a,b)= min\{c_1,\dots, c_j\}~~~c_j=\sum_i (e_i)
-\]</span></p>
+\]</div>
 <h3 id="matriz-de-incidencia">Matriz de Incidencia</h3>
-<p>La matriz de incidencia de un grafo <span class="math inline">\(G\)</span> es la matriz <span class="math inline">\(I_G\)</span> cuyas filas y columnas son indexadas por algún orden de <span class="math inline">\(V_G\)</span> y <span class="math inline">\(E_G\)</span> respectivamente tal que: <span class="math display">\[
+<p>La matriz de incidencia de un grafo <span class="math">\(G\)</span> es la matriz <span class="math">\(I_G\)</span>  cuyas filas y columnas son indexadas por algún orden de <span class="math">\(V_G\)</span> y <span class="math">\(E_G\)</span> respectivamente tal que:</p>
+<div class="math">
+\[
 I_G[v,e]=
 \left\{
 \array
@@ -1574,174 +1441,182 @@ I_G[v,e]=
 2 &amp; \text{si $e$ es un lazo en $v$}
 }
 \right.
-\]</span> Si se trata de un Dígrafo: <span class="math display">\[
+\]</div>
+<p>Si se trata de un Dígrafo:</p>
+<div class="math">
+\[
 I_D[v,e]=
 \left\{
-    \array{
-        0&amp;\text{si $v$ es un extremo de $e$}\\
-        1&amp;\text{si $v$ es la cabeza de $e$}\\
-        -1&amp;\text{si $v$ es la cola de $e$}\\
-        2&amp;\text{si $e$ es un lazo de $v$}
-    }
+	\array{
+		0&amp;\text{si $v$ es un extremo de $e$}\\
+		1&amp;\text{si $v$ es la cabeza de $e$}\\
+		-1&amp;\text{si $v$ es la cola de $e$}\\
+		2&amp;\text{si $e$ es un lazo de $v$}
+	}
 \right.
-\]</span> ==PEDIR EJEMPLOS MATRIZ INCIDENCIA==</p>
+\]</div>
+<p><mark>PEDIR EJEMPLOS MATRIZ INCIDENCIA</mark></p>
 <h2 id="matriz-de-adyacencia">Matriz de Adyacencia</h2>
-<p>La matriz de adyacencia de un grafo <span class="math inline">\(G\)</span> es la matriz <span class="math inline">\(A _G\)</span> cuyas ﬁlas y columnas son indexadas por algún orden de <span class="math inline">\(V_G\)</span>, tal que: <span class="math display">\[
+<p>La matriz de adyacencia de un grafo <span class="math">\(G\)</span> es la matriz $A
+_G$ cuyas ﬁlas y columnas son indexadas por algún orden de <span class="math">\(V_G\)</span>, tal que:</p>
+<div class="math">
+\[
 A_G[u,v]=
 \left\{
-    \array{
-    \text{la cantidad de aristas entre ellos} &amp;&amp; \text{si $u \neq v$}\\
-    \text{la cantidad de lazos} &amp;&amp; \text{si $u = v$ }
-    }
+	\array{
+	\text{la cantidad de aristas entre ellos} &amp;&amp; \text{si $u \neq v$}\\
+	\text{la cantidad de lazos} &amp;&amp; \text{si $u = v$ }
+	}
 \right.
-\]</span> Si es un dígrafo: <span class="math display">\[
+\]</div>
+<p>Si es un dígrafo:</p>
+<div class="math">
+\[
 A_D[u,v]=
 \left\{
-    \array{
-    \text{la cantidad de aristas de $u$ hasta $v$} &amp;&amp; \text{si $u \neq v$}\\
-    \text{la cantidad de lazos} &amp;&amp; \text{si $u = v$ }
-    }
+	\array{
+	\text{la cantidad de aristas de $u$ hasta $v$} &amp;&amp; \text{si $u \neq v$}\\
+	\text{la cantidad de lazos} &amp;&amp; \text{si $u = v$ }
+	}
 \right.
-\]</span> ==PEDIR EJEMPLOS==</p>
+\]</div>
+<p><mark>PEDIR EJEMPLOS</mark></p>
 <h3 id="grado">Grado</h3>
-<p>El grado de un vértice en un grafo <span class="math inline">\(G\)</span> denotado <span class="math inline">\(g(v)\)</span> es el numero de aristas propias incidentes en <span class="math inline">\(v\)</span> mas el doble del numero de lazos en <span class="math inline">\(v\)</span>.</p>
-<p>En un dígrafo se deﬁne <strong>grado de salida</strong> de un vértice <span class="math inline">\(v\)</span> <span class="math inline">\(g_s(v)\)</span> al numero de aristas cuya cola esta en <span class="math inline">\(v\)</span> mas el numero de lazos y el <strong>grado de entrada</strong> de un vértice <span class="math inline">\(v\)</span> <span class="math inline">\(g_e(v)\)</span> al numero de aristas cuya cabeza esta en <span class="math inline">\(v\)</span> mas el numero de lazos.</p>
-<h5 id="proposición">Proposición</h5>
+<p>El grado de un vértice en un grafo <span class="math">\(G\)</span> denotado <span class="math">\(g(v)\)</span> es el numero de aristas propias incidentes en <span class="math">\(v\)</span> mas el doble del numero de lazos en <span class="math">\(v\)</span>.</p>
+<p>En un dígrafo se deﬁne <strong>grado de salida</strong> de un vértice <span class="math">\(v\)</span> <span class="math">\(g_s(v)\)</span> al numero de aristas cuya cola esta en <span class="math">\(v\)</span> mas el numero de lazos y el <strong>grado de entrada</strong> de un vértice <span class="math">\(v\)</span> <span class="math">\(g_e(v)\)</span> al numero de aristas cuya cabeza esta en <span class="math">\(v\)</span> mas el numero de lazos.</p>
+<h5 id="proposicion">Proposición</h5>
 <ul>
-<li><p>La suma de los grados de los vértices de un grafo <span class="math inline">\(G\)</span> es par y es igual al <span class="math inline">\(2\cdot \#E_G\)</span>: <span class="math display">\[
+<li>La suma de los grados de los vértices de un grafo <span class="math">\(G\)</span> es par y es igual al <span class="math">\(2\cdot \#E_G\)</span>:
+<div class="math">
+\[
 \sum_{i=1}^{n=\#V_G} g(v_i)=2 \cdot \#E_G
-\]</span> <a href="Demostraciones\01%20-%20Grafos\Proposicion%2001.html">Demostración</a></p></li>
-<li><p>En un grafo <span class="math inline">\(G\)</span> la cantidad de vértices de grado impar es par.</p>
-<p><a href="Demostraciones\01%20-%20Grafos\Proposicion%2002.html">Demostración</a></p></li>
+\]</div>
+</li>
+</ul>
+<p>[Demostración](Demostraciones\01 - Grafos\Proposicion 01.html)</p>
+<ul>
+<li><p>En un grafo <span class="math">\(G\)</span> la cantidad de vértices de grado impar es par.</p>
+<p>[Demostración](Demostraciones\01 - Grafos\Proposicion 02.html)</p>
+</li>
 </ul>
 <h3 id="grafo-regular">Grafo Regular</h3>
-<p>Todos los vértices tienen el mismo grado. Se llama <span class="math inline">\(k\)</span>-regular si todos los vértices tienen grado <span class="math inline">\(k\)</span>.</p>
+<p>Todos los vértices tienen el mismo grado. Se llama <span class="math">\(k\)</span>-regular si todos los vértices tienen grado <span class="math">\(k\)</span>.</p>
 <h5 id="regularidad-en-tipos-de-grafos">Regularidad en tipos de grafos</h5>
 <ul>
-<li><span class="math inline">\(K_n\)</span> es <span class="math inline">\(n-1\)</span> regular</li>
-<li><span class="math inline">\(K_{m,n}\)</span> es <span class="math inline">\(n\)</span> regular si <span class="math inline">\(m=n\)</span></li>
-<li><span class="math inline">\(Q_n\)</span> es <span class="math inline">\(n\)</span> regular</li>
-<li><span class="math inline">\(C_n\)</span> es 2 regular</li>
+<li><span class="math">\(K_n\)</span> es <span class="math">\(n-1\)</span> regular</li>
+<li><span class="math">\(K_{m,n}\)</span> es <span class="math">\(n\)</span> regular si <span class="math">\(m=n\)</span></li>
+<li><span class="math">\(Q_n\)</span> es <span class="math">\(n\)</span> regular</li>
+<li><span class="math">\(C_n\)</span> es 2 regular</li>
 </ul>
 <h2 id="grafos-famosos">Grafos Famosos</h2>
 <h3 id="grafos-completos">Grafos Completos</h3>
-<p>Son grafos <strong>simples sin lazos</strong>. Todos los vértices son mutuamente adyacentes (<span class="math inline">\(a\)</span> es adyacente a <span class="math inline">\(b\)</span> si existe en el grafo <span class="math inline">\(G\)</span> la arista <span class="math inline">\(e=\{a,b\}\)</span>)</p>
-<h5 id="notación-2">Notación</h5>
-<p>Se los denomina <span class="math inline">\(\mathbb K_m\)</span>, siendo <span class="math inline">\(m\)</span> la cantidad de vértices.</p>
+<p>Son grafos <strong>simples sin lazos</strong>. Todos los vértices son mutuamente adyacentes (<span class="math">\(a\)</span> es adyacente a <span class="math">\(b\)</span> si existe en el grafo <span class="math">\(G\)</span> la arista <span class="math">\(e=\{a,b\}\)</span>)</p>
+<h5 id="notacion-2">Notación</h5>
+<p>Se los denomina <span class="math">\(\mathbb K_m\)</span>, siendo <span class="math">\(m\)</span> la cantidad de vértices.</p>
 <h5 id="ejemplos">Ejemplos</h5>
-<figure>
-<img src="Resources/1565004409238.png" alt="1565004409238" /><figcaption aria-hidden="true">1565004409238</figcaption>
-</figure>
+<p><img src="Resources/d9d403cd-3f4c-4505-9b5b-dbd2e378ecdc.png" class="img-fluid" alt="1565004409238" /></p>
 <h3 id="grafos-caminos">Grafos Caminos</h3>
 <p>Son grafos cuyos vértices tienen como máximo 2 conexiones.</p>
-<h5 id="notación-3">Notación</h5>
-<p>Se los denomina <span class="math inline">\(\mathbb P_n\)</span> siendo <span class="math inline">\(n\)</span> la cantidad de vértices.</p>
+<h5 id="notacion-3">Notación</h5>
+<p>Se los denomina <span class="math">\(\mathbb P_n\)</span> siendo <span class="math">\(n\)</span> la cantidad de vértices.</p>
 <h5 id="ejemplos-1">Ejemplos</h5>
-<figure>
-<img src="Resources/1565004647933.png" alt="1565004647933" /><figcaption aria-hidden="true">1565004647933</figcaption>
-</figure>
+<p><img src="Resources/49046161-b264-46f5-b38a-988ec3082b10.png" class="img-fluid" alt="1565004647933" /></p>
 <h2 id="grafos-ciclos">Grafos Ciclos</h2>
 <p>Son grafos en los que cada vértice se conectan con 2 aristas cada uno.</p>
-<h5 id="notación-4">Notación</h5>
-<p>Se los nota como <span class="math inline">\(\mathbb C _n\)</span> y <span class="math inline">\(n\)</span> son los vértices.</p>
+<h5 id="notacion-4">Notación</h5>
+<p>Se los nota como <span class="math">\(\mathbb C _n\)</span> y <span class="math">\(n\)</span> son los vértices.</p>
 <h5 id="ejemplos-2">Ejemplos</h5>
-<figure>
-<img src="Resources/1565004816406.png" alt="1565004816406" /><figcaption aria-hidden="true">1565004816406</figcaption>
-</figure>
+<p><img src="Resources/83c74287-f790-4757-a315-a46d2f241c4c.png" class="img-fluid" alt="1565004816406" /></p>
 <h2 id="grafos-dipolo">Grafos Dipolo</h2>
 <p>Son Grafos con 2 vértices y distinta cantidad de aristas entre si.</p>
-<h5 id="notación-5">Notación</h5>
-<p><span class="math inline">\(\mathbb D_n\)</span> y <span class="math inline">\(n\)</span> es la cantidad de aristas.</p>
+<h5 id="notacion-5">Notación</h5>
+<p><span class="math">\(\mathbb D_n\)</span> y <span class="math">\(n\)</span> es la cantidad de aristas.</p>
 <h5 id="ejemplos-3">Ejemplos</h5>
-<figure>
-<img src="Resources/1565005134966.png" alt="1565005134966" /><figcaption aria-hidden="true">1565005134966</figcaption>
-</figure>
+<p><img src="Resources/9e4c5d98-c390-41a3-9243-eb84677e6704.png" class="img-fluid" alt="1565005134966" /></p>
 <h2 id="grafos-cubo">Grafos Cubo</h2>
-<p>Estos grafos tienen <span class="math inline">\(2^n\)</span> vértices. Si los notamos como números binarios, 2 vértices son adyacentes si difieren exactamente en 1 bit. La cantidad de aristas se puede calcular de la siguiente forma: <span class="math display">\[
+<p>Estos grafos tienen <span class="math">\(2^n\)</span> vértices. Si los notamos como números binarios, 2 vértices son adyacentes si difieren exactamente en 1 bit. La cantidad de aristas  se puede calcular de la siguiente forma:</p>
+<div class="math">
+\[
 \#E_{Q_n} = 2^{n-1} \cdot n
-\]</span></p>
-<h5 id="notación-6">Notación</h5>
-<p>Se los nota <span class="math inline">\(Q_n\)</span> y <span class="math inline">\(n\)</span> es la cantidad de bits con los que pueden ser representados los vértices.</p>
+\]</div>
+<h5 id="notacion-6">Notación</h5>
+<p>Se los nota <span class="math">\(Q_n\)</span> y <span class="math">\(n\)</span> es la cantidad de bits con los que pueden ser representados los vértices.</p>
 <h5 id="ejemplos-4">Ejemplos</h5>
-<figure>
-<img src="Resources/1565005407162.png" alt="1565005407162" /><figcaption aria-hidden="true">1565005407162</figcaption>
-</figure>
-<h3 id="grafo-bipartito-final">Grafo Bipartito ==Final==</h3>
-<p>Sea el grafo <span class="math inline">\(G=(V,E)\)</span> simple y sin lazos, es bipartito si <span class="math inline">\(V\)</span> = <span class="math inline">\(V_1 \cup V_2\)</span> u <span class="math inline">\(V_1 \cap V_2 = \emptyset\)</span>. Debe existir una partición donde se cumple con la condición, pero no es necesario que todas las posibles particiones cumplan con la condición para ser bipartito.</p>
-<p>Si <span class="math inline">\(e=\{a,b\} \in E_G \rightarrow a \in V_1 \land b\in V_2\)</span></p>
-<p>La cantidad de aristas se las calcula como <span class="math inline">\(\#\mathbb K_{m,n} = m + n-1\)</span></p>
-<h5 id="notación-7">Notación</h5>
-<p>Se los nota como <span class="math inline">\(\mathbb K_{m,n}\)</span></p>
+<p><img src="Resources/ceea0719-b693-4d53-beb1-6276dbb7662b.png" class="img-fluid" alt="1565005407162" /></p>
+<h3 id="grafo-bipartito-final">Grafo Bipartito <mark>Final</mark></h3>
+<p>Sea el grafo <span class="math">\(G=(V,E)\)</span> simple y sin lazos, es bipartito si <span class="math">\(V\)</span> = <span class="math">\(V_1 \cup V_2\)</span> u <span class="math">\(V_1 \cap V_2 = \emptyset\)</span>. Debe existir una partición donde se cumple con la condición, pero no es necesario que todas las posibles particiones cumplan con la condición para ser bipartito.</p>
+<p>Si <span class="math">\(e=\{a,b\} \in E_G \rightarrow a \in V_1 \land b\in V_2\)</span></p>
+<p>La cantidad de aristas se las calcula como <span class="math">\(\#\mathbb K_{m,n} = m + n-1\)</span></p>
+<h5 id="notacion-7">Notación</h5>
+<p>Se los nota como <span class="math">\(\mathbb K_{m,n}\)</span></p>
 <h5 id="ejemplo-4">Ejemplo</h5>
-<p><img src="Resources/1565009328818.png" style="zoom:50%"></p>
-<p>En este caso <span class="math inline">\(V_1=\{A,C,E\}\)</span> y <span class="math inline">\(V_2 = \{B,D\}\)</span>, y <span class="math inline">\(V_1 \cap V_2 = \emptyset\)</span>.</p>
+<img src="Resources/1565009328818.png" style="zoom:50%">
+<p>En este caso <span class="math">\(V_1=\{A,C,E\}\)</span> y <span class="math">\(V_2 = \{B,D\}\)</span>, y <span class="math">\(V_1 \cap V_2 = \emptyset\)</span>.</p>
 <h4 id="caracterizacion-de-un-grafo-bipartito">Caracterizacion de un Grafo Bipartito</h4>
-<p><span class="math display">\[
+<div class="math">
+\[
 G \text{ es bipartito} \Leftrightarrow G \text{ no tiene ciclos de longitud impar}
-\]</span></p>
-<p><a href="Demostraciones\01%20-%20Grafos\Proposicion%2003.html">Demostración</a></p>
+\]</div>
+<p>[Demostración](Demostraciones\01 - Grafos\Proposicion 03.html)</p>
 <h4 id="grafo-bipartito-completo">Grafo Bipartito Completo</h4>
-<figure>
-<img src="Resources/1565009731760.png" alt="1565009731760" /><figcaption aria-hidden="true">1565009731760</figcaption>
-</figure>
-<p>Este es un grafo <span class="math inline">\(\mathbb K_{4,3}\)</span>.</p>
+<p><img src="Resources/42d5ce46-510f-449d-9c5c-e8d7d1fa878f.png" class="img-fluid" alt="1565009731760" /></p>
+<p>Este es un grafo <span class="math">\(\mathbb K_{4,3}\)</span>.</p>
 <h3 id="grafo-rueda">Grafo Rueda</h3>
-<p>Es un grafo ciclo con <span class="math inline">\(n-1\)</span> vértices mas 1 vértice.</p>
-<h5 id="notación-8">Notación</h5>
-<p><span class="math inline">\(W_n = C_{n-1}+ \{v\}\)</span>, con <span class="math inline">\(n\geq 4\)</span></p>
+<p>Es un grafo ciclo con <span class="math">\(n-1\)</span> vértices mas 1 vértice.</p>
+<h5 id="notacion-8">Notación</h5>
+<p><span class="math">\(W_n = C_{n-1}+ \{v\}\)</span>, con <span class="math">\(n\geq 4\)</span></p>
 <h5 id="ejemplo-5">Ejemplo</h5>
-<p>Se puede ver el grafo <span class="math inline">\(W_4\)</span></p>
-<p><img src="Resources/1565011228333.png" style="zoom:50%"></p>
+<p>Se puede ver el grafo <span class="math">\(W_4\)</span></p>
+<img src="Resources/1565011228333.png" style="zoom:50%">
 <h2 id="subgrafos">Subgrafos</h2>
-<p>Un subgrafo de un grafo <span class="math inline">\(G\)</span> (dirigido o no) es un grafo <span class="math inline">\(H\)</span>, que cumple que <span class="math inline">\(V_H ⊆ V_G\)</span> y <span class="math inline">\(E_H \subset E_G\)</span></p>
+<p>Un subgrafo de un grafo <span class="math">\(G\)</span> (dirigido o no) es un grafo <span class="math">\(H\)</span>, que cumple que <span class="math">\(V_H ⊆ V_G\)</span> y <span class="math">\(E_H \subset E_G\)</span></p>
 <h3 id="subgrafo-recubridor">Subgrafo Recubridor</h3>
-<p><span class="math inline">\(H\)</span> es un subgrafo recubridor de <span class="math inline">\(G\)</span> si <span class="math inline">\(V_G = V_H\)</span></p>
+<p><span class="math">\(H\)</span> es un subgrafo recubridor de <span class="math">\(G\)</span> si <span class="math">\(V_G = V_H\)</span></p>
 <h3 id="subgrafo-inducido">Subgrafo Inducido</h3>
-<p>Sea <span class="math inline">\(G=(V,E)\)</span> un grafo (dirigido o no). Si <span class="math inline">\(\emptyset \neq U \subset V\)</span>, el subgrafo de <span class="math inline">\(G\)</span> indicado por <span class="math inline">\(U\)</span> es el subgrafo cuyo conjunto de vértices es <span class="math inline">\(U\)</span> y que contiene todas las aristas de <span class="math inline">\(G\)</span> de la forma:</p>
-<ol type="1">
-<li><span class="math inline">\((x,y)\)</span> para <span class="math inline">\(x,y \in U\)</span> si es dirigido</li>
-<li><span class="math inline">\(\{x,y\}\)</span> para <span class="math inline">\(x,y \in U\)</span> si no es dirigido</li>
+<p>Sea <span class="math">\(G=(V,E)\)</span> un grafo (dirigido o no). Si <span class="math">\(\emptyset \neq U \subset V\)</span>, el subgrafo de <span class="math">\(G\)</span> indicado por <span class="math">\(U\)</span> es el subgrafo cuyo conjunto de vértices es <span class="math">\(U\)</span> y que contiene todas las aristas de <span class="math">\(G\)</span> de la forma:</p>
+<ol>
+<li><span class="math">\((x,y)\)</span> para <span class="math">\(x,y \in U\)</span> si es dirigido</li>
+<li><span class="math">\(\{x,y\}\)</span> para <span class="math">\(x,y \in U\)</span> si no es dirigido</li>
 </ol>
 <h4 id="ejemplo-6">Ejemplo</h4>
-<p>Sea el grafo <span class="math inline">\(G\)</span>:</p>
-<p><img src="Resources/1565010411887.png" style="zoom:50%"></p>
-<p>Se nota al subgrafo como <span class="math inline">\(&lt;U_1&gt;\)</span> <span class="math inline">\(U_1=\{A,B,C\}\)</span> es:</p>
-<p><img src="Resources/1565010460410.png" style="zoom:50%"></p>
+<p>Sea el grafo <span class="math">\(G\)</span>:</p>
+<img src="Resources/1565010411887.png" style="zoom:50%">
+<p>Se nota al subgrafo como <span class="math">\(&lt;U_1&gt;\)</span> <span class="math">\(U_1=\{A,B,C\}\)</span> es:</p>
+<img src="Resources/1565010460410.png" style="zoom:50%">
 <h3 id="operaciones">Operaciones</h3>
-<h4 id="borrado-de-un-vértice">Borrado de un vértice</h4>
-<p>Si v es un vértice de un grafo (dirigido o no) <span class="math inline">\(G\)</span>, entonces <span class="math inline">\(G−v\)</span> es el subgrafo inducido por el conjunto de vértices <span class="math inline">\(V_G −{v}\)</span>. En general, el resultado de borrar iterativamente todos los vértices de <span class="math inline">\(U ⊆V_G\)</span> se denota <span class="math inline">\(G−U\)</span>.</p>
-<h5 id="ejemplo.">Ejemplo.</h5>
-<p>Si tengo el siguiente grafo <span class="math inline">\(G\)</span>:</p>
-<p><img src="Resources/1565010619842.png" style="zoom:50%"></p>
-<p>Y le quiero eliminar el vértice <span class="math inline">\(C\)</span>, entonces obtengo el grafo <span class="math inline">\(G-\{C\}\)</span>:</p>
-<figure>
-<img src="Resources/1565010704540.png" alt="1565010704540" /><figcaption aria-hidden="true">1565010704540</figcaption>
-</figure>
+<h4 id="borrado-de-un-vertice">Borrado de un vértice</h4>
+<p>Si v es un vértice de un grafo (dirigido o no) <span class="math">\(G\)</span>, entonces <span class="math">\(G−v\)</span> es el subgrafo inducido por el conjunto de vértices <span class="math">\(V_G −{v}\)</span>. En general, el resultado de borrar iterativamente todos los vértices de <span class="math">\(U ⊆V_G\)</span> se denota <span class="math">\(G−U\)</span>.</p>
+<h5 id="ejemplo-7">Ejemplo.</h5>
+<p>Si tengo el siguiente grafo <span class="math">\(G\)</span>:</p>
+<img src="Resources/1565010619842.png" style="zoom:50%">
+<p>Y le quiero eliminar el vértice <span class="math">\(C\)</span>, entonces obtengo el grafo <span class="math">\(G-\{C\}\)</span>:</p>
+<p><img src="Resources/cdb1a469-f1e9-4032-aaab-0dd0c3442c6d.png" class="img-fluid" alt="1565010704540" /></p>
 <h4 id="borrado-de-una-arista">Borrado de una Arista</h4>
-<p>Si e es una arista del grafo (dirigido o no) <span class="math inline">\(G\)</span>, entonces <span class="math inline">\(G−e\)</span> es el subgrafo cuyo conjunto de aristas es <span class="math inline">\(E_G −{e}\)</span> y el conjunto de vértices es <span class="math inline">\(V_G\)</span>.</p>
-<h4 id="agregado-de-un-vértice">Agregado de un Vértice</h4>
-<p>Agregar un vértice <span class="math inline">\(v\)</span> a un grafo <span class="math inline">\(G\)</span>, donde <span class="math inline">\(v\)</span> no pertenece a <span class="math inline">\(V_G\)</span> signiﬁca crear un supergrafo denotado <span class="math inline">\(G \cup\{v\}\)</span> donde el conjunto de es <span class="math inline">\(V_G\cup{v}\)</span> y el conjunto de aristas es <span class="math inline">\(E_G\)</span>.</p>
+<p>Si e es una arista del grafo (dirigido o no) <span class="math">\(G\)</span>, entonces <span class="math">\(G−e\)</span> es el subgrafo cuyo conjunto de aristas es <span class="math">\(E_G −{e}\)</span> y el conjunto de vértices es <span class="math">\(V_G\)</span>.</p>
+<h4 id="agregado-de-un-vertice">Agregado de un Vértice</h4>
+<p>Agregar un vértice <span class="math">\(v\)</span> a un grafo <span class="math">\(G\)</span>, donde <span class="math">\(v\)</span> no pertenece a <span class="math">\(V_G\)</span> signiﬁca crear un supergrafo denotado <span class="math">\(G \cup\{v\}\)</span> donde el conjunto de es <span class="math">\(V_G\cup{v}\)</span> y el conjunto de aristas es <span class="math">\(E_G\)</span>.</p>
 <h4 id="agregado-de-una-arista">Agregado de una Arista</h4>
-<p>Agregar una arista e entre dos vértices <span class="math inline">\(v\)</span> y <span class="math inline">\(u\)</span> del grafo <span class="math inline">\(G\)</span> signiﬁca crear un supergrafo denotado <span class="math inline">\(G\cup{e}\)</span> donde el conjunto de vértices es <span class="math inline">\(V_G\)</span> y el conjunto de aristas es <span class="math inline">\(E_G\cup{e}\)</span>.</p>
+<p>Agregar una arista e entre dos vértices <span class="math">\(v\)</span> y <span class="math">\(u\)</span> del grafo <span class="math">\(G\)</span> signiﬁca crear un supergrafo denotado <span class="math">\(G\cup{e}\)</span> donde el conjunto de vértices es <span class="math">\(V_G\)</span> y el conjunto de aristas es <span class="math">\(E_G\cup{e}\)</span>.</p>
 <h4 id="suma-de-grafos">Suma de Grafos</h4>
-<p>Sean <span class="math inline">\(G\)</span> y <span class="math inline">\(H\)</span> dos grafos. Sumando <span class="math inline">\(G\)</span> y <span class="math inline">\(H\)</span> se obtiene <span class="math inline">\(V_{G+H} = V_G\cup V_H\)</span> y EG+H = <span class="math inline">\(E_G\cup E_H \cup \{e =\{u,v\}: u∈V_G,v ∈V_H\}\)</span>.</p>
+<p>Sean <span class="math">\(G\)</span> y <span class="math">\(H\)</span> dos grafos. Sumando <span class="math">\(G\)</span> y <span class="math">\(H\)</span> se obtiene <span class="math">\(V_{G+H} = V_G\cup V_H\)</span> y EG+H = <span class="math">\(E_G\cup E_H \cup \{e =\{u,v\}: u∈V_G,v ∈V_H\}\)</span>.</p>
 <h4 id="complemento">Complemento</h4>
-<p>El complemento de <span class="math inline">\(G\)</span> (<strong>grafo simple sin lazos no dirigido</strong>), que se denota <span class="math inline">\(\overline G\)</span> o <span class="math inline">\(G^c\)</span> es el subgrafo de <span class="math inline">\(K_n\)</span> formado por los <span class="math inline">\(n\)</span> vértices de <span class="math inline">\(G\)</span> y todas las aristas que no están en <span class="math inline">\(G\)</span>.</p>
-<p>Por lo general, <span class="math inline">\(\#E_G + \#E_\overline G = \#E_{k_n}\)</span></p>
-<h4 id="isomorfismo-de-grafos-final">Isomorfismo de Grafos ==FINAL==</h4>
-<p>Sean <span class="math inline">\(G_1(V_1,E_1)\)</span> y <span class="math inline">\(G_2(V_2,E_2)\)</span> dos grafos no dirigidos, una función <span class="math inline">\(f: V_1 \rightarrow V_2\)</span> es un isomorfismo de grafos si:</p>
-<ol type="1">
-<li><span class="math inline">\(f\)</span> es biyectiva.</li>
-<li><span class="math inline">\(\forall a,b \in V_1, ~~{a,b}\in E_1 \Leftrightarrow \{ f(a),f(b) \} \in E_2\)</span></li>
+<p>El complemento de <span class="math">\(G\)</span> (<strong>grafo simple sin lazos no dirigido</strong>), que se denota <span class="math">\(\overline G\)</span> o <span class="math">\(G^c\)</span> es el subgrafo de <span class="math">\(K_n\)</span> formado por los <span class="math">\(n\)</span> vértices de <span class="math">\(G\)</span> y todas las aristas que no están en <span class="math">\(G\)</span>.</p>
+<p>Por lo general, <span class="math">\(\#E_G + \#E_\overline G = \#E_{k_n}\)</span></p>
+<h4 id="isomorfismo-de-grafos-final">Isomorfismo de Grafos <mark>FINAL</mark></h4>
+<p>Sean <span class="math">\(G_1(V_1,E_1)\)</span> y <span class="math">\(G_2(V_2,E_2)\)</span> dos grafos no dirigidos, una función <span class="math">\(f: V_1 \rightarrow V_2\)</span> es un isomorfismo de grafos si:</p>
+<ol>
+<li><span class="math">\(f\)</span> es biyectiva.</li>
+<li><span class="math">\(\forall a,b \in V_1, ~~{a,b}\in E_1 \Leftrightarrow \{ f(a),f(b) \} \in E_2\)</span></li>
 </ol>
-<p>Cuando existe dicha función <span class="math inline">\(G_1\)</span> y <span class="math inline">\(G_2\)</span> son grafos isomorfos. A cada clase de equivalencia se llama tipo de isomorfismo.</p>
+<p>Cuando existe dicha función <span class="math">\(G_1\)</span> y <span class="math">\(G_2\)</span> son grafos isomorfos. A cada clase de equivalencia se llama tipo de isomorfismo.</p>
 <p>Condiciones necesarias para que haya un isomorfismo:</p>
 <ul>
-<li><span class="math inline">\(\#V_{G_1} = \#V_{G_2}\)</span></li>
-<li><span class="math inline">\(\#E_{G_1} = \#E_{G_2}\)</span></li>
-<li>La secuencia de Grados de <span class="math inline">\(G_1\)</span> es igual a la secuencia de Grados de <span class="math inline">\(G_2\)</span>.</li>
+<li><span class="math">\(\#V_{G_1} = \#V_{G_2}\)</span></li>
+<li><span class="math">\(\#E_{G_1} = \#E_{G_2}\)</span></li>
+<li>La secuencia de Grados de <span class="math">\(G_1\)</span> es igual a la secuencia de Grados de <span class="math">\(G_2\)</span>.</li>
 </ul>
-<h5 id="notación-9">Notación</h5>
-<p>Si <span class="math inline">\(G_1\)</span> y <span class="math inline">\(G_2\)</span> son isomorfos, se lo nota como: <span class="math inline">\(G_1 \simeq G_2\)</span></p>
+<h5 id="notacion-9">Notación</h5>
+<p>Si <span class="math">\(G_1\)</span> y <span class="math">\(G_2\)</span> son isomorfos, se lo nota como:  $G_1 \simeq G_2 $</p>
+
 </body>
 </html>

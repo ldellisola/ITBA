@@ -67,7 +67,7 @@ Los documentos XML se suelen representar con un **árbol rotulado en forma natur
 
 En el caso que haya atributos puede realizarse de dos formas, asignando el atributo y su valor en el rotulo del elemento mientras que la otra es que los atributos sean nodos hijos del elemento.
 
-![1563119433588](../../Carpeta%20ITBA/72.32/Resources/RepresentacionXML.png)
+![1563119433588](Resources/RepresentacionXML.png)
 
 ## Parseo y Verificación
 

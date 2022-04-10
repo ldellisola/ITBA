@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - Modelo Mental</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - Modelo Mental.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,31 +1385,38 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="modelo-mental">Modelo Mental</h1>
 <p>El modelo mental es una representación interna para explicar el mundo real. Se trata de que durante el aprendizaje, una persona adquiere conocimientos de las relaciones estructurales y el funcionamiento del sistema con el que se esta interactuando. Y gracias a esto luego puede decidir que es posible y que no lo es en el sistema.</p>
 <p>El modelo mental es importante, ya que si logramos que le usuario se maneje en el sistema sin que tenga que recordar o pensar, se va a sentir mas cómodo trabajando con el sistema. Otra razón es por que si tenemos en cuenta un modelo mental, podemos predecir su interacción y prevenir errores.</p>
-<h2 id="percepción">Percepción</h2>
+<h2 id="percepcion">Percepción</h2>
 <p>El modelo mental se construye en parte gracias a la percepción que tenemos del mundo, gracias a esto podemos darle sentido al mundo virtual en base a nuestro conocimiento del mundo real.</p>
 <p>Nuestra interacción con el mundo real sucede en varias formas distintas, pero nos vamos a concentrar en la percepción visual, auditiva y motriz.</p>
-<h3 id="percepción-visual">Percepción Visual</h3>
-<p>Poner algo en la pantalla no significa que el usuario vaya a verlo. El mejor ejemplo de esto es el fenómeno “<em>Banner Blindness</em>”, el cual desarrollamos para ignorar ciertas partes de una pagina web ya que en esos lugares suele haber publicidad. Un buen ejemplo de esto son las páginas de noticias, en el cual la parte de la derecha del articulo esta lleno de publicidad.</p>
+<h3 id="percepcion-visual">Percepción Visual</h3>
+<p>Poner algo en la pantalla no significa que el usuario vaya a verlo. El mejor ejemplo de esto es el fenómeno &quot;<em>Banner Blindness</em>&quot;, el cual desarrollamos para ignorar ciertas partes de una pagina web ya que en esos lugares suele haber publicidad. Un buen ejemplo de esto son las páginas de noticias, en el cual la parte de la derecha del articulo esta lleno de publicidad.</p>
 <p>Una forma de hacer que los usuarios encuentren mas rápido la informacion que buscan, y que tengan que realizar menos esfuerzo para lograrlo, es <strong>nivelando la lectura</strong>.</p>
-<h3 id="percepción-auditiva">Percepción Auditiva</h3>
+<h3 id="percepcion-auditiva">Percepción Auditiva</h3>
 <p>La percepción auditiva se utiliza para atraer la atención del usuario y generar feedback luego de un evento importante.</p>
-<h3 id="percepción-motriz">Percepción Motriz</h3>
+<h3 id="percepcion-motriz">Percepción Motriz</h3>
 <p>La percepción motriz es como el usuario interactúa con su PC o celular.</p>
 <h4 id="ley-de-fitts">Ley de Fitts</h4>
-<p>La ley de Fitts analiza la dificultad de una tera para su movimiento lineal. El <strong>índice de dificultad</strong> se define como: <span class="math display">\[
+<p>La ley de Fitts analiza la dificultad de una tera para su movimiento lineal. El <strong>índice de dificultad</strong> se define como:</p>
+<div class="math">
+\[
 Id= log_2(\frac{2\times D}{W})
-\]</span> donde <span class="math inline">\(D\)</span> es la distancia desde la posición inicial hacia el centro del destino y <span class="math inline">\(W\)</span> es el ancho del objeto del destino.</p>
-<p>Tambien se define el <strong>índice de performance</strong>. Este índice sirve para los menues <em>pull down</em> y se define como: <span class="math display">\[
+\]</div>
+<p>donde <span class="math">\(D\)</span> es la distancia desde la posición inicial hacia el centro del destino y <span class="math">\(W\)</span> es el ancho del objeto del destino.</p>
+<p>Tambien se define el <strong>índice de performance</strong>. Este índice sirve para los menues <em>pull down</em> y se define como:</p>
+<div class="math">
+\[
 Ip=\frac{Id} T
-\]</span> donde <span class="math inline">\(T\)</span> es el tiempo que se tarda en completar a la tarea.</p>
+\]</div>
+<p>donde <span class="math">\(T\)</span> es el tiempo que se tarda en completar a la tarea.</p>
 <h3 id="principios-de-gestald">Principios de Gestald</h3>
-<p>Surgen de una corriente alemana a mediados del siglo <span class="math inline">\(XX\)</span>, que afirmaba que :“<em>el todo es siempre la suma de sus partes</em>”. Esto es fundamental para analizar como nuestro cerebro interpreta a un conjunto de elementos como si fueran un único mensaje y agrupa informacion en distintas categorías.</p>
+<p>Surgen de una corriente alemana a mediados del siglo <span class="math">\(XX\)</span>, que afirmaba que :&quot;<em>el todo es siempre la suma de sus partes</em>&quot;. Esto es fundamental para analizar como nuestro cerebro interpreta a un conjunto de elementos como si fueran un único mensaje y agrupa informacion en distintas categorías.</p>
 <p>Hay 6 principios:</p>
 <ul>
 <li><strong>Proximidad</strong>: Los elementos se agrupan cuando las partes de un todo se reciben como un único estimulo.</li>
@@ -1561,7 +1430,7 @@ Ip=\frac{Id} T
 <h2 id="memoria-a-corto-plazo">Memoria a Corto Plazo</h2>
 <p>Las personas tienen una capacidad de recordar limitada (Alrededor de 4 elementos), por lo que la informacion que no podemos retener, la perdemos.</p>
 <p>Esto nos sirve para que nuestra lista de operaciones sea corta y no esperar que nuestros usuarios recuerden cosas.</p>
-<h2 id="emociones-y-estrés">Emociones y Estrés</h2>
+<h2 id="emociones-y-estres">Emociones y Estrés</h2>
 <p>Las emociones son reacciones que tenemos frente a eventos relevantes. Se acompalan de componentes afectivas y de comportamiento. Al usar un producto, el usuario es impactado a nivel emocional.</p>
 <p>Por otro lado, el estrés es un estimulo externo que produce aversión, en respuesta a una estimulación. Las personas tratan de adaptarse a una situación, pero cuando no lo pueden hacer, se estresan. Las personas pueden no adaptarse a una situación por varias razones, entre las cuales están:</p>
 <ul>
@@ -1578,5 +1447,6 @@ Ip=\frac{Id} T
 <li><strong>Resolver operaciones Matemáticas</strong>: Que el sistema resuelva o facilite la resolución de operaciones matemáticas cuando sea necesario.</li>
 <li><strong>Comentarios y trackeo cognitivo</strong>: Los comentarios permiten explicar nuestras representaciones, permiten al usuario guardar informacion para después tenerla disponible rápidamente. De manera similar, el trackear el avance de un usuario en una cierta tarea permite que el usuario se vaya y al regresar continúe por donde este y sepa que tiene que hacer.</li>
 </ul>
+
 </body>
 </html>

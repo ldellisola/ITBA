@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - Social Network Analysis</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - Social Network Analysis.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="social-network-analysis">Social Network Analysis</h1>
@@ -1541,35 +1404,39 @@ blockquote {
 <p>There are a variety of different measures to calculate the importance, popularity, or social capita of a node in a social network</p>
 <h3 id="degree-centrality">Degree Centrality</h3>
 <p>It measures the number of connections that lead into or out of the node. It determines the nodes that can quickly spread information to a localized area.</p>
-<p><img src="Resources/04 - Social Network Analysis/image-20210511232659427.png" alt="image-20210511232659427" style="zoom:33%;" /></p>
+<img src="Resources/04 - Social Network Analysis/0213e3f4-e37a-4332-a585-33e68fbb22a0.png" alt="0213e3f4-e37a-4332-a585-33e68fbb22a0" style="scale:0.33;" />
 <h3 id="closeness-centrality">Closeness Centrality</h3>
 <p>It is calculated using the mean length of all shortest paths from a node to all other nodes. It is a measure of reach, distance to each other.</p>
-<p><img src="Resources/04 - Social Network Analysis/image-20210511232902051.png" alt="image-20210511232902051" style="zoom:33%;" /></p>
-<p>Another way to define this is as the inverse of fairness: <span class="math display">\[
+<img src="Resources/04 - Social Network Analysis/9922d135-1c47-4bc4-966b-d4fe7056b5f4.png" alt="9922d135-1c47-4bc4-966b-d4fe7056b5f4" style="scale:0.33;" />
+<p>Another way to define this is as the inverse of fairness:</p>
+<div class="math">
+\[
 Cc_x =\frac{1}{\sum_y \text{distance}(y,x)}
-\]</span></p>
+\]</div>
 <h3 id="betweenness-centrality">Betweenness Centrality</h3>
 <p>It is obtained form the number of shortest paths that pass through a node divided by all shortest paths. The main use of this measurement is to identify communication bottlenecks or community bridges.</p>
-<p><img src="Resources/04 - Social Network Analysis/image-20210511233214824.png" alt="image-20210511233214824" style="zoom:33%;" /></p>
+<img src="Resources/04 - Social Network Analysis/1c5e647e-19d6-4d62-bd6a-ba18e9ac059a.png" alt="1c5e647e-19d6-4d62-bd6a-ba18e9ac059a" style="scale:0.33;" />
 <h3 id="eigenvector-centrality">Eigenvector Centrality</h3>
 <p>The nodes with higher eigenvector centrality is connected to other nodes with high eigenvector centrality.</p>
-<p><img src="Resources/04 - Social Network Analysis/image-20210511233825585.png" alt="image-20210511233825585" style="zoom:33%;" /></p>
+<img src="Resources/04 - Social Network Analysis/34afe476-9fc7-4f0b-b820-99ef877e8ebd.png" alt="34afe476-9fc7-4f0b-b820-99ef877e8ebd" style="scale:0.33;" />
 <p>This algorithm is as follows:</p>
-<ol type="1">
+<ol>
 <li>Start by assigning a centrality score of 1 to all nodes.</li>
-<li>Recompute the scores of each node as a weighted sum of centralities of all nodes in a node’s neighborhood.</li>
+<li>Recompute the scores of each node as a weighted sum of centralities of all nodes in a node's neighborhood.</li>
 <li>Normalize the values of all nodes</li>
 <li>Repeat step 2 and 3 until the values stop changing.</li>
 </ol>
 <h2 id="strong-and-weak-ties">Strong and Weak Ties</h2>
 <p>In a network, each edge can influence it in a different way. It can affect how the information flows through a social network, how different nodes can play structurally distinct roles. The weight of the edge can also play a key role, limiting the interaction or denoting the strength of the relationship.</p>
 <h3 id="clustering-coefficients">Clustering Coefficients</h3>
-<p>It is defined as the probability that two nodes randomly selected nodes are connected with each other. Given each vertex <span class="math inline">\(v_j\)</span> with <span class="math inline">\(k_j\)</span> neighbors, <span class="math inline">\(\frac{k_j(k_j-1)}{2}\)</span> nodes can exists.</p>
+<p>It is defined as the probability that two nodes randomly selected nodes are connected with each other. Given each vertex <span class="math">\(v_j\)</span> with <span class="math">\(k_j\)</span> neighbors, <span class="math">\(\frac{k_j(k_j-1)}{2}\)</span> nodes can exists.</p>
 <h3 id="bridges">Bridges</h3>
 <p>A bridge is an edge between two nodes, that if deleted, it will split the graph into two different components. We say that an edge is a local bridge if removing it would increase the distance by more than 2 between the nodes.</p>
-<p>We can use <strong>neighborhood overlap</strong> to identify bridges. It is calculated as: <span class="math display">\[
+<p>We can use <strong>neighborhood overlap</strong> to identify bridges. It is calculated as:</p>
+<div class="math">
+\[
 \text{NO} = \frac{\text{Number of neighbors of A and B}}{\text{Number of neighbors of A or B}} 
-\]</span></p>
+\]</div>
 <h3 id="embeddedness">Embeddedness</h3>
 <p>The embeddedness of an edge is the number of common neighbors that two endpoints have. Local bridges have an embeddedness of 0. Usually, we can say that nodes with higher embeddedness are easier to trust and generate more confidence.</p>
 <h2 id="network-level-characteristics">Network Level Characteristics</h2>
@@ -1583,58 +1450,80 @@ Cc_x =\frac{1}{\sum_y \text{distance}(y,x)}
 <li><strong>Computer Science Approaches</strong>: It uses graph partitioning and algorithms such as Geometric methods and spectral partitioning to identify communities.</li>
 <li><strong>Social Science Approaches</strong>: It uses clustering, based on block modeling and community structure, to define communities. It uses mostly betweenness based methods to estimate it.</li>
 </ul>
-<p>A <strong>community</strong> <span class="math inline">\(C\)</span> is a subset of nodes such that there are more edges inside the community than edges linking the nodes of <span class="math inline">\(C\)</span> to the rest of the graph. We have to types of densities:</p>
+<p>A <strong>community</strong> <span class="math">\(C\)</span> is a subset of nodes such that there are more edges inside the community than edges linking the nodes of <span class="math">\(C\)</span> to the rest of the graph. We have to types of densities:</p>
 <ul>
-<li><p><strong>Intra-community density</strong>: <span class="math display">\[
+<li><p><strong>Intra-community density</strong>:</p>
+<div class="math">
+\[
 d_{\text{intra}} = \frac{\text{# of intra edges of $C$}}{|C| \times (|C|-1)/2}
-\]</span></p></li>
-<li><p><strong>Inter-community density</strong>: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Inter-community density</strong>:</p>
+<div class="math">
+\[
 d_{\text{inter}} = \frac{\text{# of inter edges of $C$}}{|C| \times (|V| - |C|)}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>A <strong>Clique</strong> is a subgraph where vert node is connected with each other and it usually represents a group of people that are tightly tied to each other. If a clique is not a subset of any other clique in the graph, then we call it <strong>maximal clique</strong>.</p>
+<p>A <strong>Clique</strong> is a subgraph where vert node is connected with each other and it usually represents a group of people that are tightly tied to each other. If a clique is not a subset of any other clique in the graph, then  we call it <strong>maximal clique</strong>.</p>
 <h3 id="graph-partitioning">Graph Partitioning</h3>
 <p>There are several ways to partition a graph:</p>
 <ul>
 <li><p><strong>Min-Cut</strong>: This algorithm simply involves minimizing the number of edges cut by the partition. The number of edges between clusters is called <strong>cut size</strong>. For this method we must say how many clusters we want to obtain.</p>
-<p><img src="Resources/04 - Social Network Analysis/image-20210512111632309.png" alt="image-20210512111632309" style="zoom:33%;" /></p></li>
+<img src="Resources/04 - Social Network Analysis/c8ca3998-41ff-4ffd-bbca-88f0f4dffeb0.png" alt="c8ca3998-41ff-4ffd-bbca-88f0f4dffeb0" style="scale:0.33;" />
+</li>
 <li><p><strong>Kernighan-Lin Algorithm</strong>: This is a heuristic procedure for the problem of partitioning networks. The approach is as follows:</p>
-<ol type="1">
-<li><p>Generate an initial solution, this may be randomly generated.</p></li>
+<ol>
+<li><p>Generate an initial solution, this may be randomly generated.</p>
+</li>
 <li><p>Update iteratively the current solution until we have an optimal solution:</p>
-<ol type="1">
+<ol>
 <li><p>Select a subset of nodes from different clusters, compute improvement and swap them:</p>
-<ol type="1">
-<li><p>For each node <span class="math inline">\(n\)</span></p>
-<p><span class="math inline">\(C_n\)</span> = # edges between communities</p>
-<p><span class="math inline">\(Un\)</span> = # edges within the community</p>
-<p><span class="math inline">\(Dn = Cn - Un\)</span></p></li>
-<li><p>For each pair of nodes <span class="math inline">\(n,m\)</span> compute the improvement: <span class="math display">\[
+<ol>
+<li><p>For each node <span class="math">\(n\)</span></p>
+<p><span class="math">\(C_n\)</span> = # edges between communities</p>
+<p><span class="math">\(Un\)</span> = # edges within the community</p>
+<p><span class="math">\(Dn = Cn - Un\)</span></p>
+</li>
+<li><p>For each pair of nodes <span class="math">\(n,m\)</span> compute the improvement:</p>
+<div class="math">
+\[
 Im = Dn + Dm - 2 \times(\exists \text{ edge between }n,m ? 1:0)
-\]</span></p></li>
-<li><p>Swap nodes with the highest improvement</p></li>
-</ol></li>
-</ol></li>
-</ol></li>
+\]</div>
+</li>
+<li><p>Swap nodes with the highest improvement</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
 <li><p><strong>Hierarchical Clustering</strong>: We construct a tree of clusters to identify groups of nodes with high similarity according to some similarity measure.</p>
-<p><img src="Resources/04 - Social Network Analysis/image-20210512112349235.png" alt="image-20210512112349235" style="zoom:33%;" /></p>
-<p>This still has some problems, mostly when there are more than one bridge. The solution here is to use the shortest path.</p></li>
-<li><p><strong>Girvan-Newman Method</strong>: ???</p></li>
-<li><p><strong>Island Method</strong> : ???</p></li>
+<img src="Resources/04 - Social Network Analysis/939933cf-629b-4153-8055-580cf3eb03c7.png" alt="939933cf-629b-4153-8055-580cf3eb03c7" style="scale:0.33;" />
+<p>This still has some problems, mostly when there are more than one bridge. The solution here is to use the shortest path.</p>
+</li>
+<li><p><strong>Girvan-Newman Method</strong>: ???</p>
+</li>
+<li><p><strong>Island Method</strong> : ???</p>
+</li>
 </ul>
 <h3 id="overlapping-communities">Overlapping Communities</h3>
 <p>It is not realistic to assign nodes to only a single community, as communities can overlap, making it impossible to partition the networks without splitting communities.</p>
 <p>We can solve this issue with the <strong>clique Percolation Method (CPM)</strong>. The main idea is that the internal edges of a community are likely to form cliques do to their high density​. The algorithm is as follows:</p>
-<ol type="1">
+<ol>
 <li>Find all cliques of size k.</li>
 <li>Construct a clique graph where each node represents a clique.</li>
 <li>The community is detected as a component of the clique graph.</li>
 </ol>
-<p><img src="Resources/04 - Social Network Analysis/image-20210512141016748.png" alt="image-20210512141016748" style="zoom:33%;" /></p>
+<img src="Resources/04 - Social Network Analysis/834708d8-ce0f-4811-897d-5ebc20e0e0ec.png" alt="834708d8-ce0f-4811-897d-5ebc20e0e0ec" style="scale:0.33;" />
 <h3 id="modularity">Modularity</h3>
-<p>This is the most popular quality function designed to measure the strength of division of a network into modules. <span class="math display">\[
+<p>This is the most popular quality function designed to measure the strength of division of a network into modules.</p>
+<div class="math">
+\[
 Q = \frac1{2m} \sum_c \sum_{i,j \in c} \left(A_{ij} - \frac{d_id_j}{2m}\right)
-\]</span> Where <span class="math inline">\(i,j\)</span> denotes nodes, <span class="math inline">\(c\)</span> are clusters, <span class="math inline">\(A_{ij}\)</span> is an entry of the adjacency matrix, <span class="math inline">\(d_i\)</span> is the degree of the node <span class="math inline">\(i\)</span> and <span class="math inline">\(m\)</span> is the total number of links.</p>
+\]</div>
+<p>Where <span class="math">\(i,j\)</span> denotes nodes, <span class="math">\(c\)</span> are clusters, <span class="math">\(A_{ij}\)</span> is an entry of the adjacency matrix, <span class="math">\(d_i\)</span> is the degree of the node <span class="math">\(i\)</span> and <span class="math">\(m\)</span> is the total number of links.</p>
 <p>Community detection algorithms can be designed to optimize the modularity, usually based on heuristics.</p>
 <h3 id="dynamic-community-finding">Dynamic Community Finding</h3>
 <p>In many SNA tasks we will want to analyze how communities in the network form and evolve over time. Often performing this analysis is an offline task by examining successive snapshots of the network, and we can characterize dynamic communities in terms of key life-cycle events.</p>
@@ -1642,31 +1531,48 @@ Q = \frac1{2m} \sum_c \sum_{i,j \in c} \left(A_{ij} - \frac{d_id_j}{2m}\right)
 <p>Social networks are highly dynamic and the change quickly over time. Because of this, <strong>link prediction</strong> is an useful tool. It basically predicts the likelihood of a future association between tow nodes, knowing that there are no associations between the nodes in the current state of the graph.</p>
 <p>This technique is popular when suggesting friends on social networks or on recommendation systems.</p>
 <h3 id="graph-distance">Graph Distance</h3>
-<p>This method is one of the simplest and it involves calculating the negative of the shortest path between two nodes. This measure follows the notion that social networks are small words. <span class="math display">\[
+<p>This method is one of the simplest and it involves calculating the negative of the shortest path between two nodes. This measure follows the notion that social networks are small words.</p>
+<div class="math">
+\[
 \text{score}(x,y) = - \text{shortestPathLength}(x,y)
-\]</span></p>
+\]</div>
 <h3 id="common-neighbors">Common Neighbors</h3>
-<p>Two strangers who have a common friend may be introduced by that friend. This method counts the amount of neighbors a pair of nodes have in common. <span class="math display">\[
+<p>Two strangers who have a common friend may be introduced by that friend. This method counts the amount of neighbors a pair of nodes have in common.</p>
+<div class="math">
+\[
 \text{score}(x,y) = |N(x) \cap N(y)|
-\]</span></p>
+\]</div>
 <h3 id="katz-measure">Katz Measure</h3>
-<p>It is a measure that directly sums over a collection of paths exponentially damped by length to count short paths more heavily. The more paths that are in between two nodes, the shorter these paths are, the stronger the connection. <span class="math display">\[
+<p>It is a measure that directly sums over a collection of paths exponentially damped by length to count short paths more heavily. The more paths that are in between two nodes, the shorter these paths are, the stronger the connection.</p>
+<div class="math">
+\[
 \text{score}(x,y) = \sum_{l=1}^\infty \beta^l |\text{Path}(x,y)^{(l)}|
-\]</span> Where <span class="math inline">\(\beta\)</span> is a predictor parameters and <span class="math inline">\(\text{Path}(x,y)^{(l)}\)</span> is the set of all length-<span class="math inline">\(l\)</span> paths from <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span></p>
+\]</div>
+<p>Where <span class="math">\(\beta\)</span> is a predictor parameters and <span class="math">\(\text{Path}(x,y)^{(l)}\)</span> is the set of all length-<span class="math">\(l\)</span> paths from <span class="math">\(x\)</span> to <span class="math">\(y\)</span></p>
 <h3 id="other-node-wise-similarities">Other Node-wise Similarities</h3>
 <p>There are a lot of ways to calculate this, for example:</p>
 <ul>
-<li><p><strong>Jaccard Similarity</strong>: <span class="math display">\[
+<li><p><strong>Jaccard Similarity</strong>:</p>
+<div class="math">
+\[
 \text{score}(x,y) = \frac{|N(x) \cap N(y)|}{|N(x) \cup N(y)|}
-\]</span></p></li>
-<li><p><strong>Preferential Attachment</strong>: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Preferential Attachment</strong>:</p>
+<div class="math">
+\[
 \text{score}(x,y) = |N(x)| \times |N(y)|
-\]</span></p></li>
-<li><p><strong>Academic</strong>: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Academic</strong>:</p>
+<div class="math">
+\[
 \text{score}(x,y) = \sum_{x\in N(x) \cap N(y)} \frac1{\log|N(z)|}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
 <h2 id="multimode-networks">Multimode Networks</h2>
 <p>Multimode networks are composed by more than one type of nodes. This type of networks are very common in attribute networks, for example a friend suggestion system.</p>
+
 </body>
 </html>

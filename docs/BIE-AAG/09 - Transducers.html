@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>09 - Transducers</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>09 - Transducers.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,46 +1385,72 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="transducers">Transducers</h1>
-<p>A <strong>formal translation</strong> is a binary relation <span class="math inline">\(Z \subseteq L \times V\)</span> where the domain is the set <span class="math inline">\(L\)</span> and the range is the set <span class="math inline">\(V\)</span>. The relation <span class="math inline">\(Z\)</span> maps a set of translations <span class="math inline">\(Z(w) \subseteq V\)</span> to each element <span class="math inline">\(w\)</span> of the set <span class="math inline">\(L\)</span>. If <span class="math inline">\(Z(w)\)</span> contains at most one element for every <span class="math inline">\(w\in L\)</span>, the set <span class="math inline">\(Z\)</span> is a function and the translation is an <strong>unambiguous translation</strong>.</p>
-<p>Let <span class="math inline">\(\Sigma, D\)</span> be alphabets, an <strong>homomorphism</strong> is every mapping <span class="math inline">\(h\)</span> from <span class="math inline">\(\Sigma\)</span> to <span class="math inline">\(D^*\)</span>. The domain of homomorphism <span class="math inline">\(h\)</span> can be extended to <span class="math inline">\(\Sigma^*\)</span> as follows: $$  $$ It is basically an injective translation.</p>
-<p>A <strong>prefix</strong> and <strong>postfix</strong> notation of an expression <span class="math inline">\(E\)</span>:</p>
-<ol type="1">
-<li>if <span class="math inline">\(E\)</span> is a variable or a constant, then the prefix or postfix notation of <span class="math inline">\(E\)</span> is <span class="math inline">\(E\)</span>.</li>
-<li>If <span class="math inline">\(E\)</span> is an expression of the form <span class="math inline">\(E_1~op~E_2\)</span> where <span class="math inline">\(op\)</span> is a binary operator, then:
-<ol type="1">
-<li><span class="math inline">\(op~E_1&#39;~E_2&#39;\)</span> is a prefix notation of <span class="math inline">\(E\)</span>, where <span class="math inline">\(E_1&#39;\)</span> and <span class="math inline">\(E_2&#39;\)</span> are prefix notations of <span class="math inline">\(E_1\)</span> and <span class="math inline">\(E_2\)</span></li>
-<li><span class="math inline">\(E_1&#39;&#39;~E_2&#39;&#39;~op\)</span> is a postfix notation of <span class="math inline">\(E\)</span>, where <span class="math inline">\(E_1&#39;&#39;\)</span> and <span class="math inline">\(E_2&#39;&#39;\)</span> are postfix notations of <span class="math inline">\(E_1\)</span> and <span class="math inline">\(E_2\)</span>.</li>
-</ol></li>
-<li>If <span class="math inline">\(E\)</span> is an expression of the form <span class="math inline">\((E_1)\)</span>, then:
-<ol type="1">
-<li><span class="math inline">\(E_1&#39;\)</span> is a prefix notation of <span class="math inline">\(E\)</span>, where <span class="math inline">\(E_1&#39;\)</span> is a prefix notation of <span class="math inline">\(E_1\)</span>.</li>
-<li><span class="math inline">\(E_1&#39;&#39;\)</span> is a postfix notation of <span class="math inline">\(E\)</span>, where <span class="math inline">\(E_1&#39;&#39;\)</span> is a postfix notation of <span class="math inline">\(E_1\)</span>.</li>
-</ol></li>
+<p>A <strong>formal translation</strong> is a binary relation <span class="math">\(Z \subseteq L \times V\)</span> where the domain is the set <span class="math">\(L\)</span> and the range is the set <span class="math">\(V\)</span>. The relation <span class="math">\(Z\)</span> maps a set of translations <span class="math">\(Z(w) \subseteq V\)</span> to each element <span class="math">\(w\)</span> of the set <span class="math">\(L\)</span>. If <span class="math">\(Z(w)\)</span> contains at most one element for every <span class="math">\(w\in L\)</span>, the set <span class="math">\(Z\)</span> is a function and the translation is an <strong>unambiguous translation</strong>.</p>
+<p>Let <span class="math">\(\Sigma, D\)</span> be alphabets, an <strong>homomorphism</strong> is every mapping <span class="math">\(h\)</span> from <span class="math">\(\Sigma\)</span> to <span class="math">\(D^*\)</span>. The domain of homomorphism <span class="math">\(h\)</span> can be extended to <span class="math">\(\Sigma^*\)</span> as follows:</p>
+<div class="math">
+\[
+\array{
+h(\epsilon) = \epsilon\\
+h(xa) = h(x)h(a) &amp; \forall x\in \Sigma^*, \forall a \in \Sigma
+
+}
+\]</div>
+<p>It is basically an injective translation.</p>
+<p>A <strong>prefix</strong> and <strong>postfix</strong> notation of an expression <span class="math">\(E\)</span>:</p>
+<ol>
+<li>if <span class="math">\(E\)</span> is a variable or a constant, then the prefix or postfix notation of <span class="math">\(E\)</span> is <span class="math">\(E\)</span>.</li>
+<li>If <span class="math">\(E\)</span> is an expression of the form <span class="math">\(E_1~op~E_2\)</span> where <span class="math">\(op\)</span> is a binary operator, then:
+<ol>
+<li><span class="math">\(op~E_1'~E_2'\)</span> is a prefix notation of <span class="math">\(E\)</span>, where <span class="math">\(E_1'\)</span> and <span class="math">\(E_2'\)</span> are prefix notations of <span class="math">\(E_1\)</span> and <span class="math">\(E_2\)</span></li>
+<li><span class="math">\(E_1''~E_2''~op\)</span> is a postfix notation of <span class="math">\(E\)</span>, where <span class="math">\(E_1''\)</span> and <span class="math">\(E_2''\)</span> are postfix notations of <span class="math">\(E_1\)</span> and <span class="math">\(E_2\)</span>.</li>
+</ol>
+</li>
+<li>If <span class="math">\(E\)</span> is an expression of the form <span class="math">\((E_1)\)</span>, then:
+<ol>
+<li><span class="math">\(E_1'\)</span> is a prefix notation of <span class="math">\(E\)</span>, where <span class="math">\(E_1'\)</span> is a prefix notation of <span class="math">\(E_1\)</span>.</li>
+<li><span class="math">\(E_1''\)</span> is a postfix notation of <span class="math">\(E\)</span>, where <span class="math">\(E_1''\)</span> is a postfix notation of <span class="math">\(E_1\)</span>.</li>
+</ol>
+</li>
 </ol>
 <h2 id="translation-grammar">Translation Grammar</h2>
-<p>A <strong>translation grammar</strong> is <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span> where:</p>
+<p>A <strong>translation grammar</strong> is <span class="math">\(TG = (N,\Sigma,D,R,S)\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(N\)</span> is a finite set of nonterminal symbols</li>
-<li><span class="math inline">\(\Sigma\)</span> is a finite set of input symbols</li>
-<li><span class="math inline">\(D\)</span> is a finite set of output symbols</li>
-<li><span class="math inline">\(R\)</span> is a finite set of rules in the form <span class="math inline">\(A \rightarrow \alpha\)</span> where <span class="math inline">\(A \in N\)</span></li>
-<li><span class="math inline">\(S \in N\)</span> is the starting symbol</li>
+<li><span class="math">\(N\)</span> is a finite set of nonterminal symbols</li>
+<li><span class="math">\(\Sigma\)</span> is a finite set of input symbols</li>
+<li><span class="math">\(D\)</span> is a finite set of output symbols</li>
+<li><span class="math">\(R\)</span> is a finite set of rules in the form <span class="math">\(A \rightarrow \alpha\)</span> where <span class="math">\(A \in N\)</span></li>
+<li><span class="math">\(S \in N\)</span> is the starting symbol</li>
 </ul>
-<p>For a given <span class="math inline">\(TG\)</span>, we say that <span class="math inline">\(\alpha\)</span> derives in one step to <span class="math inline">\(\beta\)</span>: <span class="math display">\[
+<p>For a given <span class="math">\(TG\)</span>, we say that <span class="math">\(\alpha\)</span> derives in one step to <span class="math">\(\beta\)</span>:</p>
+<div class="math">
+\[
 \alpha \Rightarrow \beta
-\]</span> if <span class="math inline">\(\exists \tau,w,\gamma \in (N \cup\Sigma \cup D)^*,\exists A \in N\)</span>: <span class="math display">\[
+\]</div>
+<p>if <span class="math">\(\exists \tau,w,\gamma \in (N \cup\Sigma \cup D)^*,\exists A \in N\)</span>:</p>
+<div class="math">
+\[
  \alpha = \tau A w, \beta = \tau \gamma w, (A \rightarrow \gamma) \in R
-\]</span> We say that <span class="math inline">\(\alpha\)</span> derives <span class="math inline">\(\beta\)</span>: <span class="math display">\[
+\]</div>
+<p>We say that <span class="math">\(\alpha\)</span> derives <span class="math">\(\beta\)</span>:</p>
+<div class="math">
+\[
 \alpha \Rightarrow^* \beta 
-\]</span> If <span class="math inline">\(\exists \alpha_1,\dots,\alpha_n \in (N \cup\Sigma\cup D)^*, n\ge1\)</span>: <span class="math display">\[
+\]</div>
+<p>If <span class="math">\(\exists \alpha_1,\dots,\alpha_n \in (N \cup\Sigma\cup D)^*, n\ge1\)</span>:</p>
+<div class="math">
+\[
 \alpha = \alpha_1 \Rightarrow\alpha_2 \Rightarrow \dots \Rightarrow \alpha_n = \beta
-\]</span> The sequence <span class="math inline">\(\alpha_1,\dots,\alpha_n\)</span> is called <strong>translation derivation</strong> of length <span class="math inline">\(n\)</span> if string <span class="math inline">\(\beta\)</span> from string <span class="math inline">\(\alpha\)</span>.</p>
-<p>We can also have a <strong>transitive closure</strong> <span class="math inline">\((\Rightarrow^+)\)</span> and a <strong>transitive and reflexive closure</strong> <span class="math inline">\((\Rightarrow^*)\)</span>.</p>
-<p>For a translation grammar <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span>, an <strong>input homomorphism</strong> is defined as: <span class="math display">\[
+\]</div>
+<p>The sequence <span class="math">\(\alpha_1,\dots,\alpha_n\)</span> is called <strong>translation derivation</strong> of length <span class="math">\(n\)</span> if string <span class="math">\(\beta\)</span> from string <span class="math">\(\alpha\)</span>.</p>
+<p>We can also have a <strong>transitive closure</strong> <span class="math">\((\Rightarrow^+)\)</span> and a <strong>transitive and reflexive closure</strong> <span class="math">\((\Rightarrow^*)\)</span>.</p>
+<p>For a translation grammar <span class="math">\(TG = (N,\Sigma,D,R,S)\)</span>, an <strong>input homomorphism</strong> is defined as:</p>
+<div class="math">
+\[
 h^{TG}_i(a) = 
 \left\{
 \array{
@@ -1571,148 +1459,208 @@ a&amp;\forall a \in \Sigma\cup N\\
 }
 \right.\\
 h_i^{TG}(x) = h_i^{TG}(x_1) \times \dots \times h_i^{TG}(x_n),~~\forall x_j\in (\Sigma \cup N \cup D)^*
-\]</span> We can also define an <strong>output homomorphism</strong>: <span class="math display">\[
+\]</div>
+<p>We can also define an <strong>output homomorphism</strong>:</p>
+<div class="math">
+\[
 h^{TG}_0(a) = \left\{\array{\epsilon&amp;\forall a \in \Sigma\\ a&amp; \forall a \in D \cup N}\right.\\h_o^{TG}(x) = h_o^{TG}(x_1) \times \dots \times h_o^{TG}(x_n),~~\forall x_j\in (\Sigma \cup N \cup D)^*
-\]</span> A <strong>translation defined by a translation grammar</strong> <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span> is: <span class="math display">\[
+\]</div>
+<p>A <strong>translation defined by a translation grammar</strong> <span class="math">\(TG = (N,\Sigma,D,R,S)\)</span> is:</p>
+<div class="math">
+\[
 Z(TG) = \{(h_i^{YG}(w),h_O^{TG}(w)):w \in (\Sigma \cup D)^*, S \Rightarrow^*w\}
-\]</span> An <strong>Input translation grammar</strong> <span class="math inline">\(TG\)</span> is a Context-Free Grammar <span class="math inline">\(G_i = (N,\Sigma,P_i,S)\)</span> where <span class="math inline">\(P_i = \{A \rightarrow h_i(\alpha): (A\rightarrow \alpha) \in R\}\)</span>. An <strong>Output translation grammar</strong> <span class="math inline">\(TG\)</span> is a Context-Free Grammar <span class="math inline">\(G_o = (N,\Sigma,P_o,S)\)</span> where <span class="math inline">\(P_o = \{A \rightarrow h_o(\alpha):(A\rightarrow \alpha) \in R\}\)</span></p>
-<p>A CFG <span class="math inline">\(G = (N,\Sigma \cup D, R,S)\)</span> is a <strong>characteristic grammar of translation grammar</strong> <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span>, in the same way, <span class="math inline">\(L(G)\)</span> is the <strong>characteristic language of translation</strong> <span class="math inline">\(Z(TG)\)</span> and <span class="math inline">\(w\in L(G)\)</span> is a <strong>characteristic sentence of pair</strong> <span class="math inline">\((x,y)\)</span></p>
-<p>A <strong>regular translation grammar</strong> is a <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span> such that all the rules are of the form: <span class="math display">\[
+\]</div>
+<p>An <strong>Input translation grammar</strong> <span class="math">\(TG\)</span> is a Context-Free Grammar <span class="math">\(G_i = (N,\Sigma,P_i,S)\)</span> where <span class="math">\(P_i = \{A \rightarrow h_i(\alpha): (A\rightarrow \alpha) \in R\}\)</span>. An <strong>Output translation grammar</strong> <span class="math">\(TG\)</span> is a Context-Free Grammar <span class="math">\(G_o = (N,\Sigma,P_o,S)\)</span> where <span class="math">\(P_o = \{A \rightarrow h_o(\alpha):(A\rightarrow \alpha) \in R\}\)</span></p>
+<p>A CFG <span class="math">\(G = (N,\Sigma \cup D, R,S)\)</span> is a <strong>characteristic grammar of translation grammar</strong> <span class="math">\(TG = (N,\Sigma,D,R,S)\)</span>, in the same way, <span class="math">\(L(G)\)</span> is the <strong>characteristic language of translation</strong> <span class="math">\(Z(TG)\)</span> and <span class="math">\(w\in L(G)\)</span> is a <strong>characteristic sentence of pair</strong> <span class="math">\((x,y)\)</span></p>
+<p>A <strong>regular translation grammar</strong> is a <span class="math">\(TG = (N,\Sigma,D,R,S)\)</span> such that all the rules are of the form:</p>
+<div class="math">
+\[
 \array{
 A \rightarrow axB\\
 A\rightarrow ax\\
 S\rightarrow \epsilon
 }
-\]</span> Where <span class="math inline">\(A,B \in N, a \in \Sigma, x \in D^*\)</span>, and in the case of the last rule, <span class="math inline">\(S\)</span> cannot be in the right side of any other rule.</p>
+\]</div>
+<p>Where <span class="math">\(A,B \in N, a \in \Sigma, x \in D^*\)</span>, and in the case of the last rule, <span class="math">\(S\)</span> cannot be in the right side of any other rule.</p>
 <h2 id="finite-transducers">Finite Transducers</h2>
-<p>A finite transducer is a sextuple <span class="math inline">\(FT = (Q,\Sigma,D,\delta,q_0,F)\)</span> where:</p>
+<p>A finite transducer is a sextuple <span class="math">\(FT = (Q,\Sigma,D,\delta,q_0,F)\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(Q\)</span> is a finite set of states</li>
-<li><span class="math inline">\(\Sigma\)</span> is a finite set of input symbols</li>
-<li><span class="math inline">\(D\)</span> is a finite set of output symbols</li>
-<li><span class="math inline">\(\delta\)</span> is a mapping function from <span class="math inline">\(Q \times (\Sigma \cup\{\epsilon\})\)</span> into a set of finite subsets <span class="math inline">\(2^{Q \times D^*}\)</span></li>
-<li><span class="math inline">\(q_0 \in Q\)</span> is the start state</li>
-<li><span class="math inline">\(F \subseteq Q\)</span> is the set of final states</li>
+<li><span class="math">\(Q\)</span> is a finite set of states</li>
+<li><span class="math">\(\Sigma\)</span> is a finite set of input symbols</li>
+<li><span class="math">\(D\)</span> is a finite set of output symbols</li>
+<li><span class="math">\(\delta\)</span> is a mapping function from <span class="math">\(Q \times (\Sigma \cup\{\epsilon\})\)</span> into a set of finite subsets <span class="math">\(2^{Q \times D^*}\)</span></li>
+<li><span class="math">\(q_0 \in Q\)</span> is the start state</li>
+<li><span class="math">\(F \subseteq Q\)</span> is the set of final states</li>
 </ul>
-<p>There are two ways to represent the transition function. We will show now an example from the state <span class="math inline">\(S\)</span> with the input symbol <span class="math inline">\(a\)</span> to the state <span class="math inline">\(A\)</span> and output <span class="math inline">\(x\)</span>:</p>
+<p>There are two ways to represent the transition function. We will show now an example from the state <span class="math">\(S\)</span> with the input symbol <span class="math">\(a\)</span> to the state <span class="math">\(A\)</span> and output <span class="math">\(x\)</span>:</p>
 <ul>
-<li><p>Formal Representation: <span class="math display">\[
+<li><p>Formal Representation:</p>
+<div class="math">
+\[
 \delta(S,a) = \{(A,x)\}
-\]</span></p></li>
-<li><p>State Diagram: <span class="math display">\[
+\]</div>
+</li>
+<li><p>State Diagram:</p>
+<div class="math">
+\[
 S \overset {a/x} \rightarrow |A|
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>A <strong>configuration of a transducer</strong> <span class="math inline">\(FT = (Q,\Sigma,D,\delta,q_0,F)\)</span> is a triple: <span class="math display">\[
+<p>A <strong>configuration of a transducer</strong> <span class="math">\(FT = (Q,\Sigma,D,\delta,q_0,F)\)</span> is a triple:</p>
+<div class="math">
+\[
 (q,x,y) \in Q \times \Sigma^* \times D^*
-\]</span> The initial configuration is described as <span class="math inline">\((q_0,x,\epsilon)\)</span>. We can also describe the relation <span class="math inline">\(\vdash_{FT}\)</span> in the same way as for the pushdown automata, as well as a move.</p>
-<p>A translation if defined by a finite transducer <span class="math inline">\(FT = (Q,\Sigma,D,\delta,q_0,F)\)</span>: <span class="math display">\[
+\]</div>
+<p>The initial configuration is described as <span class="math">\((q_0,x,\epsilon)\)</span>. We can also describe the relation <span class="math">\(\vdash_{FT}\)</span> in the same way as for the pushdown automata, as well as a move.</p>
+<p>A translation if defined by a finite transducer <span class="math">\(FT = (Q,\Sigma,D,\delta,q_0,F)\)</span>:</p>
+<div class="math">
+\[
 Z(FT) = \{(u,v):u \in \Sigma^*, v \in D^*, \exists q \in F, (q_0,u,\epsilon) \vdash_{FT}^*(q,\epsilon,v)\}
-\]</span> The <strong>finite transducer is deterministic</strong> if for all states <span class="math inline">\(q \in Q\)</span> it holds: <span class="math display">\[
+\]</div>
+<p>The <strong>finite transducer is deterministic</strong> if for all states <span class="math">\(q \in Q\)</span> it holds:</p>
+<div class="math">
+\[
 \array{
 |\delta(q,a)| \le 1 &amp; \forall a \in \Sigma \land \delta(q,\epsilon) = \emptyset\\
 |\delta(q,\epsilon)|\le 1 &amp; \forall a \in \Sigma \land \delta(q,a) = \emptyset
 }
-\]</span></p>
-<p>Basically it is deterministic if it has no <span class="math inline">\(\epsilon\)</span>-transitions and for each state we can distinguish each exit transition by its input symbol.</p>
+\]</div>
+<p>Basically it is deterministic if it has no <span class="math">\(\epsilon\)</span>-transitions and for each state we can distinguish each exit transition by its input symbol.</p>
 <h2 id="sequential-mapping">Sequential mapping</h2>
-<p>A sequential mapping <span class="math inline">\(S\)</span> is a mapping such that:</p>
+<p>A sequential mapping <span class="math">\(S\)</span> is a mapping such that:</p>
 <ul>
 <li>It preserves the length of the string.</li>
-<li>If two inputs have the same prefix of length <span class="math inline">\(k\)</span>, then the corresponding output has the same identical prefixes of length of at least <span class="math inline">\(k\)</span> characters.</li>
+<li>If two inputs have the same prefix of length <span class="math">\(k\)</span>, then the corresponding output has the same identical prefixes of length of at least <span class="math">\(k\)</span> characters.</li>
 </ul>
 <h2 id="mealymoore-automaton">Mealy/Moore Automaton</h2>
-<p>A <strong>Mealy Automaton</strong> <span class="math inline">\(M\)</span> is a sextuple <span class="math inline">\((Q,\Sigma,D,\delta,\lambda,q_0)\)</span> where:</p>
+<p>A <strong>Mealy Automaton</strong> <span class="math">\(M\)</span> is a sextuple <span class="math">\((Q,\Sigma,D,\delta,\lambda,q_0)\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(Q\)</span> is a finite set of states</li>
-<li><span class="math inline">\(\Sigma\)</span> is a finite set of input symbols</li>
-<li><span class="math inline">\(D\)</span> is a finite set of output symbols</li>
-<li><span class="math inline">\(\delta\)</span> is a mapping function from <span class="math inline">\(Q \times \Sigma\)</span> into <span class="math inline">\(Q\)</span> called <strong>transition function</strong>.</li>
-<li><span class="math inline">\(\lambda\)</span> is a mapping function from <span class="math inline">\(Q\times \Sigma\)</span> into <span class="math inline">\(D\)</span> called <strong>output function</strong>.</li>
-<li><span class="math inline">\(q_0 \in Q\)</span> is the start state.</li>
+<li><span class="math">\(Q\)</span> is a finite set of states</li>
+<li><span class="math">\(\Sigma\)</span> is a finite set of input symbols</li>
+<li><span class="math">\(D\)</span> is a finite set of output symbols</li>
+<li><span class="math">\(\delta\)</span> is a mapping function from <span class="math">\(Q \times \Sigma\)</span> into <span class="math">\(Q\)</span> called <strong>transition function</strong>.</li>
+<li><span class="math">\(\lambda\)</span> is a mapping function from <span class="math">\(Q\times \Sigma\)</span> into <span class="math">\(D\)</span> called <strong>output function</strong>.</li>
+<li><span class="math">\(q_0 \in Q\)</span> is the start state.</li>
 </ul>
-<p>A <strong>Moore Automaton</strong> <span class="math inline">\(M\)</span> is a sextuple <span class="math inline">\((Q,\Sigma,D,\delta,\lambda,q_0)\)</span> where:</p>
+<p>A <strong>Moore Automaton</strong> <span class="math">\(M\)</span> is a sextuple <span class="math">\((Q,\Sigma,D,\delta,\lambda,q_0)\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(Q\)</span> is a finite set of states</li>
-<li><span class="math inline">\(\Sigma\)</span> is a finite set of input symbols</li>
-<li><span class="math inline">\(D\)</span> is a finite set of output symbols</li>
-<li><span class="math inline">\(\delta\)</span> is a mapping function from <span class="math inline">\(Q \times \Sigma\)</span> into <span class="math inline">\(Q\)</span> called <strong>transition function</strong></li>
-<li><span class="math inline">\(\lambda\)</span> is a mapping function from <span class="math inline">\(Q\)</span> into <span class="math inline">\(D\)</span> called <strong>output function</strong>.</li>
-<li><span class="math inline">\(q_0 \in Q\)</span> is the start state</li>
+<li><span class="math">\(Q\)</span> is a finite set of states</li>
+<li><span class="math">\(\Sigma\)</span> is a finite set of input symbols</li>
+<li><span class="math">\(D\)</span> is a finite set of output symbols</li>
+<li><span class="math">\(\delta\)</span> is a mapping function from <span class="math">\(Q \times \Sigma\)</span> into <span class="math">\(Q\)</span> called <strong>transition function</strong></li>
+<li><span class="math">\(\lambda\)</span> is a mapping function from <span class="math">\(Q\)</span> into <span class="math">\(D\)</span> called <strong>output function</strong>.</li>
+<li><span class="math">\(q_0 \in Q\)</span> is the start state</li>
 </ul>
 <p>The difference between the Mealy automaton and the Moore Automaton is that the output of the Mealy automaton is decided by the current state and current input, while in the Moore Automaton it is only affected by the current state.</p>
-<p>Another difference between this automaton is that for the same input of length <span class="math inline">\(n\)</span>, the Moore automaton will output a string of length <span class="math inline">\(n+1\)</span> while the Mealy automaton will output one with length <span class="math inline">\(n\)</span>. This difference is due to the fact that the Moore automaton first output symbol is not meaningful because it does not depend on the input.</p>
-<p>The Moore and Mealy automata can be equivalent if the output of the Moore automaton is the same as the output from the mealy automaton if we exclude the first symbol of the Moore’s output.</p>
-<p>We can also define an <strong>extended transition function</strong> for both a Mealy and Moore automata as <span class="math inline">\(\hat \delta:Q \times \Sigma^* \mapsto Q\)</span> defined as: <span class="math display">\[
+<p>Another difference between this automaton is that for the same input of length <span class="math">\(n\)</span>, the Moore automaton will output  a string of length <span class="math">\(n+1\)</span> while the Mealy automaton will output one with length <span class="math">\(n\)</span>. This difference is due to the fact that the Moore automaton first output symbol is not meaningful because it does not depend on the input.</p>
+<p>The Moore and Mealy automata can be equivalent if the output of the Moore automaton is the same as the output from the mealy automaton if we exclude the first symbol of the Moore's output.</p>
+<p>We can also define an <strong>extended transition function</strong> for both a Mealy and Moore automata as <span class="math">\(\hat \delta:Q \times \Sigma^* \mapsto Q\)</span> defined as:</p>
+<div class="math">
+\[
 \array{
 \hat \delta(q,\epsilon) = q &amp; \forall q \in Q\\
 \hat\delta(q,a) = \delta(q,a) &amp; \forall a \in \Sigma, \forall q \in Q\\
 \hat \delta (q,ua) = \delta (\hat \delta(q,u),a)&amp; \forall a \in \Sigma, \forall u \in \Sigma ^* , \forall q \in Q
 }
-\]</span></p>
+\]</div>
 <h3 id="transformations">Transformations</h3>
-<p>For any Moore automaton <span class="math inline">\(M = (Q,\Sigma,D,\delta,\lambda,q_0)\)</span> there exists a Mealy automaton <span class="math inline">\(M&#39;\)</span> with the same number of states such that: <span class="math display">\[
-Z(M) = Z(M&#39;)
-\]</span> The Mealy automaton is constructed as follows:</p>
+<p>For any Moore automaton <span class="math">\(M = (Q,\Sigma,D,\delta,\lambda,q_0)\)</span> there exists a Mealy automaton <span class="math">\(M'\)</span> with the same number of states such that:</p>
+<div class="math">
+\[
+Z(M) = Z(M')
+\]</div>
+<p>The Mealy automaton is constructed as follows:</p>
 <ul>
-<li><span class="math inline">\(\lambda&#39;(q,a) \leftarrow \lambda(\delta(q,a))\)</span> <span class="math inline">\(\forall q \in Q, \forall a \in \Sigma\)</span></li>
-<li><span class="math inline">\(M&#39; = (Q,\Sigma,D,\delta,\lambda&#39;,q_0)\)</span></li>
+<li><span class="math">\(\lambda'(q,a) \leftarrow \lambda(\delta(q,a))\)</span>   <span class="math">\(\forall q \in Q, \forall a \in \Sigma\)</span></li>
+<li><span class="math">\(M' = (Q,\Sigma,D,\delta,\lambda',q_0)\)</span></li>
 </ul>
-<p>Also, for any Mealy automaton <span class="math inline">\(M&#39;=(Q&#39;,\Sigma,D,\delta&#39;,\lambda&#39;,q_0&#39;)\)</span> there exists a Moore automaton <span class="math inline">\(M\)</span> with <span class="math inline">\(|Q&#39;||D|\)</span> states such that: <span class="math display">\[
-Z(M&#39;) = Z(M)
-\]</span> The Moore automaton is constructed as follows:</p>
+<p>Also, for any Mealy automaton <span class="math">\(M'=(Q',\Sigma,D,\delta',\lambda',q_0')\)</span> there exists a Moore automaton <span class="math">\(M\)</span> with <span class="math">\(|Q'||D|\)</span> states such that:</p>
+<div class="math">
+\[
+Z(M') = Z(M)
+\]</div>
+<p>The Moore automaton is constructed as follows:</p>
 <ul>
-<li><span class="math inline">\(Q \leftarrow Q&#39; \times D\)</span></li>
-<li><span class="math inline">\(\delta((q,b),a) \leftarrow (\delta&#39;(q,q),\lambda&#39;(q,a))\)</span> <span class="math inline">\(\forall q \in Q&#39;,\forall a \in \Sigma, \forall b\in D\)</span></li>
-<li><span class="math inline">\(q_0 \leftarrow (q_0&#39;,c)\)</span> for some arbitrary fixed <span class="math inline">\(c\in D\)</span></li>
-<li><span class="math inline">\(\lambda((q,b)) \leftarrow b\)</span> <span class="math inline">\(\forall q \in Q&#39;,\forall b \in D\)</span></li>
-<li><span class="math inline">\(M = (Q,\Sigma,D,\delta,\lambda,q_0)\)</span></li>
+<li><span class="math">\(Q \leftarrow Q' \times D\)</span></li>
+<li><span class="math">\(\delta((q,b),a) \leftarrow (\delta'(q,q),\lambda'(q,a))\)</span>   <span class="math">\(\forall q \in Q',\forall a \in \Sigma, \forall b\in D\)</span></li>
+<li><span class="math">\(q_0 \leftarrow (q_0',c)\)</span> for some arbitrary fixed <span class="math">\(c\in D\)</span></li>
+<li><span class="math">\(\lambda((q,b)) \leftarrow b\)</span>    <span class="math">\(\forall q \in Q',\forall b \in D\)</span></li>
+<li><span class="math">\(M = (Q,\Sigma,D,\delta,\lambda,q_0)\)</span></li>
 </ul>
 <h2 id="pushdown-translation-automata">Pushdown Translation Automata</h2>
-<p>The pushdown translation automaton is an octuple: <span class="math display">\[
+<p>The pushdown translation automaton is an octuple:</p>
+<div class="math">
+\[
 \text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)
-\]</span> where</p>
+\]</div>
+<p>where</p>
 <ul>
-<li><span class="math inline">\(Q\)</span> is a finite set of states</li>
-<li><span class="math inline">\(\Sigma\)</span> is a finite set of input symbols</li>
-<li><span class="math inline">\(G\)</span> is a finite set of pushdown symbols</li>
-<li><span class="math inline">\(D\)</span> is a finite set of output symbols</li>
-<li><span class="math inline">\(\delta\)</span> is a mapping function from <span class="math inline">\(Q\times (\Sigma\cup\{\epsilon\}) \times G^*\)</span> to a set of subsets of <span class="math inline">\(Q\times G^* \times D^*\)</span></li>
-<li><span class="math inline">\(q_0 \in Q\)</span> is the initial state</li>
-<li><span class="math inline">\(Z_0 \in G\)</span> is the initial symbol of the pushdown store</li>
-<li><span class="math inline">\(F \subseteq Q\)</span> is the set of final states</li>
+<li><span class="math">\(Q\)</span> is a finite set of states</li>
+<li><span class="math">\(\Sigma\)</span> is a finite set of input symbols</li>
+<li><span class="math">\(G\)</span> is a finite set of pushdown symbols</li>
+<li><span class="math">\(D\)</span> is a finite set of output symbols</li>
+<li><span class="math">\(\delta\)</span> is a mapping function from <span class="math">\(Q\times (\Sigma\cup\{\epsilon\}) \times G^*\)</span> to a set of subsets of <span class="math">\(Q\times G^* \times D^*\)</span></li>
+<li><span class="math">\(q_0 \in Q\)</span> is the initial state</li>
+<li><span class="math">\(Z_0 \in G\)</span> is the initial symbol of the pushdown store</li>
+<li><span class="math">\(F \subseteq Q\)</span> is the set of final states</li>
 </ul>
-<p>The configuration of a <span class="math inline">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> is defined as a quadruple: <span class="math display">\[
+<p>The configuration of a <span class="math">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> is defined as a quadruple:</p>
+<div class="math">
+\[
 (q,x,\alpha,y) \in Q \times \Sigma^*\times G^* \times D^*
-\]</span> The moves and transition relation is defined in the same way as it previously was, but it is represented differently. In this example we are going from state <span class="math inline">\(S\)</span>, input <span class="math inline">\(a\)</span> and pushdown store symbol <span class="math inline">\(b\)</span> to state <span class="math inline">\(A\)</span>, output <span class="math inline">\(x\)</span> and pushing the symbol <span class="math inline">\(c\)</span> into the pushdown store:</p>
+\]</div>
+<p>The moves and transition relation is defined in the same way as it previously was, but it is represented differently. In this example we are going from state <span class="math">\(S\)</span>, input <span class="math">\(a\)</span> and pushdown store symbol <span class="math">\(b\)</span> to state <span class="math">\(A\)</span>, output <span class="math">\(x\)</span> and pushing the symbol <span class="math">\(c\)</span> into the pushdown store:</p>
 <ul>
-<li><p>Formal Representation: <span class="math display">\[
+<li>Formal Representation:</li>
+</ul>
+<div class="math">
+\[
   \delta(S,a,b) = \{(A,c,x)\}
-  \]</span></p></li>
-<li><p>State Diagram: <span class="math display">\[
-S \overset {a,b/c,x} \longrightarrow |A|
-\]</span></p></li>
-</ul>
-<p>The translation defined by a <span class="math inline">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> by a move into final state is a set of pairs: <span class="math display">\[
-Z(\text{PTA}) = \{(x,y): x \in \Sigma^*, y\in D^*, \exists q \in F,\exists \alpha \in G^*,(q_0,x,Z_0,\epsilon)\vdash^*(q,\epsilon,\alpha,y)\}
-\]</span> The translation defined by a <span class="math inline">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> by a move into configuration with empty pushdown store is a set of pairs: <span class="math display">\[
-Z_\epsilon(\text{PTA}) = \{(x,y): x \in \Sigma^*, y\in D^*, \exists q \in Q,(q_0,x,Z_0,\epsilon)\vdash^*(q,\epsilon,\epsilon,y)\}
-\]</span> A <strong>pushdown translation automaton is deterministic</strong> if the following holds for<span class="math inline">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span>:</p>
+\]</div>
 <ul>
-<li><span class="math inline">\(|\delta(q,a,\gamma)| \le 1\)</span> <span class="math inline">\(\forall q \in Q,\forall a \in (\Sigma\cup\{\epsilon\}),\forall \gamma \in G^*\)</span></li>
-<li>If <span class="math inline">\(\delta(q,a,\alpha) \neq \emptyset \land \delta(q,a,\beta)\neq \emptyset \land \alpha \neq \beta\)</span>, then <span class="math inline">\(\alpha\)</span> is not a prefix of <span class="math inline">\(\beta\)</span> and vice versa.</li>
-<li>If <span class="math inline">\(\delta(q,a,\alpha) \neq \emptyset \land \delta(q,\epsilon,\beta)\neq \emptyset\)</span>, then <span class="math inline">\(\alpha\)</span> is not a prefix of <span class="math inline">\(\beta\)</span> and vice versa.</li>
+<li>State Diagram:
+<div class="math">
+\[
+S \overset {a,b/c,x} \longrightarrow |A|
+\]</div>
+</li>
 </ul>
-<p>We can also convert translation grammars into pushdown translation automata such that: <span class="math display">\[
+<p>The translation defined by a <span class="math">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> by a move into final state is a set of pairs:</p>
+<div class="math">
+\[
+Z(\text{PTA}) = \{(x,y): x \in \Sigma^*, y\in D^*, \exists q \in F,\exists \alpha \in G^*,(q_0,x,Z_0,\epsilon)\vdash^*(q,\epsilon,\alpha,y)\}
+\]</div>
+<p>The translation defined by a <span class="math">\(\text{PTA} = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)\)</span> by a move into configuration with empty pushdown store is a set of pairs:</p>
+<div class="math">
+\[
+Z_\epsilon(\text{PTA}) = \{(x,y): x \in \Sigma^*, y\in D^*, \exists q \in Q,(q_0,x,Z_0,\epsilon)\vdash^*(q,\epsilon,\epsilon,y)\}
+\]</div>
+<p PTA="">A <strong>pushdown translation automaton is deterministic</strong> if the following holds for$\text = (Q,\Sigma,G,D,\delta,q_0,Z_0,F)$:</p>
+<ul>
+<li><span class="math">\(|\delta(q,a,\gamma)| \le 1\)</span>   <span class="math">\(\forall q \in Q,\forall a \in (\Sigma\cup\{\epsilon\}),\forall \gamma \in G^*\)</span></li>
+<li>If <span class="math">\(\delta(q,a,\alpha) \neq \emptyset \land \delta(q,a,\beta)\neq \emptyset \land \alpha \neq \beta\)</span>, then <span class="math">\(\alpha\)</span> is not a prefix of <span class="math">\(\beta\)</span> and vice versa.</li>
+<li>If <span class="math">\(\delta(q,a,\alpha) \neq \emptyset \land \delta(q,\epsilon,\beta)\neq \emptyset\)</span>, then <span class="math">\(\alpha\)</span> is not a prefix of <span class="math">\(\beta\)</span> and vice versa.</li>
+</ul>
+<p>We can also convert translation grammars into pushdown translation automata such that:</p>
+<div class="math">
+\[
 Z_\epsilon(PTA) = Z(TG)
-\]</span> For a given <span class="math inline">\(TG = (N,\Sigma,D,R,S)\)</span> we can construct <span class="math display">\[
+\]</div>
+<p>For a given <span class="math">\(TG = (N,\Sigma,D,R,S)\)</span> we can construct</p>
+<div class="math">
+\[
 PTA = (\{q\},\Sigma,N,N\cup \Sigma\cup D,D,\delta,q,S,\emptyset)
-\]</span> where: <span class="math display">\[
+\]</div>
+<p>where:</p>
+<div class="math">
+\[
 \array{
 \delta(q,\emptyset,A) \leftarrow \{(q,\alpha,\epsilon):(A\rightarrow \alpha)\in R\}&amp; \forall A\in N\\
 \delta(q,a,a) \leftarrow \{(q,\epsilon,\epsilon)\}&amp; \forall a \in \Sigma \\
 \delta(q,\epsilon,b) \leftarrow \{(a,\epsilon,b)\} &amp; \forall b \in D
 }
-\]</span></p>
+\]</div>
+
 </body>
 </html>

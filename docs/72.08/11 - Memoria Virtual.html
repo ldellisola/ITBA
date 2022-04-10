@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>11 - Memoria Virtual</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>11 - Memoria Virtual.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,18 +1385,19 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="memoria-virtual">Memoria Virtual</h1>
 <p>La memoria virtual es un concepto que genera el procesador, no el sistema operativo, este ultimo solo utiliza al concepto. Esto trae a la paginación dentro de la ecuación, esto permite transformar las direcciones de memoria virtuales que se asignan a cada proceso en posiciones de memoria física, pero solo el procesador se entera de esta cambio. Estas direcciones virtuales pueden apuntar a la misma o distintas direcciones física que otro proceso. Un ejemplo de esos son las librerías estándar, que puede que varios procesos la requieran pero no es eficiente que se cargue toda la librería por cada vez que se linkedita contra esa función, por lo que múltiples procesos pueden leer a la misma posición de memoria física.</p>
-<h2 id="paginación">Paginación</h2>
+<h2 id="paginacion">Paginación</h2>
 <p>Para acceder a las páginas en los procesadores Intel de 32 bits, se hace de forma indexada. Para acceder a una pagina se debe acceder por una posición de memoria, donde los 12 bits mas significativos son la dirección de la memoria, seguidos por 10 bits que indican a que pagina se quiere acceder y por ultimo 10 bits donde se indica el offset para indicar a que posición de memoria se quiere acceder, dentro de cada pagina.</p>
 <p>Las tablas de páginas están compuestas por la siguiente estructura, llamada <code>Page Table Entry</code>:</p>
-<p><img src="Resources/image-20191029223005140.png" alt="image-20191029223005140" style="zoom:67%;" /></p>
+<img src="Resources/4269199f-2870-4489-91a9-eb4c4d58353d.png" alt="4269199f-2870-4489-91a9-eb4c4d58353d" style="scale:0.67;" />
 <p>El bit de presencia <code>P</code> indica que esa tabla se puede utilizar para obtener una dirección de memoria. Si esta en 0 significa que no se puede utilizar. Cuando el procesador se encuentra con esta situación suele tirar una excepción, y si el sistema operativo soporta memoria virtual, se ejecutara la rutina que va a buscar la memoria al disco duro.</p>
 <p>El bit <code>U/S</code> indica los permisos de esa tabla. Puede ser 3 si se trata de un usuario mientras que si la memoria es propiedad del kernel va a tener almacenado un 0, 1 o 2 en esos 2 bits.</p>
-<h3 id="protección-combinada">Protección Combinada</h3>
+<h3 id="proteccion-combinada">Protección Combinada</h3>
 <p>Cuando la paginación esta habilitada, el procesador primero chequea los permisos en la segmentación y luego en la paginación, de esta forma se pueden definir segmentos de datos que están compuestos por páginas solo de lectura y de escritura.</p>
 <h3 id="modelo-flat">Modelo FLAT</h3>
 <p>Debido a la protección combinada, algunos sistemas operativos como UNIX utilizan el modelo FLAT de memoria. Este modelo funciona declarando 2 segmentos de código y de datos que referencian a toda la memoria. Esto permite un manejo mas simple de las mismas y a su vez mas portabilidad, ya que mochos procesadores no tienen unidad de segmentación pero si de paginación. Al hacer un segmento único permite ignorar la segmentación, ya que solo hay un segmento, y dentro están todas las páginas.</p>
@@ -1542,6 +1405,7 @@ blockquote {
 <p>Cuando se necesita una pagina en memoria pero la memoria esta completa, Linux elije una pagina que no ha sido accedida recientemente y guarda un clon exacto en el disco. Luego setea al bit de presencia en 0 a la pagina guardada en memoria, permitiendo que sea escrita con nueva informacion. Esta informacion suele ser almacenada en una zona especial destinada para este tipo de operaciones. A este proceso se lo llama <strong>pagging</strong>.</p>
 <p>Tambien existe el proceso de <strong>swapping</strong>, que implica guardar en disco todas las páginas de un proceso.</p>
 <h3 id="ejemplo">Ejemplo</h3>
-<p>Nosotros vamos a tomar el tamaño de la pagina como <code>4kb</code>, por lo que un procesador de 32bits, que puede manejar hasta 4 Gb de memoria, va a tener <span class="math inline">\(2^{20}=\frac{2^{32}}{2^{12}}=2^{10}\times 2^{10}\)</span> páginas. Por lo que hay <span class="math inline">\(2^{10}\)</span> grupos de páginas, que cada uno contiene <span class="math inline">\(2^{10}\)</span> páginas.</p>
+<p>Nosotros vamos a tomar el tamaño de la pagina como <code>4kb</code>, por lo que un procesador de 32bits, que puede manejar hasta 4 Gb de memoria, va a tener <span class="math">\(2^{20}=\frac{2^{32}}{2^{12}}=2^{10}\times 2^{10}\)</span> páginas. Por lo que hay <span class="math">\(2^{10}\)</span> grupos de páginas, que cada uno contiene <span class="math">\(2^{10}\)</span> páginas.</p>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>05 - Conversions</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>05 - Conversions.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,202 +1385,292 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="conversions">Conversions</h1>
 <h2 id="between-re-and-fa">Between RE and FA</h2>
 <p>There are several methods to convert a regular expression into a finite automaton.</p>
 <h3 id="method-of-neighbors">Method of Neighbors</h3>
-<p>Also called Glushkov’s method.</p>
-<p>To use this algorithm we need to assign all symbols of the regular expressions a number from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>. Then we will create each of the following sets:</p>
+<p>Also called Glushkov's method.</p>
+<p>To use this algorithm we need to assign all symbols of the regular expressions a number from <span class="math">\(1\)</span> to <span class="math">\(n\)</span>. Then we will create each of the following sets:</p>
 <ul>
-<li><span class="math inline">\(Z\)</span>: This set is also named starter set. It contains all the symbols that can be the first element of a string.</li>
-<li><span class="math inline">\(P\)</span>: Also called set of neighbors, here we store all the possible combinations of two symbols that can be next to each other in any possible string of the language. Later we will use this set to create the transitions.</li>
-<li><span class="math inline">\(Q\)</span>: It is the set of all states. We always have to include the state <span class="math inline">\(q_0\)</span> because we are going to add it manually and all the other states will be the numbers <span class="math inline">\(1,\dots,n\)</span> from before.</li>
-<li><span class="math inline">\(F\)</span>: It is composed of all the symbols that can be the last elements of a string.</li>
+<li><span class="math">\(Z\)</span>: This set is also named starter set. It contains all the symbols that can be the first element of a string.</li>
+<li><span class="math">\(P\)</span>: Also called set of neighbors, here we store all the possible combinations of two symbols that can be next to each other in any possible string of the language. Later we will use this set to create the transitions.</li>
+<li><span class="math">\(Q\)</span>: It is the set of all states. We always have to include the state <span class="math">\(q_0\)</span> because we are going to add it manually and all the other states will be the numbers <span class="math">\(1,\dots,n\)</span> from before.</li>
+<li><span class="math">\(F\)</span>: It is composed of all the symbols that can be the last elements of a string.</li>
 </ul>
-<p>Lastly, we are going to stablish the transition function <span class="math inline">\(\delta\)</span>. First we will connect the new state <span class="math inline">\(q_0\)</span> to all initial states from <span class="math inline">\(Z\)</span>, because the elements are written as <span class="math inline">\(\text{symbol}_{state}\)</span>, this means that we’ll create the following mapping: <span class="math display">\[
+<p>Lastly, we are going to stablish the transition function <span class="math">\(\delta\)</span>. First we will connect the new state <span class="math">\(q_0\)</span> to all initial states from <span class="math">\(Z\)</span>, because the elements are written as <span class="math">\(\text{symbol}_{state}\)</span>, this means that we'll create the following mapping:</p>
+<div class="math">
+\[
 \delta(q_0,\text{symbol}) = \text{state}
-\]</span> Then, we will create the transitions from the set <span class="math inline">\(P\)</span>. Here our elements are written as <span class="math inline">\(\text{letter}_\text{state1}\text{transition}_{\text{state2}}\)</span> and we will map them as: <span class="math display">\[
+\]</div>
+<p>Then, we will create the transitions from the set <span class="math">\(P\)</span>. Here our elements are written as <span class="math">\(\text{letter}_\text{state1}\text{transition}_{\text{state2}}\)</span> and we will map them as:</p>
+<div class="math">
+\[
 \delta(\text{state1},\text{transition}) =\text{state2}
-\]</span> All undefined transitions will be redirected to <span class="math inline">\(\emptyset\)</span>.</p>
-<p>We can also see the algorithm here and it returns a NFA with no <span class="math inline">\(\epsilon\)</span>-transitions:</p>
-<ol type="1">
-<li><p>We need to assign numbers to all symbols in the regular expression <span class="math inline">\(V\)</span>.</p></li>
-<li><p>To create the starter set <span class="math inline">\(Z\)</span> we need to select all the symbols that can be the first element of any resulting string.</p></li>
-<li><p>To create the set of final states <span class="math inline">\(F\)</span> we need to select all the symbols that can be the last element of any resulting string.</p></li>
-<li><p>To create the neighbors set <span class="math inline">\(P\)</span> we need to select all pairs of symbols that can be together in any resulting string.</p></li>
-<li><p>For each pair of symbols in the neighbors set <span class="math inline">\(P\)</span>, we can create the transition functions for our resulting automaton: <span class="math display">\[
+\]</div>
+<p>All undefined transitions will be redirected to <span class="math">\(\emptyset\)</span>.</p>
+<p>We can also see the algorithm here and it returns a NFA with no <span class="math">\(\epsilon\)</span>-transitions:</p>
+<ol>
+<li><p>We need to assign numbers to all symbols in the regular expression <span class="math">\(V\)</span>.</p>
+</li>
+<li><p>To create the starter set <span class="math">\(Z\)</span> we need to select all the symbols that can be the first element of any resulting string.</p>
+</li>
+<li><p>To create the set of final states <span class="math">\(F\)</span> we need to select all the symbols that can be the last element of any resulting string.</p>
+</li>
+<li><p>To create the neighbors set <span class="math">\(P\)</span> we need to select all pairs of symbols that can be together in any resulting string.</p>
+</li>
+<li><p>For each pair of symbols in the neighbors set <span class="math">\(P\)</span>, we can create the transition functions for our resulting automaton:</p>
+<div class="math">
+\[
 \array{a_1b_2 &amp;\Rightarrow &amp;1\overset {b}{\rightarrow} 2}
-\]</span></p></li>
-<li><p>We create the initial state <span class="math inline">\(q_0\)</span> and we connect it to all the symbols in the starter set <span class="math inline">\(Z\)</span>. The transition value is defined by the letter of the symbol: <span class="math display">\[
+\]</div>
+</li>
+<li><p>We create the initial state <span class="math">\(q_0\)</span> and we connect it to all the symbols in the starter set <span class="math">\(Z\)</span>. The transition value is defined by the letter of the symbol:</p>
+<div class="math">
+\[
 \array{a_1 &amp; \Rightarrow&amp; q_0 \overset a \rightarrow 1}
-\]</span></p></li>
-<li><p>We assign the set <span class="math inline">\(F\)</span> to the final states set of the automaton.</p></li>
+\]</div>
+</li>
+<li><p>We assign the set <span class="math">\(F\)</span> to the final states set of the automaton.</p>
+</li>
 </ol>
 <p>The result is a non-deterministic, Homogeneous finite automaton without epsilon transitions.</p>
 <p>We can see now a more formal definition of the algorithm.</p>
-<p><img src="Resources/05 - Convertsions/image-20201031194622538.png" alt="image-20201031194622538" style="zoom:50%;" /></p>
+<img src="Resources/05 - Convertsions/824fca3c-78ab-4fc3-be21-5f3bd975495f.png" alt="824fca3c-78ab-4fc3-be21-5f3bd975495f" style="scale:0.50;" />
 <h3 id="method-of-derivatives">Method of Derivatives</h3>
 <p>This algorithm works using the theorem of <em>Bound of Dissimilarities</em>:</p>
-<blockquote>
+<blockquote class="blockquote">
 <p>Every regular expression has only a finite number of dissimilar derivatives</p>
 </blockquote>
 <p>More specifically, the following corollary:</p>
-<blockquote>
+<blockquote class="blockquote">
 <p>DFA can be constructed from a Regular Expression using the algorithm if only similarity among derivates is recognized.</p>
 </blockquote>
 <p>The main idea of this algorithm is to accumulate unique derivatives in a set until no more expressions are added.</p>
 <p>Each of the expressions in that set will represent a state, where the original expression is the initial state. The final states are decided as the expressions within the set that contain the empty string in the language they represent.</p>
-<p>The transitions are created from the derivation themselves, for example if I have the following set: <span class="math display">\[
+<p>The transitions are created from the derivation themselves, for example if I have the following set:</p>
+<div class="math">
+\[
 U = \{ab,b\}
-\]</span> Then I would have a transition from <span class="math inline">\(ab \overset a {\rightarrow } b\)</span>. This is because: <span class="math display">\[
+\]</div>
+<p>Then I would have a transition from <span class="math">\(ab \overset a {\rightarrow } b\)</span>. This is because:</p>
+<div class="math">
+\[
 \frac {\part ab}{\part a} = b \\
-\]</span> The actual algorithm can be found here:</p>
-<ol type="1">
-<li><p>Create a set that contains only the initial regular expression <span class="math inline">\(V\)</span>: <span class="math display">\[
+\]</div>
+<p>The actual algorithm can be found here:</p>
+<ol>
+<li><p>Create a set that contains only the initial regular expression <span class="math">\(V\)</span>:</p>
+<div class="math">
+\[
 U = \{V\}
-\]</span></p></li>
-<li><p>Differentiate all the regular expressions in the set <span class="math inline">\(U\)</span> by all the symbols in the alphabet. Add all the results to the set <span class="math inline">\(U\)</span>.</p></li>
-<li><p>If no new regular expressions have been added in the past step, continue to the next one. Else, repeat step <span class="math inline">\(2.\)</span></p></li>
-<li><p>The initial state <span class="math inline">\(q_0\)</span> is the input regular expression <span class="math inline">\(V\)</span>.</p></li>
-<li><p>The set of states of the automation is the set <span class="math inline">\(U\)</span>.</p></li>
-<li><p>The transitions are defined by which symbol derives what regular expression.</p></li>
-<li><p>The formulas that can express <span class="math inline">\(\epsilon\)</span> are the final states.</p></li>
+\]</div>
+</li>
+<li><p>Differentiate all the regular expressions in the set <span class="math">\(U\)</span> by all the symbols in the alphabet. Add all the results to the set <span class="math">\(U\)</span>.</p>
+</li>
+<li><p>If no new regular expressions have been added in the past step, continue to the next one. Else, repeat step <span class="math">\(2.\)</span></p>
+</li>
+<li><p>The initial state <span class="math">\(q_0\)</span> is the input regular expression <span class="math">\(V\)</span>.</p>
+</li>
+<li><p>The set of states of the automation is the set <span class="math">\(U\)</span>.</p>
+</li>
+<li><p>The transitions are defined by which symbol derives what regular expression.</p>
+</li>
+<li><p>The formulas that can express <span class="math">\(\epsilon\)</span> are the final states.</p>
+</li>
 </ol>
 <p>The result is a total deterministic finite automaton.</p>
 <p>A more formal version of the algorithm can be found here.</p>
-<p><img src="Resources/05 - Conversions/image-20201113145642693.png" alt="image-20201113145642693" style="zoom: 67%;" /></p>
-<h3 id="thompsons-method">Thompson’s Method</h3>
-<p>Thompson’s method works constructing and merging different automaton. The most basic parts of the automaton are:</p>
+<img src="Resources/05 - Conversions/image-20201113145642693.png" alt="image-20201113145642693" style="zoom: 67%;" />
+<h3 id="thompsons-method">Thompson's Method</h3>
+<p>Thompson's method works constructing and merging different automaton. The most basic parts of the automaton are:</p>
 <ul>
-<li><p><span class="math inline">\(U = \epsilon\)</span>:</p>
-<figure>
-<img src="Resources/05%20-%20Conversions/image-20201113152402800.png" alt="image-20201113152402800" /><figcaption aria-hidden="true">image-20201113152402800</figcaption>
-</figure></li>
-<li><p><span class="math inline">\(U = \emptyset\)</span>:</p>
-<figure>
-<img src="Resources/05%20-%20Conversions/image-20201113152412026.png" alt="image-20201113152412026" /><figcaption aria-hidden="true">image-20201113152412026</figcaption>
-</figure></li>
-<li><p><span class="math inline">\(U = a, \forall a \in \Sigma\)</span>:</p>
-<figure>
-<img src="Resources/05%20-%20Conversions/image-20201113152440407.png" alt="image-20201113152440407" /><figcaption aria-hidden="true">image-20201113152440407</figcaption>
-</figure></li>
-<li><p><span class="math inline">\(U = R + S\)</span></p>
-<figure>
-<img src="Resources/05%20-%20Conversions/image-20201113152534078.png" alt="image-20201113152534078" /><figcaption aria-hidden="true">image-20201113152534078</figcaption>
-</figure></li>
-<li><p><span class="math inline">\(U = R.S\)</span>:</p>
-<figure>
-<img src="Resources/05%20-%20Conversions/image-20201113152553198.png" alt="image-20201113152553198" /><figcaption aria-hidden="true">image-20201113152553198</figcaption>
-</figure></li>
-<li><p><span class="math inline">\(U = R^*\)</span></p>
-<figure>
-<img src="Resources/05%20-%20Conversions/image-20201113153742229.png" alt="image-20201113153742229" /><figcaption aria-hidden="true">image-20201113153742229</figcaption>
-</figure></li>
+<li><p><span class="math">\(U = \epsilon\)</span>:</p>
+<p>![image-20201113152402800](Resources/05 - Conversions/854991a5-b034-41f8-95c7-45c45ae2a63e.png)</p>
+</li>
+<li><p><span class="math">\(U = \emptyset\)</span>:</p>
+<p>![image-20201113152412026](Resources/05 - Conversions/cf823364-3f7a-4ce9-9c08-35890b45a2a9.png)</p>
+</li>
+<li><p><span class="math">\(U = a, \forall a \in \Sigma\)</span>:</p>
+<p>![image-20201113152440407](Resources/05 - Conversions/8e3fb4bd-3868-4848-a100-a4b01a51a9ca.png)</p>
+</li>
+<li><p><span class="math">\(U = R + S\)</span></p>
+<p>![image-20201113152534078](Resources/05 - Conversions/9824cdfb-3d8d-46c6-8f27-55958cef37f2.png)</p>
+</li>
+<li><p><span class="math">\(U = R.S\)</span>:</p>
+<p>![image-20201113152553198](Resources/05 - Conversions/af989087-b3cc-4521-9ff7-4cb826247223.png)</p>
+</li>
+<li><p><span class="math">\(U = R^*\)</span></p>
+<p>![image-20201113153742229](Resources/05 - Conversions/aba3701a-11eb-4a79-958a-92da772f0f9d.png)</p>
+</li>
 </ul>
 <p>After combining all the parts we will obtain a NFA with epsilon transitions.</p>
 <h2 id="between-fa-and-re">Between FA and RE</h2>
 <p>We are using the following theorem:</p>
-<blockquote>
-<p>For every NFA <span class="math inline">\(M\)</span> a regular expression <span class="math inline">\(V\)</span> can be constructed such that: <span class="math display">\[
+<blockquote class="blockquote">
+<p>For every NFA <span class="math">\(M\)</span> a regular expression <span class="math">\(V\)</span> can be constructed such that:</p>
+<div class="math">
+\[
 L(M) = L(V)
-\]</span></p>
+\]</div>
 </blockquote>
-<p>We are also defining an <strong>Extended Finite Automaton (EFA)</strong> <span class="math inline">\(M\)</span> is <span class="math inline">\((Q,\sigma,\gamma,q_0,F)\)</span> where:</p>
+<p>We are also defining an <strong>Extended Finite Automaton (EFA)</strong> <span class="math">\(M\)</span> is <span class="math">\((Q,\sigma,\gamma,q_0,F)\)</span> where:</p>
 <ul>
-<li><p><span class="math inline">\(Q\)</span> is a finite set of states.</p></li>
-<li><p><span class="math inline">\(\Sigma\)</span> is a finite input alphabet.</p></li>
-<li><p><span class="math inline">\(\gamma\)</span> is a mapping function from <span class="math inline">\(Q\times Q \rightarrow R_T\)</span> (<span class="math inline">\(R_T\)</span> is a subset of REs over <span class="math inline">\(\Sigma\)</span>)</p></li>
-<li><p><span class="math inline">\(q_0\)</span> is the initial state, <span class="math inline">\(q_0 \in Q\)</span></p></li>
-<li><p><span class="math inline">\(F\)</span> is the set of final states, <span class="math inline">\(F \subseteq Q\)</span></p>
-<p>If the transition from <span class="math inline">\(p\)</span> to <span class="math inline">\(q\)</span> is not defined, then <span class="math inline">\(\gamma(p,q) = \emptyset~~\forall p,q \in Q\)</span></p></li>
+<li><p><span class="math">\(Q\)</span> is a finite set of states.</p>
+</li>
+<li><p><span class="math">\(\Sigma\)</span> is a finite input alphabet.</p>
+</li>
+<li><p><span class="math">\(\gamma\)</span> is a mapping function from <span class="math">\(Q\times Q \rightarrow R_T\)</span> (<span class="math">\(R_T\)</span> is a subset of REs over <span class="math">\(\Sigma\)</span>)</p>
+</li>
+<li><p><span class="math">\(q_0\)</span> is the initial state, <span class="math">\(q_0 \in Q\)</span></p>
+</li>
+<li><p><span class="math">\(F\)</span> is the set of final states, <span class="math">\(F \subseteq Q\)</span></p>
+<p>If the transition from <span class="math">\(p\)</span> to <span class="math">\(q\)</span> is not defined, then <span class="math">\(\gamma(p,q) = \emptyset~~\forall p,q \in Q\)</span></p>
+</li>
 </ul>
-<blockquote>
-<p>Let <span class="math inline">\(M = (Q,\Sigma,\gamma,q_0,F)\)</span> be an EFA. Assume that <span class="math inline">\(q\in Q\)</span> is neither a start state or a final state, then the equivalent EFA is <span class="math inline">\(M&#39; = (Q \setminus \{q\},\Sigma,\gamma&#39;,q_0,F )\)</span> where the mapping <span class="math inline">\(\gamma&#39;\)</span> is defined for every pair <span class="math inline">\(p,r \in (Q\setminus\{q\})\)</span> as: <span class="math display">\[
-\gamma&#39;(p,r) = \gamma(p,r) + \gamma(p,q)\gamma(q,q)^*\gamma(q,r)
-\]</span></p>
+<blockquote class="blockquote">
+<p>Let <span class="math">\(M = (Q,\Sigma,\gamma,q_0,F)\)</span> be an EFA. Assume that <span class="math">\(q\in Q\)</span> is neither a start state or a final state, then the equivalent EFA is <span class="math">\(M' = (Q \setminus \{q\},\Sigma,\gamma',q_0,F )\)</span> where the mapping <span class="math">\(\gamma'\)</span> is defined for every pair <span class="math">\(p,r \in (Q\setminus\{q\})\)</span> as:</p>
+<div class="math">
+\[
+\gamma'(p,r) = \gamma(p,r) + \gamma(p,q)\gamma(q,q)^*\gamma(q,r)
+\]</div>
 </blockquote>
 <h3 id="elimination-of-states">Elimination of States</h3>
-<p>Elimination of States works by removing states on the NFA and replacing them with regular expressions that represent that state. To work with this algorithm we need to create a new initial state is connected using an <span class="math inline">\(\epsilon\)</span>-transition to the previous initial state. In the same way, we need to connect all the final states to a new final state using <span class="math inline">\(\epsilon\)</span>-transitions. In the end we should only have the new initial and final states that we just created.</p>
-<p>Here’s the algorithm:</p>
-<ol type="1">
-<li><p>We add the states <span class="math inline">\(q&#39;\)</span> and <span class="math inline">\(f&#39;\)</span> as the initial and final states to the automaton. We also add <span class="math inline">\(\epsilon\)</span>-transitions from <span class="math inline">\(q&#39;\)</span> to the previous initial state <span class="math inline">\(q_0\)</span> and from the previous final states to <span class="math inline">\(f&#39;\)</span>.</p></li>
-<li><p>One by one we remove states from the automaton in the following ways: $$  $$</p></li>
-<li><p>The resulting regular expression between <span class="math inline">\(q&#39;\)</span> and <span class="math inline">\(f&#39;\)</span> is the output of the algorithm: <span class="math display">\[
-q&#39; \overset V \rightarrow f&#39;
-\]</span></p></li>
+<p>Elimination of States works by removing states on the NFA and replacing them with regular expressions that represent that state. To work with this algorithm we need to create a new initial state is connected using an <span class="math">\(\epsilon\)</span>-transition to the previous initial state. In the same way, we need to connect all the final states to a new final state using <span class="math">\(\epsilon\)</span>-transitions. In the end we should only have the new initial and final states that we just created.</p>
+<p>Here's the algorithm:</p>
+<ol>
+<li><p>We add the states <span class="math">\(q'\)</span> and <span class="math">\(f'\)</span> as the initial and final states to the automaton. We also add <span class="math">\(\epsilon\)</span>-transitions from <span class="math">\(q'\)</span> to the previous initial state <span class="math">\(q_0\)</span> and from the previous final states to <span class="math">\(f'\)</span>.</p>
+</li>
+<li><p>One by one we remove states from the automaton in the following ways:</p>
+<div class="math">
+\[
+\array{A \overset 1 \rightarrow B \overset 0 \rightarrow C &amp; \Rightarrow &amp; A \overset{10}\rightarrow C\\
+
+A \overset 1 \rightarrow B  \overset 2\lrarr B \overset 0 \rightarrow C &amp; \Rightarrow &amp;A \overset {12^*0} \rightarrow C \\
+C \overset 2\leftarrow A \overset 1 \rightarrow B \overset 0 \rightarrow C &amp; \Rightarrow &amp; A\overset {10+2}\rightarrow C
+}
+\]</div>
+</li>
+<li><p>The resulting regular expression between <span class="math">\(q'\)</span> and <span class="math">\(f'\)</span> is the output of the algorithm:</p>
+<div class="math">
+\[
+q' \overset V \rightarrow f'
+\]</div>
+</li>
 </ol>
 <p>We can also remove all useless or unnecessary states.</p>
 <p>A more formal version of the algorithm can be found here:</p>
-<p><img src="Resources/05 - Conversions/image-20201113155818779.png" alt="image-20201113155818779" style="zoom:67%;" /></p>
+<img src="Resources/05 - Conversions/b8df19fb-4487-4431-ba8d-10415ec6f59f.png" alt="b8df19fb-4487-4431-ba8d-10415ec6f59f" style="scale:0.67;" />
 <h3 id="solution-of-regular-equations">Solution of Regular Equations</h3>
-<p>The idea on this algorithm is to create regular equations from the automaton and them solve them, creating the Regular Expression. For this we have to take into considerations all transitions from a state. For example, if the state A has a transition to state B with the action 1 and to itself with the action 2, we get the following regular expression: <span class="math display">\[
+<p>The idea on this algorithm is to create regular equations from the automaton and them solve them, creating the Regular Expression. For this we have to take into considerations all transitions from a state. For example, if the state A has a transition to state B with the action 1 and to itself with the action 2, we get the following regular expression:</p>
+<div class="math">
+\[
 X_A = X_A2 + X_B2
-\]</span> If the state is also final, then we have to add <span class="math inline">\(+ ~\epsilon\)</span>.</p>
-<p>All we have to do now is to solve all the regular equations and express the resulting regular expression as: <span class="math display">\[
+\]</div>
+<p>If the state is also final, then we have to add <span class="math">\(+ ~\epsilon\)</span>.</p>
+<p>All we have to do now is to solve all the regular equations and express the resulting regular expression as:</p>
+<div class="math">
+\[
 V \leftarrow X_{p_1} + X_{p_2}+ \dots + X_{p_i}~~~\forall p_i \in F
-\]</span> Here is the formal algorithm:</p>
-<p><img src="Resources/05 - Conversions/image-20201113161909928.png" alt="image-20201113161909928" style="zoom:67%;" /></p>
+\]</div>
+<p>Here is the formal algorithm:</p>
+<img src="Resources/05 - Conversions/d9786b23-6c0c-4a2f-b8e6-67462c402100.png" alt="d9786b23-6c0c-4a2f-b8e6-67462c402100" style="scale:0.67;" />
 <h2 id="between-rg-and-re">Between RG and RE</h2>
 <h3 id="regular-equation">Regular Equation</h3>
-<p>We can convert the production rules of the grammar into regular equations and then solve the system. This conversion works in the following way: <span class="math display">\[
+<p>We can convert the production rules of the grammar into regular equations and then solve the system. This conversion works in the following way:</p>
+<div class="math">
+\[
 \array{
 S\rightarrow bS |aA &amp; \Rightarrow &amp; S= bS + aA\\
 A \rightarrow aA &amp; \Rightarrow &amp; A = aA + \emptyset = \emptyset
 }
-\]</span></p>
+\]</div>
 <h3 id="non-terminal-elimination">Non-Terminal Elimination</h3>
 <p>This method is very similar to the elimination of states and it follows this algorithm:</p>
-<ol type="1">
-<li><p>Add states <span class="math inline">\(q&#39;\)</span> and <span class="math inline">\(f&#39;\)</span> as the new initial and final states of the automaton.</p></li>
-<li><p>Connect all the terminal states to <span class="math inline">\(f&#39;\)</span> and <span class="math inline">\(q&#39;\)</span> to the initial state with <span class="math inline">\(\epsilon\)</span>-transitions</p></li>
-<li><p>For each non-terminal symbol we remove them in the following way: <span class="math display">\[
+<ol>
+<li><p>Add states <span class="math">\(q'\)</span> and <span class="math">\(f'\)</span> as the new initial and final states of the automaton.</p>
+</li>
+<li><p>Connect all the terminal states to <span class="math">\(f'\)</span> and <span class="math">\(q'\)</span> to the initial state with <span class="math">\(\epsilon\)</span>-transitions</p>
+</li>
+<li><p>For each non-terminal symbol we remove them in the following way:</p>
+<div class="math">
+\[
 \array{S \rightarrow A1|A2 &amp; \Rightarrow &amp; S\rightarrow A(1+2)}
-\]</span> ## Between RE and RG</p></li>
+\]</div>
+</li>
 </ol>
+<h2 id="between-re-and-rg">Between RE and RG</h2>
 <h3 id="method-of-derivatives-1">Method of derivatives</h3>
 <p>Here we go through the same procedure as in the method of derivatives for the conversion from RE to FA.</p>
 <h3 id="method-of-incremental-construction">Method of Incremental Construction</h3>
-<p>This method is similar to Thompson’s method but with the following predefined grammars: <span class="math display">\[
+<p>This method is similar to Thompson's method but with the following predefined grammars:</p>
+<div class="math">
+\[
 \array{G_\epsilon = (\{s\},\emptyset,\{S\rightarrow \epsilon\},S)\\
 G_\emptyset = (\{S\},\emptyset,\emptyset,S)\\
 G_a = (\{S\},\{a\},\{S\rightarrow a\},S)}
-\]</span> Another change here are the operations. The standard operations for grammars are defined as: <span class="math display">\[
+\]</div>
+<p>Another change here are the operations. The standard operations for grammars are defined as:</p>
+<div class="math">
+\[
 \array{
 A + B &amp;= &amp;G(A) \cup G(B)\\
 AB &amp;=&amp; G(A).G(B) \\
 A^* &amp;=&amp; G(A)^*
 }
-\]</span></p>
+\]</div>
 <h2 id="between-rg-and-fa">Between RG and FA</h2>
 <p>There only is one conversion between regular grammars and finite automata. We need to follow this algorithm:</p>
-<ol type="1">
-<li><p>For each non-terminal symbol in the grammar we create a new non-final state in the automaton.</p></li>
-<li><p>We create one final state <span class="math inline">\(K\)</span></p></li>
-<li><p>If there is an <span class="math inline">\(\epsilon\)</span>-rule with the start symbol in the left-hand side, the initial state is also final.</p></li>
-<li><p>For each production rule we add a transition in the following way: <span class="math display">\[
+<ol>
+<li><p>For each non-terminal symbol in the grammar we create a new non-final state in the automaton.</p>
+</li>
+<li><p>We create one final state <span class="math">\(K\)</span></p>
+</li>
+<li><p>If there is an <span class="math">\(\epsilon\)</span>-rule with the start symbol in the left-hand side, the initial state is also final.</p>
+</li>
+<li><p>For each production rule we add a transition in the following way:</p>
+<div class="math">
+\[
 \array{A\rightarrow aB &amp;\Rightarrow &amp;  A \overset a \rightarrow B \\
    A \rightarrow a &amp; \Rightarrow &amp; A \overset a \rightarrow K \\
    A \rightarrow b|aB &amp; \Rightarrow &amp; B \overset a \leftarrow A \overset b \rightarrow K
   }
-\]</span></p></li>
+\]</div>
+</li>
 </ol>
 <h2 id="between-fa-and-rg">Between FA and RG</h2>
 <p>This algorithm is the reverse as the conversion from RG to FA:</p>
-<ol type="1">
-<li><p>For each state in the automaton we create a non-terminal symbol.</p></li>
-<li><p>The non-terminal symbol that corresponds to the initial state is the starting symbol.</p></li>
-<li><p>For each transition we add a new production rule in the following way: <span class="math display">\[
+<ol>
+<li><p>For each state in the automaton we create a non-terminal symbol.</p>
+</li>
+<li><p>The non-terminal symbol that corresponds to the initial state is the starting symbol.</p>
+</li>
+<li><p>For each transition we add a new  production rule in the following way:</p>
+<div class="math">
+\[
 \array{
    A \overset a \rightarrow B &amp; \Rightarrow &amp;A \rightarrow aB\\
    A \overset a \rightarrow |B| &amp; \Rightarrow &amp; A \rightarrow a| aB
    }
-\]</span> Where <span class="math inline">\(|B|\)</span> means that <span class="math inline">\(B\)</span> is a final state</p></li>
-<li><p>If the initial state is also final, we need to add an <span class="math inline">\(\epsilon\)</span>-rule to the initial state.</p></li>
+\]</div>
+<p>Where <span class="math">\(|B|\)</span> means that <span class="math">\(B\)</span> is a final state</p>
+</li>
+<li><p>If the initial state is also final, we need to add an <span class="math">\(\epsilon\)</span>-rule to the initial state.</p>
+</li>
 </ol>
-<p>This may transform the grammar into a non-regular one and in that case we need to fix it by adding a new rule and initial state: $$ </p>
-<p>$$</p>
+<p>This may transform the grammar into a non-regular one and in that case we need to fix it by adding a new rule and initial state:</p>
+<div class="math">
+\[
+\array{\array{S \rightarrow \epsilon|aS|\dots\\A \rightarrow bS|\dots\\\vdots} &amp;\Rightarrow &amp; \array{S' \rightarrow \epsilon | aS|a|\dots\\
+   S \rightarrow aS|a|\dots\\
+   A \rightarrow bS|b|\dots\\
+   \vdots
+   }}
+  
+\]</div>
+
 </body>
 </html>

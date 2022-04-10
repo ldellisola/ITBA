@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>06 - Solving Normal Form Games</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>06 - Solving Normal Form Games.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,99 +1385,175 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="solving-normal-form-games">Solving Normal-Form Games</h1>
-<p>Given <span class="math inline">\(\mathcal G =(\mathcal N, \mathcal A,u)\)</span> a normal form game, we can define the set of <strong>mixed strategies</strong> <span class="math inline">\(\mathcal S_i\)</span> for player <span class="math inline">\(i\)</span> as the set of all probability distributions over <span class="math inline">\(\mathcal A_i\)</span>, <span class="math inline">\(\mathcal S_i = \Delta(\mathcal A_i)\)</span>.</p>
-<p>The player then will select a pure strategy according to the probability distribution. In this cases we’ll extend the utility function to correspond with the expected utility: <span class="math display">\[
+<p>Given <span class="math">\(\mathcal G =(\mathcal N, \mathcal A,u)\)</span> a normal form game, we can define the set of <strong>mixed strategies</strong> <span class="math">\(\mathcal S_i\)</span> for player <span class="math">\(i\)</span> as the set of all probability distributions over <span class="math">\(\mathcal A_i\)</span>, <span class="math">\(\mathcal S_i = \Delta(\mathcal A_i)\)</span>.</p>
+<p>The player then will select a pure strategy according to the probability distribution. In this cases we'll extend the utility function to correspond with the expected utility:</p>
+<div class="math">
+\[
 u_i(s) = \sum_{a\in A} u_i(a) \prod_{j\in \mathcal N} s_j(a_j) 
-\]</span> We can also extend our existing concepts (<em>dominance, best response, nash equilibrium</em>) to mixed strategies, where the only difference is that now we are using the new utility function.</p>
+\]</div>
+<p>We can also extend our existing concepts (<em>dominance, best response, nash equilibrium</em>) to mixed strategies, where the only difference is that now we are using the new utility function.</p>
 <h2 id="nash-equilibrium">Nash Equilibrium</h2>
 <p>In mixed strategies, we have the <strong>Nash Theorem</strong> that says that every game with finite number of player and action profiles has at least one Nash equilibrium.</p>
-<p>The <strong>support</strong> of a mixed strategy <span class="math inline">\(s_i\)</span> for player <span class="math inline">\(i\)</span> is the set of pure strategies: <span class="math display">\[
+<p>The <strong>support</strong> of a mixed strategy <span class="math">\(s_i\)</span> for player <span class="math">\(i\)</span> is the set of pure strategies:</p>
+<div class="math">
+\[
 \text{Supp}(s_i)=\{a_i/s_i(a_i) &gt; 0\}
-\]</span> Let <span class="math inline">\(s\in \mathcal S\)</span> be a Nash equilibrium and <span class="math inline">\(a_i,a_i&#39; \in \mathcal A_i\)</span> actions from the support of <span class="math inline">\(s_i\)</span>: <span class="math display">\[
-u_i(a_i,s_{-i}) = u_i(a_i&#39;,s_{-i})
-\]</span> We can use this to find the the Nash equilibrium. I will explain it with the following example:</p>
-<p><img src="Resources/Untitled/image-20201028120612729.png" alt="image-20201028120612729" style="zoom:50%;" /></p>
-<p>We will compute the strategy for player 2 (column player). He can play <span class="math inline">\(L\)</span> with probability <span class="math inline">\(p\)</span> and <span class="math inline">\(R\)</span> with probability <span class="math inline">\(1-p\)</span>. Because of the previous corollary, we can say that the Nash equilibrium exists when: <span class="math display">\[
+\]</div>
+<p>Let <span class="math">\(s\in \mathcal S\)</span> be a Nash equilibrium and <span class="math">\(a_i,a_i' \in \mathcal A_i\)</span> actions from the support of <span class="math">\(s_i\)</span>:</p>
+<div class="math">
+\[
+u_i(a_i,s_{-i}) = u_i(a_i',s_{-i})
+\]</div>
+<p>We can use this to find the the Nash equilibrium. I will explain it with the following example:</p>
+<img src="Resources/Untitled/7d65cd7f-5f6f-4858-9972-2a1cc4ff6927.png" alt="7d65cd7f-5f6f-4858-9972-2a1cc4ff6927" style="scale:0.50;" />
+<p>We will compute the strategy for player 2 (column player). He can play <span class="math">\(L\)</span> with probability <span class="math">\(p\)</span> and <span class="math">\(R\)</span> with probability <span class="math">\(1-p\)</span>. Because of the previous corollary, we can say that the Nash equilibrium exists when:</p>
+<div class="math">
+\[
 \mathbb E u_1(U)= \mathbb E u_1(D) \\
 2p + 0(1-p) = 0p + 1(1-p) \\
 p= \frac 1 3
-\]</span> If we do the same with player one, we’ll find that there are 2 equilibriums at <span class="math inline">\([(\frac 2 3,\frac 1 3);(\frac 1 3,\frac 2 3)]\)</span>. This is calculated using the probabilities obtained previously. We know that player <span class="math inline">\(2\)</span> has probability <span class="math inline">\(p\)</span> and we can calculate the probability for player <span class="math inline">\(1\)</span> with <span class="math inline">\(q\)</span>. This will result in the mixed strategies: <span class="math display">\[
+\]</div>
+<p>If we do the same with player one, we'll find that there are 2 equilibriums at <span class="math">\([(\frac 2 3,\frac 1 3);(\frac 1 3,\frac 2 3)]\)</span>. This is calculated using the probabilities obtained previously. We know that player <span class="math">\(2\)</span> has probability <span class="math">\(p\)</span> and we can calculate the probability for player <span class="math">\(1\)</span> with <span class="math">\(q\)</span>. This will result in the mixed strategies:</p>
+<div class="math">
+\[
 \array{
 \text{player 1}&amp; (q,1-q)\\
 \text{player 2}&amp; (p,1-p)
 }
-\]</span> In games with more actions we cannot directly apply this method, but we can try to remove dominated strategies and search for a possible support.</p>
+\]</div>
+<p>In games with more actions we cannot directly apply this method, but we can try to remove dominated strategies and search for a possible support.</p>
 <h3 id="the-equilibrium-selection-problem">The Equilibrium Selection Problem</h3>
 <p>When there are multiple Nash equilibriums in a game, how do we know which one the player should play?</p>
-<p>Because playing the Nash strategy doesn’t guarantee the outcome, we have to use other methods that seek to maximize the outcome.</p>
-<p>One of these methods is called <strong>MaxMin</strong> and it tries to play conservative strategies to be protected against a worst case action from the opponent. The <strong>maxmin strategy</strong> for player <span class="math inline">\(i\)</span> is defined as: <span class="math display">\[
+<p>Because playing the Nash strategy doesn't guarantee the outcome, we have to use other methods that seek to maximize the outcome.</p>
+<p>One of these methods is called <strong>MaxMin</strong> and it tries to play conservative strategies to be protected against a worst case action from the opponent. The <strong>maxmin strategy</strong> for player <span class="math">\(i\)</span> is defined as:</p>
+<div class="math">
+\[
 {\arg \max}_{s_i} \min_{s_{-i}} u_i(s_i,s_{-i})
-\]</span> We can also define the <strong>maxmin value</strong> for player <span class="math inline">\(i\)</span> as <span class="math display">\[
+\]</div>
+<p>We can also define the <strong>maxmin value</strong> for player <span class="math">\(i\)</span> as</p>
+<div class="math">
+\[
 \max_{s_i} \min_{s_{-i}} u_i(s_i,s_{-i})
-\]</span> The other method is called <strong>Minmax</strong> and it tries to maximize punishment for strategies of the other platers. The <strong>minmax strategy</strong> for player <span class="math inline">\(i\)</span> is defined as: <span class="math display">\[
+\]</div>
+<p>The other method is called <strong>Minmax</strong> and it tries to maximize punishment for strategies of the other platers. The <strong>minmax strategy</strong> for player <span class="math">\(i\)</span> is defined as:</p>
+<div class="math">
+\[
 {\arg \min}_{s_i} \max_{s_{-i}} u_{-i}(s_i,s_{-i})
-\]</span> We can also define the <strong>minmax value</strong> for player <span class="math inline">\(i\)</span> as <span class="math display">\[
+\]</div>
+<p>We can also define the <strong>minmax value</strong> for player <span class="math">\(i\)</span> as</p>
+<div class="math">
+\[
 \min{s_i} \max_{s_{-i}} u_{-i}(s_i,s_{-i})
-\]</span> According to <strong>Von Neumann’s Minimax Theorem</strong>:</p>
-<blockquote>
-<p>In any finite, two-player zero-sum game, in any Nash equilibrium each player receives a payoff that’s equal to both his maxmin value and the minimax value of his opponent.</p>
+\]</div>
+<p>According to <strong>Von Neumann's Minimax Theorem</strong>:</p>
+<blockquote class="blockquote">
+<p>In any finite, two-player zero-sum game, in any Nash equilibrium each player receives a payoff that's equal to both his maxmin value and the minimax value of his opponent.</p>
 </blockquote>
 <p>This has the following consequences:</p>
 <ul>
-<li><p><span class="math inline">\(\max_{s_i} \min_{s_{-i}} u_i(s_i,s_{-i}) = \min_{s_{-i}} \max_{s_i}u_i(s_i,s_{-i})\)</span></p></li>
-<li><p>We can safely play Nash strategies in zero-sum games.</p></li>
-<li><p>All Nash equilibria have the same payoff.</p></li>
+<li><p>$\max_ \min_{s_{-i}} u_i(s_i,s_{-i}) = \min_{s_{-i}} \max_u_i(s_i,s_{-i}) $</p>
+</li>
+<li><p>We can safely play Nash strategies in zero-sum games.</p>
+</li>
+<li><p>All Nash equilibria have the same payoff.</p>
+</li>
 </ul>
 <h3 id="calculating-nash-equilibrium-games">Calculating Nash Equilibrium Games</h3>
-<p>We use Linear programing to compute Nash equilibrium for a two-player, <strong>zero-sum</strong> game: <span class="math display">\[
+<p>We use Linear programing to compute Nash equilibrium for a two-player, <strong>zero-sum</strong> game:</p>
+<div class="math">
+\[
 \array{
-    (1) &amp;&amp; \max_{s,U} U \\
-    (2) &amp;&amp; \sum_{a_1\in \mathcal A_1}s(a_1)u_1(a_1,a_2) \ge U~~\forall a_2 \in \mathcal A_2 \\
-    (3) &amp;&amp; \sum_{a_1 \in \mathcal A_1} s(a_1) = 1 \\
-    (4) &amp;&amp; s(a_1) \ge 0~~\forall a_1 \in \mathcal A_1
+	(1) &amp;&amp; \max_{s,U} U \\
+	(2) &amp;&amp; \sum_{a_1\in \mathcal A_1}s(a_1)u_1(a_1,a_2) \ge U~~\forall a_2 \in \mathcal A_2 \\
+	(3) &amp;&amp; \sum_{a_1 \in \mathcal A_1} s(a_1) = 1 \\
+	(4) &amp;&amp; s(a_1) \ge 0~~\forall a_1 \in \mathcal A_1
 }
-\]</span> With this strategy, Nash equilibrium can be computed in polynomial time.</p>
-<p>In <strong>general-sum</strong> games, we can also use linear programing, but it is more complex: $$ \ q(a_1) , w(a_2) , s_1(a_1) , s_2(a_2)  ~~a_1A_1, a_2 A_2 \ s_1(a_1) q(a_1) = 0, s_2(a_2) w(a_2) = 0 ~~ a_1A_1, a_2 A_2 $$ This problem gets more complicated as you add more players.</p>
+\]</div>
+<p>With this strategy, Nash equilibrium can be computed in polynomial time.</p>
+<p>In <strong>general-sum</strong> games, we can also use linear programing, but it is more complex:</p>
+<div class="math">
+\[
+\array{
+(1) &amp;&amp; \sum_{a_2 \in \mathcal A_2} u_1(a_1,a_2) s_2(a_2) + q(a_1) = U_1	~~ \forall a_1 \in A_1\\
+
+(2) &amp;&amp; \sum_{a_1\in \mathcal A_1} u_2(a_1,a_2) s_1(a_1) + w(a_1) = U_2	~~ \forall a_2 \in A_2 \\
+
+(3) &amp;&amp; \sum_{a_1 \in \mathcal A_1 } s_1(a_1) = 1\\
+(4) &amp;&amp; \sum_{a_2 \in \mathcal A_2 } s_2(a_2) = 1\\
+}\\
+q(a_1) \ge 0, w(a_2) \ge 0, s_1(a_1) \ge 0, s_2(a_2) \ge 0 ~~\forall a_1\in \mathcal A_1, \forall a_2 \in \mathcal A_2 \\
+s_1(a_1) \times q(a_1) = 0, s_2(a_2) \times w(a_2) = 0 ~~ \forall a_1\in \mathcal A_1, \forall a_2 \in \mathcal A_2 
+\]</div>
+<p>This problem gets more complicated as you add more players.</p>
 <h3 id="regret">Regret</h3>
-<p>The concept of regret is useful when the other players are not playing completely malicious. By definition, a player <span class="math inline">\(i\)</span>’s regret for playing an action <span class="math inline">\(a_i\)</span> if the other agents adopt action profile <span class="math inline">\(a_{-i}\)</span> is defined as: <span class="math display">\[
-\left[ \max_{a&#39;_j \in \mathcal A_i} u_i(a&#39;_i,a_{-i}) \right] - u_i(a_i,a_{-i})
-\]</span> A player <span class="math inline">\(i\)</span>’s <strong>maximum regret</strong> for playing an action <span class="math inline">\(a_i\)</span> is defined as: <span class="math display">\[
-\max_{a_{-i} \in \mathcal A_{-i}} \left(\left[ \max_{a&#39;_j \in \mathcal A_i} u_i(a&#39;_i,a_{-i}) \right] - u_i(a_i,a_{-i})\right)
-\]</span> In a similar fashion, <strong>minimax regret</strong> actions for player <span class="math inline">\(i\)</span> are defined as: <span class="math display">\[
-\arg \min_{a_i\in \mathcal A_i} \max_{a_{-i} \in \mathcal A_{-i}} \left(\left[ \max_{a&#39;_j \in \mathcal A_i} u_i(a&#39;_i,a_{-i}) \right] - u_i(a_i,a_{-i})\right)
-\]</span></p>
+<p>The concept of regret is useful when the other players are not playing completely malicious. By definition, a player <span class="math">\(i\)</span>'s regret for playing an action <span class="math">\(a_i\)</span> if the other agents adopt action profile <span class="math">\(a_{-i}\)</span> is defined as:</p>
+<div class="math">
+\[
+\left[ \max_{a'_j \in \mathcal A_i} u_i(a'_i,a_{-i}) \right] - u_i(a_i,a_{-i})
+\]</div>
+<p>A player <span class="math">\(i\)</span>'s <strong>maximum regret</strong> for playing an action <span class="math">\(a_i\)</span> is defined as:</p>
+<div class="math">
+\[
+\max_{a_{-i} \in \mathcal A_{-i}} \left(\left[ \max_{a'_j \in \mathcal A_i} u_i(a'_i,a_{-i}) \right] - u_i(a_i,a_{-i})\right)
+\]</div>
+<p>In a similar fashion, <strong>minimax regret</strong> actions for player <span class="math">\(i\)</span> are defined as:</p>
+<div class="math">
+\[
+\arg \min_{a_i\in \mathcal A_i} \max_{a_{-i} \in \mathcal A_{-i}} \left(\left[ \max_{a'_j \in \mathcal A_i} u_i(a'_i,a_{-i}) \right] - u_i(a_i,a_{-i})\right)
+\]</div>
 <h2 id="correlated-equilibrium">Correlated Equilibrium</h2>
-<p>In a normal-form game <span class="math inline">\(\mathcal G = (\mathcal N,\mathcal A,u)\)</span> and let <span class="math inline">\(\sigma\)</span> be a probability distribution over joint pure strategy profiles, <span class="math inline">\(\sigma \in \Delta(\mathcal A)\)</span>. We say that <span class="math inline">\(\sigma\)</span> is a <strong>correlated equilibrium</strong> if for every player <span class="math inline">\(i\)</span>, every signal <span class="math inline">\(a_i \in \mathcal A_i\)</span> and every possible action <span class="math inline">\(a_i&#39; \in \mathcal A_i\)</span> it holds: <span class="math display">\[
+<p>In a normal-form game <span class="math">\(\mathcal G = (\mathcal N,\mathcal A,u)\)</span> and let <span class="math">\(\sigma\)</span> be a probability distribution over joint pure strategy profiles, <span class="math">\(\sigma \in \Delta(\mathcal A)\)</span>. We say that <span class="math">\(\sigma\)</span> is a <strong>correlated equilibrium</strong> if for every player <span class="math">\(i\)</span>, every signal <span class="math">\(a_i \in \mathcal A_i\)</span> and every possible action <span class="math">\(a_i' \in \mathcal A_i\)</span> it holds:</p>
+<div class="math">
+\[
 \sum_{a_{-i} \in \mathcal A_{-i}} \sigma(a_i,a_{-i})u_i(a_i,a_{-i})
 \ge 
-\sum_{a_{-i} \in \mathcal A_{-i}} \sigma(a_i,a_{-i})u_i(a_i&#39;,a_{-i})
-\]</span> <u>The intuitive idea behind correlated equilibrium is that you have a randomizing factor that recommends actions to agents such that no agent wants to deviate.</u></p>
+\sum_{a_{-i} \in \mathcal A_{-i}} \sigma(a_i,a_{-i})u_i(a_i',a_{-i})
+\]</div>
+<p><u>The intuitive idea behind correlated equilibrium is that you have a randomizing factor that recommends actions to agents such that no agent wants to deviate.</u></p>
 <p>For every Nash equilibrium there exists a corresponding Correlated Equilibrium.</p>
-<p>We can compute the correlated equilibrium using linear programing: <span class="math display">\[
+<p>We can compute the correlated equilibrium using linear programing:</p>
+<div class="math">
+\[
 \array{
-(1) &amp;&amp; \sum_{a_{-i} \in \mathcal A _{-i}} \sigma(a_i,a_{-i}) u_i(a_i,a_{-i}) \ge \sum_{a_{-i} \in \mathcal A _{-i}} \sigma(a_i,a_{-i}) u_i(a_i&#39;,a_{-i}) \\
-&amp;&amp;\forall i \in \mathcal N, \forall a_i,a_i&#39; \in \mathcal A_i \\
+(1) &amp;&amp; \sum_{a_{-i} \in \mathcal A _{-i}} \sigma(a_i,a_{-i}) u_i(a_i,a_{-i}) \ge \sum_{a_{-i} \in \mathcal A _{-i}} \sigma(a_i,a_{-i}) u_i(a_i',a_{-i}) \\
+&amp;&amp;\forall i \in \mathcal N, \forall a_i,a_i' \in \mathcal A_i \\
 (2) &amp;&amp; \sum_{a\in \mathcal A} \sigma(a) \ge 0 \\
 &amp;&amp; \sigma(a) \ge 0, \forall a \in \mathcal A
 }
-\]</span></p>
+\]</div>
 <h2 id="stackelberg-equilibrium">Stackelberg Equilibrium</h2>
 <p>An Stackelberg Equilibrium is a strategy profile that works with the following conditions:</p>
 <ul>
 <li>One agent is the <strong>leader</strong>, who publicly commits to a strategy.</li>
 <li>The other agents are the <strong>followers</strong>, that play a Nash equilibrium with respect to the commitment of the leader.</li>
 </ul>
-<p>This strategy profile works towards maximizing the expected utility value of the leader: <span class="math display">\[
+<p>This strategy profile works towards maximizing the expected utility value of the leader:</p>
+<div class="math">
+\[
 \underset {s\in \mathcal S, \forall i \in \mathcal N\setminus\{1\}, s_i \in BR_i(s_{-i})} {\arg \max} u_1(s)
-\]</span> Because there may be multiple Nash equilibria, the followers need to break the tie and decide for one in an arbitrary, but well stablished way. From this we can derive two types of Stackelberg equilibriums:</p>
+\]</div>
+<p>Because there may be multiple Nash equilibria, the followers need to break the tie and decide for one in an arbitrary, but well stablished way. From this we can derive two types of Stackelberg equilibriums:</p>
 <ul>
-<li><strong>Strong SE</strong>: the followers select the Nash Equilibrium that maximized the outcome of the leader. All SE that don’t require tie breaks are strong.</li>
+<li><strong>Strong SE</strong>: the followers select the Nash Equilibrium that maximized the outcome of the leader. All SE that don't require tie breaks are strong.</li>
 <li><strong>Weak SE</strong>: The followers will select an equilibrium that minimizes the outcome of the leader.</li>
 </ul>
-<p>The problem is polynomial for two players where player 1 is the leader and 2 is the follower. The baseline polynomial algorithm requires solving <span class="math inline">\(|\mathcal A_2|\)</span> linear programs: $$  $$ one for each <span class="math inline">\(a_2 \in \mathcal A_2\)</span> assuming <span class="math inline">\(a_2\)</span> is the best response of the follower.</p>
+<p>The problem is polynomial for two players where player 1 is the leader and 2 is the follower. The baseline polynomial algorithm requires solving <span class="math">\(|\mathcal A_2|\)</span> linear programs:</p>
+<div class="math">
+\[
+\array{
+(1) &amp;&amp; \max_{s_i \in \mathcal S_ 1} \sum_{a_1 \in \mathcal A_1} s_1(a_1) u_1(a_1,a_2)\\
+(2) &amp;&amp; \sum_{a_1 \in \mathcal A_1} s_1(a_1) u_1(a_1,a_2) 
+\ge \sum_{a_1 \in \mathcal A_1} s_1(a_1) u_1(a_1,a_2') &amp; \forall a_2' \in \mathcal A_2\\
+(3) &amp;&amp;\sum_{a_1\in \mathcal A_1} s_1(a_1) = 1
+
+}
+\]</div>
+<p>one for each <span class="math">\(a_2 \in \mathcal A_2\)</span> assuming <span class="math">\(a_2\)</span> is the best response of the follower.</p>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>13 - Complejidad</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>13 - Complejidad.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="complejidad">Complejidad</h1>
@@ -1532,143 +1395,185 @@ blockquote {
 <li><strong>Temporal</strong>: Cuanto tiempo tarda en ejecutarse el algoritmo.</li>
 <li><strong>Capacidad</strong>: Cuanta memoria ocupa.</li>
 </ul>
-<p>En este caso vamos a ver la complejidad temporal, y la vamos a calcular en funcion de la longitud de la entrada <span class="math inline">\(f(N)\)</span> y para cada entrada podemos tener un:</p>
-<ol type="1">
+<p>En este caso vamos a ver la complejidad temporal, y la vamos a calcular en funcion de la longitud de la entrada <span class="math">\(f(N)\)</span> y para cada entrada podemos tener un:</p>
+<ol>
 <li><u>Mejor caso</u></li>
 <li><u>Peor caso</u></li>
 <li><u>Caso promedio</u></li>
 </ol>
-<p><strong>Notación O</strong>: es la cota superior, por lo que si un algoritmo nos devuelve un polinomio como salida, podemos decir que el orden de esa función es el grado mayor del polinomio. <span class="math display">\[
+<p><strong>Notación O</strong>: es la cota superior, por lo que si un algoritmo nos devuelve un polinomio como salida, podemos decir que el orden de esa función es el grado mayor del polinomio.</p>
+<div class="math">
+\[
 f(n) \text{ es }O(g(n)) \text{ si existe } C \in \mathbb{R}^+/\mid f(b) \mid \le C \times \mid g(n) \mid
-\]</span></p>
-<p><strong>Notación <span class="math inline">\(\Omega\)</span></strong>: es la cota inferior. <span class="math display">\[
+\]</div>
+<p><strong>Notación <span class="math">\(\Omega\)</span></strong>: es la cota inferior.</p>
+<div class="math">
+\[
 f(n) \text{ es }\Omega(g(n)) \text{ si existe } C \in \mathbb{R}^+/\mid f(b) \mid \ge C \times \mid g(n) \mid
-\]</span> <strong>Notación <span class="math inline">\(\theta\)</span></strong>: Permite acotar inferiormente y superiormente a <span class="math inline">\(f(n)\)</span>. <span class="math display">\[
+\]</div>
+<p><strong>Notación <span class="math">\(\theta\)</span></strong>: Permite acotar inferiormente y superiormente a <span class="math">\(f(n)\)</span>.</p>
+<div class="math">
+\[
 f(n) \text{ es }\theta(g(n)) \text{ si $f(n)$ es $O(g(n))$ y es $\Omega(g(n))$ }
-\]</span> <strong>Ejemplo de Algoritmo</strong>:</p>
-<pre class="pseudocode"><code>IN: a = [a1, a2, ... , an]
+\]</div>
+<p><strong>Ejemplo de Algoritmo</strong>:</p>
+<pre><code class="language-pseudocode">IN: a = [a1, a2, ... , an]
 OUT: Max(a1, a2, ... , an)
 
-    max := a[1]
-    FOR i:=2    TO  i = n
-        BEGIN
-            IF max &lt; a[i]
-            THEN max = a[i]
-        END</code></pre>
-<p>Podemos ver que cada vez que entro en un for hago <span class="math inline">\(1\)</span> comparación y entra <span class="math inline">\((n-1)\)</span>. Podemos ver que la complejidad es: <span class="math display">\[
+	max := a[1]
+	FOR i:=2	TO	i = n
+		BEGIN
+			IF max &lt; a[i]
+			THEN max = a[i]
+		END
+</code></pre>
+<p>Podemos ver que cada vez que entro en un for hago <span class="math">\(1\)</span> comparación y entra <span class="math">\((n-1)\)</span>. Podemos ver que la complejidad es:</p>
+<div class="math">
+\[
 O(N)= 2\times (N-1) +1 =2\times N - 1
-\]</span> Y tambien podemos ver que no tiene mejor o peor caso.</p>
-<pre class="pseudocode"><code>x:=0
+\]</div>
+<p>Y tambien podemos ver que no tiene mejor o peor caso.</p>
+<pre><code class="language-pseudocode">x:=0
 
-FOR i:=1    TO  i = n
-    FOR j:=1    TO  j = n
-        x := x+i
-    ENDFOR
-ENDFOR</code></pre>
-<p>Como tiene un loop principal que se recorre <span class="math inline">\(N\)</span> veces, y dentro de el tiene otro loop que se recorre <span class="math inline">\(N\)</span> veces. Por lo que la complejidad será: <span class="math display">\[
+FOR	i:=1	TO	i = n
+	FOR	j:=1	TO	j = n
+		x := x+i
+	ENDFOR
+ENDFOR
+</code></pre>
+<p>Como tiene un loop principal que se recorre <span class="math">\(N\)</span> veces, y dentro de el tiene otro loop que se recorre <span class="math">\(N\)</span> veces. Por lo que la complejidad será:</p>
+<div class="math">
+\[
 (N+1) + (N+1) \times N = (N+1)^2
-\]</span></p>
-<pre class="pseudocode"><code>IN: N
+\]</div>
+<pre><code class="language-pseudocode">IN: N
 OUT: N!
 
 fact:= 1
-FOR i:= 1   TO  i = n
-    fact := fact * i
-ENDFOR</code></pre>
-<p>Tiene un loop principal que se recorre <span class="math inline">\(N\)</span> veces y hace <span class="math inline">\((N+1)\)</span> veces la comparación con <span class="math inline">\(i\)</span> para ver si llega al valor limite. La complejidad será: <span class="math display">\[
+FOR i:= 1	TO	i = n
+	fact := fact * i
+ENDFOR
+</code></pre>
+<p>Tiene un loop principal que se recorre <span class="math">\(N\)</span> veces y hace <span class="math">\((N+1)\)</span> veces la comparación con <span class="math">\(i\)</span> para ver si llega al valor limite. La complejidad será:</p>
+<div class="math">
+\[
 N+1
-\]</span></p>
-<pre class="pseudocode"><code>Factorial(N: natural)
+\]</div>
+<pre><code class="language-pseudocode">Factorial(N: natural)
 BEGIN
-    IF (N = 1)
-    THEN RETURN 1
-    ELSE RETURN N * Factorial(N-1)
-ENDFOR</code></pre>
-<p>Es una función recursiva, pero se ve que se compara <span class="math inline">\((N+1)\)</span> veces, por lo que la complejidad es: <span class="math display">\[
+	IF (N = 1)
+	THEN RETURN 1
+	ELSE RETURN N * Factorial(N-1)
+ENDFOR
+</code></pre>
+<p>Es una función recursiva, pero se ve que se compara <span class="math">\((N+1)\)</span> veces, por lo que la complejidad es:</p>
+<div class="math">
+\[
 N+1
-\]</span></p>
-<pre class="pseudocode"><code>FOR i:=1    TO  i = N
-    FOR j:=i    TO  j = N
-        // STEPS
-    ENDFOR
-ENDFOR</code></pre>
-<p>En el primer loop se hacen <span class="math inline">\((N+1)\)</span> comparaciones, mientras que en el segundo loop, cada vez se hacen menos comparaciones. Esto se pude modelar como la suma de los números enteros entre el <span class="math inline">\(i\)</span> que viene como parámetro y <span class="math inline">\(N\)</span>: <span class="math display">\[
+\]</div>
+<pre><code class="language-pseudocode">FOR i:=1	TO	i = N
+	FOR j:=i	TO	j = N
+		// STEPS
+	ENDFOR
+ENDFOR
+</code></pre>
+<p>En el primer loop se hacen <span class="math">\((N+1)\)</span> comparaciones, mientras que en el segundo loop, cada vez se hacen menos comparaciones. Esto se pude modelar como la suma de los números enteros entre el <span class="math">\(i\)</span> que viene como parámetro y <span class="math">\(N\)</span>:</p>
+<div class="math">
+\[
 \sum_{i=1}^{N+1}i=\frac{(N-1)\times(N-2)}{2} = \frac{N^2 + 3N+2}{2}
-\]</span> Entonces podemos ver que la complejidad es: <span class="math display">\[
+\]</div>
+<p>Entonces podemos ver que la complejidad es:</p>
+<div class="math">
+\[
 N+1 + \frac{N^2 + 3N+2}{2} = \frac 1 2 \times N^2 + \frac 5 2 \times N + 1
-\]</span></p>
-<pre class="pseudocode"><code>FOR i:= 1   TO  i = n               // (n) comp
-    FOR j:= i   TO j = n            // (n-i)+1 comp
-        IF &lt;COMP1&gt; AND &lt;COMP2&gt;      //  3 *(n-i) comp 
-            IF &lt;COMP3&gt;             
-                // CODE
-            END
-        END
-    END
-    FOR k:= 1   TO  k = 2n          // (2n +1) comp
-        IF &lt;COMP4&gt;                  // (2n) comp
-            // CODE
-        END
-    END
-END</code></pre>
-<p>La complejidad es: <span class="math display">\[
+\]</div>
+<pre><code class="language-pseudocode">FOR i:= 1	TO	i = n				// (n) comp
+	FOR j:= i	TO j = n			// (n-i)+1 comp
+		IF &lt;COMP1&gt; AND &lt;COMP2&gt;		//  3 *(n-i) comp 
+			IF &lt;COMP3&gt;			   
+				// CODE
+			END
+		END
+	END
+	FOR k:= 1	TO	k = 2n			// (2n +1) comp
+		IF &lt;COMP4&gt;					// (2n) comp
+			// CODE
+		END
+	END
+END
+</code></pre>
+<p>La complejidad es:</p>
+<div class="math">
+\[
 [N] + [4 \times (N-i) + N] + [2 \times (2N) +N] \\
 = 10 N + 4(N-i)
-\]</span></p>
+\]</div>
 <p><strong>Método de Inserción</strong></p>
-<pre class="pseudocode"><code>IN: a[a_1, ... , a_N]
+<pre><code class="language-pseudocode">IN: a[a_1, ... , a_N]
 
-FOR i:=2    TO  i = n
-    v:= a[i]
-    j:= i
-    WHILE a[j-1] &gt; v AND j &gt; 1
-        a[j] = a[j-1]
-        j = j-1
-        a[j] = v
-    END
-END</code></pre>
+FOR i:=2	TO	i = n
+	v:= a[i]
+	j:= i
+	WHILE a[j-1] &gt; v AND j &gt; 1
+		a[j] = a[j-1]
+		j = j-1
+		a[j] = v
+	END
+END
+</code></pre>
 <p>Aplicamos el algoritmo con la siguiente entrada <code>[10,15,5,2]</code>:</p>
-<pre class="pseudocode"><code>a = [10, 15, 5, 2 ] STEP 1: i = 2   j = 2   v = 15
-a = [10, 5, 15, 2 ] STEP 2: i = 3   j = 3   v = 5
-a = [5, 10, 15, 2 ] STEP 3: i = 3   j = 2   v = 5
-a = [5, 10, 15, 2 ] STEP 4: i = 3   j = 1   v = 5
-a = [5, 10, 2, 15 ] STEP 5: i = 4   j = 4   v = 2
-a = [5, 2, 10, 15 ] STEP 6: i = 4   j = 3   v = 2
-a = [2, 5, 10, 15 ] STEP 7: i = 4   j = 2   v = 2
-a = [2, 5, 10, 15 ] STEP 8: i = 4   j = 1   v = 2</code></pre>
+<pre><code class="language-pseudocode">a = [10, 15, 5, 2 ]	STEP 1: i = 2	j = 2	v = 15
+a = [10, 5, 15, 2 ]	STEP 2: i = 3	j = 3	v = 5
+a = [5, 10, 15, 2 ]	STEP 3: i = 3	j = 2	v = 5
+a = [5, 10, 15, 2 ]	STEP 4: i = 3	j = 1	v = 5
+a = [5, 10, 2, 15 ]	STEP 5: i = 4	j = 4	v = 2
+a = [5, 2, 10, 15 ]	STEP 6: i = 4	j = 3	v = 2
+a = [2, 5, 10, 15 ]	STEP 7: i = 4	j = 2	v = 2
+a = [2, 5, 10, 15 ]	STEP 8: i = 4	j = 1	v = 2
+</code></pre>
 <p><u>Peor caso</u>: El peor caso se da cuando en el while solo depende de <code>j</code>.</p>
 <p>Podemos ver que el primer loop hace <code>N</code> comparaciones, ya que compara de <code>2</code> a <code>N</code>. En el while podemos ver que cada vez que se quiera evaluar si el while debe continuar se harán <code>2</code> comparaciones. Como el valor de <code>j</code> depende de <code>i</code>, tenemos que plantear para cada <code>i</code> cuantas comparaciones va a requerir el while, gracias a esto llegamos a que para el valor inicial requiere 2 comparaciones y para cuando <code>i = N</code>, entonces se puede modelar como la suma de Gauss.</p>
-<p>La complejidad es: <span class="math display">\[
+<p>La complejidad es:</p>
+<div class="math">
+\[
 N + 2 \times \sum_{i=2}^{N} i = 
 N + 2 \times \left( \frac{n \times (n+1)}{2} -1 \right) =
 N^2+2N-2
-\]</span> <u>Mejor caso</u>: En el mejor caso, el arreglo esta ordenado, entonces nunca va a entrar en el while. De esta forma solo tiene dos comparaciones cada vez que entra al while además de la comparación del for. La complejidad es: <span class="math display">\[
+\]</div>
+<p><u>Mejor caso</u>: En el mejor caso, el arreglo esta ordenado, entonces nunca va a entrar en el while. De esta forma solo tiene dos comparaciones cada vez que entra al while además de la comparación del for. La complejidad es:</p>
+<div class="math">
+\[
 N + 2 \times (N-1) = 3 N -2
-\]</span> <strong>Método de Selección</strong></p>
-<pre class="pseudocode"><code>IN: a[a_1, ... , a_N]
+\]</div>
+<p><strong>Método de Selección</strong></p>
+<pre><code class="language-pseudocode">IN: a[a_1, ... , a_N]
 
-FOR i:=1    TO  i = N           // (n+1) comp
-    FOR j:= i+1    TO   j = N   // (n-i)+1 comp
-        IF a[j] &lt; a[i]          // (n-i) comp
-            min:= j
-            Swap(a[i],a[min])
-        END
-    END
-END</code></pre>
+FOR i:=1	TO	i = N			// (n+1) comp
+	FOR j:= i+1	   TO	j = N	// (n-i)+1 comp
+		IF a[j] &lt; a[i]			// (n-i) comp
+			min:= j
+			Swap(a[i],a[min])
+		END
+	END
+END
+</code></pre>
 <p>No hay mejor o peor caso, solo esta el caso promedio.</p>
 <p>Aplico el algoritmo con la siguiente entrada <code>IN: [10, 15, 5, 2]</code>:</p>
-<pre class="pseudocode"><code>a = [10, 15, 5, 2] STEP 1: i = 1  j = 2  min = null
+<pre><code class="language-pseudocode">a = [10, 15, 5, 2] STEP 1: i = 1  j = 2  min = null
 a = [5, 15, 10, 2] STEP 2: i = 1  j = 3  min = 3
 a = [2, 15, 10, 4] STEP 3: i = 1  j = 4  min = 4
 a = [2, 10, 15, 5] STEP 4: i = 2  j = 3  min = 3
 a = [2, 5, 15, 10] STEP 5: i = 2  j = 4  min = 4
 a = [2, 5, 10, 15] STEP 6: i = 3  j = 4  min = 4
-a = [2, 5, 10, 15] STEP 7: i = 4  j = 5  min = null</code></pre>
-<p>Veo que para cada valor de <code>i</code> la la complejidad del for interno es de <span class="math inline">\(2 \times (n-i) +1\)</span>. Entonces para obtener la complejidad del algoritmo hay que sumar la complejidad del for interno <code>i</code> veces: <span class="math display">\[
+a = [2, 5, 10, 15] STEP 7: i = 4  j = 5  min = null
+</code></pre>
+<p>Veo que para cada valor de <code>i</code> la la complejidad del for interno es de <span class="math">\(2 \times (n-i) +1\)</span>. Entonces para obtener la complejidad del algoritmo hay que sumar la complejidad del for interno <code>i</code> veces:</p>
+<div class="math">
+\[
 2 \times \sum_{i=1}^N (N-i) + N \\
 2 \times \left(\sum_{i=1}^N N + \sum_{i=1}^N1\right) + N \\
 N^2+N+1
-\]</span></p>
+\]</div>
 <h2 id="definiciones">Definiciones</h2>
 <h3 id="algoritmo">Algoritmo</h3>
 <p>Un algoritmo es un conjunto de operaciones que pueden ser ejecutadas por una maquina o una persona, que no requiere conocimientos adicionales a los requeridos por las instrucciones o el sentido común. Es un proceso mecánico.</p>
@@ -1679,5 +1584,6 @@ N^2+N+1
 <li><strong>Determinismo</strong>: Para cada entrada debe haber una unica secuencia de pasos.</li>
 <li><strong>Terminación</strong>: La ejecución del algoritmo debe detenerse en un numero finito de pasos.</li>
 </ul>
+
 </body>
 </html>

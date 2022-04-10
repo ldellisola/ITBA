@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>12 - Semantica - Logica de 1er Orden</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>12 - Semantica - Logica de 1er Orden.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,71 +1385,101 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="semantica">Semantica</h1>
 <h2 id="definiciones">Definiciones</h2>
 <ul>
-<li><p><strong>Interpretación</strong>: Dado un lenguaje de <span class="math inline">\(1^{er}\)</span> orden, se define a al interpretación <span class="math inline">\(I\)</span> del lenguaje de la siguente forma:</p>
+<li><p><strong>Interpretación</strong>: Dado un lenguaje de <span class="math">\(1^{er}\)</span> orden, se define a al interpretación <span class="math">\(I\)</span> del lenguaje de la siguente forma:</p>
 <ul>
-<li>Tiene un conjunto <span class="math inline">\(U\neq \emptyset\)</span> llamado <u>Universo</u></li>
-<li><span class="math inline">\(c \in \scr C \Rightarrow\)</span> se asigna un valor del universo a <span class="math inline">\(c\)</span> y se lo llama <span class="math inline">\(c_i\)</span>.</li>
-<li><span class="math inline">\(f^k \in \scr F \Rightarrow\)</span> se define una funcion <span class="math inline">\(f_I^k:U^k\rightarrow U\)</span></li>
-<li><span class="math inline">\(P^k\in \scr P \Rightarrow\)</span> se define una relacion <span class="math inline">\(P^k_I \subset U^k\)</span></li>
-</ul></li>
-<li><p><strong>Valuación</strong>: Dado un lenguaje de <span class="math inline">\(1^{er}\)</span> orden <span class="math inline">\(L\)</span> y una interpretacio <span class="math inline">\(I\)</span> de <span class="math inline">\(L\)</span>, se define una función <span class="math inline">\(v:Var \rightarrow U_I\)</span> y se la llama valuación.</p>
-<p>Para interpretar los terminos se debe definir una funcion <span class="math inline">\(\overline v : TERM \rightarrow U_I/ \overline v \text{ extiende a } v\)</span>, y ademas tiene que cumplir con:</p>
-<ol type="1">
-<li><span class="math inline">\(\overline v(c_i)={c_i}_I\)</span></li>
-<li><span class="math inline">\(f^k \in \scr F,~~t_1,\dots,t_k \in\)</span> <span class="math inline">\(TERM/~ \overline v (f_I^k(t_1,\dots,t_k)) = f_I^k(\overline v(t_1),\dots,\overline v(t_k))\)</span></li>
-</ol></li>
-<li><p><strong>Valuación Modificada</strong>: es una valuacion definida a partir de otra, por ejemplo: <span class="math display">\[
+<li>Tiene un conjunto <span class="math">\(U\neq \emptyset\)</span> llamado <u>Universo</u></li>
+<li><span class="math">\(c \in \scr C \Rightarrow\)</span> se asigna un valor del universo a <span class="math">\(c\)</span> y se lo llama <span class="math">\(c_i\)</span>.</li>
+<li><span class="math">\(f^k \in \scr F \Rightarrow\)</span> se define una funcion <span class="math">\(f_I^k:U^k\rightarrow U\)</span></li>
+<li><span class="math">\(P^k\in \scr P \Rightarrow\)</span> se define una relacion <span class="math">\(P^k_I \subset U^k\)</span></li>
+</ul>
+</li>
+<li><p><strong>Valuación</strong>: Dado un lenguaje de <span class="math">\(1^{er}\)</span> orden <span class="math">\(L\)</span> y una interpretacio <span class="math">\(I\)</span> de <span class="math">\(L\)</span>, se define una función <span class="math">\(v:Var \rightarrow U_I\)</span> y se la llama valuación.</p>
+<p>Para interpretar los terminos se debe definir una funcion <span class="math">\(\overline v : TERM \rightarrow U_I/ \overline v \text{ extiende a } v\)</span>, y ademas tiene que cumplir con:</p>
+<ol>
+<li><span class="math">\(\overline v(c_i)={c_i}_I\)</span></li>
+<li><span class="math">\(f^k \in \scr F,~~t_1,\dots,t_k \in\)</span> <span class="math">\(TERM/~ \overline v (f_I^k(t_1,\dots,t_k)) = f_I^k(\overline v(t_1),\dots,\overline v(t_k))\)</span></li>
+</ol>
+</li>
+<li><p><strong>Valuación Modificada</strong>: es una valuacion definida a partir de otra, por ejemplo:</p>
+<div class="math">
+\[
 v_{x_i=a}:Var \rightarrow U_I/ v_{x_i=a}(y)=
 \left\{
   \array{
-      a &amp;&amp; y=x_i\\
-      v(y)&amp;&amp; y \neq x_i
+  	a &amp;&amp; y=x_i\\
+  	v(y)&amp;&amp; y \neq x_i
   }
 \right.
-\]</span></p></li>
-<li><p><strong>Función Valor de Verdad</strong>: La función valor de verdad se define como <span class="math inline">\(V:F \rightarrow \{0,1\}/\)</span> cumple con:</p>
-<ol type="1">
-<li><span class="math inline">\(V(P^k(t_1,\dots,t_k))=1 \Leftrightarrow (\overline v(t_1),\dots,\overline v(t_k)) \in P^k_I\)</span></li>
-<li><span class="math inline">\(V(\lnot \beta) = 1 - V(\beta)\)</span></li>
-<li><span class="math inline">\(V(\alpha \land \beta) = Min\{V(\alpha),V(\beta)\}\)</span></li>
-<li><span class="math inline">\(V(\alpha \lor \beta) = Max\{V(\alpha),V(\beta)\}\)</span></li>
-<li><span class="math inline">\(V(\alpha \rightarrow \beta) = Max\{1-V(\alpha),V(\beta)\}\)</span></li>
-<li><span class="math inline">\(V_{I,v}(\forall x_i~\alpha) = 1 \Leftrightarrow V_{I,v_{x_i=a}}(\alpha)=1\)</span> para todo elemento <span class="math inline">\(a\in U_I\)</span></li>
-<li><span class="math inline">\(V_{I,v}(\exists x_i~\alpha) = 1 \Leftrightarrow V_{I,v_{x_i=a}}(\alpha)=1\)</span> para algun elemento <span class="math inline">\(a\in U_I\)</span></li>
+\]</div>
+</li>
+<li><p><strong>Función Valor de Verdad</strong>: La función valor de verdad se define como <span class="math">\(V:F \rightarrow \{0,1\}/\)</span> cumple con:</p>
+<ol>
+<li><span class="math">\(V(P^k(t_1,\dots,t_k))=1 \Leftrightarrow (\overline v(t_1),\dots,\overline v(t_k)) \in P^k_I\)</span></li>
+<li><span class="math">\(V(\lnot \beta) = 1 - V(\beta)\)</span></li>
+<li><span class="math">\(V(\alpha \land \beta) = Min\{V(\alpha),V(\beta)\}\)</span></li>
+<li><span class="math">\(V(\alpha \lor \beta) = Max\{V(\alpha),V(\beta)\}\)</span></li>
+<li><span class="math">\(V(\alpha \rightarrow \beta) = Max\{1-V(\alpha),V(\beta)\}\)</span></li>
+<li><span class="math">\(V_{I,v}(\forall x_i~\alpha) = 1 \Leftrightarrow V_{I,v_{x_i=a}}(\alpha)=1\)</span> para todo elemento <span class="math">\(a\in U_I\)</span></li>
+<li><span class="math">\(V_{I,v}(\exists x_i~\alpha) = 1 \Leftrightarrow V_{I,v_{x_i=a}}(\alpha)=1\)</span> para algun elemento <span class="math">\(a\in U_I\)</span></li>
 </ol>
-<p>Sea <span class="math inline">\(\alpha \in F\)</span>, se lo nota como: <span class="math display">\[
+<p>Sea <span class="math">\(\alpha \in F\)</span>, se lo nota como:</p>
+<div class="math">
+\[
 \array{
   V_{I,v}(\alpha)=1&amp;&amp;\text{es lo mismo que}&amp;&amp;I \models \alpha [v]\\
   V_{I,v}(\alpha)=0&amp;&amp;\text{es lo mismo que}&amp;&amp;I \not{\models} \alpha [v]
 }
-\]</span></p></li>
-<li><p><strong>Lenguaje con Igualdad</strong>: Decimos que <span class="math inline">\(L\)</span> es un lenguaje con igualdad si tiene un predicado que se interpreta como la igualdad (<span class="math inline">\(=\)</span>).</p></li>
-<li><p><strong>Formula Satisfacible</strong>: Decimos que <span class="math inline">\(\alpha \in F\)</span> es satisfacible si existe una interpretación <span class="math inline">\(I\)</span> y una valuaion <span class="math inline">\(v\)</span> tal que: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Lenguaje con Igualdad</strong>: Decimos que <span class="math">\(L\)</span> es un lenguaje con igualdad si tiene un predicado que se interpreta como la igualdad (<span class="math">\(=\)</span>).</p>
+</li>
+<li><p><strong>Formula Satisfacible</strong>: Decimos que <span class="math">\(\alpha \in F\)</span> es satisfacible si existe una interpretación <span class="math">\(I\)</span> y una valuaion <span class="math">\(v\)</span> tal que:</p>
+<div class="math">
+\[
 V_{I,v}(\alpha)=1
-\]</span></p></li>
-<li><p><strong>Formula Valida</strong>: Dada una interpretacion <span class="math inline">\(I\)</span>, decimos que <span class="math inline">\(\alpha \in F\)</span> es valida en <span class="math inline">\(I\)</span> si: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Formula Valida</strong>: Dada una interpretacion <span class="math">\(I\)</span>, decimos que <span class="math">\(\alpha \in F\)</span> es valida en <span class="math">\(I\)</span> si:</p>
+<div class="math">
+\[
 \array{V_{I,v}(\alpha)=1&amp;&amp;\forall~v \text{ valuación}}
-\]</span> Se lo nota como <span class="math inline">\(V_I(\alpha)=1\)</span></p></li>
-<li><p><strong>Interpretación Modelo</strong>: Si <span class="math inline">\(\alpha\)</span> es una formula valida en <span class="math inline">\(I\)</span>, decimos que <span class="math inline">\(I\)</span> es un modelo para <span class="math inline">\(\alpha\)</span>.</p></li>
-<li><p><strong>Formula Unversalmente Valida</strong>: <span class="math inline">\(\alpha\)</span> es universamente valida si: <span class="math display">\[
+\]</div>
+<p>Se lo nota como <span class="math">\(V_I(\alpha)=1\)</span></p>
+</li>
+<li><p><strong>Interpretación Modelo</strong>: Si <span class="math">\(\alpha\)</span> es una formula valida en <span class="math">\(I\)</span>, decimos que <span class="math">\(I\)</span> es un modelo para <span class="math">\(\alpha\)</span>.</p>
+</li>
+<li><p><strong>Formula Unversalmente Valida</strong>: <span class="math">\(\alpha\)</span> es universamente valida si:</p>
+<div class="math">
+\[
 \array{V_I(\alpha)=1&amp;&amp;\forall~I\text{ interpretación}}
-\]</span> Se lo nota como <span class="math inline">\(\models \alpha\)</span></p></li>
-<li><p><strong>Equivalencia de Formulas</strong>: Sea <span class="math inline">\(\alpha,\beta \in F,\)</span> <span class="math inline">\(\alpha \equiv \beta \Leftrightarrow V_{I,v}(\alpha)=V_{I,v}(\beta) ~~~\forall v,I\)</span></p></li>
-<li><p><strong>Conjunto Expresable</strong>: Sea <span class="math inline">\(L\)</span> un lenguaje de <span class="math inline">\(1^{er}\)</span> orden, <span class="math inline">\(I\)</span> una interpretación de <span class="math inline">\(L\)</span> tal que <span class="math inline">\(A\subseteq U_I\)</span>. Decimos que <span class="math inline">\(A\)</span> es expresable si para todo valor de <span class="math inline">\(x \in U_I\)</span> y cualquier formula <span class="math inline">\(\alpha\)</span>: <span class="math display">\[
+\]</div>
+<p>Se lo nota como <span class="math">\(\models \alpha\)</span></p>
+</li>
+<li><p><strong>Equivalencia de Formulas</strong>: Sea <span class="math">\(\alpha,\beta \in F,\)</span> <span class="math">\(\alpha \equiv \beta \Leftrightarrow V_{I,v}(\alpha)=V_{I,v}(\beta) ~~~\forall v,I\)</span></p>
+</li>
+<li><p><strong>Conjunto Expresable</strong>: Sea <span class="math">\(L\)</span> un lenguaje de <span class="math">\(1^{er}\)</span> orden, <span class="math">\(I\)</span> una interpretación de <span class="math">\(L\)</span> tal que <span class="math">\(A\subseteq U_I\)</span>. Decimos que <span class="math">\(A\)</span> es expresable si para todo valor de <span class="math">\(x \in U_I\)</span> y cualquier formula <span class="math">\(\alpha\)</span>:</p>
+<div class="math">
+\[
 \array{
 V_I(\alpha(x))=1 \Leftrightarrow x \in A\\
 V_I(\alpha(x))=0 \Leftrightarrow x \not\in A
 }
-\]</span></p></li>
-<li><p><strong>Elemento Distinguible</strong>: Sea <span class="math inline">\(L\)</span> un lenguaje de primer orden, <span class="math inline">\(I\)</span> una interpretación de <span class="math inline">\(L\)</span>: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Elemento Distinguible</strong>: Sea <span class="math">\(L\)</span> un lenguaje de primer orden, <span class="math">\(I\)</span> una interpretación de <span class="math">\(L\)</span>:</p>
+<div class="math">
+\[
 a \in U_I \text{ es distinguible} \Leftrightarrow \{a\} \text{ es expresable}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
+
 </body>
 </html>

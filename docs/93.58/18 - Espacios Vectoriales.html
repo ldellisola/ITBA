@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>18 - Espacios Vectoriales</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>18 - Espacios Vectoriales.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,255 +1385,338 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="espacios-vectoriales">Espacios Vectoriales</h1>
-<p>Un espacio vectorial es un conjunto <span class="math inline">\(V\)</span> junto a un cuerpo de escalares <span class="math inline">\(\mathbb K\)</span>, para los cuales hay definidas dos operaciones:</p>
+<p>Un espacio vectorial es un conjunto <span class="math">\(V\)</span> junto a un cuerpo de escalares <span class="math">\(\mathbb K\)</span>, para los cuales hay definidas dos operaciones:</p>
 <ul>
 <li>Suma:</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 u,v\in V \Rightarrow u+v \in V
-\]</span></p>
+\]</div>
 <ul>
 <li>Producto Escalar:</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 v\in V,~\alpha\in \mathbb K \Rightarrow \alpha\ .\ v \in V
-\]</span></p>
+\]</div>
 <p>Para ser un espacio vectorial, se tiene que cumplir con los 8 axiomas:</p>
-<ol type="1">
-<li><span class="math inline">\(u+v = v+u\)</span></li>
-<li><span class="math inline">\(u+(v+w)=(u+v)+w\)</span></li>
-<li><span class="math inline">\(\exists~0_V \in V/~~v+0_V =v\)</span></li>
-<li><span class="math inline">\(\forall v \in V,~~\exists (- v)/~~ v+(-v)=0_V\)</span></li>
-<li><span class="math inline">\(\alpha\ . \ (u+v) = \alpha\ .\ u + \alpha\ .\ v\)</span></li>
-<li><span class="math inline">\((\alpha + \beta)\ .\ v = \alpha\ .v + \beta\ .\ v\)</span></li>
-<li><span class="math inline">\(\alpha\ .\ (\beta\ .\ v) = \beta\ .\ (\alpha\ .\ v)\)</span></li>
-<li><span class="math inline">\(1\ .\ v = v\)</span></li>
+<ol>
+<li><span class="math">\(u+v = v+u\)</span></li>
+<li><span class="math">\(u+(v+w)=(u+v)+w\)</span></li>
+<li><span class="math">\(\exists~0_V \in V/~~v+0_V =v\)</span></li>
+<li><span class="math">\(\forall v \in V,~~\exists (- v)/~~ v+(-v)=0_V\)</span></li>
+<li><span class="math">\(\alpha\ . \ (u+v) = \alpha\ .\ u + \alpha\ .\ v\)</span></li>
+<li>$(\alpha + \beta)\ .\ v = \alpha\ .v + \beta\ .\ v $</li>
+<li><span class="math">\(\alpha\ .\ (\beta\ .\ v) = \beta\ .\ (\alpha\ .\ v)\)</span></li>
+<li><span class="math">\(1\ .\ v = v\)</span></li>
 </ol>
-<p>De cumplirse todos estos axiomas, se puede decir que <span class="math inline">\(V\)</span> es un espacio vectorial sobre <span class="math inline">\(\mathbb K\)</span> o que es un <span class="math inline">\(\mathbb K\)</span>-Espacio Vectorial.</p>
+<p>De cumplirse todos estos axiomas, se puede decir que <span class="math">\(V\)</span> es un espacio vectorial sobre <span class="math">\(\mathbb K\)</span> o que es un <span class="math">\(\mathbb K\)</span>-Espacio Vectorial.</p>
 <h3 id="operaciones">Operaciones</h3>
-<p>Se pueden definir a las operaciones de suma y producto escalar en un determinado espacio vectorial. <span class="math display">\[
+<p>Se pueden definir a las operaciones de suma y producto escalar en un determinado espacio vectorial.</p>
+<div class="math">
+\[
 (V,\mathbb K,+~,\cdot~ )
-\]</span> Siendo <span class="math inline">\(V\)</span> el espacio vectorial, <span class="math inline">\(\mathbb K\)</span> el cuerpo, <span class="math inline">\((+)\)</span> la operación de la suma y <span class="math inline">\((\cdot)\)</span> la operación del producto escalar.</p>
+\]</div>
+<p>Siendo <span class="math">\(V\)</span> el espacio vectorial, <span class="math">\(\mathbb K\)</span> el cuerpo, <span class="math">\((+)\)</span> la operación de la suma y <span class="math">\((\cdot)\)</span> la operación del producto escalar.</p>
 <h4 id="suma">Suma</h4>
-<p>La suma debe definirse como: <span class="math display">\[
+<p>La suma debe definirse como:</p>
+<div class="math">
+\[
 +:V\times V\rightarrow V
-\]</span> y debe ser <strong>Conmutativa</strong>, <strong>Asociativa</strong>, debe tener <strong>inversa</strong> y un <strong>elemento neutro</strong>.</p>
+\]</div>
+<p>y debe ser <strong>Conmutativa</strong>, <strong>Asociativa</strong>, debe tener <strong>inversa</strong> y un <strong>elemento neutro</strong>.</p>
 <h4 id="producto-escalar">Producto Escalar</h4>
-<p>El producto escalar debe definirse como: <span class="math display">\[
+<p>El producto escalar debe definirse como:</p>
+<div class="math">
+\[
 \cdot:\mathbb K\times V \rightarrow V
-\]</span> y debe ser <strong>Conmutativa</strong>, <strong>Asociativa</strong> y tener un que <span class="math inline">\(1\cdot v=v\)</span></p>
+\]</div>
+<p>y debe ser <strong>Conmutativa</strong>, <strong>Asociativa</strong> y tener un que <span class="math">\(1\cdot v=v\)</span></p>
 <h3 id="propiedades">Propiedades</h3>
-<ol type="1">
-<li><span class="math inline">\(0_V\)</span> es único</li>
-<li><span class="math inline">\(0_V \times v= 0_V\)</span></li>
-<li><span class="math inline">\(\alpha\ .\ v = 0 \Rightarrow \alpha = 0\lor v=0_V\)</span></li>
-<li><span class="math inline">\(\forall v\in V\Rightarrow (-v)\)</span> es único</li>
-<li><span class="math inline">\((-v) = (-1)\ .\ v\)</span></li>
+<ol>
+<li><span class="math">\(0_V\)</span> es único</li>
+<li><span class="math">\(0_V \times v= 0_V\)</span></li>
+<li><span class="math">\(\alpha\ .\ v = 0 \Rightarrow \alpha = 0\lor v=0_V\)</span></li>
+<li><span class="math">\(\forall v\in V\Rightarrow (-v)\)</span> es único</li>
+<li><span class="math">\((-v) = (-1)\ .\ v\)</span></li>
 </ol>
 <h3 id="ejemplos">Ejemplos</h3>
 <ul>
-<li><span class="math inline">\(\mathbb K^{n} = \{(x_1,x_2,\dots,x_n),~~x_i\in\mathbb K\}\)</span> es un <span class="math inline">\(\mathbb K\)</span>-Espacio vectorial con la suma y productos usuales.</li>
-<li><span class="math inline">\(\mathbb K^{n\times m}\)</span> es un <span class="math inline">\(\mathbb K\)</span>-Espacio vectorial con la suma matricial y el producto escalar de matrices.</li>
-<li><span class="math inline">\(\mathbb K[x]=\{p/~~p\)</span> es un polinomio con coeficientes en <span class="math inline">\(\mathbb K\}\)</span> es un <span class="math inline">\(\mathbb K\)</span>-Espacio vectorial con la suma y producto usuales.</li>
-<li><span class="math inline">\(\mathbb K_n[x] =\{p \in \mathbb K[x] /~~ gr(p)\leq n \} \cup \{\emptyset\}\)</span>.</li>
+<li><span class="math">\(\mathbb K^{n} = \{(x_1,x_2,\dots,x_n),~~x_i\in\mathbb K\}\)</span> es un <span class="math">\(\mathbb K\)</span>-Espacio vectorial con la suma y productos usuales.</li>
+<li><span class="math">\(\mathbb K^{n\times m}\)</span> es un <span class="math">\(\mathbb K\)</span>-Espacio vectorial con la suma matricial y el producto escalar de matrices.</li>
+<li><span class="math">\(\mathbb K[x]=\{p/~~p\)</span> es un polinomio con coeficientes en <span class="math">\(\mathbb K\}\)</span> es un <span class="math">\(\mathbb K\)</span>-Espacio vectorial con la suma y producto usuales.</li>
+<li><span class="math">\(\mathbb K_n[x] =\{p \in \mathbb K[x] /~~ gr(p)\leq n    \} \cup \{\emptyset\}\)</span>.</li>
 </ul>
 <h2 id="subespacios-vectoriales">Subespacios Vectoriales</h2>
-<p>Dado un <span class="math inline">\(\mathbb K\)</span>-Espacio vectorial <span class="math inline">\(V\)</span>, un subconjunto <span class="math inline">\(S\subset V\)</span> es un <strong>subespacio vectorial</strong> de <span class="math inline">\(V\)</span> si <span class="math inline">\(S\)</span> es un <span class="math inline">\(\mathbb K\)</span>-Espacio vectorial con las operaciones definidas en <span class="math inline">\(V\)</span> y cuyo elemento nulo sea el mismo que el definido en <span class="math inline">\(V\)</span>.</p>
+<p>Dado un <span class="math">\(\mathbb K\)</span>-Espacio vectorial <span class="math">\(V\)</span>, un subconjunto <span class="math">\(S\subset V\)</span> es un <strong>subespacio vectorial</strong> de <span class="math">\(V\)</span> si <span class="math">\(S\)</span> es un <span class="math">\(\mathbb K\)</span>-Espacio vectorial con las operaciones definidas en <span class="math">\(V\)</span> y cuyo elemento nulo sea el mismo que el definido en <span class="math">\(V\)</span>.</p>
 <h3 id="teorema">Teorema</h3>
-<p>Sea <span class="math inline">\(V\)</span> un <span class="math inline">\(\mathbb K\)</span>-Espacio Vectorial y <span class="math inline">\(S\subset V \Rightarrow S\)</span> es un subespacio de <span class="math inline">\(V \Leftrightarrow\)</span> cumple con:</p>
-<ol type="1">
-<li><span class="math inline">\(0_v \in S\)</span></li>
-<li><span class="math inline">\(u,v \in S \Rightarrow u+v \in S\)</span></li>
-<li><span class="math inline">\(\alpha \in \mathbb K, v\in S \Rightarrow \alpha\ .\ v \in S\)</span></li>
+<p>Sea <span class="math">\(V\)</span> un <span class="math">\(\mathbb K\)</span>-Espacio Vectorial y <span class="math">\(S\subset V \Rightarrow S\)</span> es un subespacio de <span class="math">\(V \Leftrightarrow\)</span> cumple con:</p>
+<ol>
+<li>$0_v \in S $</li>
+<li><span class="math">\(u,v \in S \Rightarrow u+v \in S\)</span></li>
+<li><span class="math">\(\alpha \in \mathbb K, v\in S \Rightarrow \alpha\ .\ v \in S\)</span></li>
 </ol>
 <h3 id="subespacios-triviales">Subespacios Triviales</h3>
-<ol type="1">
-<li><span class="math inline">\(S = \{0_V\}\)</span></li>
-<li><span class="math inline">\(S=V\)</span></li>
+<ol>
+<li><span class="math">\(S = \{0_V\}\)</span></li>
+<li><span class="math">\(S=V\)</span></li>
 </ol>
 <h3 id="bases-de-un-subespacio">Bases de un Subespacio</h3>
-<p>El conjunto <span class="math inline">\(B=\{v_1,v_2,\dots,v_n\}\)</span> es base de un subespacio <span class="math inline">\(S\)</span> si:</p>
-<ol type="1">
-<li><span class="math inline">\(B\)</span> es un conjunto generador de <span class="math inline">\(S\)</span></li>
-<li><span class="math inline">\(B\)</span> es <span class="math inline">\(LI\)</span>.</li>
+<p>El conjunto <span class="math">\(B=\{v_1,v_2,\dots,v_n\}\)</span> es base de un subespacio <span class="math">\(S\)</span> si:</p>
+<ol>
+<li><span class="math">\(B\)</span> es un conjunto generador de <span class="math">\(S\)</span></li>
+<li><span class="math">\(B\)</span> es <span class="math">\(LI\)</span>.</li>
 </ol>
-<h4 id="bases-canónicas">Bases Canónicas</h4>
+<h4 id="bases-canonicas">Bases Canónicas</h4>
 <ul>
-<li>Base Canónica de <span class="math inline">\(\mathbb K^n\)</span></li>
+<li>Base Canónica de <span class="math">\(\mathbb K^n\)</span></li>
 </ul>
-<p>$$ E_n=</p>
-{
-<span class="math display">\[\begin{pmatrix}
-    1\\0\\\vdots\\0
-\end{pmatrix}\]</span>
-<p>, .</p>
-<span class="math display">\[\begin{pmatrix}
-    0\\1\\\vdots\\0
-\end{pmatrix}\]</span>
-, , .
-<span class="math display">\[\begin{pmatrix}
-    0\\0\\\vdots\\1
-\end{pmatrix}\]</span>
-<p>}</p>
-<p>$$</p>
+<div class="math">
+\[
+E_n=
+
+\left\{
+\begin{pmatrix}
+	1\\0\\\vdots\\0
+\end{pmatrix},
+\right.
+
+\begin{pmatrix}
+	0\\1\\\vdots\\0
+\end{pmatrix},
+\dots,
+\left.
+\begin{pmatrix}
+	0\\0\\\vdots\\1
+\end{pmatrix}
+
+\right\}
+
+\]</div>
 <ul>
-<li>Base Canónica de <span class="math inline">\(\mathbb K^{n\times m}\)</span></li>
+<li>Base Canónica de <span class="math">\(\mathbb K^{n\times m}\)</span></li>
 </ul>
-<p>$$ E_{nm}=</p>
-{
-<span class="math display">\[\begin{pmatrix}
-        1       &amp;   0   &amp;   \dots   &amp;   0   \\
-        0       &amp;   \ddots  &amp;&amp;  0   \\
-        \vdots  &amp;&amp;  \ddots&amp;     \vdots\\
-        0       &amp;   0   &amp;   \dots   &amp;   0
-        
-    \end{pmatrix}\]</span>
-,
-<span class="math display">\[\begin{pmatrix}
-        0       &amp;   1   &amp;   \dots   &amp;   0   \\
-        0       &amp;   \ddots  &amp;&amp;  0   \\
-        \vdots  &amp;&amp;  \ddots&amp;     \vdots\\
-        0       &amp;   0   &amp;   \dots   &amp;   0
-        
-    \end{pmatrix}\]</span>
-,,
-<span class="math display">\[\begin{pmatrix}
-        0       &amp;   0   &amp;   \dots   &amp;   0   \\
-        1       &amp;   \ddots  &amp;&amp;  0   \\
-        \vdots  &amp;&amp;  \ddots&amp;     \vdots\\
-        0       &amp;   0   &amp;   \dots   &amp;   0
-        
-    \end{pmatrix}\]</span>
-,,
-<span class="math display">\[\begin{pmatrix}
-        0       &amp;   0   &amp;   \dots   &amp;   0   \\
-        0       &amp;   \ddots  &amp;&amp;  0   \\
-        \vdots  &amp;&amp;  \ddots&amp;     \vdots\\
-        0       &amp;   0   &amp;   \dots   &amp;   1
-        
-    \end{pmatrix}\]</span>
-<p>} $$</p>
+<div class="math">
+\[
+E_{n\times m}=
+
+\left\{
+	\begin{pmatrix}
+    	1		&amp;	0	&amp;	\dots	&amp;	0	\\
+    	0		&amp;	\ddots	&amp;&amp;	0 	\\
+    	\vdots	&amp;&amp;	\ddots&amp;		\vdots\\
+    	0		&amp;	0	&amp;	\dots	&amp;	0
+    	
+	\end{pmatrix}
+	,
+	\begin{pmatrix}
+    	0		&amp;	1	&amp;	\dots	&amp;	0	\\
+    	0		&amp;	\ddots	&amp;&amp;	0 	\\
+    	\vdots	&amp;&amp;	\ddots&amp;		\vdots\\
+    	0		&amp;	0	&amp;	\dots	&amp;	0
+    	
+	\end{pmatrix}
+	,\dots,
+	\begin{pmatrix}
+    	0		&amp;	0	&amp;	\dots	&amp;	0	\\
+    	1		&amp;	\ddots	&amp;&amp;	0 	\\
+    	\vdots	&amp;&amp;	\ddots&amp;		\vdots\\
+    	0		&amp;	0	&amp;	\dots	&amp;	0
+    	
+	\end{pmatrix}
+	,\dots,
+	\begin{pmatrix}
+    	0		&amp;	0	&amp;	\dots	&amp;	0	\\
+    	0		&amp;	\ddots	&amp;&amp;	0 	\\
+    	\vdots	&amp;&amp;	\ddots&amp;		\vdots\\
+    	0		&amp;	0	&amp;	\dots	&amp;	1
+    	
+	\end{pmatrix}
+	
+\right\}
+\]</div>
 <ul>
-<li>Base Canónica de <span class="math inline">\(\mathbb K_n[x]\)</span></li>
+<li>Base Canónica de <span class="math">\(\mathbb K_n[x]\)</span></li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 E_\mathbb {K_n[x]} = \{1,x,\dots,x^n\}
-\]</span></p>
+\]</div>
 <h4 id="teorema-1">Teorema</h4>
-<p>Si <span class="math inline">\(G=\{v_1,v_2,\dots,v_n\}\)</span> es un conjunto generador del subespacio <span class="math inline">\(S\)</span> y <span class="math inline">\(S\neq\{0_V\}\)</span> <span class="math display">\[
+<p>Si <span class="math">\(G=\{v_1,v_2,\dots,v_n\}\)</span> es un conjunto generador del subespacio <span class="math">\(S\)</span> y <span class="math">\(S\neq\{0_V\}\)</span></p>
+<div class="math">
+\[
 \exists B \subset G/~~B~es~base~de~S
-\]</span></p>
-<h3 id="dimensión-de-un-subespacio">Dimensión de un Subespacio</h3>
-<p>Si el subespacio <span class="math inline">\(S\)</span> tiene una base <span class="math inline">\(B=\{v_1,v_2,\dots,v_n\}\)</span>, entonces <span class="math display">\[
+\]</div>
+<h3 id="dimension-de-un-subespacio">Dimensión de un Subespacio</h3>
+<p>Si el subespacio <span class="math">\(S\)</span> tiene una base <span class="math">\(B=\{v_1,v_2,\dots,v_n\}\)</span>, entonces</p>
+<div class="math">
+\[
 dim(S)=\#B = n
-\]</span> El subespacio <span class="math inline">\(\emptyset\)</span> no tiene base <span class="math inline">\(\Rightarrow dim(\emptyset)=0\)</span></p>
+\]</div>
+<p>El subespacio <span class="math">\(\emptyset\)</span> no tiene base <span class="math">\(\Rightarrow dim(\emptyset)=0\)</span></p>
 <h4 id="ejemplos-1">Ejemplos</h4>
 <ul>
-<li><span class="math inline">\(dim(\mathbb K^n) = n\)</span></li>
-<li><span class="math inline">\(dim(\mathbb K ^{n\times m}) = n\ .\ m\)</span></li>
-<li><span class="math inline">\(dim(\mathbb K_n[x]) = n+1\)</span></li>
+<li><span class="math">\(dim(\mathbb K^n) = n\)</span></li>
+<li><span class="math">\(dim(\mathbb K ^{n\times m}) = n\ .\ m\)</span></li>
+<li><span class="math">\(dim(\mathbb K_n[x]) = n+1\)</span></li>
 </ul>
-<h4 id="teorema-1-1">Teorema <span class="math inline">\((1)\)</span></h4>
-<p>Si <span class="math inline">\(B_1\)</span> y <span class="math inline">\(B_2\)</span> son bases del subespacio <span class="math inline">\(S\)</span>, entonces: <span class="math display">\[
+<h4 id="teorema-2">Teorema <span class="math">\((1)\)</span></h4>
+<p>Si <span class="math">\(B_1\)</span> y <span class="math">\(B_2\)</span> son bases del subespacio <span class="math">\(S\)</span>, entonces:</p>
+<div class="math">
+\[
 \#B_1=\#B_2
-\]</span></p>
+\]</div>
 <ul>
-<li>Demostración: Usando el teorema <span class="math inline">\((2)\)</span></li>
+<li>Demostración: Usando el teorema <span class="math">\((2)\)</span></li>
 </ul>
-<p>Sean <span class="math inline">\(B_1=\{v_1,v_2,\dots,v_n\}\)</span>, <span class="math inline">\(B_2=\{v&#39;_1,v&#39;_2,\dots,v&#39;_m\}\)</span></p>
-<p>Como <span class="math inline">\(B_1\)</span> es base de <span class="math inline">\(S\)</span>, <span class="math inline">\(B_2 \subset S\)</span> y <span class="math inline">\(B_2\)</span> es <span class="math inline">\(LI\)</span>. <span class="math display">\[
+<p>Sean <span class="math">\(B_1=\{v_1,v_2,\dots,v_n\}\)</span>, <span class="math">\(B_2=\{v'_1,v'_2,\dots,v'_m\}\)</span></p>
+<p>Como <span class="math">\(B_1\)</span> es base de <span class="math">\(S\)</span>, <span class="math">\(B_2 \subset S\)</span> y <span class="math">\(B_2\)</span> es <span class="math">\(LI\)</span>.</p>
+<div class="math">
+\[
 m\leq n~~~~~(I)
-\]</span> Como <span class="math inline">\(B_2\)</span> es base de <span class="math inline">\(S\)</span>, <span class="math inline">\(B_1 \subset S\)</span> y <span class="math inline">\(B_1\)</span> es <span class="math inline">\(LI\)</span>. <span class="math display">\[
+\]</div>
+<p>Como $B_2 $ es base de <span class="math">\(S\)</span>, <span class="math">\(B_1 \subset S\)</span> y <span class="math">\(B_1\)</span> es <span class="math">\(LI\)</span>.</p>
+<div class="math">
+\[
 n\leq m~~~~~(II)
-\]</span> Por <span class="math inline">\((I)\)</span> y <span class="math inline">\((II)\)</span> <span class="math display">\[
+\]</div>
+<p>Por <span class="math">\((I)\)</span> y <span class="math">\((II)\)</span></p>
+<div class="math">
+\[
 n = m
-\]</span></p>
-<h4 id="teorema-2">Teorema <span class="math inline">\((2)\)</span></h4>
-<p>Si <span class="math inline">\(B=\{v_1,v_2,\dots,v_n\}\)</span> es base del subespacio <span class="math inline">\(S\)</span>, <span class="math inline">\(\{w_1,w_2,\dots,w_m\} \in S\)</span> y <span class="math inline">\(m\gt n\)</span>, entonces: <span class="math display">\[
+\]</div>
+<h4 id="teorema-3">Teorema <span class="math">\((2)\)</span></h4>
+<p>Si <span class="math">\(B=\{v_1,v_2,\dots,v_n\}\)</span> es base del subespacio <span class="math">\(S\)</span>, <span class="math">\(\{w_1,w_2,\dots,w_m\} \in S\)</span> y <span class="math">\(m\gt n\)</span>, entonces:</p>
+<div class="math">
+\[
 \{w_1,w_2,\dots,w_m\}~~es~LD
-\]</span></p>
+\]</div>
 <ul>
 <li>Demostración</li>
 </ul>
-<p>Como cada <span class="math inline">\(w_i \in S\)</span> y <span class="math inline">\(B\)</span> es Base, entonces <span class="math inline">\(\exists \alpha_i^q \in \mathbb K\)</span> tal que: <span class="math display">\[
+<p>Como cada <span class="math">\(w_i \in S\)</span> y <span class="math">\(B\)</span> es Base, entonces <span class="math">\(\exists \alpha_i^q \in \mathbb K\)</span> tal que:</p>
+<div class="math">
+\[
 (I)~~~w_i = \alpha_i^1v_1+\alpha_i^2v_2+\dots+\alpha_i^n v_n = \sum_{j=1}^n \alpha_i^j v_j\\
 (II)~~~\beta_1w_1+\beta_2 w_2+ \dots + \beta_m w_m = 0 \Leftrightarrow \sum_{i=1}^n \beta_i w_i
-\]</span> Reemplazo el valor de <span class="math inline">\(w_i\)</span> de <span class="math inline">\((I)\)</span> en <span class="math inline">\((II)\)</span> <span class="math display">\[
+\]</div>
+<p>Reemplazo el valor de <span class="math">\(w_i\)</span> de <span class="math">\((I)\)</span> en <span class="math">\((II)\)</span></p>
+<div class="math">
+\[
 \sum_{i=1}^m (\beta_i\cdot \sum_{j=1}^n(\alpha_i^j v_j)) = 0
-\]</span> Paso <span class="math inline">\(\beta_i\)</span> a la <span class="math inline">\(2^{da}\)</span> sumatoria y como son independientes cambio el orden de la suma <span class="math display">\[
+\]</div>
+<p>Paso <span class="math">\(\beta_i\)</span> a la <span class="math">\(2^{da}\)</span> sumatoria y como son independientes cambio el orden de la suma</p>
+<div class="math">
+\[
 \sum_{j=1}^n\sum_{i=1}^m \beta_i \alpha_i^j v_j = 0
-\]</span> Puedo reemplazar los valores constantes <span class="math inline">\((\beta_i \alpha_i^j)\)</span> por otra constante <span class="math inline">\((\gamma_j)\)</span> <span class="math display">\[
+\]</div>
+<p>Puedo reemplazar los valores constantes <span class="math">\((\beta_i \alpha_i^j)\)</span> por otra constante <span class="math">\((\gamma_j)\)</span></p>
+<div class="math">
+\[
 \sum_{j=1}^n \gamma_j v_j = 0
-\]</span> Como los <span class="math inline">\(v_j\)</span> son <span class="math inline">\(LI\)</span> por ser base, <span class="math inline">\(\gamma_1 \gamma_2=\dots= \gamma_n = 0\)</span>, por lo que: <span class="math display">\[
+\]</div>
+<p>Como los <span class="math">\(v_j\)</span> son <span class="math">\(LI\)</span> por ser base, <span class="math">\(\gamma_1 \gamma_2=\dots= \gamma_n = 0\)</span>, por lo que:</p>
+<div class="math">
+\[
 \sum_{i=1}^m \beta_i w_i = 0 \Leftrightarrow \sum_{i=1}^m \alpha_i^j \beta_i=0~~~j=1,2,\dots,n
-\]</span> Por lo que puedo formar el sistema de ecuaciones <span class="math display">\[
+\]</div>
+<p>Por lo que puedo formar el sistema de ecuaciones</p>
+<div class="math">
+\[
 (S)
 \left\{
-    \begin{array}{}
-        j=1 \rightarrow \beta_1\alpha_1^1 + \beta_2\alpha_2^1 + \dots + \beta_m\alpha_m^1\\
-        j=2 \rightarrow \beta_1\alpha_1^2 + \beta_2\alpha_2^2 + \dots + \beta_m\alpha_m^2\\
-        ~~~~\vdots\\
-        j=n \rightarrow \beta_1\alpha_1^n + \beta_2\alpha_2^n + \dots + \beta_m\alpha_m^n\\
+	\begin{array}{}
+    	j=1 \rightarrow \beta_1\alpha_1^1 + \beta_2\alpha_2^1 + \dots + \beta_m\alpha_m^1\\
+    	j=2 \rightarrow \beta_1\alpha_1^2 + \beta_2\alpha_2^2 + \dots + \beta_m\alpha_m^2\\
+    	~~~~\vdots\\
+    	j=n \rightarrow \beta_1\alpha_1^n + \beta_2\alpha_2^n + \dots + \beta_m\alpha_m^n\\
     \end{array}
 \right.
-\]</span> Como <span class="math inline">\((S)\)</span> tiene <span class="math inline">\(n\)</span> ecuaciones y <span class="math inline">\(m\)</span> incógnitas, y <span class="math inline">\(m\gt n\)</span> (Dato). Entonces <span class="math inline">\((S)\)</span> es indeterminado, es decir, existen soluciones con algún <span class="math inline">\(\alpha_i \neq 0 \Rightarrow \{w_1,w_2,\dots,w_m\}\)</span> es <span class="math inline">\(LD\)</span>.</p>
-<h4 id="teorema-3">Teorema <span class="math inline">\((3)\)</span></h4>
-<p>Sea <span class="math inline">\(S\)</span> un subespacio de dimensión <span class="math inline">\(n\geq 1\)</span>, <span class="math inline">\(B=\{v_1,v_2,\dots,v_n\}\subset S\)</span>, entonces: <span class="math display">\[
+\]</div>
+<p>Como <span class="math">\((S)\)</span> tiene <span class="math">\(n\)</span> ecuaciones y <span class="math">\(m\)</span> incógnitas, y <span class="math">\(m\gt n\)</span> (Dato). Entonces <span class="math">\((S)\)</span> es indeterminado, es decir, existen soluciones con algún <span class="math">\(\alpha_i \neq 0 \Rightarrow \{w_1,w_2,\dots,w_m\}\)</span> es <span class="math">\(LD\)</span>.</p>
+<h4 id="teorema-4">Teorema <span class="math">\((3)\)</span></h4>
+<p>Sea <span class="math">\(S\)</span> un subespacio de dimensión <span class="math">\(n\geq 1\)</span>, <span class="math">\(B=\{v_1,v_2,\dots,v_n\}\subset S\)</span>, entonces:</p>
+<div class="math">
+\[
 (I)~~~B~es~generador~de~S \Leftrightarrow B~es~LI~~~(II)
-\]</span></p>
+\]</div>
 <ul>
-<li>Demostración <span class="math inline">\((I)\Rightarrow (II)\)</span></li>
+<li>Demostración <span class="math">\((I)\Rightarrow (II)\)</span></li>
 </ul>
-<p>Suponemos que <span class="math inline">\(B=\{v_1,v_2,\dots,v_n\}\)</span> es <span class="math inline">\(LD\)</span>:</p>
-<p>Podemos eliminar <span class="math inline">\(v_i\)</span> hasta obtener una base con una cantidad de elementos menor a <span class="math inline">\(n\)</span>, por lo que <span class="math inline">\(dim(S)\lt n\)</span>.</p>
-<p>Pero para generar <span class="math inline">\(S\)</span> necesito que <span class="math inline">\(dim(S)\geq n\)</span>, entonces es <strong>ABSURDO!</strong></p>
-<p>Por lo que podemos decir que es <span class="math inline">\(LI\)</span>.</p>
+<p>Suponemos que <span class="math">\(B=\{v_1,v_2,\dots,v_n\}\)</span> es <span class="math">\(LD\)</span>:</p>
+<p>Podemos eliminar <span class="math">\(v_i\)</span> hasta obtener una base con una cantidad de elementos menor a <span class="math">\(n\)</span>, por lo que <span class="math">\(dim(S)\lt n\)</span>.</p>
+<p>Pero para generar <span class="math">\(S\)</span> necesito que <span class="math">\(dim(S)\geq n\)</span>, entonces es <strong>ABSURDO!</strong></p>
+<p>Por lo que podemos decir que es  <span class="math">\(LI\)</span>.</p>
 <ul>
-<li>Demostración: <span class="math inline">\((II)\Rightarrow(I)\)</span></li>
+<li>Demostración: <span class="math">\((II)\Rightarrow(I)\)</span></li>
 </ul>
-<p>Sea <span class="math inline">\(v\in S\)</span>, <span class="math inline">\(\{v_1,v_2,\dots,v_n,v\} \subset S\)</span>, por el Teorema <span class="math inline">\((2)\)</span> <span class="math inline">\(\{v_1,v_2,\dots,v_n,v\}\)</span> es <span class="math inline">\(LD\)</span>.</p>
-<p>Como <span class="math inline">\(\{v_1,v_2,\dots,v_n,v\}\)</span> es <span class="math inline">\(LD\Rightarrow \exists\alpha_i,\beta \in \mathbb K\)</span> no todos nulos, tal que: <span class="math display">\[
+<p>Sea <span class="math">\(v\in S\)</span>, <span class="math">\(\{v_1,v_2,\dots,v_n,v\} \subset S\)</span>, por el Teorema <span class="math">\((2)\)</span> <span class="math">\(\{v_1,v_2,\dots,v_n,v\}\)</span> es <span class="math">\(LD\)</span>.</p>
+<p>Como ${v_1,v_2,\dots,v_n,v} $ es <span class="math">\(LD\Rightarrow \exists\alpha_i,\beta \in \mathbb K\)</span> no todos nulos, tal que:</p>
+<div class="math">
+\[
 \alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_n v_n + \beta v = 0
-\]</span> Si <span class="math inline">\(\beta = 0\)</span> <span class="math display">\[
+\]</div>
+<p>Si <span class="math">\(\beta = 0\)</span></p>
+<div class="math">
+\[
 \alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_n v_n = 0
-\]</span> Pero <span class="math inline">\(\{v_1,v_2,\dots,v_n\}\)</span> es <span class="math inline">\(LI\)</span>, es decir <span class="math inline">\(\alpha_1 = \alpha_2 = \dots = \alpha_n = 0\)</span> y nosotros habíamos pedido que exista algún <span class="math inline">\(\alpha_i \neq 0\)</span> , por lo que se puede decir que <span class="math inline">\(\beta \neq 0\)</span>. <span class="math display">\[
+\]</div>
+<p>Pero ${v_1,v_2,\dots,v_n} $ es <span class="math">\(LI\)</span>, es decir <span class="math">\(\alpha_1 = \alpha_2 = \dots = \alpha_n = 0\)</span> y nosotros habíamos pedido que exista algún <span class="math">\(\alpha_i \neq 0\)</span> , por lo que se puede decir que <span class="math">\(\beta \neq 0\)</span>.</p>
+<div class="math">
+\[
 v = \frac{-\alpha_1}{\beta} v_1 + \frac{-\alpha_2}{\beta} v_2+ \dots + \frac{-\alpha_n}{\beta}v_n
-\]</span> Entonces queda probado que todo <span class="math inline">\(v\in S\)</span> es combinación lineal de <span class="math inline">\(\{v_1,v_2,\dots,v_n\}\)</span> <span class="math display">\[
+\]</div>
+<p>Entonces queda probado que todo <span class="math">\(v\in S\)</span> es combinación lineal de ${v_1,v_2,\dots,v_n} $</p>
+<div class="math">
+\[
 S = gen(\{v_1,v_2,\dots,v_n\} )
-\]</span></p>
+\]</div>
 <h2 id="espacio-nulo-de-una-matriz">Espacio Nulo de una Matriz</h2>
-<p>Sea <span class="math inline">\(A\in \mathbb K^{n\times m}\)</span>, el espacio nulo de <span class="math inline">\(A\)</span> es: <span class="math display">\[
+<p>Sea <span class="math">\(A\in \mathbb K^{n\times m}\)</span>, el espacio nulo de <span class="math">\(A\)</span> es:</p>
+<div class="math">
+\[
 Nul(A)=\{X\in \mathbb K^{m} : A\times X = 0 \}
-\]</span></p>
-<h3 id="teorema-4">Teorema</h3>
-<p>Si <span class="math inline">\(A \in \mathbb K^{n\times m}\Rightarrow Nul(A)\)</span> es un subespacio de <span class="math inline">\(\mathbb K^{m}\)</span></p>
+\]</div>
+<h3 id="teorema-5">Teorema</h3>
+<p>Si <span class="math">\(A \in \mathbb K^{n\times m}\Rightarrow Nul(A)\)</span> es un subespacio de <span class="math">\(\mathbb K^{m}\)</span></p>
 <ul>
 <li><p>Demostración</p>
-<p>Verifico que <span class="math inline">\(Nul(A)\)</span> cumpla con <a href="#Subespacios-Vectoriales">las condiciones de ser un subespacio</a></p>
-<ol type="1">
-<li><span class="math inline">\(0_{\mathbb {K^m}} \in Nul(A)\)</span> por que <span class="math inline">\(A\times 0 = 0\)</span></li>
-<li>La suma es cerrada en <span class="math inline">\(Nul(A)\)</span>:</li>
+<p>Verifico que  <span class="math">\(Nul(A)\)</span> cumpla con <a href="#Subespacios-Vectoriales">las condiciones de ser un subespacio</a></p>
+<ol>
+<li><span class="math">\(0_{\mathbb {K^m}} \in Nul(A)\)</span> por que <span class="math">\(A\times 0 = 0\)</span></li>
+<li>La suma es cerrada en <span class="math">\(Nul(A)\)</span>:</li>
 </ol>
-<p>Sean <span class="math inline">\(X,X&#39;\in Nul(A) \Rightarrow A\times X = 0,~~A\times X&#39; = 0\)</span> <span class="math display">\[
-A\times(X+X&#39;) = A\times X + A\times X&#39; = 0
-\]</span> <span class="math inline">\(\therefore X+X&#39; \in Nul(A)\)</span></p>
-<ol start="3" type="1">
-<li>El producto escalar es cerrado en <span class="math inline">\(Nul(A)\)</span>:</li>
+<p>Sean <span class="math">\(X,X'\in Nul(A) \Rightarrow A\times X = 0,~~A\times X' = 0\)</span></p>
+<div class="math">
+\[
+A\times(X+X') = A\times X + A\times X' = 0
+\]</div>
+<p><span class="math">\(\therefore X+X' \in Nul(A)\)</span></p>
+<ol start="3">
+<li>El producto escalar es cerrado en <span class="math">\(Nul(A)\)</span>:</li>
 </ol>
-<p>Sea <span class="math inline">\(\alpha \in \mathbb K, X \in Nul(A)\)</span> <span class="math display">\[
+<p>Sea <span class="math">\(\alpha \in \mathbb K, X \in Nul(A)\)</span></p>
+<div class="math">
+\[
 A\times(\alpha\ .\ X) = \alpha\ .\ A\times X=0
-\]</span></p>
-<p><span class="math inline">\(\therefore \alpha\ .\ X \in Nul(A)\)</span></p></li>
+\]</div>
+<p><span class="math">\(\therefore \alpha\ .\ X \in Nul(A)\)</span></p>
+</li>
 </ul>
-<p>Como valen <span class="math inline">\(1)\)</span>, <span class="math inline">\(2)\)</span> y <span class="math inline">\(3)\)</span>, por el teorema de los subespacios, <span class="math inline">\(Nul(A)\)</span> es un subespacio.</p>
+<p>Como valen <span class="math">\(1)\)</span>, <span class="math">\(2)\)</span>  y <span class="math">\(3)\)</span>, por el teorema de los subespacios, <span class="math">\(Nul(A)\)</span> es un subespacio.</p>
 <h3 id="propiedades-1">Propiedades</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 A\sim B\Rightarrow Nul(A) = Nul(B)
-\]</span></p>
-<p>Por que <span class="math inline">\(A\times X = 0\)</span> tiene la misma solucion que <span class="math inline">\(B\times X=0\)</span></p>
+\]</div>
+<p>Por que <span class="math">\(A\times X = 0\)</span> tiene la misma solucion que <span class="math">\(B\times X=0\)</span></p>
+
 </body>
 </html>

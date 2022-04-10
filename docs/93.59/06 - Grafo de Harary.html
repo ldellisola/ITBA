@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>06 - Grafo de Harary</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>06 - Grafo de Harary.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,66 +1385,78 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="grafo-de-harary">Grafo de Harary</h1>
-<p>Se lo nota como <span class="math inline">\(H_{k,m}\)</span></p>
+<p>Se lo nota como <span class="math">\(H_{k,m}\)</span></p>
 <h2 id="como-armarlo">Como armarlo</h2>
-<ol type="1">
-<li>Armo un grafo <span class="math inline">\(C_m\)</span> y agrego aristas entre todo par de vértices que estén a una <a href="#Distancia%20circular">distancia circular</a> menor o igual a <span class="math inline">\(\lfloor {\frac k 2} \rfloor\)</span></li>
+<ol>
+<li>Armo un grafo <span class="math">\(C_m\)</span> y agrego aristas entre todo par de vértices que estén a una <a href="#distancia-circular">distancia circular</a>(#Distancia circular) menor o igual a <span class="math">\(\lfloor {\frac k 2} \rfloor\)</span></li>
 <li>Distintas opciones:
 <ul>
-<li>Si <span class="math inline">\(k\)</span> es par, termino.</li>
-<li>Si <span class="math inline">\(k\)</span> es impar y <span class="math inline">\(m\)</span> es par, entonces agrego los diámetros <span class="math inline">\(\{i,i+\frac m 2\}\)</span></li>
-<li>Si <span class="math inline">\(k\)</span> es impar y <span class="math inline">\(m\)</span> es impar, entonces agrego los diámetros <span class="math inline">\(\{ 0,\frac{m-1} 2 \} \{0,\frac {m+1} 2\}\)</span> y los cuasi diámetros <span class="math inline">\(\{i,i+\frac{m+1} 2\}\)</span></li>
-</ul></li>
+<li>Si <span class="math">\(k\)</span> es par, termino.</li>
+<li>Si <span class="math">\(k\)</span> es impar y <span class="math">\(m\)</span> es par, entonces agrego los diámetros <span class="math">\(\{i,i+\frac m 2\}\)</span></li>
+<li>Si <span class="math">\(k\)</span> es impar y <span class="math">\(m\)</span> es impar, entonces agrego los diámetros <span class="math">\(\{ 0,\frac{m-1} 2 \} \{0,\frac {m+1} 2\}\)</span> y los cuasi diámetros <span class="math">\(\{i,i+\frac{m+1} 2\}\)</span></li>
+</ul>
+</li>
 </ol>
-<p>La idea en este tipo de grafos es conectar a cada vértice con aquel que este a menos de <span class="math inline">\(k\)</span> vértices de distancia circular.</p>
+<p>La idea en este tipo de grafos es conectar a cada vértice con aquel que este a menos de <span class="math">\(k\)</span> vértices de distancia circular.</p>
 <h2 id="ejemplos">Ejemplos</h2>
-<h3 id="h_48"><span class="math inline">\(H_{4,8}\)</span></h3>
-<p><img src="Resources/1567684283585.png" alt="1567684283585" style="zoom:50%;" /></p>
-<h3 id="h_58"><span class="math inline">\(H_{5,8}\)</span></h3>
-<p><img src="Resources/1567684422424.png" alt="1567684422424" style="zoom:50%;" /></p>
-<h3 id="h_59"><span class="math inline">\(H_{5,9}\)</span></h3>
-<p><img src="Resources/1567685038724.png" alt="1567685038724" style="zoom:50%;" /></p>
+<h3 id="section"><span class="math">\(H_{4,8}\)</span></h3>
+<img src="Resources/f0244436-afda-48de-b39f-bb2c07ac3f5e.png" alt="f0244436-afda-48de-b39f-bb2c07ac3f5e" style="scale:0.50;" />
+<h3 id="section-1"><span class="math">\(H_{5,8}\)</span></h3>
+<img src="Resources/275c9a0b-a2e7-4355-a77a-8353ed2906eb.png" alt="275c9a0b-a2e7-4355-a77a-8353ed2906eb" style="scale:0.50;" />
+<h3 id="section-2"><span class="math">\(H_{5,9}\)</span></h3>
+<img src="Resources/5e0bf25b-f028-45b9-baf8-366256947e57.png" alt="5e0bf25b-f028-45b9-baf8-366256947e57" style="scale:0.50;" />
 <h2 id="propiedades">Propiedades</h2>
 <ul>
-<li>Tiene <span class="math inline">\(m\)</span> vértices</li>
-<li>Son <span class="math inline">\(k\)</span> conexos</li>
+<li>Tiene <span class="math">\(m\)</span> vértices</li>
+<li>Son <span class="math">\(k\)</span> conexos</li>
 <li>Tiene la menor cantidad de aristas posibles</li>
 </ul>
 <h2 id="observaciones">Observaciones</h2>
 <ul>
-<li><p>Si <span class="math inline">\(G\)</span> tiene <span class="math inline">\(m\)</span> vértices y es <span class="math inline">\(k-conexo\)</span>, entonces <span class="math inline">\(\#E_G \ge \frac {k \cdot m} 2\)</span></p>
-<p>Sea <span class="math inline">\(k \le K_v \le K_e \le \delta\)</span>, <span class="math inline">\(\sum_{i\in \mathbb{N}}^m g(v_i)=2 \cdot e\)</span> <span class="math display">\[
+<li><p>Si <span class="math">\(G\)</span> tiene  <span class="math">\(m\)</span> vértices y es $k-conexo $, entonces <span class="math">\(\#E_G \ge \frac {k \cdot m} 2\)</span></p>
+<p>Sea <span class="math">\(k \le K_v \le K_e \le \delta\)</span>, <span class="math">\(\sum_{i\in \mathbb{N}}^m g(v_i)=2 \cdot e\)</span></p>
+<div class="math">
+\[
 g(v_i)\ge \delta~~\forall i\\
 2 \cdot \#E_G \ge\sum_{i=1}^m \delta = m \cdot \delta \ge m \cdot k\\
 \therefore \#E_G \ge \frac{m \cdot k} 2
-\]</span></p></li>
-<li><p><span class="math inline">\(H_{k,m}\)</span> es <span class="math inline">\(k-conexo\)</span></p>
+\]</div>
+</li>
+<li><p><span class="math">\(H_{k,m}\)</span> es <span class="math">\(k-conexo\)</span></p>
 <ul>
-<li><p>Caso 1: <span class="math inline">\(k\)</span> par <span class="math inline">\((k=2\cdot r)\)</span>.</p>
-<p>Quiero ver que saco <span class="math inline">\(k-1\)</span> vértices y el grafo sigue siendo conexo.</p>
-<p>El peor caso es sacar los vértices de 2 “Tiras” de vértices (secuencias)</p>
-<p>En el peor caso tomo vértices de 2 conjuntos <span class="math inline">\(R_1, R_2\)</span>, donde <span class="math inline">\(\#R_1=r\)</span> y <span class="math inline">\(\#R_2 = r-1\)</span>, entonces en total tienen <span class="math inline">\(2\cdot r-1\)</span> vértices .</p>
-<p>Entonces existe <span class="math inline">\(x,y/x\in R_1\)</span> y <span class="math inline">\(y\in R_2\)</span>, donde la distancia circular entre ellos es <span class="math inline">\(r\)</span>.</p>
-<p>Entonces <span class="math inline">\(\exists\{x,y\}\)</span> y el grafo sigue siendo conexo.</p>
-<p>Tomo <span class="math inline">\(v\)</span> un vertice generico. <span class="math inline">\(v\)</span> tiene <span class="math inline">\(r\)</span> vecinos a si inzquieda y <span class="math inline">\(r\)</span> vecinos a su derecha. Nos falta verificar que no se solapan.</p>
-<p>Como <span class="math inline">\(H_{k,m}\)</span> tiene <span class="math inline">\(m\)</span> vertices y <span class="math inline">\(m&gt;k=2 \cdot r\)</span></p>
-<p>Entonces <span class="math inline">\(H_{k,m}\)</span> es <span class="math inline">\(2\cdot r-regular\)</span></p>
-<p>Entonces <span class="math inline">\(2 \cdot \#E - \sum ^m_{i=1} g(v_i) = k \cdot m\)</span></p>
-<p>Entonces <span class="math inline">\(\#E=\frac{k \cdot m} 2\)</span></p></li>
-<li><p>Caso 2: <span class="math inline">\(k\)</span> impar, <span class="math inline">\(n\)</span> par.</p>
-<p>Tarea Libro</p></li>
-<li><p>Caso 3: <span class="math inline">\(k\)</span> impar, <span class="math inline">\(n\)</span> par.</p>
-<p>Tarea Libro</p></li>
-</ul></li>
+<li><p>Caso 1: <span class="math">\(k\)</span> par <span class="math">\((k=2\cdot r)\)</span>.</p>
+<p>Quiero ver que saco <span class="math">\(k-1\)</span> vértices y el grafo sigue siendo conexo.</p>
+<p>El peor caso es sacar los vértices de 2 &quot;Tiras&quot; de vértices  (secuencias)</p>
+<p>En el peor caso tomo vértices de 2 conjuntos <span class="math">\(R_1, R_2\)</span>, donde <span class="math">\(\#R_1=r\)</span> y <span class="math">\(\#R_2 = r-1\)</span>, entonces en total tienen <span class="math">\(2\cdot r-1\)</span> vértices .</p>
+<p>Entonces existe <span class="math">\(x,y/x\in R_1\)</span> y <span class="math">\(y\in R_2\)</span>, donde la distancia circular entre ellos es <span class="math">\(r\)</span>.</p>
+<p>Entonces <span class="math">\(\exists\{x,y\}\)</span> y el grafo sigue siendo conexo.</p>
+<p>Tomo <span class="math">\(v\)</span> un vertice generico. <span class="math">\(v\)</span> tiene <span class="math">\(r\)</span> vecinos a si inzquieda y <span class="math">\(r\)</span> vecinos a su derecha. Nos falta verificar que no se solapan.</p>
+<p>Como <span class="math">\(H_{k,m}\)</span> tiene <span class="math">\(m\)</span> vertices y <span class="math">\(m&gt;k=2 \cdot r\)</span></p>
+<p>Entonces <span class="math">\(H_{k,m}\)</span> es <span class="math">\(2\cdot r-regular\)</span></p>
+<p>Entonces <span class="math">\(2 \cdot \#E - \sum ^m_{i=1} g(v_i) = k \cdot m\)</span></p>
+<p>Entonces <span class="math">\(\#E=\frac{k \cdot m} 2\)</span></p>
+</li>
+<li><p>Caso 2: <span class="math">\(k\)</span> impar, <span class="math">\(n\)</span> par.</p>
+<p>Tarea Libro</p>
+</li>
+<li><p>Caso 3: <span class="math">\(k\)</span> impar, <span class="math">\(n\)</span> par.</p>
+<p>Tarea Libro</p>
+</li>
+</ul>
+</li>
 </ul>
 <h1 id="anexo">Anexo</h1>
 <h2 id="distancia-circular">Distancia circular</h2>
-<p>Distancia circular entre el nodo <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span> en un grafo <span class="math inline">\(C_m\)</span> <span class="math display">\[
+<p>Distancia circular entre el nodo <span class="math">\(i\)</span> y <span class="math">\(j\)</span> en un grafo <span class="math">\(C_m\)</span></p>
+<div class="math">
+\[
 |i-j|_m =min\{ |i-j|, m-|i-j| \}
-\]</span></p>
+\]</div>
+
 </body>
 </html>

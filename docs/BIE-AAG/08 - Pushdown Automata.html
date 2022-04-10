@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>08 - Pushdown Automata</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>08 - Pushdown Automata.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,119 +1385,153 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="pushdown-automata">Pushdown Automata</h1>
-<p>A pushdown automaton is a 7-tuple <span class="math inline">\(R=(Q,\Sigma,G,\delta,q_0,Z_0,F)\)</span> where:</p>
+<p>A pushdown automaton is a 7-tuple <span class="math">\(R=(Q,\Sigma,G,\delta,q_0,Z_0,F)\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(Q\)</span> is a finite set of states.</li>
-<li><span class="math inline">\(\Sigma\)</span> is a finite input alphabet.</li>
-<li><span class="math inline">\(G\)</span> is a finite pushdown store alphabet.</li>
-<li><span class="math inline">\(\delta\)</span> is a mapping function from <span class="math inline">\(Q\times (\Sigma \cup \{\epsilon\}) \times G^*\)</span> into <span class="math inline">\(Q\times G^*\)</span>.</li>
-<li><span class="math inline">\(q_0 \in Q\)</span> is the initial state.</li>
-<li><span class="math inline">\(Z_0 \in G\)</span> is the initial pushdown store symbol.</li>
-<li><span class="math inline">\(F\subseteq Q\)</span> is a set of final states.</li>
+<li><span class="math">\(Q\)</span> is a finite set of states.</li>
+<li><span class="math">\(\Sigma\)</span> is a finite input alphabet.</li>
+<li><span class="math">\(G\)</span> is a finite pushdown store alphabet.</li>
+<li><span class="math">\(\delta\)</span> is a mapping function from  <span class="math">\(Q\times (\Sigma \cup \{\epsilon\}) \times G^*\)</span> into <span class="math">\(Q\times G^*\)</span>.</li>
+<li><span class="math">\(q_0 \in Q\)</span> is the initial state.</li>
+<li><span class="math">\(Z_0 \in G\)</span> is the initial pushdown store symbol.</li>
+<li><span class="math">\(F\subseteq Q\)</span> is a set of final states.</li>
 </ul>
-<p>A <strong>Pushdown Store</strong> is a stack where we store symbols and we can only read or obtain the top symbol. Also this store is not empty at the start because it contains <span class="math inline">\(Z_0\)</span>.</p>
-<p>The transition function <span class="math inline">\(\delta\)</span> tells us that according to the current state, current input and the top of the pushdown store we are deciding to which state we are moving and what we are storing in the pushdown store. We can represent this transition function in two ways:</p>
-<p>In this example we are going from state <span class="math inline">\(S\)</span> to state <span class="math inline">\(A\)</span> with input <span class="math inline">\(a\)</span> and pushdown store <span class="math inline">\(b\)</span>. In the end we will store the symbol <span class="math inline">\(c\)</span> in the pushdown store.</p>
+<p>A <strong>Pushdown Store</strong> is a stack where we store symbols and we can only  read or obtain the top symbol. Also this store is not empty at the start because it contains <span class="math">\(Z_0\)</span>.</p>
+<p>The transition function <span class="math">\(\delta\)</span>  tells us that according to the current state, current input and the top of the pushdown store we are deciding to which state we are moving and what we are storing in the pushdown store. We can represent this transition function in two ways:</p>
+<p>In this example we are going from state <span class="math">\(S\)</span> to state <span class="math">\(A\)</span> with input <span class="math">\(a\)</span> and pushdown store <span class="math">\(b\)</span>. In the end we will store the symbol <span class="math">\(c\)</span> in the pushdown store.</p>
 <ul>
-<li><p>Formal Notation: <span class="math display">\[
+<li><p>Formal Notation:</p>
+<div class="math">
+\[
 \delta(S,a,b) = \{(A,c)\}
-\]</span></p></li>
-<li><p>State Diagram: <span class="math display">\[
+\]</div>
+</li>
+<li><p>State Diagram:</p>
+<div class="math">
+\[
 S \overset {a,b/c} \longrightarrow A
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>The <strong>configuration of a pushdown automaton</strong> <span class="math inline">\(R:(q,w,\alpha) \in Q \times \Sigma^* \times G^*\)</span> where:</p>
+<p>The <strong>configuration of a pushdown automaton</strong> <span class="math">\(R:(q,w,\alpha) \in Q \times \Sigma^* \times G^*\)</span>  where:</p>
 <ul>
-<li><span class="math inline">\(q\)</span> is the current state.</li>
-<li><span class="math inline">\(w\)</span> is the yet unprocessed part of the input string.</li>
-<li><span class="math inline">\(\alpha\)</span> is the pushdown store content.</li>
+<li><span class="math">\(q\)</span> is the current state.</li>
+<li><span class="math">\(w\)</span> is the yet unprocessed part of the input string.</li>
+<li><span class="math">\(\alpha\)</span> is the pushdown store content.</li>
 </ul>
-<p>The initial configuration of the PDA <span class="math inline">\(R\)</span> is: <span class="math display">\[
+<p>The initial configuration of the PDA <span class="math">\(R\)</span> is:</p>
+<div class="math">
+\[
 (q_0,w,Z_0), w\in \Sigma^*
-\]</span> This type of automaton can change their state in two ways:</p>
+\]</div>
+<p>This type of automaton can change their state in two ways:</p>
 <ul>
-<li>The PDA reads the symbol <span class="math inline">\(a\)</span> and moves to a new state, removing the symbol <span class="math inline">\(a\)</span> from the input and the string in the top of the pushdown store it replaced by a new one.</li>
+<li>The PDA reads the symbol <span class="math">\(a\)</span> and moves to a new state, removing the symbol <span class="math">\(a\)</span> from the input and the string in the top of the pushdown store it replaced by a new one.</li>
 <li>The PDA transitions into a new state and it changes the pushdown store content without reading any input symbol.</li>
 </ul>
-<p>A <strong>move in a pushdown automaton</strong> <span class="math inline">\(R\)</span> is an element of the relation <span class="math inline">\(\vdash_R\)</span>. This relation is defined as:</p>
-<p>Let <span class="math inline">\(R=(Q,\Sigma,\delta,q_0,Z_0,F)\)</span> be a pushdown automaton and <span class="math inline">\(\vdash_R\)</span> be a relation over <span class="math inline">\(Q\times\Sigma^*\times G^*\)</span> such that: <span class="math display">\[
-(q,w,\alpha\beta) \vdash_R (p,w&#39;,\gamma\beta) \\\iff\\ w = aw&#39; \land \exists a\in \Sigma \cup\{\epsilon\},w \in \Sigma^*, \alpha,\beta\gamma \in G^* /
+<p>A <strong>move in a pushdown automaton</strong> <span class="math">\(R\)</span> is an element of the relation <span class="math">\(\vdash_R\)</span>. This relation is defined as:</p>
+<p>Let <span class="math">\(R=(Q,\Sigma,\delta,q_0,Z_0,F)\)</span> be a pushdown automaton and <span class="math">\(\vdash_R\)</span> be a relation over <span class="math">\(Q\times\Sigma^*\times G^*\)</span> such that:</p>
+<div class="math">
+\[
+(q,w,\alpha\beta) \vdash_R (p,w',\gamma\beta) \\\iff\\ w = aw' \land \exists a\in \Sigma \cup\{\epsilon\},w \in \Sigma^*, \alpha,\beta\gamma \in G^* /
 (p,\gamma) \in \delta(q,a,\alpha)
-\]</span> We can also define other relations based on <span class="math inline">\(\vdash_R\)</span>:</p>
+\]</div>
+<p>We can also define other relations based on <span class="math">\(\vdash_R\)</span>:</p>
 <ul>
-<li><strong><span class="math inline">\(k\)</span>-th power of relation <span class="math inline">\(\vdash\)</span></strong>: <span class="math inline">\(\vdash^k\)</span></li>
-<li><strong>Transitive closure of relation <span class="math inline">\(\vdash\)</span></strong> : <span class="math inline">\(\vdash^+\)</span></li>
-<li><strong>Transitive and reflexive closure of relation <span class="math inline">\(\vdash\)</span></strong>: <span class="math inline">\(\vdash^*\)</span></li>
+<li><strong><span class="math">\(k\)</span>-th power of relation <span class="math">\(\vdash\)</span></strong>: <span class="math">\(\vdash^k\)</span></li>
+<li><strong>Transitive closure of relation <span class="math">\(\vdash\)</span></strong> : <span class="math">\(\vdash^+\)</span></li>
+<li><strong>Transitive and reflexive closure of relation <span class="math">\(\vdash\)</span></strong>: <span class="math">\(\vdash^*\)</span></li>
 </ul>
 <h2 id="properties">Properties</h2>
-<blockquote>
-<p>Let <span class="math inline">\(P=(Q,\Sigma,G,\delta,q_0,Z_0,F)\)</span> be a PDA.</p>
-<p>If <span class="math inline">\((q,e,A)\vdash_P^n(q&#39;,\epsilon,\epsilon)\)</span> then: <span class="math display">\[
-\array{(q,w,A\alpha) \vdash_P^n (q&#39;,\epsilon,\alpha) &amp;\forall A\in G, \forall \alpha \in G^*}
-\]</span></p>
+<blockquote class="blockquote">
+<p>Let <span class="math">\(P=(Q,\Sigma,G,\delta,q_0,Z_0,F)\)</span> be a PDA.</p>
+<p>If <span class="math">\((q,e,A)\vdash_P^n(q',\epsilon,\epsilon)\)</span> then:</p>
+<div class="math">
+\[
+\array{(q,w,A\alpha) \vdash_P^n (q',\epsilon,\alpha) &amp;\forall A\in G, \forall \alpha \in G^*}
+\]</div>
 </blockquote>
-<blockquote>
-<p>Let <span class="math inline">\(L\)</span> be a language. Then a <span class="math inline">\(P_\epsilon\)</span> PDA exists accepting <span class="math inline">\(L\)</span> by empty pushdown store if there exists a PDA <span class="math inline">\(P_f\)</span> accepting <span class="math inline">\(L\)</span> by a transition into a final state</p>
+<blockquote class="blockquote">
+<p>Let <span class="math">\(L\)</span> be a language. Then a <span class="math">\(P_\epsilon\)</span> PDA exists accepting <span class="math">\(L\)</span> by empty pushdown store if there exists a PDA <span class="math">\(P_f\)</span> accepting <span class="math">\(L\)</span> by a transition into a final state</p>
 </blockquote>
 <h2 id="parsing">Parsing</h2>
-<p>Given <span class="math inline">\(G=(N,\Sigma,P,S)\)</span> a derivation <span class="math inline">\(S \Rightarrow^* \alpha\)</span> <span class="math inline">\(\alpha \in (N\cup \Sigma)^*\)</span> is called <strong>leftmost derivation</strong> if the leftmost nonterminal symbol is a sentential form is replaced in each step. The <strong>rightmost derivation</strong> is defined in the same way.</p>
+<p>Given <span class="math">\(G=(N,\Sigma,P,S)\)</span> a derivation <span class="math">\(S \Rightarrow^* \alpha\)</span>  <span class="math">\(\alpha \in (N\cup \Sigma)^*\)</span> is called <strong>leftmost derivation</strong> if the leftmost nonterminal symbol is a sentential form is replaced in each step. The <strong>rightmost derivation</strong> is defined in the same way.</p>
 <p>A leftmost derivation (or rightmost) corresponds to only one parse tree and vice versa. Therefore there is a linear representation of a parse tree called <strong>parse</strong>.</p>
-<p>Given <span class="math inline">\(G=(N,\Sigma,P,S)\)</span>, let’s assume the rules in <span class="math inline">\(P\)</span> are numbered by <span class="math inline">\(1,2,\dots,|P|\)</span>. The <strong>parse of a sentential form</strong> <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(G\)</span> is the sequence of the rule numbers used in the derivation <span class="math inline">\(S\Rightarrow^*\alpha\)</span>.</p>
-<p>The <strong>left parse of a sentential form</strong> <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(G\)</span> is the sequence of the rule numbers used in the leftmost derivation <span class="math inline">\(S\Rightarrow^*\alpha\)</span>. The <strong>right parse of a sentential form is equivalent</strong>.</p>
+<p>Given <span class="math">\(G=(N,\Sigma,P,S)\)</span>, let's assume the rules in <span class="math">\(P\)</span> are numbered by <span class="math">\(1,2,\dots,|P|\)</span>. The <strong>parse of a sentential form</strong> <span class="math">\(\alpha\)</span> in <span class="math">\(G\)</span> is the sequence of the rule numbers used in the derivation <span class="math">\(S\Rightarrow^*\alpha\)</span>.</p>
+<p>The <strong>left parse of a sentential form</strong> <span class="math">\(\alpha\)</span> in <span class="math">\(G\)</span> is the sequence of the rule numbers used in the leftmost derivation <span class="math">\(S\Rightarrow^*\alpha\)</span>. The <strong>right parse of a sentential form is equivalent</strong>.</p>
 <p>We can construct the parse tree in two different ways:</p>
 <ul>
 <li><p><strong>Top Down (LL)</strong></p>
-<p>Top-down parsing is the process of finding a left parse of a given sentence in a given grammar.</p></li>
+<p>Top-down parsing is the process of finding a left parse of a given sentence in a given grammar.</p>
+</li>
 <li><p><strong>Bottom Up (LR)</strong></p>
-<p>Bottom-up parsing is the process of finding a right parse of a given sentence in a given grammar.</p></li>
+<p>Bottom-up parsing is the process of finding a right parse of a given sentence in a given grammar.</p>
+</li>
 </ul>
 <h2 id="relationship-with-context-free-grammars">Relationship with Context-Free Grammars</h2>
-<blockquote>
-<p>Given a Context-Free Grammar <span class="math inline">\(G=(N,\Sigma,P,S)\)</span> we can create a pushdown automaton <span class="math inline">\(R\)</span> such that: <span class="math display">\[
+<blockquote class="blockquote">
+<p>Given a Context-Free Grammar <span class="math">\(G=(N,\Sigma,P,S)\)</span> we can create a pushdown automaton <span class="math">\(R\)</span> such that:</p>
+<div class="math">
+\[
 L(G) = L_\epsilon(R)
-\]</span></p>
+\]</div>
 </blockquote>
-<p>From that theorem we can create a PDA (using Top-down parsing) in the following way: <span class="math display">\[
+<p>From that theorem we can create a PDA (using Top-down parsing) in the following way:</p>
+<div class="math">
+\[
 R = (\{q\},\Sigma,N\cup \Sigma,\delta,q,S, \emptyset)
-\]</span> where the mapping function is defined as:</p>
+\]</div>
+<p>where the mapping function is defined as:</p>
 <ul>
-<li><span class="math inline">\(\delta(q,\epsilon,A) \leftarrow \{(q,\alpha) : (A \rightarrow \alpha) \in P\}\)</span> <span class="math inline">\(\forall A \in N\)</span></li>
-<li><span class="math inline">\(\delta(q,a,a) \leftarrow \{(q,\epsilon)\}\)</span> <span class="math inline">\(\forall a \in \Sigma\)</span></li>
+<li><span class="math">\(\delta(q,\epsilon,A) \leftarrow \{(q,\alpha) : (A \rightarrow \alpha) \in P\}\)</span>   <span class="math">\(\forall A \in N\)</span></li>
+<li><span class="math">\(\delta(q,a,a) \leftarrow \{(q,\epsilon)\}\)</span>    <span class="math">\(\forall a \in \Sigma\)</span></li>
 </ul>
 <p>The top of the pushdown store for this type of automaton is always on the left.</p>
-<p>In a similar way, we can create a PDA using bottom up parsing: <span class="math display">\[
+<p>In a similar way, we can create a PDA using bottom up parsing:</p>
+<div class="math">
+\[
 R=(\{q,r\},\Sigma,N \cup \Sigma\cup\{\#\},\delta,q,\#,\{r\})
-\]</span> Where the mapping function is defined as:</p>
+\]</div>
+<p>Where the mapping function is defined as:</p>
 <ul>
-<li><span class="math inline">\(\delta(q,a,\epsilon) \leftarrow \{(q,a)\}\)</span> <span class="math inline">\(\forall a\in \Sigma\)</span></li>
-<li><span class="math inline">\(\delta(q,\epsilon,\alpha) \leftarrow \{(a,A):(A \leftarrow \alpha) \in P\}\)</span></li>
-<li><span class="math inline">\(\delta(q,\epsilon,\#S) \leftarrow \{(r,\epsilon)\}\)</span></li>
+<li><span class="math">\(\delta(q,a,\epsilon) \leftarrow \{(q,a)\}\)</span>   <span class="math">\(\forall a\in \Sigma\)</span></li>
+<li><span class="math">\(\delta(q,\epsilon,\alpha) \leftarrow \{(a,A):(A \leftarrow \alpha) \in P\}\)</span></li>
+<li><span class="math">\(\delta(q,\epsilon,\#S) \leftarrow \{(r,\epsilon)\}\)</span></li>
 </ul>
 <p>Compared to the definition of the pushdown automaton and its configurations, the top of the pushdown store for this type of pushdown automaton is always on the right.</p>
 <h2 id="deterministic-pda">Deterministic PDA</h2>
-<p><span class="math inline">\(R=(Q,\Sigma,G,\delta,q_0,Z_0,F)\)</span> is a <strong>deterministic pushdown automaton</strong> if:</p>
+<p><span class="math">\(R=(Q,\Sigma,G,\delta,q_0,Z_0,F)\)</span> is a <strong>deterministic pushdown automaton</strong> if:</p>
 <ul>
-<li><span class="math inline">\(|\delta(q,a,\gamma)| \le 1\)</span> <span class="math inline">\(\forall q \in Q,\forall a \in (\Sigma \cup\{\epsilon\}), \forall \gamma \in G^*\)</span></li>
-<li>If <span class="math inline">\(\delta(q,a,\alpha) \neq \emptyset\)</span> and <span class="math inline">\(\delta(q,a,\beta) \neq \emptyset\)</span> and <span class="math inline">\(\alpha \neq \beta\)</span> then <span class="math inline">\(\alpha\)</span> is not a prefix of <span class="math inline">\(\beta\)</span> and vice versa.</li>
-<li>If <span class="math inline">\(\delta(q,a,\alpha) \neq \emptyset\)</span> and <span class="math inline">\(\delta(q,\epsilon, \beta) \ne \emptyset\)</span> then <span class="math inline">\(\alpha\)</span> is not a prefix of <span class="math inline">\(\beta\)</span> and vice versa.</li>
+<li><span class="math">\(|\delta(q,a,\gamma)| \le 1\)</span>  <span class="math">\(\forall q \in Q,\forall a \in (\Sigma \cup\{\epsilon\}), \forall \gamma \in G^*\)</span></li>
+<li>If <span class="math">\(\delta(q,a,\alpha) \neq \emptyset\)</span> and <span class="math">\(\delta(q,a,\beta) \neq \emptyset\)</span> and <span class="math">\(\alpha \neq \beta\)</span> then <span class="math">\(\alpha\)</span> is not a prefix of <span class="math">\(\beta\)</span> and vice versa.</li>
+<li>If <span class="math">\(\delta(q,a,\alpha) \neq \emptyset\)</span> and <span class="math">\(\delta(q,\epsilon, \beta) \ne \emptyset\)</span> then <span class="math">\(\alpha\)</span> is not a prefix of <span class="math">\(\beta\)</span> and vice versa.</li>
 </ul>
-<p>A simpler way to see this is that if two transitions from the same state use them same input symbol, then they must use a different pushdown store string and they can’t be a prefix or suffix of each other.</p>
+<p>A simpler way to see this is that if two transitions from the same state use them same input symbol, then they must use a different pushdown store string and they can't be a prefix or suffix of each other.</p>
 <h3 id="construction">Construction</h3>
-<p>Using the top-down method we can construct a deterministic PDA. To do this we need to prepare our CFG <span class="math inline">\(G\)</span> first. This algorithm takes a CFG <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> where all the rules are in the form: <span class="math display">\[
+<p>Using the top-down method we can construct a deterministic PDA. To do this we need to prepare our CFG <span class="math">\(G\)</span> first. This algorithm takes a CFG <span class="math">\(G = (N,\Sigma,P,S)\)</span> where all the rules are in the form:</p>
+<div class="math">
+\[
 \array{A \rightarrow a\alpha &amp; a\in \Sigma, \alpha \in (\Sigma\cup N)^*}
-\]</span> And for each two different rules: <span class="math display">\[
+\]</div>
+<p>And for each two different rules:</p>
+<div class="math">
+\[
 \array{A \rightarrow a\alpha  &amp;  B \rightarrow b\beta}
-\]</span> it holds that <span class="math inline">\(a \neq b\)</span></p>
-<p>Once we have the correct grammar, we can convert it to the following automaton: <span class="math display">\[
+\]</div>
+<p>it holds that <span class="math">\(a \neq b\)</span></p>
+<p>Once we have the correct grammar, we can convert it to the following automaton:</p>
+<div class="math">
+\[
 R = (\{q\},\Sigma,N\cup\Sigma,\delta,q,S,\emptyset)
-\]</span> where the mapping function is defined as:</p>
+\]</div>
+<p>where the mapping function is defined as:</p>
 <ul>
-<li><span class="math inline">\(\delta(q,a,A) \leftarrow \{(a,\alpha) :(A\rightarrow a\alpha) \in P\}\)</span> <span class="math inline">\(\forall A \in N\)</span></li>
-<li><span class="math inline">\(\delta(q,a,a) \leftarrow \{(q,\epsilon)\}\)</span> <span class="math inline">\(\forall a \in \Sigma\)</span></li>
+<li><span class="math">\(\delta(q,a,A) \leftarrow \{(a,\alpha) :(A\rightarrow a\alpha) \in P\}\)</span>   <span class="math">\(\forall A \in N\)</span></li>
+<li><span class="math">\(\delta(q,a,a) \leftarrow \{(q,\epsilon)\}\)</span>   <span class="math">\(\forall a \in \Sigma\)</span></li>
 </ul>
 <h3 id="accepting-a-string">Accepting a String</h3>
 <p>A DPDA accepts a string when it reaches the end of a string and is:</p>
@@ -1643,5 +1539,6 @@ R = (\{q\},\Sigma,N\cup\Sigma,\delta,q,S,\emptyset)
 <li>One of the final states.</li>
 <li>It is an arbitrary state but the pushdown store is empty.</li>
 </ul>
+
 </body>
 </html>

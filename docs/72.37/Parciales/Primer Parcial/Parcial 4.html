@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Parcial 4</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>Parcial 4.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,25 +1385,27 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="parcial-4">Parcial 4</h1>
 <h2 id="ejercicio-1">Ejercicio 1</h2>
 <h3 id="section">1.1</h3>
 <p>Listar sólo para aquellos clientes que contrataron todos los servicios ofrecidos (los cuales deben consultarse dinámicamente de la tabla Servicio), el/los nombre/s de el/los servicio/s donde más horas acumuladas contrataron junto con dicha cantidad. Cada línea del listado debe presentar el nombre del cliente, la descripción del servicio y la cantidad acumulada de horas por ese servicio. En caso que un cliente presente la misma cantidad máxima de horas en varios servicios, deben aparecer todos.</p>
-<pre class="mssql"><code>select distinct razonsocial, descripcion, sum(cantidad)
-from    ((
-            select cliente
-            from hora
-            group by cliente
-            having count(distinct tiposervicio) = (select count(codigo) from servicio)
-        ) as clientes
-        natural join hora
-         left outer join cliente on cliente.codigo = hora.cliente
-        left outer join servicio on hora.tiposervicio = servicio.codigo) tt
+<pre><code class="language-mssql">select distinct razonsocial, descripcion, sum(cantidad)
+from  	((
+			select cliente
+			from hora
+			group by cliente
+			having count(distinct tiposervicio) = (select count(codigo) from servicio)
+		) as clientes
+		natural join hora
+		 left outer join cliente on cliente.codigo = hora.cliente
+		left outer join servicio on hora.tiposervicio = servicio.codigo) tt
 group by razonsocial,cliente, descripcion
-having sum(cantidad) &gt;=all (select sum(h.cantidad) from hora h where tt.cliente = h.cliente group by h.tiposervicio );</code></pre>
+having sum(cantidad) &gt;=all (select sum(h.cantidad) from hora h where tt.cliente = h.cliente group by h.tiposervicio );
+</code></pre>
 <h3 id="section-1">1.2</h3>
 <p>En función al monto total de facturación por consultor y servicio, se arma la siguiente categorización:</p>
 <ul>
@@ -1550,62 +1414,69 @@ having sum(cantidad) &gt;=all (select sum(h.cantidad) from hora h where tt.clien
 <li>Si el consultor facturó para un tipo de servicio menos de ​$5000: REGULAR</li>
 </ul>
 <p>Se pide listar, sólo para el año 2012, el nombre del consultor, el tipo de servicio, el valor total facturado (para ese consultor y tipo de servicio), y el cartel indicando su categoría. En la columna facturación no debe aparecer sólo un valor numérico sino también el símbolo pesos ($). Si el consultor no facturó nunca algún tipo de servicio en 2012, no debe aparecer en el listado.</p>
-<pre class="mssql"><code>select  consultor.nombre, servicio.descripcion ,concat(&#39;$ &#39;, sum(cantidad * precio)) as facturacion,    case
-                    when sum(cantidad * precio) &lt; 5000  then &#39;regular&#39;
-                    when sum(cantidad * precio) &lt; 10000 then &#39;bueno&#39;
-                    else &#39;muy bueno&#39;
-                end as grupo
+<pre><code class="language-mssql">select  consultor.nombre, servicio.descripcion ,concat('$ ', sum(cantidad * precio)) as facturacion, 	case
+					when sum(cantidad * precio) &lt; 5000  then 'regular'
+					when sum(cantidad * precio) &lt; 10000 then 'bueno'
+					else 'muy bueno'
+				end as grupo
 from consultor right outer join hora on consultor.codigo = hora.consultor
-                left outer join servicio on hora.tiposervicio = servicio.codigo
+				left outer join servicio on hora.tiposervicio = servicio.codigo
 where extract (year from fecha) = 2012
-group by consultor.nombre, servicio.descripcion;</code></pre>
+group by consultor.nombre, servicio.descripcion;
+</code></pre>
 <h3 id="section-2">1.3</h3>
 <p>Se pide hallar los nombres de los consultores que facturaron por lo menos dos tipos de servicios distintos a un mismo cliente para un mismo mes de 2012. El listado deberá mostrar el nombre del consultor, el nombre del cliente y el mes en que sucedió este evento. Recordar que para extraer el mes de un tipo de dato fecha se puede usar la función month de un solo parámetro que devuelve números entre 1 y 12.</p>
-<pre class="mssql"><code>select distinct b.nombre, b.razonsocial, extract(month from fecha) as mes
+<pre><code class="language-mssql">select distinct b.nombre, b.razonsocial, extract(month from fecha) as mes
 from (consultor right outer join hora on consultor.codigo = hora.consultor
-     left outer join cliente ON cliente.codigo = hora.cliente ) b
+	 left outer join cliente ON cliente.codigo = hora.cliente ) b
 
 where extract (year from b.fecha) = 2012 
-     and exists (
-                select * from hora a
-                where extract (year from a.fecha) = 2012 and
-                     extract (month from a.fecha) = extract (month from b.fecha) and 
-                     a.consultor = b.consultor and a.cliente = b.cliente and 
-                       a.tiposervicio &lt;&gt; b.tiposervicio
-                );</code></pre>
+	 and exists (
+				select * from hora a
+				where extract (year from a.fecha) = 2012 and
+					 extract (month from a.fecha) = extract (month from b.fecha) and 
+					 a.consultor = b.consultor and a.cliente = b.cliente and 
+         			   a.tiposervicio &lt;&gt; b.tiposervicio
+				);
+</code></pre>
 <h3 id="section-3">1.4</h3>
 <p>Mostrar cada cliente acompañado por el monto total que debió abonar hasta ahora. Si un cliente no tiene contratado ningún servicio aún, igual debe aparecer en el resultado con monto 0. El listado debe aparecer ordenado descendentemente sobre el total acumulado.</p>
-<pre class="mssql"><code>select razonsocial, sum(case when precio isnull then 0 else (cantidad * precio)end) as total
+<pre><code class="language-mssql">select razonsocial, sum(case when precio isnull then 0 else (cantidad * precio)end) as total
 from  cliente left outer join hora on cliente.codigo = hora.cliente
-      left outer join servicio on hora.tiposervicio = servicio.codigo
+	  left outer join servicio on hora.tiposervicio = servicio.codigo
 group by razonsocial
-order by total desc;</code></pre>
+order by total desc;
+</code></pre>
 <h2 id="ejercicio-3">Ejercicio 3</h2>
 <p>Utilizando el esquema del ejercicio 1</p>
 <h3 id="section-4">3.1</h3>
-<p>Expresar en Cálculo Relacional de tuplas la consulta que permita obtener el nombre de los todos los consultores que trabajaron en COTO pero no en LA ANONIMA, en el mes de agosto de 2012. <span class="math display">\[
+<p>Expresar en Cálculo Relacional de tuplas la consulta que permita obtener el nombre de los todos los consultores que trabajaron en COTO pero no en LA ANONIMA, en el mes de agosto de 2012.</p>
+<div class="math">
+\[
 \{ T\mid \\
-    (\exists U) (
-        hora(U) \land U[cliente] = A124 \land \text{1/8/2012} \le U[fecha] \land U[fecha] \le \text{31/8/2012}
-        \\ \neg (\exists R)(
-            hora(R) \land U[consultor] = R[consultor] \land R[cliente] = A531 \land \text{1/8/2012} \le R[fecha] \land R[fecha] \le \text{31/8/2012}
-        ) \land
+	(\exists U) (
+		hora(U) \land U[cliente] = A124 \land \text{1/8/2012} \le U[fecha] \land U[fecha] \le \text{31/8/2012}
+		\\ \neg (\exists R)(
+			hora(R) \land U[consultor] = R[consultor] \land R[cliente] = A531 \land \text{1/8/2012} \le R[fecha] \land R[fecha] \le \text{31/8/2012}
+		) \land
         \\ (\exists Q)(
-            consultor(Q) \land U[consultor] = Q[codigo] \land Q[nombre]=T[nombre]
+        	consultor(Q) \land U[consultor] = Q[codigo] \land Q[nombre]=T[nombre]
         )
-        \\
-    )  
-    \\
+		\\
+	)  
+	\\
 \}
-\]</span></p>
+\]</div>
 <h3 id="section-5">3.2</h3>
-<p>Expresar en Álgebra relacional la consulta que permita obtener el precio del servicio más barato ofrecido junto con la descripción del mismo. Para nuestra muestra el resultado debería ser el que se muestra a continuación, ya que hay 3 servicios que tienen el menor precio. <span class="math display">\[
+<p>Expresar en Álgebra relacional la consulta que permita obtener el precio del servicio más barato ofrecido junto con la descripción del mismo. Para nuestra muestra el resultado debería ser el que se muestra a continuación, ya que hay 3 servicios que tienen el menor precio.</p>
+<div class="math">
+\[
 aux \leftarrow\sigma_{\text{s1.precio &lt; s2.precio}}(\rho_{\text{s1}}(SERVICIO)\times \rho_{\text{s2}}(SERVICIO))\\
 \pi_{\text{a1.s1.descripcion, a1.s1.precio}}(\sigma_{\text{a1.s1.precio &lt; a2.s1.precio}}(\rho_{\text{a1}}(aux) \times \rho_{\text{a2}}(aux)))
-\]</span></p>
+\]</div>
 <h2 id="ejercicio-4">Ejercicio 4</h2>
 <p>El siguiente Modelo Entidad/Relación extendido con notación Teorey corresponde al esquema descripto en el ejercicio 1 pero teniendo en cuenta el siguiente agregado</p>
-<ol type="1">
+<ol>
 <li>En caso que un consultor no trabaje más en la empresa, no se desea conservar sus datos ni el trabajo realizado.</li>
 <li>Un consultor puede trabajar en más de un cliente en la misma fecha y a cada uno darle el mismo o diferentes servicios.</li>
 <li>Puede haber más de un consultor trabajando en un mismo cliente en una misma fecha, y pueden estar ofreciendo el mismo o diferentes servicios.</li>
@@ -1622,8 +1493,7 @@ aux \leftarrow\sigma_{\text{s1.precio &lt; s2.precio}}(\rho_{\text{s1}}(SERVICIO
 </ul>
 <p>No agregar ni entidades, ni relaciones ni cambiar aridades.</p>
 <p>Explicar con palabras aquello que no se haya podido representar respecto de los ítems a), b) y c)</p>
-<figure>
-<img src="Resources/Ejercicio%204.svg" alt="Ejercicio 4" /><figcaption aria-hidden="true">Ejercicio 4</figcaption>
-</figure>
+<p><img src="Resources/11085f6c-b688-4638-99d0-2b596cdcccac.svg" class="img-fluid" alt="Ejercicio 4" /></p>
+
 </body>
 </html>

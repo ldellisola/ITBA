@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>11 - Petri Nets</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>11 - Petri Nets.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,84 +1385,115 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="petri-nets">Petri Nets</h1>
-<p>A <strong>Petri Net</strong> is a 5-tuple <span class="math display">\[
+<p>A <strong>Petri Net</strong> is a 5-tuple</p>
+<div class="math">
+\[
 (P,T,F,w,M_0)
-\]</span> where:</p>
+\]</div>
+<p>where:</p>
 <ul>
-<li><span class="math inline">\(P\)</span> is a finite set of places</li>
-<li><span class="math inline">\(T\)</span> is a finite set of transitions</li>
-<li><span class="math inline">\(F \subseteq (P\times T) \cup (T \times P)\)</span> is a set of elements called arcs</li>
-<li><span class="math inline">\(w: F \rightarrow \mathbb{N}\)</span> is a weight function</li>
-<li><span class="math inline">\(M_0:P\rightarrow \mathbb{N}_0\)</span> is the initial marking.</li>
+<li><span class="math">\(P\)</span> is a finite set of places</li>
+<li><span class="math">\(T\)</span> is a finite set of transitions</li>
+<li><span class="math">\(F \subseteq (P\times T) \cup (T \times P)\)</span> is a set of elements called arcs</li>
+<li><span class="math">\(w: F \rightarrow \mathbb{N}\)</span> is a weight function</li>
+<li><span class="math">\(M_0:P\rightarrow \mathbb{N}_0\)</span> is the initial marking.</li>
 </ul>
-<p>A marking (state) if a Petri Net is defined as a function <span class="math inline">\(s:P\rightarrow \mathbb{N}_0\)</span> and it returns the number of tokens a state contains. The state evolves according to the following rules:</p>
+<p>A marking (state) if a Petri Net is defined as a function <span class="math">\(s:P\rightarrow \mathbb{N}_0\)</span> and it returns the number of tokens a state contains. The state evolves according to the following rules:</p>
 <ul>
-<li>A <strong>transition <span class="math inline">\(t\)</span> is enabled</strong> is each input place <span class="math inline">\(p\)</span> if <span class="math inline">\(t\)</span> is marked with at least <span class="math inline">\(w(p,t)\)</span> tokens</li>
-<li>A <strong>transition <span class="math inline">\(t\)</span> can fire</strong> if it is enabled. Firing a transition removes <span class="math inline">\(w(p,t)\)</span> tokens from each input and adds <span class="math inline">\(w(t,p)\)</span> tokens to the output place of <span class="math inline">\(t\)</span>.</li>
+<li>A <strong>transition <span class="math">\(t\)</span> is enabled</strong> is each input place <span class="math">\(p\)</span> if <span class="math">\(t\)</span> is marked with at least <span class="math">\(w(p,t)\)</span> tokens</li>
+<li>A <strong>transition <span class="math">\(t\)</span> can fire</strong> if it is enabled. Firing a transition removes <span class="math">\(w(p,t)\)</span> tokens from each input and adds <span class="math">\(w(t,p)\)</span> tokens to the output place of <span class="math">\(t\)</span>.</li>
 <li>Ordering of firings is non-deterministic. If more than one transition is enabled, arbitrarily one is fired.</li>
 </ul>
 <p>The firing of a petri net transition is considered a transition of the system.</p>
 <h3 id="reachability">Reachability</h3>
-<p>Given a Petri net <span class="math inline">\((P,T,F,w,M_0)\)</span>, we say that a marking <span class="math inline">\(M&#39;\)</span> is <strong>reachable from</strong> a marking <span class="math inline">\(M\)</span> if there exists a sequence of firings from <span class="math inline">\(M\)</span> to <span class="math inline">\(M&#39;\)</span>. In a similar way, a marking <span class="math inline">\(M\)</span> is <strong>reachable</strong> if it is reachable from <span class="math inline">\(M_0\)</span>.</p>
-<p>A <strong>partial marking</strong> is a partial function from <span class="math inline">\(P \rightarrow \mathbb{N}_0\)</span> and it is reachable it there exists a reachable marking <span class="math inline">\(M&#39;\)</span> that coincides with <span class="math inline">\(M\)</span> on its defined elements.</p>
+<p>Given a Petri net <span class="math">\((P,T,F,w,M_0)\)</span>, we say that a marking <span class="math">\(M'\)</span> is <strong>reachable from</strong> a marking <span class="math">\(M\)</span> if there exists a sequence of firings from <span class="math">\(M\)</span> to <span class="math">\(M'\)</span>. In a similar way, a marking <span class="math">\(M\)</span> is <strong>reachable</strong> if it is reachable from <span class="math">\(M_0\)</span>.</p>
+<p>A <strong>partial marking</strong>  is a partial function from <span class="math">\(P \rightarrow \mathbb{N}_0\)</span> and it is reachable it there exists a reachable marking <span class="math">\(M'\)</span> that coincides with <span class="math">\(M\)</span> on its defined elements.</p>
 <h3 id="boundedness">Boundedness</h3>
-<p>A Petri net is <strong><span class="math inline">\(k\)</span>-bounded</strong> if the number on tokens in each place does not exceed <span class="math inline">\(k\)</span> for any reachable marking. Also, a Petri net is <strong>bounded</strong> if there exists a <span class="math inline">\(k\)</span> such that the net is <span class="math inline">\(k\)</span>-bounded.</p>
+<p>A Petri net is <strong><span class="math">\(k\)</span>-bounded</strong> if the number on tokens in each place does not exceed <span class="math">\(k\)</span> for any reachable marking. Also, a Petri net is <strong>bounded</strong> if there exists a <span class="math">\(k\)</span> such that the net is <span class="math">\(k\)</span>-bounded.</p>
 <h3 id="liveliness">Liveliness</h3>
 <p>A <strong>transition is live</strong> if from every reachable marking we can reach a firing of this transition. <strong>The Petri net is live</strong> if every transition is live.</p>
 <h3 id="t-invariants">T-Invariants</h3>
-<p>Starting with any arbitrary initial marking, a <strong>T-invariant</strong> is a function <span class="math inline">\(f:T \rightarrow \mathbb{N}_0\)</span> such that for every sequence of firings from a marking <span class="math inline">\(M\)</span> to <span class="math inline">\(M&#39;\)</span> that fires every transition <span class="math inline">\(t\in T\)</span> exactly <span class="math inline">\(f(t)\)</span> times, <span class="math inline">\(M = M&#39;\)</span>.</p>
+<p>Starting with any arbitrary initial marking, a <strong>T-invariant</strong> is a function <span class="math">\(f:T \rightarrow \mathbb{N}_0\)</span> such that for every sequence of firings from a marking <span class="math">\(M\)</span> to <span class="math">\(M'\)</span> that fires every transition <span class="math">\(t\in T\)</span> exactly <span class="math">\(f(t)\)</span> times, <span class="math">\(M = M'\)</span>.</p>
 <p>Any linear combination of two T-invariants is again a T-invariant.</p>
-<p>To calculate a T-invariant we need to calculate how many transitions we get from a state <span class="math inline">\(s\)</span> to the same state. This can be solved with a system of linear equations and the same number of transitions: <span class="math display">\[
+<p>To calculate a T-invariant we need to calculate how many transitions we get from a state <span class="math">\(s\)</span> to the same state. This can be solved with a system of linear equations and the same number of transitions:</p>
+<div class="math">
+\[
 \Delta_1 x_1 + \dots+\Delta_{\#T}x_{\#T} = 0
-\]</span> Each solution <span class="math inline">\((x_1,\dots,x_{\#T})\)</span> represents one invariant.</p>
+\]</div>
+<p>Each solution <span class="math">\((x_1,\dots,x_{\#T})\)</span> represents one invariant.</p>
 <h3 id="p-invariants">P-Invariants</h3>
-<p>P-invariant is a function <span class="math inline">\(f:(P\rightarrow \mathbb{N}_0) \rightarrow \mathbb{Z}\)</span> such that for every marking <span class="math inline">\(M, M&#39;\)</span>, where <span class="math inline">\(M&#39;\)</span> is the result of a firing from <span class="math inline">\(M\)</span>, <span class="math inline">\(f(M) = f(M&#39;)\)</span>. It is related to the number of tokens under arbitrary firings.</p>
-<p>P-invariants are also computed with a system of linear equations: <span class="math display">\[
+<p>P-invariant is a function <span class="math">\(f:(P\rightarrow \mathbb{N}_0) \rightarrow \mathbb{Z}\)</span> such that for every marking <span class="math">\(M, M'\)</span>, where <span class="math">\(M'\)</span> is the result of a firing from <span class="math">\(M\)</span>, <span class="math">\(f(M) = f(M')\)</span>. It is related to the number of tokens under arbitrary firings.</p>
+<p>P-invariants are also computed with a system of linear equations:</p>
+<div class="math">
+\[
 y\Delta_1 = 0\\
 \vdots\\
 y\Delta_{\#T} = 0\\
-\]</span></p>
+\]</div>
 <h2 id="transformations">Transformations</h2>
-<p>Certain simplifications preserve certain properties of Petri Nets. We can also convert Petri Nets into transition systems. The states are represented by the markings as vectors <span class="math inline">\(\mathbb{N}_0^{\#\text{locations}}\)</span>. This vector will represent the tokens in each location.</p>
-<p>Transitions are similar in both models. Here transitions are conformed by two parts. First the <span class="math inline">\(\Delta^-\)</span> expresses to which location we must remove tokens and <span class="math inline">\(\Delta^+\)</span> to which locations we need to add tokens. The transition ends up looking like <span class="math display">\[
+<p>Certain simplifications preserve certain properties of Petri Nets. We can also convert Petri Nets into transition systems. The states are represented by the markings as vectors <span class="math">\(\mathbb{N}_0^{\#\text{locations}}\)</span>. This vector will represent the tokens in each location.</p>
+<p>Transitions are similar in both models. Here transitions are conformed by two parts. First the <span class="math">\(\Delta^-\)</span> expresses to which location we must remove tokens and <span class="math">\(\Delta^+\)</span> to which locations we need to add tokens. The transition ends up looking like</p>
+<div class="math">
+\[
 \Delta = \Delta^- + \Delta^+ \in \mathbb{Z}^{\#\text{Locations}}
-\]</span> We can also convert petri nets to Infinite transition systems. Given a petri net <span class="math display">\[
+\]</div>
+<p>We can also convert petri nets to Infinite transition systems. Given a petri net</p>
+<div class="math">
+\[
 (\{P_1,\dots,P_n\},\{T_1,\dots,T_m\},F,w,M_0)
-\]</span> The set of states is <span class="math inline">\(\mathbb{N}_0^n\)</span> and the initial state is <span class="math inline">\(\{(M_0(P_1),\dots,M_0(P_n))\}\)</span>. The transition relation is defined as:</p>
+\]</div>
+<p>The set of states is <span class="math">\(\mathbb{N}_0^n\)</span> and the initial state is <span class="math">\(\{(M_0(P_1),\dots,M_0(P_n))\}\)</span>. The transition relation is defined as:</p>
 <ul>
-<li><p><span class="math inline">\(\Delta_j^- = (\delta_1,\dots,\delta_n)\)</span> where <span class="math display">\[
+<li><p><span class="math">\(\Delta_j^- = (\delta_1,\dots,\delta_n)\)</span> where</p>
+<div class="math">
+\[
 \delta_i = \left\{
 \array{
 w(P_i,T_j) &amp; (P_i,T_j) \in F \\
 0&amp; (P_i,T_j) \not \in F
 }
 \right.
-\]</span></p></li>
-<li><p><span class="math inline">\(\Delta_j^+ = (\delta_1,\dots,\delta_n)\)</span> where <span class="math display">\[
+\]</div>
+</li>
+<li><p><span class="math">\(\Delta_j^+ = (\delta_1,\dots,\delta_n)\)</span> where</p>
+<div class="math">
+\[
 \delta_i = \left\{
 \array{
 w(T_j,P_i) &amp; (T_j,P_i) \in F \\
 0&amp; (P_i,T_j) \not \in F
 }
 \right.
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>Then, the transition is defined as: <span class="math display">\[
+<p>Then, the transition is defined as:</p>
+<div class="math">
+\[
 \Delta_j = \Delta_j^- + \Delta_j^+
-\]</span> And the transition relation as: <span class="math display">\[
+\]</div>
+<p>And the transition relation as:</p>
+<div class="math">
+\[
 \{(s,s+\Delta) \in S \times S : s\ge \Delta_j^-, j \in \{1,\dots,m\}\}
-\]</span> This method also works for unbounded Petri Nets.</p>
-<p>We can also convert a transition system into a Petri net. For a given transition system <span class="math inline">\((S,\{S_0\},R)\)</span> we can create the following petri net: <span class="math display">\[
+\]</div>
+<p>This method also works for unbounded Petri Nets.</p>
+<p>We can also convert a transition system into a Petri net. For a given transition system <span class="math">\((S,\{S_0\},R)\)</span> we can create the following petri net:</p>
+<div class="math">
+\[
 (P=S,T=\{t_r:r\in R\},F,w,M_0)
-\]</span> Where</p>
+\]</div>
+<p>Where</p>
 <ul>
-<li><span class="math inline">\(F = \{(s,t_{(s,s&#39;)}:(s,s&#39;)\in R\} \cup \{(t_{(s,s&#39;)},s&#39;):(s,s&#39;)\in R\}\)</span></li>
-<li>Weight function <span class="math inline">\(w:w(x,y) = 1\)</span></li>
-<li><span class="math inline">\(M_0: M_0(s_0) = 1 \land M_0(p) = 0\)</span> if <span class="math inline">\(p \neq s_0\)</span></li>
+<li><span class="math">\(F = \{(s,t_{(s,s')}:(s,s')\in R\} \cup \{(t_{(s,s')},s'):(s,s')\in R\}\)</span></li>
+<li>Weight function <span class="math">\(w:w(x,y) = 1\)</span></li>
+<li><span class="math">\(M_0: M_0(s_0) = 1 \land M_0(p) = 0\)</span> if <span class="math">\(p \neq s_0\)</span></li>
 </ul>
+
 </body>
 </html>

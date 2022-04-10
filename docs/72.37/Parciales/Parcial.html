@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Parcial</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>Parcial.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,76 +1385,103 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h2 id="section">1</h2>
 <h3 id="section-1">1.1</h3>
-<p>Las claves candidatas son: <span class="math display">\[
+<p>Las claves candidatas son:</p>
+<div class="math">
+\[
 GB\\GAC\\GAD\\GAE
-\]</span> Para obtenerlas comence viendo que elementos no estaban presentes a la derecha de ninguna dependencia funcional, y con eso llegue a que <span class="math inline">\(G\)</span> tiene que ser la clave o parte de la clave.</p>
-<p>Luego, al calcular <span class="math inline">\((G)^+\)</span> me di cuenta que <span class="math inline">\(G\)</span> solo no puede ser la clave por que: <span class="math display">\[
+\]</div>
+<p>Para obtenerlas comence viendo que elementos no estaban presentes a la derecha de ninguna dependencia funcional, y con eso llegue a que <span class="math">\(G\)</span> tiene que ser la clave o parte de la clave.</p>
+<p>Luego, al calcular <span class="math">\((G)^+\)</span> me di cuenta que <span class="math">\(G\)</span> solo no puede ser la clave por que:</p>
+<div class="math">
+\[
 (G)^+ = \{G\}
-\]</span> Entonces tiene que ser parte de la clave.</p>
-<p>Por otro lado, calculando el resto de las claves me encontre con: <span class="math display">\[
+\]</div>
+<p>Entonces tiene que ser parte de la clave.</p>
+<p>Por otro lado, calculando el resto de las claves me encontre con:</p>
+<div class="math">
+\[
 (A)^+ = \{A\}\\
 (B)^+ = \{A,B,C,D,E\}\\
 (C)^+ = \{C,D,E\}\\
 (D)^+ = \{D\}\\
 (E)^+ = \{E\}\\
-\]</span> De este calculo puedo obtener que <span class="math inline">\(GB\)</span> es parte del conjunto de claves, ya que: <span class="math display">\[
+\]</div>
+<p>De este calculo puedo obtener que <span class="math">\(GB\)</span> es parte del conjunto de claves, ya que:</p>
+<div class="math">
+\[
 (GB)^+ = \{A,B,C,D,E,G\}
-\]</span> Pero puede haber otras claves. Por eso volvi a revisar las dependencias y descubri que la unica forma de calcular <span class="math inline">\(A\)</span>, sin utilizar <span class="math inline">\(B\)</span> es mediante la reflexividad, por lo que puede llegar a ser parte de una clave: <span class="math display">\[
+\]</div>
+<p>Pero puede haber otras claves. Por eso volvi a revisar las dependencias y descubri que la unica forma de calcular <span class="math">\(A\)</span>, sin utilizar <span class="math">\(B\)</span> es mediante la reflexividad, por lo que puede llegar a ser parte de una clave:</p>
+<div class="math">
+\[
 (AC)^+ = \{C,D,E,B,A\}\\
 (AD)^+ = \{A,D,B,E,C\}\\
 (AE)^+ = \{A,E,C,D,B\}\\
-\]</span> Entonces puedo ver que todas esas combinaciones, en conjunto con <span class="math inline">\((G)\)</span>, pueden definir a la relacion.</p>
+\]</div>
+<p>Entonces puedo ver que todas esas combinaciones, en conjunto con <span class="math">\((G)\)</span>, pueden definir a la relacion.</p>
 <h3 id="section-2">1.2.1</h3>
-<p><span class="math inline">\(R_1(A,B,D)\)</span> <span class="math inline">\(R_2(A,C,D,E,G)\)</span></p>
-<p>Calculo para <span class="math inline">\(R_1\)</span></p>
-<p><span class="math inline">\(f1 = C -&gt; DE,AE -&gt; C , AD -&gt; B,B -&gt; AE\)</span></p>
-<p><span class="math inline">\(X = CEG\)</span></p>
-<p>Defino Tomo a <span class="math inline">\(C\)</span> y lo elimino de <span class="math inline">\(X\)</span> (<span class="math inline">\(X=EG\)</span> )</p>
-<p>Agarro la dependencia <span class="math inline">\(AE -&gt; C\)</span> y la dependencia <span class="math inline">\(C -&gt; DE\)</span>.</p>
-<p>Las uno y obtengo <span class="math inline">\(AE -&gt; DE\)</span>. Como no es trivial la guardo.</p>
-<p>Como no hay mas dependencias que tengan a <span class="math inline">\(C\)</span>, paso a la proxima etapa.</p>
-<p>Saco de <span class="math inline">\(f1\)</span> las dependencias que contienen a <span class="math inline">\(C\)</span> y agrego la nueva dependencia calculada.</p>
-<p><span class="math inline">\(f1 = AD -&gt; B, B -&gt; AE, A-&gt;D\)</span></p>
-<p>Como <span class="math inline">\(X != \emptyset\)</span>, tomo <span class="math inline">\(E\)</span> y lo elimino de <span class="math inline">\(X\)</span>. (<span class="math inline">\(X=G\)</span> )</p>
-<p>Agarro las dependencias <span class="math inline">\(B -&gt; AE\)</span> y <span class="math inline">\(AE -&gt; DE\)</span>.</p>
-<p>Las uno y obtengo <span class="math inline">\(B-&gt; DE\)</span>. Como no es trivial la guardo.</p>
-<p>Como no hay mas dependencias que tengan a <span class="math inline">\(E\)</span>, paso a la proxima etapa.</p>
-<p>Saco de <span class="math inline">\(f1\)</span> las dependencias que contienen a <span class="math inline">\(E\)</span> y agrego la nueva dependencia calculada.</p>
-<p><span class="math inline">\(f1 = AD -&gt; B, A-&gt;D\)</span></p>
-<p>Como <span class="math inline">\(X != \emptyset\)</span>, tomo <span class="math inline">\(G\)</span> y lo elimino de <span class="math inline">\(X\)</span>. (<span class="math inline">\(X=0\)</span> )</p>
-<p>Como no hay dependencias que contengan a <span class="math inline">\(G\)</span> en <span class="math inline">\(f1\)</span>, termino con esta variable.</p>
-<p>Como <span class="math inline">\(X = \emptyset\)</span>, entonces termine el algoritmo</p>
-<p><span class="math inline">\(\pi_{R_{1}} = \{ AD \rightarrow B , A \rightarrow D\}\)</span></p>
-<p>Para calcular el de <span class="math inline">\(R_2\)</span> es analogo, pero no me da el tiempo. El resultado seria: <span class="math display">\[
+<p><span class="math">\(R_1(A,B,D)\)</span> <span class="math">\(R_2(A,C,D,E,G)\)</span></p>
+<p>Calculo para <span class="math">\(R_1\)</span></p>
+<p><span class="math">\(f1 = C -&gt; DE,AE -&gt; C , AD -&gt; B,B -&gt; AE\)</span></p>
+<p><span class="math">\(X = CEG\)</span></p>
+<p>Defino Tomo a <span class="math">\(C\)</span> y lo elimino de <span class="math">\(X\)</span> (<span class="math">\(X=EG\)</span> )</p>
+<p>Agarro la dependencia <span class="math">\(AE -&gt; C\)</span> y la dependencia <span class="math">\(C -&gt; DE\)</span>.</p>
+<p>Las uno y obtengo <span class="math">\(AE -&gt; DE\)</span>. Como no es trivial la guardo.</p>
+<p>Como no hay mas dependencias que tengan a <span class="math">\(C\)</span>, paso a la proxima etapa.</p>
+<p>Saco de <span class="math">\(f1\)</span> las dependencias que contienen a <span class="math">\(C\)</span> y agrego la nueva dependencia calculada.</p>
+<p><span class="math">\(f1 = AD -&gt; B, B -&gt; AE, A-&gt;D\)</span></p>
+<p>Como <span class="math">\(X != \emptyset\)</span>, tomo <span class="math">\(E\)</span> y lo elimino de <span class="math">\(X\)</span>. (<span class="math">\(X=G\)</span> )</p>
+<p>Agarro las dependencias <span class="math">\(B -&gt; AE\)</span> y <span class="math">\(AE -&gt; DE\)</span>.</p>
+<p>Las uno y obtengo <span class="math">\(B-&gt; DE\)</span>. Como no es trivial la guardo.</p>
+<p>Como no hay mas dependencias que tengan a <span class="math">\(E\)</span>, paso a la proxima etapa.</p>
+<p>Saco de <span class="math">\(f1\)</span> las dependencias que contienen a <span class="math">\(E\)</span> y agrego la nueva dependencia calculada.</p>
+<p><span class="math">\(f1 = AD -&gt; B, A-&gt;D\)</span></p>
+<p>Como <span class="math">\(X != \emptyset\)</span>, tomo <span class="math">\(G\)</span> y lo elimino de <span class="math">\(X\)</span>. (<span class="math">\(X=0\)</span> )</p>
+<p>Como no hay dependencias que contengan a <span class="math">\(G\)</span> en <span class="math">\(f1\)</span>, termino con esta variable.</p>
+<p>Como <span class="math">\(X = \emptyset\)</span>, entonces termine el algoritmo</p>
+<p><span class="math">\(\pi_{R_{1}} = \{ AD \rightarrow B , A \rightarrow D\}\)</span></p>
+<p>Para calcular el de <span class="math">\(R_2\)</span> es analogo, pero no me da el tiempo. El resultado seria:</p>
+<div class="math">
+\[
 \pi_{R_2} = \{ AD \rightarrow AE, C \rightarrow DE, AE \rightarrow C \}
-\]</span></p>
+\]</div>
 <h3 id="section-3">1.2.2</h3>
-<p><span class="math inline">\(R_1(A,B,D)\)</span> <span class="math inline">\(R_2(A,C,D,E,G)\)</span></p>
-<p>Como solo tengo dos esquemas, puedo verificar si que no se perdio informacion si alguna de las siguentes dependencias funcionales pertenecen a <span class="math inline">\(F^+\)</span>: <span class="math display">\[
+<p><span class="math">\(R_1(A,B,D)\)</span> <span class="math">\(R_2(A,C,D,E,G)\)</span></p>
+<p>Como solo tengo dos esquemas, puedo verificar si que no se perdio informacion si alguna de las siguentes dependencias funcionales pertenecen a <span class="math">\(F^+\)</span>:</p>
+<div class="math">
+\[
 \array{
-    (R_1 \cap R_2) \rightarrow R_1 - R_2 \\
-    (R_1 \cap R_2) \rightarrow R_2 - R_1
+	(R_1 \cap R_2) \rightarrow R_1 - R_2 \\
+	(R_1 \cap R_2) \rightarrow R_2 - R_1
 }
-\]</span> A partir de los valores que tengo, puedo calcular: <span class="math display">\[
+\]</div>
+<p>A partir de los valores que tengo, puedo calcular:</p>
+<div class="math">
+\[
 R_1 \cap R_2 = AD \\
 R_1 - R_2 = B \\
 R_2 - R_1 = ACEG
-\]</span> Entonces, obtendria la siguentes dependencias: <span class="math display">\[
+\]</div>
+<p>Entonces, obtendria la siguentes dependencias:</p>
+<div class="math">
+\[
 \array{
-    (1) &amp;&amp; AD \rightarrow B \\
-    (2) &amp;&amp; AD \rightarrow ACEG \\
+	(1) &amp;&amp; AD \rightarrow B \\
+	(2) &amp;&amp; AD \rightarrow ACEG \\
 }
-\]</span> Y como <span class="math inline">\((1) \in F^+\)</span>, puedo decir que no hay perdida de informacion.</p>
+\]</div>
+<p>Y como <span class="math">\((1) \in F^+\)</span>, puedo decir que no hay perdida de informacion.</p>
 <h2 id="section-4">2</h2>
 <h3 id="section-5">2.1</h3>
-<table>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th>A</th>
 <th>B</th>
 <th>C</th>
@@ -1601,26 +1490,26 @@ R_2 - R_1 = ACEG
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(a_1\)</span></td>
-<td><span class="math inline">\(a_2\)</span></td>
-<td><span class="math inline">\(a_3\)</span></td>
-<td><span class="math inline">\(a_4\)</span></td>
-<td><span class="math inline">\(a_5\)</span></td>
+<tr>
+<td><span class="math">\(a_1\)</span></td>
+<td><span class="math">\(a_2\)</span></td>
+<td><span class="math">\(a_3\)</span></td>
+<td><span class="math">\(a_4\)</span></td>
+<td><span class="math">\(a_5\)</span></td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(b_{11}\)</span></td>
-<td><span class="math inline">\(b_{12}\)</span></td>
-<td><span class="math inline">\(a_3\)</span></td>
-<td><span class="math inline">\(a_4\)</span></td>
-<td><span class="math inline">\(b_{15}\)</span></td>
+<tr>
+<td><span class="math">\(b_{11}\)</span></td>
+<td><span class="math">\(b_{12}\)</span></td>
+<td><span class="math">\(a_3\)</span></td>
+<td><span class="math">\(a_4\)</span></td>
+<td><span class="math">\(b_{15}\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Aplico <span class="math inline">\(CD \rightarrow E\)</span>:</p>
-<table>
+<p>Aplico <span class="math">\(CD \rightarrow E\)</span>:</p>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th>A</th>
 <th>B</th>
 <th>C</th>
@@ -1629,26 +1518,26 @@ R_2 - R_1 = ACEG
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(a_1\)</span></td>
-<td><span class="math inline">\(a_2\)</span></td>
-<td><span class="math inline">\(a_3\)</span></td>
-<td><span class="math inline">\(a_4\)</span></td>
-<td><span class="math inline">\(a_5\)</span></td>
+<tr>
+<td><span class="math">\(a_1\)</span></td>
+<td><span class="math">\(a_2\)</span></td>
+<td><span class="math">\(a_3\)</span></td>
+<td><span class="math">\(a_4\)</span></td>
+<td><span class="math">\(a_5\)</span></td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(b_{11}\)</span></td>
-<td><span class="math inline">\(b_{12}\)</span></td>
-<td><span class="math inline">\(a_3\)</span></td>
-<td><span class="math inline">\(a_4\)</span></td>
-<td><span class="math inline">\(a_5\)</span></td>
+<tr>
+<td><span class="math">\(b_{11}\)</span></td>
+<td><span class="math">\(b_{12}\)</span></td>
+<td><span class="math">\(a_3\)</span></td>
+<td><span class="math">\(a_4\)</span></td>
+<td><span class="math">\(a_5\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Aplico <span class="math inline">\(E \rightarrow A\)</span></p>
-<table>
+<p>Aplico <span class="math">\(E \rightarrow A\)</span></p>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th>A</th>
 <th>B</th>
 <th>C</th>
@@ -1657,26 +1546,26 @@ R_2 - R_1 = ACEG
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(a_1\)</span></td>
-<td><span class="math inline">\(a_2\)</span></td>
-<td><span class="math inline">\(a_3\)</span></td>
-<td><span class="math inline">\(a_4\)</span></td>
-<td><span class="math inline">\(a_5\)</span></td>
+<tr>
+<td><span class="math">\(a_1\)</span></td>
+<td><span class="math">\(a_2\)</span></td>
+<td><span class="math">\(a_3\)</span></td>
+<td><span class="math">\(a_4\)</span></td>
+<td><span class="math">\(a_5\)</span></td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(a_1\)</span></td>
-<td><span class="math inline">\(b_{12}\)</span></td>
-<td><span class="math inline">\(a_3\)</span></td>
-<td><span class="math inline">\(a_4\)</span></td>
-<td><span class="math inline">\(a_5\)</span></td>
+<tr>
+<td><span class="math">\(a_1\)</span></td>
+<td><span class="math">\(b_{12}\)</span></td>
+<td><span class="math">\(a_3\)</span></td>
+<td><span class="math">\(a_4\)</span></td>
+<td><span class="math">\(a_5\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Creo la junta <span class="math inline">\(J(ADE,ABC)\)</span> para utilizar la dependencia multivaluada, :</p>
-<table>
+<p>Creo la junta <span class="math">\(J(ADE,ABC)\)</span> para utilizar la dependencia multivaluada, :</p>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th>A</th>
 <th>B</th>
 <th>C</th>
@@ -1685,56 +1574,59 @@ R_2 - R_1 = ACEG
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(a_1\)</span></td>
-<td><span class="math inline">\(a_2\)</span></td>
-<td><span class="math inline">\(a_3\)</span></td>
-<td><span class="math inline">\(a_4\)</span></td>
-<td><span class="math inline">\(a_5\)</span></td>
+<tr>
+<td><span class="math">\(a_1\)</span></td>
+<td><span class="math">\(a_2\)</span></td>
+<td><span class="math">\(a_3\)</span></td>
+<td><span class="math">\(a_4\)</span></td>
+<td><span class="math">\(a_5\)</span></td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(a_{1}\)</span></td>
-<td><span class="math inline">\(b_{12}\)</span></td>
-<td><span class="math inline">\(a_3\)</span></td>
-<td><span class="math inline">\(a_4\)</span></td>
-<td><span class="math inline">\(a_{5}\)</span></td>
+<tr>
+<td><span class="math">\(a_{1}\)</span></td>
+<td><span class="math">\(b_{12}\)</span></td>
+<td><span class="math">\(a_3\)</span></td>
+<td><span class="math">\(a_4\)</span></td>
+<td><span class="math">\(a_{5}\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>obtengo que <span class="math inline">\(BD(CE) =\{EA\}\)</span></p>
+<p>obtengo que <span class="math">\(BD(CE) =\{EA\}\)</span></p>
 <h3 id="section-6">2.2</h3>
-<p>Mediante axiomas, puedo decir que : <span class="math display">\[
+<p>Mediante axiomas, puedo decir que :</p>
+<div class="math">
+\[
 CD \rightarrow E \rightarrow A\\ \Rightarrow \\ CD \rightarrow A
-\]</span></p>
+\]</div>
 <h2 id="section-7">3</h2>
 <p>Es falso, lo voy a probar con un ejemplo:</p>
-<table>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th>G</th>
 <th>E</th>
 <th>B</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>2</td>
 <td>3</td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td>2</td>
 <td>4</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>3</td>
 <td>4</td>
 <td>7</td>
 </tr>
 </tbody>
 </table>
-<p>En esta tabla se puede ver que <span class="math inline">\(B\)</span> depende de <span class="math inline">\(GE\)</span>, ya que <span class="math inline">\(B = G+E\)</span>. Pero podemos ver en las primeras dos columnas, que mientras que el valor de <span class="math inline">\(B\)</span> es único para cada par <span class="math inline">\(GE\)</span>, el valor no es único para cada valor de <span class="math inline">\(E\)</span>.</p>
-<p>Vemos claramente que <span class="math inline">\(2 \rightarrow 3\)</span> y <span class="math inline">\(2 \rightarrow 4\)</span>.</p>
+<p>En esta tabla se puede ver que <span class="math">\(B\)</span> depende de <span class="math">\(GE\)</span>, ya que <span class="math">\(B = G+E\)</span>. Pero podemos ver en las primeras dos columnas, que mientras que el valor de <span class="math">\(B\)</span> es único para cada par <span class="math">\(GE\)</span>, el valor no es único para cada valor de <span class="math">\(E\)</span>.</p>
+<p>Vemos claramente que <span class="math">\(2 \rightarrow 3\)</span> y <span class="math">\(2 \rightarrow 4\)</span>.</p>
+
 </body>
 </html>

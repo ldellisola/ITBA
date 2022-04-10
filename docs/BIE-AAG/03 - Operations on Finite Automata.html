@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Operations on Finite Automata</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>03 - Operations on Finite Automata.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,70 +1385,87 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="operations-on-finite-automata">Operations on Finite Automata</h1>
 <h2 id="determination">Determination</h2>
-<p>We say that two automatas <span class="math inline">\(M_1,M_2\)</span> are <strong>equivalent</strong> if they accept the same language: <span class="math display">\[
+<p>We say that two automatas <span class="math">\(M_1,M_2\)</span> are <strong>equivalent</strong> if they accept the same language:</p>
+<div class="math">
+\[
 L(M_1) = L(M_2)
-\]</span> For every nondeterministic finite automaton (NFA) <span class="math inline">\(M\)</span> there exists an equivalent deterministic finite automaton (DFA) <span class="math inline">\(M&#39;\)</span>. This is achieved with an algorithm called <strong>determination of NFA</strong>.</p>
-<p><img src="Resources/Untitled/image-20201015102250037.png" alt="image-20201015102250037" style="zoom:50%;" /></p>
-<p>Given the size of the original automaton <span class="math inline">\(|Q_{NFA}| = n\)</span>, the new, deterministic automaton’s size can be up to <span class="math inline">\(|Q_{DFA}|=2^n\)</span>.</p>
+\]</div>
+<p>For every nondeterministic finite automaton (NFA) <span class="math">\(M\)</span> there exists an equivalent deterministic finite automaton (DFA) <span class="math">\(M'\)</span>. This is achieved with an algorithm called <strong>determination of NFA</strong>.</p>
+<img src="Resources/Untitled/387b99ab-cb2e-4fab-8273-b1e098748102.png" alt="387b99ab-cb2e-4fab-8273-b1e098748102" style="scale:0.50;" />
+<p>Given the size of the original automaton <span class="math">\(|Q_{NFA}| = n\)</span>, the new, deterministic automaton's size can be up to <span class="math">\(|Q_{DFA}|=2^n\)</span>.</p>
 <h2 id="homogeneous-finite-automaton">Homogeneous Finite Automaton</h2>
-<p>An <strong>Homogeneous Finite Automaton</strong> is described as <span class="math inline">\(M=(Q,\Sigma,\delta,q_0, F)\)</span>, and <span class="math inline">\(Q(a)\)</span> are the set of <u>targets states</u> <span class="math inline">\(\forall a \in \Sigma\)</span>. In this automaton, for all pair of symbols <span class="math inline">\((a,b)/ a\neq b, a,b\in \Sigma\)</span> it holds that <span class="math inline">\(Q(a) \cap Q(b) = \emptyset\)</span>.</p>
+<p>An <strong>Homogeneous Finite Automaton</strong> is described as <span class="math">\(M=(Q,\Sigma,\delta,q_0, F)\)</span>, and <span class="math">\(Q(a)\)</span> are the set of <u>targets states</u> $\forall a \in \Sigma $. In this automaton, for all pair of symbols <span class="math">\((a,b)/ a\neq b, a,b\in \Sigma\)</span> it holds that <span class="math">\(Q(a) \cap Q(b) = \emptyset\)</span>.</p>
 <p>A set of <strong>Target States</strong> are are a group of stats that receive a transition from a given action:</p>
-<p><img src="Resources/Untitled/image-20201015103330345.png" alt="image-20201015103330345" style="zoom:67%;" /></p>
+<img src="Resources/Untitled/93b6f446-0acf-46b0-b386-939160f5a03d.png" alt="93b6f446-0acf-46b0-b386-939160f5a03d" style="scale:0.67;" />
 <h3 id="theorems">Theorems</h3>
-<p>Let <span class="math inline">\(M=(Q,\Sigma,\delta,q_0,F)\)</span> be an homogeneous automaton.</p>
+<p>Let <span class="math">\(M=(Q,\Sigma,\delta,q_0,F)\)</span> be an homogeneous automaton.</p>
 <ul>
-<li><p>The set of states of the automaton <span class="math inline">\(M\)</span>, without unreachable states is partitioned as follows: <span class="math display">\[
+<li><p>The set of states of the automaton <span class="math">\(M\)</span>, without unreachable states is partitioned as follows:</p>
+<div class="math">
+\[
 \array{
 Q = \biguplus_{a\in\Sigma\cup\{\epsilon\}} Q(a) &amp;
 \text{where } &amp;
 Q(\epsilon) = \{q_0\} \setminus\bigcup_{a\in \Sigma} Q(a)
 }
-\]</span></p></li>
-<li><p>Given <span class="math inline">\(M\)</span>, a <span class="math inline">\(NFA\)</span>. The number of states of the equivalent <span class="math inline">\(DFA\)</span> <span class="math inline">\(M&#39;=(Q&#39;,\Sigma,\delta&#39;,q&#39;_0,F&#39;)\)</span> gained by the standard determinization algorithm is bounded by the following equality: <span class="math display">\[
-|Q&#39;| \le \sum_{a\in \Sigma} (s^{|Q(a)|})-|\Sigma| + 1
-\]</span></p></li>
+\]</div>
+</li>
+<li><p>Given <span class="math">\(M\)</span>, a <span class="math">\(NFA\)</span>. The number of states of the equivalent <span class="math">\(DFA\)</span> <span class="math">\(M'=(Q',\Sigma,\delta',q'_0,F')\)</span> gained by the standard determinization algorithm is bounded by the following equality:</p>
+<div class="math">
+\[
+|Q'| \le \sum_{a\in \Sigma} (s^{|Q(a)|})-|\Sigma| + 1
+\]</div>
+</li>
 </ul>
 <h2 id="union-of-languages">Union of Languages</h2>
-<p>We can join different <span class="math inline">\(NFA\)</span> automaton to be able to join different languages. In the following algoithm we’ll show you how to do it while deleting <span class="math inline">\(\epsilon\)</span>-transitions:</p>
-<p><img src="Resources/Untitled/image-20201015122224998.png" alt="image-20201015122224998" style="zoom: 50%;" /></p>
+<p>We can join different <span class="math">\(NFA\)</span> automaton to be able to join different languages. In the following algoithm we'll show you how to do it while deleting <span class="math">\(\epsilon\)</span>-transitions:</p>
+<img src="Resources/Untitled/image-20201015122224998.png" alt="image-20201015122224998" style="zoom: 50%;" />
 <h3 id="total-nfa">Total NFA</h3>
-<p>We call an <span class="math inline">\(NFA\)</span> <span class="math inline">\(M=(Q,\Sigma,\delta,q_0,F)\)</span> a <u>total NFA</u> if the mapping: <span class="math display">\[
+<p>We call an <span class="math">\(NFA\)</span>  <span class="math">\(M=(Q,\Sigma,\delta,q_0,F)\)</span> a <u>total NFA</u> if the mapping:</p>
+<div class="math">
+\[
 \array{
 \delta(q,a) \neq \emptyset &amp;&amp;
 \forall q \in Q, a \in \Sigma
 }
-\]</span> Basically, we say that an NFA is total if all states are connected with all actions.</p>
+\]</div>
+<p>Basically, we say that an NFA is total if all states are connected with all actions.</p>
 <p>We can <strong>join</strong> languages in parallel runs using the following algorithm:</p>
-<p><img src="Resources/Untitled/image-20201015122811255.png" alt="image-20201015122811255" style="zoom:50%;" /></p>
+<img src="Resources/Untitled/f534ad45-8812-4527-8ac9-ad1b41ee4aef.png" alt="f534ad45-8812-4527-8ac9-ad1b41ee4aef" style="scale:0.50;" />
 <h2 id="intersection-of-languages">Intersection of Languages</h2>
 <p>There are also algorithms to create the intersection of different languages. In order to achieve this we have to utilize this algorithm:</p>
-<p><img src="Resources/Untitled/image-20201015123136448.png" alt="image-20201015123136448" style="zoom:50%;" /></p>
-<p>There’s another algorithm that creates the intersection, but <u>only keeps the acceesible states</u>:</p>
-<p><img src="Resources/Untitled/image-20201015123555122.png" alt="image-20201015123555122" style="zoom:50%;" /></p>
+<img src="Resources/Untitled/fc1ca7c8-12ef-42c7-8179-cb239b421c5c.png" alt="fc1ca7c8-12ef-42c7-8179-cb239b421c5c" style="scale:0.50;" />
+<p>There's another algorithm that creates the intersection, but <u>only keeps the acceesible states</u>:</p>
+<img src="Resources/Untitled/33a0c907-26c3-434d-8b93-78777f6f0ccf.png" alt="33a0c907-26c3-434d-8b93-78777f6f0ccf" style="scale:0.50;" />
 <h2 id="complement-of-language">Complement of Language</h2>
 <p>This operation works by swapping the final states for non-final states. It can be calculated with the following algorithm:</p>
-<p><img src="Resources/Untitled/image-20201015123909022.png" alt="image-20201015123909022" style="zoom:50%;" /></p>
+<img src="Resources/Untitled/6ed2dce5-1397-4a2b-b3db-2c7ade3293d6.png" alt="6ed2dce5-1397-4a2b-b3db-2c7ade3293d6" style="scale:0.50;" />
 <h2 id="product-of-languages">Product of Languages</h2>
 <p>The product of 2 languages is defined as the concatenation of the strings of both automaton. In this case, we have to connect all outputs from the first automata to all inputs of the second automata.</p>
-<p>We can do this by merging both automaton with <span class="math inline">\(\epsilon\)</span>-transitions:</p>
-<p><img src="Resources/Untitled/image-20201015124408991.png" alt="image-20201015124408991" style="zoom:50%;" /></p>
+<p>We can do this by merging both automaton with <span class="math">\(\epsilon\)</span>-transitions:</p>
+<img src="Resources/Untitled/0c04c2cb-f60e-4662-9fc2-d0f9828c76ce.png" alt="0c04c2cb-f60e-4662-9fc2-d0f9828c76ce" style="scale:0.50;" />
 <p>Or, without using them:</p>
-<p><img src="Resources/Untitled/image-20201015124443130.png" alt="image-20201015124443130" style="zoom:50%;" /></p>
+<img src="Resources/Untitled/2206c7d5-612f-4c15-b28c-ce1535c85429.png" alt="2206c7d5-612f-4c15-b28c-ce1535c85429" style="scale:0.50;" />
 <h2 id="iteration-of-a-language">Iteration of a Language</h2>
 <p>When we iterate through a language, we are actually feeding back the output of the automaton to the input.</p>
-<p>There’s an algorithm for this operation that uses <span class="math inline">\(\epsilon\)</span>-transitions:</p>
-<p><img src="Resources/Untitled/image-20201015162654667.png" alt="image-20201015162654667" style="zoom:50%;" /></p>
-<p>Here we can see a variant that does not create any <span class="math inline">\(\epsilon\)</span>-transitions:</p>
-<p><img src="Resources/Untitled/image-20201015162811213.png" alt="image-20201015162811213" style="zoom:50%;" /></p>
+<p>There's an algorithm for this operation that uses <span class="math">\(\epsilon\)</span>-transitions:</p>
+<img src="Resources/Untitled/3cabb649-e93c-4b8c-add3-047b853c2985.png" alt="3cabb649-e93c-4b8c-add3-047b853c2985" style="scale:0.50;" />
+<p>Here we can see a variant that does not create any <span class="math">\(\epsilon\)</span>-transitions:</p>
+<img src="Resources/Untitled/c398d103-308b-4337-b066-5c2bcf24464f.png" alt="c398d103-308b-4337-b066-5c2bcf24464f" style="scale:0.50;" />
 <h2 id="minimal-dfa">Minimal DFA</h2>
-<p>Let <span class="math inline">\(M=(Q,\Sigma,\delta, q_0,F)\)</span> be a DFA. <span class="math inline">\(M\)</span> is called minimal DFA if: <span class="math display">\[
-\not \exists M&#39; = (Q&#39;,\Sigma,\delta&#39;,q_0&#39;,F&#39;) / L(M) = L(M&#39;) \land |Q|&gt;|Q&#39;|
-\]</span> To obtain the minimal form of a DFA, we can use the following algorithm:</p>
-<p><img src="Resources/Untitled/image-20201015163159922.png" alt="image-20201015163159922" style="zoom:50%;" /></p>
+<p>Let <span class="math">\(M=(Q,\Sigma,\delta, q_0,F)\)</span> be a DFA. <span class="math">\(M\)</span> is called minimal DFA if:</p>
+<div class="math">
+\[
+\not \exists M' = (Q',\Sigma,\delta',q_0',F') / L(M) = L(M') \land |Q|&gt;|Q'|
+\]</div>
+<p>To obtain the minimal form of a DFA, we can use the following algorithm:</p>
+<img src="Resources/Untitled/fd6fa4b6-d6a0-4fad-947c-c83d16d656c9.png" alt="fd6fa4b6-d6a0-4fad-947c-c83d16d656c9" style="scale:0.50;" />
+
 </body>
 </html>

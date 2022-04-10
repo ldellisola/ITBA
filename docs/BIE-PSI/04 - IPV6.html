@@ -1,153 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - IPV6</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - IPV6.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -156,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -213,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -277,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -360,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -379,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -401,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -498,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -590,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -631,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -674,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -861,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -917,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1240,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1365,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1522,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="ipv6">IPV6</h1>
@@ -1536,9 +1400,9 @@ blockquote {
 </ul>
 <h2 id="header">Header</h2>
 <p>The headers in this new version also changed, for once, the size of the header changed from 32 bits to 64 bits:</p>
-<p><img src="Resources/04 - IPV6/image-20210505163102627.png" alt="image-20210505163102627" style="zoom:33%;" /></p>
+<img src="Resources/04 - IPV6/babfcfff-368d-47a5-a201-e4d0254e7335.png" alt="babfcfff-368d-47a5-a201-e4d0254e7335" style="scale:0.33;" />
 <p>There also have been changes to the fields of the headers:</p>
-<p><img src="Resources/04 - IPV6/image-20210505164737654.png" alt="image-20210505164737654" style="zoom:33%;" /></p>
+<img src="Resources/04 - IPV6/9aefbc35-5ac3-43b7-a541-d2bf603dd563.png" alt="9aefbc35-5ac3-43b7-a541-d2bf603dd563" style="scale:0.33;" />
 <p>We can go over these fields:</p>
 <ul>
 <li><strong>Version</strong>: it takes 4 bits of space and it says the number 6.</li>
@@ -1550,10 +1414,10 @@ blockquote {
 <li><strong>Flow Label</strong>: This 20 bit field was introduced in this revision of the standard, it is used for identification of data flow to make routing easier.</li>
 </ul>
 <h2 id="extension-headers">Extension Headers</h2>
-<p>Extension headers may be placed after the main IPv6 header and there is only one requirement, the <em>“Hop-by-Hop”</em> header has to be the first one. Also, the last header has to contain the type of data in the payload.</p>
-<p><img src="Resources/04 - IPV6/image-20210505165808293.png" alt="image-20210505165808293" style="zoom:33%;" /></p>
+<p>Extension headers may be placed after the main IPv6 header and there is only one requirement, the <em>&quot;Hop-by-Hop&quot;</em> header has to be the first one. Also, the last header has to contain the type of data in the payload.</p>
+<img src="Resources/04 - IPV6/6721314e-5df4-4d1b-971f-4c81d7243b1f.png" alt="6721314e-5df4-4d1b-971f-4c81d7243b1f" style="scale:0.33;" />
 <h2 id="jumbogram">Jumbogram</h2>
-<p>The maximal payload length is 65535, but IPv6 allows larger packets called jumbograms, up to 4 GB. This makes sense for MTUs (maximum transfer unit) higher than 64 kB. For this the payload length has to be set to 0 and the length value is in the EH type <em>“Hop-by-Hop”</em> options.</p>
+<p>The maximal payload length is 65535, but IPv6 allows larger packets called jumbograms, up to 4 GB. This makes sense for MTUs (maximum transfer unit) higher than 64 kB. For this the payload length has to be set to 0 and the length value is in the EH type <em>&quot;Hop-by-Hop&quot;</em> options.</p>
 <h2 id="fragmentation">Fragmentation</h2>
 <p>For IPv6, the minimal MTU is 1280 bytes, and fragmentation is performed by the sender, not the routers. If a packet is larger, the router will drop it or send an ICMP message to the sender with MTU information.</p>
 <h2 id="address-notation">Address Notation</h2>
@@ -1563,7 +1427,8 @@ blockquote {
 0221:0db8:0000:0000:0000::1428:57ab
 0221:0db8:0:0:0:0:1428:57ab
 0221:0db8::1428:57ab
-0221:0db8::20.40.87.171</code></pre>
+0221:0db8::20.40.87.171
+</code></pre>
 <p>IPv6 addresses can be one of the following types:</p>
 <ul>
 <li><strong>unicast</strong>: Individual addresses</li>
@@ -1581,9 +1446,9 @@ blockquote {
 </ul>
 <h3 id="global-ipv6-address">Global IPv6 Address</h3>
 <p>All global IPv6 addresses have a prefix of <code>2000::/3</code> for now. The rest of the structure is defined by a Global routing prefix, SLA and interface ID.</p>
-<p><img src="Resources/04 - IPV6/image-20210506122749221.png" alt="image-20210506122749221" style="zoom:33%;" /></p>
+<img src="Resources/04 - IPV6/a7d56399-a62f-4551-98bf-7c8faaa5f143.png" alt="a7d56399-a62f-4551-98bf-7c8faaa5f143" style="scale:0.33;" />
 <p>The interface ID can be constructed from the MAC address of the device:</p>
-<p><img src="Resources/04 - IPV6/image-20210506122822625.png" alt="image-20210506122822625" style="zoom:33%;" /></p>
+<img src="Resources/04 - IPV6/4c4e26e0-23f8-4a99-9001-8dff34b4d2c6.png" alt="4c4e26e0-23f8-4a99-9001-8dff34b4d2c6" style="scale:0.33;" />
 <h3 id="addresses-of-the-network-interface">Addresses of the Network Interface</h3>
 <p>The network interface has multiple IPv6 addresses:</p>
 <ul>
@@ -1616,15 +1481,16 @@ blockquote {
 <li>Routers discovery</li>
 <li>Redirection</li>
 <li>Detection of duplicate addresses</li>
-<li>Verification of Neighbors’ accessibility</li>
+<li>Verification of Neighbors' accessibility</li>
 <li>Discover information for automatic configuration</li>
 </ul>
 <h2 id="multiprotocol-label-switching-mpls">MultiProtocol Label Switching (MPLS)</h2>
 <p>MPLS is a routing technique that directs data from one node to the next based on short path labels rather than long network addresses. In the OSI model this protocol would fall between the second and third layer, and it adds a label to layer 3 packets. The packets are then switched according to the label. This implements an <em>end-to-end</em> connection independent of the link layer.</p>
 <h3 id="mpls-header">MPLS Header</h3>
 <p>The MPLS header is compose by the label, which takes up 20 bits, the traffic class (3 bits), the bottom of label stack flag (1 bit) and then the Time-to-Live, which takes up 8 bits. The total size of the header is 32 bits.</p>
-<p><img src="Resources/04 - IPV6/image-20210506124653312.png" alt="image-20210506124653312" style="zoom:33%;" /></p>
+<img src="Resources/04 - IPV6/d171838e-6fa7-4e1b-8fc5-16a27316f5a6.png" alt="d171838e-6fa7-4e1b-8fc5-16a27316f5a6" style="scale:0.33;" />
 <h3 id="mpls-network">MPLS Network</h3>
-<p>When a packet enters the MPLS network, the Label Edge Router (LER) attaches a label to it. Inside the network, the packets are forwarded according to the labels by Label Switching Routers (LSRs). When a packet exits the MPLS network, the edge router removes the label.</p>
+<p>When a packet enters the MPLS network, the Label Edge Router (LER) attaches a label to it. Inside the network, the  packets are forwarded according to the labels by Label Switching Routers (LSRs). When a packet exits the MPLS network, the edge router removes the label.</p>
+
 </body>
 </html>

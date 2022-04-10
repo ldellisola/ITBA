@@ -1,214 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>10 - XSLT</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {  background-color: #f8f8f8; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ef2929; } /* Alert */
-    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #c4a000; } /* Attribute */
-    code span.bn { color: #0000cf; } /* BaseN */
-    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4e9a06; } /* Char */
-    code span.cn { color: #000000; } /* Constant */
-    code span.co { color: #8f5902; font-style: italic; } /* Comment */
-    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-    code span.dt { color: #204a87; } /* DataType */
-    code span.dv { color: #0000cf; } /* DecVal */
-    code span.er { color: #a40000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #0000cf; } /* Float */
-    code span.fu { color: #000000; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-    code span.ot { color: #8f5902; } /* Other */
-    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-    code span.sc { color: #000000; } /* SpecialChar */
-    code span.ss { color: #4e9a06; } /* SpecialString */
-    code span.st { color: #4e9a06; } /* String */
-    code span.va { color: #000000; } /* Variable */
-    code span.vs { color: #4e9a06; } /* VerbatimString */
-    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>10 - XSLT.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -217,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -274,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -338,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -421,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -440,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -462,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -559,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -651,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -692,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -735,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -922,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -978,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1301,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1426,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1583,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="xslt">XSLT</h1>
@@ -1595,87 +1398,104 @@ blockquote {
 <ul>
 <li>Utilizando <code>stylesheet</code></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:stylesheet</span><span class="ot"> version=</span><span class="st">&quot;2.0&quot;</span><span class="ot"> xmlns:xsl=</span><span class="st">&quot;http://www.w3.org/1999/XSL/Transform&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    Reglas XSLT</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:stylesheet&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+	Reglas XSLT
+&lt;/xsl:stylesheet&gt;
+</code></pre>
 <ul>
 <li>Utilizando <code>Transform</code></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:transform</span><span class="ot"> version=</span><span class="st">&quot;2.0&quot;</span><span class="ot"> xmlns:xsl=</span><span class="st">&quot;http://www.w3.org/1999/XSL/Transform&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    Reglas XSLT</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:transform&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:transform version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+	Reglas XSLT
+&lt;/xsl:transform&gt;
+</code></pre>
 <p>Hay dos tipos de templates: Anónimos y Con Nombre.</p>
-<h3 id="templates-anónimos">Templates Anónimos</h3>
-<p>Este tipo de templates no necesitan tener nombre, pero tampoco tienen que estar dentro de otro template. Se los define de la siguiente forma:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:template</span><span class="ot"> match=</span><span class="st">&quot;xpathExpression&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;xsl:param</span><span class="ot"> name=</span><span class="st">&quot;param1&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:template&gt;</span></span></code></pre></div>
+<h3 id="templates-anonimos">Templates Anónimos</h3>
+<p>Este tipo de templates no necesitan tener nombre, pero tampoco tienen que estar dentro de otro template.  Se los define de la siguiente forma:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;xpathExpression&quot;&gt;
+  	&lt;xsl:param name=&quot;param1&quot;/&gt;
+    ...
+&lt;/xsl:template&gt;
+</code></pre>
 <p>Y luego se los puede invocar de la siguiente forma:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:apply-template</span><span class="ot"> select=</span><span class="st">&quot;xpathexpression&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;xsl:with-param</span><span class="ot"> name=</span><span class="st">&quot;param1&quot;</span><span class="kw">&gt;</span> value1 <span class="kw">&lt;/xsl:with-param&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:apply-template&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:apply-template select=&quot;xpathexpression&quot;&gt;
+	&lt;xsl:with-param name=&quot;param1&quot;&gt; value1 &lt;/xsl:with-param&gt;
+    ...
+&lt;/xsl:apply-template&gt;
+</code></pre>
 <p>Los parámetros son opcionales y pueden tener infinitos. Ahora, como sabe a que template anónimo llamar? XSLT compara a todos los templates anónimos y selecciona al primero cuya expresión <code>match</code> sea igual a la de <code>select</code>.</p>
 <h3 id="templates-con-nombre">Templates con Nombre</h3>
 <p>Son similares a los templates anónimos pero en vez de tener el atributo <code>match</code> tienen el atributo <code>name</code>, y luego se las llama por el nombre.</p>
 <p>Así es la sintaxis:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:template</span><span class="ot"> name=</span><span class="st">&quot;TemplateName&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;xsl:param</span><span class="ot"> name=</span><span class="st">&quot;param1&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:template&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:template name=&quot;TemplateName&quot;&gt;
+  	&lt;xsl:param name=&quot;param1&quot;/&gt;
+    ...
+&lt;/xsl:template&gt;
+</code></pre>
 <p>Y así se lo invoca:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:call-template</span><span class="ot"> name=</span><span class="st">&quot;TemplateName&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;xsl:with-param</span><span class="ot"> name=</span><span class="st">&quot;param1&quot;</span><span class="kw">&gt;</span> value1 <span class="kw">&lt;/xsl:with-param&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:call-template&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:call-template name=&quot;TemplateName&quot;&gt;
+	&lt;xsl:with-param name=&quot;param1&quot;&gt; value1 &lt;/xsl:with-param&gt;
+    ...
+&lt;/xsl:call-template&gt;
+</code></pre>
 <h3 id="template-hibrido">Template Hibrido</h3>
 <p>Tambien se pueden combinar ambos templates haciendo que time una expresión y tenga un nombre. De esta forma puede ser invocado tanto como un template con nombre como a uno anónimo.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:template</span><span class="ot"> name=</span><span class="st">&quot;TemplateName&quot;</span><span class="ot"> match=</span><span class="st">&quot;xpathExpression&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;xsl:param</span><span class="ot"> name=</span><span class="st">&quot;param1&quot;</span><span class="kw">/&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:template&gt;</span></span></code></pre></div>
-<h2 id="algoritmo-de-evaluación">Algoritmo de Evaluación</h2>
+<pre><code class="language-xml">&lt;xsl:template name=&quot;TemplateName&quot; match=&quot;xpathExpression&quot;&gt;
+  	&lt;xsl:param name=&quot;param1&quot;/&gt;
+    ...
+&lt;/xsl:template&gt;
+</code></pre>
+<h2 id="algoritmo-de-evaluacion">Algoritmo de Evaluación</h2>
 <p>El procesador comienza con el nodo raíz y aplica un template a todos los nodos hijos. De no existir esta regla para alguno de los templates, se aplica el <strong>element default template</strong> que consiste en sacar su contenido en la salida y buscar un template para cada uno de sus hijos. Si hay mas de una template que puede tomar a uno de los hijos, XSLT llama a la template mas especifica.</p>
 <p>El algoritmo tambien recorre el árbol de arriba a abajo y de izquierda a derecha</p>
 <h2 id="sentencias-para-crear-las-reglas-de-los-templates">Sentencias para Crear las Reglas de los Templates</h2>
-<h3 id="generación-de-nuevos-tags">Generación de nuevos tags</h3>
+<h3 id="generacion-de-nuevos-tags">Generación de nuevos tags</h3>
 <p>Para generar un nuevo elemento se utiliza el constructor de <code>element</code>. Para darle un valor se lo debe poner dentro del tag.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:element</span><span class="ot"> name=</span><span class="st">&quot;ElementName&quot;</span><span class="kw">/&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:element name=&quot;ElementName&quot;/&gt;
+</code></pre>
 <p>Para generar un nuevo atributo se utiliza el constructor de <code>attribute</code> dentro de un elemento. Para darle un valor se le puede asignar dentro del tag o simplemente utilizando el atributo <code>select</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:attribute</span><span class="ot"> name=</span><span class="st">&quot;AttrName&quot;</span><span class="kw">/&gt;</span></span></code></pre></div>
-<h3 id="extracción-del-valor-de-un-nodo">Extracción del Valor de un Nodo</h3>
+<pre><code class="language-xml">&lt;xsl:attribute name=&quot;AttrName&quot;/&gt;
+</code></pre>
+<h3 id="extraccion-del-valor-de-un-nodo">Extracción del Valor de un Nodo</h3>
 <p>Se utiliza la función <code>value-of</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:value-of</span><span class="ot"> select=</span><span class="st">&quot;XPathExpression&quot;</span><span class="kw">/&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:value-of select=&quot;XPathExpression&quot;/&gt;
+</code></pre>
 <h3 id="loop">Loop</h3>
 <p>Permite iterar sobre una colección de nodos o elementos.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:for-each</span><span class="ot"> select=</span><span class="st">&quot;XPathExpression&quot;</span><span class="kw">/&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:for-each select=&quot;XPathExpression&quot;/&gt;
+</code></pre>
 <h3 id="orden-dentro-de-un-loop">Orden dentro de un loop</h3>
 <p>Permite ordenar los elementos dentro de un <code>for-each</code>. Tiene un argumento opcional llamado <code>order</code> que permite asignarle un valor ascendiente (<code>ascending</code>) o descendiente (<code>descending</code>). El <code>select</code> indica sobre que conjunto de nodos se va a operar.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:sort</span><span class="ot"> select=</span><span class="st">&quot;XPathExpression&quot;</span><span class="kw">/&gt;</span></span></code></pre></div>
-<h3 id="decisión">Decisión</h3>
+<pre><code class="language-xml">&lt;xsl:sort select=&quot;XPathExpression&quot;/&gt;
+</code></pre>
+<h3 id="decision">Decisión</h3>
 <p>Permite el uso de la sintaxis <code>if</code> y <code>switch</code>.</p>
-<p>La sintaxis del <code>switch</code> es:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:choose</span><span class="ot"> test=</span><span class="st">&quot;var&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;xsl:when</span><span class="ot"> test=</span><span class="st">&quot;expression&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/xsl:when&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;xsl:otherwise&gt;</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/xsl:otherwise&gt;</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:choose&gt;</span></span></code></pre></div>
+<p>La sintaxis del <code>switch </code> es:</p>
+<pre><code class="language-xml">&lt;xsl:choose test=&quot;var&quot;&gt;
+	&lt;xsl:when test=&quot;expression&quot;&gt;
+    ...
+    &lt;/xsl:when&gt;
+    ...
+    &lt;xsl:otherwise&gt;
+    ...
+    &lt;/xsl:otherwise&gt;
+&lt;/xsl:choose&gt;
+</code></pre>
 <p>En el caso del <code>if</code>, no tiene <code>else</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:if</span><span class="ot"> test=</span><span class="st">&quot;Condition&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>...</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:if&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:if test=&quot;Condition&quot;&gt;
+...
+&lt;/xsl:if&gt;
+</code></pre>
 <h3 id="variables">Variables</h3>
 <p>Se crea una variable con un nombre y un valor. A la hora de usarla se debe utilizar el símbolo <code>$</code> antes del nombre. Las variables definidas fuera de un template son <strong>globales</strong>. El valor puede asignarse con <code>select</code> o poniéndolo dentro del tag.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:variable</span><span class="ot"> name=</span><span class="st">&quot;NameVar&quot;</span><span class="ot"> select=</span><span class="st">&quot;value&quot;</span><span class="kw">/&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;xsl:variable</span><span class="ot"> name=</span><span class="st">&quot;NameVar&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    value</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/xsl:variable&gt;</span></span></code></pre></div>
+<pre><code class="language-xml">&lt;xsl:variable name=&quot;NameVar&quot; select=&quot;value&quot;/&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;xsl:variable name=&quot;NameVar&quot;&gt;
+	value
+&lt;/xsl:variable&gt;
+</code></pre>
 <h3 id="salida">Salida</h3>
 <p>Se le puede decir a XSLT a que tipo de documento quiero que me escriba todo lo que estoy haciendo. Esto se hace con el elemento <code>output</code> como hijo de <code>stylesheet</code> o <code>transform</code>.</p>
+
 </body>
 </html>

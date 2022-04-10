@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - Regular Expresions</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - Regular Expresions.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,31 +1385,38 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="regular-expressions">Regular Expressions</h1>
-<p>A <em>Regular Expression</em> <span class="math inline">\(V\)</span> over the alphabet <span class="math inline">\(\Sigma\)</span> is defined as:</p>
-<ol type="1">
-<li><p><span class="math inline">\(\emptyset,\epsilon,a\)</span> are regular expressions for all <span class="math inline">\(a\in \Sigma\)</span>.</p></li>
-<li><p>If <span class="math inline">\(x,y\)</span> are regular expressions, then the result of the following operations is a regular expression over <span class="math inline">\(\Sigma\)</span>: <span class="math display">\[
+<p>A <em>Regular Expression</em> <span class="math">\(V\)</span> over the alphabet <span class="math">\(\Sigma\)</span> is defined as:</p>
+<ol>
+<li><p><span class="math">\(\emptyset,\epsilon,a\)</span> are regular expressions for all <span class="math">\(a\in \Sigma\)</span>.</p>
+</li>
+<li><p>If <span class="math">\(x,y\)</span> are regular expressions, then the result of the following operations is a regular expression over <span class="math">\(\Sigma\)</span>:</p>
+<div class="math">
+\[
 \array{
  (a) &amp;&amp;(x+y) &amp;&amp; (\text{union, alternation}) \\
  (b) &amp;&amp; (x.y) &amp;&amp; (\text{concatenation}) \\
  (c) &amp;&amp; (x)^* &amp;&amp; (\text{Kleene star})
 }
-\]</span></p></li>
+\]</div>
+</li>
 </ol>
-<p>The <strong>value <span class="math inline">\(h(x)\)</span></strong> of a regular expression <span class="math inline">\(x\)</span> is defined as follows:</p>
-<ol type="1">
-<li><span class="math inline">\(h(\emptyset) = \emptyset, h(\epsilon)=\{\epsilon\}, h(a) = \{a\}, a\in \Sigma\)</span></li>
-<li><span class="math inline">\(h(x+y) = h(X) \cup h(y)\)</span></li>
-<li><span class="math inline">\(h(x.y) = h(x).h(y)\)</span></li>
-<li><span class="math inline">\(h(x^*) = (h(x))^*\)</span></li>
+<p>The <strong>value <span class="math">\(h(x)\)</span></strong> of a regular expression <span class="math">\(x\)</span> is defined as follows:</p>
+<ol>
+<li><span class="math">\(h(\emptyset) = \emptyset, h(\epsilon)=\{\epsilon\}, h(a) = \{a\}, a\in \Sigma\)</span></li>
+<li><span class="math">\(h(x+y) = h(X) \cup h(y)\)</span></li>
+<li><span class="math">\(h(x.y) = h(x).h(y)\)</span></li>
+<li><span class="math">\(h(x^*) = (h(x))^*\)</span></li>
 </ol>
-<p>Two regular expressions <span class="math inline">\(x,y\)</span> are <strong>identical</strong> <span class="math inline">\((x \equiv y)\)</span> if <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are exactly the same string of symbols.</p>
-<p>Two regular expressions <span class="math inline">\(x,y\)</span> are <strong>equivalent</strong> <span class="math inline">\((x = y)\)</span> if <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> have the same value <span class="math inline">\((h(x) = h(y))\)</span>.</p>
-<p>Two regular expressions <span class="math inline">\(x,y\)</span> are <strong>similar</strong> <span class="math inline">\((x \tilde{=} y)\)</span> if <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> can be converted into each other using the following identities: <span class="math display">\[
+<p>Two regular expressions <span class="math">\(x,y\)</span> are <strong>identical</strong> <span class="math">\((x \equiv y)\)</span> if <span class="math">\(x\)</span> and <span class="math">\(y\)</span> are exactly the same string of symbols.</p>
+<p>Two regular expressions <span class="math">\(x,y\)</span> are <strong>equivalent</strong> <span class="math">\((x = y)\)</span> if <span class="math">\(x\)</span> and <span class="math">\(y\)</span> have the same value <span class="math">\((h(x) = h(y))\)</span>.</p>
+<p>Two regular expressions <span class="math">\(x,y\)</span> are <strong>similar</strong> <span class="math">\((x \tilde{=} y)\)</span> if <span class="math">\(x\)</span> and <span class="math">\(y\)</span> can be converted into each other using the following identities:</p>
+<div class="math">
+\[
 \array{
 A_1 &amp;&amp;x+x = x\\
 A_2 &amp;&amp; x + y = y + x \\
@@ -1556,9 +1425,11 @@ A_4 &amp;&amp; x + \emptyset = x \\
 A_5 &amp;&amp; x.\emptyset = \emptyset.x = \emptyset \\
 A_6 &amp;&amp; x.\epsilon = \epsilon . x = x
 }
-\]</span></p>
+\]</div>
 <h2 id="properties">Properties</h2>
-<p>Let <span class="math inline">\(x,y,z\)</span> be regular expressions, it holds that: <span class="math display">\[
+<p>Let <span class="math">\(x,y,z\)</span> be regular expressions, it holds that:</p>
+<div class="math">
+\[
 \array{
 P_1 &amp;&amp; x + (y+z) = (x+y) + z &amp;&amp; (\text{associativity of union}) \\
 P_2 &amp;&amp; x + y = y + x &amp;&amp; (\text{commutativity of union})\\
@@ -1573,9 +1444,11 @@ P_10 &amp;&amp; x^* = \epsilon + x^*x \\
 P_11 &amp;&amp; x^* = (\epsilon + x)^*\\
 P_12 &amp;&amp; \\
 }
-\]</span></p>
+\]</div>
 <h2 id="theorems">Theorems</h2>
-<p>Let <span class="math inline">\(x,y,z\)</span> be regular expressions: <span class="math display">\[
+<p>Let <span class="math">\(x,y,z\)</span> be regular expressions:</p>
+<div class="math">
+\[
 \array{
 V_1 &amp;&amp; x = x.y + z \Rightarrow x = z.y^* &amp;&amp; (\text{solution of left regular equation}) \\
 V_2 &amp;&amp; x = y.x + z \Rightarrow x = y^*.z &amp;&amp; (\text{solution of rigth regular equation}) \\
@@ -1589,31 +1462,44 @@ V_9 &amp;&amp;  x^*.y = x.x^* = x^*, \text{if } \epsilon \in h(x) \\
 V_10 &amp;&amp; (x.y)^*.x = x.(y.x)^* \\
 V_11 &amp;&amp; (x+y)^* = (x^* + y^*)^* \\
 }
-\]</span></p>
+\]</div>
 <h2 id="regular-equations">Regular Equations</h2>
-<p>The standard system of regular equations ahs the following form: <span class="math display">\[
+<p>The standard system of regular equations ahs the following form:</p>
+<div class="math">
+\[
 X_i = \alpha_{i0}+\alpha_{i1}X_1 + \dots +\alpha_{in}X_n\\
 1 \le i \le n
-\]</span> Where <span class="math inline">\(X_1,\dots,X_n\)</span> are variables and <span class="math inline">\(\alpha_{ij}\)</span> are regular expressions over the alphabet <span class="math inline">\(\Sigma\)</span>, which does not contain <span class="math inline">\(X_1,\dots,X_n\)</span>.</p>
-<p>To solve this systems we need to rewrite the equations as: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(X_1,\dots,X_n\)</span> are variables and <span class="math">\(\alpha_{ij}\)</span> are regular expressions over the alphabet <span class="math">\(\Sigma\)</span>, which does not contain <span class="math">\(X_1,\dots,X_n\)</span>.</p>
+<p>To solve this systems we need to rewrite the equations as:</p>
+<div class="math">
+\[
 X_i = \alpha_i X_i + \beta_i
-\]</span> with <span class="math inline">\(\alpha_i = \alpha_{i1}\)</span> and <span class="math inline">\(\beta_i = \alpha_{i0} + \sum_{k\le n \land k\neq i} \alpha_{ik} X_k\)</span></p>
+\]</div>
+<p>with <span class="math">\(\alpha_i = \alpha_{i1}\)</span> and <span class="math">\(\beta_i = \alpha_{i0} + \sum_{k\le n \land k\neq i} \alpha_{ik} X_k\)</span></p>
 <p>And start replacing them.</p>
 <h2 id="derivatives">Derivatives</h2>
-<p>We can say that the intuitive version of the derivative of a regular expression <span class="math inline">\(V\)</span> with respect to an string <span class="math inline">\(x \in \Sigma^*\)</span> is: <span class="math display">\[
+<p>We can say that the intuitive version of the derivative of a regular expression <span class="math">\(V\)</span> with respect to an string <span class="math">\(x \in \Sigma^*\)</span> is:</p>
+<div class="math">
+\[
 h\left(\frac{\partial V}{\partial x}\right) = \{y : xy \in h(V)\}
-\]</span> The actual definition for this operation is:</p>
-<p><img src="Resources/04 - Regular Expresions/image-20201027200821403.png" alt="image-20201027200821403" style="zoom:50%;" /></p>
+\]</div>
+<p>The actual definition for this operation is:</p>
+<img src="Resources/04 - Regular Expresions/3cca241a-92df-4f44-a9ee-dded0d0d4017.png" alt="3cca241a-92df-4f44-a9ee-dded0d0d4017" style="scale:0.50;" />
 <h2 id="integrals">Integrals</h2>
-<p>The integral is defined in a similar way as the derivative. We can say that the intuitive version of the integral of a regular expression <span class="math inline">\(V\)</span> with respect to an string <span class="math inline">\(x \in \Sigma^*\)</span> is: <span class="math display">\[
+<p>The integral is defined in a similar way as the derivative. We can say that the intuitive version of the integral of a regular expression <span class="math">\(V\)</span> with respect to an string <span class="math">\(x \in \Sigma^*\)</span> is:</p>
+<div class="math">
+\[
 h\left(\int V d x\right) = \{ xy : y \in h(V)\}
-\]</span> The actual definition for this operation is:</p>
-<p><img src="Resources/04 - Regular Expresions/image-20201027201118704.png" alt="image-20201027201118704" style="zoom:50%;" /></p>
+\]</div>
+<p>The actual definition for this operation is:</p>
+<img src="Resources/04 - Regular Expresions/b196838b-98b5-4e22-810a-1a60d8d09c80.png" alt="b196838b-98b5-4e22-810a-1a60d8d09c80" style="scale:0.50;" />
 <h2 id="relation-between-grammar-automata-and-regular-expression">Relation Between Grammar, Automata and Regular Expression</h2>
-<p>According to <strong>Kleene’s Theorem</strong>, we can say that a language over an alphabet is regular if it can be accepted by a finite automaton.</p>
+<p>According to <strong>Kleene's Theorem</strong>, we can say that a language over an alphabet is regular if it can be accepted by a finite automaton.</p>
 <p>We can convert regular Grammars to Nondeterministic Finite automata with the following algorithm:</p>
-<p><img src="Resources/04 - Regular Expresions/image-20201027201452992.png" alt="image-20201027201452992" style="zoom:50%;" /></p>
+<img src="Resources/04 - Regular Expresions/70aa7333-0262-417b-942b-161d603b9107.png" alt="70aa7333-0262-417b-942b-161d603b9107" style="scale:0.50;" />
 <p>In the same way, we can use the following algorithm to revert that action:</p>
-<p><img src="Resources/04 - Regular Expresions/image-20201027201554845.png" alt="image-20201027201554845" style="zoom:50%;" /></p>
+<img src="Resources/04 - Regular Expresions/b2e7b049-829c-48a4-981f-23d7e7c89cd9.png" alt="b2e7b049-829c-48a4-981f-23d7e7c89cd9" style="scale:0.50;" />
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>15 - The Nucleolus</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>15 - The Nucleolus.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,59 +1385,97 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="the-nucleolus">The Nucleolus</h1>
 <h2 id="bankruptcy-games">Bankruptcy Games</h2>
-<p>Let <span class="math inline">\(N =\{1,\dots,n\}\)</span> be the set of claimants, the <strong>bankruptcy problem</strong> is a pair <span class="math inline">\((e,d)\)</span> where <span class="math inline">\(e \ge 0\)</span> is the state and <span class="math inline">\(d=(d_1,\dots,d_n) \in \mathbb{R}_+^n\)</span> are the demands such that: <span class="math display">\[
+<p>Let <span class="math">\(N =\{1,\dots,n\}\)</span> be the set of claimants, the <strong>bankruptcy problem</strong> is a pair <span class="math">\((e,d)\)</span> where <span class="math">\(e \ge 0\)</span> is the state and <span class="math">\(d=(d_1,\dots,d_n) \in \mathbb{R}_+^n\)</span> are the demands such that:</p>
+<div class="math">
+\[
 e \le d_1 + \dots + d_n
-\]</span> A <strong>bankruptcy game </strong> associated with the bankruptcy problem <span class="math inline">\((e,d)\)</span> is a coalitional game given by: <span class="math display">\[
+\]</div>
+<p>A **bankruptcy game ** associated with the bankruptcy problem <span class="math">\((e,d)\)</span> is a coalitional game given by:</p>
+<div class="math">
+\[
 \array{v(A) = \max\{e - d(N\setminus A),0\} &amp; A \subseteq N}
-\]</span> Every bankruptcy game is super-modular, which implies that The core <span class="math inline">\(C(v)\)</span> is non-empty and that the Shapley value belongs to <span class="math inline">\(C(v)\)</span>.</p>
+\]</div>
+<p>Every bankruptcy game is super-modular, which implies that The core <span class="math">\(C(v)\)</span> is non-empty and that the Shapley value belongs to <span class="math">\(C(v)\)</span>.</p>
 <h2 id="the-nucleolus-1">The Nucleolus</h2>
 <p>The nucleolus is an alternative to the Shapley value that also applies to all coalitional games and the idea is that the maximal dissatisfaction of coalitions with an allocation should be minimized.</p>
-<p>Let <span class="math inline">\(v\)</span> be a game with <span class="math inline">\(I(v) \neq \emptyset\)</span>, the <strong>nucleolus</strong> of <span class="math inline">\(v\)</span> is the set: <span class="math display">\[
+<p>Let <span class="math">\(v\)</span> be a game with <span class="math">\(I(v) \neq \emptyset\)</span>, the <strong>nucleolus</strong> of <span class="math">\(v\)</span> is the set:</p>
+<div class="math">
+\[
 N(v) =\{x \in I(V) : e(x) \preceq e(y), \forall y \in I(v)\}
-\]</span> The nucleolus is non-empty and has only a single value. Amon its properties, we can find that if the core <span class="math inline">\(C(v)\)</span> is not empty, then the nucleolus is contained within the core, and it also presents efficiency, Symmetry and the Null Player Property.</p>
+\]</div>
+<p>The nucleolus is non-empty and has only a single value. Amon its properties, we can find that if the core <span class="math">\(C(v)\)</span> is not empty, then the nucleolus is contained within the core, and it also presents efficiency, Symmetry and the Null Player Property.</p>
 <p>The Nucleolus is calculated using the following algorithm:</p>
-<ol type="1">
-<li><p>Find <span class="math inline">\(X_1\subseteq I(v)\)</span> minimizing the maximal excess:</p>
-<p>This is done solving the following linear program: <span class="math display">\[
+<ol>
+<li><p>Find <span class="math">\(X_1\subseteq I(v)\)</span> minimizing the maximal excess:</p>
+<p>This is done solving the following linear program:</p>
+<div class="math">
+\[
 \array{\text{minimize}&amp; t_1\\ 
 \text{subject to}&amp; e(A,x) \le t &amp; \emptyset \neq A \subset N, x \in I(v)}
-\]</span> Where <span class="math inline">\(t_1\)</span> is the value of the LP and <span class="math inline">\(X_1 \times \{t_1\}\)</span> is the set of optimal solutions.</p>
-<p>If <span class="math inline">\(X_1\)</span> is a singleton, then <span class="math inline">\(N(v) = X_1\)</span> and exit the algorithm. Else we create the following set: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(t_1\)</span> is the value of the LP and <span class="math">\(X_1 \times \{t_1\}\)</span> is the set of optimal solutions.</p>
+<p>If <span class="math">\(X_1\)</span> is a singleton, then <span class="math">\(N(v) = X_1\)</span> and exit the algorithm. Else we create the following set:</p>
+<div class="math">
+\[
 F_1 = \{A\subset N : e(A,x) = t_1, \forall x\in X_1\}
-\]</span></p></li>
-<li><p>We will continue with set <span class="math inline">\(X_{i}, i \ge 2\)</span>:</p>
-<p>This is done solving the following linear program: <span class="math display">\[
+\]</div>
+</li>
+<li><p>We will continue with set <span class="math">\(X_{i}, i \ge 2\)</span>:</p>
+<p>This is done solving the following linear program:</p>
+<div class="math">
+\[
 \array{\text{minimize}&amp; t_i\\ 
 \text{subject to}&amp; e(A,x) \le t &amp; A\notin F_{i-1},\emptyset \neq A \subset N, x \in X_{i-1}}
-\]</span> Where <span class="math inline">\(t_i\)</span> is the value of the LP and <span class="math inline">\(X_i \times \{t_i\}\)</span> is the set of optimal solutions.</p>
-<p>If <span class="math inline">\(X_i\)</span> is a singleton, then <span class="math inline">\(N(v) = X_i\)</span> and exit the algorithm. Else we create the following set: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(t_i\)</span> is the value of the LP and <span class="math">\(X_i \times \{t_i\}\)</span> is the set of optimal solutions.</p>
+<p>If <span class="math">\(X_i\)</span> is a singleton, then <span class="math">\(N(v) = X_i\)</span> and exit the algorithm. Else we create the following set:</p>
+<div class="math">
+\[
 F_i = \{A\subset N : e(A,x) = t_i, \forall x\in X_i\}
-\]</span></p></li>
-<li><p>We increment <span class="math inline">\(i\)</span> and repeat step 2.</p></li>
+\]</div>
+</li>
+<li><p>We increment <span class="math">\(i\)</span> and repeat step 2.</p>
+</li>
 </ol>
-<p>The algorithm will stop when <span class="math inline">\(X_k\)</span> is a singleton at step <span class="math inline">\(k \le 2^n\)</span>. Each <span class="math inline">\(t_i\)</span> is the <span class="math inline">\(i^{th}\)</span> highest excess, and each <span class="math inline">\(F_i\)</span> is a collection of coalitions with excess <span class="math inline">\(t_i\)</span>.</p>
+<p>The algorithm will stop when <span class="math">\(X_k\)</span> is a singleton at step <span class="math">\(k \le 2^n\)</span>. Each <span class="math">\(t_i\)</span> is the <span class="math">\(i^{th}\)</span> highest excess, and each <span class="math">\(F_i\)</span> is a collection of coalitions with excess <span class="math">\(t_i\)</span>.</p>
 <h3 id="excess-of-a-coalition">Excess of a Coalition</h3>
-<p>The <strong>excess of a coalition</strong> <span class="math inline">\(A \subseteq N\)</span> at allocation <span class="math inline">\(x \in \mathbb{R}^n\)</span> is: <span class="math display">\[
+<p>The <strong>excess of a coalition</strong> <span class="math">\(A \subseteq N\)</span> at allocation <span class="math">\(x \in \mathbb{R}^n\)</span> is:</p>
+<div class="math">
+\[
 e(A,x) v(A) - x(A) 
-\]</span> The <strong>excess vector</strong> is defined as: <span class="math display">\[
+\]</div>
+<p>The <strong>excess vector</strong> is defined as:</p>
+<div class="math">
+\[
 e(x) = (e(A_1,x),\dots,(A_{2^n},x)) \in \mathbb{R}^{2^n}
-\]</span> Where the coalitions <span class="math inline">\(A_i\)</span> are enumerated from the highest excess such that: <span class="math display">\[
+\]</div>
+<p>Where the coalitions <span class="math">\(A_i\)</span> are enumerated from the highest excess such that:</p>
+<div class="math">
+\[
 e(A_1,x) \ge \dots\ge e(A_{2^n},x)
-\]</span> The excess vector whose maximal excess is minimal are preferred.</p>
-<blockquote>
-<p>For every <span class="math inline">\(\alpha,\beta \in \mathbb{R}^m\)</span>, we define the following symbols: <span class="math display">\[
+\]</div>
+<p>The excess vector whose maximal excess is minimal are preferred.</p>
+<blockquote class="blockquote">
+<p>For every <span class="math">\(\alpha,\beta \in \mathbb{R}^m\)</span>, we define the following symbols:</p>
+<div class="math">
+\[
 \alpha \prec \beta \iff \exists k \in \{1,\dots,m\}. \forall j &lt; k. \alpha_j = \beta_j \land \alpha_k &lt; \beta_k\\
 \alpha \preceq \beta \iff \alpha \prec \beta \lor \alpha = \beta
-\]</span></p>
+\]</div>
 </blockquote>
 <h3 id="imputations">Imputations</h3>
-<p>We seek a lexicographic minimizer of excess vectors <span class="math inline">\(e(x)\)</span> over a set of allocation <span class="math inline">\(x\)</span> in game <span class="math inline">\(v\)</span>. The core is not a good choice as a base set because it can be empty. This is why we are defining the set of <strong>imputations</strong> as: <span class="math display">\[
+<p>We seek a lexicographic minimizer of excess vectors <span class="math">\(e(x)\)</span> over a set of allocation <span class="math">\(x\)</span> in game <span class="math">\(v\)</span>. The core is not a good choice as a base set because it can be empty. This is why we are defining the set of <strong>imputations</strong> as:</p>
+<div class="math">
+\[
 I = \{x\in \mathbb{R}^n : x(N) = v(N) \land \forall i\in N.~ x_i \ge v(i)\}
-\]</span> If the game <span class="math inline">\(v\)</span> is super-additive, the <span class="math inline">\(I(v) \neq \emptyset\)</span>.</p>
+\]</div>
+<p>If the game <span class="math">\(v\)</span> is super-additive, the <span class="math">\(I(v) \neq \emptyset\)</span>.</p>
+
 </body>
 </html>

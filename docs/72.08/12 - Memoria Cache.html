@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>12 - Memoria Cache</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>12 - Memoria Cache.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,29 +1385,33 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="memoria-cache">Memoria Cache</h1>
 <p>La memoria cache es la memoria mas rápida de la computadora y se encuentra dentro del procesador. El trabajo de esta memoria es guardar informacion que el procesador haya utilizado recientemente con el objetivo de que si requiere esa informacion de vuelta, no tenga que ir hacia la memoria RAM para recuperar la informacion sino que puede acceder a ella rápidamente.</p>
 <p>Este tipo de memorias es mucho mas rápido y caro que la memoria RAM común y utiliza una tecnológica llamada SRAM, que le permite mantener la memoria sin tener que refrescarla cada algunos milisegundos. La velocidad de respuesta de esta memoria es acorde a la velocidad del CPU. Hoy en día existen 3 tipos de memoria cache L1, L2 y L3.</p>
 <p>Esta memoria se compone de 3 elementos, memoria para almacenar datos, memoria para almacenar etiquetas y un controlador que selecciona que informacion será guardada en la memoria de datos.</p>
-<h2 id="comunicación-con-la-memoria-ram">Comunicación con la memoria RAM</h2>
+<h2 id="comunicacion-con-la-memoria-ram">Comunicación con la memoria RAM</h2>
 <p>Como este tipo de memoria se encuentra en el camino entre el procesador y la memoria RAM, todos los pedidos de memoria del procesador van a pasar por acá primero, para ver si puede acceder a ella mas rápido.</p>
 <p>La comunicación entre el procesador y la memoria cache se realiza en paquetes WORD de 2 bytes de tamaño Luego, esta se comunica con la memoria RAM mediante bloques de un tamaño fijo.</p>
-<p><img src="Resources/image-20191113184654683.png" alt="image-20191113184654683" style="zoom:50%;" /></p>
+<img src="Resources/72ae176c-49dd-4acd-92ed-4f32f7a9172f.png" alt="72ae176c-49dd-4acd-92ed-4f32f7a9172f" style="scale:0.50;" />
 <h3 id="ejemplo">Ejemplo</h3>
-<p>Si tenemos una <u>memoria RAM de 1MB</u> (<span class="math inline">\(1M\times 8b\)</span>), <u>los bloques de transferencia son de 32 bytes</u> y tenemos una <u>cache de datos de 4K</u>, podemos calcular que la cache tendrá almacenamiento para 128 entradas, cada una de 256 bits (32 bytes): <span class="math display">\[
+<p>Si tenemos una <u>memoria RAM de 1MB</u> ($1M\times 8b $), <u>los bloques de transferencia son de 32 bytes</u> y tenemos una <u>cache de datos de 4K</u>, podemos calcular que la cache tendrá almacenamiento para 128 entradas, cada una de 256 bits (32 bytes):</p>
+<div class="math">
+\[
 4K = 2^{12} \rightarrow \frac{2^{12}}{2^5} = 128
-\]</span> Se accede a la memoria cache de forma similar a la paginación, de forma tal que como en este caso las direcciones son de 20 bits, y nuestra cache es de 9 bits (0.5 KB), entonces los 11 bits mas significativos y a eso lo llama etiqueta, mientras que que los 9 bits menos significativos son el offset. Como la cache no tiene tanta memoria, se fija si la etiqueta obtenida esta guardada dentro de la memoria, y si lo esta accede mediante el offset.</p>
-<p>==PREGUNTAR POR EL TAMA:O DE LA MEMORIA DE ETIQUETAS==</p>
+\]</div>
+<p>Se accede a la memoria cache de forma similar a la paginación, de forma tal que como en este caso las direcciones son de 20 bits, y nuestra cache es de 9 bits (0.5 KB), entonces los 11 bits mas significativos y a eso lo llama etiqueta, mientras que  que los 9 bits menos significativos son el offset. Como la cache no tiene tanta memoria, se fija si la etiqueta obtenida esta guardada dentro de la memoria, y si lo esta accede mediante el offset.</p>
+<p><mark>PREGUNTAR POR EL TAMA:O DE LA MEMORIA DE ETIQUETAS</mark></p>
 <h2 id="mapeos">Mapeos</h2>
 <p>Las memoria cache tiene dos tipos distintos de mapear la memoria:</p>
 <ul>
 <li><strong>Mapeo Directo</strong>: Un bloque de memoria solo se puede mapear a una unica ranura en el cache. Es un método simple pero poco utilizado.</li>
 <li><strong>Mapeo Asociativo</strong>: Un bloque de memoria se puede mapear a cualquier ranura del cache. Este método es mas complejo pero mas utilizado.</li>
 </ul>
-<h2 id="política-de-sustitución">Política de Sustitución</h2>
+<h2 id="politica-de-sustitucion">Política de Sustitución</h2>
 <p>A la hora de almacenar nueva informacion en la cache, distintos procesadores utilizan técnicas distintas, pero las 3 mas comunes son que actué como <u>una pila FIFO</u>, que sea de <u>forma aleatoria</u>, o que se implemente un flag para poder aplicar el algoritmo <u>least recently used</u>.</p>
 <h2 id="actualizacion-de-ram">Actualizacion de RAM</h2>
 <p>Hay dos formas de actualizar a la memoria:</p>
@@ -1553,5 +1419,6 @@ blockquote {
 <li><strong>Escritura inmediata</strong>: Tambien llamado <strong>write through</strong>, mediante este proceso se actualizan ambas memorias juntas y es mas económico que la alternativa, pero tambien es mas lento.</li>
 <li><strong>Escritura olvidada</strong>: Conocido como <strong>write back</strong>, actualiza solo la informacion estrictamente necesaria y es mas rápido, pero es menos económico y tiene problemas tanto con los procesadores multi-core y con dispositivos DMA.</li>
 </ul>
+
 </body>
 </html>

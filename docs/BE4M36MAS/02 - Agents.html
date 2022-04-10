@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>02 - Agents</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>02 - Agents.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="agents">Agents</h1>
@@ -1532,45 +1395,59 @@ blockquote {
 <ul>
 <li>Performance measure for the degree of success</li>
 <li>Percept sequence: how well the agents understand the environment and remember the past of the environment.</li>
-<li>agent’s knowledge about the environment</li>
+<li>agent's knowledge about the environment</li>
 <li>action available to the agent.</li>
 </ul>
 <h2 id="agents-with-state">Agents with State</h2>
-<p><img src="Resources/02 - Agents/image-20200924193050652.png" alt="image-20200924193050652" style="zoom:33%;" /></p>
-<p>The <em>see</em> function is the agent’s ability to observe its environment whereas the action function represents the agent’s decision making process.</p>
-<p>The output of the see function is a perception: <span class="math display">\[
+<img src="Resources/02 - Agents/1cdf83c5-f739-4de5-a668-1ba1463394db.png" alt="1cdf83c5-f739-4de5-a668-1ba1463394db" style="scale:0.33;" />
+<p>The <em>see</em> function is the agent's ability to observe its environment whereas the action function represents the agent's decision making process.</p>
+<p>The output of the see function is a perception:</p>
+<div class="math">
+\[
 see:E\rightarrow Per
-\]</span> This function maps environments states to perceptions.</p>
-<p>Agents can sometimes store information about the environment state and history. We will call <span class="math inline">\(I\)</span> to the set of all internal states of the agent.</p>
-<p>The <em>action</em> function in agents is defined by its internal state: <span class="math display">\[
+\]</div>
+<p>This function maps environments states to perceptions.</p>
+<p>Agents can sometimes store information about the environment state and history. We will call <span class="math">\(I\)</span> to the set of all internal states of the agent.</p>
+<p>The <em>action</em> function in agents is defined by its internal state:</p>
+<div class="math">
+\[
 action: I \rightarrow A_C
-\]</span> The <em>next</em> function is an agent maps an internal state and a perception to an internal state: <span class="math display">\[
+\]</div>
+<p>The <em>next</em> function is an agent maps an internal state and a perception to an internal state:</p>
+<div class="math">
+\[
 next:I\times Per \rightarrow I
-\]</span> The <em>next</em> function says how the agent updates its view of the world when it gets a new perception.</p>
+\]</div>
+<p>The <em>next</em> function says how the agent updates its view of the world when it gets a new perception.</p>
 <p>The agent has an inner control loop, that follows this cycle:</p>
-<ol type="1">
-<li>Agents starts in some internal state <span class="math inline">\(i_0\)</span></li>
-<li>Observes its environment state <span class="math inline">\(e\)</span>, and generates a perception <span class="math inline">\(see(e)\)</span></li>
-<li>Internal state of the agent is the updated via <span class="math inline">\(next(i,see(e))\)</span></li>
-<li>The action selected by the agent is <span class="math inline">\(action(next(i_0,see(e)))\)</span></li>
+<ol>
+<li>Agents starts in some internal state <span class="math">\(i_0\)</span></li>
+<li>Observes its environment state <span class="math">\(e\)</span>, and generates a perception <span class="math">\(see(e)\)</span></li>
+<li>Internal state of the agent is the updated via <span class="math">\(next(i,see(e))\)</span></li>
+<li>The action selected by the agent is <span class="math">\(action(next(i_0,see(e)))\)</span></li>
 <li>Go to step 2.</li>
 </ol>
 <h2 id="tasks">Tasks</h2>
 <p>Agents are build to carry out tasks for us, but we want to the the agents to to this tasks without us telling them what to do every time.</p>
-<p>One idea is an <strong>utility function</strong>. We associate rewards with states that we want agents to bring about, and we associate utilities with individual states. A <strong>task specification</strong> is then a function that associates a real number with every environment state: <span class="math display">\[
+<p>One idea is an <strong>utility function</strong>. We associate rewards with states that we want agents to bring about, and we associate utilities with individual states. A <strong>task specification</strong> is then a function that associates a real number with every environment state:</p>
+<div class="math">
+\[
 u:E\rightarrow \mathbb R
-\]</span></p>
+\]</div>
 <h3 id="local-utility-function">Local Utility Function</h3>
 <p>Local utility functions actuate on the same run without accessing to memory, as they are common in reactive agents. They try to maximize or minimize the utility of a state on a run.</p>
-<p>The main disadvantage is that it’s difficult to specify a long term view when assigning utilities to individual states.</p>
+<p>The main disadvantage is that it's difficult to specify a long term view when assigning utilities to individual states.</p>
 <h3 id="sequential-decision-making">Sequential Decision Making</h3>
-<p>It’s used when we are dealing with a non-deterministic environment. Similar to the other method, calculates the best possible action for this agent. But that action is not always taken, as other actions also have some probability to be chosen.</p>
+<p>It's used when we are dealing with a non-deterministic environment. Similar to the other method, calculates the best possible action for this agent. But that action is not always taken, as other actions also have some probability to be chosen.</p>
 <h3 id="utilities-over-runs">Utilities Over Runs</h3>
 <p>We can also assign utilities to runs instead of states. This approach takes a long term view. We can modify this approach by adding some probabilistic element to the way it chooses the action.</p>
 <h2 id="types-of-agents">Types of Agents</h2>
 <h3 id="reactive-agents">Reactive Agents</h3>
-<p>This agents do not have any sort of memory and only decide their actions based on the present. Actions from this kind of agent can be represented as: <span class="math display">\[
+<p>This agents do not have any sort of memory and only decide their actions based on the present. Actions from this kind of agent can be represented as:</p>
+<div class="math">
+\[
 action: E\rightarrow A_C
-\]</span></p>
+\]</div>
+
 </body>
 </html>

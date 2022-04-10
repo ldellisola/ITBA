@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>14 - Financial Analysis</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>14 - Financial Analysis.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,91 +1385,144 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="financial-analysis">Financial Analysis</h1>
-<p>Financial Analysis involves comparing the firm’s performance with other firms (usually within the same industry) and evaluating trends in the firm’s financial position over time. For the sake of comparison across different firms and time we use a variety of ratios.</p>
+<p>Financial Analysis involves comparing the firm's performance with other firms (usually within the same industry) and evaluating trends in the firm's financial position over time. For the sake of comparison across different firms and time we use a variety of ratios.</p>
 <h3 id="liquidity-ratios">Liquidity Ratios</h3>
-<p>Liquidity ratios show the relationship between a firm’s current assets to their current liabilities. A firm’s <em>liquidity position</em> deals with how the firm will be able to pay its debts as they come due next year. We can find two main ratios within this category:</p>
+<p>Liquidity ratios show the relationship between a firm's current assets to their current liabilities. A firm's <em>liquidity position</em> deals with how the firm will be able to pay its debts as they come due next year. We can find two main ratios within this category:</p>
 <ul>
-<li><p><strong>Current Ratio</strong>: <span class="math display">\[
+<li><p><strong>Current Ratio</strong>:</p>
+<div class="math">
+\[
 \text{Current Ratio} = \frac{\text{Current Assets}}{\text{Current Liabilities}}
-\]</span></p></li>
-<li><p><strong>Quick Ratio</strong>: Also know as <strong>acid test</strong> <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Quick Ratio</strong>: Also know as <strong>acid test</strong></p>
+<div class="math">
+\[
 \text{Quick Ratio} = \text{Current Assets} - \frac{\text{Inventories}}{\text{Current Liabilities}}
-\]</span> This method measures a firm’s ability to pay off short-term obligations without relying on the sale of inventories.</p></li>
+\]</div>
+<p>This method measures a firm's ability to pay off short-term obligations without relying on the sale of inventories.</p>
+</li>
 </ul>
 <h3 id="asset-management-ratio">Asset Management Ratio</h3>
 <p>Asset management ratios measure how effectively the firms is managing its assets. There are several ratios in this category:</p>
 <ul>
-<li><p><strong>Inventory Turnover Ratio</strong>: It is used to represent the amount of sold items of the firm compared to their current inventory. <span class="math display">\[
+<li><p><strong>Inventory Turnover Ratio</strong>: It is used to represent the amount of sold items of the firm compared to their current inventory.</p>
+<div class="math">
+\[
 \text{Inventory Turnover Ratio} = \frac {\text{Sales}}{\text{Inventory}}
-\]</span></p></li>
-<li><p><strong>Days Sales Outstanding (DSO)</strong>: Also know as the <strong>Average Collection Period (ACP)</strong>, it represents the average length of time a firm must wait after making a sale before receiving cash. <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Days Sales Outstanding (DSO)</strong>: Also know as the <strong>Average Collection Period (ACP)</strong>, it represents the average length of time a firm must wait after making a sale before receiving cash.</p>
+<div class="math">
+\[
 \text{DSO} = {\text{Receivables}} \times{\frac {\text{365}}{\text{Anual Sales}}}
-\]</span></p></li>
-<li><p><strong>Fixed Turnover Ratio</strong>: This ratio measures how effectively the firms uses its plant and equipment. While using this ratio one must deal with inflation and many of the assets purchased a long time ago may be underrepresented. <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Fixed Turnover Ratio</strong>: This ratio measures how effectively the firms uses its plant and equipment. While using this ratio one must deal with inflation and many of the assets purchased a long time ago may be underrepresented.</p>
+<div class="math">
+\[
 \text{Fixed Turnover Ratio} = \frac {\text{Sales}}{\text{Net Fixed Assets}}
-\]</span></p></li>
-<li><p><strong>Total Asset Turnover</strong>: It measures the turnover rate of all the firm’s assets and it shows if the company is generating enough sales to given its total assets. <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Total Asset Turnover</strong>: It measures the turnover rate of all the firm's assets and it shows if the company is generating enough sales to given its total assets.</p>
+<div class="math">
+\[
 \text{Total Asset Turnover Ratio} = \frac{\text{Sales}}{\text{Total Assets}}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
 <h3 id="debt-management-ratios">Debt Management Ratios</h3>
 <p>Debt Management Ratios measure the optimality of debt financing. The extent to which a firm uses debt financing has 3 important implications:</p>
-<ol type="1">
+<ol>
 <li>By raising funds through debt, stockholders can control a firm with limited amount of equity.</li>
 <li>The higher proportion of the total capital provided by stockholders, the les risk faced by creditors.</li>
 <li>If the firm earns more on its assets than the interest rate it pays on debt, increasing the Return on Equity (ROE)</li>
 </ol>
 <p>We can use the following ratios:</p>
 <ul>
-<li><p><strong>Debt Ratio</strong>: It measures the percentage of funds provided by creditors. <span class="math display">\[
+<li><p><strong>Debt Ratio</strong>: It measures the percentage of funds provided by creditors.</p>
+<div class="math">
+\[
 \text{Debt Ratio} = \frac {\text{Current Liabilities} + \text{Long-term Debt}}{\text{Total assets}}
-\]</span></p></li>
-<li><p><strong>Times-Interest-Earned Ratio (TIE)</strong>: It measures the firm’s ability to meet its annual interest payments, but it has two shortcomings:</p>
-<ol type="1">
+\]</div>
+</li>
+<li><p><strong>Times-Interest-Earned Ratio (TIE)</strong>: It measures the firm's ability to meet its annual interest payments, but it has two shortcomings:</p>
+<ol>
 <li>Interest is not the only fixed financial charge.</li>
 <li>EBIT does not represent all the cash flow available.</li>
 </ol>
-<p><span class="math display">\[
+<div class="math">
+\[
 \text{TIE} = \frac {\text{EBIT}}{\text{Interest Charges}}
-\]</span></p></li>
-<li><p><strong>EBITDA Coverage Ratio</strong>: It shows all of the cashflow available for payments in the denominator. It is useful for relatively short-term lenders. <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>EBITDA Coverage Ratio</strong>: It shows all of the cashflow available for payments in the denominator. It is useful for relatively short-term lenders.</p>
+<div class="math">
+\[
 \text{EBITDA Coverage Ratio} = \frac{\text{EBITDA} + \text{Lease Payments}}{\text{Interest} + \text{Principal Payments} + \text{Lease Payments}}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
 <h3 id="profitability-ratios">Profitability Ratios</h3>
-<p>The profitability ratios show the effect of a firm’s characteristics on operating results.</p>
+<p>The profitability ratios show the effect of a firm's characteristics on operating results.</p>
 <ul>
-<li><p><strong>Profit Margin on Sales</strong>: <span class="math display">\[
+<li><p><strong>Profit Margin on Sales</strong>:</p>
+<div class="math">
+\[
 \text{Profit Margin on Sales} = \frac{\text{Net Income}}{\text{Sales}}
-\]</span></p></li>
-<li><p><strong>Return on Assets (ROA)</strong>: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Return on Assets (ROA)</strong>:</p>
+<div class="math">
+\[
 \text{ROA} = \frac{\text{Net Income}}{\text{Total Assets}}
-\]</span></p></li>
-<li><p><strong>Basic Earning Power (BEP)</strong>: It indicates the ability of a firm’s assets to generate operative income. <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Basic Earning Power (BEP)</strong>: It indicates the ability of a firm's assets to generate operative income.</p>
+<div class="math">
+\[
 \text{BEP} = \frac{\text{EBIT}}{\text{Total Assets}}
-\]</span></p></li>
-<li><p><strong>Return on Equity (ROE)</strong>: It measures the rate of return on common stockholders’ investment. <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Return on Equity (ROE)</strong>: It measures the rate of return on common stockholders' investment.</p>
+<div class="math">
+\[
 \text{ROE} = \frac {\text{Net Income}}{\text{Common Equity}}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
 <h3 id="market-value-ratios">Market Value Ratios</h3>
-<p>The market value ratios compare market values with accounting values and relate the firm’s stock price to its earnings, cash flow and book value per share.</p>
+<p>The market value ratios compare market values with accounting values and relate the firm's stock price to its earnings, cash flow and book value per share.</p>
 <ul>
-<li><p><strong>Price/Earning Ratio (P/E)</strong>: It shows how much investors are willing to pay per dollar of reported profits. <span class="math display">\[
+<li><p><strong>Price/Earning Ratio (P/E)</strong>: It shows how much investors are willing to pay per dollar of reported profits.</p>
+<div class="math">
+\[
 \text{P/E} = \frac {\text{Price per Share}}{\text{Earnings per Share}}
-\]</span></p></li>
-<li><p><strong>Price/Cash Flow Ratio</strong>: In some markets the stock price is more related to cash flow rather than net income. <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Price/Cash Flow Ratio</strong>: In some markets the stock price is more related to cash flow rather than net income.</p>
+<div class="math">
+\[
 \text{Price/Cash Flow} = \frac{\text{Price per Share}}{\text{Cash Flow per Share}}
-\]</span></p></li>
-<li><p><strong>Market/Book ratio (M/B)</strong>: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Market/Book ratio (M/B)</strong>:</p>
+<div class="math">
+\[
 \text{M/B} = \frac{\text{Market price per share}}{\text{Book value per share}}
-\]</span> where: <span class="math display">\[
+\]</div>
+<p>where:</p>
+<div class="math">
+\[
 \text{Book value per share} = \frac{\text{Common Equity}}{\text{Shares Outstanding}}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
+
 </body>
 </html>

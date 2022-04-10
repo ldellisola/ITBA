@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>03.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,47 +1385,38 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="lab-3">Lab 3</h1>
 <h2 id="section">3.1</h2>
-<figure>
-<img src="Resources/03/image-20201112153529404.png" alt="image-20201112153529404" /><figcaption aria-hidden="true">image-20201112153529404</figcaption>
-</figure>
+<p><img src="Resources/03/ea785ed6-c9c5-45ff-97db-14e00e5fd402.png" class="img-fluid" alt="image-20201112153529404" /></p>
 <p>This system is <strong>receptive</strong>, <strong>non-deterministic</strong> and it is <strong>not memoryless</strong>.</p>
 <h2 id="section-1">3.2</h2>
 <h3 id="a">A)</h3>
-<p><img src="Resources/03/image-20201112155735093.png" alt="image-20201112155735093" style="zoom: 67%;" /></p>
+<img src="Resources/03/image-20201112155735093.png" alt="image-20201112155735093" style="zoom: 67%;" />
 <h3 id="b">B)</h3>
-<p><img src="Resources/03/image-20201112155759669.png" alt="image-20201112155759669" style="zoom:67%;" /></p>
+<img src="Resources/03/8b0dfe7c-45de-488f-9baf-c27ae7e1fe64.png" alt="8b0dfe7c-45de-488f-9baf-c27ae7e1fe64" style="scale:0.67;" />
 <h3 id="c">C)</h3>
-<figure>
-<img src="Resources/03/image-20201112155829428.png" alt="image-20201112155829428" /><figcaption aria-hidden="true">image-20201112155829428</figcaption>
-</figure>
+<p><img src="Resources/03/080b0cbd-e446-40ef-a82e-6e1c2ec11ebf.png" class="img-fluid" alt="image-20201112155829428" /></p>
 <h3 id="d">D)</h3>
-<figure>
-<img src="Resources/03/image-20201112155852537.png" alt="image-20201112155852537" /><figcaption aria-hidden="true">image-20201112155852537</figcaption>
-</figure>
+<p><img src="Resources/03/811251e6-a504-45f7-842c-5ec801b2962c.png" class="img-fluid" alt="image-20201112155852537" /></p>
 <h3 id="e">E)</h3>
-<figure>
-<img src="Resources/03/image-20201112155929139.png" alt="image-20201112155929139" /><figcaption aria-hidden="true">image-20201112155929139</figcaption>
-</figure>
+<p><img src="Resources/03/c4944c7b-2a74-4e5c-a8b9-d1f344ff2db2.png" class="img-fluid" alt="image-20201112155929139" /></p>
 <h2 id="section-2">3.3</h2>
-<figure>
-<img src="Resources/03/image-20201112160437986.png" alt="image-20201112160437986" /><figcaption aria-hidden="true">image-20201112160437986</figcaption>
-</figure>
+<p><img src="Resources/03/313276b6-0611-43d6-8779-97f3e77b9055.png" class="img-fluid" alt="image-20201112160437986" /></p>
 <h2 id="section-3">3.4</h2>
-<figure>
-<img src="Resources/03/image-20201112161020049.png" alt="image-20201112161020049" /><figcaption aria-hidden="true">image-20201112161020049</figcaption>
-</figure>
+<p><img src="Resources/03/ead53d66-0ec8-426c-872d-f63530ddc08f.png" class="img-fluid" alt="image-20201112161020049" /></p>
 <h2 id="section-4">3.5</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 \mathcal I (f) =\{x/x &gt; 732\}\\
 \mathcal I(g) = \{x/x &lt; 200\}
-\]</span></p>
+\]</div>
 <h3 id="a-1">A)</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 \pi \models g \Rightarrow FGf\\
 \pi \models g \Rightarrow \pi\models FGf\\
 \pi(0) \in I(g) \Rightarrow \exists i \in \mathbb{N}_0 / \pi^i \models Gf\\
@@ -1571,34 +1424,77 @@ x_0  &lt; 200 \Rightarrow \exists i\in \mathbb{N}_0 / \forall j \in \mathbb{N}_0
 x_0  &lt; 200 \Rightarrow  \exists i\in \mathbb{N}_0 / \forall j \in \mathbb{N}_0 / \pi^{i+j}(0) \in \mathcal I(f)
 \\
 x_0  &lt; 200 \Rightarrow  \exists i\in \mathbb{N}_0 / \forall j \in \mathbb{N}_0 / x_{i+j}&gt;732
-\]</span></p>
+\]</div>
 <h3 id="b-1">B)</h3>
-<p>$$ G[f Fg] \ i _0/ ^if ^i Fg\ i _0/ [ ^i(0) I(f) j _0 / ^{i+j} g ]\ i _0/ [ x_i &gt; 732 j _0 / ^{i+j} I(g) ]\</p>
-<p>i _0/ [ x_i &gt; 732 j <em>0 / x</em>{i+j} &lt; 200 ]\ $$</p>
+<div class="math">
+\[
+\pi \models G[f \land Fg] \\
+\forall i \in \mathbb{N}_0/ \pi^i\models f \land  \pi^i \models Fg\\
+\forall i \in \mathbb{N}_0/ [ \pi^i(0) \in \mathcal I(f) \land \exists j \in \mathbb{N}_0 / \pi^{i+j} \models g ]\\
+\forall i \in \mathbb{N}_0/ [ x_i &gt; 732 \land \exists j \in \mathbb{N}_0 / \pi^{i+j} \in \mathcal I(g) ]\\
+
+\forall i \in \mathbb{N}_0/ [ x_i &gt; 732 \land \exists j \in \mathbb{N}_0 / x_{i+j} &lt; 200 ]\\
+\]</div>
 <h2 id="section-5">3.6</h2>
 <h3 id="a-2">A)</h3>
-<p><strong>False</strong>. Counter Example: <span class="math display">\[
+<p><strong>False</strong>. Counter Example:</p>
+<div class="math">
+\[
 \pi = (\text{green},\text{green},\dots,\text{green})
-\]</span></p>
+\]</div>
 <h3 id="b-2">B)</h3>
-<p><strong>False</strong>. Counter example: <span class="math display">\[
+<p><strong>False</strong>. Counter example:</p>
+<div class="math">
+\[
 \pi = (\text{green},\text{yellow},\text{red}, \dots,\text{green},\text{yellow},\text{red})
-\]</span></p>
+\]</div>
 <h3 id="c-1">C)</h3>
-<p><strong>True</strong>. $$  F \  F  \ (0)  i _0 / ^i \</p>
-<p>i _0 / ^i \ i _0 / ^i\  $$</p>
-<p>### D)</p>
-<p><strong>False</strong>. Counter example: <span class="math display">\[
+<p><strong>True</strong>.</p>
+<div class="math">
+\[
+\models \text{red} \Rightarrow F \text{yellow}\\
+\models \text{red} \Rightarrow \models F \text{ yellow} \\
+\pi(0) \models \text{red} \Rightarrow  \exists i \in \mathbb{N}_0 / \pi^i\models\text{ yellow} \\
+
+\neg\bot \lor \exists i \in \mathbb{N}_0 / \pi^i\models\text{ yellow} \\
+\top \lor \exists i \in \mathbb{N}_0 / \pi^i\models\text{ yellow}\\
+\top
+\]</div>
+<h3 id="d-1">D)</h3>
+<p><strong>False</strong>. Counter example:</p>
+<div class="math">
+\[
 \pi = (\text{green},\text{yellow},\text{red},\text{green},\text{green},\dots,\text{green})
-\]</span></p>
+\]</div>
 <h3 id="e-1">E)</h3>
-<p><strong>True</strong>. $$ G[ X ]\ i _0 / ^i  ^i X \</p>
-<p>i _0 / ^i(0) I() ^{i+1}  \ i _0 / ^i(0) I() ^{i+1} I()\  $$ If <span class="math inline">\(\pi^i(0) \not \in \mathcal I(\text{yellow})\)</span>, the formula is valid.</p>
-<p>if ^i(0) I() then the only possible connection is to the state <span class="math inline">\(\text{red}\)</span>, causing <span class="math inline">\(\pi^{i+1}(0) \in \mathcal I(\text{red})\)</span>, thus the formula will be true.</p>
+<p><strong>True</strong>.</p>
+<div class="math">
+\[
+\pi \models G[\text{yellow} \Rightarrow X \text{ red}]\\
+\forall i \in \mathbb{N}_0 / \pi^i \models \text{yellow} \Rightarrow \pi^i \models X \text{ red}\\
+
+\forall i \in \mathbb{N}_0 / \pi^i(0) \in \mathcal I(\text{yellow}) \Rightarrow \pi^{i+1} \models \text{red}
+\\
+\forall i \in \mathbb{N}_0 / \pi^i(0) \in \mathcal I(\text{yellow}) \Rightarrow \pi^{i+1} \in \mathcal I(\text{red})\\
+\top
+\]</div>
+<p>If <span class="math">\(\pi^i(0) \not \in \mathcal I(\text{yellow})\)</span>, the formula is valid.</p>
+<p yellow="">if \pi^i(0) \in \mathcal I(\text) then the only possible connection is to the state <span class="math">\(\text{red}\)</span>, causing <span class="math">\(\pi^{i+1}(0) \in \mathcal I(\text{red})\)</span>, thus the formula will be true.</p>
 <h3 id="f">F)</h3>
-<p><strong>False</strong>. $$ \  U\</p>
-<p> i / ^i  j &lt; i, ^j \ <span class="math display">\[
-From here I can create a counter example:
-\]</span> = (, ,) $$ Here we can see that there if <span class="math inline">\(\pi(0) \models \text{green}\)</span>, then there won’t exists an <span class="math inline">\(i\in \mathbb{N}_0/ \pi^i \models \text{yellow}\)</span> because it is constantly looping around <span class="math inline">\(\text{green}\)</span>.</p>
+<p><strong>False</strong>.</p>
+<div class="math">
+\[
+\pi \models [\text{green} \Rightarrow \text{green }U\text{ yellow}]\\
+\pi\models \text{green} \Rightarrow \pi \models \text{green }U\text{ yellow}\\
+
+\pi\models \text{green} \Rightarrow \exists i / \pi^i \models \text{yellow} \land \forall j &lt; i, \pi^j \models \text{green}\\
+\]</div>
+<p>From here I can create a counter example:</p>
+<div class="math">
+\[
+\pi = (\text{green}, \dots,\text{green})
+\]</div>
+<p>Here we can see that there if <span class="math">\(\pi(0) \models \text{green}\)</span>, then there won't exists an <span class="math">\(i\in \mathbb{N}_0/ \pi^i \models \text{yellow}\)</span> because it is constantly looping around <span class="math">\(\text{green}\)</span>.</p>
+
 </body>
 </html>

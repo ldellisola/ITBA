@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>12 Combinatorial Auctions</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>12 Combinatorial Auctions.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,49 +1385,70 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="combinatorial-auctions">Combinatorial Auctions</h1>
-<p>Combinatorial Auctions are used to sell bundles of goods. Let <span class="math inline">\(G= \{g_1,\dots,g_n\}\)</span> be a set of items to be auctioned, the valuation function <span class="math inline">\(v_i:2^G \mapsto \mathbb{R}\)</span> indicates how much a bundle is worth to agent <span class="math inline">\(i\)</span>. We typically assume the following properties:</p>
+<p>Combinatorial Auctions are used to sell bundles of goods. Let <span class="math">\(G= \{g_1,\dots,g_n\}\)</span> be a set of items to be auctioned, the valuation function <span class="math">\(v_i:2^G \mapsto \mathbb{R}\)</span> indicates how much a bundle is worth to agent <span class="math">\(i\)</span>. We typically assume the following properties:</p>
 <ul>
-<li><p>Normalization: <span class="math display">\[
+<li><p>Normalization:</p>
+<div class="math">
+\[
 v(\emptyset) = 0
-\]</span></p></li>
-<li><p>Free Disposal: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Free Disposal:</p>
+<div class="math">
+\[
 G_1 \subseteq G_2 \implies v(G_1) \le v(G_2)
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>This type of auctions are interesting with the valuation function is not additive. There are two main types of non-additivity:</p>
+<p>This type of auctions are interesting with the valuation function is not additive. There are two main types of  non-additivity:</p>
 <ul>
-<li><p><strong>Substitutability</strong>: The valuation function <span class="math inline">\(v\)</span> exhibits substitutability if there exists two sets of goods for whom the sum of their individual valuations is greater than the valuation of the union of both sets: <span class="math display">\[
+<li><p><strong>Substitutability</strong>: The valuation function <span class="math">\(v\)</span> exhibits substitutability if there exists two sets of goods for whom the sum of their individual valuations is greater than the valuation of the union of both sets:</p>
+<div class="math">
+\[
 \exists G_1,G_2 \subseteq G. G_1 \cap G_2  = \emptyset \land v(G_1 \cup G_2) &lt; v(G_1) + v(G_2)
-\]</span> If this condition holds, then we say the function <span class="math inline">\(v\)</span> is sub-additive. A good example of this are two different brands of TVs.</p></li>
-<li><p><strong>Complementarity</strong>: The valuation function <span class="math inline">\(v\)</span> exhibits complementarity if there are two sets of goods such that the valuation of the union of both sets is greater than the sum of the individual valuations: <span class="math display">\[
+\]</div>
+<p>If this condition holds, then we say the function <span class="math">\(v\)</span> is sub-additive. A good example of this are two different brands of TVs.</p>
+</li>
+<li><p><strong>Complementarity</strong>: The valuation function <span class="math">\(v\)</span> exhibits complementarity if there are two sets of goods such that the valuation of the union of both sets is greater than the sum of the individual valuations:</p>
+<div class="math">
+\[
 \exists G_1,G_2 \subseteq G. G_1 \cap G_2  = \emptyset \land v(G_1 \cup G_2) &gt; v(G_1) + v(G_2)
-\]</span> If this condition golds, then we say that the valuation function <span class="math inline">\(v\)</span> is super-additive. A good example of this are left and right shoes.</p></li>
+\]</div>
+<p>If this condition golds, then we say that the valuation function <span class="math">\(v\)</span> is super-additive. A good example of this are left and right shoes.</p>
+</li>
 </ul>
 <p>Selling goods with non-additive valuations is different than normal goods. We have 3 different options:</p>
-<ol type="1">
+<ol>
 <li>Ignore valuation dependencies and sell sequentially via a sequence of independent single-item auctions. The problem here is that a bidder may bid aggressively for a set of goods hoping to win a bundle but ends not winning all the wanted items.</li>
 <li>Run separate but connected single-item auction simultaneously. The bidder bids in one auction eh has a reasonably good indication of what is transpiring in the other auctions of interest.</li>
 <li>Combinatorial Auction. Bid directly on a bundle of goods.</li>
 </ol>
 <h2 id="allocations">Allocations</h2>
-<p>Allocation is a list of sets <span class="math inline">\(G_1,\dots,G_n \subseteq G\)</span>, one for each agent <span class="math inline">\(i\)</span> where no good is allocated to more than one agent. We have different ways to choose an allocation for a combinatorial auction, but the simplest one is to maximize social welfare: <span class="math display">\[
+<p>Allocation is a list of sets <span class="math">\(G_1,\dots,G_n \subseteq G\)</span>, one for each agent <span class="math">\(i\)</span> where no good is allocated to more than one agent. We have different ways to choose an allocation for a combinatorial auction, but the simplest one is to maximize social welfare:</p>
+<div class="math">
+\[
 U(G_1,\dots,G_n,v_1,\dots,v_n) = \sum_{i=1}^{n} v_i(G_i)
-\]</span></p>
+\]</div>
 <h3 id="simple-combinatorial-auction-mechanism">Simple Combinatorial Auction Mechanism</h3>
 <p>This mechanism determines the social welfare maximizing allocation and then charges the winners their bid for the bundle they have won.</p>
 <h2 id="vcg-auction">VCG Auction</h2>
 <p>A <strong>Vickrey-Clarke-Groves (VCG) auction</strong> is a type of sealed-bid auction of multiple items. The auction system assigns the items in a socially optimal manner, by charging each individual the harm they cause to other bidders.</p>
 <p>The VCG auction is an analogy to the second-price sealed bid single-unit auctions but for combinatorial settings and the dominant strategy is still being truthful and it is efficient.</p>
 <p>In a VCG auction the payments are calculated as follows:</p>
-<p>Let <span class="math inline">\(V^*\)</span> be the total value of the optimal allocation, and for each bidder <span class="math inline">\(i\)</span> let <span class="math inline">\(V^*_{-i}\)</span> be the total value of the optimal allocation when <span class="math inline">\(i\)</span> does not participate. Let <span class="math inline">\(V_I\)</span> be the value of <span class="math inline">\(i\)</span>’s winning subset, losing bidders pay <span class="math inline">\(0\)</span> and the payment made by each winning bidder is: <span class="math display">\[
+<p>Let <span class="math">\(V^*\)</span> be the total value of the optimal allocation, and for each bidder <span class="math">\(i\)</span> let <span class="math">\(V^*_{-i}\)</span> be the total value of the optimal allocation when <span class="math">\(i\)</span> does not participate. Let <span class="math">\(V_I\)</span> be the value of <span class="math">\(i\)</span>'s winning subset, losing bidders pay <span class="math">\(0\)</span> and the payment made by each winning bidder is:</p>
+<div class="math">
+\[
 p_i = V_i - (V^* - V^*_{-i})
-\]</span></p>
+\]</div>
 <h2 id="the-winner-determination-problem">The Winner Determination Problem</h2>
-<p>The <strong>winner determination problem</strong> for combinatorial auctions, given the agents’ declared valuations <span class="math inline">\(\hat v_i\)</span> is to find the social welfare-maximizing allocation of goods to agents. This problem can be expressed as the following integer linear program: <span class="math display">\[
+<p>The <strong>winner determination problem</strong> for combinatorial auctions, given the agents' declared valuations <span class="math">\(\hat v_i\)</span> is to find the social welfare-maximizing allocation of goods to agents. This problem can be expressed as the following integer linear program:</p>
+<div class="math">
+\[
 \array{
 \text{maximize}&amp; \sum_{i\in N}\sum_{Z \subseteq \mathcal Z} \hat v_i(Z) x_{Z,i}\\
 \text{subject to:}&amp;&amp;\\
@@ -1573,38 +1456,56 @@ p_i = V_i - (V^* - V^*_{-i})
 &amp; \sum_{Z \subseteq \mathcal Z}x_{Z,i} &amp; \forall i \in N\\
 &amp; x_{Z,i} = \{0,1\} &amp; \forall Z\subseteq \mathcal Z,i\in N
 }
-\]</span> This problem is equivalent to the set packing problem, which is NP-Complete and it cannot be approximated uniformly to a fixed constant. We can solve this issue one of two wats:</p>
+\]</div>
+<p>This problem is equivalent to the set packing problem, which is NP-Complete and it cannot be approximated uniformly to a fixed constant. We can solve this issue one of two wats:</p>
 <ul>
 <li><p>Limit to instance where polynomial-time solutions exist. To do this we can relax our requirements and solve the program as a regular linear program, The solution is guaranteed to be integral when the constraints matrix is unimodular. Here are some good examples on when to implement this:</p>
-<p><img src="Resources/12 Combinatorial Auctions/image-20210116111043991.png" alt="image-20210116111043991" style="zoom:33%;" /></p></li>
-<li><p>Use heuristic methods that drop the guarantee of polynomial runtime, optimality, or both. Incomplete methods do not guarantee to find the vest possible solution, but we can be sure that the solution is within <span class="math inline">\(1/\sqrt k\)</span> of the optimal solution, where <span class="math inline">\(k\)</span> is the number of goods.</p>
-<p>This methods work well in practice, making it possible to solve large auctions.</p></li>
+<img src="Resources/12 Combinatorial Auctions/d81c07dc-d7e5-4550-b52d-a6fa78c27e4d.png" alt="d81c07dc-d7e5-4550-b52d-a6fa78c27e4d" style="scale:0.33;" />
+</li>
+<li><p>Use heuristic methods that drop the guarantee of polynomial runtime, optimality, or both. Incomplete methods do not guarantee to find the vest possible solution, but we can be sure that the solution is within <span class="math">\(1/\sqrt k\)</span> of the optimal solution, where <span class="math">\(k\)</span> is the number of goods.</p>
+<p>This methods work well in practice, making it possible to solve large auctions.</p>
+</li>
 </ul>
 <h2 id="bid-representation">Bid Representation</h2>
 <p>We have another problem, how do we encode the bid in a succinct (polynomial-size) form? Here there is a debate between expressivity and conciseness.</p>
-<p><img src="Resources/12 Combinatorial Auctions/image-20210116113949068.png" alt="image-20210116113949068" style="zoom:33%;" /></p>
+<img src="Resources/12 Combinatorial Auctions/a5f1f536-39a2-47eb-b8a7-5e3c142673f4.png" alt="a5f1f536-39a2-47eb-b8a7-5e3c142673f4" style="scale:0.33;" />
 <h3 id="atomic-bids">Atomic Bids</h3>
-<p>In this case the bidders only bid for one particular subset of goods. An atomic bid is a pair <span class="math inline">\((S,p)\)</span> indicating that the agent is willing to pay price <span class="math inline">\(p\)</span> for the subset of goods <span class="math inline">\(S\)</span>. This representation has very limited expressive power and is not even even a basic additive valuation can be represented.</p>
+<p>In this case the bidders only bid for one particular subset of goods. An atomic bid is a pair <span class="math">\((S,p)\)</span> indicating that the agent is willing to pay price <span class="math">\(p\)</span> for the subset of goods <span class="math">\(S\)</span>. This representation has very limited expressive power and is not even even a basic additive valuation can be represented.</p>
 <h3 id="or-bids">OR Bids</h3>
-<p>OR bids are more expressive than atomic bids. They are a disjunction of atomic bids: <span class="math display">\[
+<p>OR bids are more expressive than atomic bids. They are a disjunction of atomic bids:</p>
+<div class="math">
+\[
 (S_1,p_1) \lor \dots \lor(S_m,p_m)
-\]</span> that indicate that the agent is willing to pay price <span class="math inline">\(p_i\)</span> for the subset of goods <span class="math inline">\(S_i\)</span>. We interpret OR as an operator for combining valuation functions. Let <span class="math inline">\(V\)</span> be the space of possible valuation functions, and <span class="math inline">\(v_1,v_2\in V\)</span> be arbitrary valuations: <span class="math display">\[
+\]</div>
+<p>that  indicate that the agent is willing to pay price <span class="math">\(p_i\)</span> for the subset of goods <span class="math">\(S_i\)</span>. We interpret OR as an operator for combining valuation functions. Let <span class="math">\(V\)</span> be the space of possible valuation functions, and <span class="math">\(v_1,v_2\in V\)</span> be arbitrary valuations:</p>
+<div class="math">
+\[
 (v_1 \lor v_2)(S) = \max_{R,T\subseteq S, R\cap T = \emptyset} (v_1(R) + v_2(T))
-\]</span> OR bids can express additive valuations but are still quite limited, according to the following theorem:</p>
-<blockquote>
+\]</div>
+<p>OR bids can express additive valuations but are still quite limited, according to the following theorem:</p>
+<blockquote class="blockquote">
 <p>OR bids can express all valuation function that exhibit no substitutability</p>
 </blockquote>
-<p>We can simulate the effect of XOR by allowing bids to include dummy items. This is possible with the <strong>OR<span class="math inline">\(^*\)</span> bid language</strong>, given a set of dummy items <span class="math inline">\(G_i\)</span> for each agent <span class="math inline">\(i\in N\)</span>, an OR<span class="math inline">\(^*\)</span> bid is a disjunction of atomic bids: <span class="math display">\[
+<p>We can simulate the effect of XOR by allowing bids to include dummy items. This is possible with the <strong>OR$^*$ bid language</strong>, given a set of dummy items <span class="math">\(G_i\)</span> for each agent <span class="math">\(i\in N\)</span>, an OR$^*$ bid is a disjunction of atomic bids:</p>
+<div class="math">
+\[
 (S_i,p_m) \lor \dots \lor (S_m,p_m)
-\]</span> where for each <span class="math inline">\(l=1,\dots,m\)</span> , the agent is willing to pay price <span class="math inline">\(p_l\)</span> for the set of items <span class="math inline">\(S_l \subseteq G \cup G_i\)</span>. OR<span class="math inline">\(^*\)</span> can express all bids and is more concise that OR, XOR and their combinations.</p>
+\]</div>
+<p>where for each <span class="math">\(l=1,\dots,m\)</span> , the agent is willing to pay price <span class="math">\(p_l\)</span> for the set of items <span class="math">\(S_l \subseteq G \cup G_i\)</span>. OR$^*$ can express all bids and is more concise that OR, XOR and their combinations.</p>
 <h3 id="xor-bids">XOR Bids</h3>
-<p>XOR Bids are more powerful and they are the result of an exclusive OR of atomic bids: <span class="math display">\[
+<p>XOR Bids are more powerful and they are the result of an exclusive OR of atomic bids:</p>
+<div class="math">
+\[
 (S_1,p_1) \oplus \dots \oplus (S_m,p_m)
-\]</span> And it indicates that the agent is willing to accept only one of the atomic bids. The operator is defined on the space of valuation functions, and <span class="math inline">\(v_1,v_s \in V\)</span> be arbitrary valuation functions: <span class="math display">\[
+\]</div>
+<p>And it indicates that the agent is willing to accept only one of the atomic bids. The operator is defined on the space of valuation functions, and <span class="math">\(v_1,v_s \in V\)</span> be arbitrary valuation functions:</p>
+<div class="math">
+\[
 (v_1 \oplus v_2)(S) = \max(v_1(S),v_2(S))
-\]</span></p>
-<blockquote>
+\]</div>
+<blockquote class="blockquote">
 <p>XOR bids can represent all possible valuation functions, but not every valuation function can be represented efficiently by XOR bids.</p>
 </blockquote>
+
 </body>
 </html>

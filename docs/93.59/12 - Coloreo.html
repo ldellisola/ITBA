@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>12 - Coloreo</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>12 - Coloreo.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,99 +1385,121 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="coloreo">Coloreo</h1>
-<p>Un coloreo de vértices es una función <span class="math inline">\(f\)</span> tal que: <span class="math display">\[
+<p>Un coloreo de vértices es una función <span class="math">\(f\)</span> tal que:</p>
+<div class="math">
+\[
 f:V_G\rightarrow A
-\]</span> Siendo <span class="math inline">\(A\)</span> un conjunto de colores.</p>
-<p>Por ejemplo, para el siguiente grafo defino la función <span class="math inline">\(g\)</span>:</p>
-<p><img src="Resources/clip_image001-1569843316395.png" alt="img" style="zoom:33%;" /> <span class="math display">\[
+\]</div>
+<p>Siendo <span class="math">\(A\)</span> un conjunto de colores.</p>
+<p>Por ejemplo, para el siguiente grafo defino la función <span class="math">\(g\)</span>:</p>
+<img src="Resources/6ddffbcd-eed6-46b9-95d4-b1a62b836d86.png" alt="6ddffbcd-eed6-46b9-95d4-b1a62b836d86" style="scale:0.33;" />
+$$
 g:V_G\rightarrow \{Rojo,Verde,Azul,Negro\}/ g(v_i)=
 \left\{
 \array{
-    Rojo    &amp;   i=4\\
-    Verde   &amp;   i=5\\
-    Negro   &amp;   i=1\\
-    Azul    &amp;   i=2 \lor i=3
+	Rojo	&	i=4\\
+	Verde	&	i=5\\
+	Negro	&	i=1\\
+	Azul	&	i=2 \lor i=3
 }
 \right.
-\]</span> Podemos ver que este colores es un <a href="#$k-Coloreo$"><span class="math inline">\(4-coloreo\)</span></a>.</p>
+$$
+Podemos ver que este colores es un [$4-coloreo$](#$k-Coloreo$).
 <p><strong>Tomemos</strong> el siguiente grafo:</p>
-<p><img src="Resources/clip_image001-1569843896251.png" alt="img" style="zoom:33%;" /></p>
-<p>Podemos decir que es un <a href="#$k-Coloreo$"><span class="math inline">\(3-coloreo\)</span></a> y que además es un <a href="#$k-Coloreo$%20propio">coloreo propio</a>.</p>
+<img src="Resources/8938cb81-c8de-4dca-aaff-3a94079a9dfe.png" alt="8938cb81-c8de-4dca-aaff-3a94079a9dfe" style="scale:0.33;" />
+<p>Podemos decir que es un <a href="#$k-Coloreo$"><span class="math">\(3-coloreo\)</span></a> y que además es un [coloreo propio](#<span class="math">\(k-Coloreo\)</span> propio).</p>
 <p>El objetivo de este tema es pintar un grafo con un coloreo propio, utilizando la mínima cantidad de colores.</p>
-<p><strong>Tomemos</strong> el siguiente grafo <span class="math inline">\(K_3\)</span>:</p>
-<p><img src="Resources/clip_image001-1569845464396.png" alt="img" style="zoom:33%;" /></p>
-<p>Decimos que <span class="math inline">\(K_3\)</span> es <a href="#Grafo%20$k-critico$">3 critico</a> por que <span class="math inline">\(\chi(K_3)=3\)</span> y <span class="math inline">\(K_3-\{e\}\)</span> es <a href="#Grafo%20$k-coloreable$">2 coloreable</a>. Tambien podemos decir que es una <a href="#Obstrucción%20$k$%20cromática">obstrucción <span class="math inline">\(2\)</span> cromática</a>.</p>
-<p><strong>Tomemos</strong> el grafo <span class="math inline">\(C_{2n+1}\)</span>. Este grafo es <a href="#Grafo%20$k-critico$">3 critico</a> para todo <span class="math inline">\(n\ge1\)</span> ya que <span class="math inline">\(\chi(C_{2n+1})=3\)</span> y como <span class="math inline">\(C_{2n+1}-\{e\} = P_{2n+1}\)</span>, y sabemos que <span class="math inline">\(P_{2n+1}\)</span> es bipartito, <span class="math inline">\(\chi(P_2{n+1})=2\)</span> y el grafo es <span class="math inline">\(2\)</span> coloreable.</p>
-<p>Tambien podemos decir que <span class="math inline">\(C_{2n+1}\)</span> es <a href="#Conjunto%20Completo%20de%20Obstrucciones%20$k$%20cromáticas">CCO <span class="math inline">\(2\)</span> cromático</a>, ya que <span class="math inline">\(C_{2n+1}\)</span> es <span class="math inline">\(3\)</span> critico. Además si <span class="math inline">\(\chi(G)\ge 3\)</span>, <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(G\)</span> no es bipartito, <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(G\)</span> tiene al menos un ciclo de longitud impar, <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(C_{2n+1} \subset G\)</span> para algún <span class="math inline">\(n \in \mathbb{N}\)</span>.</p>
-<p><strong>Tomemos</strong> el grafo <span class="math inline">\(K_2\)</span>. Es una obstrucción <span class="math inline">\(1\)</span> cromática por que es <span class="math inline">\(2\)</span> critico ya que <span class="math inline">\(\chi(K_2)=2\)</span> y <span class="math inline">\(\chi(K_2-\{e\})=1\)</span>.</p>
-<p>Además, como <span class="math inline">\(K_2 \subset G~~\forall G \text{ con al menos una arista}\)</span>, entonces <span class="math inline">\(\{K_2\}\)</span> es un <a href="#Conjunto%20Completo%20de%20Obstrucciones%20$k$%20cromáticas">CCO <span class="math inline">\(1\)</span> cromático</a>.</p>
-<p><strong>Tomemos</strong> el siguiente grafo <span class="math inline">\(G\)</span>:</p>
-<p><img src="Resources/clip_image001-1569849809848.png" alt="img" style="zoom:33%;" /></p>
-<p>Podemos ver que tiene los siguientes conjuntos de vértices independientes: <span class="math display">\[
+<p><strong>Tomemos</strong> el siguiente grafo <span class="math">\(K_3\)</span>:</p>
+<img src="Resources/ada426dd-f4aa-46f9-a6d8-edca8827f915.png" alt="ada426dd-f4aa-46f9-a6d8-edca8827f915" style="scale:0.33;" />
+<p>Decimos que <span class="math">\(K_3\)</span> es [3 critico](#Grafo <span class="math">\(k-critico\)</span>) por que <span class="math">\(\chi(K_3)=3\)</span> y <span class="math">\(K_3-\{e\}\)</span> es [2 coloreable](#Grafo <span class="math">\(k-coloreable\)</span>). Tambien podemos decir que es una [obstrucción <span class="math">\(2\)</span> cromática](#Obstrucción <span class="math">\(k\)</span> cromática).</p>
+<p><strong>Tomemos</strong> el grafo <span class="math">\(C_{2n+1}\)</span>. Este grafo es [3 critico](#Grafo <span class="math">\(k-critico\)</span>) para todo <span class="math">\(n\ge1\)</span> ya que <span class="math">\(\chi(C_{2n+1})=3\)</span> y como <span class="math">\(C_{2n+1}-\{e\} = P_{2n+1}\)</span>, y sabemos que <span class="math">\(P_{2n+1}\)</span> es bipartito, <span class="math">\(\chi(P_2{n+1})=2\)</span> y el grafo es <span class="math">\(2\)</span> coloreable.</p>
+<p>Tambien podemos decir que <span class="math">\(C_{2n+1}\)</span> es [CCO <span class="math">\(2\)</span> cromático](#Conjunto Completo de Obstrucciones <span class="math">\(k\)</span> cromáticas), ya que <span class="math">\(C_{2n+1}\)</span> es <span class="math">\(3\)</span> critico. Además si <span class="math">\(\chi(G)\ge 3\)</span>, <span class="math">\(\Rightarrow\)</span>  <span class="math">\(G\)</span> no es bipartito, <span class="math">\(\Rightarrow\)</span>  <span class="math">\(G\)</span> tiene al menos un ciclo de longitud impar, <span class="math">\(\Rightarrow\)</span>  <span class="math">\(C_{2n+1} \subset G\)</span> para algún <span class="math">\(n \in \mathbb{N}\)</span>.</p>
+<p><strong>Tomemos</strong> el grafo <span class="math">\(K_2\)</span>. Es una obstrucción <span class="math">\(1\)</span> cromática por que es <span class="math">\(2\)</span> critico ya que <span class="math">\(\chi(K_2)=2\)</span> y <span class="math">\(\chi(K_2-\{e\})=1\)</span>.</p>
+<p>Además, como <span class="math">\(K_2 \subset G~~\forall G \text{ con al menos una arista}\)</span>, entonces <span class="math">\(\{K_2\}\)</span> es un [CCO <span class="math">\(1\)</span> cromático](#Conjunto Completo de Obstrucciones <span class="math">\(k\)</span> cromáticas).</p>
+<p><strong>Tomemos</strong> el siguiente grafo <span class="math">\(G\)</span>:</p>
+<img src="Resources/15effe0b-6cad-4969-9cfd-990bdf4505aa.png" alt="15effe0b-6cad-4969-9cfd-990bdf4505aa" style="scale:0.33;" />
+<p>Podemos ver que tiene los siguientes conjuntos de vértices independientes:</p>
+<div class="math">
+\[
 A_1=\{v_1,v_5\}, A_2=\{v_2,v_6\},A_3=\{v_2,v_4\},A_4=\{v_2,v_5\}, A_5=\{v_3,v_4\}
-\]</span> Podemos calcular la <a href="#Independencia%20de%20un%20Grafo">independencia</a> tal que <span class="math inline">\(ind(G)=2\)</span></p>
+\]</div>
+<p>Podemos calcular la [independencia](#Independencia de un Grafo) tal que <span class="math">\(ind(G)=2\)</span></p>
 <h2 id="definiciones">Definiciones</h2>
-<h3 id="k-coloreo"><span class="math inline">\(k-Coloreo\)</span></h3>
-<p>Un <span class="math inline">\(k-coloreo\)</span> es un coloreo que usa exactamente <span class="math inline">\(k\)</span> colores.</p>
-<h3 id="k-coloreo-propio"><span class="math inline">\(k-Coloreo\)</span> propio</h3>
+<h3 id="section"><span class="math">\(k-Coloreo\)</span></h3>
+<p>Un <span class="math">\(k-coloreo\)</span> es un coloreo que usa exactamente <span class="math">\(k\)</span> colores.</p>
+<h3 id="propio"><span class="math">\(k-Coloreo\)</span> propio</h3>
 <p>Es un coloreo donde los vértices adyacentes no tienen el mismo color.</p>
 <h3 id="clases-de-color">Clases de Color</h3>
-<p>Dado un <span class="math inline">\(k-coloreo\)</span>, se llama clases de color al conjunto de vértices que tienen el mismo color.</p>
-<h3 id="grafo-k-coloreable">Grafo <span class="math inline">\(k-coloreable\)</span></h3>
-<p>Decimos que un grafo es <span class="math inline">\(k-coloreable\)</span> si tiene un coloreo propio que usa exactamente <span class="math inline">\(k\)</span> colores.</p>
-<h3 id="numero-cromático">Numero Cromático</h3>
-<p>Se define al numero cromático de <span class="math inline">\(G\)</span> como la mínima cantidad de colores necesaria para tener un coloreo propio.</p>
-<p>Se lo nota como <span class="math inline">\(\chi(G)\)</span>.</p>
-<h4 id="pasos-para-hallar-chig">Pasos para hallar <span class="math inline">\(\chi(G)\)</span></h4>
-<ol type="1">
-<li>Escribimos un coloreo propio para <span class="math inline">\(G\)</span> que utilice <span class="math inline">\(k\)</span> colores, por lo que <span class="math inline">\(\chi(G) \le k\)</span>.</li>
-<li>Buscamos alguna propiedad que ofrece al <span class="math inline">\(\chi(G)\)</span> a ser <span class="math inline">\(\ge k\)</span>, por lo que concluimos que <span class="math inline">\(\chi(G)=k\)</span></li>
+<p>Dado un <span class="math">\(k-coloreo\)</span>, se llama clases de color al conjunto de vértices que tienen el mismo color.</p>
+<h3 id="grafo">Grafo <span class="math">\(k-coloreable\)</span></h3>
+<p>Decimos que un grafo es <span class="math">\(k-coloreable\)</span> si tiene un coloreo propio que usa exactamente <span class="math">\(k\)</span> colores.</p>
+<h3 id="numero-cromatico">Numero Cromático</h3>
+<p>Se define al numero cromático de <span class="math">\(G\)</span> como la mínima cantidad de colores necesaria para tener un coloreo propio.</p>
+<p>Se lo nota como <span class="math">\(\chi(G)\)</span>.</p>
+<h4 id="pasos-para-hallar">Pasos para hallar <span class="math">\(\chi(G)\)</span></h4>
+<ol>
+<li>Escribimos un coloreo propio para <span class="math">\(G\)</span> que utilice <span class="math">\(k\)</span> colores, por lo que <span class="math">\(\chi(G) \le k\)</span>.</li>
+<li>Buscamos alguna propiedad que ofrece al <span class="math">\(\chi(G)\)</span> a ser $\ge k $, por lo que concluimos que <span class="math">\(\chi(G)=k\)</span></li>
 <li>Si logramos el paso 2. buscamos pintar el grafo con menos colores.</li>
 <li>Si logramos hacer el paso 3., repetimos el paso 1. y 2. de vuelta.</li>
 </ol>
 <h4 id="propiedades">Propiedades</h4>
 <ul>
-<li><p>Si <span class="math inline">\(\#E_G &gt; 0\)</span>, entonces <span class="math inline">\(\chi(G)\ge2\)</span></p></li>
-<li><p><span class="math inline">\(G\)</span> no es bipartito, si solo si, <span class="math inline">\(G\)</span> no tiene ciclos de longitud impar, entonces <span class="math inline">\(\chi(G)\ge 3\)</span></p></li>
-<li><p>Si <span class="math inline">\(H \subset G\)</span>, entonces <span class="math inline">\(\chi(G)\ge \chi(H)\)</span></p></li>
-<li><p><span class="math inline">\(\chi(K_n)=n\)</span></p></li>
-<li><p><span class="math inline">\(\chi(G+H) = \chi(G) + \chi(H)\)</span></p>
-<p>Todos los vértices de <span class="math inline">\(G\)</span> están conectados a los de <span class="math inline">\(H\)</span> y viceversa, entonces los colores que usa <span class="math inline">\(H\)</span> no pueden usarse para los vértices de <span class="math inline">\(G\)</span>.</p></li>
-<li><p>Utilizando a la <a href="#Independencia%20de%20un%20Grafo">independencia</a>, podemos calcular que <span class="math inline">\(\chi(G) \ge \lceil {\frac{\#V_G}{ind(G)}}\rceil\)</span></p>
-<p><a href="Demostraciones\12%20-%20Coloreo\Proposicion%20-%2003.html">Demostración</a></p></li>
+<li><p>Si <span class="math">\(\#E_G &gt; 0\)</span>, entonces <span class="math">\(\chi(G)\ge2\)</span></p>
+</li>
+<li><p><span class="math">\(G\)</span> no es bipartito, si solo si, <span class="math">\(G\)</span> no tiene ciclos de longitud impar, entonces <span class="math">\(\chi(G)\ge 3\)</span></p>
+</li>
+<li><p>Si <span class="math">\(H \subset G\)</span>, entonces <span class="math">\(\chi(G)\ge \chi(H)\)</span></p>
+</li>
+<li><p><span class="math">\(\chi(K_n)=n\)</span></p>
+</li>
+<li><p><span class="math">\(\chi(G+H) = \chi(G) + \chi(H)\)</span></p>
+<p>Todos los vértices de <span class="math">\(G\)</span> están conectados a los de <span class="math">\(H\)</span> y viceversa, entonces los colores que usa <span class="math">\(H\)</span> no pueden usarse para los vértices de <span class="math">\(G\)</span>.</p>
+</li>
+<li><p>Utilizando a la [independencia](#Independencia de un Grafo), podemos calcular que $\chi(G) \ge \lceil {\frac{#V_G}{ind(G)}}\rceil $</p>
+<p>[Demostración](Demostraciones\12 - Coloreo\Proposicion - 03.html)</p>
+</li>
 </ul>
-<h3 id="grafo-k-critico">Grafo <span class="math inline">\(k-critico\)</span></h3>
-<p>Sea <span class="math inline">\(G\)</span> un grafo tal que <span class="math inline">\(\chi(G)=k\)</span> y <span class="math inline">\(G-\{e\}\)</span> es <span class="math inline">\(k-1\)</span> coloreable <span class="math inline">\(\forall e \in E_G\)</span></p>
-<h3 id="obstrucción-k-cromática">Obstrucción <span class="math inline">\(k\)</span> cromática</h3>
-<p>Una obstrucción <span class="math inline">\(k\)</span> cromática es un subgrafo <span class="math inline">\(H\)</span> de <span class="math inline">\(G\)</span> (<span class="math inline">\(H\subset G\)</span>) que obliga a que <span class="math inline">\(\chi(G)&gt;k\)</span>.</p>
-<h3 id="conjunto-completo-de-obstrucciones-k-cromáticas">Conjunto Completo de Obstrucciones <span class="math inline">\(k\)</span> cromáticas</h3>
-<p>Sea un conjunto de grafos <span class="math inline">\(\{G_j/G_j \text{ es$k+1$critico}\}\)</span>. El conjunto es un conjunto completo de obstrucciones <span class="math inline">\(k\)</span> cromáticas si todo grafo <span class="math inline">\(k+1\)</span> coloreable contiene al menos un representante de los <span class="math inline">\(G_j\)</span> como subgrafo.</p>
-<h3 id="conjunto-de-vértices-independientes">Conjunto de Vértices Independientes</h3>
-<p>Un conjunto de vértices de <span class="math inline">\(G=\{v_i\}_{1\le i\le q}\)</span> es independiente si <span class="math inline">\(v_i\)</span> no es adyacente a <span class="math inline">\(v_j\)</span> <span class="math inline">\(\forall 1\le i\le j\le q,~i\neq j\)</span>.</p>
+<h3 id="grafo-1">Grafo <span class="math">\(k-critico\)</span></h3>
+<p>Sea <span class="math">\(G\)</span> un grafo tal que <span class="math">\(\chi(G)=k\)</span> y <span class="math">\(G-\{e\}\)</span> es <span class="math">\(k-1\)</span> coloreable <span class="math">\(\forall e \in E_G\)</span></p>
+<h3 id="obstruccion-cromatica">Obstrucción <span class="math">\(k\)</span> cromática</h3>
+<p>Una obstrucción <span class="math">\(k\)</span> cromática es un subgrafo <span class="math">\(H\)</span> de <span class="math">\(G\)</span> (<span class="math">\(H\subset G\)</span>) que obliga a que <span class="math">\(\chi(G)&gt;k\)</span>.</p>
+<h3 id="conjunto-completo-de-obstrucciones-cromaticas">Conjunto Completo de Obstrucciones <span class="math">\(k\)</span> cromáticas</h3>
+<p>Sea un conjunto de grafos ${G_j/G_j \text{ es <span class="math">\(k+1\)</span> critico}}$. El conjunto es un conjunto completo de obstrucciones <span class="math">\(k\)</span> cromáticas si todo grafo <span class="math">\(k+1\)</span> coloreable contiene al menos un representante de los <span class="math">\(G_j\)</span> como subgrafo.</p>
+<h3 id="conjunto-de-vertices-independientes">Conjunto de Vértices Independientes</h3>
+<p>Un conjunto de vértices de <span class="math">\(G=\{v_i\}_{1\le i\le q}\)</span> es independiente si <span class="math">\(v_i\)</span> no es adyacente a <span class="math">\(v_j\)</span> <span class="math">\(\forall 1\le i\le j\le q,~i\neq j\)</span>.</p>
 <h3 id="independencia-de-un-grafo">Independencia de un Grafo</h3>
-<p>Se llama independencia de <span class="math inline">\(G\)</span> a la cantidad de vértices del mayor conjunto de vértices independientes de <span class="math inline">\(G\)</span>. <span class="math display">\[
+<p>Se llama independencia de <span class="math">\(G\)</span> a la cantidad de vértices del mayor conjunto de vértices independientes de <span class="math">\(G\)</span>.</p>
+<div class="math">
+\[
 ind(G)=max_{\forall A_j}\{\#A_j\}
-\]</span> Siendo <span class="math inline">\(A_j\)</span> un conjunto de vértices independientes de <span class="math inline">\(G\)</span>.</p>
+\]</div>
+<p>Siendo <span class="math">\(A_j\)</span> un conjunto de vértices independientes de <span class="math">\(G\)</span>.</p>
 <h2 id="observaciones">Observaciones</h2>
 <ul>
 <li>No se puede colorear a un grafo con lazos.</li>
 <li>Las multiaristas no modifican al coloreo.</li>
-<li>Si <span class="math inline">\(G\)</span> tiene <a href="#Numero%20Cromático"><span class="math inline">\(\chi(G)\)</span></a>, entonces <span class="math inline">\(G\)</span> es <span class="math inline">\(k\)</span> coloreable siendo <span class="math inline">\(\#V_G\ge k \ge \chi(G)\)</span></li>
-<li><span class="math inline">\(K_n\)</span> es una <a href="#Obstrucción%20$k$%20cromática">obstrucción <span class="math inline">\(n-1\)</span> cromática</a></li>
-<li><span class="math inline">\(C_{2n+1}\)</span> es una <a href="#Obstrucción%20$k$%20cromática">obstrucción <span class="math inline">\(2\)</span> cromática</a></li>
-<li><span class="math inline">\(W_{2n}\)</span> es una <a href="#Obstrucción%20$k$%20cromática">obstrucción <span class="math inline">\(3\)</span> cromática</a></li>
+<li>Si <span class="math">\(G\)</span> tiene [<span class="math">\(\chi(G)\)</span>](#Numero Cromático), entonces <span class="math">\(G\)</span> es <span class="math">\(k\)</span> coloreable siendo <span class="math">\(\#V_G\ge k \ge \chi(G)\)</span></li>
+<li><span class="math">\(K_n\)</span> es una [obstrucción <span class="math">\(n-1\)</span> cromática](#Obstrucción <span class="math">\(k\)</span> cromática)</li>
+<li><span class="math">\(C_{2n+1}\)</span> es una [obstrucción <span class="math">\(2\)</span> cromática](#Obstrucción <span class="math">\(k\)</span> cromática)</li>
+<li><span class="math">\(W_{2n}\)</span> es una [obstrucción <span class="math">\(3\)</span> cromática](#Obstrucción <span class="math">\(k\)</span> cromática)</li>
 </ul>
 <h2 id="proposiciones">Proposiciones</h2>
 <ul>
-<li><p>Sea <span class="math inline">\(G\)</span> un grafo conexo <a href="#Grafo%20$k-critico$"><span class="math inline">\(k\)</span> critico</a>, entonces <span class="math inline">\(G-\{v\}\)</span> es <a href="#Grafo%20$k-coloreable$"><span class="math inline">\(k-1\)</span> coloreable</a> <span class="math inline">\(\forall v\in V_G\)</span></p>
-<p><a href="Demostraciones\12%20-%20Coloreo\Proposicion%20-%2002.html">Demostración</a></p></li>
-<li><p>Sea <span class="math inline">\(G\)</span> conexo y <a href="#Grafo%20$k-critico$"><span class="math inline">\(k\)</span> critico</a>, entonces <span class="math inline">\(gr(v_i) \ge k-1~~\forall v_i\in G\)</span>.</p>
-<p><a href="Demostraciones\12%20-%20Coloreo\Proposicion%20-%2001.html">Demostración</a></p></li>
-<li><p><span class="math inline">\(\chi(G)\le \delta_{max}+1\)</span>, con <span class="math inline">\(\delta_{max}=max_{\forall v_i \in V_G} \{gr(v_i)\}\)</span></p></li>
+<li><p>Sea <span class="math">\(G\)</span> un grafo conexo [<span class="math">\(k\)</span> critico](#Grafo <span class="math">\(k-critico\)</span>), entonces <span class="math">\(G-\{v\}\)</span> es [<span class="math">\(k-1\)</span> coloreable](#Grafo <span class="math">\(k-coloreable\)</span>) <span class="math">\(\forall v\in V_G\)</span></p>
+<p>[Demostración](Demostraciones\12 - Coloreo\Proposicion - 02.html)</p>
+</li>
+<li><p>Sea <span class="math">\(G\)</span> conexo y [<span class="math">\(k\)</span> critico](#Grafo <span class="math">\(k-critico\)</span>), entonces <span class="math">\(gr(v_i) \ge k-1~~\forall v_i\in G\)</span>.</p>
+<p>[Demostración](Demostraciones\12 - Coloreo\Proposicion - 01.html)</p>
+</li>
+<li><p><span class="math">\(\chi(G)\le \delta_{max}+1\)</span>, con <span class="math">\(\delta_{max}=max_{\forall v_i \in V_G} \{gr(v_i)\}\)</span></p>
+</li>
 </ul>
+
 </body>
 </html>

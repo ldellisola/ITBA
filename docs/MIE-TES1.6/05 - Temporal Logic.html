@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>05 - Temporal Logic</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>05 - Temporal Logic.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,84 +1385,121 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="temporal-logic">Temporal Logic</h1>
 <p>How do we know that a given automaton will fulfill the specifications of a given system? We want to check this out in an automatic way if possible. For this we will use <strong>temporal specification</strong> and <strong>properties</strong> that we saw on a previous class.</p>
 <p>We will simplify the automaton to get it as simple as possible, so we will only keep the <strong>transition system</strong>, which is:</p>
 <ul>
-<li>The set of states <span class="math inline">\(S\)</span></li>
-<li>The set of initial states <span class="math inline">\(S_0\)</span></li>
-<li>The transition relation <span class="math inline">\(R \subseteq S \times S\)</span></li>
+<li>The set of states <span class="math">\(S\)</span></li>
+<li>The set of initial states <span class="math">\(S_0\)</span></li>
+<li>The transition relation <span class="math">\(R \subseteq S \times S\)</span></li>
 </ul>
 <h3 id="transition-systems">Transition Systems</h3>
-<p>Given a transition system <span class="math inline">\((S,S_0,R)\)</span>, we will define a <strong>path</strong> as a list of states that can be connected using the transition relation <span class="math inline">\(R\)</span>. Formally, this is translated to: <span class="math display">\[
+<p>Given a transition system <span class="math">\((S,S_0,R)\)</span>, we will define a <strong>path</strong> as a list of states that can be connected using the transition relation <span class="math">\(R\)</span>. Formally, this is translated to:</p>
+<div class="math">
+\[
 (s_0,s_1,\dots) \in \Sigma_S / s_0 \in S_0, (s_0,s_1) \in R, (s1,s_2)\in R, \dots
-\]</span> And we will use the following notation: <span class="math display">\[
+\]</div>
+<p>And we will use the following notation:</p>
+<div class="math">
+\[
 s_0 \rightarrow s_1 \rightarrow \dots
-\]</span></p>
+\]</div>
 <h3 id="proprieties-of-states">Proprieties of States</h3>
-<p>A <strong>state property</strong> is a name that denotes a subset of the states <span class="math inline">\(S\)</span>. For example, if our states are the temperatures, we can have a property <em>hot</em> that represents the following states (temperatures): <span class="math display">\[
+<p>A <strong>state property</strong> is a name that denotes a subset of the states <span class="math">\(S\)</span>. For example, if our states are the temperatures, we can have a property <em>hot</em> that represents the following states (temperatures):</p>
+<div class="math">
+\[
 \text{hot} : \{x\in S/s &gt; 30^o\}
-\]</span> We also have a function called <strong>interpretation</strong> that matches each state property to a set of states. If we keep using our example: <span class="math display">\[
+\]</div>
+<p>We also have a function called <strong>interpretation</strong> that matches each state property to a set of states. If we keep using our example:</p>
+<div class="math">
+\[
 \mathcal I(\text{hot}) = \{x\in S/s &gt; 30^o\}
-\]</span> A state property <span class="math inline">\(p\)</span> holds on a state <span class="math inline">\(s\)</span> if <span class="math inline">\(s\in\mathcal I(p)\)</span>. We will use the following notation: <span class="math display">\[
+\]</div>
+<p>A state property <span class="math">\(p\)</span> holds on a state <span class="math">\(s\)</span> if <span class="math">\(s\in\mathcal I(p)\)</span>. We will use the following notation:</p>
+<div class="math">
+\[
 s\models p
-\]</span></p>
+\]</div>
 <h3 id="temporal-specification">Temporal Specification</h3>
-<p>For a path <span class="math inline">\(\pi\)</span> of the form <span class="math inline">\((s_0,s_1,\dots)\)</span> , we denote by:</p>
+<p>For a path <span class="math">\(\pi\)</span> of the form <span class="math">\((s_0,s_1,\dots)\)</span> , we denote by:</p>
 <ul>
-<li><span class="math inline">\(\pi^i\)</span>, the <span class="math inline">\(i^{th}\)</span> suffix of <span class="math inline">\(\pi\)</span>. This will return the path <span class="math inline">\((s_i,s_{i+1}, \dots)\)</span></li>
-<li><span class="math inline">\(\pi(i)\)</span> is the element <span class="math inline">\(s_i\)</span>.</li>
+<li><span class="math">\(\pi^i\)</span>, the <span class="math">\(i^{th}\)</span> suffix of <span class="math">\(\pi\)</span>. This will return the path <span class="math">\((s_i,s_{i+1}, \dots)\)</span></li>
+<li><span class="math">\(\pi(i)\)</span> is the element <span class="math">\(s_i\)</span>.</li>
 </ul>
-<p>We say that a state property <span class="math inline">\(p\)</span> holds on a path <span class="math inline">\(\pi\)</span> if it holds on the first element of the path: <span class="math display">\[
+<p>We say that a state property <span class="math">\(p\)</span> holds on a path <span class="math">\(\pi\)</span> if it holds on the first element of the path:</p>
+<div class="math">
+\[
 \pi \models p \iff \pi(0) \models p
-\]</span> We call <strong>counter-example</strong> of a property <span class="math inline">\(p\)</span> to a path that doesn’t hold that property: <span class="math display">\[
+\]</div>
+<p>We call <strong>counter-example</strong> of a property <span class="math">\(p\)</span> to a path that doesn't hold that property:</p>
+<div class="math">
+\[
 \pi \not\models p
-\]</span></p>
+\]</div>
 <h4 id="operators">Operators</h4>
 <p>We have different operators in temporal logic:</p>
 <ul>
-<li><p><span class="math inline">\(\pi \models Xp\)</span>: The property <span class="math inline">\(p\)</span> will hold on the next elements in the path: <span class="math display">\[
+<li><p><span class="math">\(\pi \models Xp\)</span>: The property <span class="math">\(p\)</span> will hold on the next elements in the path:</p>
+<div class="math">
+\[
 \pi \models Xp \iff \pi^1\models p \iff \pi(1) \models p
-\]</span></p></li>
-<li><p><span class="math inline">\(\pi \models Fp\)</span>: The property <span class="math inline">\(p\)</span> will eventually hold for some element in the path: <span class="math display">\[
+\]</div>
+</li>
+<li><p><span class="math">\(\pi \models Fp\)</span>: The property <span class="math">\(p\)</span> will eventually hold for some element in the path:</p>
+<div class="math">
+\[
 \pi \models Fp \iff \exists k \in \mathbb{N}_0 / \pi^k\models p
-\]</span></p></li>
-<li><p><span class="math inline">\(\pi \models Gp\)</span>: The Property <span class="math inline">\(p\)</span> will always hold for all items of the path: <span class="math display">\[
+\]</div>
+</li>
+<li><p><span class="math">\(\pi \models Gp\)</span>: The Property <span class="math">\(p\)</span> will always hold for all items of the path:</p>
+<div class="math">
+\[
 \pi \models Gp \iff  \forall k \in \mathbb{N}_0 / \pi^k \models p
-\]</span></p></li>
-<li><p><span class="math inline">\(\pi \models pUq\)</span>: The property <span class="math inline">\(q\)</span> will hold until the property <span class="math inline">\(p\)</span> holds: <span class="math display">\[
+\]</div>
+</li>
+<li><p><span class="math">\(\pi \models pUq\)</span>: The property <span class="math">\(q\)</span> will hold until the property <span class="math">\(p\)</span> holds:</p>
+<div class="math">
+\[
 \pi \models pUq \iff \exists i / \pi^i \models q \land \forall j &lt; i, \pi^j \models p
-\]</span></p></li>
-<li><p><span class="math inline">\(\pi \models pRq\)</span>: The property <span class="math inline">\(p\)</span> will hold as long as the property <span class="math inline">\(q\)</span> doesn’t hold: <span class="math display">\[
+\]</div>
+</li>
+<li><p><span class="math">\(\pi \models pRq\)</span>: The property <span class="math">\(p\)</span> will hold as long as the property <span class="math">\(q\)</span> doesn't hold:</p>
+<div class="math">
+\[
 \forall j \in \mathbb{N}_0 \text{ if } \forall i &lt; j \pi^i \not\models p \text{ then } \pi^i \models q 
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
 <p>We can also join and merge these operators and use regular Boolean operators to generate <strong>Linear Temporal Logic</strong> (LTL). Here every state property is an LTL formula, and we use the following operator priority:</p>
-<ol type="1">
-<li><span class="math inline">\(\neg,X,F,G\)</span></li>
-<li><span class="math inline">\(U,R\)</span></li>
-<li><span class="math inline">\(\land,\lor,\Rightarrow, \Leftrightarrow\)</span></li>
+<ol>
+<li><span class="math">\(\neg,X,F,G\)</span></li>
+<li><span class="math">\(U,R\)</span></li>
+<li><span class="math">\(\land,\lor,\Rightarrow, \Leftrightarrow\)</span></li>
 </ol>
-<p>For the <span class="math inline">\(U, R\)</span> operators, we will use right-associativity.</p>
+<p>For the <span class="math">\(U, R\)</span> operators, we will use right-associativity.</p>
 <p>We can also use the following list of equivalences</p>
-<p><img src="Resources/05 - Temporal Logic/image-20201108191530729.png" alt="image-20201108191530729" style="zoom:100%;" /></p>
-<figure>
-<img src="Resources/05%20-%20Temporal%20Logic/image-20201108191544702.png" alt="image-20201108191544702" /><figcaption aria-hidden="true">image-20201108191544702</figcaption>
-</figure>
-<figure>
-<img src="Resources/05%20-%20Temporal%20Logic/image-20201108191544702.png" alt="image-20201108191544702" /><figcaption aria-hidden="true">image-20201108191544702</figcaption>
-</figure>
+<img src="Resources/05 - Temporal Logic/6355288e-eb6d-400c-bfdd-1eb791ce23a6.png" alt="6355288e-eb6d-400c-bfdd-1eb791ce23a6" style="scale:0.100;" />
+<p>![image-20201108191544702](Resources/05 - Temporal Logic/736da532-d4a3-4978-b904-cd3f40521926.png)</p>
+<p>![image-20201108191544702](Resources/05 - Temporal Logic/11bf7e7c-b861-4afc-94b5-c7fb26553814.png)</p>
 <h3 id="properties-of-transition-systems">Properties of Transition Systems</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 (S,S_0,R) \models p \iff \forall \pi \in (S,S_0,R), \pi \models p
-\]</span></p>
-<p>Because of this, we can say that: <span class="math display">\[
+\]</div>
+<p>Because of this, we can say that:</p>
+<div class="math">
+\[
 (S,S_0,R) \models \neg p \not\equiv (S,S_0,R) \not\models p
-\]</span> If the transition system is obvious, then we can write: <span class="math display">\[
+\]</div>
+<p>If the transition system is obvious, then we can write:</p>
+<div class="math">
+\[
 \models p
-\]</span></p>
+\]</div>
+
 </body>
 </html>

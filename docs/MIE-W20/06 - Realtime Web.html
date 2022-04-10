@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>06 - Realtime Web</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>06 - Realtime Web.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,32 +1385,33 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="realtime-web">Realtime Web</h1>
 <p>There are two main ways to implement data streaming in the web: Polling and Pushing.</p>
-<p><img src="Resources/06 - Realtime Web/image-20210513204620128.png" alt="image-20210513204620128" style="zoom:33%;" /></p>
-<p>Polling consists on the client periodically checking for updates on the server, while pushing creates a persistent connection and the server will send the data over that channel. There are two types of pushing: the first one is <strong>long polling</strong>, and it consists on the server holding the request for some time while <strong>streaming</strong> opens a socket and sends updates without closing it.</p>
+<img src="Resources/06 - Realtime Web/a546de71-3528-450b-8e1a-d7f41658d9fd.png" alt="a546de71-3528-450b-8e1a-d7f41658d9fd" style="scale:0.33;" />
+<p>Polling  consists on the client periodically checking for updates on the server, while pushing creates a persistent connection and the server will send the data over that channel. There are two types of pushing: the first one is <strong>long polling</strong>, and it consists on the server holding the request for some time while <strong>streaming</strong> opens a socket and sends updates without closing it.</p>
 <h2 id="long-polling">Long Polling</h2>
 <p>In Long Polling, the client sends a request and the server keeps it until it an event occurs, and then it sends it back. This process saves computer resources at the server as well as network resources, but it has some drawback as well. There is a maximum time of request processing at the server and it cannot support concurrent request processing at the server.</p>
-<p><img src="Resources/06 - Realtime Web/image-20210514111615638.png" alt="image-20210514111615638" style="zoom:33%;" /></p>
+<img src="Resources/06 - Realtime Web/034c037f-23b7-4aab-b3f8-a09cc8f9e702.png" alt="034c037f-23b7-4aab-b3f8-a09cc8f9e702" style="scale:0.33;" />
 <h2 id="streaming">Streaming</h2>
-<p>Here the client initiates a request that the server stores until there is an event or a timeout. When this occurs, the server sends it back to the client as part of the response, but it does not terminate the communication, so when the next event comes, we can reuse the channel. This is done by using the <code>transfer-encoding</code> header in HTTP 1.1 or omitting the <code>content-lenth</code> attribute in the response.</p>
-<p><img src="Resources/06 - Realtime Web/image-20210514112240308.png" alt="image-20210514112240308" style="zoom:33%;" /></p>
+<p>Here the client initiates a request that the server stores until there is an event or a timeout. When this occurs, the server sends it back to the client as part of the response, but it does not terminate the communication, so when the next event comes, we can reuse the channel. This is done by using the <code>transfer-encoding</code> header in HTTP 1.1 or omitting the <code>content-lenth</code>  attribute in the response.</p>
+<img src="Resources/06 - Realtime Web/881d7ec5-c128-45bc-b5c0-89d702e640df.png" alt="881d7ec5-c128-45bc-b5c0-89d702e640df" style="scale:0.33;" />
 <h3 id="chunked-data">Chunked Data</h3>
-<p>If we set the <code>transfer-encoding</code> to <em>“Chunked”</em> we can send multiple sets of data over a single connection. each chunk starts with the hexadecimal value for length and we send <span class="math inline">\(0\)</span> to end the response. This method has some drawbacks though, as chunks cannot be considered events and intermediaries might re-chunk the message stream. In the same way, clients may buffer all data chunks before the make the response available to the application</p>
+<p>If we set the <code>transfer-encoding</code> to <em>&quot;Chunked&quot;</em> we can send multiple sets of data over a single connection. each chunk starts with the hexadecimal value for length and we send <span class="math">\(0\)</span> to end the response. This method has some drawbacks though, as chunks cannot be considered events and intermediaries might re-chunk the message stream. In the same way, clients may buffer all data chunks before the make the response available to the application</p>
 <h3 id="server-sent-events">Server-Sent Events</h3>
-<p>Server-Sent Events is a feature of the HTML5 spec where an API is able to handle HTTP streaming in browser by using DOM events. For this feature we can use chunked messages and EOF. In order to send this events, the content-type must be <code>text/event-stream</code>. Every line must start with <code>data:</code> and then write the data onto the stream with the exception of <code>id:</code> which is an optional identifier associated with the message. The last part of the data must be finished with <code>\n\n</code> to notify the client.</p>
+<p>Server-Sent Events is a feature of the HTML5 spec where an API is able to handle HTTP streaming in browser by using DOM events. For this feature we can use chunked messages and EOF. In order to send this events, the content-type must be <code>text/event-stream</code>. Every line must start with <code>data:</code>  and then write the data onto the stream with the exception of <code>id:</code> which is an optional identifier associated with the message. The last part of the data must be finished with <code>\n\n</code> to notify the client.</p>
 <h3 id="cross-document-messaging">Cross-Document Messaging</h3>
-<p>We can also use iframes to stream messages. With this method we have to lead a streaming resource in a hidden iframe. the server will push JavaScript code to the frame and the browser will execute the code as it arrives. The embedded iframe’s code posts messages to the upper document.</p>
-<p><img src="Resources/06 - Realtime Web/image-20210514114629352.png" alt="image-20210514114629352" style="zoom:33%;" /></p>
+<p>We can also use iframes to stream messages. With this method we have to lead a streaming resource in a hidden iframe. the server will push JavaScript code to the frame and the browser will execute the code as it arrives. The embedded iframe's code posts messages to the upper document.</p>
+<img src="Resources/06 - Realtime Web/c750b010-152d-4196-8841-90978579c585.png" alt="c750b010-152d-4196-8841-90978579c585" style="scale:0.33;" />
 <h2 id="websocket">WebSocket</h2>
-<p>WebSocket is a new protocol that runs as a layer on top of TCP that allows for bi-directional communication between client and servers with low-latency and no HTTP overhead. This protocol has to phases, first there’s a handshake to <em>“Upgrade”</em> the HTTP connection and then we can start transferring data.</p>
+<p>WebSocket is a new protocol that runs as a layer on top of TCP that allows for bi-directional communication between client and servers with low-latency and no HTTP overhead. This protocol has to phases, first there's a handshake to <em>&quot;Upgrade&quot;</em> the HTTP connection and then we can start transferring data.</p>
 <h2 id="webrtc">WebRTC</h2>
 <p>This protocol stands for Web Real-Time Communication and it is an API to exchange media and arbitrary data between peers inside Web pages. It uses P2P technology instead of traditional server oriented messaging.</p>
 <p>This protocol is mostly used for acquiring audio and video as well as communicating audio and video in videocalls. The communication is done in two phases:</p>
-<ol type="1">
+<ol>
 <li><strong>Signaling</strong>: WebRTC defines abstract signaling, meaning that apps can use any signaling protocol such as SIP, XMPP or a custom implementation. In this step the clients need to exchange session description objects such as formats and codecs to used.</li>
 <li><strong>Exchange of real-time data</strong></li>
 </ol>
@@ -1561,9 +1424,12 @@ blockquote {
 <p>ICE allows WebRTC to overcome the complexities of Real-world networking, finding the best path to connect peers such as direct P2P communication or using:</p>
 <ul>
 <li><p><strong>Session Transversal Utilities for NAT (STUN)</strong>: It allows us to discover the presence of a NAT server and to discover public IP addresses and a port that the NAT has allocated for UDP flows. This is implemented as a third-party server inside the public side of the NAT.</p>
-<p><img src="Resources/06 - Realtime Web/image-20210514124022531.png" alt="image-20210514124022531" style="zoom:33%;" /></p></li>
+<img src="Resources/06 - Realtime Web/1a1bd08f-8609-4327-a107-0b908bc8e1df.png" alt="1a1bd08f-8609-4327-a107-0b908bc8e1df" style="scale:0.33;" />
+</li>
 <li><p><strong>Traversal Using Relays around NAT (TURN)</strong>: It allows communication relay for hosts behind NAT when STUN does not work.</p>
-<p><img src="Resources/06 - Realtime Web/image-20210514124049640.png" alt="image-20210514124049640" style="zoom:33%;" /></p></li>
+<img src="Resources/06 - Realtime Web/dd4d4e57-0869-47e2-8c7e-d9d2b55b5a4d.png" alt="dd4d4e57-0869-47e2-8c7e-d9d2b55b5a4d" style="scale:0.33;" />
+</li>
 </ul>
+
 </body>
 </html>

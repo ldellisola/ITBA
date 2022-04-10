@@ -1,214 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>01 - Procesos</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {  background-color: #f8f8f8; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ef2929; } /* Alert */
-    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #c4a000; } /* Attribute */
-    code span.bn { color: #0000cf; } /* BaseN */
-    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4e9a06; } /* Char */
-    code span.cn { color: #000000; } /* Constant */
-    code span.co { color: #8f5902; font-style: italic; } /* Comment */
-    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-    code span.dt { color: #204a87; } /* DataType */
-    code span.dv { color: #0000cf; } /* DecVal */
-    code span.er { color: #a40000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #0000cf; } /* Float */
-    code span.fu { color: #000000; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-    code span.ot { color: #8f5902; } /* Other */
-    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-    code span.sc { color: #000000; } /* SpecialChar */
-    code span.ss { color: #4e9a06; } /* SpecialString */
-    code span.st { color: #4e9a06; } /* String */
-    code span.va { color: #000000; } /* Variable */
-    code span.vs { color: #4e9a06; } /* VerbatimString */
-    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>01 - Procesos.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -217,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -274,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -338,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -421,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -440,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -462,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -559,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -651,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -692,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -735,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -922,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -978,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1301,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1426,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1583,7 +1385,8 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="procesos">Procesos</h1>
@@ -1609,42 +1412,51 @@ blockquote {
 <h2 id="pipes">Pipes</h2>
 <p>Los pipes son el mecanismo mas antiguo de IPC y lo proveen los sistemas Linux. Este sistema provee un canal unidireccional para flujos de datos entre procesos y solo puede ser utilizados entre procesos on un antecesor comun que crea el pipe.</p>
 <p>Los pipes se crean con la funcion:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> pipe(<span class="dt">int</span> fildes[<span class="dv">2</span>]);</span></code></pre></div>
+<pre><code class="language-c">int pipe(int fildes[2]);
+</code></pre>
 <p>Donde el parametro es una tabla con dos descriptores de ficheros, siendo el primero de lectura y el segundo de escritura. El valor de retorno de esta funcion es 0 si tiene exito y -1 si hay un error.</p>
 <p>Ejemplo:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main(<span class="dt">void</span>){</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> fd[<span class="dv">2</span>];</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    pipe(fd);</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(fort()!= <span class="dv">0</span>){</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        close(fd[<span class="dv">0</span>]); <span class="co">// El padre no lee</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        write(fd[<span class="dv">1</span>], <span class="st">&quot;Hola</span><span class="sc">\n</span><span class="st">&quot;</span>);  <span class="co">// El padre escribe</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    }<span class="cf">else</span>{</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        close(fd[<span class="dv">1</span>]); <span class="co">// El hijo no escribe</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">char</span> str[<span class="dv">100</span>];</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> n = read(fd[<span class="dv">0</span>], str,<span class="dv">100</span>);</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        write(STDOUT_FILENO,str,n);</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code class="language-c">int main(void){
+    int fd[2];
+    pipe(fd);
+    
+    if(fort()!= 0){
+        close(fd[0]); // El padre no lee
+        write(fd[1], &quot;Hola\n&quot;);  // El padre escribe
+    }else{
+        close(fd[1]); // El hijo no escribe
+        char str[100];
+        int n = read(fd[0], str,100);
+        write(STDOUT_FILENO,str,n);
+    }
+}
+</code></pre>
 <p>Hay mas funciones que participan en los <code>pipes</code>. Por ejemplo:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> dup(<span class="dt">int</span> oldfd);</span></code></pre></div>
+<pre><code class="language-c">int dup(int oldfd);
+</code></pre>
 <p>Es una funcion que permite duplicar un file descriptor ya abierto y te devuelve un nuevo file descriptor. En caso de error devuelve <code>-1</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> dup2(<span class="dt">int</span> oldfd, <span class="dt">int</span> newfd);</span></code></pre></div>
+<pre><code class="language-c">int dup2(int oldfd, int newfd);
+</code></pre>
 <p>Esta funcion es similar a la anterior pero le podes indicar que file descriptor queres que te asigne. Si el file descriptor deseado esta ocupado, lo cierra y luego lo duplica.</p>
 <h2 id="gestion-de-procesos">Gestion de Procesos</h2>
 <p>Un proceso puede terminar por distintas razones:</p>
 <ul>
 <li><p>Su funcion main llama a <code>return</code>:</p>
-<p>Fuerza la salida inmediata de la funcion y provoca que salte al punto en el que se hizo la llamada a la funcion. Si hay un valor asociado con en <code>return</code>, se trata del valor de devolucion de la funcion.Si el <code>return</code> es de la funcion main se cierra el programa.</p></li>
+<p>Fuerza la salida inmediata de la funcion y provoca que salte al punto en el que se hizo la llamada a la funcion. Si hay un valor asociado con en <code>return</code>, se trata del valor de devolucion de la funcion.Si el <code>return</code> es de la funcion main se cierra el programa.</p>
+</li>
 <li><p>Se llama a <code>exit()</code> de la libreria <code>&lt;stdlib.h&gt;</code>:</p>
-<p>Produce la terminacion normal del programa y devuelve el estado al proceso padre. Antes de finalizar se ejecutan todas las funciones registradas con <code>atexit()</code>.</p></li>
-<li><p>Se llama a system call <code>_exit</code> de <code>&lt;unistd.h&gt;</code>:</p>
-<p>Termina inmediatamente la ejecucion del proceso invocador y no se ejecuta ninguna funcion cargada con <code>atexit()</code>.</p></li>
+<p>Produce la terminacion normal del programa y devuelve el estado al proceso padre. Antes de finalizar se ejecutan todas las funciones registradas con <code>atexit()</code>.</p>
+</li>
+<li><p>Se llama a system call <code>_exit</code> de  <code>&lt;unistd.h&gt;</code>:</p>
+<p>Termina inmediatamente la ejecucion del proceso invocador y no se ejecuta ninguna funcion cargada con <code>atexit()</code>.</p>
+</li>
 <li><p>Se llama a <code>abort:</code></p>
-<p>Causa una terminacion anormal y graba una imagen en memoria. Cierra todos los canales abiertos y los borra. Genera la señal <code>SIGABRT</code>.</p></li>
-<li><p>Es finalizado por una señal</p></li>
+<p>Causa una terminacion anormal y graba una imagen en memoria. Cierra todos los canales abiertos y los borra. Genera la señal <code>SIGABRT</code>.</p>
+</li>
+<li><p>Es finalizado por una señal</p>
+</li>
 </ul>
-<h3 id="señales">Señales</h3>
+<h3 id="senales">Señales</h3>
 <p>Son un suceso que tiene lugar en cualquier momento durante la ejecución de un proceso. Cada señal tiene un nombre y las funciones que las manejan se encuentran en la librería <code>&lt;include/signal.h&gt;</code>. Hay distintas acciones que se pueden realizar al recibir una señal:</p>
 <ul>
 <li>Ignorar la señal</li>
@@ -1652,15 +1464,9 @@ blockquote {
 <li>Capturar a la señal, ejecutar a la rutina de tratamiento y volver al estado anterior.</li>
 </ul>
 <p>Existen las siguientes señales definidas en el sistema:</p>
-<table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 71%" />
-</colgroup>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;">Señal</th>
 <th style="text-align: center;">Valor</th>
 <th style="text-align: center;">Acción</th>
@@ -1668,115 +1474,115 @@ blockquote {
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGHUP</code></td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;"><code>A</code></td>
 <td style="text-align: center;">Cuelgue detectado en la terminal o muerte del proceso de control.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGINT</code></td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center;"><code>A</code></td>
 <td style="text-align: center;">Interrupción del teclado (<code>ctrl+c</code>)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGQUIT</code></td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center;"><code>C</code></td>
 <td style="text-align: center;">Terminación procedente del teclado (<code>ctrl+4</code>)</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGILL</code></td>
 <td style="text-align: center;">4</td>
 <td style="text-align: center;"><code>C</code></td>
 <td style="text-align: center;">Instrucción Ilegal</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGABRT</code></td>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;"><code>C</code></td>
 <td style="text-align: center;">Señal de aborto</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGFPE</code></td>
 <td style="text-align: center;">8</td>
 <td style="text-align: center;"><code>C</code></td>
 <td style="text-align: center;">Excepción de coma flotante</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGKILL</code></td>
 <td style="text-align: center;">9</td>
 <td style="text-align: center;"><code>AEF</code></td>
 <td style="text-align: center;">Señal de matar</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGSEGV</code></td>
 <td style="text-align: center;">11</td>
 <td style="text-align: center;"><code>C</code></td>
 <td style="text-align: center;">Referencia invalida a memoria</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGPIPE</code></td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;"><code>A</code></td>
 <td style="text-align: center;">Tubería rota: Escritura sin lectores</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGALARM</code></td>
 <td style="text-align: center;">14</td>
 <td style="text-align: center;"><code>A</code></td>
 <td style="text-align: center;">Señal de alarma</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGTERM</code></td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;"><code>A</code></td>
 <td style="text-align: center;">Señal de terminación</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGUSR1</code></td>
 <td style="text-align: center;">30,10,16</td>
 <td style="text-align: center;"><code>A</code></td>
 <td style="text-align: center;">Se;al definida por el usuario 1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGUSR2</code></td>
 <td style="text-align: center;">31,12,17</td>
 <td style="text-align: center;"><code>A</code></td>
 <td style="text-align: center;">Se;al definida por el usuario 2</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGCHLD</code></td>
 <td style="text-align: center;">20,17,18</td>
 <td style="text-align: center;"><code>B</code></td>
 <td style="text-align: center;">Proceso del hijo terminado o parado</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGCONT</code></td>
 <td style="text-align: center;">19,18,25</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">Continuar si estaba parado</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGSTOP</code></td>
 <td style="text-align: center;">17,19,23</td>
 <td style="text-align: center;"><code>DEF</code></td>
 <td style="text-align: center;">Parar el proceso</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGTSTP</code></td>
 <td style="text-align: center;">18,20,14</td>
 <td style="text-align: center;"><code>D</code></td>
 <td style="text-align: center;">Parada escrita de la tty</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><code>SIGTTIN</code></td>
 <td style="text-align: center;">21,21,26</td>
 <td style="text-align: center;"><code>D</code></td>
 <td style="text-align: center;">E. de la tty para un proceso de fondo</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><code>SIGTTOU</code></td>
 <td style="text-align: center;">22,22,27</td>
 <td style="text-align: center;"><code>D</code></td>
@@ -1794,17 +1600,21 @@ blockquote {
 <li><code>F</code>: La señal no puede ser ignorada.</li>
 </ul>
 <p>Cuando queremos que un proceso espere a que llegue una señal , utilizamos a la función:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> pause();</span></code></pre></div>
+<pre><code class="language-c">int pause();
+</code></pre>
 <p>Esta función hace que el proceso que recibe la señal duerma hasta que llegue, y luego devuelve <code>-1</code>.</p>
 <p>También podemos encargarnos de las señales de una mejor forma, mediante callbacks:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sighandler_t signal(<span class="dt">int</span> signum, sighandler_t handler);</span></code></pre></div>
+<pre><code class="language-c">sighandler_t signal(int signum, sighandler_t handler);
+</code></pre>
 <p>Estos parámetros son el numero de la señal que queremos enviar y un puntero a la función que se encargara de tratar a la señal indicada. De fallar, la función devuelve <code>SIG_ERR</code>.</p>
 <h3 id="otras-funciones-relacionadas">Otras funciones relacionadas</h3>
 <p>Otras funciones relacionadas con la gestión de procesos son:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">int</span> alarm(<span class="dt">unsigned</span> <span class="dt">int</span> seconds);</span></code></pre></div>
+<pre><code class="language-c">unsigned int alarm(unsigned int seconds);
+</code></pre>
 <p>Genera un timer en el procesador que envía al proceso que la ejecuto la señal <code>SIGALRM</code> cada una dada cantidad de segundos.</p>
 <p>Por otro lado tenemos a la función sleep:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sleep(<span class="dt">unsigned</span> <span class="dt">int</span> seconds);</span></code></pre></div>
+<pre><code class="language-c">int sleep(unsigned int seconds);
+</code></pre>
 <p>Esta función suspende el proceso por una dada cantidad de segundos.</p>
 <h2 id="shared-memory">Shared Memory</h2>
 <p>Es un método de comunicación entre procesos por el cual mas de un proceso tienen acceso a una sección de memoria al mismo tiempo y todos tienen permisos de leer y escribir. Queda a disposición del programador para establecer como se va a realizar la comunicación.</p>
@@ -1821,7 +1631,8 @@ blockquote {
 <li><code>O_CREAT</code>: Crea el archivo si no existe. Si el archivo que se quiere crear ya existe va a tirar error.</li>
 <li><code>O_EXCL</code>: Se usa en conjunto con <code>O_CREAT</code>. Esta flag valida automáticamente de que el nombre del archivo no exista antes de crear la memoria compartida.</li>
 <li><code>O_TRUNC</code>: Si al abrir el archivo ya existe, lo vacía y cambia el tamaño a 0.</li>
-</ul></li>
+</ul>
+</li>
 <li><code>mode</code>: ??</li>
 </ul>
 <p>La función devuelve un file descriptor si tuvo existo y <code>-1</code> en caso de que haya un error.</p>
@@ -1841,13 +1652,15 @@ blockquote {
 <li><code>PROT_READ</code>: Pueden ser leídas.</li>
 <li><code>PROT_WRITE</code>: Pueden ser escritas.</li>
 <li><code>PROT_NONE</code>: No pueden ser accedidas</li>
-</ul></li>
+</ul>
+</li>
 <li><code>flags</code>: Indican quienes pueden ver las actualizaciones del archivo. Puede tener los siguientes valores:
 <ul>
 <li><code>MAP_SHARED</code>: Las actualizaciones del archivo pueden ser vistas por todos los procesos que estén en la misma region.</li>
 <li><code>MAP_SHARED_VALIDATE</code>: Hace lo mismo que el flag anterior pero además valida si los flags enviados son validos.</li>
 <li><code>MAP_PRIVATE</code>: Al crear el mapeo en memoria virtual copia la información en vez de compartirla, por lo que no puede ver ni enviar cambios al archivo, todos los cambios son locales.</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p>Si no se encuentra ningún error devuelve un puntero al área mapeada, sino devuelve <code>(void *)-1</code>.</p>
 <h4 id="int-munmapvoid-addr"><code>int munmap(void * addr)</code></h4>
@@ -1858,5 +1671,6 @@ blockquote {
 <p>cierra el file descriptor</p>
 <h2 id="message-passing">Message Passing</h2>
 <p>Otra forma de comunicar procesos. En este caso se utilizan mensajes de forma asincrónica de un proceso a otro y permite que la comunicación sea de uno a muchos.</p>
+
 </body>
 </html>

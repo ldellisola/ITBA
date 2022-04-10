@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>10 - Bloques</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>10 - Bloques.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,86 +1385,102 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
-<h1 id="bloque-de-un-grafo-g">Bloque de un Grafo <span class="math inline">\(G\)</span></h1>
-<p>Un bloque de un grafo <span class="math inline">\(G\)</span> es un subgrafo de <span class="math inline">\(G\)</span> conexo máxima sin vértices de corte en el subgrafo.</p>
-<p>Por ejemplo, si <span class="math inline">\(G\)</span> es</p>
-<p><img src="Resources/clip_image001-1568634921986.png" alt="img" style="zoom:33%;" /></p>
-<p>Los bloques de <span class="math inline">\(G\)</span> son</p>
-<p><img src="Resources/clip_image001-1568635024513.png" alt="img" style="zoom:33%;" /></p>
+<h1 id="bloque-de-un-grafo">Bloque de un Grafo <span class="math">\(G\)</span></h1>
+<p>Un bloque de un grafo <span class="math">\(G\)</span> es un subgrafo de <span class="math">\(G\)</span> conexo máxima sin vértices de corte en el subgrafo.</p>
+<p>Por ejemplo, si <span class="math">\(G\)</span> es</p>
+<img src="Resources/01bd4dd9-954c-4dfc-b97b-a8abed5c3590.png" alt="01bd4dd9-954c-4dfc-b97b-a8abed5c3590" style="scale:0.33;" />
+<p>Los bloques de <span class="math">\(G\)</span> son</p>
+<img src="Resources/8723c5a0-025c-4087-ad12-bce5f3a82cf2.png" alt="8723c5a0-025c-4087-ad12-bce5f3a82cf2" style="scale:0.33;" />
 <h3 id="observaciones">Observaciones</h3>
-<ol type="1">
-<li><p>Los bloques de un grafo <span class="math inline">\(G\)</span> son vértices aislados, dipolos o grafos <span class="math inline">\(2-conexos\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(v\in B_i \land v\in B_j ~~(i\neq j) \Rightarrow v\)</span> es vértice de corte de <span class="math inline">\(G\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(v \in B_i \land u \in B_j ~~(i\neq j)\)</span> y ni <span class="math inline">\(v\)</span> ni <span class="math inline">\(u\)</span> son vértices de corte <span class="math inline">\(\Rightarrow v\)</span> no es adyacente a <span class="math inline">\(u\)</span> en <span class="math inline">\(G\)</span>.</p></li>
-<li><p>Dos vértices distintos <span class="math inline">\(u,v\)</span> no pueden pertenecer ambos a dos bloques distintos, sino <span class="math inline">\(B_i \cup B_j\)</span> seria un bloque solo.</p>
-<p><img src="Resources/clip_image001-1568635375136.png" alt="img" style="zoom:33%;" /></p></li>
-<li><p>Para analizar la planaridad de un grafo <span class="math inline">\(G\)</span>, analizamos a cada uno de sus bloques <span class="math inline">\(2-conexos\)</span>. Si todos sus bloques <span class="math inline">\(2-conexos\)</span> son planos, entonces <span class="math inline">\(G\)</span> es plano.</p></li>
+<ol>
+<li><p>Los bloques de un grafo <span class="math">\(G\)</span> son vértices aislados, dipolos o grafos <span class="math">\(2-conexos\)</span>.</p>
+</li>
+<li><p>Si <span class="math">\(v\in B_i \land v\in B_j ~~(i\neq j) \Rightarrow v\)</span> es vértice de corte de <span class="math">\(G\)</span>.</p>
+</li>
+<li><p>Si <span class="math">\(v \in B_i \land u \in B_j ~~(i\neq j)\)</span> y ni <span class="math">\(v\)</span> ni <span class="math">\(u\)</span> son vértices de corte <span class="math">\(\Rightarrow v\)</span> no es adyacente a <span class="math">\(u\)</span> en <span class="math">\(G\)</span>.</p>
+</li>
+<li><p>Dos vértices distintos <span class="math">\(u,v\)</span> no pueden pertenecer ambos a dos bloques distintos, sino <span class="math">\(B_i \cup B_j\)</span> seria un bloque solo.</p>
+<img src="Resources/a55667b2-a279-425d-96b8-c81d9bdabc9a.png" alt="a55667b2-a279-425d-96b8-c81d9bdabc9a" style="scale:0.33;" />
+</li>
+<li><p>Para analizar la planaridad de un grafo <span class="math">\(G\)</span>, analizamos a cada uno de sus bloques <span class="math">\(2-conexos\)</span>. Si todos sus bloques <span class="math">\(2-conexos\)</span> son planos, entonces <span class="math">\(G\)</span> es plano.</p>
+</li>
 </ol>
-<h2 id="grafo-bloque-de-g">Grafo Bloque de <span class="math inline">\(G\)</span></h2>
-<p>El grafo bloque de <span class="math inline">\(G\)</span> tiene un vértice para cada bloque de <span class="math inline">\(G\)</span> y las aristas entre bloques indican que dichos bloques tienen un vértice en común. Indican como se conectan los bloques de un mismo grafo.</p>
+<h2 id="grafo-bloque-de">Grafo Bloque de <span class="math">\(G\)</span></h2>
+<p>El grafo bloque de <span class="math">\(G\)</span> tiene un vértice para cada bloque de <span class="math">\(G\)</span> y las aristas entre bloques indican que dichos bloques tienen un vértice en común. Indican como se conectan los bloques de un mismo grafo.</p>
 <p>Siguiendo con el ejemplo anterior:</p>
-<p><img src="Resources/clip_image001-1568635755448.png" alt="img" style="zoom:50%;" /></p>
+<img src="Resources/d773b1e7-a9a7-44c6-be7d-49ea9db710c3.png" alt="d773b1e7-a9a7-44c6-be7d-49ea9db710c3" style="scale:0.50;" />
 <h2 id="bloque-hoja">Bloque Hoja</h2>
 <p>Se llama bloque hoja en un grafo bloque al bloque que es un vértice colgante, o solo tienen en común con otro bloque un vértice de corte.</p>
-<p>Por ejemplo, en este caso los bloques <span class="math inline">\(B_1\)</span> y <span class="math inline">\(B_3\)</span> son hoja:</p>
-<p><img src="Resources/clip_image001-1568636445907.png" alt="img" style="zoom:33%;" /></p>
+<p>Por ejemplo, en este caso los bloques <span class="math">\(B_1\)</span> y <span class="math">\(B_3\)</span> son hoja:</p>
+<img src="Resources/919e281b-a636-44ef-9e80-6b43cb09dada.png" alt="919e281b-a636-44ef-9e80-6b43cb09dada" style="scale:0.33;" />
 <h1 id="aristas-inseparables">Aristas Inseparables</h1>
-<p>Sea un grafo <span class="math inline">\(G\)</span> y <span class="math inline">\(H\subset G\)</span> un subgrafo de <span class="math inline">\(G\)</span>.</p>
-<p>Definimos la siguiente relación entre las aristas de <span class="math inline">\(G\)</span> y las que no están en <span class="math inline">\(H\)</span>:</p>
-<p>Sean <span class="math inline">\(e_i \in E_{G-H} / e_i~R~e_j\)</span>, siendo que <span class="math inline">\(e_i\)</span> se relaciona con <span class="math inline">\(e_j\)</span> si <span class="math inline">\(\exists\)</span> un camino al cual ambas pertenecen, cuyos vértices internos no son vértices de <span class="math inline">\(H\)</span>.</p>
-<p>Decimos en ese caso que <span class="math inline">\(e_i\)</span> es inseparable de <span class="math inline">\(e_j\)</span>.</p>
-<p>Podemos probar que <span class="math inline">\(R\)</span> es una relación de equivalencia y llamar a cada clase <em><u>apéndice</u></em>.</p>
+<p>Sea un grafo <span class="math">\(G\)</span> y <span class="math">\(H\subset G\)</span> un subgrafo de <span class="math">\(G\)</span>.</p>
+<p>Definimos la siguiente relación entre las aristas de <span class="math">\(G\)</span> y las que no están en <span class="math">\(H\)</span>:</p>
+<p>Sean <span class="math">\(e_i \in E_{G-H} / e_i~R~e_j\)</span>, siendo que <span class="math">\(e_i\)</span> se relaciona con <span class="math">\(e_j\)</span> si  <span class="math">\(\exists\)</span> un camino al cual ambas pertenecen, cuyos vértices internos no son vértices de <span class="math">\(H\)</span>.</p>
+<p>Decimos en ese caso que <span class="math">\(e_i\)</span> es inseparable de <span class="math">\(e_j\)</span>.</p>
+<p>Podemos probar que <span class="math">\(R\)</span> es una relación de equivalencia y llamar a cada clase <em><u>apéndice</u></em>.</p>
 <p>Si tomamos como ejemplo al siguiente grafo:</p>
-<p><img src="Resources/clip_image001-1568638957995.png" alt="img" style="zoom:50%;" /></p>
-<p>Los vértices pintados en color rojo y las aristas de color negro forman al subgrafo <span class="math inline">\(H\)</span>. Podemos ver que tenemos distintos apéndices, marcados cada uno con un color distinto, exceptuando a las aristas con color negro.</p>
+<img src="Resources/c4255a32-fcc0-41d2-ba68-d2ab86d8600b.png" alt="c4255a32-fcc0-41d2-ba68-d2ab86d8600b" style="scale:0.50;" />
+<p>Los vértices pintados en color rojo y las aristas de color negro forman al subgrafo <span class="math">\(H\)</span>. Podemos ver que tenemos distintos apéndices, marcados cada uno con un color distinto, exceptuando a las aristas con color negro.</p>
 <h2 id="punto-de-contacto">Punto de Contacto</h2>
-<p>Un vértice <span class="math inline">\(v\)</span> es un punto de contacto de un apéndice si <span class="math inline">\(v \in\)</span> al apéndice y <span class="math inline">\(in V_H\)</span>.</p>
-<h2 id="superposición">Superposición</h2>
+<p>Un vértice <span class="math">\(v\)</span> es un punto de contacto de un apéndice si <span class="math">\(v \in\)</span> al apéndice y <span class="math">\(in V_H\)</span>.</p>
+<h2 id="superposicion">Superposición</h2>
 <p>Dos puntos de contacto están superpuestos si tienen 3 vértices de contacto en común o dos vértices de contacto de uno de los apéndices alterna con dos puntos de contacto del otro.</p>
-<p>Superposición por <span class="math inline">\(3\)</span> vértices de contacto:</p>
-<p><img src="Resources/clip_image001-1568639764036.png" alt="img" style="zoom:33%;" /></p>
+<p>Superposición por <span class="math">\(3\)</span> vértices de contacto:</p>
+<img src="Resources/15149ceb-3bb4-4761-9b54-2fb86a70c8f4.png" alt="15149ceb-3bb4-4761-9b54-2fb86a70c8f4" style="scale:0.33;" />
 <p>Superposición por 2 vértices alternados:</p>
-<p><img src="Resources/clip_image001-1568639939057.png" alt="img" style="zoom:33%;" /></p>
-<h3 id="observación">Observación</h3>
-<ol type="1">
-<li>Sea <span class="math inline">\(G\)</span> un grafo y <span class="math inline">\(H \subset G\)</span>, <span class="math inline">\(H\)</span> ciclo, entonces <span class="math inline">\(2\)</span> apéndices superpuestos no pueden dibujarse ambos en la misma región (interior a <span class="math inline">\(H\)</span> o región infinita).</li>
+<img src="Resources/7952375f-e787-40e4-8427-a810c131ad55.png" alt="7952375f-e787-40e4-8427-a810c131ad55" style="scale:0.33;" />
+<h3 id="observacion">Observación</h3>
+<ol>
+<li>Sea <span class="math">\(G\)</span> un grafo y <span class="math">\(H \subset G\)</span>, <span class="math">\(H\)</span> ciclo, entonces <span class="math">\(2\)</span> apéndices superpuestos no pueden dibujarse ambos en la misma región (interior a <span class="math">\(H\)</span> o región infinita).</li>
 </ol>
 <h3 id="proposiciones">Proposiciones</h3>
 <ul>
-<li><p>Si <span class="math inline">\(G\)</span> tiene todos sus bloques planos, entonces es plano.</p></li>
-<li><p>Sean <span class="math inline">\(B_1,B_2\)</span> dos bloques distintos de <span class="math inline">\(G\)</span>, entonces tienen a lo sumo un vertice en común.</p>
-<p><a href="Demostraciones\10%20-%20Bloques\Proposicion%20-%2001.html">Demostración</a></p></li>
+<li><p>Si <span class="math">\(G\)</span> tiene todos sus bloques planos, entonces es plano.</p>
+</li>
+<li><p>Sean <span class="math">\(B_1,B_2\)</span> dos bloques distintos de <span class="math">\(G\)</span>, entonces tienen a lo sumo un vertice en común.</p>
+<p>[Demostración](Demostraciones\10 - Bloques\Proposicion - 01.html)</p>
+</li>
 </ul>
 <h2 id="algoritmo-de-planaridad">Algoritmo de Planaridad</h2>
-<p>Se intenta de transformar a cualquier grafo a uno <span class="math inline">\(2-conexo\)</span>.</p>
-<p>Para analizar la planaridad de un grafo <span class="math inline">\(G\)</span> buscamos sus bloque y hacemos “correr” al algoritmo con los bloques <span class="math inline">\(2-conexos\)</span>.</p>
+<p>Se intenta de transformar a cualquier grafo a uno <span class="math">\(2-conexo\)</span>.</p>
+<p>Para analizar la planaridad de un grafo <span class="math">\(G\)</span> buscamos sus bloque y hacemos &quot;correr&quot; al algoritmo con los bloques <span class="math">\(2-conexos\)</span>.</p>
 <h3 id="algoritmo">Algoritmo</h3>
-<ol type="1">
-<li><p>Dibujamos un ciclo <span class="math inline">\(H\subset G_i\)</span>, con <span class="math inline">\(G_i\)</span> siendo los bloques de <span class="math inline">\(G\)</span> que cumplen con ser <span class="math inline">\(2-conexos\)</span>.</p></li>
-<li><p>Dibujamos los apéndices.</p></li>
-<li><p>Anotamos todos los apéndices forzados y si hay algún apéndice bloqueado</p></li>
+<ol>
+<li><p>Dibujamos un ciclo <span class="math">\(H\subset G_i\)</span>, con <span class="math">\(G_i\)</span> siendo los bloques de <span class="math">\(G\)</span> que cumplen con  ser <span class="math">\(2-conexos\)</span>.</p>
+</li>
+<li><p>Dibujamos los apéndices.</p>
+</li>
+<li><p>Anotamos todos los apéndices forzados y si hay algún apéndice bloqueado</p>
+</li>
 <li><p>Hay dos casos:</p>
 <ul>
 <li>Si en el paso 3 hay un apéndice hay un apéndice bloqueado, el grafo no es plano, <strong><u>FIN</u></strong></li>
-<li>Si no lo hay, elegimos un apéndice forzado y dentro de el un camino simple que adicionamos a <span class="math inline">\(H_i\)</span>, obteniendo <span class="math inline">\(H_{i+1} \subset G_i\)</span> mediante una síntesis de Whitney.</li>
-</ul></li>
+<li>Si no lo hay, elegimos un apéndice forzado y dentro de el un camino simple que adicionamos a <span class="math">\(H_i\)</span>, obteniendo <span class="math">\(H_{i+1} \subset G_i\)</span> mediante una síntesis de Whitney.</li>
+</ul>
+</li>
 <li><p>Hay dos casos:</p>
 <ul>
-<li><p>Si no dibuje todo el grafo, vuelvo al paso 3</p></li>
-<li><p>Si no quedan apéndices para elegir, es decir, si dibuje todo el grafo, <strong><u>FIN</u></strong>.</p></li>
-</ul></li>
+<li><p>Si no dibuje todo el grafo, vuelvo al paso 3</p>
+</li>
+<li><p>Si no quedan apéndices para elegir, es decir, si dibuje todo el grafo, <strong><u>FIN</u></strong>.</p>
+</li>
+</ul>
+</li>
 </ol>
 <h3 id="ejemplo">Ejemplo</h3>
-<p>Sea <span class="math inline">\(G_1\)</span></p>
-<p><img src="Resources/clip_image001-1568642062475.png" alt="img" style="zoom: 33%;" /></p>
-<p>Elijo <span class="math inline">\(H_1\)</span> y lo pinto de azul:</p>
-<p><img src="Resources/clip_image001-1568642130709.png" alt="img" style="zoom:33%;" /></p>
+<p>Sea <span class="math">\(G_1\)</span></p>
+<img src="Resources/clip_image001-1568642062475.png" alt="img" style="zoom: 33%;" />
+<p>Elijo <span class="math">\(H_1\)</span> y lo pinto de azul:</p>
+<img src="Resources/4a57536a-9e3e-462a-aa2b-c0f98a349c9e.png" alt="4a57536a-9e3e-462a-aa2b-c0f98a349c9e" style="scale:0.33;" />
 <p>Veo que tengo los siguientes apéndices:</p>
-<p><img src="Resources/clip_image001-1568642292639.png" alt="img" style="zoom:33%;" /></p>
-<p>Agrego el camino <span class="math inline">\(&lt;v_1,e_9,v_7,e_6,v_8,e_{11},v_3&gt;\)</span> a <span class="math inline">\(H_1\)</span></p>
-<p><img src="Resources/clip_image001-1568642497142.png" alt="img" style="zoom:33%;" /></p>
+<img src="Resources/9d5fe0ad-a3dc-449c-b542-7b87fff7b897.png" alt="9d5fe0ad-a3dc-449c-b542-7b87fff7b897" style="scale:0.33;" />
+<p>Agrego el camino <span class="math">\(&lt;v_1,e_9,v_7,e_6,v_8,e_{11},v_3&gt;\)</span> a <span class="math">\(H_1\)</span></p>
+<img src="Resources/9a8a7168-c089-41b7-b469-c5b7b38a5881.png" alt="9a8a7168-c089-41b7-b469-c5b7b38a5881" style="scale:0.33;" />
+
 </body>
 </html>

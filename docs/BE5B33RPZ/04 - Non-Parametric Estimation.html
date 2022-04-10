@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - Non-Parametric Estimation</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - Non-Parametric Estimation.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,73 +1385,104 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="non-parametric-estimation">Non-Parametric Estimation</h1>
 <p>Parametric estimation is a great tool if there are only a few number of parameters to estimate, but the results can be wrong if the underlying distribution does not agree with the assumed parametric model.</p>
 <h2 id="histogram">Histogram</h2>
 <p>The idea behind this approach is to put all the samples into distinct <em>buckets</em>, and from there we will formulate our own distribution.</p>
-<p>Let’s say we have a distribution <span class="math inline">\(q(x)\)</span> on the interval <span class="math inline">\([0,1]\)</span>, we will fit the distribution with a <em>‘histogram’</em> with <span class="math inline">\(B\)</span> bins. We want to estimate a constant-split function on the interval <span class="math inline">\([0,1]\)</span> with <span class="math inline">\(B\)</span> segments of the same width. This function is denoted as: <span class="math display">\[
+<p>Let's say we have a distribution <span class="math">\(q(x)\)</span> on the interval <span class="math">\([0,1]\)</span>, we will fit the distribution with a <em>'histogram'</em> with <span class="math">\(B\)</span> bins. We want to estimate a constant-split function on the interval <span class="math">\([0,1]\)</span> with <span class="math">\(B\)</span> segments of the same width. This function is denoted as:</p>
+<div class="math">
+\[
 p(x/\{d_1,\dots,d_B\})
-\]</span> Also, for any number <span class="math inline">\(B\)</span> of bins, <span class="math inline">\(d_1,\dots,d_B\)</span> mist conform the following constraint: <span class="math display">\[
+\]</div>
+<p>Also, for any number <span class="math">\(B\)</span> of bins, <span class="math">\(d_1,\dots,d_B\)</span> mist conform the following constraint:</p>
+<div class="math">
+\[
 1 = \int_{-\infty}^\infty p (x/\{d_1,\dots,d_B\}) dx= \sum_{i=1}^B \int_{\frac {i-1}{B}}^{\frac i B} d_i dx = \sum_{i=1}^B d_iw = \sum_{i=1}^B \frac {d_i} B
-\]</span> Where <span class="math inline">\(w\)</span> is the <strong>bin width</strong>.</p>
-<p>We will estimate <span class="math inline">\(\{d_i/i \in [0,B]\}\)</span> using the Maximum Likelihood approach. Let <span class="math inline">\(N_i\)</span> be the number of samples that belong to the <span class="math inline">\(i^{th}\)</span> bin and <span class="math inline">\(\sum_{i=1}^{B} N_i = N\)</span>, we will calculate the estimate of <span class="math inline">\(d_k\)</span>: <span class="math display">\[
+\]</div>
+<p>Where <span class="math">\(w\)</span> is the <strong>bin width</strong>.</p>
+<p>We will estimate <span class="math">\(\{d_i/i \in [0,B]\}\)</span> using the Maximum Likelihood approach. Let <span class="math">\(N_i\)</span> be the number of samples that belong to the <span class="math">\(i^{th}\)</span> bin and <span class="math">\(\sum_{i=1}^{B} N_i = N\)</span>, we will calculate the estimate of <span class="math">\(d_k\)</span>:</p>
+<div class="math">
+\[
 d_k = B \frac {N_k} N
-\]</span> Now we need to find the correct number of bins to model the distribution correctly. To do this we can obtaining the log-likelihood: <span class="math display">\[
+\]</div>
+<p>Now we need to find the correct number of bins to model the distribution correctly. To do this we can obtaining the log-likelihood:</p>
+<div class="math">
+\[
 l(\mathcal T) = \sum_i^B N_i \log d_i
-\]</span> Because we also want to find good values, we are going to implement <strong>cross-validation</strong>. This takes out a point of the data set, estimates the distribution and then sees if the estimate is correct, for every single point in the dataset. This will give us the best possible <span class="math inline">\(B\)</span>.</p>
-<p>We can also use different methods to estimate <span class="math inline">\(d_i\)</span>:</p>
+\]</div>
+<p>Because we also want to find good values, we are going to implement <strong>cross-validation</strong>. This takes out a point of the data set, estimates the distribution and then sees if the estimate is correct, for every single point in the dataset. This will give us the best possible <span class="math">\(B\)</span>.</p>
+<p>We can also use different methods to estimate <span class="math">\(d_i\)</span>:</p>
 <ul>
-<li><p>MAP: <span class="math display">\[
+<li><p>MAP:</p>
+<div class="math">
+\[
 d_i = B \frac {N_i + \alpha_i -1} {N + \sum_j^B\alpha_j - B}
-\]</span></p></li>
-<li><p>Bayes Estimate: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Bayes Estimate:</p>
+<div class="math">
+\[
 d_i = B \frac {N_i + \alpha_i} {N + \sum_j^B \alpha_j}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>Inn both cases we can interpret <span class="math inline">\(\alpha_i\)</span> as virtual observations, like if <span class="math inline">\(\alpha_i\)</span> points have already been assigned to the bin <span class="math inline">\(i\)</span>.</p>
-<h2 id="k-nearest-neighbor"><span class="math inline">\(K\)</span>-Nearest Neighbor</h2>
+<p>Inn both cases we can interpret <span class="math">\(\alpha_i\)</span> as virtual observations, like if <span class="math">\(\alpha_i\)</span> points have already been assigned to the bin <span class="math">\(i\)</span>.</p>
+<h2 id="nearest-neighbor"><span class="math">\(K\)</span>-Nearest Neighbor</h2>
 <p>This algorithm works under the following assumptions:</p>
 <ul>
-<li>The training set is <span class="math inline">\(\mathcal T =\{(x_1,k_1),\dots,(x_N,k_N)\}\)</span>, where there are <span class="math inline">\(R\)</span> classes.</li>
-<li>There exists a distance functions between the data points <span class="math inline">\(d:X\times X \rightarrow R^+_0\)</span></li>
+<li>The training set is <span class="math">\(\mathcal T =\{(x_1,k_1),\dots,(x_N,k_N)\}\)</span>, where there are <span class="math">\(R\)</span> classes.</li>
+<li>There exists a distance functions between the data points <span class="math">\(d:X\times X \rightarrow R^+_0\)</span></li>
 </ul>
 <p>The algorithm is:</p>
-<ol type="1">
-<li>Given <span class="math inline">\(x\)</span>, find <span class="math inline">\(K\)</span> points <span class="math inline">\(S = \{(x_1&#39;,k_1&#39;), \dots,(X_K&#39;,k_K&#39;)\}\)</span> from the training set <span class="math inline">\(\mathcal T\)</span> which are closest to <span class="math inline">\(x\)</span> in the metric <span class="math inline">\(d\)</span>. Rank the set according to the distance.</li>
-<li>Classify <span class="math inline">\(x\)</span> to the class <span class="math inline">\(k\)</span> which has majority of entries in <span class="math inline">\(S\)</span>.</li>
+<ol>
+<li>Given <span class="math">\(x\)</span>, find <span class="math">\(K\)</span> points <span class="math">\(S = \{(x_1',k_1'), \dots,(X_K',k_K')\}\)</span> from the training set <span class="math">\(\mathcal T\)</span> which are closest to <span class="math">\(x\)</span> in the metric <span class="math">\(d\)</span>. Rank the set according to the distance.</li>
+<li>Classify <span class="math">\(x\)</span> to the class <span class="math">\(k\)</span> which has majority of entries in <span class="math">\(S\)</span>.</li>
 </ol>
 <h3 id="properties">Properties</h3>
-<p>This algorithm has a very trivial implementation. If we are using the <span class="math inline">\(1\)</span>-NN variant, then the Bayes error <span class="math inline">\(\epsilon_B\)</span> is the lower bound of error of classification <span class="math inline">\(\epsilon_{NN}\)</span>, the upper bound can also be constructed, for example <span class="math inline">\(\epsilon_{NN} \le 2 \epsilon_B\)</span>.</p>
-<p>There’s an issue with this algorithm, the implementation. It tends to work very slowly when the naïve algorithm is written, but it can be sped up. Another issue here is that the memory requirements are huge for large datasets, but again, it can be solved with a few optimizations.</p>
+<p>This algorithm has a very trivial implementation. If we are using the <span class="math">\(1\)</span>-NN variant, then the Bayes error <span class="math">\(\epsilon_B\)</span> is the lower bound of error of classification <span class="math">\(\epsilon_{NN}\)</span>, the upper bound can also be constructed, for example <span class="math">\(\epsilon_{NN} \le 2 \epsilon_B\)</span>.</p>
+<p>There's an issue with this algorithm, the implementation. It tends to work very slowly when the naïve algorithm is written, but it can be sped up. Another issue here is that the memory requirements are huge for large datasets, but again, it can be solved with a few optimizations.</p>
 <h3 id="optimizations">Optimizations</h3>
 <p>There are 2 types of optimizations that can improve the runtime of this algorithm: <strong>memory-wise</strong> and <strong>speed-wise</strong>.</p>
-<p>To solve the speed issue, we can apply <span class="math inline">\(K-d\)</span> trees, calculating easily the nearest data points.</p>
+<p>To solve the speed issue, we can apply <span class="math">\(K-d\)</span> trees, calculating easily the nearest data points.</p>
 <p>On the other hand, we need to use a condensation algorithm to use less memory. The idea here is to run an algorithm that will exclude the data points that do not affect the boundaries. This algorithm is as follows:</p>
-<ol type="1">
-<li>Create two lists <span class="math inline">\(A,B\)</span> and insert randomly samples from <span class="math inline">\(\mathcal T\)</span> in <span class="math inline">\(A\)</span>, and the rest in <span class="math inline">\(B\)</span>.</li>
-<li>Classify the samples from <span class="math inline">\(B\)</span> using <span class="math inline">\(1\)</span>-NN with the training set <span class="math inline">\(A\)</span>. if <span class="math inline">\(x\in B\)</span> is misclassified, move it from <span class="math inline">\(B\)</span> to <span class="math inline">\(A\)</span>.</li>
+<ol>
+<li>Create two lists <span class="math">\(A,B\)</span> and insert randomly samples from <span class="math">\(\mathcal T\)</span> in <span class="math">\(A\)</span>, and the rest in <span class="math">\(B\)</span>.</li>
+<li>Classify the samples from <span class="math">\(B\)</span> using <span class="math">\(1\)</span>-NN with the training set <span class="math">\(A\)</span>. if <span class="math">\(x\in B\)</span> is misclassified, move it from <span class="math">\(B\)</span> to <span class="math">\(A\)</span>.</li>
 <li>If the move was triggered, then go back to step 2.</li>
 </ol>
 <h3 id="classification-error">Classification Error</h3>
-<p>The classification error <span class="math inline">\(\bar \epsilon\)</span> for strategy <span class="math inline">\(q: X \rightarrow R\)</span> is computed as: <span class="math display">\[
+<p>The classification error <span class="math">\(\bar \epsilon\)</span> for strategy <span class="math">\(q: X \rightarrow R\)</span> is computed as:</p>
+<div class="math">
+\[
 \bar \epsilon = \int \epsilon(x)p(x) dx
-\]</span> We also know that the bayesian strategy <span class="math inline">\(q_B\)</span> decides for the highest posterior probability, thus the partial error for a given <span class="math inline">\(x\)</span> is: <span class="math display">\[
+\]</div>
+<p>We also know that the bayesian strategy <span class="math">\(q_B\)</span> decides for the highest posterior probability, thus the partial error for a given <span class="math">\(x\)</span> is:</p>
+<div class="math">
+\[
 \epsilon_B(x) = 1 - \max_kp(k/x)
-\]</span> Assuming the asymptotic case, we can show that the following bounds hold for the partial error <span class="math inline">\(\epsilon_{NN}(x)\)</span> and for the classification error <span class="math inline">\(\bar \epsilon_{NN}(x)\)</span> in the <span class="math inline">\(1\)</span>-NN classification: <span class="math display">\[
+\]</div>
+<p>Assuming the asymptotic case, we can show that the following bounds hold for the partial error <span class="math">\(\epsilon_{NN}(x)\)</span> and for the classification error <span class="math">\(\bar \epsilon_{NN}(x)\)</span> in the <span class="math">\(1\)</span>-NN classification:</p>
+<div class="math">
+\[
 \epsilon_B(x) \le \epsilon_{NN}(x) \le 2 \epsilon_B(x) - \frac R {R-1}\epsilon^2_B(x)\\
 \bar \epsilon_B \le \bar \epsilon_{NN} \le  2 \bar\epsilon_B - \frac R {R-1}\bar\epsilon^2_B
-\]</span></p>
+\]</div>
 <h3 id="the-edit-algorithm">The Edit Algorithm</h3>
 <p>The primary goal of this method is to reduce the classification error. The algorithm goes as follows:</p>
-<ol type="1">
-<li>Partition <span class="math inline">\(\mathcal T\)</span> in two sets <span class="math inline">\(A,B\)</span>.</li>
-<li>Classify samples in <span class="math inline">\(B\)</span> using <span class="math inline">\(K\)</span>-NN with the training set <span class="math inline">\(A\)</span>. Remove all samples from <span class="math inline">\(B\)</span> which have been misclassified.</li>
+<ol>
+<li>Partition <span class="math">\(\mathcal T\)</span> in two sets <span class="math">\(A,B\)</span>.</li>
+<li>Classify samples in <span class="math">\(B\)</span> using <span class="math">\(K\)</span>-NN with the training set <span class="math">\(A\)</span>. Remove all samples from <span class="math">\(B\)</span> which have been misclassified.</li>
 </ol>
-<p>This will gives us the training set <span class="math inline">\(B\)</span> for <span class="math inline">\(1\)</span>-NN classification with the following classification error: <span class="math display">\[
+<p>This will gives us the training set <span class="math">\(B\)</span> for <span class="math">\(1\)</span>-NN classification with the following classification error:</p>
+<div class="math">
+\[
 \bar \epsilon_{\text{edit}} = \bar\epsilon_B \frac{1-\bar \epsilon_B}{1-\bar \epsilon_{K\text{NN}}}
-\]</span> If <span class="math inline">\(\bar\epsilon_{KNN}\)</span>is small (<span class="math inline">\(\sim 0.05\)</span>), then the edited <span class="math inline">\(1\)</span>-NN is quasi-Bayes (almost the same performance as Bayesian Classification).</p>
+\]</div>
+<p>If $\bar\epsilon_<span class="math">\(is small (\)</span>\sim 0.05$), then the edited <span class="math">\(1\)</span>-NN is quasi-Bayes (almost the same performance as Bayesian Classification).</p>
+
 </body>
 </html>

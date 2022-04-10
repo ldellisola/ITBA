@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03 - Funciones</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>03 - Funciones.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,64 +1385,79 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="funciones">Funciones</h1>
-<p>Sea <span class="math inline">\(R \subset A \times B\)</span>, <span class="math inline">\(R\)</span> es una función de <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span>.</p>
-<p><span class="math inline">\(f:A\rightarrow B\)</span> es una función si cumplen simultáneamente:</p>
+<p>Sea <span class="math">\(R \subset A \times B\)</span>, <span class="math">\(R\)</span> es una función de <span class="math">\(A\)</span> a <span class="math">\(B\)</span>.</p>
+<p><span class="math">\(f:A\rightarrow B\)</span> es una función si cumplen simultáneamente:</p>
 <ul>
-<li><span class="math inline">\(aRb\)</span> <span class="math inline">\(\forall a \in A\)</span>/ <span class="math inline">\((a,b)\in R\)</span> <span class="math inline">\(\forall a \in A\)</span></li>
-<li><span class="math inline">\((a,b) \in R\)</span> y <span class="math inline">\((a,c)\in R \Rightarrow b = c\)</span></li>
+<li><span class="math">\(aRb\)</span> <span class="math">\(\forall a \in A\)</span>/ <span class="math">\((a,b)\in R\)</span> <span class="math">\(\forall a \in A\)</span></li>
+<li><span class="math">\((a,b) \in R\)</span> y <span class="math">\((a,c)\in R \Rightarrow b = c\)</span></li>
 </ul>
-<p>Entonces, <span class="math inline">\(\forall a \in A\)</span>, <span class="math inline">\(\exists b \in B\)</span> único tal que <span class="math inline">\(aRb\)</span></p>
-<p>Y <span class="math inline">\(dom(f) = A\)</span>, <span class="math inline">\(codom(f) = B\)</span> y <span class="math inline">\(Im(f) \subset B\)</span>.</p>
+<p>Entonces, <span class="math">\(\forall a \in A\)</span>, <span class="math">\(\exists b \in B\)</span> único tal que <span class="math">\(aRb\)</span></p>
+<p>Y <span class="math">\(dom(f) = A\)</span>,  <span class="math">\(codom(f) = B\)</span> y <span class="math">\(Im(f) \subset B\)</span>.</p>
 <h2 id="inyectividad">Inyectividad</h2>
-<p><span class="math inline">\(f\)</span> es inyectiva si <span class="math inline">\(f(a) = f(b) \Rightarrow a = b\)</span></p>
+<p><span class="math">\(f\)</span> es inyectiva si <span class="math">\(f(a) = f(b) \Rightarrow a = b\)</span></p>
 <h2 id="sobreyectividad">Sobreyectividad</h2>
-<p><span class="math inline">\(f\)</span> es sobreyectiva si <span class="math inline">\(\forall b \in B,~\exists a\in A/ f(a)=b\)</span> <span class="math display">\[
+<p><span class="math">\(f\)</span> es sobreyectiva si <span class="math">\(\forall b \in B,~\exists a\in A/ f(a)=b\)</span></p>
+<div class="math">
+\[
 \Rightarrow Im(f) = B
-\]</span></p>
+\]</div>
 <h2 id="biyectividad">Biyectividad</h2>
-<p>Si la función <span class="math inline">\(f\)</span> es Inyectiva y Sobreyectiva entonces es Biyectiva y <span class="math inline">\(\exists f^{-1}\)</span></p>
-<h2 id="función-inversible">Función Inversible</h2>
-<p>Sea <span class="math inline">\(f:A\rightarrow B\)</span> una función, decimos que <span class="math inline">\(f\)</span> es inversible si <span class="math inline">\(\exists g:B\rightarrow A/~g_of(x)=x\)</span> y <span class="math inline">\(f_og(x)=x\)</span>. Entonces podemos llamar a <span class="math inline">\(g\)</span> inversa de <span class="math inline">\(f\)</span> y se nota como <span class="math inline">\(g = f^{-1}\)</span></p>
+<p>Si la función <span class="math">\(f\)</span> es Inyectiva y Sobreyectiva entonces es Biyectiva y <span class="math">\(\exists f^{-1}\)</span></p>
+<h2 id="funcion-inversible">Función Inversible</h2>
+<p>Sea <span class="math">\(f:A\rightarrow B\)</span> una función, decimos que <span class="math">\(f\)</span> es inversible si <span class="math">\(\exists g:B\rightarrow A/~g_of(x)=x\)</span> y <span class="math">\(f_og(x)=x\)</span>. Entonces podemos llamar a <span class="math">\(g\)</span> inversa de <span class="math">\(f\)</span> y se nota como <span class="math">\(g = f^{-1}\)</span></p>
 <h3 id="teorema">Teorema</h3>
-<p><span class="math display">\[
+<div class="math">
+\[
 f~es~inversible \Leftrightarrow f~es~biyectiva
-\]</span></p>
-<h4 id="demostración">Demostración</h4>
+\]</div>
+<h4 id="demostracion">Demostración</h4>
 <ul>
 <li><strong>IDA:</strong></li>
 </ul>
-<p>Sabemos que <span class="math inline">\(f\)</span> es inversible, entonces <span class="math inline">\(\exists g:B\rightarrow A/~g_of(x)=x,~f_og(x)=x\)</span> y <span class="math inline">\(g=f^{-1}\)</span></p>
-<p>Veo que sea inyectiva: <span class="math display">\[
+<p>Sabemos que  <span class="math">\(f\)</span> es inversible, entonces <span class="math">\(\exists g:B\rightarrow A/~g_of(x)=x,~f_og(x)=x\)</span> y <span class="math">\(g=f^{-1}\)</span></p>
+<p>Veo que sea inyectiva:</p>
+<div class="math">
+\[
 f(x_1) = f(x_2)\\
 f^{-1}(f(x_1)) = f^{-1}(f(x_2))\\
 x_1 = x_2
-\]</span> Veo que es sobreyectiva:</p>
-<p>Tomo <span class="math inline">\(a = g(b)\)</span> <span class="math display">\[
+\]</div>
+<p>Veo que es sobreyectiva:</p>
+<p>Tomo <span class="math">\(a = g(b)\)</span></p>
+<div class="math">
+\[
 f(a)=f(g(b))=f_og(b)=b
-\]</span></p>
+\]</div>
 <ul>
 <li><strong>VUELTA:</strong></li>
 </ul>
-<p>Sabemos que <span class="math inline">\(f\)</span> es inyectiva y sobreyectiva.</p>
-<p>Defino <span class="math inline">\(g:B\rightarrow A/~g(b)=a\)</span>, siendo <span class="math inline">\(a/f(a)=b\)</span>. <span class="math inline">\(a\)</span> existe por que <span class="math inline">\(f\)</span> es sobreyectiva y <span class="math inline">\(a\)</span> es único por que <span class="math inline">\(f\)</span> es inyectiva. <span class="math display">\[
+<p>Sabemos que <span class="math">\(f\)</span> es inyectiva y sobreyectiva.</p>
+<p>Defino <span class="math">\(g:B\rightarrow A/~g(b)=a\)</span>, siendo <span class="math">\(a/f(a)=b\)</span>. <span class="math">\(a\)</span> existe por que <span class="math">\(f\)</span> es sobreyectiva y <span class="math">\(a\)</span> es único por que <span class="math">\(f\)</span> es inyectiva.</p>
+<div class="math">
+\[
 \array{
-    g_of(a)=g(f(a))=g(b)=a\\
-    f_og(b)=f(g(b))=f(a)=b
+	g_of(a)=g(f(a))=g(b)=a\\
+	f_og(b)=f(g(b))=f(a)=b
 }
-\]</span> Entonces podemos ver que <span class="math inline">\(g\)</span> es la función inversa de <span class="math inline">\(f\)</span>, por lo que <span class="math inline">\(f\)</span> es inversible.</p>
-<h2 id="función-característica">Función Característica</h2>
-<p>Sea <span class="math inline">\(A \subset B\)</span> <span class="math display">\[
+\]</div>
+<p>Entonces podemos ver que <span class="math">\(g\)</span> es la función inversa de <span class="math">\(f\)</span>, por lo que <span class="math">\(f\)</span> es inversible.</p>
+<h2 id="funcion-caracteristica">Función Característica</h2>
+<p>Sea <span class="math">\(A \subset B\)</span></p>
+<div class="math">
+\[
 \chi_A:B \rightarrow \{0,1\}/~\chi_A(t)=
 \left\{
-    \array{
-    1   &amp;   t\in A\\
-    0   &amp;   t \notin A
-    }
+	\array{
+	1 	&amp;	t\in A\\
+	0	&amp;	t \notin A
+	}
 \right.
-\]</span></p>
+\]</div>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>14 - Prueba de Hipotesis</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>14 - Prueba de Hipotesis.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,75 +1385,86 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
-<h1 id="prueba-de-hipótesis">Prueba de Hipótesis</h1>
-<p>Con las pruebas de Hipótesis queremos evaluar la veracidad de una afirmación. En este caso vamos a hablar de la media <span class="math inline">\((\mu)\)</span>.</p>
-<p>Podemos plantear 3 hipótesis <span class="math inline">\(\color{red}nulas\)</span>, cada una junto a su hipótesis <span class="math inline">\(\color{green}alternativa\)</span>: <span class="math display">\[
+<h1 id="prueba-de-hipotesis">Prueba de Hipótesis</h1>
+<p>Con las pruebas de Hipótesis queremos evaluar la veracidad de una afirmación. En este caso vamos a hablar de la media <span class="math">\((\mu)\)</span>.</p>
+<p>Podemos plantear 3 hipótesis <span class="math">\(\color{red}nulas\)</span>, cada una junto a su hipótesis <span class="math">\(\color{green}alternativa\)</span>:</p>
+<div class="math">
+\[
 \left\{
 \begin{array}{}
-    \color{red}H_0: \mu = \mu_0 \color{black}\mid \color{green}H_1 :\mu\neq\mu_0\\
-    \color{red}H_0: \mu \leq \mu_0 \color{black}\mid \color{green}H_1 :\mu\neq\mu_0\\
-    \color{red}H_0: \mu \geq \mu_0 \color{black}\mid \color{green}H_1 :\mu\neq\mu_0
+	\color{red}H_0: \mu = \mu_0 \color{black}\mid \color{green}H_1 :\mu\neq\mu_0\\
+	\color{red}H_0: \mu \leq \mu_0 \color{black}\mid \color{green}H_1 :\mu\neq\mu_0\\
+	\color{red}H_0: \mu \geq \mu_0 \color{black}\mid \color{green}H_1 :\mu\neq\mu_0
 \end{array}
 \right.
-\]</span> La hipótesis nula es la hipótesis que se asume inicialmente, siendo la hipótesis alternativa lo que se quiere probar. La hipótesis nula será rechazada en favor de la hipótesis alternativa solo si la evidencia muestral sugiere que la hipótesis nula es falsa. Las únicas 2 posibles conclusiones de la prueba de hipótesis son <span class="math inline">\(H_0\)</span> se rechaza y <span class="math inline">\(H_0\)</span> no se rechaza.</p>
+\]</div>
+<p>La hipótesis nula es la hipótesis que se asume inicialmente, siendo la hipótesis alternativa lo que se quiere probar. La hipótesis nula será rechazada en favor de la hipótesis alternativa solo si la evidencia muestral sugiere que la hipótesis nula es falsa. Las únicas 2 posibles conclusiones de la prueba de hipótesis son <span class="math">\(H_0\)</span> se rechaza y <span class="math">\(H_0\)</span> no se rechaza.</p>
 <p>Tambien vamos a definir un criterio de Aceptación/Rechazo:</p>
-<table>
+<table class="table">
 <thead>
-<tr class="header">
+<tr>
 <th></th>
-<th><span class="math inline">\(H_0\)</span> verdadera</th>
-<th><span class="math inline">\(H_0\)</span> falsa</th>
+<th><span class="math">\(H_0\)</span> verdadera</th>
+<th><span class="math">\(H_0\)</span> falsa</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>Aceptar <span class="math inline">\(H_0\)</span></td>
+<tr>
+<td>Aceptar <span class="math">\(H_0\)</span></td>
 <td>Bien!</td>
-<td>Error de tipo <span class="math inline">\(II\)</span></td>
+<td>Error de tipo <span class="math">\(II\)</span></td>
 </tr>
-<tr class="even">
-<td>Rechazar <span class="math inline">\(H_0\)</span></td>
-<td>Error de tipo <span class="math inline">\(I\)</span></td>
+<tr>
+<td>Rechazar <span class="math">\(H_0\)</span></td>
+<td>Error de tipo <span class="math">\(I\)</span></td>
 <td>Bien!</td>
 </tr>
 </tbody>
 </table>
-<p>Siendo <span class="math inline">\(\alpha\)</span> la probabilidad de Error tipo <span class="math inline">\(I\)</span> y <span class="math inline">\(\beta\)</span> la probabilidad de error de tipo <span class="math inline">\(II\)</span>.</p>
-<h3 id="calcular-error-del-tipo-i-alpha">Calcular Error del tipo <span class="math inline">\(I\)</span> <span class="math inline">\((\alpha)\)</span></h3>
-<p>Defino un máximo valor admisible para <span class="math inline">\(\alpha\)</span> llamado <strong>Nivel del Confianza</strong> <span class="math inline">\(\alpha^*\)</span>. Y a partir de este valor determino el criterio de rechazo:</p>
+<p>Siendo <span class="math">\(\alpha\)</span> la probabilidad de Error tipo <span class="math">\(I\)</span> y <span class="math">\(\beta\)</span> la probabilidad de error de tipo <span class="math">\(II\)</span>.</p>
+<h3 id="calcular-error-del-tipo">Calcular Error del tipo <span class="math">\(I\)</span> <span class="math">\((\alpha)\)</span></h3>
+<p>Defino un máximo valor admisible para <span class="math">\(\alpha\)</span> llamado <strong>Nivel del Confianza</strong> <span class="math">\(\alpha^*\)</span>. Y a partir de este valor determino el criterio de rechazo:</p>
 <ul>
-<li>Si <span class="math inline">\(H_0:\mu \geq \mu_0\)</span></li>
+<li>Si <span class="math">\(H_0:\mu \geq \mu_0\)</span></li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 P(\overline{X_n} \lt \overline{X_c}) = \Phi\left( \frac {\overline{X_c} - \mu_0}{\sigma / \sqrt n} \right) \leq \alpha^*\\
 \therefore~~~ \overline{X_c} = \frac \sigma {\sqrt n} \cdot \Phi^{-1}\left( \alpha^* \right) + \mu_0
-\]</span></p>
-<p>Entonces si <span class="math inline">\(X_{obs} \lt \overline {X_c}\)</span> entonces se rechaza la hipótesis nula, por el contario, se acepta la hipótesis</p>
-<p>Tambien se puede normalizar a esta función de la siguiente forma: <span class="math display">\[
+\]</div>
+<p>Entonces si <span class="math">\(X_{obs} \lt \overline {X_c}\)</span> entonces se rechaza la hipótesis nula, por el contario, se acepta la hipótesis</p>
+<p>Tambien se puede normalizar a esta función de la siguiente forma:</p>
+<div class="math">
+\[
 P\left( \overline{X_n} \lt \overline{X_c} \right) = P\left(  \right)
-\]</span> ==BUSCAR EN EJEMPOS!==</p>
-<h3 id="calcular-error-del-tipo-ii-beta">Calcular Error del tipo <span class="math inline">\(II\)</span> <span class="math inline">\((\beta)\)</span></h3>
+\]</div>
+<p><mark>BUSCAR EN EJEMPOS!</mark></p>
+<h3 id="calcular-error-del-tipo-1">Calcular Error del tipo <span class="math">\(II\)</span> <span class="math">\((\beta)\)</span></h3>
 <ul>
-<li>Si <span class="math inline">\(H_1 : \mu \lt \mu_0\)</span>:</li>
+<li>Si <span class="math">\(H_1 : \mu \lt \mu_0\)</span>:</li>
 </ul>
-<p><span class="math display">\[
+<div class="math">
+\[
 \beta(\mu) = P(\overline{X_n} \gt \overline{X_c}) = 1- \Phi\left( \frac{\overline{X_c} - \mu}{\sigma / \sqrt n} \right) = 1- \Phi\left(\Phi^{-1}(\alpha^*) + \frac {\mu_0 - \mu}{\sigma / \sqrt n} \right) \\
 \beta(\mu)=1- \alpha - \Phi\left( \frac {\mu_0 - \mu}{\sigma / \sqrt n} \right)
-\]</span></p>
-<h2 id="curvas-de-operación-características">Curvas de Operación Características</h2>
-<p><img src="Resources/clip_image002.png" style="50%"/> <span class="math display">\[
+\]</div>
+<h2 id="curvas-de-operacion-caracteristicas">Curvas de Operación Características</h2>
+<img src="Resources/clip_image002.png" style="50%"/>
+$$
 \overline{X_c} = \mu_0 - Z_{\alpha^*} \cdot \frac {\sigma}{\sqrt n}
-\]</span></p>
+$$
 <ul>
 <li>Caso 1:</li>
 </ul>
-<p>Sea <span class="math inline">\(H_0:\mu \leq\mu_0\mid H_1:\mu \gt \mu_0\)</span></p>
-<p>==COMPLETAR CON APUNTES DE FRAN==</p>
-<h2 id="prueba-de-hipótesis-con-sigma-desconocido">Prueba de Hipótesis con <span class="math inline">\(\sigma\)</span> Desconocido</h2>
-<p>Sea <span class="math inline">\(T = \frac {\overline{X_n} - \mu_0} {s /\sqrt n}\)</span>, como <span class="math inline">\(X_i \sim N(\mu_0,\sigma) \rightarrow T \sim t_{n-1}\)</span></p>
-<p>No puedo conocer <span class="math inline">\(\overline {X_c}\)</span> antes de hacer el experimento por que <span class="math inline">\(s\)</span> depende del experimento</p>
+<p>Sea <span class="math">\(H_0:\mu \leq\mu_0\mid H_1:\mu \gt \mu_0\)</span></p>
+<p><mark>COMPLETAR CON APUNTES DE FRAN</mark></p>
+<h2 id="prueba-de-hipotesis-con-desconocido">Prueba de Hipótesis con <span class="math">\(\sigma\)</span> Desconocido</h2>
+<p>Sea <span class="math">\(T = \frac {\overline{X_n} - \mu_0} {s /\sqrt n}\)</span>, como <span class="math">\(X_i \sim N(\mu_0,\sigma) \rightarrow T \sim t_{n-1}\)</span></p>
+<p>No puedo conocer <span class="math">\(\overline {X_c}\)</span> antes de hacer el experimento por que <span class="math">\(s\)</span> depende del experimento</p>
+
 </body>
 </html>

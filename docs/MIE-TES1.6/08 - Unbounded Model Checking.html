@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>08 - Unbounded Model Checking</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>08 - Unbounded Model Checking.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,65 +1385,74 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="unbounded-model-checking">Unbounded Model Checking</h1>
 <p>Before we learnt how to test our models in bounded time, but we have transition systems with infinitely many paths of infinite length, if we want to be certain that a model fulfills its specification we need to validate them.</p>
 <p>To solve this problem we are introducing Unbounded Model Checking, a method for proving LTL properties.</p>
-<p>One tool that we are using now are <strong>safety certificates</strong>. They are a set of states <span class="math inline">\(V\)</span> that comply with:</p>
+<p>One tool that we are using now are <strong>safety certificates</strong>. They are a set of states <span class="math">\(V\)</span> that comply with:</p>
 <ul>
-<li><span class="math inline">\(V\)</span> contains every initial state : <span class="math inline">\(S_0 \subseteq V\)</span></li>
-<li>No transition leads out of <span class="math inline">\(V\)</span>: <span class="math inline">\(\text{Post}_R(V) \subseteq V\)</span></li>
-<li><span class="math inline">\(V\)</span> contains only safe states: <span class="math inline">\(V \subseteq \mathcal I(\text{ok})\)</span></li>
+<li><span class="math">\(V\)</span> contains every initial state : <span class="math">\(S_0 \subseteq V\)</span></li>
+<li>No transition leads out of <span class="math">\(V\)</span>: <span class="math">\(\text{Post}_R(V) \subseteq V\)</span></li>
+<li><span class="math">\(V\)</span> contains only safe states: <span class="math">\(V \subseteq \mathcal I(\text{ok})\)</span></li>
 </ul>
-<p>where <span class="math inline">\(\text{Post}_R(V) = \{x&#39;/x \in V, (x,x&#39;) \in R\}\)</span>.</p>
-<p>These conditions are know as <strong>safety verification conditions</strong>. And the first two conditions are called <strong>inductivity conditions</strong>. The inductivity conditions implies that <span class="math inline">\(V\)</span> contains the <strong>reach set</strong>, the set that contains all the reachable states: <span class="math display">\[
+<p>where  <span class="math">\(\text{Post}_R(V) = \{x'/x \in V, (x,x') \in R\}\)</span>.</p>
+<p>These conditions are know as <strong>safety verification conditions</strong>. And the first two conditions are called <strong>inductivity conditions</strong>. The inductivity conditions implies that <span class="math">\(V\)</span> contains the <strong>reach set</strong>, the set that contains all the reachable states:</p>
+<div class="math">
+\[
 \{\pi(k)/ \pi \text{ path},k \in \mathbb{N}_0\} \subseteq V
-\]</span> The third condition helps us determine that all reachable states are safe.</p>
+\]</div>
+<p>The third condition helps us determine that all reachable states are safe.</p>
 <p>An arbitrary set that contains all reachable states, meaning a superset of the reach set is called <strong>inductive variant</strong>. When talking about transition systems, we refer to the <strong>trivial indictive invariant</strong> as the set that contains all the states of the system.</p>
-<h2 id="how-to-check-g-conditions">How to Check <span class="math inline">\(G\)</span> Conditions</h2>
-<p>Checking for small sets is not a problem as most times we can brute force it or guess <span class="math inline">\(V\)</span> from an expert estimation or from the documentation, but this strategy is not valid for large or infinite transition systems.</p>
-<p>In those cases we are going to implement <strong>symbolic checking of safety verification conditions</strong>. For this ne are assuming we have the transition system, <span class="math inline">\(V\)</span> and <span class="math inline">\(\text{ok}\)</span> given symbolically, using logical formulas: <span class="math display">\[
-(S,\{x/S_0(x)\},\{(x,x&#39;)/R(x,x&#39;)\}), \{x/\text{ok}(x)\}, \{x/V(x)\}
-\]</span> We can now substitute them in our 3 safety verification conditions:</p>
+<h2 id="how-to-check-conditions">How to Check <span class="math">\(G\)</span> Conditions</h2>
+<p>Checking for small sets is not a problem as most times we can brute force it or guess <span class="math">\(V\)</span> from an expert estimation or from the documentation, but this strategy is not valid for large or infinite transition systems.</p>
+<p>In those cases we are going to implement <strong>symbolic checking of safety verification conditions</strong>. For this ne are assuming we have the transition system, <span class="math">\(V\)</span> and <span class="math">\(\text{ok}\)</span> given symbolically, using logical formulas:</p>
+<div class="math">
+\[
+(S,\{x/S_0(x)\},\{(x,x')/R(x,x')\}), \{x/\text{ok}(x)\}, \{x/V(x)\}
+\]</div>
+<p>We can now substitute them in our 3 safety verification conditions:</p>
 <ul>
-<li><span class="math inline">\(S_0 \subseteq V\)</span></li>
-<li><span class="math inline">\(\{x&#39;/x\in V, (x,x&#39;) \in R\} \subseteq V\)</span></li>
-<li><span class="math inline">\(V \subseteq \mathcal I (\text{ok})\)</span></li>
+<li><span class="math">\(S_0 \subseteq V\)</span></li>
+<li><span class="math">\(\{x'/x\in V, (x,x') \in R\} \subseteq V\)</span></li>
+<li><span class="math">\(V \subseteq \mathcal I (\text{ok})\)</span></li>
 </ul>
 <p>We can also simplify those conditions into predicate logical formulas:</p>
 <ul>
-<li><span class="math inline">\(\forall x. S_0(x) \implies V(x)\)</span></li>
-<li><span class="math inline">\(\forall x \forall x&#39;. [V(x) \land R(x,x&#39;)] \implies V(x&#39;)\)</span></li>
-<li><span class="math inline">\(\forall x. V (x) \implies \text{ok}(x)\)</span></li>
+<li><span class="math">\(\forall x. S_0(x) \implies V(x)\)</span></li>
+<li><span class="math">\(\forall x \forall x'. [V(x) \land R(x,x')] \implies V(x')\)</span></li>
+<li><span class="math">\(\forall x. V (x) \implies \text{ok}(x)\)</span></li>
 </ul>
-<p>Now we need to prove this 3 conditions, but SAT solvers don’t prove, they only check satisfiability. In order to prove them we need to check the satisfiability of the negation of the conditions:</p>
+<p>Now we need to prove this 3 conditions, but SAT solvers don't prove, they only check satisfiability. In order to prove them we need to check the satisfiability of the negation of the conditions:</p>
 <ul>
-<li><span class="math inline">\(\neg [\forall x. S_0(x) \implies V(x)]\)</span></li>
-<li><span class="math inline">\(\neg [\forall x \forall x&#39;. [V(x) \land R(x,x&#39;)] \implies V(x&#39;)]\)</span></li>
-<li><span class="math inline">\(\neg [\forall x. V (x) \implies \text{ok}(x)]\)</span></li>
+<li><span class="math">\(\neg [\forall x. S_0(x) \implies V(x)]\)</span></li>
+<li><span class="math">\(\neg [\forall x \forall x'. [V(x) \land R(x,x')] \implies V(x')]\)</span></li>
+<li><span class="math">\(\neg [\forall x. V (x) \implies \text{ok}(x)]\)</span></li>
 </ul>
 <h3 id="safety-certificates">Safety Certificates</h3>
 <p>Even after that, we do not have the safety certificates yet. In <strong>finite cases</strong> we can view the transition relation as directed graph. Here we can apply <strong>depth first-search</strong>:</p>
-<pre class="pseudocode"><code>input: t // finite path with all the states in V
+<pre><code class="language-pseudocode">input: t // finite path with all the states in V
 output: False or True
 
 serch(t,V):
-    if last(t) in V then:
-        return True
-    else if last(t) not in I(ok) then:
-        return False
-    else:
-        V.insert(last(t))
-        return for all s :  not R(last(t),s) or search(ts,V)</code></pre>
-<p>Where if the algorithm return <span class="math inline">\(\bot\)</span> it means that <span class="math inline">\(\not \models G\text{ok}\)</span>, else it says that every states that can be reached from <code>last(t)</code> without reaching a state in <span class="math inline">\(V^{in}\)</span> is in <span class="math inline">\(V\)</span>.</p>
+	if last(t) in V then:
+		return True
+	else if last(t) not in I(ok) then:
+		return False
+	else:
+		V.insert(last(t))
+		return for all s :  not R(last(t),s) or search(ts,V)
+</code></pre>
+<p>Where if the algorithm return <span class="math">\(\bot\)</span> it means that <span class="math">\(\not \models G\text{ok}\)</span>, else it says that every states that can be reached from <code>last(t)</code> without reaching a state in <span class="math">\(V^{in}\)</span> is in <span class="math">\(V\)</span>.</p>
 <p>In order for this algorithm to function properly, we wrap in other code to return either False or the reach set (a safety certificate):</p>
-<pre class="pseudocode"><code>V = {}
+<pre><code class="language-pseudocode">V = {}
 if for all s in S0: search(s,V) then:
-    return V
+	return V
 else:
-    return False</code></pre>
+	return False
+</code></pre>
 <p>Using DFS tends to have low memory requirements, but it has some drawbacks:</p>
 <ul>
 <li>Resulting counter examples tend to be too long</li>
@@ -1591,69 +1462,85 @@ else:
 <p>Using <strong>breadth-first search</strong> solves all those problems, but it has high memory requirements, making them not practical for systems with large or infinite states.</p>
 <p>Our approach is called <strong>Best-First Search</strong> (also known as <strong>directed model checking</strong>), it is useful in cases where we have good heuristics and the goal is mainly to find counter examples.</p>
 <p>A different approach is a <strong>set based algorithm</strong>.:</p>
-<pre class="pseudocode"><code>V = S0
+<pre><code class="language-pseudocode">V = S0
 while exists transition(x,xp): x in V and xp not in V:
-    V = V union Post(V)
-return V</code></pre>
-<p>If the resulting set is included in <span class="math inline">\(\mathcal I(\text{ok})\)</span>, then <span class="math inline">\(V\)</span> fulfills the verification conditions.</p>
-<p>This algorithm still has some problems though, as it can’t terminate when working with infinite systems, general slow convergence and problems running on complex sets.</p>
+	V = V union Post(V)
+return V
+</code></pre>
+<p>If the resulting set is included in <span class="math">\(\mathcal I(\text{ok})\)</span>, then <span class="math">\(V\)</span> fulfills the verification conditions.</p>
+<p>This algorithm still has some problems though, as it can't terminate when working with infinite systems, general slow convergence and problems running on complex sets.</p>
 <p>Because of this, in practice we use a modification of this algorithm that uses supersets:</p>
-<pre class="pseudocode"><code>V = supersetOf(S0)
+<pre><code class="language-pseudocode">V = supersetOf(S0)
 while exists transition(x,xp): x in V and xp not in V:
-    V = supersetOf(V union Post(V))
-return V</code></pre>
-<p>This new algorithm conserves the same properties as the one before but now the resulting set <span class="math inline">\(V\)</span> is a superset of the reach set.</p>
+	V = supersetOf(V union Post(V))
+return V
+</code></pre>
+<p>This new algorithm conserves the same properties as the one before but now the resulting set <span class="math">\(V\)</span> is a superset of the reach set.</p>
 <p>This creation of a super set can troublesome though:</p>
 <ul>
-<li>If we overapproximate too much, it might result in violation of <span class="math inline">\(V \subseteq \mathcal I(\text{ok})\)</span></li>
+<li>If we overapproximate too much, it might result in violation of <span class="math">\(V \subseteq \mathcal I(\text{ok})\)</span></li>
 <li>If we overapproximate too little, it might result in termination problems or the set representation blows up</li>
 </ul>
 <h4 id="backward-computation">Backward Computation</h4>
 <p>Instead of looking for a set that fulfills the safety verification conditions, we can also compute its complement, a set of states that leads to an unsafe state, also known as <strong>backward reach set</strong>.</p>
-<p>All the algorithms we’ve seen on this lecture can be used to calculate this set if we use a modified version of their transition system: <span class="math display">\[
+<p>All the algorithms we've seen on this lecture can be used to calculate this set if we use a modified version of their transition system:</p>
+<div class="math">
+\[
 (S,S_0^-,R^-)
-\]</span> where: <span class="math display">\[
+\]</div>
+<p>where:</p>
+<div class="math">
+\[
 S_0^- = S \setminus \mathcal I(\text{ok}) = \{s/s \models \neg ok\}\\
-R^- = \{(x&#39;,x) | (x,x&#39;)\in R\}
-\]</span> And we are going to check for: <span class="math display">\[
+R^- = \{(x',x) | (x,x')\in R\}
+\]</div>
+<p>And we are going to check for:</p>
+<div class="math">
+\[
 \models G \neg \text{ok}^-
-\]</span> Where <span class="math inline">\(\mathcal I(\text{ok}^-) = S_0\)</span></p>
-<h2 id="how-to-check-f-conditions">How to Check <span class="math inline">\(F\)</span> Conditions</h2>
-<p>In order to obtain a Safety Certificate we need to convert our model with a topological sort into a strict linear order on all states. After the topological sort, we cannot have transitions that “go back” to a state that is before.</p>
+\]</div>
+<p>Where <span class="math">\(\mathcal I(\text{ok}^-) = S_0\)</span></p>
+<h2 id="how-to-check-conditions-1">How to Check <span class="math">\(F\)</span> Conditions</h2>
+<p>In order to obtain a Safety Certificate we need to convert our model with a topological sort into a strict linear order on all states. After the topological sort, we cannot have transitions that &quot;go back&quot; to a state that is before.</p>
 <p>To avoid this we can usually remove transitions that go back and rearrange the topological sort. For example, if we have the following model:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/image-20201127151518287.png" alt="image-20201127151518287" style="zoom:67%;" /></p>
-<p>We can see that if we were to create a topological sort, it would have some transitions that go back, for example <span class="math inline">\(C\rightarrow D\)</span>:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/image-20201127151744804.png" alt="image-20201127151744804" style="zoom:67%;" /></p>
+<img src="Resources/08 - Unbounded Model Checking/9c9e82d0-859d-4d85-bc56-ad4ab3431be2.png" alt="9c9e82d0-859d-4d85-bc56-ad4ab3431be2" style="scale:0.67;" />
+<p>We can see that if we were to create a topological sort, it would have some transitions that go back, for example <span class="math">\(C\rightarrow D\)</span>:</p>
+<img src="Resources/08 - Unbounded Model Checking/60cecb6a-7201-491f-9214-6163416d0a48.png" alt="60cecb6a-7201-491f-9214-6163416d0a48" style="scale:0.67;" />
 <p>If we remove that transition, we can rearrange the topological sort into a better solution:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/image-20201127152447386.png" alt="image-20201127152447386" style="zoom:67%;" /></p>
-<p>In this case, the certificate is defined as a pair <span class="math inline">\((V,\succ)\)</span> where <span class="math inline">\(\succ\)</span> is a struct linear order on <span class="math inline">\(V\)</span> such that:</p>
+<img src="Resources/08 - Unbounded Model Checking/b89be4e5-8485-4e57-a14a-22fabb8f094a.png" alt="b89be4e5-8485-4e57-a14a-22fabb8f094a" style="scale:0.67;" />
+<p>In this case, the certificate is defined as a pair <span class="math">\((V,\succ)\)</span> where <span class="math">\(\succ\)</span> is a struct linear order on <span class="math">\(V\)</span> such that:</p>
 <ul>
-<li><span class="math inline">\(S_0 \subseteq V \subseteq S\)</span></li>
-<li><span class="math inline">\(\forall (s,s&#39;) \in R, s \in V, s&#39;\not \in V \implies s&#39; \in \mathcal I(\text{goal})\)</span></li>
-<li><span class="math inline">\(\forall (s,s&#39;) \in (R \cap V \times V), s \succ s&#39;\)</span></li>
+<li><span class="math">\(S_0 \subseteq V \subseteq S\)</span></li>
+<li><span class="math">\(\forall (s,s') \in R, s \in V, s'\not \in V \implies s' \in \mathcal I(\text{goal})\)</span></li>
+<li><span class="math">\(\forall (s,s') \in (R \cap V \times V), s \succ s'\)</span></li>
 </ul>
 <p>Here we also have a few algorithms to solve this problem, for example <strong>Depth-First Search</strong>:</p>
-<pre class="pseudocode"><code>input: finite path t, list V
+<pre><code class="language-pseudocode">input: finite path t, list V
 output: True or False // Depeding in the property holds
 
 search(t,V):
-    if last(t) not in I(goal) and Exists 0 &lt;= i &lt;= |t|-2 t(i) == last(t) then:
-        return False
-    else if last(t) in I(goal) or last(t) in V then:
-        return True
-    else:
-        r = for all s  not R(last(t),s) or search(ts,V)
+	if last(t) not in I(goal) and Exists 0 &lt;= i &lt;= |t|-2 t(i) == last(t) then:
+		return False
+	else if last(t) in I(goal) or last(t) in V then:
+		return True
+	else:
+		r = for all s  not R(last(t),s) or search(ts,V)
         V.insert(last(t))
-        return r</code></pre>
-<p>Similar to the other algorithms, we are going to wrap this one in some code to return either false or the set <span class="math inline">\(V\)</span>:</p>
-<pre class="pseudocode"><code>V = {}
+        return r
+</code></pre>
+<p>Similar to the other algorithms, we are going to wrap this one in some code to return either false or the set <span class="math">\(V\)</span>:</p>
+<pre><code class="language-pseudocode">V = {}
 if for all s in S0, search(s,V) then:
-    return V
+	return V
 else:
-    return False</code></pre>
-<h2 id="how-to-check-r-conditions">How to Check <span class="math inline">\(R\)</span> Conditions</h2>
-<p>To check for this formula, we can use the following equivalence: <span class="math display">\[
+	return False
+</code></pre>
+<h2 id="how-to-check-conditions-2">How to Check <span class="math">\(R\)</span> Conditions</h2>
+<p>To check for this formula, we can use the following equivalence:</p>
+<div class="math">
+\[
 G\phi \equiv \bot R\phi
-\]</span></p>
+\]</div>
+
 </body>
 </html>

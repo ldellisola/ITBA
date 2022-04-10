@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>01 - Cardenalidad</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>01 - Cardenalidad.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,233 +1385,341 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="cardinalidad">Cardinalidad</h1>
 <h2 id="coordinabilidad">Coordinabilidad</h2>
-<h3 id="definición">Definición</h3>
-<p>Sean <span class="math inline">\(A,B\)</span> conjuntos, <span class="math inline">\(A\sim B\)</span> si <span class="math inline">\(\exists f :A \rightarrow B/f\)</span> sea una función biyectiva.</p>
-<h3 id="notación">Notación</h3>
-<p>Si <span class="math inline">\(A\)</span> es coordinable con <span class="math inline">\(B\)</span>, entonces se lo nota como: <span class="math display">\[
+<h3 id="definicion">Definición</h3>
+<p>Sean <span class="math">\(A,B\)</span> conjuntos, <span class="math">\(A\sim B\)</span> si <span class="math">\(\exists f :A \rightarrow B/f\)</span> sea una función biyectiva.</p>
+<h3 id="notacion">Notación</h3>
+<p>Si <span class="math">\(A\)</span> es coordinable con <span class="math">\(B\)</span>, entonces se lo nota como:</p>
+<div class="math">
+\[
 A \sim B
-\]</span></p>
+\]</div>
 <h3 id="observaciones">Observaciones</h3>
 <ul>
 <li><p>La relación de coordinabilidad es de equivalencia</p>
 <ul>
 <li><p>Demostración:</p>
 <ul>
-<li><p>La relación es reflexiva, por que si planteo la función identidad <span class="math inline">\(f(x)=x\)</span> (biyectiva) <span class="math display">\[
+<li><p>La relación es reflexiva, por que si planteo la función identidad <span class="math">\(f(x)=x\)</span> (biyectiva)</p>
+<div class="math">
+\[
   f(A)=A \Rightarrow ARA
-\]</span></p></li>
-<li><p>La relación es Simétrica, por que como <span class="math inline">\(f\)</span> es biyectiva, entonces existe <span class="math inline">\(f^{-1}\)</span> <span class="math display">\[
+\]</div>
+</li>
+<li><p>La relación es Simétrica, por que como <span class="math">\(f\)</span> es biyectiva, entonces existe <span class="math">\(f^{-1}\)</span></p>
+<div class="math">
+\[
 ARB \Rightarrow f(A)=B \Rightarrow A = f^{-1}(B) \rightarrow BRA
-\]</span></p></li>
-<li><p>La relación es Transitiva, por que la composición de funciones biyectivas resulta en una función biyectiva <span class="math display">\[
+\]</div>
+</li>
+<li><p>La relación es Transitiva, por que la composición de funciones biyectivas resulta en una función biyectiva</p>
+<div class="math">
+\[
 ARB\land BRC \Rightarrow f(A) = b \land g(B) = C \\\
 \text{Si defino } h:A \rightarrow C/ h(x) = g(f(x))\\
 \therefore h(A) = C \Rightarrow ARC
-\]</span></p></li>
-</ul></li>
-</ul></li>
+\]</div>
+</li>
 </ul>
-<h2 id="sección-inicial">Sección Inicial</h2>
-<h3 id="definición-1">Definición</h3>
-<p>Son todos los conjuntos de la forma: <span class="math display">\[
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="seccion-inicial">Sección Inicial</h2>
+<h3 id="definicion-1">Definición</h3>
+<p>Son todos los conjuntos  de la forma:</p>
+<div class="math">
+\[
 I_n=\{1,2,3,\dots, n\}
-\]</span></p>
-<h3 id="observación">Observación</h3>
+\]</div>
+<h3 id="observacion">Observación</h3>
 <ul>
-<li><p><span class="math inline">\(I_n \sim I_k \Leftrightarrow n = k\)</span></p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Observacion%20-%2001.html">Demostración</a></p></li>
+<li><p><span class="math">\(I_n \sim I_k \Leftrightarrow n = k\)</span></p>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Observacion - 01.html)</p>
+</li>
 </ul>
 <h2 id="conjuntos-finitos-e-infinitos">Conjuntos Finitos e Infinitos</h2>
-<h3 id="definición-2">Definición</h3>
-<p><span class="math inline">\(A\)</span> es un conjunto <u>finito</u> si <span class="math inline">\(A= \emptyset\)</span> o <span class="math inline">\(\exists n \in \mathbb{N} / A \sim I_n\)</span></p>
-<p>Si el conjunto <span class="math inline">\(A\)</span> no es finito, entonces se dice que es <u>infinito</u></p>
+<h3 id="definicion-2">Definición</h3>
+<p><span class="math">\(A\)</span> es un conjunto <u>finito</u> si <span class="math">\(A= \emptyset\)</span> o <span class="math">\(\exists n \in \mathbb{N} / A \sim I_n\)</span></p>
+<p>Si el conjunto <span class="math">\(A\)</span> no es finito, entonces se dice que es <u>infinito</u></p>
 <h3 id="ejemplos">Ejemplos</h3>
-<ol type="1">
-<li><p><span class="math inline">\(A=\{\emptyset,\&amp;,@\}\)</span> es finito</p>
-<p>Definimos <span class="math inline">\(f\)</span> tal que: <span class="math display">\[
+<ol>
+<li><p><span class="math">\(A=\{\emptyset,\&amp;,@\}\)</span> es finito</p>
+<p>Definimos <span class="math">\(f\)</span> tal que:</p>
+<div class="math">
+\[
 f:A \rightarrow I_3 / 
 \left\{
  \array{
-     f(\emptyset)=1\\
-     f(\&amp;) = 2 \\
-     f(@) = 3
+ 	f(\emptyset)=1\\
+ 	f(\&amp;) = 2 \\
+ 	f(@) = 3
  }
 \right.
-\]</span> Se puede ver que <span class="math inline">\(f\)</span> es biyectiva <span class="math inline">\(\Rightarrow A \sim I_3 \Rightarrow A\)</span> es finito.</p></li>
-<li><p><span class="math inline">\(A=\mathbb{N}\)</span> es infinito</p>
+\]</div>
+<p>Se puede ver que <span class="math">\(f\)</span> es biyectiva <span class="math">\(\Rightarrow A \sim I_3 \Rightarrow A\)</span> es finito.</p>
+</li>
+<li><p><span class="math">\(A=\mathbb{N}\)</span> es infinito</p>
 <p>Supongo que es finito, entonces hay 2 opciones y solo hace falta que cumpla con una:</p>
 <ul>
-<li><p><span class="math inline">\(\mathbb{N} = \emptyset ~~~~~(1)\)</span></p>
-<p><u>Falso</u>, por que 1 pertenece a <span class="math inline">\(\mathbb{N}\)</span></p></li>
-<li><p><span class="math inline">\(\exists k / N \sim I_k~~~~~(2)\)</span></p>
+<li><p><span class="math">\(\mathbb{N} = \emptyset ~~~~~(1)\)</span></p>
+<p><u>Falso</u>, por que 1 pertenece a <span class="math">\(\mathbb{N}\)</span></p>
+</li>
+<li><p><span class="math">\(\exists k / N \sim I_k~~~~~(2)\)</span></p>
 <p><u>Falso</u>, demuestro por absurdo</p>
-<p>Supongo que: <span class="math display">\[
+<p>Supongo que:</p>
+<div class="math">
+\[
 \exists f:I_k \rightarrow \mathbb{N} \text{ biyectiva}
-\]</span> Y su imagen es: <span class="math display">\[
+\]</div>
+<p>Y su imagen es:</p>
+<div class="math">
+\[
 Im(f) = \{f(1), f(2),\dots,f(k)\}
-\]</span> Tomo el máximo valor de la imagen <span class="math display">\[
+\]</div>
+<p>Tomo el máximo valor de la imagen</p>
+<div class="math">
+\[
 M = Max(Im(f)) 
-\]</span> Pero podemos observar que: <span class="math display">\[
+\]</div>
+<p>Pero podemos observar que:</p>
+<div class="math">
+\[
 M+1 \in\mathbb{N} \land M+1 \notin Im(f)
-\]</span> Entonces <span class="math inline">\(f\)</span> no es sobreyectiva y es <u>Absurdo</u></p></li>
-</ul></li>
+\]</div>
+<p>Entonces <span class="math">\(f\)</span> no es sobreyectiva y es <u>Absurdo</u></p>
+</li>
+</ul>
+</li>
 </ol>
 <h2 id="cardenal">Cardenal</h2>
-<h3 id="definición-3">Definición</h3>
+<h3 id="definicion-3">Definición</h3>
 <ul>
-<li><span class="math inline">\(Card(\emptyset) = 0\)</span></li>
-<li><span class="math inline">\(Card(I_k) = k\)</span></li>
-<li><span class="math inline">\(Card(\mathbb{N}) = \chi_o\)</span></li>
+<li><span class="math">\(Card(\emptyset) = 0\)</span></li>
+<li><span class="math">\(Card(I_k) = k\)</span></li>
+<li><span class="math">\(Card(\mathbb{N}) = \chi_o\)</span></li>
 </ul>
-<h3 id="notación-1">Notación</h3>
-<p>Se lo nota de la siguiente forma: <span class="math display">\[
+<h3 id="notacion-1">Notación</h3>
+<p>Se lo nota de la siguiente forma:</p>
+<div class="math">
+\[
 Card(A) = |A| = \#A
-\]</span></p>
+\]</div>
 <h3 id="relaciones-entre-cardinales">Relaciones entre Cardinales</h3>
-<p>Sean <span class="math inline">\(a,b\)</span> Cardinales. Sean <span class="math inline">\(A,B\)</span> conjuntos<span class="math inline">\(/ \#A = a,~\#B=b\)</span></p>
-<ol type="1">
-<li><span class="math inline">\(a\leq b\)</span> si <span class="math inline">\(\exists f:A\rightarrow B\)</span> inyectiva</li>
-<li><span class="math inline">\(a\geq b\)</span> si <span class="math inline">\(\exists f:A\rightarrow B\)</span> sobreyectiva</li>
-<li><span class="math inline">\(a = b\)</span> si <span class="math inline">\(\exists f:A\rightarrow B\)</span> biyectiva</li>
-<li><span class="math inline">\(a \lt b\)</span> si <span class="math inline">\(a\leq b\)</span> y <span class="math inline">\(a\neq b\)</span></li>
-<li><span class="math inline">\(a\gt b\)</span> si <span class="math inline">\(a \geq b\)</span> y <span class="math inline">\(a \neq b\)</span></li>
+<p>Sean <span class="math">\(a,b\)</span> Cardinales. Sean <span class="math">\(A,B\)</span> conjuntos$/ #A = a,~#B=b$</p>
+<ol>
+<li><span class="math">\(a\leq b\)</span> si <span class="math">\(\exists f:A\rightarrow B\)</span> inyectiva</li>
+<li><span class="math">\(a\geq b\)</span> si <span class="math">\(\exists f:A\rightarrow B\)</span> sobreyectiva</li>
+<li>$a = b <span class="math">\(si\)</span>\exists f:A\rightarrow B$ biyectiva</li>
+<li><span class="math">\(a \lt b\)</span> si <span class="math">\(a\leq b\)</span> y <span class="math">\(a\neq b\)</span></li>
+<li><span class="math">\(a\gt b\)</span> si <span class="math">\(a \geq b\)</span> y <span class="math">\(a \neq b\)</span></li>
 </ol>
 <h4 id="ejemplo">Ejemplo</h4>
-<ol type="1">
-<li><p>Hallar <span class="math inline">\(\# A / A =\{x \in \mathbb{N}/ x \text{ es par} \}\)</span></p>
-<p>Defino <span class="math inline">\(f:\mathbb{N} \rightarrow A / f(x)= 2 \cdot x\)</span> y verifico que sea biyectiva</p>
-<p>Inyectividad: <span class="math display">\[
+<ol>
+<li><p>Hallar <span class="math">\(\# A / A =\{x \in \mathbb{N}/ x \text{ es par} \}\)</span></p>
+<p>Defino <span class="math">\(f:\mathbb{N} \rightarrow A / f(x)= 2 \cdot x\)</span> y verifico que sea biyectiva</p>
+<p>Inyectividad:</p>
+<div class="math">
+\[
 f(x) = f(y) \Rightarrow2 \cdot x = 2 \cdot y \Rightarrow x = y
-\]</span> Sobreyectividad: <span class="math display">\[
+\]</div>
+<p>Sobreyectividad:</p>
+<div class="math">
+\[
 \text{Sea } a\in A \Rightarrow \exists k \in \mathbb{N}/ a = 2 \cdot k 
-\]</span> Entonces podemos ver que <span class="math inline">\(f\)</span> es biyectiva. <span class="math display">\[
+\]</div>
+<p>Entonces podemos ver que <span class="math">\(f\)</span> es biyectiva.</p>
+<div class="math">
+\[
 \therefore \#A=\#\mathbb{N} = \chi_o
-\]</span></p></li>
-<li><p><span class="math inline">\(\#(\mathbb{N} \times \mathbb{N}) = ?= \chi_o\)</span> por las diagonales de Cantor</p>
-<p>Vamos a usar el <a href="#Teorema%20de%20Bernstein">Teorema de Bernstein</a>, por lo que tenemos que buscar una función de <span class="math inline">\(\mathbb{N}^2\)</span> a <span class="math inline">\(\mathbb{N}\)</span> y otra de <span class="math inline">\(\mathbb{N}\)</span> a <span class="math inline">\(\mathbb{N}^2\)</span>, ambas inyectivas.</p>
+\]</div>
+</li>
+<li><p><span class="math">\(\#(\mathbb{N} \times \mathbb{N}) = ?= \chi_o\)</span> por las diagonales de Cantor</p>
+<p>Vamos a usar el <a href="#teorema-de-bernstein">Teorema de Bernstein</a>(#Teorema de Bernstein), por lo que tenemos que buscar una función de <span class="math">\(\mathbb{N}^2\)</span> a <span class="math">\(\mathbb{N}\)</span> y otra de  <span class="math">\(\mathbb{N}\)</span> a <span class="math">\(\mathbb{N}^2\)</span>, ambas inyectivas.</p>
 <ul>
-<li><p>Busco <span class="math inline">\(f:\mathbb{N} \rightarrow \mathbb{N}^2\)</span></p>
-<p>Defino <span class="math inline">\(f\)</span> tal que: <span class="math display">\[
+<li><p>Busco <span class="math">\(f:\mathbb{N} \rightarrow \mathbb{N}^2\)</span></p>
+<p>Defino <span class="math">\(f\)</span> tal que:</p>
+<div class="math">
+\[
 f:\mathbb{N}\rightarrow \mathbb{N}^2/f(x)=(x,x)
-\]</span> Verifico que <span class="math inline">\(f\)</span> es inyectiva: <span class="math display">\[
+\]</div>
+<p>Verifico que <span class="math">\(f\)</span> es inyectiva:</p>
+<div class="math">
+\[
 f(x) = f(y)\\
 (x,x)=(y,y)\\
 x=y
-\]</span> Y como es inyectiva, puedo decir que: <span class="math display">\[
+\]</div>
+<p>Y como es inyectiva, puedo decir que:</p>
+<div class="math">
+\[
 \array{\#\mathbb{N} \leq \#\mathbb{N}^2 &amp; (1)} 
-\]</span></p></li>
-</ul></li>
+\]</div>
+</li>
+</ul>
+</li>
 </ol>
 <ul>
-<li><p>Busco <span class="math inline">\(g:\mathbb{N}^2 \rightarrow \mathbb{N}\)</span></p>
-<p>Defino <span class="math inline">\(g\)</span> tal que: <span class="math display">\[
+<li><p>Busco <span class="math">\(g:\mathbb{N}^2 \rightarrow \mathbb{N}\)</span></p>
+<p>Defino <span class="math">\(g\)</span> tal que:</p>
+<div class="math">
+\[
    g:\mathbb{N}^2 \rightarrow \mathbb{N}/ g(x,y)= 2^x\cdot 3^y
-\]</span> Verifico que <span class="math inline">\(g\)</span> es inyectiva: <span class="math display">\[
+\]</div>
+<p>Verifico que <span class="math">\(g\)</span> es inyectiva:</p>
+<div class="math">
+\[
    g(a,b)=g(x,y)\\
    2^a \cdot3^b = 2 ^ x \cdot 3 ^y\\
    \text{Por el Teorema Fundamental de la Aritmetica }\\
    a = x \land b = y
-\]</span> Y como es inyectiva, puedo decir que: <span class="math display">\[
+\]</div>
+<p>Y como es inyectiva, puedo decir que:</p>
+<div class="math">
+\[
    \array{\#\mathbb{N}^2 \leq \#\mathbb{N}&amp;(2)}
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>Entonces, por <span class="math inline">\((1)\)</span> y <span class="math inline">\((2)\)</span>, mediante el teorema de Bernstein, puedo decir que: <span class="math display">\[
+<p>Entonces, por <span class="math">\((1)\)</span> y <span class="math">\((2)\)</span>, mediante el teorema de Bernstein, puedo decir que:</p>
+<div class="math">
+\[
    \#\mathbb{N}^2 = \# \mathbb{N} = \chi_o
-\]</span></p>
+\]</div>
 <h3 id="teorema-de-bernstein">Teorema de Bernstein</h3>
-<p>Sean <span class="math inline">\(a,b\)</span> cardinales, si <span class="math inline">\(a\leq b\)</span> y <span class="math inline">\(b \leq a \Rightarrow a = b\)</span></p>
+<p>Sean <span class="math">\(a,b\)</span> cardinales, si <span class="math">\(a\leq b\)</span> y <span class="math">\(b \leq a \Rightarrow a = b\)</span></p>
 <p>Esto es sinónimo a decir:</p>
-<p>Sea <span class="math inline">\(A/\#A=a\)</span>, <span class="math inline">\(B/\#B=b\)</span>, entonces:</p>
-<p>Si existe <span class="math inline">\(f:A\rightarrow B\)</span> inyectiva y <span class="math inline">\(g:B\rightarrow A\)</span> inyectiva, entonces existe <span class="math inline">\(h:A\rightarrow B\)</span> biyectiva</p>
+<p>Sea <span class="math">\(A/\#A=a\)</span>, <span class="math">\(B/\#B=b\)</span>, entonces:</p>
+<p>Si existe <span class="math">\(f:A\rightarrow B\)</span> inyectiva y <span class="math">\(g:B\rightarrow A\)</span> inyectiva, entonces existe <span class="math">\(h:A\rightarrow B\)</span> biyectiva</p>
 <h4 id="ejercicios">Ejercicios</h4>
-<ol type="1">
-<li><p>Demostrar que: Sea <span class="math inline">\(A \sim \mathbb{N},~B \sim \mathbb{N} \Rightarrow A\times B \sim \mathbb{N}\)</span></p>
-<p>Como <span class="math inline">\(A \sim \mathbb{N} \Rightarrow \exists f:A\rightarrow \mathbb{N}\)</span> biyectiva</p>
-<p>Como <span class="math inline">\(B \sim \mathbb{N} \Rightarrow \exists g:B\rightarrow\mathbb{N}\)</span> biyectiva</p>
-<p>Entonces puedo definir una función <span class="math inline">\(h\)</span> de la siguiente forma: <span class="math display">\[
+<ol>
+<li><p>Demostrar que: Sea <span class="math">\(A \sim \mathbb{N},~B \sim \mathbb{N} \Rightarrow A\times B \sim \mathbb{N}\)</span></p>
+<p>Como <span class="math">\(A \sim \mathbb{N} \Rightarrow \exists f:A\rightarrow \mathbb{N}\)</span> biyectiva</p>
+<p>Como <span class="math">\(B \sim \mathbb{N} \Rightarrow \exists g:B\rightarrow\mathbb{N}\)</span> biyectiva</p>
+<p>Entonces puedo definir una función <span class="math">\(h\)</span> de la siguiente forma:</p>
+<div class="math">
+\[
 h:A\times B \rightarrow \mathbb{N}^2/h(x,y)=(f(x),g(y))
-\]</span> Verifico que sea inyectiva: <span class="math display">\[
+\]</div>
+<p>Verifico que sea inyectiva:</p>
+<div class="math">
+\[
 h(a,b)=h(x,y)\\
 (f(a),g(b))=(f(x),g(y))\\
 \array{f(a)=f(x) &amp;~y~&amp; g(b)=g(y)}\\
-\]</span> ​ Como <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> son funciones inyectivas: <span class="math display">\[
+\]</div>
+<p>​		Como <span class="math">\(f\)</span> y <span class="math">\(g\)</span> son funciones inyectivas:</p>
+<div class="math">
+\[
 \array{a=x&amp;&amp;b=y}
-\]</span> Verifico que sea sobreyectiva:</p>
-<p>​ Sean <span class="math inline">\((y_1,y_2) \in \mathbb{N}^2\)</span>:</p>
-<p>​ Como <span class="math inline">\(f\)</span> es sobreyectiva, <span class="math inline">\(\exists a / f(a) = y_1\)</span></p>
-<p>​ Como <span class="math inline">\(g\)</span> es sobreyectiva, <span class="math inline">\(\exists b/g(b) = y_2\)</span> <span class="math display">\[
+\]</div>
+<p>Verifico que sea sobreyectiva:</p>
+<p>​		Sean <span class="math">\((y_1,y_2) \in \mathbb{N}^2\)</span>:</p>
+<p>​		Como <span class="math">\(f\)</span> es sobreyectiva, <span class="math">\(\exists a / f(a) = y_1\)</span></p>
+<p>​		Como <span class="math">\(g\)</span> es sobreyectiva, <span class="math">\(\exists b/g(b) = y_2\)</span></p>
+<div class="math">
+\[
 \therefore h(a,b)= (f(a),g(b))= (y_1,y_2)
-\]</span> Como <span class="math inline">\(h\)</span> es inyectiva y sobreyectiva, podemos decir que es biyectiva, entonces tambien podemos decir que <span class="math inline">\(A\times B \sim \mathbb{N}^2\)</span>.</p>
-<p>Además, ya sabíamos que <span class="math inline">\(\mathbb{N}^2 \sim \mathbb{N}\)</span></p>
-<p>Entonces, por transitividad podemos decir: <span class="math display">\[
+\]</div>
+<p>Como <span class="math">\(h\)</span> es inyectiva y sobreyectiva, podemos decir que es biyectiva, entonces tambien podemos decir que <span class="math">\(A\times B \sim \mathbb{N}^2\)</span>.</p>
+<p>Además, ya sabíamos que <span class="math">\(\mathbb{N}^2 \sim \mathbb{N}\)</span></p>
+<p>Entonces, por transitividad podemos decir:</p>
+<div class="math">
+\[
 A\times B \sim \mathbb{N}
-\]</span></p></li>
+\]</div>
+</li>
 </ol>
 <h4 id="observaciones-1">Observaciones</h4>
-<ol type="1">
-<li><p>Cualquier subconjunto de una sección inicial es finito: <span class="math display">\[
+<ol>
+<li>Cualquier subconjunto de una sección inicial es finito:</li>
+</ol>
+<div class="math">
+\[
 A\subseteq I_k \Rightarrow A \text{ es finito}
-\]</span> ​ <a href="Demostraciones\01%20-%20Cardenalidad\Observacion%20-%2002.html">Demostración</a></p></li>
-<li><p><span class="math inline">\(A\subset B\)</span> y <span class="math inline">\(A\)</span> es infinito <span class="math inline">\(\Rightarrow B\)</span> es infinito</p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Observacion%20-%2003.html">Demostración</a></p></li>
-<li><p><span class="math inline">\(X\)</span> es infinito, entonces <span class="math inline">\(\exists f:\mathbb{N} \rightarrow X\text{ inyectiva}\)</span></p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Observacion%20-%2004.html">Demostración</a></p></li>
-<li><p><span class="math inline">\(\geq\)</span> es una relación de orden.</p>
-<p>La demostración es análoga a la de <span class="math inline">\(\le\)</span></p></li>
-<li><p><span class="math inline">\(\leq\)</span> es una relación de orden.</p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Observacion%20-%2006.html">Demostración</a></p></li>
-<li><p><span class="math inline">\(\exists f:A \rightarrow B\)</span> inyectiva <span class="math inline">\(\Leftrightarrow \exists g:B \rightarrow A\)</span> sobreyectiva</p>
-<p>De forma similar <span class="math inline">\(\#A \leq \#B \Leftrightarrow \#B \geq \#A\)</span></p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Observacion%20-%2005.html">Demostración</a></p></li>
+\]</div>
+<p>​		  [Demostración](Demostraciones\01 - Cardenalidad\Observacion - 02.html)</p>
+<ol>
+<li><p><span class="math">\(A\subset B\)</span> y <span class="math">\(A\)</span> es infinito <span class="math">\(\Rightarrow B\)</span> es infinito</p>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Observacion - 03.html)</p>
+</li>
+<li><p><span class="math">\(X\)</span> es infinito, entonces <span class="math">\(\exists f:\mathbb{N} \rightarrow X\text{ inyectiva}\)</span></p>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Observacion - 04.html)</p>
+</li>
+<li><p><span class="math">\(\geq\)</span> es una relación de orden.</p>
+<p>La demostración es análoga a la de  <span class="math">\(\le\)</span></p>
+</li>
+<li><p><span class="math">\(\leq\)</span> es una relación de orden.</p>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Observacion - 06.html)</p>
+</li>
+<li><p><span class="math">\(\exists f:A \rightarrow B\)</span> inyectiva <span class="math">\(\Leftrightarrow \exists g:B \rightarrow A\)</span> sobreyectiva</p>
+<p>De forma similar <span class="math">\(\#A \leq \#B \Leftrightarrow \#B \geq \#A\)</span></p>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Observacion - 05.html)</p>
+</li>
 </ol>
 <h4 id="ejemplos-1">Ejemplos</h4>
-<ol type="1">
-<li><p>Demostrar que <span class="math inline">\(\mathbb{N} \sim \mathbb{Q}\)</span>, es decir que <span class="math inline">\(\#\mathbb{N} = \#\mathbb{Q}\)</span></p>
-<p>Ayuda: Armar una tabla de diagonales de Cantor, pero con <span class="math inline">\(\frac x y\)</span>. Como hay resultados repetidos, no se puede encontrar una función biyectiva, pero se puede buscar una inyectiva, por lo que tengo que usar el teorema de Bernstein.</p></li>
+<ol>
+<li><p>Demostrar que <span class="math">\(\mathbb{N} \sim \mathbb{Q}\)</span>, es decir que <span class="math">\(\#\mathbb{N} = \#\mathbb{Q}\)</span></p>
+<p>Ayuda: Armar una tabla de diagonales de Cantor, pero con <span class="math">\(\frac x y\)</span>. Como hay resultados repetidos, no se puede encontrar una función biyectiva, pero se puede buscar una inyectiva, por lo que tengo que usar el teorema de Bernstein.</p>
+</li>
 </ol>
 <h2 id="conjunto-numerable">Conjunto Numerable</h2>
-<p><span class="math inline">\(A\)</span> es numerable si <span class="math inline">\(A\)</span> es finito o <span class="math inline">\(A \sim \mathbb{N}\)</span>.</p>
+<p><span class="math">\(A\)</span> es numerable si <span class="math">\(A\)</span> es finito o <span class="math">\(A \sim \mathbb{N}\)</span>.</p>
 <h3 id="teoremas">Teoremas</h3>
-<ol type="1">
-<li><p><span class="math inline">\(\#[0,1] \gt \chi_o\)</span></p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Teorema%20-%2001.html">Demostración</a></p></li>
+<ol>
+<li><p><span class="math">\(\#[0,1] \gt \chi_o\)</span></p>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Teorema - 01.html)</p>
+</li>
 </ol>
-<h3 id="definición-4">Definición</h3>
-<p><span class="math display">\[
+<h3 id="definicion-4">Definición</h3>
+<div class="math">
+\[
 C=\#[0,1]
-\]</span></p>
+\]</div>
 <h4 id="propiedades">Propiedades</h4>
 <ul>
-<li><p>Sea <span class="math inline">\(X\)</span> infinito no numerable (<span class="math inline">\(\#X \gt \chi_o\)</span>) y <span class="math inline">\(A\)</span> numerable, entonces: <span class="math display">\[
+<li><p>Sea <span class="math">\(X\)</span> infinito no numerable (<span class="math">\(\#X \gt \chi_o\)</span>) y <span class="math">\(A\)</span> numerable, entonces:</p>
+<div class="math">
+\[
 X\cup A \sim X
-\]</span></p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Propiedad%20-%2001.html">Demostración</a></p></li>
-<li><p>Sea <span class="math inline">\(X\)</span> infinito no numerable, <span class="math inline">\(A\)</span> numerable, entonces: <span class="math display">\[
+\]</div>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Propiedad - 01.html)</p>
+</li>
+<li><p>Sea <span class="math">\(X\)</span> infinito no numerable, <span class="math">\(A\)</span> numerable, entonces:</p>
+<div class="math">
+\[
 X-A \sim X
-\]</span></p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Propiedad%20-%2002.html">Demostración</a></p></li>
+\]</div>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Propiedad - 02.html)</p>
+</li>
 </ul>
 <h2 id="teorema-de-cantor">Teorema de Cantor</h2>
-<p><span class="math display">\[
+<div class="math">
+\[
 \#X \lt \rho(X)
-\]</span></p>
-<p>Hay infinitos cardinales infinitos: <span class="math display">\[
+\]</div>
+<p>Hay infinitos cardinales infinitos:</p>
+<div class="math">
+\[
 \#\mathbb{N} \lt \#\rho(\mathbb{N}) \lt \#\rho(\rho(\mathbb{N})) \lt \dots 
-\]</span></p>
-<p><a href="Demostraciones\01%20-%20Cardenalidad\Teorema%20-%2002.html">Demostración</a></p>
+\]</div>
+<p>[Demostración](Demostraciones\01 - Cardenalidad\Teorema - 02.html)</p>
 <h1 id="anexo">Anexo</h1>
 <h2 id="demostraciones">Demostraciones</h2>
 <h3 id="section">1</h3>
-<p>Todos los números terminados en <span class="math inline">\(,\dot 9\)</span> pueden ser escritos como el siguiente entero con cola de <span class="math inline">\(,\dot0\)</span> <span class="math display">\[
+<p>Todos los números terminados en $,\dot 9 <span class="math">\(pueden ser escritos como el siguiente entero con cola de\)</span>,\dot0$</p>
+<div class="math">
+\[
 a = 0.\dot9\\
 10 \cdot a - 9 = 9 \cdot a\\
 9\cdot a = 9\\
 a =1
-\]</span></p>
+\]</div>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>10 - Turing Machines</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>10 - Turing Machines.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,92 +1385,135 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="turing-machines">Turing Machines</h1>
-<p>A Turing Machine <span class="math inline">\(R\)</span> decides language <span class="math inline">\(L\)</span> over alphabet <span class="math inline">\(\Sigma\)</span> if its computation halts for every word and <span class="math inline">\(L(R) = L\)</span>. If the Language <span class="math inline">\(L\)</span> is recursive, then there exists a <span class="math inline">\(TM\)</span> that decides it.</p>
-<p>Also, a <strong>language <span class="math inline">\(L\)</span> is recursive</strong> if and only if <span class="math inline">\(L\)</span> and <span class="math inline">\(\overline L\)</span> are recursively enumerable. Also, all context-sensitive languages are recursive.</p>
-<p>An <strong>Universal Turing Machine</strong> is a TM that accepts all pairs <span class="math inline">\((\text{codeof}(R);\alpha)\)</span> such that <span class="math inline">\(R\)</span> accepts word <span class="math inline">\(\alpha\)</span></p>
+<p>A Turing Machine <span class="math">\(R\)</span> decides language <span class="math">\(L\)</span> over alphabet <span class="math">\(\Sigma\)</span> if its computation halts for every word and <span class="math">\(L(R) = L\)</span>. If the Language <span class="math">\(L\)</span> is recursive, then there exists a <span class="math">\(TM\)</span> that decides it.</p>
+<p>Also, a <strong>language <span class="math">\(L\)</span> is recursive</strong> if and only if <span class="math">\(L\)</span> and <span class="math">\(\overline L\)</span> are recursively enumerable. Also, all context-sensitive languages are recursive.</p>
+<p>An <strong>Universal Turing Machine</strong> is a TM that accepts all pairs <span class="math">\((\text{codeof}(R);\alpha)\)</span> such that <span class="math">\(R\)</span>  accepts word <span class="math">\(\alpha\)</span></p>
 <h2 id="deterministic-turing-machines">Deterministic Turing Machines</h2>
-<p>A <strong>Deterministic Turing Machine</strong> is a 7-tuple: <span class="math display">\[
+<p>A <strong>Deterministic Turing Machine</strong> is a 7-tuple:</p>
+<div class="math">
+\[
 R = (Q,\Sigma,G,\delta,q_0,B,F)
-\]</span> Where:</p>
+\]</div>
+<p>Where:</p>
 <ul>
-<li><span class="math inline">\(Q\)</span> is the finite set of states</li>
-<li><span class="math inline">\(\Sigma\)</span> is the finite input alphabet</li>
-<li><span class="math inline">\(G\)</span> is a finite work alphabet <span class="math inline">\((\Sigma \subseteq G)\)</span></li>
-<li><span class="math inline">\(\delta\)</span> is a mapping function from <span class="math inline">\((Q\setminus F) \times G\)</span> into <span class="math inline">\(Q\times G\times \{-1,0,1\}\)</span></li>
-<li><span class="math inline">\(q_0 \in Q\)</span> is the initial state</li>
-<li><span class="math inline">\(B \in G \setminus \Sigma\)</span> is a blank symbol</li>
-<li><span class="math inline">\(F \subseteq Q\)</span> is the set of final states</li>
+<li><span class="math">\(Q\)</span> is the finite set of states</li>
+<li><span class="math">\(\Sigma\)</span> is the finite input alphabet</li>
+<li><span class="math">\(G\)</span> is a finite work alphabet <span class="math">\((\Sigma \subseteq G)\)</span></li>
+<li><span class="math">\(\delta\)</span> is a mapping function from <span class="math">\((Q\setminus F) \times G\)</span> into <span class="math">\(Q\times G\times \{-1,0,1\}\)</span></li>
+<li><span class="math">\(q_0 \in Q\)</span> is the initial state</li>
+<li><span class="math">\(B \in G \setminus \Sigma\)</span> is a blank symbol</li>
+<li><span class="math">\(F \subseteq Q\)</span> is the set of final states</li>
 </ul>
-<p>The <strong>configuration of a Turing Machine</strong> is defined as <span class="math display">\[
+<p>The <strong>configuration of a Turing Machine</strong> is defined as</p>
+<div class="math">
+\[
 (\alpha,q,\beta) \in G^*,\times Q\times G^*
-\]</span> where</p>
+\]</div>
+<p>where</p>
 <ul>
-<li><span class="math inline">\(q\)</span> is the machine’s current state</li>
-<li>head <span class="math inline">\(R\)</span> reads the position <span class="math inline">\(|\alpha|\)</span> on the input tape</li>
-<li><span class="math inline">\(i\)</span>-th letter of the string <span class="math inline">\(\alpha\beta\)</span> is on the input tape when <span class="math inline">\(i \le |\alpha\beta|\)</span> or <span class="math inline">\(\beta\)</span> is on the input tape <span class="math inline">\(i &gt; |\alpha\beta|\)</span></li>
+<li><span class="math">\(q\)</span> is the machine's current state</li>
+<li>head <span class="math">\(R\)</span> reads the position <span class="math">\(|\alpha|\)</span> on the input tape</li>
+<li><span class="math">\(i\)</span>-th letter of the string <span class="math">\(\alpha\beta\)</span> is on the input tape when <span class="math">\(i \le |\alpha\beta|\)</span> or <span class="math">\(\beta\)</span> is on the input tape <span class="math">\(i &gt; |\alpha\beta|\)</span></li>
 </ul>
-<p>A Turing Machine makes a transition <span class="math inline">\((\alpha,q,\beta) \vdash (\gamma,r,\pi)\)</span> in one of the following 3 cases: <span class="math display">\[
+<p>A Turing Machine makes a transition <span class="math">\((\alpha,q,\beta) \vdash (\gamma,r,\pi)\)</span> in one of the following 3 cases:</p>
+<div class="math">
+\[
 \array{
 1) &amp; \alpha =\gamma a &amp; c\beta = \pi&amp; \delta(q,a) = (r,c,-1)&amp;&amp; a,c \in G\\
-2) &amp; \alpha = \alpha&#39;a&amp;\gamma=\alpha&#39;c &amp;\beta = \pi &amp;\delta(q,a) = (r,x,0) &amp;a,c \in G\\
-3) &amp; \alpha = \alpha&#39;a&amp; \gamma = \alpha&#39;cd &amp; \beta = d\pi &amp; \delta(q,a)=(r,c,1)&amp;a,c,d\in G
+2) &amp; \alpha = \alpha'a&amp;\gamma=\alpha'c &amp;\beta = \pi &amp;\delta(q,a) = (r,x,0) &amp;a,c \in G\\
+3) &amp; \alpha = \alpha'a&amp; \gamma = \alpha'cd &amp; \beta = d\pi &amp; \delta(q,a)=(r,c,1)&amp;a,c,d\in G
 }
-\]</span> <img src="Resources/10 - Turing Machines/image-20201228220332429.png" alt="image-20201228220332429" style="zoom:67%;" /></p>
-<p>And the transition function is represented in two different ways. For this example we will be going from the state <span class="math inline">\(S\)</span> with input symbol <span class="math inline">\(a\)</span>, writing symbol <span class="math inline">\(c\)</span> and moving the head to the right into state <span class="math inline">\(A\)</span>:</p>
+\]</div>
+<img src="Resources/10 - Turing Machines/641e5c26-6c78-4575-8dee-e9b64894fa0e.png" alt="641e5c26-6c78-4575-8dee-e9b64894fa0e" style="scale:0.67;" />
+<p>And the transition function is represented in two different ways. For this example we will be going from the state <span class="math">\(S\)</span> with input symbol <span class="math">\(a\)</span>, writing symbol <span class="math">\(c\)</span> and moving the head to the right into state <span class="math">\(A\)</span>:</p>
 <ul>
-<li><p>Formal Representation: <span class="math display">\[
+<li><p>Formal Representation:</p>
+<div class="math">
+\[
 \delta(A,a) = \{(A,c,1)\}
-\]</span></p></li>
-<li><p>State Diagram: <span class="math display">\[
+\]</div>
+</li>
+<li><p>State Diagram:</p>
+<div class="math">
+\[
 S \overset {a,c,1} \longrightarrow |A|
-\]</span></p></li>
+\]</div>
+</li>
 </ul>
-<p>A Turing Machine <span class="math inline">\(R=(Q,\Sigma,G,\delta,q_0,B,F)\)</span> accepts a word <span class="math inline">\(a\alpha \in \Sigma^+\)</span> if <span class="math inline">\(\exists q \in F\)</span> such that: <span class="math display">\[
+<p>A Turing Machine <span class="math">\(R=(Q,\Sigma,G,\delta,q_0,B,F)\)</span> accepts a word <span class="math">\(a\alpha \in \Sigma^+\)</span> if <span class="math">\(\exists q \in F\)</span> such that:</p>
+<div class="math">
+\[
 (a,q_0,\alpha) \vdash^*(B,q,\epsilon)
-\]</span> In the same way <span class="math inline">\(R\)</span> accepts <span class="math inline">\(\epsilon\)</span> if <span class="math inline">\(\exists q \in F\)</span> such that: <span class="math display">\[
+\]</div>
+<p>In the same way <span class="math">\(R\)</span> accepts <span class="math">\(\epsilon\)</span> if <span class="math">\(\exists q \in F\)</span> such that:</p>
+<div class="math">
+\[
 (B,q_0,\epsilon) \vdash^* (B,q,\epsilon)
-\]</span> The language of words accepted by a Turing Machine <span class="math inline">\(R\)</span> is: <span class="math display">\[
+\]</div>
+<p>The language of words accepted by a Turing Machine <span class="math">\(R\)</span> is:</p>
+<div class="math">
+\[
 L(R)
-\]</span> A language <span class="math inline">\(L\)</span> is reclusively enumerable if it is accepted by some Turing Machine <span class="math inline">\(R\)</span>, and every language accepted by <span class="math inline">\(k-\)</span>tape Turing Machine is recursively enumerable.</p>
+\]</div>
+<p>A language <span class="math">\(L\)</span> is reclusively enumerable if it is accepted by some Turing Machine <span class="math">\(R\)</span>, and every language accepted by $k-$tape Turing Machine is recursively enumerable.</p>
 <h2 id="nondeterministic-turing-machine">Nondeterministic Turing Machine</h2>
-<p>A <strong>nondeterministic Turing Machine</strong> is a seven-tuple <span class="math display">\[
+<p>A <strong>nondeterministic Turing Machine</strong> is a seven-tuple</p>
+<div class="math">
+\[
 R=(Q,\Sigma,G,\delta,q_0,B,G)
-\]</span> where:</p>
+\]</div>
+<p>where:</p>
 <ul>
-<li><span class="math inline">\(Q\)</span> is the finite set of states</li>
-<li><span class="math inline">\(\Sigma\)</span> is the finite input alphabet</li>
-<li><span class="math inline">\(G\)</span> is the finite work alphabet <span class="math inline">\((\Sigma \subset G)\)</span></li>
-<li><span class="math inline">\(\delta\)</span> is the mapping function from <span class="math inline">\((Q\setminus F) \times G\)</span> into <span class="math inline">\(\mathcal P(Q \times G\times \{-1,0,1\})\)</span></li>
-<li><span class="math inline">\(q_0 \in Q\)</span> is the initial state</li>
-<li><span class="math inline">\(B \in G \setminus \Sigma\)</span> is the blank symbol</li>
-<li><span class="math inline">\(F\subseteq Q\)</span> is a set of final states</li>
+<li><span class="math">\(Q\)</span> is the finite set of states</li>
+<li><span class="math">\(\Sigma\)</span> is the finite input alphabet</li>
+<li><span class="math">\(G\)</span> is the finite work alphabet <span class="math">\((\Sigma \subset G)\)</span></li>
+<li><span class="math">\(\delta\)</span> is the mapping function from <span class="math">\((Q\setminus F) \times G\)</span> into <span class="math">\(\mathcal P(Q \times G\times \{-1,0,1\})\)</span></li>
+<li><span class="math">\(q_0 \in Q\)</span> is the initial state</li>
+<li><span class="math">\(B \in G \setminus \Sigma\)</span> is the blank symbol</li>
+<li><span class="math">\(F\subseteq Q\)</span> is a set of final states</li>
 </ul>
-<p>A NTM accepts a word <span class="math inline">\(a\alpha\)</span> if there exists <span class="math inline">\(q\in F\)</span> so that: <span class="math display">\[
+<p>A NTM accepts a word <span class="math">\(a\alpha\)</span> if there exists <span class="math">\(q\in F\)</span> so that:</p>
+<div class="math">
+\[
 (a,q_0,\alpha)\vdash^*(B,q,\epsilon)
-\]</span> Also, it accepts an empty string if there exists <span class="math inline">\(q\in F\)</span> so that: <span class="math display">\[
+\]</div>
+<p>Also, it accepts an empty string if there exists <span class="math">\(q\in F\)</span> so that:</p>
+<div class="math">
+\[
 (B,q_0,\epsilon)\vdash^*(B,q,\epsilon)
-\]</span> We can also convert nondeterministic Turing Machines into deterministic Turing machines so that they generate the same language. This means that NTM accept exactly reclusively enumerable languages.</p>
+\]</div>
+<p>We can also convert nondeterministic Turing Machines into deterministic Turing machines so that they generate the same language. This means that NTM accept exactly reclusively enumerable languages.</p>
 <h2 id="linear-bounded-automaton">Linear Bounded Automaton</h2>
-<p>A Linear Bounded Automaton or <strong>Linear Bounded Turing Machine</strong> is TM whose length of the tape is restricted to a <span class="math inline">\(k\)</span>-multiple of length of the impute word, for some fixed <span class="math inline">\(k\)</span>.</p>
-<p>For any non-contracting grammar <span class="math inline">\(G\)</span> there exists a LBA <span class="math inline">\(R\)</span> such that <span class="math inline">\(L(G) = L(R)\)</span>. We can also say that Context-Sensitive languages are accepted exactly by LBAs</p>
+<p>A Linear Bounded Automaton or <strong>Linear Bounded Turing Machine</strong> is TM whose length of the tape is restricted to a <span class="math">\(k\)</span>-multiple of length of the impute word, for some fixed <span class="math">\(k\)</span>.</p>
+<p>For any non-contracting grammar <span class="math">\(G\)</span> there exists a LBA <span class="math">\(R\)</span> such that <span class="math">\(L(G) = L(R)\)</span>. We can also say that Context-Sensitive languages are accepted exactly by LBAs</p>
 <h2 id="undecidable-problems">Undecidable Problems</h2>
-<p>Given a TM <span class="math inline">\(T\)</span> and an input <span class="math inline">\(w\)</span>, does <span class="math inline">\(T\)</span> halt on <span class="math inline">\(w\)</span>? This is called the <strong>Halting Problem for Turing Machines</strong> and it is not recursive.</p>
+<p>Given a TM <span class="math">\(T\)</span> and an input <span class="math">\(w\)</span>, does <span class="math">\(T\)</span> halt on <span class="math">\(w\)</span>? This is called the <strong>Halting Problem for Turing Machines</strong> and it is not recursive.</p>
 <h3 id="p-and-np-problems">P and NP problems</h3>
 <p>We have to classes of problems defined by the time it takes for them to be solves:</p>
 <ul>
 <li><strong>Class P problems</strong> are the ones that can be solved in polynomial time using a deterministic TM.</li>
 <li><strong>Class NP problems</strong> can only be solved by non-deterministic TM in polynomial time.</li>
 </ul>
-<p>We can convert some languages into polynomial-time languages using <strong>polynomial-time reduction</strong>. We say that language <span class="math inline">\(A \subseteq\{0,1\}^*\)</span> is polynomial-time reducible to a language <span class="math inline">\(B\subseteq \{0,1\}^*\)</span> denoted by <span class="math inline">\(A\le_p B\)</span> if there is a polynomial-time computable function <span class="math inline">\(f:\{0,1\}^* \rightarrow \{0,1\}^*\)</span> such that: <span class="math display">\[
+<p>We can convert some languages into polynomial-time languages using <strong>polynomial-time reduction</strong>. We say that language <span class="math">\(A \subseteq\{0,1\}^*\)</span> is polynomial-time reducible to a language <span class="math">\(B\subseteq \{0,1\}^*\)</span> denoted by <span class="math">\(A\le_p B\)</span> if there is a polynomial-time computable function <span class="math">\(f:\{0,1\}^* \rightarrow \{0,1\}^*\)</span> such that:</p>
+<div class="math">
+\[
 \forall x \in \{0,1\}^*/ x\in A \iff f(x) \in B
-\]</span> We also have another class of problems called <strong>NP-hard</strong>. These problems are such that any problem in NP can be reduced to them (they are at least as hard as the hardest problems in NP). Formally, we can define them as: <span class="math display">\[
+\]</div>
+<p>We also have another class of problems called <strong>NP-hard</strong>. These problems are such that any problem in NP can be reduced to them (they are at least as hard as the hardest problems in NP). Formally, we can define them as:</p>
+<div class="math">
+\[
 B \in \text{NP-hard} \iff A \le _p B, ~~\forall A \in \text{NP}
-\]</span> We can also talk about <strong>NP-compete</strong> problems. This category contains all the <em>“hardest”</em> problems inside the NP class. They can be defined as: <span class="math display">\[
+\]</div>
+<p>We can also talk about <strong>NP-compete</strong> problems. This category contains all the <em>&quot;hardest&quot;</em> problems inside the NP class. They can be defined as:</p>
+<div class="math">
+\[
 B \in \text{NP-complete} \iff B \in \text{NP-hard} \land B \in \text{NP}
-\]</span></p>
+\]</div>
+
 </body>
 </html>

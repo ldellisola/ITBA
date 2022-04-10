@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>12 - Operational Program Semantics</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>12 - Operational Program Semantics.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,63 +1385,98 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="operational-program-semantics">Operational Program Semantics</h1>
 <p>We assume that a program has:</p>
 <ul>
-<li><span class="math inline">\(L\)</span> lines</li>
-<li>variables from a set <span class="math inline">\(V\)</span> such that very variable <span class="math inline">\(v\)</span> has type <span class="math inline">\(T_v\)</span></li>
+<li><span class="math">\(L\)</span> lines</li>
+<li>variables from a set <span class="math">\(V\)</span> such that very variable <span class="math">\(v\)</span> has type <span class="math">\(T_v\)</span></li>
 </ul>
 <p>The <strong>program state</strong> is a function that assigns:</p>
 <ul>
-<li>To the special variable <span class="math inline">\(pc\)</span> an element from <span class="math inline">\({1,\dots, L}\)</span></li>
-<li>To each variable <span class="math inline">\(v\in V\)</span> an element from the set <span class="math inline">\(T_v\)</span></li>
+<li>To the special variable <span class="math">\(pc\)</span> an element from <span class="math">\({1,\dots, L}\)</span></li>
+<li>To each variable <span class="math">\(v\in V\)</span> an element from the set <span class="math">\(T_v\)</span></li>
 </ul>
-<p>For example: <span class="math display">\[
+<p>For example:</p>
+<div class="math">
+\[
 \{pc \mapsto 2, i \mapsto 1, a \mapsto[1,5,2,4]\}
-\]</span> The set of all states is called <span class="math inline">\(S\)</span>.</p>
-<p>With each step of the program, we take a certain state <span class="math inline">\(s \in S\)</span> and then compute another state <span class="math inline">\(s&#39;\in S\)</span>. This is denoted as: <span class="math display">\[
-s \rightarrow_Ps&#39;
-\]</span> This relation <span class="math inline">\(\rightarrow_P \subseteq S\times S\)</span> is called the <strong>transition relation</strong> of the program <span class="math inline">\(P\)</span>. A program may be influenced from the environment, such as reading data from a disk or it may influence itself the environment, like writing content to the console, hence it is possible that there are more than 1 possible next state and it is also possible to have more than one possible final output for one input.</p>
+\]</div>
+<p>The set of all states is called <span class="math">\(S\)</span>.</p>
+<p>With each step of the program, we take a certain state <span class="math">\(s \in S\)</span> and then compute another state <span class="math">\(s'\in S\)</span>. This is denoted as:</p>
+<div class="math">
+\[
+s \rightarrow_Ps'
+\]</div>
+<p>This relation <span class="math">\(\rightarrow_P \subseteq S\times S\)</span> is called the <strong>transition relation</strong> of the program <span class="math">\(P\)</span>. A program may be influenced from the environment, such as reading data from a disk or it may influence itself the environment, like writing content to the console, hence it is possible that there are more than 1 possible next state and it is also possible to have more than one possible final output for one input.</p>
 <h2 id="the-transition-relation">The Transition Relation</h2>
 <p>First, we need to define some functions and operators:</p>
-<p>The function <span class="math inline">\(\pi:S\rightarrow S&#39;\)</span> where <span class="math inline">\(S&#39;\)</span> is as <span class="math inline">\(S\)</span>, but assigns values to primed variables: <span class="math display">\[
-\forall r\in S,v\in \{pc\}\cup V. \pi(r)(v&#39;) :=r(v)
-\]</span> For functions <span class="math inline">\(r,r&#39;\)</span> with disjoint domains <span class="math inline">\(R, R&#39;\)</span>, <span class="math inline">\(r \sqcup r&#39;\)</span> is a function with domain <span class="math inline">\(R \cup R&#39;\)</span> for all <span class="math inline">\(v \in R \cup R&#39;\)</span>: <span class="math display">\[
-(r\sqcup r&#39;)(v) = \left\{\array{r(v) &amp; v\in R\\ r&#39;(v) &amp;v\in R&#39;}\right.
-\]</span></p>
+<p>The function <span class="math">\(\pi:S\rightarrow S'\)</span> where <span class="math">\(S'\)</span> is as <span class="math">\(S\)</span>, but assigns values to primed variables:</p>
+<div class="math">
+\[
+\forall r\in S,v\in \{pc\}\cup V. \pi(r)(v') :=r(v)
+\]</div>
+<p>For functions <span class="math">\(r,r'\)</span> with disjoint domains <span class="math">\(R, R'\)</span>, <span class="math">\(r \sqcup r'\)</span> is a function with domain <span class="math">\(R \cup R'\)</span> for all <span class="math">\(v \in R \cup R'\)</span>:</p>
+<div class="math">
+\[
+(r\sqcup r')(v) = \left\{\array{r(v) &amp; v\in R\\ r'(v) &amp;v\in R'}\right.
+\]</div>
 <ul>
-<li><p><strong>Assignment</strong>: if <span class="math inline">\(s(pc)\)</span> points to a line with an assignment <code>v &lt;- t</code>: <span class="math display">\[
-s\rightarrow_P s&#39; \iff s\sqcup\pi(s&#39;) \models pc&#39; =pc+1 \land v&#39;=t \land \bigwedge_{u\in V, u\neq v} u&#39;=u
-\]</span></p></li>
-<li><p><strong>Goto</strong>: If <span class="math inline">\(s(pc)\)</span> points to a line with the command <code>goto r</code>: <span class="math display">\[
-s \rightarrow_P s&#39; \iff s\sqcup\pi(s&#39;) \models pc&#39; = r \land \bigwedge_{u\in V} u&#39; = u
-\]</span></p></li>
-<li><p><strong>If then</strong>: If <span class="math inline">\(s(pc)\)</span> points to a line with the command <code>if P then</code>: <span class="math display">\[
-s \rightarrow_P s&#39; \iff s\sqcup\pi(s&#39;) \models [P \implies pc&#39; = pc+1]\land[\neg P \implies pc&#39; = l]\land \bigwedge_{u\in V} u&#39; = u
-\]</span></p></li>
-<li><p><strong>Assertions</strong>: Even though we have two different types of assertions, they behave the same way. If <span class="math inline">\(s(pc)\)</span> points to a line <span class="math inline">\(\bold{\text{assume }} \phi\)</span> or <span class="math inline">\(@\ \phi\)</span>: <span class="math display">\[
-s\rightarrow_Ps&#39; \iff s \sqcup\pi(s&#39;) \models pc&#39; = pc + 1 \land \phi \land \bigwedge_{u\in V} u&#39; = u
-\]</span></p></li>
-<li><p><strong>Side effects</strong>: If there is input from the user or any other kind of influence that does not depend on the state of the program, we have to ignore it. So if <span class="math inline">\(s(pc)\)</span> points to a line of the form <code>input v</code>: <span class="math display">\[
-s \rightarrow_P s&#39; \iff s \sqcup\pi(s&#39;) \models pc&#39; = pc + 1 \land \bigwedge_{u\in V, u \neq v} u&#39; = u
-\]</span> This commands are non-deterministic, so we cannot know the value of the variable.</p></li>
-<li><p><strong>Stop</strong>: The program will terminate if: <span class="math display">\[
-s \rightarrow_P s&#39; \iff \bot
-\]</span></p></li>
+<li><p><strong>Assignment</strong>: if <span class="math">\(s(pc)\)</span> points to a line with an assignment <code>v &lt;- t</code>:</p>
+<div class="math">
+\[
+s\rightarrow_P s' \iff s\sqcup\pi(s') \models pc' =pc+1 \land v'=t \land \bigwedge_{u\in V, u\neq v} u'=u
+\]</div>
+</li>
+<li><p><strong>Goto</strong>: If <span class="math">\(s(pc)\)</span> points to a line with the command <code>goto r</code>:</p>
+<div class="math">
+\[
+s \rightarrow_P s' \iff s\sqcup\pi(s') \models pc' = r \land \bigwedge_{u\in V} u' = u
+\]</div>
+</li>
+<li><p><strong>If then</strong>: If <span class="math">\(s(pc)\)</span> points to a line with the command <code>if P then</code>:</p>
+<div class="math">
+\[
+s \rightarrow_P s' \iff s\sqcup\pi(s') \models [P \implies pc' = pc+1]\land[\neg P \implies pc' = l]\land \bigwedge_{u\in V} u' = u
+\]</div>
+</li>
+<li><p><strong>Assertions</strong>: Even though we have two different types of assertions, they behave the same way. If <span class="math">\(s(pc)\)</span> points to a line <span class="math">\(\bold{\text{assume }} \phi\)</span> or <span class="math">\(@\ \phi\)</span>:</p>
+<div class="math">
+\[
+s\rightarrow_Ps' \iff s \sqcup\pi(s') \models pc' = pc + 1 \land \phi \land \bigwedge_{u\in V} u' = u
+\]</div>
+</li>
+<li><p><strong>Side effects</strong>: If there is input from the user or any other kind of influence that does not depend on the state of the program, we have to ignore it. So if <span class="math">\(s(pc)\)</span> points to a line of the form <code>input v</code>:</p>
+<div class="math">
+\[
+s \rightarrow_P s' \iff s \sqcup\pi(s') \models pc' = pc + 1 \land \bigwedge_{u\in V, u \neq v} u' = u
+\]</div>
+<p>This commands are non-deterministic, so we cannot know the value of the variable.</p>
+</li>
+<li><p><strong>Stop</strong>: The program will terminate if:</p>
+<div class="math">
+\[
+s \rightarrow_P s' \iff \bot
+\]</div>
+</li>
 </ul>
 <h2 id="program-execution">Program Execution</h2>
-<p>A program can do an arbitrary number of steps according to <span class="math inline">\(\rightarrow_P\)</span>: <span class="math display">\[
-r \rightarrow_P^* r&#39; \iff \exists s_1,\dots,s_n/r = s_1 \rightarrow_p \dots\rightarrow_p s_n = r&#39;
-\]</span> If we want to exclude the <span class="math inline">\(0\)</span> step possibility, we can use the <span class="math inline">\(\rightarrow_P^+\)</span> transitive relation.</p>
+<p>A program can do an arbitrary number of steps according to <span class="math">\(\rightarrow_P\)</span>:</p>
+<div class="math">
+\[
+r \rightarrow_P^* r' \iff \exists s_1,\dots,s_n/r = s_1 \rightarrow_p \dots\rightarrow_p s_n = r'
+\]</div>
+<p>If we want to exclude the <span class="math">\(0\)</span> step possibility, we can use the <span class="math">\(\rightarrow_P^+\)</span> transitive relation.</p>
 <h2 id="operational-program-semantics-1">Operational Program Semantics</h2>
-<p>The semantics of a program <span class="math inline">\(P\)</span> are defined as the relation <span class="math inline">\([[P]] \subset S \times S/[[P]](s,s&#39;)\)</span> if:</p>
+<p>The semantics of a program <span class="math">\(P\)</span> are defined as the relation <span class="math">\([[P]] \subset S \times S/[[P]](s,s')\)</span> if:</p>
 <ul>
-<li><span class="math inline">\(s\rightarrow_P^* s&#39;\)</span></li>
-<li><span class="math inline">\(\not \exists s&#39;&#39;/s&#39;\rightarrow_p s&#39;&#39;\)</span></li>
+<li><span class="math">\(s\rightarrow_P^* s'\)</span></li>
+<li><span class="math">\(\not \exists s''/s'\rightarrow_p s''\)</span></li>
 </ul>
-<p>Wh<span class="math inline">\(s\)</span> represents the initial state while <span class="math inline">\(s&#39;\)</span> is the final state.</p>
+<p>Wh$s$ represents the initial state while <span class="math">\(s'\)</span> is the final state.</p>
+
 </body>
 </html>

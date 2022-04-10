@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>06 - Perceptron</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>06 - Perceptron.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,13 +1385,14 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="perceptron-classifier">Perceptron Classifier</h1>
 <h2 id="classifier-design">Classifier Design</h2>
-<p>In <strong>Bayesian classifiers</strong>, the object of interest is characterised by obsevable properties <span class="math inline">\(x\in X\)</span> and its class membership (hidden state) <span class="math inline">\(k \in K\)</span>. The objective of these classifiers is to find a strategy that has some optimal properties and the Bayesian decision theory solves the problem of minimization if risk.</p>
-<p>In the case of <strong>Parameter estimation</strong>, we are assuming that the probability has a particular form with a small number of parameters, that we are then trying to estimate with the training data set <span class="math inline">\((\mathcal T)\)</span>. In this case we need to decide on which estimation principle should be used, and it has some drawbacks:</p>
+<p>In <strong>Bayesian classifiers</strong>, the object of interest is characterised by obsevable properties <span class="math">\(x\in X\)</span> and its class membership (hidden state) <span class="math">\(k \in K\)</span>. The objective of these classifiers is to find a strategy that has some optimal properties and the Bayesian decision theory solves the problem of minimization if risk.</p>
+<p>In the case of <strong>Parameter estimation</strong>, we are assuming that the probability has a particular form with a small number of parameters, that we are then trying to estimate with the training data set <span class="math">\((\mathcal T)\)</span>. In this case we need to decide on which estimation principle should be used, and it has some drawbacks:</p>
 <ul>
 <li>There is no direct relationship between known properties of the estimated probability and the properties of the obtained classifier.</li>
 <li>If the form of the estimated probability function is not the same form of the true probability function, the classifier may be arbitrarily bad.</li>
@@ -1541,84 +1404,137 @@ blockquote {
 </ul>
 <h2 id="empirical-risk-minimization">Empirical Risk Minimization</h2>
 <p>We can also create a classifier based on <strong>risk minimization</strong> that does not try to estimate the probability function. We need to find a decision function that minimizes some criterion function on the training set that approximates the risk (the true risk is unknown).</p>
-<p>We are defining <strong>Empirical Risk</strong> as the training set error, and based on this we try to approximate the true risk: <span class="math display">\[
+<p>We are defining <strong>Empirical Risk</strong> as the training set error, and based on this we try to approximate the true risk:</p>
+<div class="math">
+\[
 R_{emp}(q_\theta(x)) = \frac 1 L \sum_i^L W(q_\theta(x_i),k_i)\\
 \theta^* = \underset \theta {\arg\min} ~R_{emp}(q_\theta (x))
-\]</span> Examples of this are Perceptron and Neural networks.</p>
+\]</div>
+<p>Examples of this are Perceptron and Neural networks.</p>
 <p>A big problem with empirical risk minimization is that small empirical risk does not imply a small true expected risk, because our models tend to <strong>overfit</strong></p>
-<figure>
-<img src="Resources/06%20-%20Perceptron/image-20201117125038810.png" alt="image-20201117125038810" /><figcaption aria-hidden="true">image-20201117125038810</figcaption>
-</figure>
+<p>![image-20201117125038810](Resources/06 - Perceptron/ed783ab2-4ef9-48ce-87c3-92e85784e57c.png)</p>
 <h3 id="structural-risk-minimization-principle">Structural Risk Minimization Principle</h3>
-<p>We want to minimize the risk <span class="math inline">\(R\)</span>: <span class="math display">\[
+<p>We want to minimize the risk <span class="math">\(R\)</span>:</p>
+<div class="math">
+\[
 R(q) = \sum_{x,k} p(x,k)W(q_\theta(x),k)
-\]</span> But we do not know the probability distribution <span class="math inline">\(p(x,k)\)</span>. We can get around this by using the Vapnik and Chervonenkis inequality: <span class="math display">\[
+\]</div>
+<p>But we do not know the probability distribution <span class="math">\(p(x,k)\)</span>. We can get around this by using the Vapnik and Chervonenkis inequality:</p>
+<div class="math">
+\[
 \Pr\left(R(q) \le R_{emp}(q) + \sqrt{\frac 1 N \left[h \left(\log\left(\frac {2N}h\right) + 1\right)- \log\left(\frac \eta 4\right)\right]}\right) = 1-\eta
-\]</span> Where <span class="math inline">\(N\)</span> is the training set size, <span class="math inline">\(h\)</span> is the VC dimension (capacity) of the class strategies <span class="math inline">\(Q\)</span>, and <span class="math inline">\(0 &lt; \eta &lt; 1\)</span>. Now the term does not depend on the unknown <span class="math inline">\(p(x,k)\)</span> and the VC dimension <span class="math inline">\(h\)</span> is known for some classes of <span class="math inline">\(Q\)</span>, for example, linear classifiers.</p>
+\]</div>
+<p>Where <span class="math">\(N\)</span> is the training set size, <span class="math">\(h\)</span> is the VC dimension (capacity) of the class strategies <span class="math">\(Q\)</span>, and <span class="math">\(0 &lt; \eta &lt; 1\)</span>. Now the term does not depend on the unknown <span class="math">\(p(x,k)\)</span> and the VC dimension <span class="math">\(h\)</span> is known for some classes of <span class="math">\(Q\)</span>, for example, linear classifiers.</p>
 <h2 id="linear-classifiers">Linear Classifiers</h2>
-<p>For some statistical models, the Bayesian and non-Bayesian strategy is implemented by a <strong>linear discriminant function</strong>. The capacity of linear strategies in an <span class="math inline">\(n\)</span>-dimensional space is <span class="math inline">\(n+1\)</span>, thus the learning task is well-posed. this means that a strategy tuned on a finite training multiset does not differ much from the correct strategy found for a statistical model.</p>
+<p>For some statistical models, the Bayesian and non-Bayesian strategy is implemented by a <strong>linear discriminant function</strong>. The capacity of linear strategies in an <span class="math">\(n\)</span>-dimensional space is <span class="math">\(n+1\)</span>, thus the learning task is well-posed. this means that a strategy tuned on a finite training multiset does not differ much from the correct strategy found for a statistical model.</p>
 <p>There are efficient learning algorithms for linear classifiers, and even some non-linear discriminant functions can be implemented as linear after expanding the dimensions.</p>
-<p>Considering a dataset <span class="math inline">\(\mathcal T = \{(x_1,k_1),\dots,(x_L,k_L)\}\)</span> with <span class="math inline">\(x_i \in \mathbb{R}^D\)</span> and <span class="math inline">\(k_i \in \{1,-1\}\)</span>, we say that this data is <strong>linearly separable</strong> (for 2 classes) if there exists a hyperplane which divides <span class="math inline">\(\mathbb{R}^D\)</span> into two half-spaces such that the data of a given class are all in one half-space. Formally, the data are separable if: <span class="math display">\[
+<p>Considering a dataset <span class="math">\(\mathcal T = \{(x_1,k_1),\dots,(x_L,k_L)\}\)</span> with <span class="math">\(x_i \in \mathbb{R}^D\)</span> and <span class="math">\(k_i \in \{1,-1\}\)</span>, we say that this data is <strong>linearly separable</strong> (for 2 classes) if there exists a hyperplane which divides <span class="math">\(\mathbb{R}^D\)</span> into two half-spaces such that the data of a given class are all in one half-space. Formally, the data are separable if:</p>
+<div class="math">
+\[
 \exists e \in \mathbb{R}^{D+1}/ sign\left(x \times \left[\array{1 \\ x_i}\right]\right) = k_1\\
 \forall i \in \{1,\dots,L\}
-\]</span></p>
+\]</div>
 <h3 id="perceptron-classifier-1">Perceptron Classifier</h3>
-<p>The perceptron classifier takes a training dataset composed of 2 classes and tries to find a weight vector <span class="math inline">\(w\)</span> and offset <span class="math inline">\(w_0\)</span> such that: <span class="math display">\[
+<p>The perceptron classifier takes a training dataset composed of 2 classes and tries to find a weight vector <span class="math">\(w\)</span> and offset <span class="math">\(w_0\)</span> such that:</p>
+<div class="math">
+\[
 \array{ 
 w \times x_j + w_0 &gt; 0 &amp;&amp; \text{if } k_j = 1 \\
 w \times x_j + w_0 &lt; 0 &amp;&amp; \text{if } k_j = -1 \\
 }
-\]</span> Or, using the same approach as in the logistic regression lecture, we can combine the parameters as: <span class="math display">\[
-x_i&#39; =k_i\left[\array{1 \\ x_i}\right], w&#39; = \left[\array{w_0\\w}\right]
-\]</span> And we can create a single function for all classes: <span class="math display">\[
-w&#39; \times x_i&#39; &gt; 0~~~\forall i \in \{1,\dots,L\}
-\]</span> From now on, we will call <span class="math inline">\(x = x&#39;, w = w&#39;\)</span>.</p>
+\]</div>
+<p>Or, using the same approach as in the logistic regression lecture, we can combine the parameters as:</p>
+<div class="math">
+\[
+x_i' =k_i\left[\array{1 \\ x_i}\right], w' = \left[\array{w_0\\w}\right]
+\]</div>
+<p>And we can create a single function for all classes:</p>
+<div class="math">
+\[
+w' \times x_i' &gt; 0~~~\forall i \in \{1,\dots,L\}
+\]</div>
+<p>From now on, we will call <span class="math">\(x = x', w = w'\)</span>.</p>
 <p>In order to reach our goal, we are going to use the <strong>perceptron algorithm</strong>:</p>
-<ol type="1">
-<li><p>Initialize the variables: <span class="math display">\[
+<ol>
+<li><p>Initialize the variables:</p>
+<div class="math">
+\[
 t = 0, w^{(t)} = 0
-\]</span></p></li>
-<li><p>Find a wrongly classifies observation <span class="math inline">\(x_i\)</span>: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Find a wrongly classifies observation <span class="math">\(x_i\)</span>:</p>
+<div class="math">
+\[
 w^{(t)} \times x_i \le 0
-\]</span></p></li>
-<li><p>If there is no misclassified observation then terminate. Else: <span class="math display">\[
+\]</div>
+</li>
+<li><p>If there is no misclassified observation then terminate. Else:</p>
+<div class="math">
+\[
 w^{(t+1)} =  w^{(t)} + x_i
-\]</span></p></li>
-<li><p>Go back to step 2.</p></li>
+\]</div>
+</li>
+<li><p>Go back to step 2.</p>
+</li>
 </ol>
 <p>According to the <strong>Novikoff Theorem</strong>:</p>
-<blockquote>
-<p>Let the data be linearly separable and let there be a unit vector <span class="math inline">\(u\)</span> and a scalar <span class="math inline">\(\gamma \in \mathbb{R}^+\)</span> such that: <span class="math display">\[
+<blockquote class="blockquote">
+<p>Let the data be linearly separable and let there be a unit vector <span class="math">\(u\)</span> and a scalar <span class="math">\(\gamma \in \mathbb{R}^+\)</span> such that:</p>
+<div class="math">
+\[
 \array{
 w \times x_i \ge \gamma &amp;\forall i\in\{1,\dots,L\}&amp;||u|| = 1
 }
-\]</span> Let the norm of the longest vector in the dataset be <span class="math inline">\(D\)</span>: <span class="math display">\[
+\]</div>
+<p>Let the norm of the longest vector in the dataset be <span class="math">\(D\)</span>:</p>
+<div class="math">
+\[
 D = \max_{x\in\mathcal T}||x||
-\]</span> Then the perceptron algorithm will finish in a <strong>finite number of steps</strong> <span class="math inline">\(t^*\)</span> such that: <span class="math display">\[
+\]</div>
+<p>Then the perceptron algorithm will finish in a <strong>finite number of steps</strong> <span class="math">\(t^*\)</span> such that:</p>
+<div class="math">
+\[
 t^* \le \frac {D^2}{\gamma^2}
-\]</span></p>
+\]</div>
 </blockquote>
 <p>You can also think about the Perceptron algorithm as a way to minimize a weight vector, and the best way to do this is with a gradient descent, and the perceptron algorithm is a gradient descent method.</p>
 <h4 id="non-separable-data">Non-Separable Data</h4>
 <p>Where exists a version of the Perceptron algorithm that can handle non-separable datasets. To do this we need to use the following algorithm:</p>
-<ol type="1">
-<li><p>Initialize the variables: <span class="math display">\[
+<ol>
+<li><p>Initialize the variables:</p>
+<div class="math">
+\[
 w^{(0)} = 0, E = |T| = L, w^* = 0
-\]</span></p></li>
-<li><p>Find all misclassified observation <span class="math inline">\(X^-\)</span>: <span class="math display">\[
+\]</div>
+</li>
+<li><p>Find all misclassified observation <span class="math">\(X^-\)</span>:</p>
+<div class="math">
+\[
 X^- = \{x\in X / w^{(t)} \times x \le 0\}
-\]</span></p></li>
-<li><p>If <span class="math inline">\(|X^-| &lt; E\)</span> then: <span class="math display">\[
+\]</div>
+</li>
+<li><p>If <span class="math">\(|X^-| &lt; E\)</span> then:</p>
+<div class="math">
+\[
 E =  |X^-|, w^* = w^{(t)}
-\]</span></p></li>
-<li><p>If we reach the terminal condition, exit the algorithm. Else: <span class="math display">\[
+\]</div>
+</li>
+<li><p>If we reach the terminal condition, exit the algorithm. Else:</p>
+<div class="math">
+\[
 w^{(t+1)} = w^{(t)} + \eta_t \sum_{x\in X^-} x
-\]</span></p></li>
-<li><p>Go to step 2.</p></li>
+\]</div>
+</li>
+<li><p>Go to step 2.</p>
+</li>
 </ol>
 <p>This algorithm converges to with probability 1 to the optimal solution, but the convergence rate is not known. The terminal condition is a complex function of the quality of the best solution, time since the last update and requirements on the solution.</p>
-<p>Another way to solve the non-separable dataset problem is by <strong>lifting the dimensions</strong>. The idea here is to convert a dataset of dimension <span class="math inline">\(d\)</span> to dimension <span class="math inline">\(d&#39;\)</span> such that the data is separable in <span class="math inline">\(d&#39;\)</span> dimensions. This is done using a mapping function: <span class="math display">\[
-\phi:\mathbb{R}^d \rightarrow \mathbb{R}^{d&#39;}
-\]</span> We can create this mapping function in such a way that the algorithm will converge faster.</p>
+<p>Another way to solve the non-separable dataset problem is by <strong>lifting the dimensions</strong>. The idea here is to convert a dataset of dimension <span class="math">\(d\)</span> to dimension <span class="math">\(d'\)</span> such that the data is separable in <span class="math">\(d'\)</span> dimensions. This is done using a mapping function:</p>
+<div class="math">
+\[
+\phi:\mathbb{R}^d \rightarrow \mathbb{R}^{d'}
+\]</div>
+<p>We can create this mapping function in such a way that the algorithm will converge faster.</p>
+
 </body>
 </html>

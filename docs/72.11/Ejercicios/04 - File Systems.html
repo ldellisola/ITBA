@@ -1,153 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>04 - File Systems</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>04 - File Systems.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -156,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -213,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -277,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -360,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -379,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -401,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -498,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -590,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -631,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -674,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -861,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -917,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1240,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1365,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1522,33 +1385,38 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="file-systems">File Systems</h1>
 <h2 id="section">1</h2>
 <p>Tenemos un sistema de archivos tipo UNIX en el que para localizar los bloques de un archivo se utilizan <u>11 entradas directas</u>, <u>una entrada indirecta</u>, <u>una entrada doblemente indirecta y una entrada triple indirecta</u>. E<u>l tamaño de bloque es de 1KB (1024 bytes)</u> <u>y los enlaces a bloques son de 32 bits</u>. Para responder a las siguientes cuestiones, asuma que la información del inodo del archivo ya se encuentra en memoria principal.</p>
-<ol type="1">
+<ol>
 <li><p>En función de la información dada, ¿cuál es la longitud máxima que puede tener un fichero en este sistema? (se puede dar una estimación aproximada).</p>
 <p>Tenemos 11 bloques directos, que serian 11KB.</p>
 <p>Como sabemos que los nodos son bloques tambien, entonces tienen un tama;o de 1KB. Si dividimos a esto por el tama;o de cada entrada (32 bits), podemos decir que cada nodo permite 256 entradas.</p>
 <p>Con la informacion anterior, podemos decir que la entrada indirecta nos permite obtener 256 KB adicionales, mientras que la entrada doblemente indirecta nos permite 64 MB, y por ultimo la entrada triple indirecta nos da unos adicionales 16GB.</p>
-<p>Teniendo en cuenta estos numeros, podemos decir que un programa puede pesar como mucho alrededor de 16GB.</p></li>
+<p>Teniendo en cuenta estos numeros, podemos decir que un programa puede pesar como mucho alrededor de 16GB.</p>
+</li>
 <li><p>Tenemos un fichero de 10 megabytes de longitud. ¿Cuántos bloques consume del sistema de archivos? (NOTA: 1 megabyte = 1024 KiB).</p>
 <p>Teniendo bloques de 1KB, podemos decir que nuestro archivo necesita 10240 bloques</p>
 <p>Sacando 11 bloques directos y 256 bloques indirectos, nos quedan 9973 bloques. Como en los bloques indirectos dobles podemos tener hasta ~65000 bloques, no hace falta usar bloques de direccionamiento indirecto triple.</p>
-<p>De los bloques de direccionamiento indirecto doble, vamos a usar 39 bloques, es decir tendriamos nuestro primer nodo doble que apunta a los 39 nodos, por lo que serian 40 bloques</p>
-<p>Entonces vamos a utilizar 10240 + 1 + 1 +39 = 10281 bloques.</p></li>
+<p>De los bloques de direccionamiento indirecto doble, vamos a usar  39 bloques, es decir tendriamos nuestro primer nodo doble que apunta a los 39 nodos, por lo que serian 40 bloques</p>
+<p>Entonces vamos a utilizar 10240 + 1 + 1 +39 = 10281 bloques.</p>
+</li>
 <li><p>Al fichero anterior le queremos modificar un byte situado en la posición 1.000.000, relativa al comienzo del fichero. ¿Cuántos accesos a bloques tenemos que realizar para completar la operación?</p>
 <p>Tenemos que acceder al primer MB, entonces vemos que tenemos que acceder a un bloque de los dirigidos doblemente indirectos. Entonces vamos a acceder al fichero, de ahi iremos al primer nodo de los indirectos doble (que contiene 256 nodos), de ahi tendriamos que acceder al nodo correspondiente (contiene 256 bloques) y por ultimo accederiamos al bloque que necesitamos.</p>
-<p>Entonces tendriamos 4 accesos</p></li>
+<p>Entonces tendriamos 4 accesos</p>
+</li>
 </ol>
 <h2 id="section-1">2</h2>
 <p>Tenemos un sistema de archivos tipo UNIX en el que para localizar los bloques de un archivo se utilizan <u>10 entradas directas, una entrada indirecta, una entrada doblemente indirecta y una entrada triple</u>. Los <u>bloques tienen un tamaño de 2 KB</u> y <u>el tamaño de los índices (direcciones de bloques de disco) es de 32 bits</u>. En este sistema, un programa UNIX crea un fichero y realiza sobre él una operación write() de 55 millones de bytes.</p>
 <ul>
 <li><p>¿Cuántos bloques de disco ocupa ahora el fichero, incluyendo bloques de índices?</p>
 <p>Como cada bloque tiene 2048 bytes, entonces voy a escribir 26.856 bloques.</p>
-<p>Ocupo 10 bloques directos, 512 bloques indirectos y 26</p></li>
+<p>Ocupo 10 bloques directos, 512 bloques indirectos y 26</p>
+</li>
 <li><p>¿Cuál es el tamaño máximo de un fichero en este sistema?</p>
 <p>Los nodos de indices tienen 512 entradas, entonces voy a tener:</p>
 <ul>
@@ -1559,9 +1427,13 @@ blockquote {
 </ul>
 <p>En total tendria 134.480.134 bloques, es decir 256,5 GB aproximadamente</p>
 <p>Pero como el tama;o maximo de la direccion es de 32 bits, no puedo tener un archivo tan grande, y esto nos va a imponer el limite de tama;o en 4GB.</p>
-<p>==PREGUNTAR==</p></li>
-<li><p>Si la gestión del espacio en disco fuera enlazada y el tamaño del disco fuera de 8Terabytes, con el mismo tamaño de bloque, ¿cuántos bloques de disco ocuparía el fichero anterior tras realizar las mismas operaciones?</p></li>
-<li><p>Si el sistema de archivos aquí descrito se emplea en un sistema informático donde el 99% de los ficheros tiene un tamaño aproximado de 24KBytes, ¿cuál de los dos sistemas de gestión de espacio en disco emplearía y por qué?</p></li>
+<p><mark>PREGUNTAR</mark></p>
+</li>
+<li><p>Si la gestión del espacio en disco fuera enlazada y el tamaño del disco fuera de 8Terabytes, con el mismo tamaño de bloque, ¿cuántos bloques de disco ocuparía el fichero anterior tras realizar las mismas operaciones?</p>
+</li>
+<li><p>Si el sistema de archivos aquí descrito se emplea en un sistema informático donde el 99% de los ficheros tiene un tamaño aproximado de 24KBytes, ¿cuál de los dos sistemas de gestión de espacio en disco emplearía y por qué?</p>
+</li>
 </ul>
+
 </body>
 </html>

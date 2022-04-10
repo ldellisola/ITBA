@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>01 - Basic Notions</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>01 - Basic Notions.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,67 +1385,98 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="basic-notions">Basic Notions</h1>
-<p><strong>Alphabet:</strong> A finite set of symbols (notation <span class="math inline">\(\Sigma\)</span> or T)</p>
+<p><strong>Alphabet:</strong> A finite set of symbols (notation <span class="math">\(\Sigma\)</span> or T)</p>
 <p><strong>String</strong>: A sequence of symbols from an alphabet. Notation:</p>
 <ul>
-<li>An empty sequence is written as <span class="math inline">\(\epsilon\)</span>.</li>
-<li><span class="math inline">\(\Sigma^*\)</span>: Set of all strings of alphabet <span class="math inline">\(\Sigma\)</span></li>
-<li><span class="math inline">\(\Sigma^+\)</span>: Set of all non empty strings of alphabet <span class="math inline">\(\Sigma\)</span></li>
+<li>An empty sequence is written as <span class="math">\(\epsilon\)</span>.</li>
+<li><span class="math">\(\Sigma^*\)</span>: Set of all strings of alphabet <span class="math">\(\Sigma\)</span></li>
+<li><span class="math">\(\Sigma^+\)</span>: Set of all non empty strings of alphabet <span class="math">\(\Sigma\)</span></li>
 </ul>
 <h2 id="operations">Operations</h2>
 <h3 id="concatenation">Concatenation</h3>
-<p>Denoted as <span class="math inline">\(&quot;.&quot;\)</span></p>
-<p><span class="math inline">\(\forall x,y \in \Sigma^*\)</span>, the strings <span class="math inline">\(x.y\)</span> is created by concatenating strings <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<p>Denoted as <span class="math">\(&quot;.&quot;\)</span></p>
+<p><span class="math">\(\forall x,y \in \Sigma^*\)</span>, the strings <span class="math">\(x.y\)</span> is created by concatenating strings <span class="math">\(x\)</span> and <span class="math">\(y\)</span>.</p>
 <p>This operation:</p>
 <ul>
-<li><p><strong>Is associative</strong>: <span class="math display">\[
+<li><p><strong>Is associative</strong>:</p>
+<div class="math">
+\[
 \forall x,y,z \in \Sigma^*: (xy)z = x(yz)
-\]</span></p></li>
-<li><p><strong>Is not commutative:</strong> <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Is not commutative:</strong></p>
+<div class="math">
+\[
 \exists x,y \in \Sigma^* : xy \neq yx
-\]</span></p></li>
-<li><p><strong>Has Identity element</strong> <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Has Identity element</strong></p>
+<div class="math">
+\[
 \forall x \in \Sigma^* : \epsilon x = x\epsilon = x
-\]</span></p></li>
-<li><p><span class="math inline">\(a^0 = \epsilon, a^1 = a, a^2 = aa ...\)</span></p></li>
+\]</div>
+</li>
+<li><p><span class="math">\(a^0 = \epsilon, a^1 = a, a^2 = aa ...\)</span></p>
+</li>
 </ul>
 <h3 id="reversal">Reversal</h3>
-<p>It reverses a string, with the following notation: <span class="math inline">\(x^R\)</span></p>
-<p>For example: <span class="math display">\[
+<p>It reverses a string, with the following notation: <span class="math">\(x^R\)</span></p>
+<p>For example:</p>
+<div class="math">
+\[
 x = a_0a_1a_2\dots a_n \\
 x^R = a_na_{n-1}\dots a_1a_0
-\]</span></p>
+\]</div>
 <h3 id="length">Length</h3>
-<p>Denoted as <span class="math inline">\(|x|\)</span>, It returns the amount of symbols in a string. <span class="math display">\[
+<p>Denoted as <span class="math">\(|x|\)</span>, It returns the amount of symbols in a string.</p>
+<div class="math">
+\[
 |x| \geq 0
-\]</span></p>
+\]</div>
 <h2 id="formal-language">Formal Language</h2>
-<p>A formal language <span class="math inline">\(L\)</span> over <span class="math inline">\(\Sigma: L\subseteq \Sigma^*\)</span></p>
+<p>A formal language <span class="math">\(L\)</span> over <span class="math">\(\Sigma: L\subseteq \Sigma^*\)</span></p>
 <p>We can apply the following operations:</p>
 <ul>
-<li><p><strong>Union</strong></p></li>
-<li><p><strong>Intersection</strong></p></li>
-<li><p><strong>Difference</strong></p></li>
-<li><p><strong>Complement</strong>: <span class="math display">\[
+<li><p><strong>Union</strong></p>
+</li>
+<li><p><strong>Intersection</strong></p>
+</li>
+<li><p><strong>Difference</strong></p>
+</li>
+<li><p><strong>Complement</strong>:</p>
+<div class="math">
+\[
 L_1 : L_1 = \Sigma^* / L_1 (L_1 \cup L_1 = \Sigma^*, L_1 \cap L_1 = \emptyset)
-\]</span></p></li>
-<li><p><strong>Concatenation</strong>: <span class="math display">\[
+\]</div>
+</li>
+<li><p><strong>Concatenation</strong>:</p>
+<div class="math">
+\[
 L = L_1.L_2 = \{xy:x\in L_1, y\in L_2 \}
-\]</span> With <span class="math inline">\(L\)</span> defined over <span class="math inline">\(\Sigma = \Sigma_1 \cup \Sigma_2\)</span></p></li>
-<li><p><strong><span class="math inline">\(n^{th}\)</span> power</strong>. <span class="math display">\[
+\]</div>
+<p>With <span class="math">\(L\)</span> defined over <span class="math">\(\Sigma = \Sigma_1 \cup \Sigma_2\)</span></p>
+</li>
+<li><p><strong><span class="math">\(n^{th}\)</span> power</strong>.</p>
+<div class="math">
+\[
 L:L^n = L.L^{n-1} \\
 L^0 = \{\epsilon\}
-\]</span> Kleene star <span class="math inline">\(L^*\)</span> of language <span class="math inline">\(L: L^* = \cup_{n=0}^{\infty} L^n\)</span></p>
-<p>Kleene plus <span class="math inline">\(L^+ = L.L^* = L^*.L = \cup_{n=0}^{\infty} L^n\)</span></p></li>
+\]</div>
+<p>Kleene star <span class="math">\(L^*\)</span> of language <span class="math">\(L: L^* = \cup_{n=0}^{\infty} L^n\)</span></p>
+<p>Kleene plus <span class="math">\(L^+ = L.L^* = L^*.L = \cup_{n=0}^{\infty} L^n\)</span></p>
+</li>
 </ul>
 <h3 id="language-generated-by-the-grammar">Language generated by the grammar</h3>
-<p>The Language generated by a grammar is the set of all sentences generated by the grammar. Empty strings may be a sentences generated by the grammar. The formal definition for grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> is: <span class="math display">\[
+<p>The Language generated by a grammar is the set of all sentences generated by the grammar. Empty strings may be a sentences generated by the grammar. The formal definition for grammar <span class="math">\(G = (N,\Sigma,P,S)\)</span> is:</p>
+<div class="math">
+\[
 L(G) = \{w : w\in \Sigma^*, \exists S \rightarrow^* w\}
-\]</span></p>
+\]</div>
 <h3 id="classification-of-languages">Classification of Languages</h3>
 <p>The languages can be classified as:</p>
 <ul>
@@ -1593,17 +1486,20 @@ L(G) = \{w : w\in \Sigma^*, \exists S \rightarrow^* w\}
 <li><strong>Regular</strong>: if it exists a <em>regular</em> grammar which generates it.</li>
 </ul>
 <p>This classification works like an onion, where, for example, some recursively enumerable languages are also regular languages.</p>
-<p><img src="Resources/01 - Basic Notions/image-20201101114712073.png" alt="image-20201101114712073" style="zoom:50%;" /></p>
-<p>If <span class="math inline">\(L_1\)</span> is regular and <span class="math inline">\(L_2\)</span> is not regular, then there exists <span class="math inline">\(L_3\)</span> that is regular and complies with the following:</p>
+<img src="Resources/01 - Basic Notions/8ce795f7-bdc4-46a2-b9fc-c1d94a280de4.png" alt="8ce795f7-bdc4-46a2-b9fc-c1d94a280de4" style="scale:0.50;" />
+<p>If <span class="math">\(L_1\)</span> is regular and <span class="math">\(L_2\)</span> is not regular, then there exists <span class="math">\(L_3\)</span> that is regular and complies with the following:</p>
 <ul>
-<li><span class="math inline">\(L_1 \cup L_2 = L_3\)</span></li>
-<li><span class="math inline">\(L_1 \cap L_2 = L_3\)</span></li>
+<li><span class="math">\(L_1 \cup L_2 = L_3\)</span></li>
+<li><span class="math">\(L_1 \cap L_2 = L_3\)</span></li>
 </ul>
 <h3 id="finite-languages">Finite Languages</h3>
-<p>We call a language <span class="math inline">\(L \subset \Sigma^*\)</span> <strong>finite</strong> if: <span class="math display">\[
+<p>We call a language <span class="math">\(L \subset \Sigma^*\)</span> <strong>finite</strong> if:</p>
+<div class="math">
+\[
 \exists n \in \mathbb{N} / |L| \lt n
-\]</span> We can also use the following <strong>theorem</strong>:</p>
-<blockquote>
+\]</div>
+<p>We can also use the following <strong>theorem</strong>:</p>
+<blockquote class="blockquote">
 <p>The smallest class of languages that contains all finite languages and languages created from finite languages by a finite number of operations:</p>
 <ul>
 <li>Union</li>
@@ -1615,70 +1511,108 @@ L(G) = \{w : w\in \Sigma^*, \exists S \rightarrow^* w\}
 </blockquote>
 <h3 id="context-free-languages">Context-Free Languages</h3>
 <h4 id="closure-properties-of-context-free-languages">Closure Properties of Context-Free Languages</h4>
-<p>According to the <strong>closure property</strong>, if certain languages are context-free, and a language <span class="math inline">\(L\)</span> is formed from them by certain operators, then <span class="math inline">\(L\)</span> is also context-free. We can use the following <strong>theorem</strong>:</p>
-<blockquote>
+<p>According to the <strong>closure property</strong>, if certain languages are context-free, and a language <span class="math">\(L\)</span> is formed from them by certain operators, then  <span class="math">\(L\)</span> is also context-free. We can use the following <strong>theorem</strong>:</p>
+<blockquote class="blockquote">
 <p>The class if context-free languages is closed under the following operations: <em>union, product</em> and <em>iteration</em>.</p>
 </blockquote>
 <h4 id="parse-tree-for-context-free-languages">Parse Tree for Context-free Languages</h4>
-<p>A <strong>parse tree</strong> is a graphical representation of a syntactical structure of a sentential form. A parse tree for a grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> has the following properties:</p>
-<ol type="1">
-<li><p>The nodes of the parse tree are labeled with the terminal symbol, nonterminal symbol and empty symbol (<span class="math inline">\(\epsilon\)</span>).</p></li>
-<li><p>The root of the tree is labeled with the start symbol <span class="math inline">\(S\)</span>.</p></li>
-<li><p>If a node has at least one descendant, it is labeled by a nonterminal symbol.</p></li>
-<li><p>If <span class="math inline">\(n_1,\dots,n_k\)</span> are the direct descendants of node <span class="math inline">\(n\)</span> that is labeled with the symbols <span class="math inline">\(A\)</span> and these symbols are labeled with symbols <span class="math inline">\(A_1,\dots,A)k\)</span>, then <span class="math inline">\(P\)</span> contains the following rule: <span class="math display">\[
+<p>A <strong>parse tree</strong> is a graphical representation of a syntactical structure of a sentential form. A parse tree for a grammar <span class="math">\(G = (N,\Sigma,P,S)\)</span> has the following properties:</p>
+<ol>
+<li><p>The nodes of the parse tree are labeled with the terminal symbol, nonterminal symbol and empty symbol (<span class="math">\(\epsilon\)</span>).</p>
+</li>
+<li><p>The root of the tree is labeled with the start symbol <span class="math">\(S\)</span>.</p>
+</li>
+<li><p>If a node has at least one descendant, it is labeled by a nonterminal symbol.</p>
+</li>
+<li><p>If <span class="math">\(n_1,\dots,n_k\)</span> are the direct descendants of node <span class="math">\(n\)</span> that is labeled with the symbols <span class="math">\(A\)</span> and these symbols are labeled with symbols <span class="math">\(A_1,\dots,A)k\)</span>, then <span class="math">\(P\)</span> contains the following rule:</p>
+<div class="math">
+\[
 A \rightarrow A_1 A_2 \dots A_k
-\]</span></p></li>
-<li><p>The leaves of the parse tree from (from left to right), a sentential firm or a sentence in the grammar <span class="math inline">\(G\)</span>. which is the result of the parse tree.</p></li>
+\]</div>
+</li>
+<li><p>The leaves of the parse tree from (from left to right), a sentential firm or a sentence in the grammar <span class="math">\(G\)</span>. which is the result of the parse tree.</p>
+</li>
 </ol>
 <h2 id="grammar">Grammar</h2>
-<p>Grammar is a quadruple <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> where:</p>
+<p>Grammar is a quadruple <span class="math">\(G = (N,\Sigma,P,S)\)</span> where:</p>
 <ul>
-<li><span class="math inline">\(N\)</span> is a finite set of nonterminal symbols</li>
-<li><span class="math inline">\(\Sigma\)</span> is a finite set of terminal symbols (<span class="math inline">\(\Sigma \cap N = \emptyset\)</span>)</li>
-<li><span class="math inline">\(P\)</span> is a set of production rules. It is a finite subset of <span class="math inline">\((N \cup \Sigma)^*.N.(N\cup\Sigma)^*\times(N\cup\Sigma)^*\)</span>, element <span class="math inline">\((\alpha,\beta)\)</span> of <span class="math inline">\(P\)</span> is written as <span class="math inline">\(\alpha \rightarrow\beta\)</span> and called a rule)</li>
-<li><span class="math inline">\(S \in N\)</span> is the <em>start</em> symbol of the grammar.</li>
+<li><span class="math">\(N\)</span> is a finite set of nonterminal symbols</li>
+<li><span class="math">\(\Sigma\)</span> is a finite set of terminal symbols (<span class="math">\(\Sigma \cap N = \emptyset\)</span>)</li>
+<li><span class="math">\(P\)</span> is a set of production rules. It is a finite subset of <span class="math">\((N \cup \Sigma)^*.N.(N\cup\Sigma)^*\times(N\cup\Sigma)^*\)</span>, element <span class="math">\((\alpha,\beta)\)</span> of <span class="math">\(P\)</span> is written as <span class="math">\(\alpha \rightarrow\beta\)</span> and called a rule)</li>
+<li><span class="math">\(S \in N\)</span> is the <em>start</em> symbol of the grammar.</li>
 </ul>
-<p>We say that <span class="math inline">\(x\)</span> derives <span class="math inline">\(y\)</span> in one step <span class="math inline">\((x\rightarrow y)\)</span> if there exists <span class="math inline">\((\alpha \rightarrow \beta) \in P\)</span> and <span class="math inline">\(\delta \in (N \cup \Sigma)^*\)</span> such that <span class="math inline">\(x = \gamma\alpha\delta, y=\gamma\beta\delta\)</span>. For example: <span class="math display">\[
+<p>We say that <span class="math">\(x\)</span> derives <span class="math">\(y\)</span> in one step <span class="math">\((x\rightarrow y)\)</span> if there exists <span class="math">\((\alpha \rightarrow \beta) \in P\)</span> and <span class="math">\(\delta \in (N \cup \Sigma)^*\)</span> such that <span class="math">\(x = \gamma\alpha\delta, y=\gamma\beta\delta\)</span>. For example:</p>
+<div class="math">
+\[
 \gamma \alpha \delta \rightarrow \gamma \beta \delta
-\]</span> <span class="math inline">\(\alpha \rightarrow ^k \beta\)</span> if there exist a sequence <span class="math inline">\(a_0a_1\dots a_k\)</span> <span class="math inline">\((k \geq 0)\)</span> of <span class="math inline">\(k+1\)</span> strings such that <span class="math inline">\(\alpha = \alpha_0,\alpha_{i-1} \rightarrow \alpha_i\)</span> for <span class="math inline">\(1 \leq i \leq k\)</span></p>
-<p><em><u>Transitive</u></em> closure of relation <span class="math inline">\(\rightarrow:\)</span> <span class="math inline">\(a\rightarrow^+ b\)</span> if <span class="math inline">\(a \rightarrow^i b\)</span> for some <span class="math inline">\(i \gt 0\)</span>. We read <span class="math inline">\(\rightarrow^+\)</span> as <em>derives in nonzero number of steps</em>.</p>
-<p><u>Transitive and Reflexive</u> closure of relation: <span class="math inline">\(\alpha\rightarrow^* \beta\)</span> if <span class="math inline">\(\alpha\rightarrow ^i b\)</span> for some <span class="math inline">\(i \ge 0\)</span>. We read <span class="math inline">\(\rightarrow^*\)</span> as <em>derives in any number of steps</em>.</p>
-<p>A string <span class="math inline">\(\alpha\)</span> is called a <u>Sentential form</u> in grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> if: <span class="math display">\[
+\]</div>
+<p><span class="math">\(\alpha \rightarrow ^k \beta\)</span> if there exist a sequence <span class="math">\(a_0a_1\dots a_k\)</span> <span class="math">\((k \geq 0)\)</span> of <span class="math">\(k+1\)</span> strings such that <span class="math">\(\alpha = \alpha_0,\alpha_{i-1} \rightarrow \alpha_i\)</span> for <span class="math">\(1 \leq i \leq k\)</span></p>
+<p><em><u>Transitive</u></em> closure of relation <span class="math">\(\rightarrow:\)</span> <span class="math">\(a\rightarrow^+ b\)</span> if <span class="math">\(a \rightarrow^i b\)</span> for some <span class="math">\(i \gt 0\)</span>. We read <span class="math">\(\rightarrow^+\)</span> as <em>derives in nonzero number of steps</em>.</p>
+<p><u>Transitive and Reflexive</u> closure of relation: <span class="math">\(\alpha\rightarrow^* \beta\)</span> if <span class="math">\(\alpha\rightarrow ^i b\)</span> for some <span class="math">\(i \ge 0\)</span>. We read <span class="math">\(\rightarrow^*\)</span> as <em>derives in any number of steps</em>.</p>
+<p>A string <span class="math">\(\alpha\)</span> is called a <u>Sentential form</u> in grammar <span class="math">\(G = (N,\Sigma,P,S)\)</span> if:</p>
+<div class="math">
+\[
 S \rightarrow^* \alpha, \alpha \in (N\cup\Sigma)^*
-\]</span> Any string which is derived from start symbol. A sentential form that contains no nonterminal symbols is called a <strong>sentence generated</strong> by grammar <span class="math inline">\(G\)</span>.</p>
+\]</div>
+<p>Any string which is derived from start symbol. A sentential form that contains no nonterminal symbols is called a <strong>sentence generated</strong> by grammar <span class="math">\(G\)</span>.</p>
 <h3 id="equivalent-grammars">Equivalent grammars</h3>
-<p>Grammars are equivalent if they generate the same language: <span class="math display">\[
+<p>Grammars are equivalent if they generate the same language:</p>
+<div class="math">
+\[
 L(G_1) = L(G_2)
-\]</span></p>
+\]</div>
 <h3 id="classification-of-grammars">Classification of Grammars</h3>
-<p>We say that a grammar <span class="math inline">\(G = (N,\Sigma,P,S)\)</span> is:</p>
+<p>We say that a grammar <span class="math">\(G = (N,\Sigma,P,S)\)</span> is:</p>
 <ul>
-<li><p><strong>Unrestricted</strong>: if it satisfies the general grammar definition.</p></li>
-<li><p><strong>Context-Sensitive</strong>: if every rule from <span class="math inline">\(P\)</span> is of the form: <span class="math display">\[
+<li><p><strong>Unrestricted</strong>: if it satisfies the general grammar definition.</p>
+</li>
+<li><p><strong>Context-Sensitive</strong>: if every rule from <span class="math">\(P\)</span> is of the form:</p>
+<div class="math">
+\[
 \gamma A \delta \rightarrow \gamma \alpha \delta
-\]</span> where <span class="math inline">\(\gamma,\delta \in (N\cup \Sigma)^*\)</span>, <span class="math inline">\(\alpha \in (N\cup \Sigma)^+\)</span> and <span class="math inline">\(A \in N\)</span>. Or the form of: <span class="math display">\[
+\]</div>
+<p>where <span class="math">\(\gamma,\delta \in (N\cup \Sigma)^*\)</span>, <span class="math">\(\alpha \in (N\cup \Sigma)^+\)</span> and <span class="math">\(A \in N\)</span>. Or the form of:</p>
+<div class="math">
+\[
 S \rightarrow \epsilon
-\]</span> if <span class="math inline">\(S\)</span> is not on the right side of any rule.</p></li>
-<li><p><strong>Context-Free</strong>: If every rule is of the form: <span class="math display">\[
+\]</div>
+<p>if <span class="math">\(S\)</span> is not on the right side of any rule.</p>
+</li>
+<li><p><strong>Context-Free</strong>: If every rule is of the form:</p>
+<div class="math">
+\[
 A \rightarrow \alpha
-\]</span> where <span class="math inline">\(A\in N, \alpha \in(N\cup \Sigma)^*\)</span></p></li>
-<li><p><strong>Regular</strong>: If every rule is of the form: <span class="math display">\[
+\]</div>
+<p>where <span class="math">\(A\in N, \alpha \in(N\cup \Sigma)^*\)</span></p>
+</li>
+<li><p><strong>Regular</strong>: If every rule is of the form:</p>
+<div class="math">
+\[
 \array{ \bullet &amp; A \rightarrow aB\\
 \bullet &amp; A \rightarrow a
 }
-\]</span> where <span class="math inline">\(A,B \in N, a \in \Sigma\)</span>. Or the form: <span class="math display">\[
+\]</div>
+<p>where <span class="math">\(A,B \in N, a \in \Sigma\)</span>. Or the form:</p>
+<div class="math">
+\[
 S \rightarrow \epsilon
-\]</span> if <span class="math inline">\(S\)</span> is not present in the right side of any rule.</p></li>
+\]</div>
+<p>if <span class="math">\(S\)</span> is not present in the right side of any rule.</p>
+</li>
 </ul>
 <h3 id="operations-over-grammars">Operations Over Grammars</h3>
 <p>We can combine and mix different grammars to obtain the language we need. For this we can use the following operators and their algorithms:</p>
 <ul>
 <li><p><strong>Union</strong>:</p>
-<p><img src="Resources/01 - Basic Notions/image-20201101115735088.png" alt="image-20201101115735088" style="zoom:50%;" /></p></li>
+<img src="Resources/01 - Basic Notions/9d4ff452-17e1-4d05-ae59-fcad149cec2a.png" alt="9d4ff452-17e1-4d05-ae59-fcad149cec2a" style="scale:0.50;" />
+</li>
 <li><p><strong>Product</strong>:</p>
-<p><img src="Resources/01 - Basic Notions/image-20201101115806249.png" alt="image-20201101115806249" style="zoom:50%;" /></p></li>
+<img src="Resources/01 - Basic Notions/9e9fd8db-35ac-4fb6-974a-860ca596e4b8.png" alt="9e9fd8db-35ac-4fb6-974a-860ca596e4b8" style="scale:0.50;" />
+</li>
 <li><p><strong>Kleene Star</strong> (also known as <strong>iteration</strong>):</p>
-<p><img src="Resources/01 - Basic Notions/image-20201101115848309.png" alt="image-20201101115848309" style="zoom:50%;" /></p></li>
+<img src="Resources/01 - Basic Notions/3c2f43ba-f2e1-48e6-99bd-98db88a6cae8.png" alt="3c2f43ba-f2e1-48e6-99bd-98db88a6cae8" style="scale:0.50;" />
+</li>
 </ul>
+
 </body>
 </html>

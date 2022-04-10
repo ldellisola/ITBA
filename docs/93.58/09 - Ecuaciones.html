@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>09 - Ecuaciones</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>09 - Ecuaciones.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,92 +1385,146 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="ecuaciones">Ecuaciones</h1>
-<h2 id="ecuación-diofantica">Ecuación Diofantica</h2>
-<h3 id="definición">Definición</h3>
-<p><span class="math display">\[
+<h2 id="ecuacion-diofantica">Ecuación Diofantica</h2>
+<h3 id="definicion">Definición</h3>
+<div class="math">
+\[
 ax+by = c~~~~~~~~a,b\in \mathbb{Z}-\{0\}~~c\in\mathbb{Z}
-\]</span></p>
+\]</div>
 <ul>
-<li>La ecuación tiene solución <span class="math inline">\(\Leftrightarrow (a:b)|c\)</span></li>
+<li>La ecuación tiene solución <span class="math">\(\Leftrightarrow (a:b)|c\)</span></li>
 </ul>
-<p>Sea <span class="math inline">\((x_0,y_0)\in \mathbb{Z}^2\)</span> una solución de la ecuación y <span class="math inline">\(a&#39;=\frac a {(a:b)}~,~b&#39;=\frac b {(a:b)}\)</span> , entonces la solución general de la ecuación es: <span class="math display">\[
-(x,y) = (x_0,y_0) + k\ .\ (-b&#39;,a&#39;) ~~~k\in\mathbb{Z}
-\]</span></p>
-<h3 id="demostración">Demostración</h3>
-<ol type="1">
-<li>La ecuación tiene solucion <span class="math inline">\(\Leftrightarrow (a:b)|c\)</span></li>
+<p>Sea <span class="math">\((x_0,y_0)\in \mathbb{Z}^2\)</span> una solución de la ecuación y  <span class="math">\(a'=\frac a {(a:b)}~,~b'=\frac b {(a:b)}\)</span> , entonces la solución general de la ecuación es:</p>
+<div class="math">
+\[
+(x,y) = (x_0,y_0) + k\ .\ (-b',a') ~~~k\in\mathbb{Z}
+\]</div>
+<h3 id="demostracion">Demostración</h3>
+<ol>
+<li>La ecuación tiene solucion <span class="math">\(\Leftrightarrow (a:b)|c\)</span></li>
 </ol>
-<p><strong>IDA: La ecuación tiene solución <span class="math inline">\(\Rightarrow (a:b)|c\)</span></strong></p>
-<p>Llamemos <span class="math inline">\(d=(a:b)~~(1)\)</span> y por hipótesis decimos que <span class="math inline">\(ax_0+by_0 = c~~(2)\)</span>, entonces:</p>
-<p>Por <span class="math inline">\((1)\)</span>: <span class="math display">\[
+<p><strong>IDA: La ecuación tiene solución <span class="math">\(\Rightarrow (a:b)|c\)</span></strong></p>
+<p>Llamemos <span class="math">\(d=(a:b)~~(1)\)</span> y por hipótesis decimos que <span class="math">\(ax_0+by_0 = c~~(2)\)</span>, entonces:</p>
+<p>Por <span class="math">\((1)\)</span>:</p>
+<div class="math">
+\[
 d|a~~y~~d|b
-\]</span> Por propiedad: <span class="math display">\[
+\]</div>
+<p>Por propiedad:</p>
+<div class="math">
+\[
 d|ax_0~~y~~d|by_0
-\]</span> Por propiedad: <span class="math display">\[
+\]</div>
+<p>Por propiedad:</p>
+<div class="math">
+\[
 d|ax_0+by_0
-\]</span> Por <span class="math inline">\((2)\)</span>: <span class="math display">\[
+\]</div>
+<p>Por <span class="math">\((2)\)</span>:</p>
+<div class="math">
+\[
 d|c \Rightarrow (a:b)|c
-\]</span> <strong>VUELTA: <span class="math inline">\((a:b)|c \Rightarrow\)</span> La ecuación tiene solución</strong></p>
-<p>Como <span class="math inline">\(d=(a:b)\Rightarrow d|a\)</span> y <span class="math inline">\(d|b \Rightarrow a = a&#39;\ .\ d\)</span> y <span class="math inline">\(b = b&#39;\ .\ d\)</span>. Además <span class="math inline">\(a&#39; \bot~b&#39;\)</span> y, por hipótesis <span class="math inline">\(c=c&#39;\ .\ d\)</span></p>
-<p>Entonces: <span class="math display">\[
-a&#39;dx+b&#39;dy = dc&#39; \Leftrightarrow a&#39;x+b&#39;y=c&#39;~~~~(1)
-\]</span> Como <span class="math inline">\(a&#39;\bot~b&#39; \Rightarrow \exists r,s\in \mathbb{Z} /\)</span> <span class="math display">\[
-~ r a&#39;+sb&#39;=1
-\]</span> Multiplico por <span class="math inline">\(c&#39;\)</span> a ambos lados: <span class="math display">\[
-a&#39;(rc&#39;) + b&#39;(sc&#39;) = c&#39; 
-\]</span> Cambio de variable <span class="math inline">\(x_0 = rc&#39;\)</span> y <span class="math inline">\(y_0 = sc&#39;\)</span>: <span class="math display">\[
-a&#39;x_0 + b&#39;y_o=c&#39;
-\]</span> Por lo que <span class="math inline">\((x_0,y_0) =(rc&#39;,sc&#39;)\)</span> es solución de la ecuación.</p>
-<ol start="2" type="1">
+\]</div>
+<p><strong>VUELTA: <span class="math">\((a:b)|c \Rightarrow\)</span> La ecuación tiene solución</strong></p>
+<p>Como <span class="math">\(d=(a:b)\Rightarrow d|a\)</span> y <span class="math">\(d|b \Rightarrow a = a'\ .\ d\)</span> y <span class="math">\(b = b'\ .\ d\)</span>. Además <span class="math">\(a' \bot~b'\)</span> y, por hipótesis <span class="math">\(c=c'\ .\ d\)</span></p>
+<p>Entonces:</p>
+<div class="math">
+\[
+a'dx+b'dy = dc' \Leftrightarrow a'x+b'y=c'~~~~(1)
+\]</div>
+<p>Como <span class="math">\(a'\bot~b' \Rightarrow \exists r,s\in \mathbb{Z} /\)</span></p>
+<div class="math">
+\[
+~ r a'+sb'=1
+\]</div>
+<p>Multiplico por <span class="math">\(c'\)</span> a ambos lados:</p>
+<div class="math">
+\[
+a'(rc') + b'(sc') = c' 
+\]</div>
+<p>Cambio de variable <span class="math">\(x_0 = rc'\)</span> y <span class="math">\(y_0 = sc'\)</span>:</p>
+<div class="math">
+\[
+a'x_0 + b'y_o=c'
+\]</div>
+<p>Por lo que <span class="math">\((x_0,y_0) =(rc',sc')\)</span> es solución de la ecuación.</p>
+<ol start="2">
 <li>Forma General de la ecuación:</li>
 </ol>
-<p>Suponemos que <span class="math inline">\((x_0,y_0)\in \mathbb{Z}^2\)</span> es una solución de la ecuación Diofantica, entonces: <span class="math display">\[
-(1)~~~~a&#39;x_0+b&#39;y_0=c&#39;
-\]</span> Y sea <span class="math inline">\((x,y)\in\mathbb{Z}^2\)</span> otra solución de la ecuación: <span class="math display">\[
-(2)~~~~a&#39;x+b&#39;y=c&#39;
-\]</span> Igualando <span class="math inline">\((1)\)</span> y <span class="math inline">\((2)\)</span> obtengo: <span class="math display">\[
-(3)~~~~a&#39;(x-x_0)=b&#39;(y_0-y)
-\]</span> Por <span class="math inline">\((3)~~~a&#39;|b&#39;(y_0-y)\)</span> y como <span class="math inline">\(a&#39;\bot~b&#39;\)</span> <span class="math display">\[
-a&#39;|(y_0-y) \Rightarrow a&#39;=k(y_o-y)~~~~k\in \mathbb{Z}
-\]</span> Reemplazando en <span class="math inline">\((3)\)</span> para obtener <span class="math inline">\(x\)</span>, llegamos a: <span class="math display">\[
-(x,y) = (x_0,y_0)+k\ .\ (-b&#39;,a&#39;)~~~~k\in\mathbb{Z}
-\]</span></p>
+<p>Suponemos que <span class="math">\((x_0,y_0)\in \mathbb{Z}^2\)</span> es una solución de la ecuación Diofantica, entonces:</p>
+<div class="math">
+\[
+(1)~~~~a'x_0+b'y_0=c'
+\]</div>
+<p>Y sea <span class="math">\((x,y)\in\mathbb{Z}^2\)</span> otra solución de la ecuación:</p>
+<div class="math">
+\[
+(2)~~~~a'x+b'y=c'
+\]</div>
+<p>Igualando <span class="math">\((1)\)</span> y <span class="math">\((2)\)</span> obtengo:</p>
+<div class="math">
+\[
+(3)~~~~a'(x-x_0)=b'(y_0-y)
+\]</div>
+<p>Por <span class="math">\((3)~~~a'|b'(y_0-y)\)</span> y como <span class="math">\(a'\bot~b'\)</span></p>
+<div class="math">
+\[
+a'|(y_0-y) \Rightarrow a'=k(y_o-y)~~~~k\in \mathbb{Z}
+\]</div>
+<p>Reemplazando en <span class="math">\((3)\)</span> para obtener <span class="math">\(x\)</span>, llegamos a:</p>
+<div class="math">
+\[
+(x,y) = (x_0,y_0)+k\ .\ (-b',a')~~~~k\in\mathbb{Z}
+\]</div>
 <h3 id="como-resolver">Como resolver</h3>
-<p>Para resolver se divide en 2 pasos, primero buscamos la solución particular <span class="math inline">\((x_0,y_0)\)</span> por tanteo y luego lo reemplazamos en la formula para obtener todas las soluciones posibles.</p>
-<h2 id="ecuación-en-congruencia">Ecuación en Congruencia</h2>
-<h3 id="definición-1">Definición</h3>
-<p><span class="math display">\[
+<p>Para resolver se divide en 2 pasos, primero buscamos la solución particular <span class="math">\((x_0,y_0)\)</span> por tanteo y luego lo reemplazamos en la formula para obtener todas las soluciones posibles.</p>
+<h2 id="ecuacion-en-congruencia">Ecuación en Congruencia</h2>
+<h3 id="definicion-1">Definición</h3>
+<div class="math">
+\[
 ax\equiv c~~~~(mod~b)
-\]</span></p>
-<p>con <span class="math inline">\(a\in\mathbb{Z}=\{0\}, ~~c\in\mathbb{Z},~~b\in\mathbb{N}\)</span></p>
+\]</div>
+<p>con <span class="math">\(a\in\mathbb{Z}=\{0\}, ~~c\in\mathbb{Z},~~b\in\mathbb{N}\)</span></p>
 <p>Entonces:</p>
-<ol type="1">
-<li>La ecuación tiene solución <span class="math inline">\(\Leftrightarrow (a:b)|c\)</span></li>
-<li>Si <span class="math inline">\(x_0\)</span> es una solución particular, entonces la solución general es:</li>
+<ol>
+<li>La ecuación tiene solución <span class="math">\(\Leftrightarrow (a:b)|c\)</span></li>
+<li>Si <span class="math">\(x_0\)</span> es una solución particular, entonces la solución general es:</li>
 </ol>
-<p><span class="math display">\[
-x\equiv x_0~~~(mod~b&#39;)~~~~~~~b&#39;=\frac b {(a:b)}
-\]</span></p>
-<h3 id="demostración-1">Demostración</h3>
-<ol type="1">
-<li>La ecuación tiene solución <span class="math inline">\(\Leftrightarrow (a:b)|c\)</span></li>
+<div class="math">
+\[
+x\equiv x_0~~~(mod~b')~~~~~~~b'=\frac b {(a:b)}
+\]</div>
+<h3 id="demostracion-1">Demostración</h3>
+<ol>
+<li>La ecuación tiene solución <span class="math">\(\Leftrightarrow (a:b)|c\)</span></li>
 </ol>
-<p>Sea: <span class="math display">\[
+<p>Sea:</p>
+<div class="math">
+\[
 (1)~~~~ax\equiv c~~~~(mod~b)
-\]</span> <span class="math inline">\(x\in\mathbb{Z}\)</span> es solución de <span class="math inline">\((1) \Leftrightarrow ax = c+kb\)</span></p>
-<p>Si llamo <span class="math inline">\(k=-y\)</span>: <span class="math display">\[
+\]</div>
+<p><span class="math">\(x\in\mathbb{Z}\)</span> es solución de  <span class="math">\((1) \Leftrightarrow ax = c+kb\)</span></p>
+<p>Si llamo <span class="math">\(k=-y\)</span>:</p>
+<div class="math">
+\[
 ax+by=c
-\]</span> Y como se cumple el <span class="math inline">\(\Leftrightarrow\)</span> para la Diofantica, se cumple para la congruencia.</p>
-<ol start="2" type="1">
+\]</div>
+<p>Y como se cumple el <span class="math">\(\Leftrightarrow\)</span> para la Diofantica, se cumple para la congruencia.</p>
+<ol start="2">
 <li>Solucion General</li>
 </ol>
-<p>Suponemos que <span class="math inline">\(x_0\)</span> es solución de <span class="math inline">\(ax\equiv c~~(b)\)</span>, entonces <span class="math inline">\(\exists y_0\in \mathbb{Z} /~ (x_0,y_0)\)</span> es solución de <span class="math inline">\(ax+by=c\)</span>.</p>
-<p>Luego, todas las soluciones de la Diofantica son: <span class="math display">\[
-(x,y) = (x_0,y_0)+k\ .\ (-b&#39;,a&#39;)~~~~a&#39;=\frac a {(a:b)}~~b&#39;=\frac b {(a:b)}
-\]</span> Entonces, <span class="math inline">\(x = x_0 + kb&#39;\)</span> son todas las soluciones de <span class="math inline">\(ax \equiv c~~(b)\)</span>, por lo que <span class="math inline">\(x\equiv x_0 ~~~mod(b&#39;)\)</span>.</p>
+<p>Suponemos que <span class="math">\(x_0\)</span> es solución de <span class="math">\(ax\equiv c~~(b)\)</span>, entonces <span class="math">\(\exists y_0\in \mathbb{Z} /~ (x_0,y_0)\)</span> es solución de <span class="math">\(ax+by=c\)</span>.</p>
+<p>Luego, todas las soluciones de la Diofantica son:</p>
+<div class="math">
+\[
+(x,y) = (x_0,y_0)+k\ .\ (-b',a')~~~~a'=\frac a {(a:b)}~~b'=\frac b {(a:b)}
+\]</div>
+<p>Entonces, <span class="math">\(x = x_0 + kb'\)</span> son todas las soluciones de <span class="math">\(ax \equiv c~~(b)\)</span>, por lo que <span class="math">\(x\equiv x_0 ~~~mod(b')\)</span>.</p>
+
 </body>
 </html>

@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>10 - Probabilistic Transition Systems</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>10 - Probabilistic Transition Systems.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,72 +1385,119 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="probabilistic-transition-systems">Probabilistic Transition Systems</h1>
 <p>Probabilistic Transition Systems are modeled by Markov Chains. This transition systems have:</p>
 <ul>
-<li>A set of states <span class="math inline">\(S\)</span></li>
-<li>An initial distribution <span class="math inline">\(S_0:S\rightarrow[0,1]/\sum_{s\in S} S_0(s) = 1\)</span></li>
-<li>A transition probability matrix <span class="math inline">\(R: S\times S \rightarrow [0,1]/ \forall s\in S. \sum_{s&#39;\in S} R(s,s&#39;)=1\)</span></li>
+<li>A set of states <span class="math">\(S\)</span></li>
+<li>An initial distribution <span class="math">\(S_0:S\rightarrow[0,1]/\sum_{s\in S} S_0(s) = 1\)</span></li>
+<li>A transition probability matrix <span class="math">\(R: S\times S \rightarrow [0,1]/ \forall s\in S. \sum_{s'\in S} R(s,s')=1\)</span></li>
 </ul>
 <p>In the graphical representation, if there is not edge between the nodes, then they have a zero transition probability.</p>
-<p>Here we will define a <strong>path</strong> as any sequence of states. This paths have an associated probability. If the path is finite, we can define it as: <span class="math display">\[
+<p>Here we will define a <strong>path</strong> as any sequence of states. This paths have an associated probability. If the path is finite, we can define it as:</p>
+<div class="math">
+\[
 \mathcal P_{(S,S_0,R)}(s_0,\dots,s_{n-1}) = S_0(s_0) \prod_{i\in\{1,\dots,n-1\}}R(s_{i-1},s_i)
-\]</span> We can use a shortcut for the notation such a: <span class="math display">\[
+\]</div>
+<p>We can use a shortcut for the notation such a:</p>
+<div class="math">
+\[
 \mathcal P() \equiv \mathcal P_{(S,S_0,R)}()
-\]</span></p>
+\]</div>
 <p>If we need to calculate the probability of infinite paths, we need to use probability measurement methods.</p>
-<p>We call <strong>cylinder</strong> <span class="math inline">\(C_{s_0,\dots,s_{n-1}}\)</span> to the set of paths with prefix <span class="math inline">\(s_0,\dots,s_{n-1}\)</span>. We assign the symbol <span class="math inline">\(C.\)</span> to the set of all paths. The probability of a cylinder is defined as: <span class="math display">\[
+<p>We call <strong>cylinder</strong> <span class="math">\(C_{s_0,\dots,s_{n-1}}\)</span> to the set of paths with prefix <span class="math">\(s_0,\dots,s_{n-1}\)</span>. We assign the symbol <span class="math">\(C.\)</span> to the set of all paths. The probability of a cylinder is defined as:</p>
+<div class="math">
+\[
 \mathcal P_{(S,S_0,R)}(C_{s_0,\dots,s_{n-1}})= \mathcal P_{(S,S_0,R)}(s_0,\dots,s_{n-1})
-\]</span> We can extend the probability measure from sets to all sets of paths: <span class="math display">\[
+\]</div>
+<p>We can extend the probability measure from sets to all sets of paths:</p>
+<div class="math">
+\[
 \array{
 \mathcal P(\emptyset) = 0\\
 \mathcal P(\Sigma_S) = 1 \\
 \mathcal P(A\cup B) = \mathcal P(A) + \mathcal P(B) \iff A \cap B = \emptyset
 }
-\]</span></p>
+\]</div>
 <h2 id="temporal-logic">Temporal Logic</h2>
-<p>In Probabilistic transition systems, whenever we want to check if a model fulfills a given set of properties we can do it like this: <span class="math display">\[
+<p>In Probabilistic transition systems, whenever we want to check if a model fulfills a given set of properties we can do it like this:</p>
+<div class="math">
+\[
 \mathcal P_{(S,S_0,R)}(\phi) = \mathcal P_{(S,S_0,R)}(\{\pi \in \Sigma_S: \pi \models \phi \land \pi(0) = S_0\})
-\]</span> This can be translated into <span class="math display">\[
+\]</div>
+<p>This can be translated into</p>
+<div class="math">
+\[
 \mathcal P_{(S,S_0,R)}(\phi) = \sum_{s\in S} S_0(s) \times \mathcal P_{(S,s,R)}(\phi)
-\]</span> The idea for computing LTL formulas is to follow this 3 steps:</p>
-<ol type="1">
-<li><p><span class="math inline">\(\mathcal P_{(S,s&#39;,R)} (\phi)\)</span> <span class="math inline">\(s&#39;\in S\)</span> for formulas <span class="math inline">\(\phi\)</span> without any temporal operators and then continue to the following step recursively.</p></li>
-<li><p><span class="math display">\[
+\]</div>
+<p>The idea for computing LTL formulas is to follow this 3 steps:</p>
+<ol>
+<li><p><span class="math">\(\mathcal P_{(S,s',R)} (\phi)\)</span>  <span class="math">\(s'\in S\)</span> for formulas <span class="math">\(\phi\)</span> without any temporal operators and then continue to the following step recursively.</p>
+</li>
+<li>
+<div class="math">
+\[
 \array{
-\mathcal P_{(S,s&#39;,R)}(X\phi)&amp; s&#39;\in S\\
-\mathcal P_{(S,s&#39;,R)}(F\phi)&amp; s&#39;\in S\\
-\mathcal P_{(S,s&#39;,R)}(\neg\phi)&amp; s&#39;\in S\\
-\text{from }\mathcal P_{(S,s&#39;,R)}(\phi) &amp;s&#39;\in S\\
+\mathcal P_{(S,s',R)}(X\phi)&amp; s'\in S\\
+\mathcal P_{(S,s',R)}(F\phi)&amp; s'\in S\\
+\mathcal P_{(S,s',R)}(\neg\phi)&amp; s'\in S\\
+\text{from }\mathcal P_{(S,s',R)}(\phi) &amp;s'\in S\\
 }
-\]</span></p></li>
-<li><p><span class="math inline">\(\mathcal P_{(S,s_0,R)}(\phi)\)</span> from <span class="math inline">\(\mathcal P_{(S,s&#39;,R)}(\phi), s&#39;\in S\)</span></p></li>
+\]</div>
+</li>
+<li><p><span class="math">\(\mathcal P_{(S,s_0,R)}(\phi)\)</span>  from <span class="math">\(\mathcal P_{(S,s',R)}(\phi), s'\in S\)</span></p>
+</li>
 </ol>
-<p>Logical operators work in the following way: <span class="math display">\[
+<p>Logical operators work in the following way:</p>
+<div class="math">
+\[
 \array{
 \mathcal P(\neg \phi) &amp; \Rightarrow &amp; 1- \mathcal P(\phi)\\
 \mathcal P(\phi \lor \gamma) &amp;\Rightarrow &amp; \mathcal{P(\phi) + P(\gamma)}\\
 \mathcal P(\phi \land \gamma)&amp; \Rightarrow &amp; \mathcal{P(\phi) \times P(\gamma)}
 }
-\]</span> And for temporal operators: <span class="math display">\[
+\]</div>
+<p>And for temporal operators:</p>
+<div class="math">
+\[
 \array{
-\mathcal P(F \phi) &amp; \Rightarrow &amp; \left\{\array{1&amp; s \models \phi \\\sum_{s&#39;\in S}R(s,s&#39;)\mathcal P_{(S,s&#39;,R)}(F\phi)&amp;s\not\models \phi}\right.  \\
+\mathcal P(F \phi) &amp; \Rightarrow &amp; \left\{\array{1&amp; s \models \phi \\\sum_{s'\in S}R(s,s')\mathcal P_{(S,s',R)}(F\phi)&amp;s\not\models \phi}\right.  \\
 \mathcal P(G\phi) &amp; \Rightarrow &amp; \mathcal P(\neg F\neg \phi) \\
-\mathcal P(X \phi) &amp; \Rightarrow &amp; \sum_{s&#39;\in S}R(s,s&#39;)\mathcal P_{(S,s&#39;,R)}(\phi)
+\mathcal P(X \phi) &amp; \Rightarrow &amp; \sum_{s'\in S}R(s,s')\mathcal P_{(S,s',R)}(\phi)
 }
-\]</span> In general LTL can be handled as a recursive combination of operators from the following formula: <span class="math display">\[
-\mathcal P_{(S,S_0,R)} = \sum_{s&#39;\in S} R(s_0,s&#39;) \times \mathcal P_{(S,s&#39;,R)}(\phi)
-\]</span></p>
+\]</div>
+<p>In general LTL can be handled as a recursive combination of operators from the following formula:</p>
+<div class="math">
+\[
+\mathcal P_{(S,S_0,R)} = \sum_{s'\in S} R(s_0,s') \times \mathcal P_{(S,s',R)}(\phi)
+\]</div>
 <h2 id="expected-cost">Expected Cost</h2>
-<p>The <strong>cost of a finite path</strong> is defined as: <span class="math display">\[
+<p>The <strong>cost of a finite path</strong> is defined as:</p>
+<div class="math">
+\[
 c(s_0,\dots,s_n) = \sum_{i\in \{0,\dots,n-1\}} c(s_i)
-\]</span> And, for <strong>the cost of the property <span class="math inline">\(Fp\)</span> on path <span class="math inline">\(\pi\)</span></strong>: $$ c_(Fp) = { </p>
-<p>. $$ Where <span class="math inline">\(s_0,\dots,s_n\)</span> is the prefix of <span class="math inline">\(\pi\)</span> with <span class="math inline">\(s_0 \not \models p ,\dots, s_n \not\models p\)</span></p>
-<p>We can calculate the <strong>expected cost of a property</strong> as: <span class="math display">\[
+\]</div>
+<p>And, for <strong>the cost of the property <span class="math">\(Fp\)</span> on path <span class="math">\(\pi\)</span></strong>:</p>
+<div class="math">
+\[
+c_\pi(Fp) =
+\left\{
+\array{
+c(s_0,\dots,s_n) &amp; \pi \models Fp\\
+\infty &amp; \text{else}
+}
+
+\right.
+\]</div>
+<p>Where <span class="math">\(s_0,\dots,s_n\)</span> is the prefix of <span class="math">\(\pi\)</span> with <span class="math">\(s_0 \not \models p ,\dots, s_n \not\models p\)</span></p>
+<p>We can calculate the <strong>expected cost of a property</strong> as:</p>
+<div class="math">
+\[
 E(Fp) = \sum_{(s_0,\dots,s_n) \in \Sigma_S} c(s_0,\dots,s_n) \mathcal P(s_0,\dots,s_n)
-\]</span></p>
+\]</div>
+
 </body>
 </html>

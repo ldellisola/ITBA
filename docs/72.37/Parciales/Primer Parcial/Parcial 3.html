@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Parcial 3</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>Parcial 3.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,32 +1385,37 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="parcial-3">Parcial 3</h1>
 <h2 id="ejercicio-1">Ejercicio 1</h2>
 <p>El siguiente diagrama de Entidad-Relacion representa las peliculas que graba la Warner Bors y su comercializacion en el mercado</p>
-<figure>
-<img src="Resources/image-20200428154000057.png" alt="image-20200428154000057" /><figcaption aria-hidden="true">image-20200428154000057</figcaption>
-</figure>
+<p><img src="Resources/bec1f023-7c59-414c-9978-55eab38e4760.png" class="img-fluid" alt="image-20200428154000057" /></p>
 <h3 id="section">1.1</h3>
 <p>Escribir las sentencias SQL que permitan crear las tablas y todas las restricciones mostradas en el diagrama. No asumir nada que no esté indicado en el diagrama E/R.</p>
 <h3 id="section-1">1.2</h3>
 <p>Verdadero o falso:</p>
 <ul>
 <li><p><strong>1.2.1)</strong> Una misma película no puede haberse vendido a dos precios diferentes.</p>
-<p>Es <u>verdadero</u> por que el precio de la pelicula se lo indica en el detalle de la factura y no en la definicion de pelicula</p></li>
+<p>Es <u>verdadero</u> por que el precio de la pelicula se lo indica en el detalle de la factura y no en la definicion de pelicula</p>
+</li>
 <li><p><strong>1.2.2)</strong> No puede aparecer en una factura el registro de dos clientes distintos.</p>
-<p>Es <u>verdadero</u>, ya que para cada cliente puede haber muchas facturas, pero para cada factura hay solo un cliente.</p></li>
+<p>Es <u>verdadero</u>, ya que para cada cliente puede haber muchas facturas, pero para cada factura hay solo un cliente.</p>
+</li>
 <li><p><strong>1.2.3)</strong> Si un cliente cambia de dirección, las facturas pasadas quedan automáticamente con la nueva dirección.</p>
-<p>Es <u>verdadero</u> por que la factura no tiene una direccion, sino que se utiliza el campo del cliente a la cual esta relacionada.</p></li>
+<p>Es <u>verdadero</u> por que la factura no tiene una direccion, sino que se utiliza el campo del cliente a la cual esta relacionada.</p>
+</li>
 <li><p><strong>1.2.4)</strong> Los números de líneas no pueden repetirse para facturas distintas</p>
-<p>Es <u>falso</u> ya que la primary key de <code>DetalleFactura</code> tiene una clave debil, por lo que cada entrada de la tabla <code>DetalleFactura</code> de identifica mediante el <code>ID</code> de la factura a la cual pertenece y su propia clave <code>nroLinea</code>.</p></li>
+<p>Es <u>falso</u> ya que la primary key de <code>DetalleFactura</code> tiene una clave debil, por lo que cada entrada de la tabla <code>DetalleFactura</code> de identifica mediante el <code>ID</code> de la factura a la cual pertenece y su propia clave <code>nroLinea</code>.</p>
+</li>
 <li><p><strong>1.2.5)</strong> En la misma factura no puede haber dos líneas con la misma película.</p>
-<p>Es <u>verdadero</u>. ==Preguntar por que==.</p></li>
+<p>Es <u>verdadero</u>. <mark>Preguntar por que</mark>.</p>
+</li>
 <li><p><strong>1.2.6)</strong> Si se borra una línea de detalle factura, automáticamente se borra la factura correspondiente.</p>
-<p>Es <u>falso</u>. Debido a que <code>DetalleFactura</code> es una entidad debil y <code>Factura</code> una entidad normal, al borrar una entrada de <code>Factura</code> se eliminan todas las entradas de <code>DetalleFactura</code>, pero no al reves.</p></li>
+<p>Es <u>falso</u>. Debido a que <code>DetalleFactura</code> es una entidad debil y <code>Factura</code> una entidad normal, al borrar una entrada de <code>Factura</code> se eliminan todas las entradas de <code>DetalleFactura</code>, pero no al reves.</p>
+</li>
 </ul>
 <h2 id="ejercicio-2">Ejercicio 2</h2>
 <p>Se dice que dos consultas SQL son equivalentes si al ejecutarlas para cualquier instancia, producen el mismo resultado (salvo quizás el orden de aparición de las tuplas resultantes que es lo único en lo que podrían diferir). Para que dos consultas SQL se consideren equivalente sus resultados deberían coincidir hasta en la cantidad de tuplas.</p>
@@ -1560,125 +1427,149 @@ blockquote {
 <p>Ningún atributo puede ser NULL (todos fueron definidos NOT NULL)</p>
 <h3 id="section-2">2.1</h3>
 <p><strong>a)</strong></p>
-<pre class="mssql"><code>SELECT A 
+<pre><code class="language-mssql">SELECT A 
 FROM R1 
-WHERE EXISTS (SELECT * FROM R2 WHERE F = A)</code></pre>
+WHERE EXISTS (SELECT * FROM R2 WHERE F = A)
+</code></pre>
 <p><strong>b)</strong></p>
-<pre class="mssql"><code>SELECT F 
+<pre><code class="language-mssql">SELECT F 
 FROM R2 
-WHERE EXISTS (SELECT * FROM R1 WHERE F = A)</code></pre>
+WHERE EXISTS (SELECT * FROM R1 WHERE F = A)
+</code></pre>
 <p>Son equivalentes</p>
 <h3 id="section-3">2.2</h3>
 <p><strong>a)</strong></p>
-<pre class="mssql"><code>SELECT A 
+<pre><code class="language-mssql">SELECT A 
 FROM R1 
-WHERE EXISTS (SELECT * FROM R2 WHERE F = A)</code></pre>
+WHERE EXISTS (SELECT * FROM R2 WHERE F = A)
+</code></pre>
 <p><strong>b)</strong></p>
-<pre class="mssql"><code>SELECT F 
+<pre><code class="language-mssql">SELECT F 
 FROM R2 
-WHERE F IN (SELECT A FROM R1)</code></pre>
+WHERE F IN (SELECT A FROM R1)
+</code></pre>
 <p>Son equivalentes</p>
 <h3 id="section-4">2.3</h3>
 <p><strong>a)</strong></p>
-<pre class="mssql"><code>SELECT R1.*, R2.* 
+<pre><code class="language-mssql">SELECT R1.*, R2.* 
 FROM R1 JOIN R2 
-ON A = F</code></pre>
+ON A = F
+</code></pre>
 <p><strong>b)</strong></p>
-<pre class="mssql"><code>SELECT R1.*, R2.* 
-FROM R2 LEFT OUTER JOIN R1 ON A = F</code></pre>
+<pre><code class="language-mssql">SELECT R1.*, R2.* 
+FROM R2 LEFT OUTER JOIN R1 ON A = F
+</code></pre>
 <p>Son equivalentes</p>
 <h3 id="section-5">2.4</h3>
 <p><strong>a)</strong></p>
-<pre class="mssql"><code>SELECT R1.*, R2.* 
-FROM R1 JOIN R2 ON A = F </code></pre>
+<pre><code class="language-mssql">SELECT R1.*, R2.* 
+FROM R1 JOIN R2 ON A = F 
+</code></pre>
 <p><strong>b)</strong></p>
-<pre class="mssql"><code>SELECT R1.*, R2.* 
-FROM R2 RIGHT OUTER JOIN R1 ON A = F</code></pre>
+<pre><code class="language-mssql">SELECT R1.*, R2.* 
+FROM R2 RIGHT OUTER JOIN R1 ON A = F
+</code></pre>
 <p>Son equivalentes</p>
 <h3 id="section-6">2.5</h3>
 <p><strong>a)</strong></p>
-<pre class="mssql"><code>SELECT A 
+<pre><code class="language-mssql">SELECT A 
 FROM R1, R2 
 WHERE A = F 
 GROUP BY A 
-HAVING A &gt; 1</code></pre>
+HAVING A &gt; 1
+</code></pre>
 <p><strong>b)</strong></p>
-<pre class="mssql"><code>SELECT DISTINCT A 
+<pre><code class="language-mssql">SELECT DISTINCT A 
 FROM R1, R2 
-WHERE A = F AND A &gt; 1</code></pre>
+WHERE A = F AND A &gt; 1
+</code></pre>
 <p>Son equivalentes</p>
 <h3 id="section-7">2.6</h3>
 <p><strong>a)</strong></p>
-<pre class="mssql"><code>SELECT A 
+<pre><code class="language-mssql">SELECT A 
 FROM R1, R2 
 WHERE A = F 
 GROUP BY A 
-HAVING COUNT(B) &gt; 1</code></pre>
+HAVING COUNT(B) &gt; 1
+</code></pre>
 <p><strong>b)</strong></p>
-<pre class="mssql"><code>SELECT DISTINCT A 
+<pre><code class="language-mssql">SELECT DISTINCT A 
 FROM R1, R2 
-WHERE A = F AND COUNT(B) &gt; 1</code></pre>
+WHERE A = F AND COUNT(B) &gt; 1
+</code></pre>
 <h2 id="ejercicio-4">Ejercicio 4</h2>
 <h3 id="section-8">4.1</h3>
 <p>Escribir una consulta SQL en DB2 para mostrar los nombres de los ingredientes tales que en todas las recetas en las cuales lograron intervenir lo hacen en una proporción correspondiente a por lo menos el 20% de la composición (en gramos) de dicha receta.</p>
-<pre class="mssql"><code>select distinct nombre
+<pre><code class="language-mssql">select distinct nombre
 from formadapor f1
-where not exists    (
-                    select ID
-                    from formadapor f2
-                    group by ID 
-                    having f1.cant &lt; 0.2 * sum(f2.cant)
-                );</code></pre>
+where not exists 	(
+					select ID
+					from formadapor f2
+					group by ID	
+					having f1.cant &lt; 0.2 * sum(f2.cant)
+				);
+</code></pre>
 <h3 id="section-9">4.2</h3>
 <p>Escribir una consulta SQL en DB2 para mostrar el nombre de cada receta y cuanto costaría preparar una sola porción de la misma, sólo para aquellas recetas que lleven no más de 4 productos en su composición.</p>
-<pre class="mssql"><code>select receta.descripcion, cast (costo / porcion as decimal(6,2))
+<pre><code class="language-mssql">select receta.descripcion, cast (costo / porcion as decimal(6,2))
 from (receta right outer join (
-                                select id
-                                from formadapor
-                                group by id
-                                having count(*) &lt;=4
-                            ) as aux(recID) on receta.id = recID)
-                            natural join
-                            (
-                                select id, sum(precio * cant / gramaje) as costo
-                                from formadapor natural join ingrediente
-                                group by id
-                            ) as pre;</code></pre>
+								select id
+								from formadapor
+								group by id
+								having count(*) &lt;=4
+							) as aux(recID) on receta.id = recID)
+							natural join
+							(
+								select id, sum(precio * cant / gramaje) as costo
+								from formadapor natural join ingrediente
+								group by id
+							) as pre;
+</code></pre>
 <h3 id="section-10">4.3</h3>
 <p>Escribir una consulta SQL en DB2 para averiguar el identificador de las recetas que son amargas y usaron todos los ingredientes posibles registrados en INGREDIENTE. Se consideran amargas aquellas recetas que usaron como mucho un 5% de su composición en azúcar. Aclaración: Se asegura que el ingrediente Azucar está presente en la tabla ingrediente.</p>
-<pre class="mssql"><code>select id
+<pre><code class="language-mssql">select id
 from  ((
-        select distinct id
-        from formadapor f1
-        group by id
-        having count(distinct nombre) = (select count(nombre) from ingrediente)
-        ) as a 
-        natural join 
-        formadapor ) a
+		select distinct id
+		from formadapor f1
+		group by id
+		having count(distinct nombre) = (select count(nombre) from ingrediente)
+		) as a 
+		natural join 
+		formadapor ) a
 group by a.id
-having (select cant from formadapor f3 where a.id=f3.id and f3.nombre=&#39;Azucar&#39;)&lt; 0.05 * sum(a.cant);</code></pre>
+having (select cant from formadapor f3 where a.id=f3.id and f3.nombre='Azucar')&lt; 0.05 * sum(a.cant);
+</code></pre>
 <h2 id="ejercicio-5">Ejercicio 5</h2>
 <p>Se tiene la relación CURSADA que almacena las notas de cursada de los alumnos de una facultad en la cual las materias no pueden dictarse en más de un cuatrimetre por año. Su esquema es CURSADA(legajo, materia, año, nota).</p>
 <p>Dada la siguiente consulta sobre la tabla CURSADA:</p>
-<pre class="mssql"><code>SELECT legajo 
+<pre><code class="language-mssql">SELECT legajo 
 FROM CURSADA 
 GROUP BY legajo 
-HAVING MAX(nota) &gt; 4.0 </code></pre>
+HAVING MAX(nota) &gt; 4.0 
+</code></pre>
 <h3 id="section-11">5.1</h3>
-<p>Indicar si en el <strong>álgebra relaciona</strong>l vista en clase puede realizarse una consulta que produzca el mismo resultado que la dada. En caso afirmativo escribirla y en caso negativo justificar la imposibilidad. <span class="math display">\[
+<p>Indicar si en el <strong>álgebra relaciona</strong>l vista en clase puede realizarse una consulta que produzca el mismo resultado que la dada. En caso afirmativo escribirla y en caso negativo justificar la imposibilidad.</p>
+<div class="math">
+\[
 \pi_{legajo}(
 \sigma_{\text{nota&gt;4}}(cursada)
-\]</span></p>
+\]</div>
 <h3 id="section-12">5.2</h3>
-<p>Indicar si en el <strong>cálculo relacional de tuplas</strong> visto en clase puede realizarse una consulta que produzca el mismo resultado que la dada. En caso afirmativo escribirla y en caso negativo justificar la imposibilidad. $$</p>
-<p>$$</p>
+<p>Indicar si en el <strong>cálculo relacional de tuplas</strong> visto en clase puede realizarse una consulta que produzca el mismo resultado que la dada. En caso afirmativo escribirla y en caso negativo justificar la imposibilidad.</p>
+<div class="math">
+\[
+
+\]</div>
 <h3 id="section-13">5.3</h3>
-<p>Indicar si en el <strong>cálculo relacional de dominios</strong> visto en clase puede realizarse una consulta que produzca el mismo resultado que la dada. En caso afirmativo escribirla y en caso negativo justificar la imposibilidad. <span class="math display">\[
+<p>Indicar si en el <strong>cálculo relacional de dominios</strong> visto en clase puede realizarse una consulta que produzca el mismo resultado que la dada. En caso afirmativo escribirla y en caso negativo justificar la imposibilidad.</p>
+<div class="math">
+\[
 \{T\ |
-    (\exists C) [
-        \text{cursada(C)} \land C[nota]&gt;4 \land T[legajo] = C[legajo]
-    ]
+	(\exists C) [
+		\text{cursada(C)} \land C[nota]&gt;4 \land T[legajo] = C[legajo]
+	]
 \}
-\]</span></p>
+\]</div>
+
 </body>
 </html>

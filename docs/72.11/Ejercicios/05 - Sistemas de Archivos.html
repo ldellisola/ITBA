@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>05 - Sistemas de Archivos</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>05 - Sistemas de Archivos.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,54 +1385,65 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="sistemas-de-archivos">Sistemas de Archivos</h1>
 <h2 id="section">1</h2>
 <p>Suponga un sistema de archivos que utiliza asignación de espacio enlazada. Los bloques de datos son de 1024 bytes y cada enlace ocupa 4 bytes dentro del bloque. Si un archivo tiene un tamaño de 1 MiB, ¿cuántos bloques de datos ocupa el archivo?</p>
-<p>Como cada bloque tiene 1024 bytes asignados, pero dentro se ocupan siempre 4 para apuntar al próximo bloque, solo hay 1020 bytes disponibles por bloque para datos. Al mismo tiempo sabemos que 1MiB = 1.000.000 B, entonces con una simple división podemos obtener que se necesitan: <span class="math display">\[
+<p>Como cada bloque tiene 1024 bytes asignados, pero dentro se ocupan siempre 4 para apuntar al próximo bloque, solo hay 1020 bytes disponibles por bloque para datos. Al mismo tiempo sabemos que 1MiB = 1.000.000 B, entonces con una simple división podemos obtener que se necesitan:</p>
+<div class="math">
+\[
 \frac {1000000 B} {1020 B} =980.4 
-\]</span> Como no puedo dejar un bloque a medio utilizar por un archivo y medio utilizar por otro, puedo redondearlo y decir que ocupara <strong>981 bloques</strong> el archivo.</p>
+\]</div>
+<p>Como no puedo dejar un bloque a medio utilizar por un archivo y medio utilizar por otro, puedo redondearlo y decir que ocupara <strong>981 bloques</strong> el archivo.</p>
 <h2 id="section-1">2</h2>
-<p><strong>1</strong> Considere un archivo que ocupa 100 bloques de datos en el disco. Suponga que la entrada en directorio del archivo y su bloque de índices (si es el caso) ya se encuentran en memoria principal. Calcule cuántas operaciones de E/S de disco se requieren con las estrategias de asignación de espacio contigua, enlazada e indexada simple para cada una de las siguientes acciones:</p>
-<ol type="1">
+<p><strong>1</strong>   Considere un archivo que ocupa 100 bloques de datos en el disco. Suponga que la entrada en directorio del archivo y su bloque de índices (si es el caso) ya se encuentran en memoria principal. Calcule cuántas operaciones de E/S de disco se requieren con las estrategias de asignación de espacio contigua, enlazada e indexada simple para cada una de las siguientes acciones:</p>
+<ol>
 <li><p>Se añade un bloque al principio del archivo.</p>
 <p><u>Espacio Contiguo:</u> Hay dos casos:</p>
-<ol type="1">
+<ol>
 <li>Si hay lugar para un bloque al principio del archivo, seria cuestion de escribir la nueva posicion de memoria en el directorio e insertar un nuevo nodo con otra llamada de escritura, con un total de 2 operaciones.</li>
 <li>Si no hay lugar al principio del archivo, seria cuestion de modificar la entrada del primer bloque en el directorio. Luego tenemos que copiar los 100 nodos a un lugar donde haya espacio para 101 nodos y crear el nuevo nodo. Esto causa que tengamos 100 operaciones de lectura + 100 operaciones de escritura + 1 operacion de escritura + 1 opreacion de escritura, dandonos un total de 202 operaciones.</li>
 </ol>
 <p><u>Memoria Linkeada:</u> Requiere una operacion de escritura para crear el nodo y otra para modificar el directorio e indicarle la nueva direccion de memoria.</p>
-<p><u>Memoria Indexeada:</u> Hago una operacion de escritura para crear al nuevo nodo y al menos una operacion para modificar la tabla de indices. Esto varia ya que depende de la cantidad de bloques que ocupe la tabla. Puedo mover varios indices de la tabla con una misma operacion por que estan en el mismo bloque.</p></li>
+<p><u>Memoria Indexeada:</u> Hago una operacion de escritura para crear al nuevo nodo y al menos una operacion para modificar la tabla de indices. Esto varia ya que depende de la cantidad de bloques que ocupe la tabla. Puedo mover varios indices de la tabla con una misma operacion por que estan en el mismo bloque.</p>
+</li>
 <li><p>Se añade un bloque en la mitad del archivo.</p>
 <p><u>Espacio Contiguo:</u> Hay dos casos</p>
-<ol type="1">
+<ol>
 <li>Si hay lugar al final del archivo para un bloque mas, serian 50 operaciones de lectura y 50 de escritura para poder copiar los ultimos nodos un bloque para abajo, y luego seria 1 instruccion de escritura para crear al nuevo nodo, siendo en total 101 operaciones.</li>
 <li>Si no hay lugar al final del archivo, entonces serian 202 operaciones como el caso anterior.</li>
 </ol>
 <p><u>Memoria Linkeada:</u> Se requiere 50 lecturas para poder llegar al nodo 50, luego dos de escritura, una para modificar el puntero del nodo 49 al nuevo ingresado y otra para crear el nuevo nodo.</p>
-<p><u>Memoria Indexeada:</u></p></li>
+<p><u>Memoria Indexeada:</u></p>
+</li>
 <li><p>Se añade un bloque al final del archivo.</p>
 <p><u>Espacio Contiguo:</u> Hay dos casos:</p>
-<ol type="1">
+<ol>
 <li>Si hay lugar para agregar un bloque al final es cuestion de crear un nuevo nodo con una operacion de escritura.</li>
 <li>Si no hay lugar para agregar un nuevo bloque, entonces caigo en el mismo caso de antes.</li>
 </ol>
 <p><u>Memoria Linkeada:</u> Se requieren 100 lecturas para llegar al ultimo nodo y luego dos escrituras, una para crear al nuevo nodo y otra para modificar al puntero del nodo 100.</p>
-<p><u>Memoria Indexeada:</u></p></li>
+<p><u>Memoria Indexeada:</u></p>
+</li>
 <li><p>Se elimina el primer bloque del archivo.</p>
 <p><u>Espacio Contiguo:</u> Requiere una escritura ya que solo hay que cambiar el directorio para que el puntero apunte a la nueva posicion.</p>
 <p><u>Memoria Linkeada:</u> Se requiere una lectura del primer nodo para obtener el puntero al segundo nodo. y una escritura para modificar el directorio y que apunte a esta direccion que obtivumos.</p>
-<p><u>Memoria Indexeada:</u></p></li>
+<p><u>Memoria Indexeada:</u></p>
+</li>
 <li><p>Se elimina un bloque en la mitad del archivo.</p>
 <p><u>Espacio Contiguo:</u> Tengo que correr todo el archivo para arriba, entonces voy a tener 50 operaciones de lectura y 50 de escritura.</p>
 <p><u>Memoria Linkeada:</u> Se requieren 51 lecturas para llegar al nodo proximo al que quieremos eliminar y una escritura mediante la cual hacemos que el nodo 49 apunte al nodo 51.</p>
-<p><u>Memoria Indexeada:</u></p></li>
+<p><u>Memoria Indexeada:</u></p>
+</li>
 <li><p>Se elimina el último bloque del archivo.</p>
 <p><u>Espacio Contiguo:</u> Solo tengo que modificar el directorio para cambiar la lognitud del archivo o cambiar el puntero al ultimo elemento.</p>
 <p><u>Memoria Linkeada:</u> Se requieren 100 lecturas para llegar al ultimo nodo y una escritura para modificar al nodo 99 y que no apunte al ultimo nodo.</p>
-<p><u>Memoria Indexeada:</u></p></li>
+<p><u>Memoria Indexeada:</u></p>
+</li>
 </ol>
+
 </body>
 </html>

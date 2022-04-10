@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>07 - Games in Extensive Form</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>07 - Games in Extensive Form.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,74 +1385,95 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="games-in-extensive-form">Games in Extensive Form</h1>
 <p>We can represent very dynamic games such as poker with normal-form representation, but because we have to reflect all possible situations, this situation will grow exponentially.</p>
 <p>Here we will use extensive-form representation in the form of a tree (for finite games):</p>
-<p><img src="Resources/07 - Games in Extensive Form/image-20201028165109677.png" alt="image-20201028165109677" style="zoom:50%;" /></p>
+<img src="Resources/07 - Games in Extensive Form/fa202718-bdd8-4765-9c7a-8076c8cefd4c.png" alt="fa202718-bdd8-4765-9c7a-8076c8cefd4c" style="scale:0.50;" />
 <p>The formal definition for <strong>extensive-form games</strong> is contains:</p>
 <ul>
-<li>Any number of players <span class="math inline">\(\mathcal N = \{1,\dots,n\}\)</span></li>
-<li>Actions <span class="math inline">\(\mathcal A\)</span></li>
-<li>Choices nodes, also known as histories <span class="math inline">\(\mathcal H\)</span></li>
-<li>Action functions <span class="math inline">\(\chi:\mathcal H \rightarrow 2^{\mathcal A}\)</span></li>
-<li>Player functions <span class="math inline">\(\rho:\mathcal H \rightarrow \mathcal N\)</span></li>
-<li>Terminal nodes <span class="math inline">\(\mathcal Z\)</span></li>
-<li>Successor functions <span class="math inline">\(\varphi: \mathcal {H\times A \rightarrow H \cup Z}\)</span></li>
-<li>Utility function <span class="math inline">\(u= (u_1,\dots,u_n); u_i :\mathcal {Z \rightarrow \mathbb{R}}\)</span></li>
+<li>Any number of players <span class="math">\(\mathcal N = \{1,\dots,n\}\)</span></li>
+<li>Actions <span class="math">\(\mathcal A\)</span></li>
+<li>Choices nodes, also known as histories <span class="math">\(\mathcal H\)</span></li>
+<li>Action functions <span class="math">\(\chi:\mathcal H \rightarrow 2^{\mathcal A}\)</span></li>
+<li>Player functions <span class="math">\(\rho:\mathcal H \rightarrow \mathcal N\)</span></li>
+<li>Terminal nodes <span class="math">\(\mathcal Z\)</span></li>
+<li>Successor functions <span class="math">\(\varphi: \mathcal {H\times A \rightarrow H \cup Z}\)</span></li>
+<li>Utility function <span class="math">\(u= (u_1,\dots,u_n); u_i :\mathcal {Z \rightarrow \mathbb{R}}\)</span></li>
 </ul>
-<p>A pure strategy of player <span class="math inline">\(i\)</span> in an EFG is an assignment of an action for each state where <span class="math inline">\(i\)</span> acts: <span class="math display">\[
+<p>A pure strategy of player <span class="math">\(i\)</span> in an EFG is an assignment of an action for each state where <span class="math">\(i\)</span> acts:</p>
+<div class="math">
+\[
 S_i := \prod_{h\in \mathcal H, \rho(h) =i} \chi(h)
-\]</span> And now we’ll try to identify the actions and strategies in following fame:</p>
-<p><img src="Resources/07 - Games in Extensive Form/image-20201028170442790.png" alt="image-20201028170442790" style="zoom:50%;" /> <span class="math display">\[
+\]</div>
+<p>And now we'll try to identify the actions and strategies in following fame:</p>
+<img src="Resources/07 - Games in Extensive Form/077b7bd9-a810-4f36-bab0-89c46d2b7ee3.png" alt="077b7bd9-a810-4f36-bab0-89c46d2b7ee3" style="scale:0.50;" />
+$$
 \mathcal A_1 = \{2-0,1-1,0-2\}\\
 \mathcal S_1 = \{2-0,1-1,0-2\}\\
 \mathcal A_2 = \{\text{no},\text{yes}\}\\
 \mathcal S_2 = \{(\text{no,no,no}), (\text{no,no yes}),\dots,(\text{yes,yes,yes})\}
-\]</span> We can also replace the function <span class="math inline">\(\chi\)</span> by multiplying actions so that an action can be applied only in a single state: <span class="math display">\[
+$$
+We can also replace the function $\chi$  by multiplying actions so that an action can be applied only in a single state:
+$$
 \mathcal A_2 = \{\text{no}_{\{2-0\}},\text{yes}_{\{2-0\}}, \text{no}_{\{1-1\}},\dots,\text{yes}_{\{0-2\}}\} \\
 \mathcal S_2 = \{(\text{no}_{\{2-0\}},\text{no}_{\{1-1\}},\text{no}_{\{0-2\}}), \dots,(\text{yes}_{\{2-0\}},\text{yes}_{\{1-1\}},\text{yes}_{\{0-2\}}) \}
-\]</span></p>
+$$
 <h2 id="nash-equilibria">Nash Equilibria</h2>
 <p>Not all Nash strategies are entirely <em>sequentially rational</em> in EFGs. Off the equilibrium path, the players may use irrational actions. We use refinements of NE in EFGs to avoid this. The best known is <strong>Subgame-perfect equilibrium</strong>.</p>
-<p>Given a perfect-information extensive-form game <span class="math inline">\(G\)</span>, the <strong>subgame</strong> of <span class="math inline">\(G\)</span> rooted at the node <span class="math inline">\(h\)</span> is the restriction of <span class="math inline">\(G\)</span> to descendants of <span class="math inline">\(h\)</span>. The set of subgames of <span class="math inline">\(G\)</span> consists of all of subgames of <span class="math inline">\(G\)</span> rooted at the same node in <span class="math inline">\(G\)</span>.</p>
-<p>A <strong>subgame-perfect equilibrium</strong> of a game <span class="math inline">\(G\)</span> are all the strategy profiles <span class="math inline">\(s\)</span> such that for any subgame <span class="math inline">\(G&#39;\)</span> of <span class="math inline">\(G\)</span> the restriction of <span class="math inline">\(s\)</span> to <span class="math inline">\(G&#39;\)</span> is a Nash equilibrium of <span class="math inline">\(G&#39;\)</span>.</p>
+<p>Given a perfect-information extensive-form game <span class="math">\(G\)</span>, the <strong>subgame</strong> of <span class="math">\(G\)</span> rooted at the node <span class="math">\(h\)</span> is the restriction of <span class="math">\(G\)</span> to descendants of <span class="math">\(h\)</span>. The set of subgames of <span class="math">\(G\)</span> consists of all of subgames of <span class="math">\(G\)</span> rooted at the same node in <span class="math">\(G\)</span>.</p>
+<p>A <strong>subgame-perfect equilibrium</strong> of a game <span class="math">\(G\)</span> are all the strategy profiles <span class="math">\(s\)</span> such that for any subgame <span class="math">\(G'\)</span> of <span class="math">\(G\)</span> the restriction of <span class="math">\(s\)</span> to <span class="math">\(G'\)</span> is a Nash equilibrium of <span class="math">\(G'\)</span>.</p>
 <p>Every EFG with perfect information has at least one Nash equilibria in pure strategies that is also subgame-perfect equilibrium.</p>
 <h2 id="efg-with-chance">EFG with Chance</h2>
 <p>Now we will introduce a new player called <em>chance</em> or <em>nature</em> that plays using a fixed randomized strategy. Its formal definition is quite similar to the regular EFG with some variations:</p>
 <ul>
-<li>Any number of players <span class="math inline">\(\mathcal N = \{1,\dots,n\} \cup \{c\}\)</span></li>
-<li>Actions <span class="math inline">\(\mathcal A\)</span></li>
-<li>Choices nodes, also known as histories <span class="math inline">\(\mathcal H\)</span></li>
-<li>Action functions <span class="math inline">\(\chi:\mathcal H \rightarrow 2^{\mathcal A}\)</span></li>
-<li>Player functions <span class="math inline">\(\rho:\mathcal H \rightarrow \mathcal N\)</span></li>
-<li>Terminal nodes <span class="math inline">\(\mathcal Z\)</span></li>
-<li>Successor functions <span class="math inline">\(\varphi: \mathcal {H\times A \rightarrow H \cup Z}\)</span></li>
-<li>Stochastic transitions <span class="math inline">\(\gamma:\Delta \{\chi(h) / h \in \mathcal H, \rho(h) = c\}\)</span></li>
-<li>Utility function <span class="math inline">\(u= (u_1,\dots,u_n); u_i :\mathcal {Z \rightarrow \mathbb{R}}\)</span></li>
+<li>Any number of players <span class="math">\(\mathcal N = \{1,\dots,n\} \cup \{c\}\)</span></li>
+<li>Actions <span class="math">\(\mathcal A\)</span></li>
+<li>Choices nodes, also known as histories <span class="math">\(\mathcal H\)</span></li>
+<li>Action functions <span class="math">\(\chi:\mathcal H \rightarrow 2^{\mathcal A}\)</span></li>
+<li>Player functions <span class="math">\(\rho:\mathcal H \rightarrow \mathcal N\)</span></li>
+<li>Terminal nodes <span class="math">\(\mathcal Z\)</span></li>
+<li>Successor functions <span class="math">\(\varphi: \mathcal {H\times A \rightarrow H \cup Z}\)</span></li>
+<li>Stochastic transitions <span class="math">\(\gamma:\Delta \{\chi(h) / h \in \mathcal H, \rho(h) = c\}\)</span></li>
+<li>Utility function <span class="math">\(u= (u_1,\dots,u_n); u_i :\mathcal {Z \rightarrow \mathbb{R}}\)</span></li>
 </ul>
 <h2 id="efg-with-imperfect-information">EFG with Imperfect information</h2>
 <p>When players are not able to observe the state of the game perfectly, we talk about <em>imperfect information games</em>. The states that are not distinguishable to a player belong to a single information set. They are defined as:</p>
 <ul>
-<li><span class="math inline">\(\mathcal {G = (N,A,H,Z,\chi.\rho,\varphi,\gamma,u)}\)</span> is a perfect information EFG.</li>
-<li><span class="math inline">\(\mathcal{ I = (I_1,I_2,\dots,I_n)}\)</span> where <span class="math inline">\(\mathcal I_i\)</span> is a set of equivalence classes on choice nodes of a player <span class="math inline">\(i\)</span> with the property that <span class="math inline">\(\rho(h) = \rho(h&#39;)\)</span> and <span class="math inline">\(\chi(h) = \chi(h&#39;)\)</span> whenever <span class="math inline">\(h,h&#39; \in I\)</span> for some information set <span class="math inline">\(I \in \mathcal I_i\)</span>.</li>
-<li>We can use <span class="math inline">\(\chi(I)\)</span> instead of <span class="math inline">\(\chi(h)\)</span> for some <span class="math inline">\(h\in I\)</span></li>
+<li><span class="math">\(\mathcal {G = (N,A,H,Z,\chi.\rho,\varphi,\gamma,u)}\)</span>  is a perfect information EFG.</li>
+<li><span class="math">\(\mathcal{ I = (I_1,I_2,\dots,I_n)}\)</span> where <span class="math">\(\mathcal I_i\)</span> is a set of equivalence classes on choice nodes of a player <span class="math">\(i\)</span> with the property that <span class="math">\(\rho(h) = \rho(h')\)</span> and <span class="math">\(\chi(h) = \chi(h')\)</span> whenever <span class="math">\(h,h' \in I\)</span> for some information set <span class="math">\(I \in \mathcal I_i\)</span>.</li>
+<li>We can use <span class="math">\(\chi(I)\)</span> instead of <span class="math">\(\chi(h)\)</span> for some <span class="math">\(h\in I\)</span></li>
 </ul>
-<p><img src="Resources/07 - Games in Extensive Form/image-20201028174819008.png" alt="image-20201028174819008" style="zoom:50%;" /></p>
-<p>Here we have the following Actions and Strategies: $$</p>
-<p>$$ There are no guaranties that a pure NE exists in imperfect information games. But every finite game can ge represented as an EFG with imperfect information.</p>
+<img src="Resources/07 - Games in Extensive Form/478cc07d-0263-4d8a-a301-f5c41037389e.png" alt="478cc07d-0263-4d8a-a301-f5c41037389e" style="scale:0.50;" />
+<p>Here we have the following Actions and Strategies:</p>
+<div class="math">
+\[
+
+\array{
+\mathcal A_1 = \{2-0,1-1,0-2\}\\
+\mathcal S_1 = \{2-0,2-2,0-2\}\\
+\mathcal A_2 = \{\text{yes},\text{no}\}\\
+\mathcal S_2 = \{\text{yes},\text{no}\}
+}
+\]</div>
+<p>There are no guaranties that a pure NE exists in imperfect information games. But every finite game can ge represented as an EFG with imperfect information.</p>
 <h2 id="other-strategies">Other Strategies</h2>
-<p>There are other strategies in EFGs, the most known one being <strong>behavioral strategies</strong>. A behavioral strategy of player <span class="math inline">\(i\)</span> is a product of probability distributions over actions in each information set: <span class="math display">\[
+<p>There are other strategies in EFGs, the most known one being <strong>behavioral strategies</strong>. A behavioral strategy of player <span class="math">\(i\)</span> is a product of probability distributions over actions in each information set:</p>
+<div class="math">
+\[
 \beta_i : \prod_{I\in \mathcal I_I} \Delta(\chi(I))
-\]</span> There is a broad class of imperfect-information games in which the expressiveness of mixed and behavioral strategies coincide. They are called <strong>perfect recall games</strong>. In this games no player forgets any information he previously know in this games.</p>
-<p>Player <span class="math inline">\(i\)</span> has <strong>perfect recall</strong> in an imperfect-information game <span class="math inline">\(G\)</span> if for any two nodes <span class="math inline">\(h,h&#39;\)</span> that are in the same information set for player <span class="math inline">\(i\)</span>, for any path <span class="math inline">\(h_0,a_0,\dots,h_n,a_n,h\)</span> from the root of the game tree to <span class="math inline">\(h\)</span> and for any path <span class="math inline">\(h_0,a_0&#39;,h_m&#39;,a_m&#39;,h&#39;\)</span> from the root to <span class="math inline">\(h&#39;\)</span> it must be the case that:</p>
+\]</div>
+<p>There is a broad class of imperfect-information games in which the expressiveness of mixed and behavioral strategies coincide. They are called <strong>perfect recall games</strong>. In this games no player forgets any information he previously know in this games.</p>
+<p>Player <span class="math">\(i\)</span> has <strong>perfect recall</strong> in an imperfect-information game <span class="math">\(G\)</span> if for any two nodes <span class="math">\(h,h'\)</span> that are in the same information set for player <span class="math">\(i\)</span>, for any path <span class="math">\(h_0,a_0,\dots,h_n,a_n,h\)</span> from the root of the game tree to <span class="math">\(h\)</span> and for any path <span class="math">\(h_0,a_0',h_m',a_m',h'\)</span> from the root to <span class="math">\(h'\)</span> it must be the case that:</p>
 <ul>
-<li><span class="math inline">\(n=m\)</span></li>
-<li><span class="math inline">\(\forall j, 0\le j\le n, h_j\)</span> and <span class="math inline">\(h_j&#39;\)</span> are in the same equivalence class for player <span class="math inline">\(i\)</span></li>
-<li><span class="math inline">\(\forall i, 0 \le j \le n\)</span> if <span class="math inline">\(\rho(h_j) = i\)</span> then <span class="math inline">\(a_j = a_j&#39;\)</span></li>
+<li><span class="math">\(n=m\)</span></li>
+<li><span class="math">\(\forall j, 0\le j\le n, h_j\)</span> and <span class="math">\(h_j'\)</span> are in the same equivalence class for player <span class="math">\(i\)</span></li>
+<li><span class="math">\(\forall i, 0 \le j \le n\)</span> if $\rho(h_j) = i $ then <span class="math">\(a_j = a_j'\)</span></li>
 </ul>
 <p>We say that EFG has a perfect recall if all players have perfect recall. Otherwise the game has <strong>imperfect recall</strong>.</p>
+
 </body>
 </html>

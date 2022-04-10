@@ -1,154 +1,16 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>03</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      word-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-<style type='text/css' >
-html {
+    <meta charset="UTF-8">
+    <title>03.md</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        html {
     overflow-x: initial !important;
 }
 
@@ -157,7 +19,7 @@ html {
     --text-color: #333333;
     --select-text-bg-color: #B5D6FC;
     --select-text-font-color: auto;
-    --monospace: "Lucida Console",Consolas,"Courier",monospace;
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
 }
 
 html {
@@ -214,17 +76,17 @@ a:active, a:hover {
     padding-top: 40px;
 }
 
-    #write.first-line-indent p {
-        text-indent: 2em;
-    }
+#write.first-line-indent p {
+    text-indent: 2em;
+}
 
-        #write.first-line-indent li p, #write.first-line-indent p * {
-            text-indent: 0px;
-        }
+#write.first-line-indent li p, #write.first-line-indent p * {
+    text-indent: 0px;
+}
 
-    #write.first-line-indent li {
-        margin-left: 2em;
-    }
+#write.first-line-indent li {
+    margin-left: 2em;
+}
 
 .for-image #write {
     padding-left: 8px;
@@ -278,10 +140,10 @@ button, input, select, textarea {
     font: inherit;
 }
 
-    input[type="checkbox"], input[type="radio"] {
-        line-height: normal;
-        padding: 0px;
-    }
+input[type="checkbox"], input[type="radio"] {
+    line-height: normal;
+    padding: 0px;
+}
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -361,11 +223,11 @@ sup.md-footnote {
     cursor: pointer;
 }
 
-    sup.md-footnote a, sup.md-footnote a:hover {
-        color: inherit;
-        text-transform: inherit;
-        text-decoration: inherit;
-    }
+sup.md-footnote a, sup.md-footnote a:hover {
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
 
 #write input[type="checkbox"] {
     cursor: pointer;
@@ -380,9 +242,9 @@ figure {
     padding: 0px;
 }
 
-    figure > table {
-        margin: 0px !important;
-    }
+figure > table {
+    margin: 0px !important;
+}
 
 tr {
     break-inside: avoid;
@@ -402,9 +264,9 @@ table {
     text-align: left;
 }
 
-    table.md-table td {
-        min-width: 32px;
-    }
+table.md-table td {
+    min-width: 32px;
+}
 
 .CodeMirror-gutters {
     border-right: 0px;
@@ -499,9 +361,9 @@ div.hr:focus {
     margin-bottom: 1em;
 }
 
-    .footnotes + .footnotes {
-        margin-top: 0px;
-    }
+.footnotes + .footnotes {
+    margin-top: 0px;
+}
 
 .md-reset {
     margin: 0px;
@@ -591,9 +453,9 @@ blockquote > :first-child, li > :first-child {
         break-after: avoid;
     }
 
-        .typora-export #write::after {
-            height: 0px;
-        }
+    .typora-export #write::after {
+        height: 0px;
+    }
 }
 
 .footnote-line {
@@ -632,9 +494,9 @@ p > .md-image:only-child {
     width: 100%;
 }
 
-    .md-math-block:not(:empty)::after {
-        display: none;
-    }
+.md-math-block:not(:empty)::after {
+    display: none;
+}
 
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
     outline: 0px;
@@ -675,18 +537,18 @@ p > .md-image:only-child {
     margin-left: 0px;
 }
 
-    .md-toc-content::after, .md-toc::after {
-        display: none;
-    }
+.md-toc-content::after, .md-toc::after {
+    display: none;
+}
 
 .md-toc-item {
     display: block;
     color: rgb(65, 131, 196);
 }
 
-    .md-toc-item a {
-        text-decoration: none;
-    }
+.md-toc-item a {
+    text-decoration: none;
+}
 
 .md-toc-inner:hover {
     text-decoration: underline;
@@ -862,9 +724,9 @@ a.md-print-anchor {
     margin: 0px;
 }
 
-    .MathJax_SVG * {
-        transition: none 0s ease 0s;
-    }
+.MathJax_SVG * {
+    transition: none 0s ease 0s;
+}
 
 .MathJax_SVG_Display svg {
     vertical-align: middle !important;
@@ -918,23 +780,23 @@ mark {
     color: rgb(0, 0, 0);
 }
 
-    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
-        color: inherit;
-    }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+    color: inherit;
+}
 
-    mark .md-meta {
-        color: rgb(0, 0, 0);
-        opacity: 0.3 !important;
-    }
+mark .md-meta {
+    color: rgb(0, 0, 0);
+    opacity: 0.3 !important;
+}
 
 
 .CodeMirror {
     height: auto;
 }
 
-    .CodeMirror.cm-s-inner {
-        background: inherit;
-    }
+.CodeMirror.cm-s-inner {
+    background: inherit;
+}
 
 .CodeMirror-scroll {
     overflow: auto hidden;
@@ -1241,9 +1103,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     visibility: hidden;
 }
 
-    .CodeMirror-measure pre {
-        position: static;
-    }
+.CodeMirror-measure pre {
+    position: static;
+}
 
 .CodeMirror div.CodeMirror-cursor {
     position: absolute;
@@ -1366,9 +1228,9 @@ pre, code {
     border: 1px solid;
 }
 
-    .md-fences.md-fences-with-lineno {
-        border: none;
-    }
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
 
 .CodeMirror-linenumber {
     color: #333;
@@ -1523,70 +1385,135 @@ blockquote {
 
 
 
-</style >
+
+    </style>
 </head>
 <body>
 <h1 id="assignment-03">Assignment 03</h1>
 <h2 id="section">7</h2>
-<blockquote>
+<blockquote class="blockquote">
 <p>Convert each of the following basic paths into SSA, and then write down its verification condition. Check whether the verification condition holds. If it holds, write down a short proof. If it does not hold, find a counter-example, that is, a variable assignment that both shows that the formula does not hold, and at the same time represents an initial state for which execution of the basic path results in a bug. For each of those steps, there are examples on the slides of Lecture 5.</p>
 </blockquote>
 <h3 id="d">d</h3>
-<blockquote>
-<p><span class="math display">\[
+<blockquote class="blockquote">
+<div class="math">
+\[
 \array{\bold{\text{assume }} k\le x&amp;;&amp; x \leftarrow x-k &amp;;&amp; @~ x \ge0}
-\]</span></p>
+\]</div>
 </blockquote>
-<p>Converted to SSA: <span class="math display">\[
+<p>Converted to SSA:</p>
+<div class="math">
+\[
 \array{\bold{\text{assume }} k\le x_1&amp;;&amp; x_2 \leftarrow x_1-k &amp;;&amp; @~ x_2 \ge0}
-\]</span> Verification Condition: <span class="math display">\[
+\]</div>
+<p>Verification Condition:</p>
+<div class="math">
+\[
 \forall x_1,x_2,k.~~~[k \le x_1 \land x_2 = x_1 - k] \implies x_2 \ge 0
-\]</span></p>
-<p>$$  $$</p>
+\]</div>
+<div class="math">
+\[
+\array{
+\text{My assumptions: } &amp;&amp; \\
+&amp;&amp; \text{Let $x_1,x_2,k$ be arbitrary but fixed variables}\\
+&amp;&amp; [k \le x_1 \land x_2 = x_1 - k] \\
+&amp;&amp; k \le x_1 \\
+&amp;&amp;  x_1 - k \ge 0\\
+&amp;&amp; x_2 = x_1 - k\\
+&amp;&amp; x_2 = x_1 - k \ge 0\\
+&amp;&amp;x_2 \ge 0
+
+\\\\
+\text{To prove: }&amp;&amp;  x_2 \ge 0
+}
+\]</div>
 <h3 id="e">e</h3>
-<blockquote>
-<p><span class="math display">\[
+<blockquote class="blockquote">
+<div class="math">
+\[
 \array{x \leftarrow x-k&amp;;&amp;\bold{\text{assume }}k \le x &amp;;&amp; @~~x \ge 0}
-\]</span></p>
+\]</div>
 </blockquote>
-<p>Converted to SSA: <span class="math display">\[
+<p>Converted to SSA:</p>
+<div class="math">
+\[
 \array{x_1 \leftarrow x_0-k&amp;;&amp;\bold{\text{assume }}k \le x_1 &amp;;&amp; @~~x_1 \ge 0}
-\]</span> Verification Condition: <span class="math display">\[
+\]</div>
+<p>Verification Condition:</p>
+<div class="math">
+\[
 \forall x_1,x_0,k. [x_1 = x_0 - k \land k \le x_1 ]\implies x_1 \ge 0
-\]</span> This is verification condition is not met. If we select the following values: <span class="math display">\[
+\]</div>
+<p>This is verification condition is not met. If we select the following values:</p>
+<div class="math">
+\[
 \array{x_1 = -2&amp; x_0 = -5 &amp; k = -3}
-\]</span> We can see that: <span class="math display">\[
+\]</div>
+<p>We can see that:</p>
+<div class="math">
+\[
 [-2 = -5 - (-3) \land -3 \le -2] \implies -2 \ge 0
-\]</span></p>
+\]</div>
 <h3 id="f">f</h3>
-<blockquote>
-<p><span class="math display">\[
+<blockquote class="blockquote">
+<div class="math">
+\[
 \array{\bold{\text{assume }}k \ge 0&amp;;&amp;x \leftarrow x-k &amp;;&amp;\bold{\text{assume }} k \le x &amp;;&amp;@~x \ge 0}
-\]</span></p>
+\]</div>
 </blockquote>
-<p>Converted to SSA: <span class="math display">\[
+<p>Converted to SSA:</p>
+<div class="math">
+\[
 \array{\bold{\text{assume }}k \ge 0&amp;;&amp;x_1 \leftarrow x_0-k &amp;;&amp; \bold{\text{assume }}k \le x_1 &amp;;&amp;@~x_1 \ge 0}
-\]</span> The verification condition: <span class="math display">\[
+\]</div>
+<p>The verification condition:</p>
+<div class="math">
+\[
 \forall x_0,x_1,k. [k \ge 0 \land x_1 = x_0 - k \land k \le x_1] \implies x_1 \ge 0
-\]</span></p>
-<p>$$  $$</p>
+\]</div>
+<div class="math">
+\[
+\array{
+\text{My assumptions: } &amp;&amp; \\
+&amp;&amp; \text{Let $x_0,x_1,k$ be arbitrary but fixed variables}\\
+&amp;&amp; [k \ge 0 \land x_1 = x_0 - k \land k \le x_1] \\
+&amp;&amp; 0 \le k \\
+&amp;&amp; x_1 = x_0 - k \\
+&amp;&amp; k \le x_1 \\
+&amp;&amp; x_1 \le x_0\\
+&amp;&amp; k \le x_0 \\
+&amp;&amp; x_1 \ge x_0 - k \ge x_0 - x_0 \ge 0
+
+
+\\\\
+\text{To prove: }&amp;&amp;   x_1 \ge 0
+}
+\]</div>
 <h2 id="section-1">8</h2>
-<blockquote>
+<blockquote class="blockquote">
 <p>Consider the following program (all variables range over the natural numbers including zero):</p>
-<p><img src="Resources/03/image-20210405193111603.png" alt="image-20210405193111603" style="zoom:33%;" /></p>
+<img src="Resources/03/f472fbd1-2b81-467c-9ade-48f216e6a2f5.png" alt="f472fbd1-2b81-467c-9ade-48f216e6a2f5" style="scale:0.33;" />
 </blockquote>
 <h3 id="a">A</h3>
-<blockquote>
+<blockquote class="blockquote">
 <p>Write down all basic paths of this program. Take care that the basic paths that begin at the loop invariant start with a corresponding assume statement.</p>
 </blockquote>
-<p>This path represents the case where we never enter the loop: <span class="math display">\[
+<p>This path represents the case where we never enter the loop:</p>
+<div class="math">
+\[
 x_0 \leftarrow x\\
 i \leftarrow 0\\
 \bold{\text{assume }} i \ge n\\
 @~ x = x_0 + \sum_{k=0}^{n-1}a[k]
-\]</span> The verification condition is: <span class="math display">\[
+\]</div>
+<p>The verification condition is:</p>
+<div class="math">
+\[
 \left[ x_0 = x \land i = 0 \land i \ge n \right] \implies x = x_0 + \sum_{k=0}^{n-1}a[k]
-\]</span> The proof is: <span class="math display">\[
+\]</div>
+<p>The proof is:</p>
+<div class="math">
+\[
 \array{
 \text{My assumptions: } &amp;&amp; \\
 &amp;&amp; \left[ x_0 = x \land i = 0 \land i \ge n \right] \\
@@ -1597,15 +1524,24 @@ i \leftarrow 0\\
 \\\\
 \text{To prove: }&amp;&amp;   x = x_0 + \sum_{k=0}^{n-1}a[k]
 }
-\]</span> This holds because <span class="math inline">\(x = x_0\)</span> and <span class="math inline">\(n \le 0\)</span>, so the summation will return <span class="math inline">\(0\)</span>.</p>
-<p>This path represents when we enter the loop the first time: <span class="math display">\[
+\]</div>
+<p>This holds because <span class="math">\(x = x_0\)</span> and <span class="math">\(n \le 0\)</span>, so the summation will return <span class="math">\(0\)</span>.</p>
+<p>This path represents when we enter the loop the first time:</p>
+<div class="math">
+\[
 x_0 \leftarrow x\\
 i \leftarrow 0\\
 \bold{\text{assume }} i &lt; n\\
 @~ x = x_0 + \sum_{k=0}^{i-1}a[k]
-\]</span> The verification condition is: <span class="math display">\[
+\]</div>
+<p>The verification condition is:</p>
+<div class="math">
+\[
 \left[x_0 = x \land i = 0 \land  i &lt; n \right]  \implies x = x_0 + \sum_{k=0}^{i-1}a[k]
-\]</span> We can prove it: <span class="math display">\[
+\]</div>
+<p>We can prove it:</p>
+<div class="math">
+\[
 \array{
 \text{My assumptions: } &amp;&amp; \\
 &amp;&amp; \left[x_0 = x \land i = 0 \land  i &lt; n \right] \\
@@ -1615,35 +1551,68 @@ i \leftarrow 0\\
 \\\\
 \text{To prove: }&amp;&amp;  x = x_0 + \sum_{k=0}^{i-1}a[k] 
 }
-\]</span> This holds because <span class="math inline">\(x = x_0\)</span> and <span class="math inline">\(i-1 &lt; 0\)</span>, so the summation returns <span class="math inline">\(0\)</span>.</p>
-<p>This path represents when we iterate through the loop and don’t leave it <span class="math display">\[
+\]</div>
+<p>This holds because <span class="math">\(x = x_0\)</span> and <span class="math">\(i-1 &lt; 0\)</span>, so the summation returns <span class="math">\(0\)</span>.</p>
+<p>This path represents when we iterate through the loop and don't leave it</p>
+<div class="math">
+\[
 \bold{\text{assume }}  x = x_0 + \sum_{k=0}^{i-1}a[k]\\
-x&#39; \leftarrow x + a[i]\\
-i&#39; \leftarrow i + 1\\
-\bold{\text{assume }} i&#39; &lt; n\\
-@~ x&#39; = x_0 + \sum_{k=0}^{i&#39;-1}a[k]
-\]</span> The verification condition is: <span class="math display">\[
-\left[ x = x_0 + \sum_{k=0}^{i-1}a[k] \land x&#39; =x + a[i] \land i&#39; = i+1 \land   i&#39; &lt; n \right] \implies x&#39; = x_0 + \sum_{k=0}^{i&#39;-1}a[k]
-\]</span> And we can prove it: <span class="math display">\[
+x' \leftarrow x + a[i]\\
+i' \leftarrow i + 1\\
+\bold{\text{assume }} i' &lt; n\\
+@~ x' = x_0 + \sum_{k=0}^{i'-1}a[k]
+\]</div>
+<p>The verification condition is:</p>
+<div class="math">
+\[
+\left[ x = x_0 + \sum_{k=0}^{i-1}a[k] \land x' =x + a[i] \land i' = i+1 \land   i' &lt; n \right] \implies x' = x_0 + \sum_{k=0}^{i'-1}a[k]
+\]</div>
+<p>And we can prove it:</p>
+<div class="math">
+\[
 \array{
 \text{My assumptions: } &amp;&amp; \\
 &amp;&amp; x = x_0 + \sum_{k=0}^{i-1}a[k]\\
-&amp;&amp; \left[ x&#39; =x + a[i] \land i&#39; = i+1 \land   i&#39; &lt; n \right]\\
-&amp;&amp;  x&#39; =x + a[i] \\ 
-&amp;&amp; i&#39; = i+1 \\
-&amp;&amp;  i&#39; &lt; n \\
-&amp;&amp; x&#39; = x_0 +  \sum_{k=0}^{i-1}a[k] + a[i] \\
-&amp;&amp; x&#39; = x_0 +  \sum_{k=0}^{i&#39;-1}a[k] 
+&amp;&amp; \left[ x' =x + a[i] \land i' = i+1 \land   i' &lt; n \right]\\
+&amp;&amp;  x' =x + a[i] \\ 
+&amp;&amp; i' = i+1 \\
+&amp;&amp;  i' &lt; n \\
+&amp;&amp; x' = x_0 +  \sum_{k=0}^{i-1}a[k] + a[i] \\
+&amp;&amp; x' = x_0 +  \sum_{k=0}^{i'-1}a[k] 
 \\\\
-\text{To prove: }&amp;&amp;    x&#39; = x_0 + \sum_{k=0}^{i&#39;-1}a[k]     
+\text{To prove: }&amp;&amp;    x' = x_0 + \sum_{k=0}^{i'-1}a[k]     
 }
-\]</span></p>
-<p>This path represents when we iterate through the loop and exit $$  @~ x = x_0 + _{k=0}^{i-1}a[k]\ x’ x + a[i]\ i’ i + 1\  i’ n\</p>
-<p>@~ x’ = x_0 + <em>{k=0}^{n-1}a[k] <span class="math display">\[
-The verification condition is
-\]</span> x’ = x+ a[i] i’ = i+1 i’ n ] x’ = x_0 + </em>{k=0}^{n-1}a[k] <span class="math display">\[
-We can prove it:
-\]</span>  $$</p>
-<p>WRONG! The problem is that n != i’</p>
+\]</div>
+<p>This path represents when we iterate through the loop and exit</p>
+<div class="math">
+\[
+\bold{\text{assume }} @~ x = x_0 + \sum_{k=0}^{i-1}a[k]\\
+x' \leftarrow x + a[i]\\
+i' \leftarrow i + 1\\
+\bold{\text{assume }} i' \ge n\\
+
+@~ x' = x_0 + \sum_{k=0}^{n-1}a[k]
+\]</div>
+<p>The verification condition is</p>
+<div class="math">
+\[
+\left[x = x_0 + \sum_{k=0}^{i-1}a[k] \implies \land x' = x+ a[i] \land i' = i+1 \land i' \ge n \right] \implies x' = x_0 + \sum_{k=0}^{n-1}a[k] 
+\]</div>
+<p>We can prove it:</p>
+<div class="math">
+\[
+\array{
+\text{My assumptions: } &amp;&amp; \\
+&amp;&amp;  x = x_0 + \sum_{k=0}^{i-1}a[k] \\
+&amp;&amp; \left[x' = x+ a[i] \land i' = i+1 \land i' \ge n \right] \\
+&amp;&amp; i'=i+1 \\
+&amp;&amp; i' \ge n \\
+&amp;&amp; x' = x+ a[i] =  x_0 + \sum_{k=0}^{i-1}a[k] + a[i] = x_0 + \sum_{k=0}^{n-1}a[k] 
+\\\\
+\text{To prove: }&amp;&amp;   x' = x_0 + \sum_{k=0}^{n-1}a[k] 
+}
+\]</div>
+<p>WRONG! The problem is that n != i'</p>
+
 </body>
 </html>
