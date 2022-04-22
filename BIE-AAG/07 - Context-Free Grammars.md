@@ -16,7 +16,7 @@ There are also a few important theorems:
 
 - **Rule Exclusion Theorem**:
 
-  Let context-free grammar $G = (N,\Sigma,P,S)$  and $(A\rarr \alpha B \beta) \in P$ with $\beta,\alpha \in (N\cup\Sigma)^*$$, B \in N, A \neq B$ .
+  Let context-free grammar $G = (N,\Sigma,P,S)$  and $(A\rarr \alpha B \beta) \in P$ with $\beta,\alpha \in (N\cup\Sigma)^*, B \in N, A \neq B$ .
 
   Let $B\rarr \gamma_1 | \dots|\gamma_k$ be all the rules in $P$ with the symbol $B$ on the left-hand side. Let $G'=(N,\Sigma,P',S)$ where:
   $$

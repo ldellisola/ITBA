@@ -49,7 +49,7 @@ Function symbols:
 - $0:\rarr \mathcal N$
 - $1:\rarr \mathcal N$
 - $+: \mathcal {N \times N \rarr N}$
-- $\cdot: \mathcal {N \times N \rarr N}$$
+- $\cdot: \mathcal {N \times N \rarr N}$
 
 For the axioms, we are using Peano Arithmetic:
 

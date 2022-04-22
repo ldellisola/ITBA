@@ -94,8 +94,6 @@ We can also use the following list of equivalences
 
 ![image-20201108191544702](Resources/05 - Temporal Logic/image-20201108191544702.png)
 
-![image-20201108191544702](Resources/05 - Temporal Logic/image-20201108191544702.png)
-
 ### Properties of Transition Systems
 
 $$
@@ -110,5 +108,4 @@ If the transition system is obvious, then we can write:
 $$
 \models p
 $$
-
 

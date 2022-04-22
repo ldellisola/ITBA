@@ -37,15 +37,15 @@
 - **Término**: Sea $TERM$ el conjunto de los terminos, un termino es un expresion que sigue las siguentes reglas:
 
   1. $Var \in TERM$
-  2. $\scr{C}~$$ \in TERM$ 
-  3. $f^k \in \scr{F}$$~~, t_1,\dots,t_k \in TERM \Rightarrow f^k(t_1,\dots,t_k) \in TERM$
+  2. $\scr{C}~ \in \text{TERM}$ 
+  3. $f^k \in \scr{F}$  $~~, t_1,\dots,t_k \in TERM \Rightarrow f^k(t_1,\dots,t_k) \in TERM$
   4. Cualquier expresion de $A^*$ que se obtenga aplicando finitas veces $1, 2$ o $ 3$ es un termino.  
 
   Se llama **Término cerrado** a un termino que no tiene variables.
 
 - **Formula**: Sea $FORM=F$ el conjunto de formulas, una formula es una expresion que sigue las siguentes reglas:
 
-  1. $P^k \in \scr{P}, t_1,\dots,t_k \in$$~TERM \Rightarrow P^k(t_1,\dots,t_k) \in F$
+  1. $P^k \in \scr{P}, t_1,\dots,t_k \in$ $~TERM \Rightarrow P^k(t_1,\dots,t_k) \in F$
   2. $\alpha \in F \Rightarrow \lnot \alpha \in F$
   3. $\alpha,\beta \in F \Rightarrow (\alpha\lor \beta), (\alpha \land\beta), (\alpha \rightarrow \beta) \in F$ 
   4. $x_i \in Var, \alpha \in F \Rightarrow \forall~x_i~~\alpha \in F$

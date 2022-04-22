@@ -36,7 +36,7 @@ Si $G$ es conexo, tiene solo una componente.
 
 Tambien llamado punto de articulacion, es un vertice que al removerlo, se generan mas componentes. Si $v$ es es vertice de corte y $G$ es un grafo, entonces la cantidad de componentes conexas de $G$ es menor a $G-\{v\}$.
 
-Se denomina $\scr{K}$$(G)$ a la cantidad de componentes de $G$.
+Se denomina $\scr{K}$ $(G)$ a la cantidad de componentes de $G$.
 
 ![1567423331727](Resources/1567423331727.png)
 
@@ -52,7 +52,7 @@ $$
 
 ## Aristas de corte o Puente
 
-$e$ es una arista de corte si: $\scr{K}$$(G-\{e\}) \gt$ $\scr{K}$$(G)$
+$e$ es una arista de corte si: $\scr{K}$ $(G-\{e\}) \gt$ $\scr{K}$ $(G)$
 
 ![1567424425647](Resources/1567424425647.png)
 
@@ -60,9 +60,9 @@ La arista marcada con un $1$ es una arista de corte, ya que al eliminarla obteng
 
 ### Observaciones
 
-Si $v$ es de corte  $\scr{K}$$(G-\{v\}) \gt$ $\scr{K}$$(G)$ no sabemos por cuanto difieren.
+Si $v$ es de corte  $\scr{K}$ $(G-\{v\}) \gt$ $\scr{K}$ $(G)$ no sabemos por cuanto difieren.
 
-Si $e$ es de corte  $\scr{K}$$(G-\{e\}) =$$\scr{K}$$(G)+1$
+Si $e$ es de corte  $\scr{K}$ $(G-\{e\}) =$ $\scr{K}$ $(G)+1$
 
 Si la arista $e=\{a,b\}$ es de corte y el $gr(a)\gt 1 \Rightarrow a$ es de corte.
 

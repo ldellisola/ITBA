@@ -302,6 +302,173 @@ Esta codificado en base64, se obtiene:
 algunusuario:algunapassword
 ```
 
+## 31
+
+> ¿Qué estrategias provee HTTP para minimizar el tráfico de red y la utilización de recursos
+> del servidor?
+
+Cacheo
+
+## 32
+
+> Con la herramienta cURL, y el recurso http://foo.leak.com.ar/ responda las si-
+> guientes preguntas:
+>
+> 1. Haga un GET condicional utilizando la fecha de última modificación
+
+```bash
+$ curl -I --header 'If-Modified-Since: Tue, 11 Dec 2020 10:10:24 GMT' http://foo.leak.com.ar
+HTTP/1.1 304 Not Modified
+x-amz-id-2: 3nExhvG7ieN4hO5xnDVbm90pBhSkmmDVY7fQpX/aycLp91w8LyXKvhuwz5VwByERJMo6OdEbFaQ=
+x-amz-request-id: B4GQQRHWVFGWY2HM
+Date: Tue, 12 Apr 2022 19:21:53 GMT
+Last-Modified: Tue, 23 Aug 2016 00:13:08 GMT
+ETag: "bd363b1d3c4272fe93618c8fdac2435a"
+Server: AmazonS3
+```
+
+> 2. b. Haga un GET condicional utilizando los “entity tags”?
+
+```bash
+$ curl -I --header 'If-None-Match: "bd363b1d3c4272fe93618c8fdac2435a"' http://foo.leak.com.ar
+HTTP/1.1 304 Not Modified
+x-amz-id-2: r2G1AMpGgmmM51Bb6oS+T9NUsQkkwNWOCvB8C8WvyaF6IzS2BkMeFaSFEX3VDw2N6pcSa0yDqlE=
+x-amz-request-id: G36WFGJK4ZJ8WS2J
+Date: Tue, 12 Apr 2022 19:24:40 GMT
+Last-Modified: Tue, 23 Aug 2016 00:13:08 GMT
+ETag: "bd363b1d3c4272fe93618c8fdac2435a"
+Server: AmazonS3
+```
+
+## 33
+
+> ¿Qué interpretará un User Agent que tiene soporte de caching si recibe en una respuesta el header
+> `Cache-Control: max-age=3600, must-revalidate`?
+
+Al recibir esta respuesta, el servidor esta diciendo dos cosas:
+
+- `Cache-Control: max-age=3600`: El archivo tiene una cache que dura por 3600 segundos.
+- `must-revalidate`: Cuando el archivo tiene una antigüedad mayor a la decidida por el servidor, el cliente tiene que re-verificar que el contenido siga sin cambiar. Por este motivo tiene que hacer una llamada al servidor con el comando `HEAD` para ver si el contenido no cambio. Si el contenido cambio, entonces lo descargo de vuelta, sino entrego la versión cacheada.
+
+## 34
+
+> Si hablamos de Shallow Etag... ¿De qué hablamos?
+
+Hablamos de una implementación básica de Etags donde agregamos una capa a nuestro stack que calcula el hash MD5 de todas las respuestas que envia el servidor. Esto es fácil de hacer y permite al menos usar parte de los beneficios de las Etags.
+
+## 35
+
+> Acceda utilizando Google Chrome a https://campus.itba.edu.ar/.
+>
+> 1. ¿Cómo se envía los datos del formulario? ¿Cómo está codificado?
+
+Se envían como form data y están codificados con URL encoding.
+
+> 2. Una vez que está logueado haga click en la materia Protocolos de Comunicación. Si
+>    HTTP busca no tener estado...¿Como hace el servidor para saber que es usted el que
+>    está haciendo el pedido?
+
+Con galletitas
+
+> 3. Haga el pedido a esta URL usando el cURL ¿Visualiza el mismo contenido que en el
+>    browser? ¿Por qué?
+
+No tiene galletitas
+
+> 1. Utilizando cURL, obtenga el HTML visualiza el desde el browser
+
+Super ok, re copado. La compu de lu no para de hacer requests, que hago ahora?
+
+## 36
+
+> El servidor proveerá hosting para el sitio web foo y para el sitio bar.
+> • Cuando un usuario se conecta a foo debe ver el mensaje “Bienvenido a Foo”
+> • Cuando un usuario se conecta a bar debe ver el mensaje “Bienvenido a Bar”
+> • Cuando un usuario se conecta con cualquier otro nombre al servidor (como ser utilizando
+> sólo la dirección IP) el usuario debe ver el mensaje “What?”
+
+Hecho en practica
+
+## 37
+
+> ¿Como prueba que el servidor está bien configurado aún cuando su computadora no re-
+> suelva los nombre foo y bar?
+> ¡Comprobarlo!
+> Luego haga los cambios necesarios en el archivo /etc/hosts [hosts(5)] para poder acce-
+> der con el navegador
+
+Hecho en practica
+
+## 38 
+
+> Analizando los headers de pedido y respuesta, investigar las diferencias que hay al
+> acceder desde un browser a un recurso versus recargar dicho recurso. Para la recarga
+> discriminar entre el uso de la tecla F5 y la combinación de teclas Ctrl+F5 (en Firefox).
+
+La diferencia es que uno recarga al pagina ignorando a la cache y el otro utiliza la cache del navegador.
+
+## 39
+
+> Proxy reverso:
+>
+> 1. Descargue la última versión del Apache Tomcat y pongalo a correr (descomprimir, y ejecutar bin/startup.sh)
+
+Hecho en practica
+
+> 2. Verificar que está corriendo http://localhost:2020/
+
+Hecho en practica
+
+> 3. Haga los cambios necesarios en el nginx para que cuando acceda al host foo ve el contenido servido por el Tomcat
+
+Hecho en practica
+
+> 4. ¿Qué ventajas piensa que tiene éste esquema de despliegue
+
+A "gateway" (a.k.a. "reverse proxy") is an intermediary that acts as an origin server for the outbound connection but translates received requests and forwards them inbound to another server or servers. Gateways are often used to encapsulate legacy or untrusted information services, to improve server performance through "accelerator" caching, and to enable partitioning or load balancing of HTTP services across multiple machines.
+
+## 40
+
+> En el sitio foo y en el bar configure el nginx para que comprima de forma transparente
+> los recursos que sirve.
+>
+> - ¿Que ventajas tiene este esquema?
+
+Muchas, reduce el bandwith utilizado.
+
+> - ¿Afecta la performance?
+
+Todas. Hace que vuele tu vps choto.
+
+> - ¿Salva ancho de banda y aumenta positivamente la experiencia de usuario?
+
+Si
+
+> - foo estaba sirviendo contenido que era traído desde tomcat. Vuelva a pensar sobre las
+>   ventajas de éste esquema de despliegue
+
+Hecho en practica.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

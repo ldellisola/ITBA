@@ -116,7 +116,6 @@ Analizando todos estos casos, podemos obtener que:
 $$
 P(b=0/M = m_0) = \frac 1 3 + \frac 1 3 \times \frac 1 {26} + \frac 1 3 \times \frac 1 {26} = 0.359\\
 P(b=1/M = m_0) = \frac 1 3 \times \frac {25} {26} + \frac 1 3 \times \frac {25} {26} = 0.641\\
-
 $$
 Podemos plantear lo mismo para el mensaje $m_1$​. Debido a que la probabilidad de generar $t$ es uniforme y esta distribuida a lo largo de 3 elementos, podemos partir a este problema en 3 casos, con probabilidad $\frac 1 3$ cada uno:
 
@@ -195,11 +194,122 @@ Solo afecta a dos bloques.
 
 ==CHEQUEAR==
 
+# 7
+
+> Considerando el siguiente cifrado de Bloque:
+>
+> $$
+> E(K,M) = (M*K) \mod 32
+> $$
+> 1. ¿cuál es el tamaño del bloque? ¿cuál es el espacio efectivo de la clave?
+> 
+
+El tamaño del bloque es de 32 caracteres, por lo que termina siendo 5 bits.
+
+El espacio efectivo de la clase es de $2^5 = 16$, aunque también habría que considerar a los números coprimos con el $32$, por que si tenemos los valores $M=2,K=16$, entonces $E(2,16) = 32 \mod 32 = 0$.
 
 
+> 2. Encriptar el mensaje `24 17 26 25 12` usando modo CBC con vector de inicialización IV = 19 y K = 7
+> 
 
+Calculo el bloque 1:
+$$
+(IV \oplus P_1) = (19 \oplus 24) = 11\\
+C_1 = (11 * 7) \mod {32} =  13
+$$
+Calculo el bloque 2:
+$$
+(C_1 \oplus P_2) = (13 \oplus 17) = 28\\
+C_2 = (28 * 7)  \mod {32} = 4
+$$
+Calculo el bloque 3:
+$$
+(C_2 \oplus P_3) = (4 \oplus 26) = 30\\
+C_3 = (30 * 7) \mod {32} = 18
+$$
 
+Calculo el bloque 4:
+$$
+(18 \oplus 25) = 11\\
+C_4 = (11 * 7) \mod {32} = 13
+$$
+Calculo el bloque 5:
+$$
+(13 \oplus 12) = 1\\
+C_5 = (1 * 7) \mod {32} = 7
+$$
+Entonces, el mensaje cifrado es:
+$$
+13-4-18-13-7
+$$
 
+> 3. Desencriptar en modo CBC.
+
+Partimos desde el mensaje cifrado `13 4 18 13 7` con `IV=19` y `K=7`:
+
+Para poder revertir la operación de modulo, en vez de multiplicar por $7$, debemos dividir por $7$, esto se transforma en la operación $\text{E}(x,23)$ ya que dividir por $7$ es lo mismo que multiplicar por $23$ y reducer al modulo 32.
+
+Calculo el bloque 1:
+$$
+E(13,23) = (13*23) \mod 32 = 11\\
+M_1 = (11 \oplus 19) = 24
+$$
+Calculo el bloque 2:
+$$
+E(4,23) = 28\\
+M_2 =  (28 \oplus C_1) =  28 \oplus 13 = 17
+$$
+Calculo el bloque 3:
+$$
+E(18,23) = 30 \\
+M_3 = (30 \oplus C_2) = 30 \oplus 4 = 26
+$$
+Calculo el bloque 4:
+$$
+E(13,23) = 11\\
+M_4 = 11 \oplus 18 = 25
+$$
+Calculo el bloque 5:
+$$
+E(7,23) = 1\\
+M_5 = 1 \oplus 13 = 12
+$$
+Entonces el mensaje descifrado es:
+$$
+24-17-26-25-12
+$$
+
+## 8
+
+> Una clave débil para DES es una clave tal que:
+> $$
+> E_k(E_k(x)) = x, \forall x
+> $$
+> Analiza por que una clave formada por todos sus bits en 0, o todos sus bits en 1, es una clave débil para DES. Cuales serian las otras dos claves débiles?
+
+La debilidad de estas claves aparece por que DES trata de generar claves corriendo todos los bits de las subclaves anteriores. Se hacen 16 corrimientos a la izquierda, y si el resultado de estos 16 corrimientos es la misma subclave, entonces el cifrado no será seguro.
+
+Por motivos obvios podemos decir que $\{0\}^{6}$ y $\{1\}^{64}$ van a ser claves, por que sin importar las permutaciones y los corrimientos, todas las subclaves serán iguales. Para encontrar las otras dos claves, tenemos que seguir al algoritmo de Feistel.
+
+Vamos a comenzar con una clave de 64 bits, pero el primer paso es descartar todos los bits cuya posición es múltiplo de 8, que serian los bits en la posición 8, 16, 24, 32, 40, 48, 56 y 64. Y a partir de esto obtenemos una clave de 56 bits.
+
+​                           <img src="Resources/02 - Criptografia Simetrica/Screen Shot 2022-04-17 at 09.53.28.jpg" alt="Screen Shot 2022-04-17 at 09.53.28" style="zoom:50%;" /> $\Rarr$ <img src="Resources/02 - Criptografia Simetrica/Screen Shot 2022-04-17 at 09.53.38.jpg" alt="Screen Shot 2022-04-17 at 09.53.38" style="zoom:50%;" />  
+
+Luego, esta clave de 56 bits va a ser dividida en dos subclaves iniciales, $C_0, D_0$ De la siguiente forma:
+
+<img src="Resources/02 - Criptografia Simetrica/Screen Shot 2022-04-17 at 09.58.54.jpg" alt="Screen Shot 2022-04-17 at 09.58.54" style="zoom:50%;" />
+
+Luego, las siguientes claves se van a ir obteniendo a partir de la permutación y corrimiento de las subclaves iniciales, pero siempre se trabaja sobre el set de valores de la subclave inicial.
+
+Por esto tenemos que encontrar claves que luego de la permutación inicial generen:
+
+- $C_0=\{0\}^{24}, D_0=\{1\}^{24}$
+- $C_0=\{1\}^{24}, D_0=\{0\}^{24}$
+
+Entonces, nuestra clave de 64 bits puede ser:
+
+- `0xE0E0E0E0F1F1F1F1`
+- `0xE1E1E1E1F1F1F1F1`
 
 
 
