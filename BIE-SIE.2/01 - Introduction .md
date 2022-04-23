@@ -32,7 +32,7 @@ Software Engineering involves different aspects:
 
 ### Concepts
 
-![image-20200924170840895](Resources/01 - introduction/image.png)
+![image-20200924170840895](Resources/01 - Introduction/image.png)
 
 Each **project** is composed of a number of **activities**, and each activity is composed of a number of **tasks**. A **task** represents an atomic unit of work that can be managed. It consumes a **resource** and produces a **work product**.
 
