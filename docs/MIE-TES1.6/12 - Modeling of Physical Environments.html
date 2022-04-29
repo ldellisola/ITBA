@@ -1426,9 +1426,9 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h1 id="modeling-physical-environments">Modeling Physical Environments</h1>
 <p>In the previous classes we saw transition systems that deal with discrete time steps, but in reality this is a continuous flow of time. Without it we cannot model real-world phenomena like time, speed, temperature, etc.</p>
 <p>Time can be represented as a discrete signal over a set <span class="math">\(S\)</span>. This is described as <span class="math">\(\Sigma_S^D\)</span> :</p>
-<p><img src="Resources/Untitled/21caa079-0dec-45ad-8bbd-61db99047288.png" class="img-fluid" alt="image-20210105122801796" /></p>
+<p><img src="Resources/Untitled/416bba46-5e41-4ee7-b47d-c2535370bbcc.png" class="img-fluid" alt="image-20210105122801796" /></p>
 <p>In the case of a continuous time signal over <span class="math">\(S\)</span>, we can describe it as <span class="math">\(\Sigma_S^C\)</span>:</p>
-<p><img src="Resources/Untitled/b328f141-c670-4b75-af7f-3d51e286541c.png" class="img-fluid" alt="image-20210105122823614" /></p>
+<p><img src="Resources/Untitled/e2ec5da7-ac31-44fd-8640-2f71a2283cc2.png" class="img-fluid" alt="image-20210105122823614" /></p>
 <p>States can also be modeled both as a continuous or discrete signal. We can also combinate all these set into two main signal types:</p>
 <ul>
 <li><strong>Analog Signal</strong>: It is a continuous-time signal with continuous states.</li>
@@ -1450,14 +1450,14 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \[
 \{(i,o) : \forall t \in \mathbb{R}_{\ge 0}.o(t) = 2i(t)\}
 \]</div>
-<img src="Resources/Untitled/ba897b2e-3d69-4d57-acf2-a738b6bdeda8.png" alt="ba897b2e-3d69-4d57-acf2-a738b6bdeda8" style="zoom:25%;" />
+<p><img src="Resources/Untitled/d1f80c9a-356f-432b-99a4-d9214d559398.png" class="img-fluid" alt="d1f80c9a-356f-432b-99a4-d9214d559398" style="zoom:25%;" /></p>
 </li>
 <li><p><strong>Running Maximum</strong>:</p>
 <div class="math">
 \[
 \left\{(i,o): \forall t \in \mathbb{R}_{\ge0}.o(t) = \max_{\tau\in[0,t]}i(\tau) \right\}
 \]</div>
-<img src="Resources/Untitled/cd8671bd-1376-46f1-a80c-261ef6bc290a.png" alt="cd8671bd-1376-46f1-a80c-261ef6bc290a" style="zoom:30%;" />
+<p><img src="Resources/Untitled/6b6d52c4-a3a6-442b-8a64-597f76cf45a1.png" class="img-fluid" alt="6b6d52c4-a3a6-442b-8a64-597f76cf45a1" style="zoom:30%;" /></p>
 </li>
 <li><p><strong>Integrator</strong>:</p>
 <div class="math">
@@ -1466,7 +1466,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 (i,o): \forall t \in \mathbb{R}_{\ge 0}. o(t) = s_0 + \int_0^t i(\tau) \mathrm d\tau
 \right\}
 \]</div>
-<img src="Resources/Untitled/1f46da64-bb3f-4247-9402-2d775ace5377.png" alt="1f46da64-bb3f-4247-9402-2d775ace5377" style="zoom:30%;" />
+<p><img src="Resources/Untitled/b4cb59fc-41b6-41a3-9447-822f0af20dfa.png" class="img-fluid" alt="b4cb59fc-41b6-41a3-9447-822f0af20dfa" style="zoom:30%;" /></p>
 <p>This component can also be described as:</p>
 <div class="math">
 \[
@@ -1519,7 +1519,7 @@ f:S \rightarrow \mathbb{R}^n &amp; \text{for } S \subseteq \mathbb{R}^n}
 \[
 x\in S / f(x) = 0
 \]</div>
-<img src="Resources/Untitled/63eed152-870a-4899-9012-94515ac9a0a9.png" alt="63eed152-870a-4899-9012-94515ac9a0a9" style="zoom:30%;" />
+<p><img src="Resources/Untitled/b02d7b2e-a0fa-4f67-8fdd-a1b17f6ec717.png" class="img-fluid" alt="b02d7b2e-a0fa-4f67-8fdd-a1b17f6ec717" style="zoom:30%;" /></p>
 <p>Vector fields are alternatives to the state diagram in deterministic transition systems.</p>
 <h2 id="ordinary-differential-equations">Ordinary Differential Equations</h2>
 <p>Ordinary differential equations are defined as:</p>
@@ -1542,7 +1542,7 @@ x:\mathbb{R}_{\ge 0}\rightarrow \mathbb{R}^n / \forall t \in \mathbb{R}_{\ge 0}.
 \array{\dot x = 1 &amp; \forall \text{clock }x \in X}
 \]</div>
 <p>This is because timed automata represents only endpoints of solutions. Their corresponding vector field is represented as:</p>
-<img src="Resources/12- Modeling of Physical Environments/7e1af748-d3b2-4204-a1e1-fecef6f32994.png" alt="7e1af748-d3b2-4204-a1e1-fecef6f32994" style="zoom:30%;" />
+<p><img src="Resources/12- Modeling of Physical Environments/7bf5c57e-2784-4bc6-b1fe-ed02023d66c0.png" class="img-fluid" alt="7bf5c57e-2784-4bc6-b1fe-ed02023d66c0" style="zoom:30%;" /></p>
 <h2 id="non-determinism">Non-determinism</h2>
 <p>We usually have non-determinism coming from unmodeled details or the system's environment. This is usually modeled in any of the following ways</p>
 <div class="math">
@@ -1554,7 +1554,7 @@ x:\mathbb{R}_{\ge 0}\rightarrow \mathbb{R}^n / \forall t \in \mathbb{R}_{\ge 0}.
 <p>In this example we do not know the exact value of the constant <span class="math">\(0.5\)</span>, but we know it has a margin of error of <span class="math">\(0.1\)</span>.</p>
 <p R="">When we are dealing with non-determinism we do not have an unit direction for our vector field, but a set of possibilities $F:S\rightarrow 2^{\mathbb^n}$or even a relation <span class="math">\(r:S \times \mathbb{R}^n\)</span>. This results in a <strong>differential inclusion</strong> <span class="math">\(\dot u \in F(u)\)</span> or a <strong>differential relation</strong> <span class="math">\(r(u,\dot u)\)</span></p>
 <h2 id="comparison-between-types">Comparison between types</h2>
-<img src="Resources/12- Modeling of Physical Environments/60263464-d2a9-45f5-9dc0-4ea7bdb23810.png" alt="60263464-d2a9-45f5-9dc0-4ea7bdb23810" style="zoom:33%;" />
+<p><img src="Resources/12- Modeling of Physical Environments/835f0ad2-689d-4398-bb6f-403ccec503d2.png" class="img-fluid" alt="835f0ad2-689d-4398-bb6f-403ccec503d2" style="zoom:33%;" /></p>
 
 </body>
 

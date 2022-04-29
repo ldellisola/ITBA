@@ -1425,100 +1425,118 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <body>
 <h1 id="sistemas-operativos">Sistemas Operativos</h1>
 <ul>
-<li><a href="01%20-%20Procesos.html">Procesos</a>
+<li><a href="01%20-%20Procesos.html#procesos">Procesos</a>
 <ul>
 <li><a href="01%20-%20Procesos.html#funciones-relacionadas">Funciones Relacionadas</a>
 <ul>
-<li><a href="01%20-%20Procesos.html#exec()"><code>exec()</code></a></li>
-<li><a href="01%20-%20Procesos.html#atexit()"><code>atexit()</code></a></li>
+<li><a href="01%20-%20Procesos.html#exec"><code>exec()</code></a>
+<ul>
+<li><a href="01%20-%20Procesos.html#atexit"><code>atexit()</code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="01%20-%20Procesos.html#pipes">Pipes</a></li>
 <li><a href="01%20-%20Procesos.html#gestion-de-procesos">Gestion de Procesos</a>
 <ul>
-<li><a href="01%20-%20Procesos.html#se%C3%B1ales">Señales</a></li>
+<li><a href="01%20-%20Procesos.html#senales">Señales</a></li>
 <li><a href="01%20-%20Procesos.html#otras-funciones-relacionadas">Otras funciones relacionadas</a></li>
 </ul>
 </li>
 <li><a href="01%20-%20Procesos.html#shared-memory">Shared Memory</a>
 <ul>
-<li><a href="01%20-%20Procesos.html#shm_open(const-char-*-name,-int-oflag,-mode_t-mode)"><code>shm_open(const char * name, int oflag, mode_t mode)</code></a></li>
-<li><a href="01%20-%20Procesos.html#int-ftruncate(int-fd,-off_t-lenght)"><code>int ftruncate(int fd, off_t lenght)</code></a></li>
-<li><a href="01%20-%20Procesos.html#void-*-mmap(void-*-addr,-size_t-lenght,-int-prot,-int-flags,-int-fd,-off_t-offset)"><code>void * mmap(void * addr, size_t lenght, int prot, int flags, int fd, off_t offset)</code></a></li>
-<li><a href="01%20-%20Procesos.html#int-munmap(void-*-addr)"><code>int munmap(void * addr)</code></a></li>
-<li><a href="01%20-%20Procesos.html#int-shm_unlink(const-char-*-name)"><code>int shm_unlink(const char * name)</code></a></li>
-<li><a href="01%20-%20Procesos.html#close()"><code>close()</code></a></li>
+<li><a href="01%20-%20Procesos.html#shm_openconst-char-name-int-oflag-mode_t-mode"><code>shm_open(const char * name, int oflag, mode_t mode)</code></a>
+<ul>
+<li><a href="01%20-%20Procesos.html#int-ftruncateint-fd-off_t-lenght"><code>int ftruncate(int fd, off_t lenght)</code></a></li>
+<li><a href="01%20-%20Procesos.html#void-mmapvoid-addr-size_t-lenght-int-prot-int-flags-int-fd-off_t-offset"><code>void * mmap(void * addr, size_t lenght, int prot, int flags, int fd, off_t offset)</code></a></li>
+<li><a href="01%20-%20Procesos.html#int-munmapvoid-addr"><code>int munmap(void * addr)</code></a></li>
+<li><a href="01%20-%20Procesos.html#int-shm_unlinkconst-char-name"><code>int shm_unlink(const char * name)</code></a></li>
+<li><a href="01%20-%20Procesos.html#close"><code>close()</code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="01%20-%20Procesos.html#message-passing">Message Passing</a></li>
 </ul>
 </li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html">Gestion de Procesos</a>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#gestion-de-procesos">Gestión de Procesos</a>
 <ul>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#criterios-y-tipos-de-planificaci%C3%B3n">Criterios y Tipos de Planificación</a>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#criterios-y-tipos-de-planificacion">Criterios y Tipos de Planificación</a>
 <ul>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#ciclos-de-r%C3%A1fagas-de-cpu-y-e/s">Ciclos de ráfagas de CPU y E/S</a></li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#planificaci%C3%B3n-expr%C3%B3piativa">Planificación Exprópiativa</a></li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#criterios-de-planificaci%C3%B3n">Criterios de Planificación</a></li>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#ciclos-de-rafagas-de-cpu-y-es">Ciclos de ráfagas de CPU y E/S</a>
+<ul>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#planificacion-expropiativa">Planificación Exprópiativa</a></li>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#criterios-de-planificacion">Criterios de Planificación</a></li>
 </ul>
 </li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#algoritmos-de-planificaci%C3%B3n">Algoritmos de Planificación</a>
-<ul>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#first-come,-first-served-(fcfs)">First Come, First Served (FCFS)</a></li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#shortest-job-first-(sjf)">Shortest Job First (SJF)</a></li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#planificaci%C3%B3n-por-prioridad">Planificación por Prioridad</a></li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#round-robin-(rr)">Round Robin (RR)</a></li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#colas-de-m%C3%BAltiples-niveles">Colas de Múltiples Niveles</a></li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#colas-de-m%C3%BAltiples-niveles-y-retroalimentaci%C3%B3n">Colas de Múltiples Niveles y Retroalimentación</a></li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#implementaci%C3%B3n-en-multiprocesadores">Implementación en Multiprocesadores</a></li>
 </ul>
 </li>
-<li><a href="02%20-%20Gestion%20de%20Procesos.html#evaluaci%C3%B3n-de-pol%C3%ADticas-de-planificaci%C3%B3n">Evaluación de Políticas de Planificación</a></li>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#algoritmos-de-planificacion">Algoritmos de Planificación</a>
+<ul>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#first-come-first-served-fcfs">First Come, First Served (FCFS)</a>
+<ul>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#shortest-job-first-sjf">Shortest Job First (SJF)</a></li>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#planificacion-por-prioridad">Planificación por Prioridad</a></li>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#round-robin-rr">Round Robin (RR)</a></li>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#colas-de-multiples-niveles">Colas de Múltiples Niveles</a></li>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#colas-de-multiples-niveles-y-retroalimentacion">Colas de Múltiples Niveles y Retroalimentación</a></li>
 </ul>
 </li>
-<li><a href="03%20-%20Scheduling%20in%20%20Linux.html">Scheduling in  Linux</a>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#implementacion-en-multiprocesadores">Implementación en Multiprocesadores</a></li>
+</ul>
+</li>
+<li><a href="02%20-%20Gestion%20de%20Procesos.html#evaluacion-de-politicas-de-planificacion">Evaluación de Políticas de Planificación</a></li>
+</ul>
+</li>
+<li><a href="03%20-%20Scheduling%20in%20%20Linux.html#scheduling">Scheduling</a>
 <ul>
-<li><a href="03%20-%20Scheduling%20in%20%20Linux.html#scheduler-o(n)">Scheduler O(n)</a></li>
-<li><a href="03%20-%20Scheduling%20in%20%20Linux.html#scheduler-o(1)">Scheduler O(1)</a></li>
+<li><a href="03%20-%20Scheduling%20in%20%20Linux.html#scheduler-on">Scheduler O(n)</a>
+<ul>
+<li><a href="03%20-%20Scheduling%20in%20%20Linux.html#scheduler-o1">Scheduler O(1)</a></li>
 <li><a href="03%20-%20Scheduling%20in%20%20Linux.html#cfs">CFS</a>
 <ul>
 <li><a href="03%20-%20Scheduling%20in%20%20Linux.html#virtual-runtime">Virtual Runtime</a></li>
 <li><a href="03%20-%20Scheduling%20in%20%20Linux.html#prioridades">Prioridades</a></li>
-<li><a href="03%20-%20Scheduling%20in%20%20Linux.html#procesos-cpu-y-i/o-bound">Procesos CPU y I/O bound</a></li>
+<li><a href="03%20-%20Scheduling%20in%20%20Linux.html#procesos-cpu-y-io-bound">Procesos CPU y I/O bound</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="04%20-%20Memory%20Managment.html">Memory Managment</a>
+</ul>
+</li>
+<li><a href="04%20-%20Memory%20Managment.html#memory-management">Memory Management</a>
 <ul>
 <li><a href="04%20-%20Memory%20Managment.html#memoria-virtual">Memoria Virtual</a>
 <ul>
 <li><a href="04%20-%20Memory%20Managment.html#localidad">Localidad</a></li>
 <li><a href="04%20-%20Memory%20Managment.html#paginado-virtual">Paginado virtual</a></li>
-<li><a href="04%20-%20Memory%20Managment.html#paginaci%C3%B3n-por-demanda">Paginación por demanda</a></li>
+<li><a href="04%20-%20Memory%20Managment.html#paginacion-por-demanda">Paginación por demanda</a></li>
 </ul>
 </li>
-<li><a href="04%20-%20Memory%20Managment.html#gesti%C3%B3n-de-memoria-virtual">Gestión de Memoria Virtual</a>
+<li><a href="04%20-%20Memory%20Managment.html#gestion-de-memoria-virtual">Gestión de Memoria Virtual</a>
 <ul>
-<li><a href="04%20-%20Memory%20Managment.html#robado-de-p%C3%A1ginas">Robado de Páginas</a></li>
-<li><a href="04%20-%20Memory%20Managment.html#reemplazo-de-p%C3%A1ginas">Reemplazo de páginas</a></li>
-<li><a href="04%20-%20Memory%20Managment.html#asignaci%C3%B3n-de-marcos">Asignación de Marcos</a></li>
+<li><a href="04%20-%20Memory%20Managment.html#robado-de-paginas">Robado de Páginas</a></li>
+<li><a href="04%20-%20Memory%20Managment.html#reemplazo-de-paginas">Reemplazo de páginas</a></li>
+<li><a href="04%20-%20Memory%20Managment.html#asignacion-de-marcos">Asignación de Marcos</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="05%20-%20Working%20Set.html">Working Set</a>
+<li><a href="05%20-%20Working%20Set.html#working-set-theory">Working Set Theory</a>
 <ul>
-<li><a href="05%20-%20Working%20Set.html#algoritmo-wsclock">Algoritmo WSClock</a></li>
+<li><a href="05%20-%20Working%20Set.html#algoritmo-wsclock">Algoritmo WSClock</a>
+<ul>
 <li><a href="05%20-%20Working%20Set.html#prelimpieza">Prelimpieza</a></li>
+</ul>
+</li>
 <li><a href="05%20-%20Working%20Set.html#importancia-a-la-hora-de-generar-mas-page-faults">Importancia a la hora de generar mas page faults</a></li>
 </ul>
 </li>
-<li><a href="06%20-%20DeathHug.html">DeathHug</a>
+<li><a href="06%20-%20DeathHug.html#abrazo-mortal">Abrazo mortal</a>
 <ul>
-<li><a href="06%20-%20DeathHug.html#caracterizaci%C3%B3n">Caracterización</a></li>
-<li><a href="06%20-%20DeathHug.html#representaci%C3%B3n">Representación</a></li>
-<li><a href="06%20-%20DeathHug.html#resoluci%C3%B3n">Resolución</a>
+<li><a href="06%20-%20DeathHug.html#caracterizacion">Caracterización</a></li>
+<li><a href="06%20-%20DeathHug.html#representacion">Representación</a></li>
+<li><a href="06%20-%20DeathHug.html#resolucion">Resolución</a>
 <ul>
 <li><a href="06%20-%20DeathHug.html#como-evitarlo">Como evitarlo</a></li>
 </ul>

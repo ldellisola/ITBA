@@ -1427,7 +1427,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>La palabra <em>“Criptografía”</em> proviene del griego y significa “escritura secreta”. Para nosotros, es un conjunto de técnicas matemáticas sobre las cuales se implementan mecanismos de seguridad.</p>
 <h2 id="criptosistema">Criptosistema</h2>
 <p>Es un sistema que define una función que transforme información en texto cifrado y que luego tenga otra función que permita revertir la transformación a texto plano. Debe tener una segunda entrada llamada <strong>clave</strong>.</p>
-<img src="Resources/01 - Introduccion/508f9cb2-fc3c-4b5e-902d-80c8187c6b32.png" alt="508f9cb2-fc3c-4b5e-902d-80c8187c6b32" style="zoom:50%;" />
+<p><img src="Resources/01 - Introduccion/9babe8a7-336e-4df0-a5b1-690112a37862.png" class="img-fluid" alt="9babe8a7-336e-4df0-a5b1-690112a37862" style="zoom:50%;" /></p>
 <h3 id="cifrado">Cifrado</h3>
 <p>El cifrado es el proceso de transformación de un mensaje. Tiene dos parámetros, el mensaje y la clave. Sin clave, la transformación no puede ser invertida.</p>
 <p>Según el <strong>principio de Kerckhoffs</strong>, La seguridad del criptosistema no debe depender de la implementación del algoritmo. El cifrado no debería ser mas fácil o difícil de romper si se conoce el código fuente. Se debe asumir que todo aspecto del sistema, excepto la clave, es conocido. Los sistemas que ocultan el código fuente se dice que <em>dan seguridad por oscuridad</em>, y esto no es verdad.</p>
@@ -1437,11 +1437,11 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Siempre es valido poder utilizar fuerza bruta para romper el algoritmo, pero para esto es necesario poder discriminar entre un mensaje valido y uno invalido.</p>
 <h2 id="cifrado-de-sustitucion">Cifrado de Sustitución</h2>
 <p>Son cifrados donde se reemplaza un símbolo por otro.</p>
-<img src="Resources/01 - Introduccion/6e324e8f-1f78-41be-af54-a4d0814332eb.png" alt="6e324e8f-1f78-41be-af54-a4d0814332eb" style="zoom:50%;" />
+<p><img src="Resources/01 - Introduccion/5ddc3e4b-5b19-42e3-8cfa-3fccb340ee50.png" class="img-fluid" alt="5ddc3e4b-5b19-42e3-8cfa-3fccb340ee50" style="zoom:50%;" /></p>
 <p>Para decodificar mensajes encriptados con este cifrado, se suelen estudiar las propiedades estadísticas del lenguaje, ya que estas no se ven alteradas.</p>
 <h2 id="cifrado-de-vigenere">Cifrado de Vigenere</h2>
 <p>Es una sustitución polialfabetica, es decir que un mismo símbolo puede transformarse en diferentes. Se toma una clave de longitud <span class="math">\(n\)</span> y se parte al mensaje en partes de longitud <span class="math">\(n\)</span>. Entonces cada bloque se rota según la posición en la clave.</p>
-<img src="Resources/01 - Introduccion/de8e083a-e3c2-4551-bde1-43530f0fdf00.png" alt="de8e083a-e3c2-4551-bde1-43530f0fdf00" style="zoom:50%;" />
+<p><img src="Resources/01 - Introduccion/412af1d8-04ed-4a2b-92c5-d53b8bd32eb8.png" class="img-fluid" alt="412af1d8-04ed-4a2b-92c5-d53b8bd32eb8" style="zoom:50%;" /></p>
 <p>Este cifrado fue roto en 1863 por Friedrich Kasiski. El ataque tiene como objetivo determinar la longitud del bloque y luego analizar la clave de cada bloque por separado.</p>
 <p>Para obtener la longitud del bloque se usa el <strong>Test de Kasiski</strong>:</p>
 <ol>

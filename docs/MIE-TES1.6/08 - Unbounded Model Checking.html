@@ -1537,11 +1537,11 @@ R^- = \{(x',x) | (x,x')\in R\}
 <h2 id="how-to-check-conditions-1">How to Check <span class="math">\(F\)</span> Conditions</h2>
 <p>In order to obtain a Safety Certificate we need to convert our model with a topological sort into a strict linear order on all states. After the topological sort, we cannot have transitions that &quot;go back&quot; to a state that is before.</p>
 <p>To avoid this we can usually remove transitions that go back and rearrange the topological sort. For example, if we have the following model:</p>
-<img src="Resources/08 - Unbounded Model Checking/6b379f5d-8db3-4350-9861-f5d63cc0f579.png" alt="6b379f5d-8db3-4350-9861-f5d63cc0f579" style="zoom:67%;" />
+<p><img src="Resources/08 - Unbounded Model Checking/68e3a217-ce5f-42c3-ba4f-5c110db60335.png" class="img-fluid" alt="68e3a217-ce5f-42c3-ba4f-5c110db60335" style="zoom:67%;" /></p>
 <p>We can see that if we were to create a topological sort, it would have some transitions that go back, for example <span class="math">\(C\rightarrow D\)</span>:</p>
-<img src="Resources/08 - Unbounded Model Checking/4d0c2a5e-b20e-4546-9b0a-ffbe836a2a35.png" alt="4d0c2a5e-b20e-4546-9b0a-ffbe836a2a35" style="zoom:67%;" />
+<p><img src="Resources/08 - Unbounded Model Checking/950d35ad-81ed-4791-bb1d-4a0d0a661c83.png" class="img-fluid" alt="950d35ad-81ed-4791-bb1d-4a0d0a661c83" style="zoom:67%;" /></p>
 <p>If we remove that transition, we can rearrange the topological sort into a better solution:</p>
-<img src="Resources/08 - Unbounded Model Checking/5f8cff10-86d7-4247-8655-587afa69c92f.png" alt="5f8cff10-86d7-4247-8655-587afa69c92f" style="zoom:67%;" />
+<p><img src="Resources/08 - Unbounded Model Checking/bbc057ce-5962-4a49-be5d-ed2b94ac1c69.png" class="img-fluid" alt="bbc057ce-5962-4a49-be5d-ed2b94ac1c69" style="zoom:67%;" /></p>
 <p>In this case, the certificate is defined as a pair <span class="math">\((V,\succ)\)</span> where <span class="math">\(\succ\)</span> is a struct linear order on <span class="math">\(V\)</span> such that:</p>
 <ul>
 <li><span class="math">\(S_0 \subseteq V \subseteq S\)</span></li>

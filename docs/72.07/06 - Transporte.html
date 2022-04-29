@@ -1448,18 +1448,18 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </li>
 <li>SCTP</li>
 </ul>
-<img src="Resources/06 - Transporte/9c8c7c76-4d78-4dcf-b08d-f515bbaa1db1.jpg" alt="9c8c7c76-4d78-4dcf-b08d-f515bbaa1db1" style="zoom:50%;" />
+<p><img src="Resources/06 - Transporte/3eb652b6-0382-4d2b-82ff-294816ee8cb7.jpg" class="img-fluid" alt="3eb652b6-0382-4d2b-82ff-294816ee8cb7" style="zoom:50%;" /></p>
 <p>Esta capa provee la comunicación lógica entre 2 procesos que corren en distintos hosts. Ejecutan en las <em>puntas finales</em>. El que envía los datos tienen que separar al mensaje en segmentos y los envía a nivel de red, luego el que los recibe los tiene que reensamblar y enviarlo a la capa de aplicación.</p>
 <h3 id="multiplexacion">Multiplexación</h3>
 <p>Cuando un host recibe los datagramas IP, tiene que procesarlos para saber a que proceso los tiene que entregar. De cada catagrama obtiene un IP de destino y de origen, ademas del protocolo de transporte y el puerto de origen y destino. Cada host utiliza estos valores para asignarlos al socket adecuado.</p>
-<img src="Resources/06 - Transporte/45a6885c-c214-4779-8536-65f4722ba308.jpg" alt="45a6885c-c214-4779-8536-65f4722ba308" style="zoom:50%;" />
+<p><img src="Resources/06 - Transporte/8f00da26-9a3a-4878-897f-012531881976.jpg" class="img-fluid" alt="8f00da26-9a3a-4878-897f-012531881976" style="zoom:50%;" /></p>
 <p>Los siguientes puertos están reservados:</p>
-<img src="Resources/06 - Transporte/babce066-c075-42ca-8b9b-cee863310477.jpg" alt="babce066-c075-42ca-8b9b-cee863310477" style="zoom:50%;" />
+<p><img src="Resources/06 - Transporte/ca6111f0-fcda-43ed-941e-2f7c453b6af3.jpg" class="img-fluid" alt="ca6111f0-fcda-43ed-941e-2f7c453b6af3" style="zoom:50%;" /></p>
 <p>Cuando usamos UDP es mucho mas simple este proceso. Al llegar un datagrama, no hace falta establecer una conexión, por lo que puede simplemente pasarle el catagrama al socket. Ademas, aunque los datagramas que lleguen tengan distinto IP de origen, serán atendidos por el mismo socket.</p>
-<img src="Resources/06 - Transporte/4074f245-d597-4d1f-80a4-0dc1c2ecb860.jpg" alt="4074f245-d597-4d1f-80a4-0dc1c2ecb860" style="zoom:50%;" />
+<p><img src="Resources/06 - Transporte/86a0daf8-b1d1-4102-9812-4078e9e392f5.jpg" class="img-fluid" alt="86a0daf8-b1d1-4102-9812-4078e9e392f5" style="zoom:50%;" /></p>
 <h3 id="udp">UDP</h3>
 <p>Formato de un datagrama UPD:</p>
-<img src="Resources/06 - Transporte/1ad7eb95-0a46-4707-89b6-d64b8291083b.jpg" alt="1ad7eb95-0a46-4707-89b6-d64b8291083b" style="zoom:50%;" />
+<p><img src="Resources/06 - Transporte/1dc311b1-4766-4576-bf78-21ef077a8e5f.jpg" class="img-fluid" alt="1dc311b1-4766-4576-bf78-21ef077a8e5f" style="zoom:50%;" /></p>
 <p>Este servicio transporta datos de manera no confiable entre hosts. Entre sus propiedades están:</p>
 <ul>
 <li>No es orientado a conexión.</li>
@@ -1477,7 +1477,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>IP de destino</li>
 <li>Puerto de destino</li>
 </ul>
-<img src="Resources/06 - Transporte/41b02b94-c870-4c6a-84bc-735f8a6dd03a.jpg" alt="41b02b94-c870-4c6a-84bc-735f8a6dd03a" style="zoom:50%;" />
+<p><img src="Resources/06 - Transporte/9265372e-7b87-4276-908c-79eca3fec60f.jpg" class="img-fluid" alt="9265372e-7b87-4276-908c-79eca3fec60f" style="zoom:50%;" /></p>
 <p>TCP ofrece un circuito virtual entre aplicaciones de usuarios finales con las siguientes características:</p>
 <ul>
 <li>Es orientado a conexión.</li>
@@ -1498,10 +1498,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h3 id="transferencia-con-posibles-errores">Transferencia con Posibles Errores</h3>
 <p>Los protocolos de red pueden alterar algunos bits. Para detectar esto podemos agregar un hash del mensaje llamado CRC, y en caso de que sucedan, podemos usar los mensajes de ACK y NAK ante la falta o error del mensaje.</p>
 <p>Otro metodo utilizado para solucionar esto es <strong>stop and wait</strong>:</p>
-<img src="Resources/06 - Transporte/111f879e-d888-45d2-924c-223f37c0d925.jpg" alt="111f879e-d888-45d2-924c-223f37c0d925" style="zoom:50%;" />
+<p><img src="Resources/06 - Transporte/58fd004d-84b6-4f7a-8a76-a2f96d1c7612.jpg" class="img-fluid" alt="58fd004d-84b6-4f7a-8a76-a2f96d1c7612" style="zoom:50%;" /></p>
 <p>Este metodo es mas seguro, pero muy lento.</p>
 <p>También puedo usar <strong>pipelining</strong>:</p>
-<img src="Resources/06 - Transporte/9c262447-2209-42bc-bbb4-726cea1f6826.jpg" alt="9c262447-2209-42bc-bbb4-726cea1f6826" style="zoom:50%;" />
+<p><img src="Resources/06 - Transporte/d97c5bc5-2520-44c3-9761-dab16f8b7b2f.jpg" class="img-fluid" alt="d97c5bc5-2520-44c3-9761-dab16f8b7b2f" style="zoom:50%;" /></p>
 <p>La complejidad de esta implementación es bastante mayor, pero es mas optimo.</p>
 
 </body>

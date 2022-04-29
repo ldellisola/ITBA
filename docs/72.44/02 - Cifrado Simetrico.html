@@ -1423,10 +1423,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="cifrado-simetrico">Cifrado Simetrico</h1>
+<h1 id="cifrado-simetrico">Cifrado Simétrico</h1>
 <h2 id="one-time-pad-otp">One Time Pad (OTP)</h2>
 <p>Atribuido a Verman en 1917</p>
-<img src="Resources/02 - Cifrado Simetrico/d25833ed-7f02-4bf3-9463-6414c6aa7d59.png" alt="d25833ed-7f02-4bf3-9463-6414c6aa7d59" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/eafe882f-0fb0-47bf-b52f-193e7efa005a.png" class="img-fluid" alt="eafe882f-0fb0-47bf-b52f-193e7efa005a" style="zoom:50%;" /></p>
 <p>Cumple con la propiedad de secreto perfecto, entonces para cualquier par de texto plano y cifrado, no se puede encontrar una relación entre si.</p>
 <p>Existe un isomorfismo entre todos los sistemas que tienen secreto perfecto, es decir que se pueden reducir al OTP. El problema es que el secreto perfecto es impráctico.</p>
 <h3 id="problemas">Problemas</h3>
@@ -1459,15 +1459,15 @@ c_1 \oplus c_2 = m_1 \oplus m_2
 \]</div>
 <h2 id="generadores-pseudoaleatorios">Generadores Pseudoaleatorios</h2>
 <p>La idea de estos algoritmos deterministicos es que la secuencia de salir parezca aleatoria. Comienzan con una seed y luego genera el resto de la secuencia con operaciones xor:</p>
-<img src="Resources/02 - Cifrado Simetrico/6f082250-67d6-4e44-9616-ee7145e61c8d.png" alt="6f082250-67d6-4e44-9616-ee7145e61c8d" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/7200a744-9608-447b-93d3-81cdc274752d.png" class="img-fluid" alt="7200a744-9608-447b-93d3-81cdc274752d" style="zoom:50%;" /></p>
 <p>Básicamente es una función a la cual nadie le encontró una forma de que no pase un test de aleatoriedad.</p>
-<img src="Resources/02 - Cifrado Simetrico/6bd9b232-d4b1-4fc7-975d-72f704182a0d.png" alt="6bd9b232-d4b1-4fc7-975d-72f704182a0d" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/0efd45e8-b213-4868-adae-ed810efb98c2.png" class="img-fluid" alt="0efd45e8-b213-4868-adae-ed810efb98c2" style="zoom:50%;" /></p>
 <p>En términos matemáticos, no se pudieron probar la existencia de este tipo de funciones.</p>
 <h2 id="pruebas-de-seguridad">Pruebas de Seguridad</h2>
 <p>Ponen a prueba alguna característica en particular del sistema. Son una serie de pasos que prueban un algoritmo. El atacante puede ganar o perder la prueba, y esta puede ser repetida, esto permite medir la probabilidad de éxito de un atacante.</p>
 <h3 id="prueba-de-indistinguibilidad">Prueba de indistinguibilidad</h3>
 <p>Esta prueba tiene un algoritmo adversario y un criptosistema, y se sigue por estas reglas:</p>
-<img src="Resources/02 - Cifrado Simetrico/ca490fde-1372-4ac4-a91a-fee73e062c15.png" alt="ca490fde-1372-4ac4-a91a-fee73e062c15" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/bcb3e2f7-9f4d-40b5-bab4-466f830b2224.png" class="img-fluid" alt="bcb3e2f7-9f4d-40b5-bab4-466f830b2224" style="zoom:50%;" /></p>
 <p>La idea simplemente consiste en generar dos mensajes, encriptarlos y luego el atacante tiene que elegir que mensaje cifrado proviene de cada mensaje de texto plano. Un criptosistema gana esta prueba cuando la probabilidad de que un adversario gane esta prueba es <span class="math">\(0.5\)</span>.</p>
 <h2 id="nivel-de-seguridad">Nivel de Seguridad</h2>
 <p>El nivel de seguridad es una variable que relaciona la cota en el poder de un adversario con la probabilidad de éxito que tendrá. Dado un nivel de seguridad <strong>n</strong>, se espera que:</p>
@@ -1491,7 +1491,7 @@ c_1 \oplus c_2 = m_1 \oplus m_2
 <h2 id="multiples-cifrados">Multiples Cifrados</h2>
 <p>Es una prueba para tratar de romper cifrados.  Se llama <strong>multiple message eavesdropping test</strong>: <span class="math">\(\text{Mul}_{A,\pi}\)</span>:</p>
 <p>Dado un adversario <span class="math">\(A\)</span> y un criptosistema <span class="math">\(\pi\)</span>:</p>
-<img src="Resources/02 - Cifrado Simetrico/e6f62ba9-7884-4fe8-a1a4-c3d81926bf0d.png" alt="e6f62ba9-7884-4fe8-a1a4-c3d81926bf0d" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/1247c8eb-48fd-44d8-a70d-fb78f8e8c651.png" class="img-fluid" alt="1247c8eb-48fd-44d8-a70d-fb78f8e8c651" style="zoom:50%;" /></p>
 <p>Entonces si:</p>
 <div class="math">
 \[
@@ -1505,17 +1505,17 @@ c_1 \oplus c_2 = m_1 \oplus m_2
 <p>Hay dos formas de implementar esto, mediante:</p>
 <ul>
 <li><p><strong>Modo sincronizado</strong></p>
-<img src="Resources/02 - Cifrado Simetrico/8a4a1074-8534-4451-b62b-6ade30428880.png" alt="8a4a1074-8534-4451-b62b-6ade30428880" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/cecd90af-fce6-4f25-971e-17775d6ecbed.png" class="img-fluid" alt="cecd90af-fce6-4f25-971e-17775d6ecbed" style="zoom:50%;" /></p>
 </li>
 <li><p><strong>Modo no sincronizado</strong></p>
-<img src="Resources/02 - Cifrado Simetrico/344e9b49-a5f9-4da5-ad47-2e73341b5541.png" alt="344e9b49-a5f9-4da5-ad47-2e73341b5541" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/1c81e4b1-c61c-48ae-8b17-03f215a76f84.png" class="img-fluid" alt="1c81e4b1-c61c-48ae-8b17-03f215a76f84" style="zoom:50%;" /></p>
 </li>
 </ul>
 <h3 id="ataques">Ataques</h3>
 <h4 id="ataque-de-texto-plano-escogido">Ataque de Texto Plano Escogido</h4>
 <p>El atacante tiene la capacidad de engañar al sistema para que le cifre cualquier mensaje. Básicamente tiene acceso a una función que puede generar cifrados sin tener la clave.</p>
 <p>Dado un adversario <span class="math">\(A\)</span> y un cirptosistema <span class="math">\(\pi\)</span>, el ataque <span class="math">\(\text{CPA}_{A,\pi}\)</span> consiste en:</p>
-<img src="Resources/02 - Cifrado Simetrico/1438cf0a-27a5-4c99-82de-ec097f637f7b.png" alt="1438cf0a-27a5-4c99-82de-ec097f637f7b" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/73a5b2dc-c6ac-4f21-b150-8ae4ff736f3d.png" class="img-fluid" alt="73a5b2dc-c6ac-4f21-b150-8ae4ff736f3d" style="zoom:50%;" /></p>
 <p><span class="math">\(\text{CPA}_{A,\pi} = 1\)</span> si <span class="math">\(b=b'\)</span> (A gana)</p>
 <p>Propiedades del CPA:</p>
 <ul>
@@ -1524,12 +1524,12 @@ c_1 \oplus c_2 = m_1 \oplus m_2
 <li><p>Si un criptosistema es CPA-Secure para un mensaje, también lo es para múltiples mensajes.</p>
 </li>
 <li><p>Si podemos encontrar un criptosistema que sea CPA-Secure para mensajes de tamaño limitado, existe una construcción que nos permite extenderlo a mensajes de tamaño arbitrario. Esto se hace partiendo el mensaje de mayor tamaño en pequeñas partes que pueden ser cifrados con el sistema actual, y ese set de mensajes cifrados es CPA-Secure:</p>
-<img src="Resources/02 - Cifrado Simetrico/eec9a44b-a7a9-4792-8ffc-2682f082b43f.png" alt="eec9a44b-a7a9-4792-8ffc-2682f082b43f" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/921ec781-1d42-4b79-ae7d-a3697d4c2065.png" class="img-fluid" alt="921ec781-1d42-4b79-ae7d-a3697d4c2065" style="zoom:50%;" /></p>
 </li>
 </ul>
 <h2 id="cifrado-en-bloque">Cifrado en Bloque</h2>
 <p>Las primitivas de cifrados en bloque serian como pequeños bloques deterministicos, que funcionan con varias falencias conocidas. En estos criptosistemas, los bloques y las claves tienen una cantidad fija de caracteres, no son de longitud ilimitada.</p>
-<img src="Resources/02 - Cifrado Simetrico/fe087a16-6938-4426-8dbe-8f45ee8e439b.png" alt="fe087a16-6938-4426-8dbe-8f45ee8e439b" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/1ce00938-7756-4aa5-8e89-2053f2829dac.png" class="img-fluid" alt="1ce00938-7756-4aa5-8e89-2053f2829dac" style="zoom:50%;" /></p>
 <p>Para crear criptosistemas de bloque podemos combinar varias de estas primitivas para eliminar las limitaciones y las fallas de seguridad. Un ejemplo de esto es la extension de los criptosistemas de cifrado en bloques y extenderla a una longitud arbitraria. Esto se logro con <strong>padding</strong> y <strong>chainning</strong>.</p>
 <p>Con padding se pueden guardar mensajes mas cortos que el tamaño del bloque:</p>
 <ul>
@@ -1539,17 +1539,17 @@ c_1 \oplus c_2 = m_1 \oplus m_2
 <p>Con chainning, se pueden guardar mensajes de mayor tamaño que un bloque. Para lograrlo solamente se parte el mensaje original en varias partes menores que el tamaño del bloque.</p>
 <h3 id="modos-de-encadenamiento">Modos de Encadenamiento</h3>
 <p>El metodo de encadenamiento <strong>ECB</strong> no es CPA-Secure, y trata al mensaje original como un conjunto de bloques independientes:</p>
-<img src="Resources/02 - Cifrado Simetrico/174045f4-6d94-432c-9995-142a32ca858e.png" alt="174045f4-6d94-432c-9995-142a32ca858e" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/3e1fc2ec-97dc-4e1e-8431-43de39ad06e7.png" class="img-fluid" alt="3e1fc2ec-97dc-4e1e-8431-43de39ad06e7" style="zoom:50%;" /></p>
 <p>Simplemente se parte al mensaje en partes y se lo cifra con la misma clave a todos los bloques. Fallan por que estas primitivas de bloque son deterministas.</p>
 <p>El metodo de encadenamiento <strong>CBC</strong> implica separar el mensaje en bloques modificarlo, antes de cifrarlo. La idea es tomar como entrada tanto el texto plano actual como el bloque cifrado anterior:</p>
-<img src="Resources/02 - Cifrado Simetrico/cd7581df-9f23-45e4-a3d0-b3b52ae95686.png" alt="cd7581df-9f23-45e4-a3d0-b3b52ae95686" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/883a12e7-3069-4152-aac0-a2f1abfbab6c.png" class="img-fluid" alt="883a12e7-3069-4152-aac0-a2f1abfbab6c" style="zoom:50%;" /></p>
 <p>Para el bloque inicial, se requiere un IV aleatorio.</p>
 <p>El mecanismo <strong>CFB</strong> se utiliza cuando hay poca disponibilidad de memoria. La idea es tratar a estos criptosistemas de bloque como si fueran sistemas de flujo. Para el primer bloque se encripta el IV con la clave y luego se realiza un xor con el texto plano. Para los próximos bloques, se cifran el bloque anterior y luego se realiza un xor con el mensaje actual.</p>
-<img src="Resources/02 - Cifrado Simetrico/fa356d03-d0eb-485a-b5c8-bb26b3723a8e.png" alt="fa356d03-d0eb-485a-b5c8-bb26b3723a8e" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/e7e2719f-89fc-4a40-9ab1-8e14dc19b8c2.png" class="img-fluid" alt="e7e2719f-89fc-4a40-9ab1-8e14dc19b8c2" style="zoom:50%;" /></p>
 <p>El mecanismo <strong>OFB</strong> es similar (y también se usa con consicioes de memoria limitada), pero con la diferencia que el se utiliza el cifrado del bloque anterior, sin hacer un xor con el mensaje de texto plano:</p>
-<img src="Resources/02 - Cifrado Simetrico/4804a8b7-da8d-498b-9ec7-193c186c70bc.png" alt="4804a8b7-da8d-498b-9ec7-193c186c70bc" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/ab70f566-386f-47af-8be2-783594f9690d.png" class="img-fluid" alt="ab70f566-386f-47af-8be2-783594f9690d" style="zoom:50%;" /></p>
 <p>El encadenamiento <strong>counter</strong> utiliza un contador para generar una secuencia de vitalidad de clave. Se concatena la clave con el valor de un contador llamado nonce y se utiliza eso para poder cifrar al texto plano.</p>
-<img src="Resources/02 - Cifrado Simetrico/57c7e2a1-316e-43e5-87ed-36d4ac2357b2.png" alt="57c7e2a1-316e-43e5-87ed-36d4ac2357b2" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/dac76e99-6999-4e42-85bd-c560b7a2f656.png" class="img-fluid" alt="dac76e99-6999-4e42-85bd-c560b7a2f656" style="zoom:50%;" /></p>
 <p>Este modo permite el acceso aleatorio y es muy útil en ambientes con capacidad de procesamiento paralelo.</p>
 <h3 id="seguridad-de-cifrado-por-bloques">Seguridad de Cifrado por Bloques</h3>
 <p>Las pruebas son por deducción a propiedades de la primitiva subyacente. Se trata de encontrar casos donde las falencias de las primitivas base no fueron arregladas.</p>
@@ -1562,9 +1562,9 @@ c_1 \oplus c_2 = m_1 \oplus m_2
 <h2 id="data-encryption-standard-des">Data Encryption Standard (DES)</h2>
 <p>DES fue desarrollado por IBM y adoptado por el gobierno de EEUU como un estándar para usos no militares. Este sistema trabaja con textos planos binarios, con una entrada y salida de 64 bits. La clave es de 64 bits, con 56 bits efectivos.</p>
 <p>DES sigue un modelo mas general (Red de Feistel), donde se parte el texto en dos partes e ir transformando una parte del texto, para luego invertirlo.</p>
-<img src="Resources/02 - Cifrado Simetrico/8159e145-8571-4c9c-ade5-153536186711.png" alt="8159e145-8571-4c9c-ade5-153536186711" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/44e4f944-9896-4710-8a38-2a7c05ac820e.png" class="img-fluid" alt="44e4f944-9896-4710-8a38-2a7c05ac820e" style="zoom:50%;" /></p>
 <p>Este proceso se repite 16 veces. La función de transformación se define de la siguiente forma:</p>
-<img src="Resources/02 - Cifrado Simetrico/74214d9e-b99e-4475-b8ab-9eca6b1e6cf6.png" alt="74214d9e-b99e-4475-b8ab-9eca6b1e6cf6" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/511e2b26-99f8-40a9-8455-dd95aba29788.png" class="img-fluid" alt="511e2b26-99f8-40a9-8455-dd95aba29788" style="zoom:50%;" /></p>
 <h2 id="des">3-DES</h2>
 <p>Es una variante fuerte de DES que consiste en seleccionar 3 claves distintas e independientes. La idea es que en vez de tener que romper una sola llave, el atacante debería romper 3 claves:</p>
 <div class="math">
@@ -1575,7 +1575,7 @@ c = \text{Enc}_{k_1}(\text{Dec}_{k_2}(\text{Enc}_{k_3}(p)))
 <p>Otro problema de este método es que es 3 veces más lento que DES.</p>
 <h2 id="aes">AES</h2>
 <p>AES fue el reemplazo de DES al ser seleccionado ganador de un concurso internacional abierto. Este criptosistema es orientado a bloques de 128 bits, con claves que pueden ser de 128, 192 o 256 bits.</p>
-<img src="Resources/02 - Cifrado Simetrico/e9fd5866-0beb-4a55-ac7e-697f45b15632.png" alt="e9fd5866-0beb-4a55-ac7e-697f45b15632" style="zoom:50%;" />
+<p><img src="Resources/02 - Cifrado Simetrico/ac56c804-a7e8-4938-9f7c-d16de9d61d89.png" class="img-fluid" alt="ac56c804-a7e8-4938-9f7c-d16de9d61d89" style="zoom:50%;" /></p>
 <p>Hoy en dia la primitiva base de AES es la recomendada a utilizar.</p>
 <p>Se dividen a los 128 bits en 4 bloques compuestos por 4 bytes donde se realiza una transformacion estática. Se permutan los bits entre los bloques y luego se realiza una transformación lineal invertible de cada byte en función de los 4 que forman el mismo grupo. Finalmente se agrega una clave utilizando un xor con cada parte de la clave.</p>
 

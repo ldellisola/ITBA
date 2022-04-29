@@ -1434,9 +1434,9 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <h2 id="header">Header</h2>
 <p>The headers in this new version also changed, for once, the size of the header changed from 32 bits to 64 bits:</p>
-<img src="Resources/04 - IPV6/fb9bf932-080e-4004-ab6b-60a314428634.png" alt="fb9bf932-080e-4004-ab6b-60a314428634" style="zoom:33%;" />
+<p><img src="Resources/04 - IPV6/cd15f129-81ed-4b0e-986c-d92ecf0e831d.png" class="img-fluid" alt="cd15f129-81ed-4b0e-986c-d92ecf0e831d" style="zoom:33%;" /></p>
 <p>There also have been changes to the fields of the headers:</p>
-<img src="Resources/04 - IPV6/71861b8b-95e4-48c3-ae58-dfd280790fe8.png" alt="71861b8b-95e4-48c3-ae58-dfd280790fe8" style="zoom:33%;" />
+<p><img src="Resources/04 - IPV6/41529a74-5723-4770-b485-71bb3487e8cf.png" class="img-fluid" alt="41529a74-5723-4770-b485-71bb3487e8cf" style="zoom:33%;" /></p>
 <p>We can go over these fields:</p>
 <ul>
 <li><strong>Version</strong>: it takes 4 bits of space and it says the number 6.</li>
@@ -1449,7 +1449,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <h2 id="extension-headers">Extension Headers</h2>
 <p>Extension headers may be placed after the main IPv6 header and there is only one requirement, the <em>&quot;Hop-by-Hop&quot;</em> header has to be the first one. Also, the last header has to contain the type of data in the payload.</p>
-<img src="Resources/04 - IPV6/ab974782-2d24-4f5a-834f-698401de17d5.png" alt="ab974782-2d24-4f5a-834f-698401de17d5" style="zoom:33%;" />
+<p><img src="Resources/04 - IPV6/6aeed9f5-e6b2-4352-93f4-3feeea1bd77f.png" class="img-fluid" alt="6aeed9f5-e6b2-4352-93f4-3feeea1bd77f" style="zoom:33%;" /></p>
 <h2 id="jumbogram">Jumbogram</h2>
 <p>The maximal payload length is 65535, but IPv6 allows larger packets called jumbograms, up to 4 GB. This makes sense for MTUs (maximum transfer unit) higher than 64 kB. For this the payload length has to be set to 0 and the length value is in the EH type <em>&quot;Hop-by-Hop&quot;</em> options.</p>
 <h2 id="fragmentation">Fragmentation</h2>
@@ -1480,9 +1480,9 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <h3 id="global-ipv6-address">Global IPv6 Address</h3>
 <p>All global IPv6 addresses have a prefix of <code>2000::/3</code> for now. The rest of the structure is defined by a Global routing prefix, SLA and interface ID.</p>
-<img src="Resources/04 - IPV6/ce356954-15b9-4aa2-88e1-d760ec340e45.png" alt="ce356954-15b9-4aa2-88e1-d760ec340e45" style="zoom:33%;" />
+<p><img src="Resources/04 - IPV6/b0653633-67b7-4781-a36b-166af48db2c8.png" class="img-fluid" alt="b0653633-67b7-4781-a36b-166af48db2c8" style="zoom:33%;" /></p>
 <p>The interface ID can be constructed from the MAC address of the device:</p>
-<img src="Resources/04 - IPV6/4f6d96c3-5069-4b3e-910d-d4c7d6a5bd88.png" alt="4f6d96c3-5069-4b3e-910d-d4c7d6a5bd88" style="zoom:33%;" />
+<p><img src="Resources/04 - IPV6/c236ae76-8090-4256-befa-2b6c0d59bbbf.png" class="img-fluid" alt="c236ae76-8090-4256-befa-2b6c0d59bbbf" style="zoom:33%;" /></p>
 <h3 id="addresses-of-the-network-interface">Addresses of the Network Interface</h3>
 <p>The network interface has multiple IPv6 addresses:</p>
 <ul>
@@ -1522,7 +1522,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>MPLS is a routing technique that directs data from one node to the next based on short path labels rather than long network addresses. In the OSI model this protocol would fall between the second and third layer, and it adds a label to layer 3 packets. The packets are then switched according to the label. This implements an <em>end-to-end</em> connection independent of the link layer.</p>
 <h3 id="mpls-header">MPLS Header</h3>
 <p>The MPLS header is compose by the label, which takes up 20 bits, the traffic class (3 bits), the bottom of label stack flag (1 bit) and then the Time-to-Live, which takes up 8 bits. The total size of the header is 32 bits.</p>
-<img src="Resources/04 - IPV6/36b438a1-176b-4fd0-8cd0-06e38ba8ccbf.png" alt="36b438a1-176b-4fd0-8cd0-06e38ba8ccbf" style="zoom:33%;" />
+<p><img src="Resources/04 - IPV6/33dc7300-b4d4-423c-9594-1f960855f77c.png" class="img-fluid" alt="33dc7300-b4d4-423c-9594-1f960855f77c" style="zoom:33%;" /></p>
 <h3 id="mpls-network">MPLS Network</h3>
 <p>When a packet enters the MPLS network, the Label Edge Router (LER) attaches a label to it. Inside the network, the  packets are forwarded according to the labels by Label Switching Routers (LSRs). When a packet exits the MPLS network, the edge router removes the label.</p>
 
