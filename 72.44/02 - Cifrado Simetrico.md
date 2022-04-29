@@ -1,4 +1,4 @@
-# Cifrado Simetrico
+# Cifrado Simétrico
 
 ## One Time Pad (OTP)
 

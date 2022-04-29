@@ -15,7 +15,7 @@ A_i \cap A_j = \empty ~~~~i\neq j\\
 A = \bigcup_{i=1}^k A_i
 $$
 
-​		Entonces $\# A = \sum_{i=1}^{k} \#A_i$
+Entonces $\# A = \sum_{i=1}^{k} \#A_i$
 
 ## Variaciones
 
@@ -52,7 +52,7 @@ $$
 3. $\begin{pmatrix} n+1 \\ r \end{pmatrix} = \begin{pmatrix} n \\ r-1 \end{pmatrix} + \begin{pmatrix} n \\ r \end{pmatrix}$
 4. $\sum_{r=0}^n\begin{pmatrix} n \\ r \end{pmatrix} = 2^n$
 
-## Binomio de Newton
+## Binomio de Newton 
 
 Muchos problemas pueden ser reducidos a una distribución de $n$ bolillas idénticas en $k$ tachos distintos. Este tipos de problemas pueden describirse con la siguiente formula:
 $$

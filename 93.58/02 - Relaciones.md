@@ -4,7 +4,7 @@ $R$ es una relación entre los elementos de $A$ y $B$ si $R \sub A\times B$
 
 ## Formas de Representarlas
 
-Sea $A=\{1,2,3\}$, $B=\{a,b,c\}$ y $R\sub A\times B = \{\{1,a\},\{2,b\},\{3,c\}\}$
+Sea $A=\{1,2,3\} B=\{a,b,c\}$ y $R\sub A\times B = \{\{1,a\},\{2,b\},\{3,c\}\}$
 
 ### Diagrama de Venn
 
@@ -66,7 +66,7 @@ $F=\{ [a]/a\in A \}$ es una partición de $A$ y se la llama partición de $A$ in
 
 ### Representación por Dígrafos
 
-Sea $A=\{a,b,c,d\}$ $R \sub A\times A=\{(a,b);(c,c)\}$ 
+Sea $A=\{a,b,c,d\},R \sub A\times A=\{(a,b);(c,c)\}$ 
 
 <img src="Resources/RelationsDigrafo" style="zoom:50%"/>
 
