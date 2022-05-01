@@ -1426,9 +1426,9 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h1 id="renderer">Renderer</h1>
 <p>Para renderizar los sprites en la computadora, a la GPU se le pasan <em>meshs</em>. Estos elementos son como la piel del sprite, compuestos por triangulos.</p>
 <p>La GPU recibe esta malla, la separa en triangulitos y aplica un <em>vertex shader</em> a cada uno de ellos. Este programa se ejecuta una vez por vertice. Por eso es importante utilizar la menor cantidad de vertices posibles, el problema es que cuantos mas vertices utilizo, mas detalle puede tener nuestro sprite.</p>
-<p><img src="Resources/19100222-ebba-42da-a125-6554c6f68190.png" class="img-fluid" alt="19100222-ebba-42da-a125-6554c6f68190" style="zoom:50%;" /></p>
+<p><img src="Resources/d8577bb5-09e3-4c09-9a0c-b3ecdfa6d73c.png" class="img-fluid" alt="d8577bb5-09e3-4c09-9a0c-b3ecdfa6d73c" style="zoom:50%;" /></p>
 <p>Como vemos en el pipeline, luego del vertex shader, los triangulos que esten dentro de la pantalla a la proxima etapa, mientras que lo que no estan son eliminados. En el caso de los triangulos que esta parcialemnte en la pantalla se les crean nuevos vertices para que esten comopletamente en la pantalla.</p>
-<p><img src="Resources/c079d929-a23b-4090-afa7-92f002118aaa.png" class="img-fluid" alt="The graphics pipeline in OpenGL consists of these 5 steps, in the ..." /></p>
+<p><img src="Resources/eb7d24f2-f58a-44f7-9d7f-9b3a20b6df28.png" class="img-fluid" alt="The graphics pipeline in OpenGL consists of these 5 steps, in the ..." /></p>
 <p>La progima etapa es la rasterizacion. Por cada uno de estos trianfulos se va a crear un fragmento, se va a evaluar que pixeles van a estar dentro del triangulo y se los agrega al fragmento. Cuantos mas grandes sean los triangulos, mas fragmentos va a haber.</p>
 <p>Luego se pasa por el fragment shader, donde se procesa a los fragmenos y se les asigna el color, entre otras cosas.</p>
 <p>Por ultimo se ejecuta los testeos por fragmento, eligiendo cuales estan mas adelante o mas atras.</p>

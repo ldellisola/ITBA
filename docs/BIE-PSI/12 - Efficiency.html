@@ -1441,7 +1441,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \[
 \eta = \frac {\text{useful}}{\text{useful} + \text{unuseful}}
 \]</div>
-<p><img src="Resources/12 - Efficiency/cc364aec-6586-4e3c-8f83-e0b716b8e8e8.png" class="img-fluid" alt="cc364aec-6586-4e3c-8f83-e0b716b8e8e8" style="zoom:33%;" /></p>
+<p><img src="Resources/12 - Efficiency/93e030a0-25cd-42b5-adfe-4ca3e837b1e9.png" class="img-fluid" alt="93e030a0-25cd-42b5-adfe-4ca3e837b1e9" style="zoom:33%;" /></p>
 <p>We can think of <strong>useful</strong> time as the time it takes to send a certain amount of data:</p>
 <div class="math">
 \[
@@ -1462,7 +1462,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \eta_0 = \frac{l_m}{C\times T}
 \]</div>
 <p>In a <strong>channel with errors</strong>, the same logic applies but now we need to take into account the possibility that <span class="math">\(n\)</span> transfers are not successful.</p>
-<p><img src="Resources/12 - Efficiency/9d7654c6-a12b-4855-9e95-95815c0d2f24.png" class="img-fluid" alt="9d7654c6-a12b-4855-9e95-95815c0d2f24" style="zoom:33%;" /></p>
+<p><img src="Resources/12 - Efficiency/11bf7d54-78a0-43c7-997c-30b36900c146.png" class="img-fluid" alt="11bf7d54-78a0-43c7-997c-30b36900c146" style="zoom:33%;" /></p>
 <p>Now the non-useful data changes, and each transfer will take the given time plus the probability of timeout. In the end the formula would look like this:</p>
 <div class="math">
 \[
@@ -1472,7 +1472,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \]</div>
 <h2 id="sliding-window">Sliding Window</h2>
 <p>In errorless case, this calculation is much simpler. The idea here is that the server sender will send a window if a given size and the receiver will confirm the first package. If the window is big enough, the client and the receiver can avoid all non-useful transfers.</p>
-<p><img src="Resources/12 - Efficiency/46c45a66-3de6-4f25-a776-d165b4df1a7d.png" class="img-fluid" alt="46c45a66-3de6-4f25-a776-d165b4df1a7d" style="zoom:33%;" /></p>
+<p><img src="Resources/12 - Efficiency/94e24a53-ec06-44fa-856d-64374896bdbc.png" class="img-fluid" alt="94e24a53-ec06-44fa-856d-64374896bdbc" style="zoom:33%;" /></p>
 <p>For an <strong>errorless channel</strong> we have:</p>
 <div class="math">
 \[

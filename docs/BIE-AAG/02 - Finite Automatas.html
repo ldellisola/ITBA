@@ -1439,7 +1439,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \]</div>
 <p>Basically, it is accessible if  there is a transition from any other state to this one.</p>
 <p>We can identify and remove all the unreachable states with the following algorithm (<u>only for NFA</u>):</p>
-<p><img src="Resources/02 - Finite Automatas/ebabc2b4-9df3-4a48-aecb-ac978f5132e3.png" class="img-fluid" alt="ebabc2b4-9df3-4a48-aecb-ac978f5132e3" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Finite Automatas/4a59ee47-81ed-4f01-a965-d6c98025f02e.png" class="img-fluid" alt="4a59ee47-81ed-4f01-a965-d6c98025f02e" style="zoom:50%;" /></p>
 <h3 id="useful-states">Useful States</h3>
 <p>We say that a state <span class="math">\(q\in Q\)</span> is useful if there exists a string <span class="math">\(w\in \Sigma^*\)</span> such that there is a sequence of moves that lead from state <span class="math">\(q\)</span> to a final state:</p>
 <div class="math">
@@ -1448,7 +1448,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \]</div>
 <p>If there is a state that is not connected to any other state (it's a sink) we call it <strong>redundant state</strong>.</p>
 <p>We also have an algorithm to identify and remove these states:</p>
-<p><img src="Resources/02 - Finite Automatas/f7c015f4-03e4-4864-9ea7-234e33cfe537.png" class="img-fluid" alt="f7c015f4-03e4-4864-9ea7-234e33cfe537" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Finite Automatas/d3067161-6a9c-4a72-912f-991a070de405.png" class="img-fluid" alt="d3067161-6a9c-4a72-912f-991a070de405" style="zoom:50%;" /></p>
 <h2 id="deterministic-finite-automata">Deterministic Finite Automata</h2>
 <p>A deterministic finite automaton is a quintuple <span class="math">\(M = (Q,\Sigma, \delta,q_0, F)\)</span> where:</p>
 <ul>
@@ -1482,7 +1482,7 @@ L(M) = \{ w\in \Sigma^*/ M \text{ accepts } w\}
 <h3 id="total-deterministic-finite-automata">Total Deterministic Finite Automata</h3>
 <p>Let  <span class="math">\(M = (Q,\Sigma, \delta,q_0, F)\)</span> be a DFA. We say that this is automata is total if the mapping <span class="math">\(\delta\)</span> is defined for all pairs of states$q\in Q$ an symbol <span class="math">\(a\in\Sigma\)</span>.</p>
 <p>In order to transform a DFA into a total DFA we have to add one more &quot;empty&quot; state and redirect all the transitions that are not defined to that state. To do this, we have the following algorithm:</p>
-<p><img src="Resources/02 - Finite Automatas/bf860281-ad3b-4ffa-af2f-fed382e2c8bf.png" class="img-fluid" alt="bf860281-ad3b-4ffa-af2f-fed382e2c8bf" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Finite Automatas/2f8134a7-4b95-4e85-a302-f32a2d46ceca.png" class="img-fluid" alt="2f8134a7-4b95-4e85-a302-f32a2d46ceca" style="zoom:50%;" /></p>
 <h2 id="non-deterministic-finite-automaton">Non-Deterministic Finite Automaton</h2>
 <p>A non-deterministic finite automaton is a quintuple <span class="math">\(M = (Q,\Sigma, \delta,q_0, F)\)</span> where:</p>
 <ul>
@@ -1526,7 +1526,7 @@ L(M) = \{ w\in \Sigma^*/ M \text{ accepts } w\}
 \epsilon\text{-closure}: Q \rightarrow 2^Q : \epsilon\text{-closure}(q) - \{p\in Q/ (q,\epsilon)\vdash_M^*(p,\epsilon)\}
 \]</div>
 <p>There's an algorithm to remove this <span class="math">\(\epsilon\)</span>-transitions of an NFA:</p>
-<p><img src="Resources/02 - Finite Automatas/562b620b-277d-45a4-822a-ed7a3c662988.png" class="img-fluid" alt="562b620b-277d-45a4-822a-ed7a3c662988" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Finite Automatas/db0ca2ca-0556-4b62-9355-c6992f8d0e53.png" class="img-fluid" alt="db0ca2ca-0556-4b62-9355-c6992f8d0e53" style="zoom:50%;" /></p>
 <h3 id="nfa-with-multiple-initial-states">NFA with Multiple Initial States</h3>
 <p>The quintuple <span class="math">\(M = (Q,\Sigma, \delta,I, F)\)</span> is a NFA with a set of initial states <span class="math">\(I\)</span> where:</p>
 <ul>
@@ -1535,7 +1535,7 @@ L(M) = \{ w\in \Sigma^*/ M \text{ accepts } w\}
 </ul>
 <p>The sequence of moves on this automaton can start with any value of <span class="math">\(I\)</span>.</p>
 <p>We can transform this automaton to a regular NFA with the following algorithm:</p>
-<p><img src="Resources/02 - Finite Automatas/6843b9c8-b237-43a4-ae71-32f54fedf499.png" class="img-fluid" alt="6843b9c8-b237-43a4-ae71-32f54fedf499" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Finite Automatas/9577c8a5-5404-430d-8203-b0d43429dcac.png" class="img-fluid" alt="9577c8a5-5404-430d-8203-b0d43429dcac" style="zoom:50%;" /></p>
 
 </body>
 

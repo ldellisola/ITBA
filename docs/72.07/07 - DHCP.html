@@ -1426,10 +1426,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h1 id="dhcp">DHCP</h1>
 <p><mark>falta</mark></p>
 <h2 id="ddns">DDNS</h2>
-<p><img src="Resources/07 - DHCP/467fd680-f8ce-4249-a3f0-5993f02aadc9.jpg" class="img-fluid" alt="467fd680-f8ce-4249-a3f0-5993f02aadc9" style="zoom:50%;" /></p>
+<p><img src="Resources/07 - DHCP/e1fcf87b-f231-405f-8ce0-342debcf08e5.jpg" class="img-fluid" alt="e1fcf87b-f231-405f-8ce0-342debcf08e5" style="zoom:50%;" /></p>
 <p>Es para conectar a un dominio a una ip dinámica. Cada vez que esta cambia le comunico al servidor DNS del cambio. Los registros DNS deben tener un TTL muy bajo.</p>
 <h2 id="nat">NAT</h2>
-<p><img src="Resources/07 - DHCP/7b2225e2-b7b9-4f5b-931f-cdc1bef2af4d.jpg" class="img-fluid" alt="7b2225e2-b7b9-4f5b-931f-cdc1bef2af4d" style="zoom:50%;" /></p>
+<p><img src="Resources/07 - DHCP/47c446d1-ada1-4161-94be-e3aa2ead2276.jpg" class="img-fluid" alt="47c446d1-ada1-4161-94be-e3aa2ead2276" style="zoom:50%;" /></p>
 <p>Mediante la NAT se permite otorgar solo una ip publica. Ademas esto permite otorgar cierta seguridad al limitar que puertos se abren en esa ip publica a cada computadora.</p>
 <p>Esto es obligatorio para ipv4, pero no lo es para ipv6 aunque es recomendable activarla también.</p>
 <p>Hay dos tipos de NAT, <strong>DNAT</strong> (destination NAT) y <strong>SNAT</strong> (source NAT).</p>
@@ -1437,19 +1437,19 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h3 id="port-forwarding">Port Forwarding</h3>
 <p>DNAT permite redireccionar las conexiones que llegan a una ip publica en un puerto (o varios) especifico a una ip privada (o mas).</p>
 <p>Un ejemplo de esto seria load balancing, donde mas de una computadora puede recibir paquetes para cumplir con el mismo servicio.</p>
-<p><img src="Resources/07 - DHCP/bb890684-cae8-43bb-8308-61068b7be15b.jpg" class="img-fluid" alt="bb890684-cae8-43bb-8308-61068b7be15b" style="zoom:50%;" /></p>
+<p><img src="Resources/07 - DHCP/682e1706-e82a-443a-a7d8-13457342c1af.jpg" class="img-fluid" alt="682e1706-e82a-443a-a7d8-13457342c1af" style="zoom:50%;" /></p>
 <p>Se puede filtrar el trafico ademas por el protocolo, eligiendo entre TCP, UDP y ambos.</p>
 <p>Otra forma de solucionar este problema seria con <strong>UPnP</strong> Internet Gateway Device (IGD), que le permite al host dentro de la NAT aprender su propia IP y agregar o remover los puertos abiertos. También se lo conoce como <strong>port triggering</strong></p>
-<p><img src="Resources/07 - DHCP/a6751e4b-61ae-4650-98b1-7b44998cd85a.jpg" class="img-fluid" alt="a6751e4b-61ae-4650-98b1-7b44998cd85a" style="zoom:50%;" /></p>
+<p><img src="Resources/07 - DHCP/2d3cae5c-3d91-4bbd-8a8e-62f035226796.jpg" class="img-fluid" alt="2d3cae5c-3d91-4bbd-8a8e-62f035226796" style="zoom:50%;" /></p>
 <h2 id="relay">Relay</h2>
 <p>En los casos donde no se pueden abrir puertos, hay servidores que se pueden configurar como “relay”. Esto significa que el servicio no tiene que conocer tu ip directamente, ya que no puede acceder. En cambio, tanto el cliente como el servicio pueden conectarse a este servidor y conectarse por ahi.</p>
-<p><img src="Resources/07 - DHCP/bd7f3fa2-dda2-4e9c-816e-aa616fef1c09.jpg" class="img-fluid" alt="bd7f3fa2-dda2-4e9c-816e-aa616fef1c09" style="zoom:50%;" /></p>
+<p><img src="Resources/07 - DHCP/db86be98-3d29-4e60-9408-8cb10edc8881.jpg" class="img-fluid" alt="db86be98-3d29-4e60-9408-8cb10edc8881" style="zoom:50%;" /></p>
 <p>Esta solución simula ser punto a punto y es mucho más lento que abrir puertos.</p>
 <h2 id="icmp">ICMP</h2>
 <p>IP no maneja errores ni transmisiones, para esto esta el protocolo ICMP. Este protocolo es genérico y tiene muchos usos. Cada paquete tiene la forma de:</p>
-<p><img src="Resources/07 - DHCP/339aed25-6db7-4ab9-916b-cf62537455a5.jpg" class="img-fluid" alt="339aed25-6db7-4ab9-916b-cf62537455a5" style="zoom:50%;" /></p>
+<p><img src="Resources/07 - DHCP/3d0b6788-9214-44bd-b6ae-a94e092a2b18.jpg" class="img-fluid" alt="3d0b6788-9214-44bd-b6ae-a94e092a2b18" style="zoom:50%;" /></p>
 <p>Luego, los valores pueden ser:</p>
-<p><img src="Resources/07 - DHCP/007a791b-a6e4-466b-817a-c85f20884c07.jpg" class="img-fluid" alt="007a791b-a6e4-466b-817a-c85f20884c07" style="zoom:50%;" /></p>
+<p><img src="Resources/07 - DHCP/3013bb80-eff0-491a-9120-8f71df134b28.jpg" class="img-fluid" alt="3013bb80-eff0-491a-9120-8f71df134b28" style="zoom:50%;" /></p>
 <p>En los casos donde sucede algún error, se guarda toda esta información directamente en el campo de data, en vez de usar los headers. Es el trabajo del sistema operativo entregar este error a la aplicación que lo haya causado.</p>
 <h2 id="utilidades-de-networking">Utilidades de networking</h2>
 <h3 id="ping">Ping</h3>
