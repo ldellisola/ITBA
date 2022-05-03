@@ -6,7 +6,7 @@ Este tipo de cifrados actúa mediante una sustitución polialfabetica, es decir 
 
 <img src="Resources/02 - Cifrado Polialfabetico/image-20220430173114972.png" alt="image-20220430173114972" style="zoom:50%;" />
 
-- $\text{Gen}() = k \in \{a,\dots,z\}^*/ \#k = n $
+- $\text{Gen}() = k \in \{a,\dots,z\}^*/ \#k = n$
 - $\text{Cod}_k(m) = c$
 - $\text{Dec}_k(m) = c$
 
