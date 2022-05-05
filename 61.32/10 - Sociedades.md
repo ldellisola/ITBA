@@ -1,3 +1,5 @@
+# Sociedades
+
 Si no tenes guita para ser una empresa, te podes anotar como autónomo en la AFIP. Si sis mas pobre podes registrarte como **monotributista** (hay que facturar menos de 3 millones de pesos y otras cosas)
 
 Hay dos tipos de sociedades:
