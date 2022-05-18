@@ -1,4 +1,4 @@
-# HTTP Server
+# try_ HTTP Server
 
 ### Comandos importantes
 
@@ -15,37 +15,37 @@ tail -f /var/log/nginx/*
 
 Pagina de configuración:
 
-```
+```nginx
 # Virtual Host configuration for example.com
 #
 # You can move that to a different file under sites-available/ and symlink that
 # to sites-enabled/ to enable it.
 #
-#server {
+server {
 	# Listens on IPv4 on port 80
 	listen 80;
 	
 # Listens on IPv6 on port 80	
-#	listen [::]:80;
+	listen [::]:80;
 #
 # Host name
-#	server_name example.com;
+	server_name example.com;
 #
 # Folder where the website is stored
-#	root /var/www/example.com;
+  root /var/www/example.com;
 #
 # Set place for access log
         access_log /var/log/nginx/foo_access.log;
 # Set place for error log
         error_log /var/log/nginx/foo_error.log;
 # HTML Page that will be opened on the host
-#	index index.html;
+	index index.html;
 #
 # ???
-#	location / {
-#		try_files $uri $uri/ =404;
-#	}
-#}
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
 ```
 
 ## Como levantar un servidor

@@ -314,7 +314,7 @@ Hay varias formas de hacer esto:
 
 ## Formato de los Mensajes
 
-Los mensajes DNS se envían a traves de UDP y tiene el siguiente header
+Los mensajes DNS se envían a través de UDP y tiene el siguiente header
 
 <img src="Resources/03 - DNS/Screen Shot 2022-05-11 at 12.53.12.jpg" alt="Screen Shot 2022-05-11 at 12.53.12" style="zoom:50%;" />
 

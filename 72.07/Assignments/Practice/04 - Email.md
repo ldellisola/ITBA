@@ -111,7 +111,7 @@ Los comandos son:
 - `MAIL FROM <Address>`: Indica de que direccional se va a mandar el mail. No tiene por que existir.
 - `RCPT TO: <Address>`: A que dirección se va a mandar el mail. Tiene que existir.
 - `DATA`: Indica que va a comenzar el mensaje.
-- `From: "alguien" (personal) <alguien@mail.com>`: Esto indica que nombre va a figurar en el mail, en el campo “from”. No tiene por que ser igual que el de `FROM TO` y puede no existir.
+- `From: "alguien" (personal) <alguien@mail.com>`: Esto indica que nombre va a figurar en el mail, en el campo “from”. No tiene por que ser igual que el de `MAIL FROM` y puede no existir.
 - `To: "otra persona" <otro@mail.com>`: Esto indica que nombre va a figurar en el mail, en el campo “To”. No tiene por que ser igual que el de `RCPT TO` y puede no existir.
 - `MIME-Version: 1.0`: Version de MIME
 - `Content-type: text/plain; charset=UTF-8` El tipo de contenido y el charset usado
@@ -209,8 +209,7 @@ No
 
 ## 61
 
-> Según la configuración SPF de itba.edu.ar: ¿desde qué direcciones IP se pueden enviar
-> correos a servidores que implementen SPF?
+> Según la configuración SPF de itba.edu.ar: ¿desde qué direcciones IP se pueden enviar correos a servidores que implementen SPF?
 
 ```bash
 $ nslookup -type=txt itba.edu.ar

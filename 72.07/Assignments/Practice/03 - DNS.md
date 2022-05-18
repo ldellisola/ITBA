@@ -275,8 +275,6 @@ $ sudo rm /etc/named.caching-server.conf /var/named/chroot/etc/named.caching-ser
 
 > Crear la zona correspondiente a su dominio (forward mapping zone y reverse zone). La configuración de named se encuentra en `/etc/bind`. Establezca una variedad de registros, con diferentes TTL.
 
-
-
 ```bash
 # Ver si esta corriedo
 # usando netstat, si esta corriendo en el puerto 53:
