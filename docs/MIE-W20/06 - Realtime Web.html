@@ -1425,21 +1425,21 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <body>
 <h1 id="realtime-web">Realtime Web</h1>
 <p>There are two main ways to implement data streaming in the web: Polling and Pushing.</p>
-<p><img src="Resources/06 - Realtime Web/12a95312-aa56-4f21-a764-9ef6c5506d31.png" class="img-fluid" alt="12a95312-aa56-4f21-a764-9ef6c5506d31" style="zoom:33%;" /></p>
+<p><img src="Resources/06 - Realtime Web/c2ebd4a3-a184-4003-aefd-b5358d529e43.png" class="img-fluid" alt="c2ebd4a3-a184-4003-aefd-b5358d529e43" style="zoom:33%;" /></p>
 <p>Polling  consists on the client periodically checking for updates on the server, while pushing creates a persistent connection and the server will send the data over that channel. There are two types of pushing: the first one is <strong>long polling</strong>, and it consists on the server holding the request for some time while <strong>streaming</strong> opens a socket and sends updates without closing it.</p>
 <h2 id="long-polling">Long Polling</h2>
 <p>In Long Polling, the client sends a request and the server keeps it until it an event occurs, and then it sends it back. This process saves computer resources at the server as well as network resources, but it has some drawback as well. There is a maximum time of request processing at the server and it cannot support concurrent request processing at the server.</p>
-<p><img src="Resources/06 - Realtime Web/9bee7618-e28c-46a3-8655-a352de95e137.png" class="img-fluid" alt="9bee7618-e28c-46a3-8655-a352de95e137" style="zoom:33%;" /></p>
+<p><img src="Resources/06 - Realtime Web/d3995cd8-a81f-41d3-bccd-d98c14297d87.png" class="img-fluid" alt="d3995cd8-a81f-41d3-bccd-d98c14297d87" style="zoom:33%;" /></p>
 <h2 id="streaming">Streaming</h2>
 <p>Here the client initiates a request that the server stores until there is an event or a timeout. When this occurs, the server sends it back to the client as part of the response, but it does not terminate the communication, so when the next event comes, we can reuse the channel. This is done by using the <code>transfer-encoding</code> header in HTTP 1.1 or omitting the <code>content-lenth</code>  attribute in the response.</p>
-<p><img src="Resources/06 - Realtime Web/7e21d8dd-ff6c-4d78-98e2-bded78190ce5.png" class="img-fluid" alt="7e21d8dd-ff6c-4d78-98e2-bded78190ce5" style="zoom:33%;" /></p>
+<p><img src="Resources/06 - Realtime Web/a3a5451b-eb4d-4bf1-9f08-e8b4c20b3515.png" class="img-fluid" alt="a3a5451b-eb4d-4bf1-9f08-e8b4c20b3515" style="zoom:33%;" /></p>
 <h3 id="chunked-data">Chunked Data</h3>
 <p>If we set the <code>transfer-encoding</code> to <em>&quot;Chunked&quot;</em> we can send multiple sets of data over a single connection. each chunk starts with the hexadecimal value for length and we send <span class="math">\(0\)</span> to end the response. This method has some drawbacks though, as chunks cannot be considered events and intermediaries might re-chunk the message stream. In the same way, clients may buffer all data chunks before the make the response available to the application</p>
 <h3 id="server-sent-events">Server-Sent Events</h3>
 <p>Server-Sent Events is a feature of the HTML5 spec where an API is able to handle HTTP streaming in browser by using DOM events. For this feature we can use chunked messages and EOF. In order to send this events, the content-type must be <code>text/event-stream</code>. Every line must start with <code>data:</code>  and then write the data onto the stream with the exception of <code>id:</code> which is an optional identifier associated with the message. The last part of the data must be finished with <code>\n\n</code> to notify the client.</p>
 <h3 id="cross-document-messaging">Cross-Document Messaging</h3>
 <p>We can also use iframes to stream messages. With this method we have to lead a streaming resource in a hidden iframe. the server will push JavaScript code to the frame and the browser will execute the code as it arrives. The embedded iframe's code posts messages to the upper document.</p>
-<p><img src="Resources/06 - Realtime Web/88b1755b-9ae4-4f31-b99b-16df02971d47.png" class="img-fluid" alt="88b1755b-9ae4-4f31-b99b-16df02971d47" style="zoom:33%;" /></p>
+<p><img src="Resources/06 - Realtime Web/c4aa1cd8-2f5d-457f-861a-c94f4d34ebfe.png" class="img-fluid" alt="c4aa1cd8-2f5d-457f-861a-c94f4d34ebfe" style="zoom:33%;" /></p>
 <h2 id="websocket">WebSocket</h2>
 <p>WebSocket is a new protocol that runs as a layer on top of TCP that allows for bi-directional communication between client and servers with low-latency and no HTTP overhead. This protocol has to phases, first there's a handshake to <em>&quot;Upgrade&quot;</em> the HTTP connection and then we can start transferring data.</p>
 <h2 id="webrtc">WebRTC</h2>
@@ -1458,10 +1458,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>ICE allows WebRTC to overcome the complexities of Real-world networking, finding the best path to connect peers such as direct P2P communication or using:</p>
 <ul>
 <li><p><strong>Session Transversal Utilities for NAT (STUN)</strong>: It allows us to discover the presence of a NAT server and to discover public IP addresses and a port that the NAT has allocated for UDP flows. This is implemented as a third-party server inside the public side of the NAT.</p>
-<p><img src="Resources/06 - Realtime Web/85a86f38-4e08-40f8-a420-8d21c197ed47.png" class="img-fluid" alt="85a86f38-4e08-40f8-a420-8d21c197ed47" style="zoom:33%;" /></p>
+<p><img src="Resources/06 - Realtime Web/b3f6cc85-2bcf-460a-94d1-60812f6b225e.png" class="img-fluid" alt="b3f6cc85-2bcf-460a-94d1-60812f6b225e" style="zoom:33%;" /></p>
 </li>
 <li><p><strong>Traversal Using Relays around NAT (TURN)</strong>: It allows communication relay for hosts behind NAT when STUN does not work.</p>
-<p><img src="Resources/06 - Realtime Web/ad71d5db-10c1-4e42-ab7e-8f97d04a5aac.png" class="img-fluid" alt="ad71d5db-10c1-4e42-ab7e-8f97d04a5aac" style="zoom:33%;" /></p>
+<p><img src="Resources/06 - Realtime Web/4cfc41d7-2c71-41d9-a363-24d510bb1c55.png" class="img-fluid" alt="4cfc41d7-2c71-41d9-a363-24d510bb1c55" style="zoom:33%;" /></p>
 </li>
 </ul>
 

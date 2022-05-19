@@ -1423,6 +1423,306 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
+<h1 id="domain-name-system">Domain Name System</h1>
+<p>DNS es un sistema jerárquico distribuido para traducir nombres de hosts a direcciones IP. La información en DNS puede ser vista como un árbol invertido donde la raid hace referencia a los servidores de nombre de raíz.</p>
+<p><img src="Resources/03 - DNS/af47fa48-ecc8-4908-85bc-cefffcba9392.jpg" class="img-fluid" alt="af47fa48-ecc8-4908-85bc-cefffcba9392" style="zoom:50%;" /></p>
+<h2 id="dominios">Dominios</h2>
+<p>Un <strong>dominio</strong> es una colección de computadoras que pueden ser acedadas usando un nombre en común, llamado <strong>nombre de dominio</strong>. Los dominios tiene distintos niveles, siendo <strong>.com</strong> el dominio <em>top-level</em> más conocido.</p>
+<p>Dentro de un dominio <em>top-level</em>, una organización tiene su propio dominio o dominios. A si vez, dentro de estos pueden existir sub-dominios y cada host tiene su propio nombre (<strong>hostname</strong>). Uniendo este hostname con el dominio, se puede crear al <strong>fully qualified domain name (FQDN)</strong>.</p>
+<p><img src="Resources/03 - DNS/97ceaf58-c646-440f-b33c-166c57dc2327.jpg" class="img-fluid" alt="97ceaf58-c646-440f-b33c-166c57dc2327" style="zoom:50%;" /></p>
+<h2 id="resolucion-de-nombres">Resolución de Nombres</h2>
+<p>El objetivo para las computadoras es, a partir de un FQDN, obtener una ip a la cual conectarse. Para realizar esta conversion tiene que pasar por varias etapas:</p>
+<ol>
+<li><p>Primero, la computadora se va a fijar en el archivo <code>/etc/hosts</code> si tiene una entrada del tipo <code>ip FQDN</code> que permita obtener la ip deseada. Este archivo se parece al siguiente:</p>
+<pre><code>127.0.0.1			localhost
+::1						localhost
+192.168.0.2		clarin.com fakeclarin.com
+</code></pre>
+</li>
+<li><p>De no poder resolver la ip, se va a utilizar un <strong>DNS Resolver</strong>. Esto básicamente es un cliente de DNS que se contacta con un servidor de DNS para traducir a los FQDN a una ip. En Linux, este se configura en el archivo <code>/etc/resolv.conf</code> con las siguientes opciones:</p>
+<ul>
+<li><code>nameserver [address]</code>: Son las direcciones de los servidores DNS a los cuales el cliente se va a conectar. Puede haber hasta 3 entradas por dominio.</li>
+<li><code>domain [name]</code>: Indica el dominio.</li>
+<li><code>search [domains]</code>: Es similar a la opción anterior, pero puede contener a varios dominios. Esta opción no se puede usar con la anterior.</li>
+<li><code>sortlist [netword]/[mask]</code>: En caso de recibir multiples direcciones IP para un nombre, este parámetro las ordena en base a las redes listadas en esta opción.</li>
+<li><code>options [option]</code>: Es un parametro de seteo condicional con las siguientes opciones:
+<ul>
+<li><code>debug</code></li>
+<li><code>ndots: n</code></li>
+<li><code>timeout: t</code></li>
+<li><code>attempts: n</code></li>
+<li><code>rotate</code></li>
+<li><code>no-check-names</code></li>
+<li><code>inet6</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Por defecto, este es el orden que se utiliza a la hora de transformar un FQDN en una IP, aunque esto puede ser modificado en el archivo <code>/etc/host.conf</code> donde se encuentra la siguiente linea:</p>
+<pre><code>order		hosts,bind
+</code></pre>
+<p>Si cambiamos el orden de estas variables, entonces va a utilizar primero el DNS Resolver y si no encuentra al nombre, utilizara al archivo <code>/etc/hosts</code>.</p>
+<h2 id="consultas">Consultas</h2>
+<p>Las consultas a los servidores DNS se realizan de manera recursiva. Si el servidor al cual le solicito el servicio no conoce la IP asignada a este FQDN, este suele redirigirlo al cliente a otro servicio que pueda tener esta información.</p>
+<p>También existe el caso de que estos servidores tengan en cache la entrada de este FQDN, aunque este registro no les pertenezca. En estos casos, el servidor devuelve la IP solicitada.</p>
+<p><img src="Resources/03 - DNS/85dc1f01-fd79-466f-b99d-862c7029f951.jpg" class="img-fluid" alt="85dc1f01-fd79-466f-b99d-862c7029f951" style="zoom:50%;" /></p>
+<h3 id="cache">Cache</h3>
+<p>Una vez que el servidor de nombres aprende el mapeo de un FQDN y una IP, lo guarda en la cache, que va a expirar en un tiempo determinado (TTL). Este proceso se usa generalmente desde los servidores de nombre, que cachean las direcciones de los servidores <em>top-level domain</em>, por lo que los root servers no suele visitarse.</p>
+<h2 id="tipos-de-servidores-dns">Tipos de Servidores DNS</h2>
+<ul>
+<li><strong>DNS Cache-only Server</strong>: Este tipo de servidor solo guarda en la cache las respuestas de otro servidor de nombres. No es considerado un servidor autorizado por qué su información es de segunda mano.</li>
+<li><strong>DNS Primary Server</strong>: Es la fuente autorizada para toda la informacion de una zona especifica. Lee la informacion sobre el dominio desde un archivo construido por el administrador. Es un servidor autorizado para un dominio o parte de un dominio pues puede responder con autoridad preguntas sobre ese dominio.</li>
+<li><strong>DNS Secondary Server</strong>: Transfiere información completa de una zona desde un servidor privado y la almacena en un archivo en el disco local. Mantiene la información completa y actualizada de una zona y puede responder preguntas sobre zona en forma autorizada.</li>
+</ul>
+<h2 id="registros-dns">Registros DNS</h2>
+<p>Hay distintos tipos de registros DNS, aunque todos siguen el mismo formato:</p>
+<pre><code>name, value, type, ttl
+</code></pre>
+<p>Tenemos los siguientes tipos:</p>
+<ul>
+<li><p><code>A</code>: Este registro indica el nombre del host y le asigna una IPv4.</p>
+<pre><code>www.lucasdellisola.com.ar. 3600 IN A 192.168.0.3
+</code></pre>
+<p>Donde estoy registrando el FQDN <code>www.lucasdellisola.com.ar</code> a la IPv4 especificada con un TTL de 3600 segundos.</p>
+</li>
+<li><p><code>NS</code>: Este registro indica la delegación de un dominio a un servidor dns.</p>
+<pre><code>ns.lucasdellisola.com.ar.	21600	IN	NS	ada.ns.cloudflare.com.
+</code></pre>
+<p>Donde estoy delegando el dominio <code>ns.lucasdellisola.com.ar</code> al servidor DNS <code>ada.ns.cloudflare.com</code> con un TTL de 21600 segundos.</p>
+</li>
+<li><p><code>CNAME</code>: Este registro es un alias para el nombre de un host.</p>
+<pre><code>lucasdellisola.com.ar.	CNAME  www.lucasdellisola.com.ar.
+</code></pre>
+<p>Donde estoy haciendo un alias desde mi pagina <code>lucasdellisola.com.ar</code> hacia <code>www.lucasdellisola.com.ar.</code></p>
+</li>
+<li><p><code>MX</code>: Este registro indica la existencia de un servidor de mails en el dominio especificado.</p>
+<pre><code>lucasdellisola.com.ar.	3600	IN	MX	10 mx1.forwardemail.net.
+</code></pre>
+<p>Donde estoy asignando que todos los mails que se envíen a <code>*@lucasdellisola.com.ar</code> utilicen el servidor <code>mx1.forwardemail.net</code>. Los otros parámetros son el TTL de 3600 segundos y la prioridad on un valor de 10. A la hora de utilizar este mail, el servidor se fijara en la prioridad para decidir que servidor debería utilizar.</p>
+</li>
+<li><p><code>AAAA</code>: Este registro indica el nombre del host y le asigna una IPv6.</p>
+<pre><code>ipv6.lucasdellisola.com.ar. 3600 IN AAAA :::1
+</code></pre>
+<p>De forma similar al registro <code>A</code>, asignamos un hostname a una IPv6.</p>
+</li>
+<li><p><code>SOA</code>: Este registro indica el comienzo de una zona autorizada de registros.</p>
+<pre><code>lucasdellisola.com.ar. IN SOA 100 ns.lucasdellisola.com.ar. mailadmin.lucasdellisola.com.ar. (
+  1234 ; SERIAL
+  7200 ; REFRESH
+  3600 ; RETRY
+  99999 ; EXPIRE
+  1000 ; NEGATIVE TTL
+)
+</code></pre>
+<p>Los parametros son:</p>
+<ul>
+<li><p><code>nombre</code>: Nombre de la zona: <code>lucasdellisola.com.ar</code>.</p>
+</li>
+<li><p><code>TTL</code>: Time to live <code>100</code>.</p>
+</li>
+<li><p><code>mname</code>: Es el nameserver principal para esta zona: <code>ns.lucasdellisola.com.ar</code>.</p>
+</li>
+<li><p><code>rname</code>: Es el mail del admin de la zona, con el @ reemplazado por un punto: <code>mailadmin.lucasdellisola.com.ar</code>.</p>
+</li>
+<li><p><code>serial</code>: Número serial para esta zona, se usa para saber si la zona fue actualizada: <code>1234</code>.</p>
+</li>
+<li><p><code>refresh</code>: Número de segundos que tiene que esperar un servidor secundario para realizar una query sobre el registro SOA y detectar cambios en la zona: <code>7200</code>.</p>
+</li>
+<li><p><code>retry</code>: Número de segundos que tiene que esperar un servidor secundario para ver el número serial si el master no responde. Tiene que ser menor que el valor de refresh: <code>3600</code>.</p>
+</li>
+<li><p><code>expire</code>: Número de segundos que tiene que esperar un servidor para dejar de responder queries si el servidor primario no responde. Este valor tiene que ser mayor que la suma de refresh y retry: <code>99999</code>.</p>
+</li>
+<li><p><code>negative ttl</code>: Número en segundos que los servidores secundarios deben cachear las queries negativas que se hayan hecho al servidor primario: <code>1000</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>SRV</code>: Este registro indica un host y un puerto especifico al cual conectarse para servicios específicos.</p>
+<pre><code>_mail._tcp.lucasdellisola.com.ar.   3600 IN    SRV 10       60     5060 mail.lucasdellisola.com.ar.
+</code></pre>
+<p>Los parametros son:</p>
+<ul>
+<li><code>servicio</code>: Es la primera parte del nombre, en este caso es <code>mail</code>.</li>
+<li><code>protocolo</code>: Es la segunda parte del nombre, en este caso <code>tcp</code>.</li>
+<li><code>nombre</code>: es el resto del dominio, en este caso <code>lucasdellisola.com.ar</code>.</li>
+<li><code>TTL</code>: tiempo de vida 3600.</li>
+<li><code>prioridad</code>: Menor prioridad significa mas chances de ser utilizado: <code>10</code>.</li>
+<li><code>peso</code>: Un peso relativo para los registros con la misma prioridad, un valor mas alto significa que va a ser elegido mas frecuentemente: <code>60</code>.</li>
+<li><code>puerto</code>: El puerto TCP o UDP del servicio: <code>5060</code>.</li>
+<li><code>destino</code>: FQDN del la computadora donde esta corriendo el servicio: <code>mail.lucasdellisola.com.ar</code>.</li>
+</ul>
+</li>
+<li><p><code>RP</code>: Este registro indica la persona responsable del dominio.</p>
+<pre><code>lucasdellisola.com.ar. IN RP adminmail.lucasdellisola.com.ar. txt-name
+</code></pre>
+<p>Los parametros son:</p>
+<ul>
+<li><code>dominio</code></li>
+<li><code>admin mail</code></li>
+<li><code>txt-name</code>: registro del tipo TXT. También puede ser reemplazado por <code>.</code></li>
+</ul>
+</li>
+<li><p><code>TXT</code>: Es un registr que permite agregar texto arbitrario a un hostname o dominio.</p>
+<pre><code>lucasdellisola.com.ar. IN TXT &quot;Este es mi dominio&quot;
+</code></pre>
+</li>
+<li><p><code>SPF</code>: Indica una lista de IPs de hosts autorizados para enviar mails en nombre de este dominio.</p>
+<pre><code>mail.lucasdellisola.com.ar. IN TXT &quot;v=spf1 ip4:74.86.49.128/28 a mx ~all&quot;
+</code></pre>
+<p>Los parametros son:</p>
+<ul>
+<li><code>hostname</code></li>
+<li><code>v=spf1</code>: Indica que es un registro del tipo <code>SPF</code></li>
+<li><code>ip4:74.86.49.128/28</code>: Indica que se permiten todas las IPs en ese rango.</li>
+</ul>
+</li>
+</ul>
+<h2 id="utilidades-dns">Utilidades DNS</h2>
+<p>Para poder tester que nuestra configuración es correcta, se suelen utilizar 4 herramientas de linea de comando:</p>
+<ul>
+<li><p><strong>host</strong>: informa la IP asignada a un host:</p>
+<pre><code class="language-bash">$ host lucasdellisola.com.ar
+lucasdellisola.com.ar has address 181.46.230.46
+lucasdellisola.com.ar mail is handled by 10 mx2.forwardemail.net.
+lucasdellisola.com.ar mail is handled by 10 mx1.forwardemail.net.
+</code></pre>
+</li>
+<li><p><strong>nslookup</strong>: Es una utilidad que permite consultar a los name servers por los distintos dominios y hosts que tienen.</p>
+<pre><code class="language-bash">$ nslookup lucasdellisola.com.ar
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	lucasdellisola.com.ar
+Address: 181.46.230.46
+</code></pre>
+</li>
+<li><p><strong>dig</strong>: Permite ver los registros DNS para un dominio. Esta utilidad tiene varias opciones:</p>
+<ul>
+<li><code>+noall</code>: No trae ninguna selección.</li>
+<li><code>+answer</code>: Trae la respuesta.</li>
+<li><code>-t </code>: Permite pedir solo un tipo de registro.</li>
+<li><code>ANY</code>: Trae información de todos los registros.</li>
+<li><code>+short</code>: Trae solo las IPs.</li>
+<li><code>+trace</code>: Muestra todas las llamadas a los servidores DNS.</li>
+</ul>
+<pre><code class="language-bash">$ dig lucasdellisola.com.ar
+; &lt;&lt;&gt;&gt; DiG 9.16.1-Ubuntu &lt;&lt;&gt;&gt; lucasdellisola.com.ar
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 40582
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;lucasdellisola.com.ar.		IN	A
+
+;; ANSWER SECTION:
+lucasdellisola.com.ar.	252	IN	A	181.46.230.46
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Wed May 11 14:40:12 UTC 2022
+;; MSG SIZE  rcvd: 66
+</code></pre>
+</li>
+<li><p><strong>whois</strong>: Provee información sobre el responsable del dominio</p>
+<pre><code class="language-bash">$ whois lucasdellisola.com.ar
+% La información a la que estás accediendo se provee exclusivamente para
+% fines relacionados con operaciones sobre nombres de dominios y DNS,
+% quedando absolutamente prohibido su uso para otros fines.
+%
+% La DIRECCIÓN NACIONAL DEL REGISTRO DE DOMINIOS DE INTERNET es depositaria
+% de la información que los usuarios declaran con la sola finalidad de
+% registrar nombres de dominio en ‘.ar’, para ser publicada en el sitio web
+% de NIC Argentina.
+%
+% La información personal que consta en la base de datos generada a partir
+% del sistema de registro de nombres de dominios se encuentra amparada por
+% la Ley N° 25326 “Protección de Datos Personales” y el Decreto
+% Reglamentario 1558/01.
+
+domain:		lucasdellisola.com.ar
+registrant:	20412628692
+registrar:	nicar
+registered:	2020-02-03 15:27:54.272937
+changed:	2022-05-05 23:00:33.094087
+expire:		2023-04-03 00:00:00
+
+contact:	20412628692
+name:		DELL ISOLA LUCAS
+registrar:	nicar
+created:	2020-03-09 14:04:43.185609
+changed:	2022-05-05 23:00:30.082556
+
+nserver:	ada.ns.cloudflare.com ()
+nserver:	jihoon.ns.cloudflare.com ()
+registrar:	nicar
+created:	2021-10-07 12:15:57.842063
+</code></pre>
+</li>
+</ul>
+<h2 id="dns-dinamico">DNS Dinamico</h2>
+<p>Existe un protocolo llamado DDNS que permite registrar FQDN a dispositivos con IPs dinámicas, es decir, que cambian con el tiempo. Este protocolo permite que una computadora cliente conectada a la red con IP dinámica le vaya avisando al servidor DNS de su IP de forma regular:</p>
+<p><img src="Resources/03 - DNS/1eae24ce-b2d0-4d55-bf7d-cd1e0dbc596c.jpg" class="img-fluid" alt="1eae24ce-b2d0-4d55-bf7d-cd1e0dbc596c" style="zoom:50%;" /></p>
+<p>En estos casos, el TTL de los registros DNS sera muy bajo, con valores de 1 minuto para poder tener siempre al día al IP de nuestra maquina.</p>
+<h2 id="dns-spoofing">DNS Spoofing</h2>
+<p>DNS Spoofing es un proceso para hacer que un registro DNS apunte a una dirección IP que no debería.</p>
+<p><img src="Resources/03 - DNS/9f1f2b9d-f282-48b0-8472-4a26199ac473.jpg" class="img-fluid" alt="9f1f2b9d-f282-48b0-8472-4a26199ac473" style="zoom:50%;" /></p>
+<p>Hay varias formas de hacer esto:</p>
+<ul>
+<li><p>Un servidor malicioso puede enviarle al servidor DNS una IP con su FQDN sin que el servidor DNS haya preguntado por ella</p>
+<p><img src="Resources/03 - DNS/66b0adae-2f12-44e3-8af5-4962ef4c85e7.jpg" class="img-fluid" alt="66b0adae-2f12-44e3-8af5-4962ef4c85e7" style="zoom:50%;" /></p>
+<p>Para evitar esto se debe verificar que la respuesta corresponda con alguna query, así como también verificar su ID y que el origen sea confiable.</p>
+</li>
+<li><p><strong>DNS Spoofing</strong>: Se puede realizar un ataque Man-In-The-Middle, donde una computadora maliciosa obtiene el trafico de la computadora víctima. Cuando esta computadora realiza una query DNS, el atacante envia una respuesta falsa con el mismo ID que la query.</p>
+<p><img src="Resources/03 - DNS/70d371c0-57f2-4482-aac4-83fec29a33ab.jpg" class="img-fluid" alt="70d371c0-57f2-4482-aac4-83fec29a33ab" style="zoom:50%;" /></p>
+</li>
+<li><p><strong>DNS Cache Poisoning</strong>: Este ataque consiste en insertar un registro invalido en el cache de un servidor DNS, para que luego se lo sirva a todos los clientes.</p>
+<p>La idea es simple, se arma un servidor DNS con un dominio especifico, luego con una query se le pregunta al servidor víctima sobre la IP de este FQDN. El servidor víctima le va a preguntar al Servidor DNS malicioso y este le va a responder con varios registros, empezando con el que pidió el servidor víctima y luego inyectando los registros inválidos.</p>
+<p><img src="Resources/03 - DNS/93b8ccdb-4d5e-4b9c-8190-372061245576.jpg" class="img-fluid" alt="93b8ccdb-4d5e-4b9c-8190-372061245576" style="zoom:50%;" /></p>
+</li>
+</ul>
+<h2 id="formato-de-los-mensajes">Formato de los Mensajes</h2>
+<p>Los mensajes DNS se envían a través de UDP y tiene el siguiente header</p>
+<p><img src="Resources/03 - DNS/d345dc3b-9bdc-44fc-8efd-91d8c6fe6d3e.jpg" class="img-fluid" alt="d345dc3b-9bdc-44fc-8efd-91d8c6fe6d3e" style="zoom:50%;" /></p>
+<p>Donde el opcode significa:</p>
+<ul>
+<li><code>0</code>: Consulta estándar.</li>
+<li><code>1</code>: Consulta inversa.</li>
+<li><code>2</code>: Consulta inversa por <em>server status</em>.</li>
+</ul>
+<p>Y rcode significa:</p>
+<ul>
+<li><code>0</code>: Sin error</li>
+<li><code>1</code>: Error de formato, el servidor no pudo decodificar el mensaje.</li>
+<li><code>2</code>: Error en el servidor, el servidor tuvo un error inesperado.</li>
+<li><code>3</code>: Error en el nombre, el FQDN no existe.</li>
+<li><code>4</code>: Sin implementar,</li>
+<li><code>5</code>: Rechazado.</li>
+</ul>
+<p>Ademas, tiene los siguientes bits:</p>
+<ul>
+<li><code>Q</code>: indica si es una query (0) o una respuesta (1)</li>
+<li><code>A</code>: Indica si es una respuesta autorizada.</li>
+<li><code>T</code>: Indica si es una respuesta truncada.</li>
+<li><code>D</code>: Indica si es una pregunta con recursividad.</li>
+<li><code>R</code>: Indica si hay recursión disponible.</li>
+</ul>
+<p>Luego tenemos el mensaje de pregunta, que ademas de estos headers tiene:</p>
+<p><img src="Resources/03 - DNS/079a4582-1e8e-4d60-a570-9d6ddcc0adb0.jpg" class="img-fluid" alt="079a4582-1e8e-4d60-a570-9d6ddcc0adb0" style="zoom:50%;" /></p>
+<p>Con el tipo de pregunta:</p>
+<ul>
+<li><code>1</code>: host.</li>
+<li><code>2</code>: name server autorizado.</li>
+<li><code>5</code>: nombre canonico con alias.</li>
+<li><code>15</code>: mail exchange.</li>
+<li><code>252</code>: solicitud de transferencia de zona.</li>
+<li>…</li>
+</ul>
+<p>Luego, la respuesta tiene la siguiente estructura:</p>
+<p><img src="Resources/03 - DNS/c892d9ea-5e59-48b2-b8f1-e99379f247a1.jpg" class="img-fluid" alt="c892d9ea-5e59-48b2-b8f1-e99379f247a1" style="zoom:50%;" /></p>
 
 </body>
 

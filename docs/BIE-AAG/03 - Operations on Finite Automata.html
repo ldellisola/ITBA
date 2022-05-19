@@ -1431,12 +1431,12 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 L(M_1) = L(M_2)
 \]</div>
 <p>For every nondeterministic finite automaton (NFA) <span class="math">\(M\)</span> there exists an equivalent deterministic finite automaton (DFA) <span class="math">\(M'\)</span>. This is achieved with an algorithm called <strong>determination of NFA</strong>.</p>
-<p><img src="Resources/Untitled/62ba9762-9b92-40b3-a2f5-ed55ab1f6128.png" class="img-fluid" alt="62ba9762-9b92-40b3-a2f5-ed55ab1f6128" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/d5198914-9465-4837-9a70-3d644b6677d4.png" class="img-fluid" alt="d5198914-9465-4837-9a70-3d644b6677d4" style="zoom:50%;" /></p>
 <p>Given the size of the original automaton <span class="math">\(|Q_{NFA}| = n\)</span>, the new, deterministic automaton's size can be up to <span class="math">\(|Q_{DFA}|=2^n\)</span>.</p>
 <h2 id="homogeneous-finite-automaton">Homogeneous Finite Automaton</h2>
 <p>An <strong>Homogeneous Finite Automaton</strong> is described as <span class="math">\(M=(Q,\Sigma,\delta,q_0, F)\)</span>, and <span class="math">\(Q(a)\)</span> are the set of <u>targets states</u> $\forall a \in \Sigma $. In this automaton, for all pair of symbols <span class="math">\((a,b)/ a\neq b, a,b\in \Sigma\)</span> it holds that <span class="math">\(Q(a) \cap Q(b) = \emptyset\)</span>.</p>
 <p>A set of <strong>Target States</strong> are are a group of stats that receive a transition from a given action:</p>
-<p><img src="Resources/Untitled/6a6984bb-cdab-4120-9974-4f9b6ba73319.png" class="img-fluid" alt="6a6984bb-cdab-4120-9974-4f9b6ba73319" style="zoom:67%;" /></p>
+<p><img src="Resources/Untitled/e21368d3-3f7b-477b-a725-1b8dea2006c8.png" class="img-fluid" alt="e21368d3-3f7b-477b-a725-1b8dea2006c8" style="zoom:67%;" /></p>
 <h3 id="theorems">Theorems</h3>
 <p>Let <span class="math">\(M=(Q,\Sigma,\delta,q_0,F)\)</span> be an homogeneous automaton.</p>
 <ul>
@@ -1459,7 +1459,7 @@ Q(\epsilon) = \{q_0\} \setminus\bigcup_{a\in \Sigma} Q(a)
 </ul>
 <h2 id="union-of-languages">Union of Languages</h2>
 <p>We can join different <span class="math">\(NFA\)</span> automaton to be able to join different languages. In the following algoithm we'll show you how to do it while deleting <span class="math">\(\epsilon\)</span>-transitions:</p>
-<p><img src="Resources/Untitled/5cda016c-3acb-4ff0-bde3-30580f52c04c.png" class="img-fluid" alt="5cda016c-3acb-4ff0-bde3-30580f52c04c" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/cc69eae5-0a90-4450-bdef-b9de60857dfd.png" class="img-fluid" alt="cc69eae5-0a90-4450-bdef-b9de60857dfd" style="zoom:50%;" /></p>
 <h3 id="total-nfa">Total NFA</h3>
 <p>We call an <span class="math">\(NFA\)</span>  <span class="math">\(M=(Q,\Sigma,\delta,q_0,F)\)</span> a <u>total NFA</u> if the mapping:</p>
 <div class="math">
@@ -1471,27 +1471,27 @@ Q(\epsilon) = \{q_0\} \setminus\bigcup_{a\in \Sigma} Q(a)
 \]</div>
 <p>Basically, we say that an NFA is total if all states are connected with all actions.</p>
 <p>We can <strong>join</strong> languages in parallel runs using the following algorithm:</p>
-<p><img src="Resources/Untitled/0402efce-c7e6-4ade-9dc0-49fa42ed3967.png" class="img-fluid" alt="0402efce-c7e6-4ade-9dc0-49fa42ed3967" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/cd59b669-bea8-451d-83ae-e52d43121b50.png" class="img-fluid" alt="cd59b669-bea8-451d-83ae-e52d43121b50" style="zoom:50%;" /></p>
 <h2 id="intersection-of-languages">Intersection of Languages</h2>
 <p>There are also algorithms to create the intersection of different languages. In order to achieve this we have to utilize this algorithm:</p>
-<p><img src="Resources/Untitled/c6e60117-cf73-4bc1-b4a3-2ababd21aa94.png" class="img-fluid" alt="c6e60117-cf73-4bc1-b4a3-2ababd21aa94" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/c5ff54fd-5ab6-458e-a8c7-09345b61aafa.png" class="img-fluid" alt="c5ff54fd-5ab6-458e-a8c7-09345b61aafa" style="zoom:50%;" /></p>
 <p>There's another algorithm that creates the intersection, but <u>only keeps the acceesible states</u>:</p>
-<p><img src="Resources/Untitled/fb01412f-f81d-4877-81a4-81ffddafd8d7.png" class="img-fluid" alt="fb01412f-f81d-4877-81a4-81ffddafd8d7" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/bae48b88-8285-4a0b-8901-96bbc5ade708.png" class="img-fluid" alt="bae48b88-8285-4a0b-8901-96bbc5ade708" style="zoom:50%;" /></p>
 <h2 id="complement-of-language">Complement of Language</h2>
 <p>This operation works by swapping the final states for non-final states. It can be calculated with the following algorithm:</p>
-<p><img src="Resources/Untitled/812b5a97-7fef-4b37-b914-22a6f2aaca08.png" class="img-fluid" alt="812b5a97-7fef-4b37-b914-22a6f2aaca08" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/2d008889-243e-4ac9-b6c1-e7728262c1b0.png" class="img-fluid" alt="2d008889-243e-4ac9-b6c1-e7728262c1b0" style="zoom:50%;" /></p>
 <h2 id="product-of-languages">Product of Languages</h2>
 <p>The product of 2 languages is defined as the concatenation of the strings of both automaton. In this case, we have to connect all outputs from the first automata to all inputs of the second automata.</p>
 <p>We can do this by merging both automaton with <span class="math">\(\epsilon\)</span>-transitions:</p>
-<p><img src="Resources/Untitled/aa5a3c9a-71d9-486a-87af-2a1bab9e220f.png" class="img-fluid" alt="aa5a3c9a-71d9-486a-87af-2a1bab9e220f" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/d33b0a5a-bc1d-4c77-a67a-0b422ef33515.png" class="img-fluid" alt="d33b0a5a-bc1d-4c77-a67a-0b422ef33515" style="zoom:50%;" /></p>
 <p>Or, without using them:</p>
-<p><img src="Resources/Untitled/e2121a9e-22ab-451d-b50a-b8f2c479ace3.png" class="img-fluid" alt="e2121a9e-22ab-451d-b50a-b8f2c479ace3" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/1d7fc24e-2783-4b7e-a288-f367bd9dff8e.png" class="img-fluid" alt="1d7fc24e-2783-4b7e-a288-f367bd9dff8e" style="zoom:50%;" /></p>
 <h2 id="iteration-of-a-language">Iteration of a Language</h2>
 <p>When we iterate through a language, we are actually feeding back the output of the automaton to the input.</p>
 <p>There's an algorithm for this operation that uses <span class="math">\(\epsilon\)</span>-transitions:</p>
-<p><img src="Resources/Untitled/22b074f9-a4cb-4801-b2bd-0e581686e83e.png" class="img-fluid" alt="22b074f9-a4cb-4801-b2bd-0e581686e83e" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/59f8fb5f-d0be-4121-bc31-38251f076749.png" class="img-fluid" alt="59f8fb5f-d0be-4121-bc31-38251f076749" style="zoom:50%;" /></p>
 <p>Here we can see a variant that does not create any <span class="math">\(\epsilon\)</span>-transitions:</p>
-<p><img src="Resources/Untitled/2c94287a-2d6c-4a4c-8118-b3efd3fcbd59.png" class="img-fluid" alt="2c94287a-2d6c-4a4c-8118-b3efd3fcbd59" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/9f83bdd9-2b5c-47f0-9e20-989477f8f0fe.png" class="img-fluid" alt="9f83bdd9-2b5c-47f0-9e20-989477f8f0fe" style="zoom:50%;" /></p>
 <h2 id="minimal-dfa">Minimal DFA</h2>
 <p>Let <span class="math">\(M=(Q,\Sigma,\delta, q_0,F)\)</span> be a DFA. <span class="math">\(M\)</span> is called minimal DFA if:</p>
 <div class="math">
@@ -1499,7 +1499,7 @@ Q(\epsilon) = \{q_0\} \setminus\bigcup_{a\in \Sigma} Q(a)
 \not \exists M' = (Q',\Sigma,\delta',q_0',F') / L(M) = L(M') \land |Q|&gt;|Q'|
 \]</div>
 <p>To obtain the minimal form of a DFA, we can use the following algorithm:</p>
-<p><img src="Resources/Untitled/4b7a4fa8-0de4-4962-9626-e49befad0ed3.png" class="img-fluid" alt="4b7a4fa8-0de4-4962-9626-e49befad0ed3" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/7dc59c0e-7e7c-4984-987c-6c11b0ed2dcd.png" class="img-fluid" alt="7dc59c0e-7e7c-4984-987c-6c11b0ed2dcd" style="zoom:50%;" /></p>
 
 </body>
 

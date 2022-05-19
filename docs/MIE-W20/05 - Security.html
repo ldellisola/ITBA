@@ -1430,12 +1430,12 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><strong>Transport-level security</strong></li>
 </ul>
 <p>For this we need to verify the client's identify (<strong>authentication</strong>) and the rights to access the resources (<strong>authorization</strong>). We also have to maintain <strong>message confidentiality and integrity</strong>.</p>
-<p><img src="Resources/05 - Security/3df2557a-9380-4363-861e-49ad86f05998.png" class="img-fluid" alt="3df2557a-9380-4363-861e-49ad86f05998" style="zoom:33%;" /></p>
+<p><img src="Resources/05 - Security/1b9c4269-0c93-45f2-b243-c9c1dc0df280.png" class="img-fluid" alt="1b9c4269-0c93-45f2-b243-c9c1dc0df280" style="zoom:33%;" /></p>
 <h2 id="authentication-and-authorization">Authentication and Authorization</h2>
 <p>Authentication is used to verify the user's identity, while authorization checks that the user has the right to access a resource. There are standard ways to authenticate over HTTPS such as <strong>Basic Access Authentication</strong> or <strong>Digest Access Authentication</strong>, or we can do it in a proprietary way with cookies.</p>
 <h3 id="basic-access-authentication">Basic Access Authentication</h3>
 <p>The client hashes the user credentials in Base64 and then send it in the header every time it request something from the server. Even though this is encoded in Base64, this data is still public for everyone if SSL is not used.</p>
-<p><img src="Resources/05 - Security/258527c5-c72f-4508-a9f6-8e7903b702f8.png" class="img-fluid" alt="258527c5-c72f-4508-a9f6-8e7903b702f8" style="zoom:33%;" /></p>
+<p><img src="Resources/05 - Security/196256f2-c218-48e5-ba15-f317c32f3741.png" class="img-fluid" alt="196256f2-c218-48e5-ba15-f317c32f3741" style="zoom:33%;" /></p>
 <h3 id="digest-access-authentication">Digest Access Authentication</h3>
 <p>This method requires the server to send the <code>WWW-Authenticate</code> header with the following data:</p>
 <pre><code>WWW-Authenticate: Digest 

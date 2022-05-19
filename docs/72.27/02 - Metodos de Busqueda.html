@@ -1497,12 +1497,12 @@ h:\text{Estados} \rightarrow \mathbb{R}/h(e)= \left \{
 <p>Mediante esta función, dado un estado <span class="math">\(s\)</span>, <span class="math">\(h(s)\)</span> es una estimación del costo que resta para alcanzar una solución.</p>
 <h3 id="heuristica-local">Heurística Local</h3>
 <p>Sea <span class="math">\(n_0\)</span> el nodo raiz de búsqueda y sea <span class="math">\(s\)</span> el estado inicial representado por <span class="math">\(n_0\)</span>. Sea <span class="math">\(L_0\)</span> una lista vacía de nodos a la cual se agrega el nodo <span class="math">\(n_0\)</span>, Hay dos versiones de este algoritmo, con y sin retroceso.</p>
-<p><img src="Resources/02 - Metodos de Busqueda/54b419fe-ddf3-4486-b901-34a8d8f0fc0c.png" class="img-fluid" alt="54b419fe-ddf3-4486-b901-34a8d8f0fc0c" style="zoom:50%;" /></p>
-<p><img src="Resources/02 - Metodos de Busqueda/c0f7bf15-9d97-4c84-85bd-96ff7f952c55.png" class="img-fluid" alt="c0f7bf15-9d97-4c84-85bd-96ff7f952c55" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Metodos de Busqueda/dffc8929-8806-4d23-a825-ce087ef97cbd.png" class="img-fluid" alt="dffc8929-8806-4d23-a825-ce087ef97cbd" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Metodos de Busqueda/7ff16175-60b7-4cc3-bceb-bfb6df625d72.png" class="img-fluid" alt="7ff16175-60b7-4cc3-bceb-bfb6df625d72" style="zoom:50%;" /></p>
 <p>Este método de heurística no es optimo, pero es completo si realiza el retroceso.</p>
 <h3 id="heuristica-global">Heurística Global</h3>
 <p>Es similar a la otra implementación, pero en vez de aplicarse solo a los sucesores, se aplica a todo el set de nodos de frontera.</p>
-<p><img src="Resources/02 - Metodos de Busqueda/6caf8d9c-1009-4f69-9ad2-ef1108494725.png" class="img-fluid" alt="6caf8d9c-1009-4f69-9ad2-ef1108494725" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Metodos de Busqueda/0e0a4094-5b35-4707-9992-10dc259dfdf7.png" class="img-fluid" alt="0e0a4094-5b35-4707-9992-10dc259dfdf7" style="zoom:50%;" /></p>
 <h3 id="a">A*</h3>
 <p>Esta función esta definida de la siguiente forma:</p>
 <div class="math">
@@ -1511,7 +1511,7 @@ f:\text{Nodos}\rightarrow\mathbb{R}/ f(n) = g(n) + h(n.state)
 \]</div>
 <p>Donde <span class="math">\(g\)</span> es la función de costo del camino realizado desde el nodo raiz hasta el nodo actual <span class="math">\(n\)</span>.</p>
 <p>El algoritmo se define de la siguiente forma:</p>
-<p><img src="Resources/02 - Metodos de Busqueda/ac5247c0-8d9b-457a-8c48-4839c86542f4.png" class="img-fluid" alt="ac5247c0-8d9b-457a-8c48-4839c86542f4" style="zoom:50%;" /></p>
+<p><img src="Resources/02 - Metodos de Busqueda/c455da9e-d643-4077-8571-7996c02081ba.png" class="img-fluid" alt="c455da9e-d643-4077-8571-7996c02081ba" style="zoom:50%;" /></p>
 <p>Una heuristica <span class="math">\(h()\)</span> es admisible si <span class="math">\(f(n)\)</span> nunca sobrestima el costo real de la mejor solución que pasa por el nodo <span class="math">\(n\)</span>:</p>
 <div class="math">
 \[

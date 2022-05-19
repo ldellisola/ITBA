@@ -1426,8 +1426,92 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h1 id="aprendizaje-no-supervisado">Aprendizaje No Supervisado</h1>
 <p>Para lograr un sistema de aprendizaje no supervisado es necesario construir modelos de predicción cuando la respuesta no esta disponible. Esta solución debe resolver 3 problemas:</p>
 <ul>
-<li><strong>Agrupamient</strong></li>
+<li><strong>Agrupamiento</strong>: Agrupan observaciones de forma tal que el grado de similitud entre los miembros de un grupo sea lo mas fuerte posible.</li>
+<li><strong>Asociaciones</strong>: Consiste en el almacenamiento y recuperación de información por asociación con otras informaciones.</li>
+<li><strong>Reducción de la dimensionalidad</strong></li>
 </ul>
+<h2 id="redes-de-kohonen">Redes de Kohonen</h2>
+<p>Las redes de kohonen descubren por si mismas las regularidades de los datos de entrada. A este concepto también se lo conoce como <strong>Self-Organized Maps</strong>.</p>
+<p>En este modelo, las neuronas están conectadas entre si. Las conexiones de una neurona en si misma están conectadas con un valor positivo y con el resto de las neuronas con un valor negativo.</p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/2d228a0a-4e09-4fb0-934e-ca15d6f37132.jpg" class="img-fluid" alt="2d228a0a-4e09-4fb0-934e-ca15d6f37132" style="zoom:25%;" /></p>
+<p>Este sistema produce que a lo largo del tiempo algunas unidades tengan un novel de activación mayor, mientras que otras tengan una activación nula. Dada la unidad de entrada <span class="math">\(x\)</span>, la neurona que tenga el vector de pesos <span class="math">\(w\)</span> mas parecido a <span class="math">\(x\)</span> sera la ganadora.</p>
+<p>Formalmente, una <strong>red de kohonen</strong> es una red de una sola capa, en forma de grilla bidimensional (<span class="math">\(k\times k\)</span>) y en la que cada neurona esta conectada a todas las componentes de un vector de entrada $n-$dimensional. Esto significa que pasa la información de un estado multidimensional a uno bidimensional:</p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/462eb357-36de-4daa-9b6c-594d4181eea8.jpg" class="img-fluid" alt="462eb357-36de-4daa-9b6c-594d4181eea8" style="zoom:50%;" /></p>
+<p>Podemos definir una sere de unidades vecinas, y con esto el concepto de <strong>vecindario</strong>. Un vecindario se define con un radio <span class="math">\(R\)</span>:</p>
+<div class="math">
+\[
+\text{4-vecinos} \rightarrow R=1\\
+\text{4-vecinos} \rightarrow R=\sqrt 2
+\]</div>
+<p>Las neuronas vecinas tienen un grado de similitud entre sí.</p>
+<p>Este tipo de redes puede ser más rápidas que el perceptron multicapa y ademas puede ser aplicado en casos donde el conjunto de entrada no esta etiquetado.</p>
+<p>Por otro lado, si el conjunto de variables es muy grande, puede ser difícil asociarlo con un conjunto bidimensional. Otro problema es que solo se pueden utilizar variables numéricas y ademas hay que definir el tamaño de la grilla desde un principio.</p>
+<h3 id="aprendizaje-competitivo">Aprendizaje Competitivo</h3>
+<p>Este modelo se basa en el aprendizaje competitivo, esto implica que las neuronas compiten unas con otras con el objetivo de que finalmente solo una de las neuronas de salida se activen y las demás sean forzadas a valores de respuesta mínimos.</p>
+<p>El objetivo de este aprendizaje es agrupar los datos que se introducen en la red y la información similar es clasificada formando parte de la misma categoría o grupo y deben activar la misma neurona de salida.</p>
+<h3 id="algoritmo">Algoritmo</h3>
+<p>El algoritmo sigue los siguientes pasos:</p>
+<ol>
+<li><p>Obtener <span class="math">\(X^p=\{x_1^p,\dots,x_n^p\}\)</span>, siendo <span class="math">\(p=1,\dots,P\)</span> los registros de entrada normalizados.</p>
+</li>
+<li><p>Definir la cantidad de neuronas de salida <span class="math">\(k\times k\)</span></p>
+</li>
+<li><p>Inicializar los pesos <span class="math">\(W_j,i-1,\dots,k^2\)</span>, compuestos de la siguiente forma:</p>
+<div class="math">
+\[
+W_j = (w_{j1},\dots,w_{jn})
+\]</div>
+<p>Estos valores puede estar inicializados de forma aleatoria con una distribución uniforme o con ejemplos del conjunto de entrenamiento elegidos al azar. Esta ultima opción es preferida.</p>
+</li>
+<li><p>Seleccionar un tamaño de entorno inicial <span class="math">\(R(0)\)</span>. Una sugerencia para este valor es utilizar el tamaño total de la red.</p>
+</li>
+<li><p>Seleccionar la tasa de aprendizaje inicial <span class="math">\(\eta(0)&lt;1\)</span></p>
+</li>
+</ol>
+<p>Luego, por cada iteración <span class="math">\(t\)</span> debemos hacer:</p>
+<ol>
+<li><p>Seleccionar un registro de la entrada <span class="math">\(X^p\)</span></p>
+</li>
+<li><p>Encontrar la neurona ganadora <span class="math">\(\hat k\)</span> utilizando distancia euclidiana:</p>
+<div class="math">
+\[
+W_{\hat k} = \arg\min_{1 \le j\le N} \{||X^p - W_j ||\} \\
+\]</div>
+<p>O con otros métodos:</p>
+<div class="math">
+\[
+W_{\hat k} = \arg \max_{1 \le j \le N} \{e^{-||X^p-W_j||^2}\}
+\]</div>
+</li>
+<li><p>Calculo el grupo <span class="math">\(N_{\hat k}\)</span>:</p>
+<div class="math">
+\[
+N_{\hat k}(t) = \{\text{neurona } / ||\text{neurona} - \text{neurona}_{\hat k}|| &lt; R(t)\}
+\]</div>
+<p>Donde la función <span class="math">\(R:\lim_{t\rightarrow \inf} R(t) = 1\)</span>.</p>
+</li>
+<li><p>Actualizar los pesos de las neuronas vecinas según la regla de Kohonen:</p>
+<div class="math">
+\[
+\array{
+w \in N_{\hat k}(t)&amp; \rightarrow  &amp; W_j^{t+1} = W^t_j + \eta(t) \times(X^p -W_j^t)\\
+w \not\in N_{\hat k}(t)&amp; \rightarrow  &amp; W_j^{t+1} = W^t_j 
+}
+\]</div>
+<p>Donde la función <span class="math">\(\eta: \lim_{t\rightarrow\inf} \eta(t) = 0\)</span> , por ejemplo <span class="math">\(\eta(t) = \frac 1 t\)</span></p>
+</li>
+</ol>
+<p>La cantidad de iteraciones a utilizar suele estar relacionada con la cantidad de neuronas de entrada:</p>
+<div class="math">
+\[
+\text{iteraciones} = \text{neuronas de entrada} \times 500
+\]</div>
+<h3 id="preprocesamiento-de-datos">Preprocesamiento de datos</h3>
+<p>El conjunto de datos de entrenamiento debe ser normalizado para las variables del conjunto de prueba y de entrenamiento. Sea <span class="math">\(\overline X_i\)</span> la media y <span class="math">\(s_i\)</span> la desviación estándar de <span class="math">\(X_i\)</span>:</p>
+<div class="math">
+\[
+\tilde X_i = \frac{X_i - \overline X_i }{s_i}
+\]</div>
 
 </body>
 

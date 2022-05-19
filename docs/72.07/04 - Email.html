@@ -1424,53 +1424,158 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </head>
 <body>
 <h1 id="email">Email</h1>
-<p><mark>FALTA</mark></p>
+<p>En un servidor de linux, toda cuenta de usuario tiene un mail creado por defecto. Para acceder a esto hay que usar el comando <code>mail</code>. Este comando se usa de la siguiente forma:</p>
+<pre><code class="language-bash">mail [-opciones] User1,...,UserN
+</code></pre>
+<ul>
+<li><code>-s</code> indica el sujeto del mensaje.</li>
+<li><code>-a</code> indica un archivo a adjuntar.</li>
+</ul>
+<p>Ademas permite leer los mensaje disponibles si solo se invoca al programa sin ningún parámetro.</p>
+<p><img src="Resources/04 - Email/6e55b249-37a7-4802-9117-c363bee508f9.jpg" class="img-fluid" alt="6e55b249-37a7-4802-9117-c363bee508f9" style="zoom:50%;" /></p>
 <ul>
 <li><strong>Mail Transfer Agent (MTA)</strong>: Envía mensajes entre hosts, pero es viejo, solo permite mandar texto.</li>
-<li><strong>Mail User Agent (MUA)</strong>: Permite al usuario enviar y leer mensajes.</li>
+<li><strong>Mail User Agent (MUA)</strong>: Permite al usuario enviar y leer mensajes. Un ejemplo seria Gmail o dovecot (en la terminal).</li>
 <li><strong>Mail Delivery Agent (MDA)</strong>: Coloca los mensajes en la casilla de correo.</li>
 </ul>
-<h2 id="pop">POP</h2>
-<p>El protocolo POP/POP3 permite acceder a los mails enviados de forma remota</p>
-<h2 id="webmail">Webmail</h2>
-<p>Es un cliente de correo electrónico (MUA) con una interface web, que permite acceder al mailbox de un usuario.›</p>
-<p><img src="Resources/04 - Email/315b36a6-21a2-49f3-9437-832138da2be1.png" class="img-fluid" alt="315b36a6-21a2-49f3-9437-832138da2be1" style="zoom:50%;" /></p>
-<h2 id="mensaje">Mensaje</h2>
-<p>El mensaje tiene una envoltura (headers) y luego tiene campos de cabecera, como from, to, etc. Los usuarios también pueden definir headers que comiencen con X. Luego viene una linea en blanco y después el cuerpo del mensaje.</p>
-<p>El estandard actual de SMPT y RFC822 acepta solo texto ASCII de 7 bits, con una longitud máxima de 100 caracteres por linea. Para superar a esta limitación se utilizan métodos como:</p>
+<h2 id="protocolos">Protocolos</h2>
+<h3 id="smtp">SMTP</h3>
+<p>Es el protocolo por el cual se transmiten los mails por internet:</p>
+<p><img src="Resources/04 - Email/aa2ffab6-1856-4ecc-9346-b6359c7b6319.jpg" class="img-fluid" alt="aa2ffab6-1856-4ecc-9346-b6359c7b6319" style="zoom:50%;" /></p>
+<p>Este protocolo esta construido sobre TCP para transferir mensajes desde el cliente al servidor, mediante el puerto 25. Los mensajes solo pueden contener 7bit ASCII.</p>
+<p>Las transferencias son de forma directa, desde un servidor que envia a otro que recibe. Estas tienen 3 fases:</p>
 <ul>
-<li>Encriptar en base64, que mantiene una codificación simple, pero cada grupo de 3 bytes es codificado como 4 bytes. Si la cantidad de bits del mensaje no es múltiplo de 6, entonces se agregan 0s hasta llegar a un múltiplo de 6.</li>
+<li>Handshaking.</li>
+<li>Transferencia de Mensajes.</li>
+<li>Cierre.</li>
 </ul>
-<h2 id="mime">MIME</h2>
-<p>Para enviar archivos binarios, como imágenes, tenemos que trabajar con las mismas limitaciones. Para eso se utiliza el protocolo <strong>MIME</strong>.</p>
-<p><img src="Resources/04 - Email/f3e28d16-caf6-49b6-a97b-adc3ee5e56a5.png" class="img-fluid" alt="f3e28d16-caf6-49b6-a97b-adc3ee5e56a5" style="zoom:50%;" /></p>
-<p>El objetivo de MIME es normalizar el intercambio de diferentes tipos de contenido y solucionar el problema de enviar texto internacionalizado por email.</p>
-<p>Los headers de MIME son:</p>
+<p>Esta transferencia esta implementada mediante una interacción de comando/respuesta. Los comandos están compuestos por texto ASCII y las respuestas son una combinación de códigos de estado y comentarios.</p>
+<p>Los comandos son:</p>
 <ul>
-<li>MIME-version</li>
-<li>Content-type</li>
-<li>Content-Transfer-Encoding:
+<li><code>EHLO [mailaddr]</code>: Inicializa el protocolo SMTP. El parámetro tiene que ser un email y hay que reemplazar el ‘@’ por un punto.</li>
+<li><code>MAIL FROM: [src_mail]</code>: Dice de que direccional se va a mandar el mail. No tiene por que existir.</li>
+<li><code>RCPT tO: [dest_mail]</code>: Indica a que dirección se va a enviar el mail. Esta dirección tiene que existir.</li>
+<li><code>DATA</code>: Indica que va a comenzar el mensaje.</li>
+<li><code>From: [name] [email]</code>: Indica que nombre va a figurar en el campo <em>‘from’</em> del email. No tiene por que ser igual al valor en el campo <code>MAIL FROM:</code> y esta dirección puede también no existir.</li>
+<li><code>To: [name] [email]</code>: Indica que nombre va a figurar en el campo ‘<em>to</em>’ del email. No tiene por que ser igual al valor en el campo <code>RCPT TO:</code> y esta dirección puede también no existir.</li>
+<li><code>MIME-Version: 1.0</code>: Versión de MIME.</li>
+<li><code>Content-type: [content_type]; charset=[charset]</code>: El tipo de contenido y el charset usado.</li>
+<li><code>Content-transfer-encoding: [cte]</code>: Indica la forma en la que se codifico al mensaje. Puede tener los siguientes valores:
 <ul>
-<li>7 bits</li>
-<li>8 bits</li>
-<li>binario</li>
+<li><code>BASE64</code>: Se utiliza base64 para codificar el mensaje.</li>
+<li><code>QUOTED-PRINTABLE</code>: Se utiliza una forma de codificar el mensaje que trata de dejar el texto lo más parecido a ASCII y que este pueda ser leído sin tener que procesarlo.</li>
+<li><code>8BIT</code>: Utiliza la versión extendida de ASCII pero tiene la misma limitación en cantidad de caracteres por linea.</li>
+<li><code>7BIT</code>: Codificación ASCII normal.</li>
+<li><code>BINARY</code>: La información enviada es binaria y no respeta las semánticas de SMPT.</li>
+<li><code>x-token</code>: Una regla que permite extender a nuevos tipos de codificación no estandarizados.</li>
 </ul>
 </li>
-<li>Content-Description</li>
-<li>Content-ID</li>
+<li><code>.</code>: Termina el mensaje</li>
+</ul>
+<h4 id="ejemplo">Ejemplo</h4>
+<p>Para poder probar esto, me puedo conectar a cualquier servidor SMPT. Nosotros vamos a utilizar el programa <code>postfix</code> para crear un servidor SMPT local, que va a estar en el puerto 25. Para conectarnos podemos usar netcat:</p>
+<pre><code class="language-bash">$ nc -v -C localhost 25
+R: EHLO &lt;mail.at.address&gt; 
+S: MAIL FROM:&lt;me@mail&gt;
+R: 250 OK
+S: RCPT TO:&lt;other@mail&gt;
+R: 250 OK
+S: RCPT TO:&lt;invalid_user@mail&gt;
+R: 550 No such user here
+S: DATA
+R: 354 Start mail inputl end with &lt;CRLF&gt;.&lt;CRLF&gt;
+S: ... message body ...
+S: &lt;CRLF&gt;.&lt;CRLF&gt;
+R: 250 OK
+</code></pre>
+<h3 id="pop">POP</h3>
+<p>El protocolo POP2/POP3 permite obtener los mensajes de un servidor y almacenarlos en el host local, aunque hay versiones que permiten dejar una copia en el servidor. También se basa en el protocolo TCP y esta en el puerto 109/110.</p>
+<p><img src="Resources/04 - Email/e3ae4651-481a-4720-b452-3215c35039bc.jpg" class="img-fluid" alt="e3ae4651-481a-4720-b452-3215c35039bc" style="zoom:50%;" /></p>
+<p>Este protocolo tiene dos fases, con varios comandos específicos:</p>
+<ul>
+<li>Autorizacion:
+<ul>
+<li><code>user</code>: declara al usuario.</li>
+<li><code>pass</code>: contraseña.</li>
+</ul>
+</li>
+<li>Transacciones:
+<ul>
+<li><code>list</code>: lista los mensajes.</li>
+<li><code>retr [msg]</code>: muestra el contenido de un mensaje.</li>
+<li><code>dele [msg]</code>: borra un mensaje</li>
+<li><code>quit</code>: termina la comunicación.</li>
+<li><code>stat</code>: devuelve la cantidad de mensajes y bytes</li>
+<li><code>noop</code></li>
+<li><code>rset</code>: recupera los mensajes marcados para ser eliminados.</li>
+<li><code>top [msg] [lines]</code>: devuelve el header y las primeras lineas de un mensaje.</li>
+</ul>
+</li>
+</ul>
+<h4 id="ejemplo-1">Ejemplo</h4>
+<p>Podemos conectarnos a un servidor POP de forma fácil. En nuestra computadora podemos instalar <code>dovecot</code>, que va a levantar un servidor POP3 en el puerto 110 y nos podemos conectar a el utilizando<code>netcat</code></p>
+<pre><code class="language-bash">$ nc -C -vv localhost 110
+Connection to localhost 110 port [tcp/pop3] succeeded!
+# Autorizacion
+S: +OK POP3 server ready
+C: user carlos
+S: -ERR
+C: user bob
+S: +OK
+C: pass hungry
+S: +OK 
+# Transacciones
+C: list
+S: 1 498
+S: 2 912
+S: ...
+S: .
+C: retr 1
+S: &lt;Message 1 content&gt;
+C: dele 1
+C: quit
+s: +OK
+</code></pre>
+<h3 id="imap">IMAP</h3>
+<p>IMAP cumple con la misma función que POP, pero no intenta de obtener los mensajes de un servidor, sino que los consulta directamente desde él mismo. Otro beneficio es que permite marcar a los mensajes como leídos y crear carpetas en el servidor.</p>
+<p>Se utilizan los siguientes comandos:</p>
+<ul>
+<li><code>login [user] [pass]</code>: inicio de sesión.</li>
+<li><code>capability</code>: lista las funcionalidades del servidor.</li>
+<li><code>logout</code>: cierra la sesión.</li>
+<li><code>select [mailbox]</code>: selecciona un buzón.</li>
+<li><code>examine [mailbox]</code>: abre un buzón en modo de lectura.</li>
+<li><code>create [mailbox]</code>: crea un buzón.</li>
+<li><code>delete [mailbox]</code>: elimina un buzón.</li>
+<li><code>rename [mailbox1] [mailbox2]</code>: cambia el nombre de un buzón.</li>
+<li><code>close</code>: cierra un buzón y elimina todos los mensajes marcados para ser eliminados.</li>
+<li><code>expunge</code>: elimina los mensajes marcados para ser eliminados.</li>
+<li><code>fetch [n] [mailbox]</code>: muestra un mensaje del mailbox.</li>
+</ul>
+<h2 id="formato-de-un-mensaje">Formato de un Mensaje</h2>
+<p>El mensaje tiene una envoltura (headers) y luego tiene campos de cabecera, como from, to, etc. Los usuarios también pueden definir headers que comiencen con X. Luego viene una linea en blanco y después el cuerpo del mensaje.</p>
+<p>El estándar actual acepta solo texto ASCII de 7 bits, con una longitud máxima de 100 caracteres por linea. Esto hace imposible enviar caracteres con tildes, archivos adjuntos, etc. Aunque estas limitaciones puede ser superadas con unos trucos:</p>
+<ul>
+<li>Para poder enviar cualquier carácter de texto o cualquier archivo binario, voy a utilizar el encoding conocido como <a href="Annex/04.1%20-%20Base64.html">Base64</a>. De esta forma, todos los elementos se van a representar en 7-bit ASCII.</li>
+<li>A la hora de usar archivos adjuntos en el email, voy a indicar a que tipo se refiere con  <a href="Annex/04.2%20-%20MIME.html">MIME</a></li>
 </ul>
 <h2 id="spam">SPAM</h2>
-<p>MEdiante spam se pueden obtener direcciones de correo, enviar mensajes mediante troyanos o servidores SMPT que aceptan relay.</p>
-<p>Para evitar el spam, se implementaron blacklists y whitelists de IPs, para ver que servidor de mails puede enviar a nuestro servidor.</p>
-<p>También se puede hacer mediante <strong>greylisting</strong>, esta es una lista donde se agregan los nuevos servidores SMPT. A estos servidores nuevos les envían un comando pidiendo que en un tiempo le reenvié el mail. Como la mayoría de los servidores truchos no responden a este mail, se podía saber si a esa IP hay que agregarla a la whitelist o a la blacklist.</p>
-<p>Otro metodo seria clasificarlos con <strong>filtros bayesianos</strong> para definir si es un buen servidor o un mal servidor.</p>
+<p>Mediante spam se pueden obtener direcciones de correo, enviar mensajes mediante troyanos o servidores SMPT que aceptan relay.</p>
+<p>Para evitar el spam, se implementaron varios métodos:</p>
+<ul>
+<li><strong>SPF</strong>: Sender Policy Framework es un sistema de validación de correo electrónico en el que una organización especifica que sus servidores están autorizados a enviar correos en su nombre. Con este sistema no se puede enviar SPAM desde el servidor.</li>
+<li><strong>DKIM</strong>: Domain Keys Identified Mail es otro sistema que no solo permite garantizar que el mail fue enviado por el dueño del dominio, sino que también garantiza que el mensaje no fue modificado.</li>
+<li><strong>Grey Listing</strong>: Se tienen whitelists y blacklists dónde están los servidores autorizados para recibir mails. Cuando se recibe un correo que no esta en ninguna lista, esta pasa a una lista gris, y se pide que se reenvíe el mensaje, si el mensaje es reenviado, el servidor es agregado a la whitelist, sino va a la blacklist. Este sistema sirve por que los servidores automáticos de envio de SPAM no suelen utilizar una política de reenvío.</li>
+<li><strong>Filtros Bayesianos</strong>: Es un método que se basa en el Teorema de Bayes para calcular la probabilidad de que un mail sea o no spam. Lo que hace es tomar cada palabra del mail (token), y analiza la probabilidad de que el mail sea spam dado que tiene ese token. La principal desventaja es que el método necesita ser entrenado, y puede tener falsos positivos (pérdida potencial de información).</li>
+</ul>
 <h2 id="autenticacion-de-mails">Autenticación de mails</h2>
 <p>Hay dos técnicas para autenticar mails:</p>
 <ul>
 <li><p><strong>Sender Policy Framework (SPF)</strong>: Se agregan registros TXT en los DNS donde pones todos los IPs de los servidores autorizados a enviar desde un dominio determinado.</p>
-<p><img src="Resources/04 - Email/bbfecc4a-ab3f-452f-8af2-bed72639391e.png" class="img-fluid" alt="bbfecc4a-ab3f-452f-8af2-bed72639391e" style="zoom:50%;" /></p>
+<p><img src="Resources/04 - Email/87c901de-9a07-48e3-a0cb-a6f477541a57.png" class="img-fluid" alt="87c901de-9a07-48e3-a0cb-a6f477541a57" style="zoom:50%;" /></p>
 </li>
-<li><p><strong>Domain Keys Identified Mail (DKIM)</strong>:</p>
+<li><p><strong>Domain Keys Identified Mail (DKIM)</strong>: Permite a una organización responsabilizarse del envio de un mensaje, de manera que este pueda ser validado por un destinatario. Esta validación se realiza con una clave publica y ademas provee una verificación de integridad.</p>
+<p><img src="Resources/04 - Email/2bbc87c8-0bf0-4847-b74d-3a3027fc65e5.jpg" class="img-fluid" alt="2bbc87c8-0bf0-4847-b74d-3a3027fc65e5" style="zoom:50%;" /></p>
 </li>
 </ul>
 

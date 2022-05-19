@@ -1532,7 +1532,7 @@ Content-transfer-encoding: quoted-printable
 <li><code>MAIL FROM &lt;Address&gt;</code>: Indica de que direccional se va a mandar el mail. No tiene por que existir.</li>
 <li><code>RCPT TO: &lt;Address&gt;</code>: A que dirección se va a mandar el mail. Tiene que existir.</li>
 <li><code>DATA</code>: Indica que va a comenzar el mensaje.</li>
-<li><code>From: &quot;alguien&quot; (personal) &lt;alguien@mail.com&gt;</code>: Esto indica que nombre va a figurar en el mail, en el campo “from”. No tiene por que ser igual que el de <code>FROM TO</code> y puede no existir.</li>
+<li><code>From: &quot;alguien&quot; (personal) &lt;alguien@mail.com&gt;</code>: Esto indica que nombre va a figurar en el mail, en el campo “from”. No tiene por que ser igual que el de <code>MAIL FROM</code> y puede no existir.</li>
 <li><code>To: &quot;otra persona&quot; &lt;otro@mail.com&gt;</code>: Esto indica que nombre va a figurar en el mail, en el campo “To”. No tiene por que ser igual que el de <code>RCPT TO</code> y puede no existir.</li>
 <li><code>MIME-Version: 1.0</code>: Version de MIME</li>
 <li><code>Content-type: text/plain; charset=UTF-8</code> El tipo de contenido y el charset usado</li>
@@ -1633,8 +1633,7 @@ Es un método que se basa en el Teorema de Bayes para calcular la probabilidad d
 </ul>
 <h2 id="section-7">61</h2>
 <blockquote class="blockquote">
-<p>Según la configuración SPF de itba.edu.ar: ¿desde qué direcciones IP se pueden enviar
-correos a servidores que implementen SPF?</p>
+<p>Según la configuración SPF de itba.edu.ar: ¿desde qué direcciones IP se pueden enviar correos a servidores que implementen SPF?</p>
 </blockquote>
 <pre><code class="language-bash">$ nslookup -type=txt itba.edu.ar
 Server:		127.0.0.53

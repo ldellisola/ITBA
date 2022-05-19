@@ -1423,7 +1423,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="http-server">HTTP Server</h1>
+<h1 id="try_http-server">try_ HTTP Server</h1>
 <h3 id="comandos-importantes">Comandos importantes</h3>
 <p>Para ver todos los logo en tiempo real:</p>
 <pre><code>tail -f /var/log/nginx/*
@@ -1434,36 +1434,36 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><code>/etc/nginx/sites-enabled/*</code> Paginas de configuración activas.</li>
 </ul>
 <p>Pagina de configuración:</p>
-<pre><code># Virtual Host configuration for example.com
+<pre><code class="language-nginx"># Virtual Host configuration for example.com
 #
 # You can move that to a different file under sites-available/ and symlink that
 # to sites-enabled/ to enable it.
 #
-#server {
+server {
 	# Listens on IPv4 on port 80
 	listen 80;
 	
 # Listens on IPv6 on port 80	
-#	listen [::]:80;
+	listen [::]:80;
 #
 # Host name
-#	server_name example.com;
+	server_name example.com;
 #
 # Folder where the website is stored
-#	root /var/www/example.com;
+  root /var/www/example.com;
 #
 # Set place for access log
         access_log /var/log/nginx/foo_access.log;
 # Set place for error log
         error_log /var/log/nginx/foo_error.log;
 # HTML Page that will be opened on the host
-#	index index.html;
+	index index.html;
 #
 # ???
-#	location / {
-#		try_files $uri $uri/ =404;
-#	}
-#}
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
 </code></pre>
 <h2 id="como-levantar-un-servidor">Como levantar un servidor</h2>
 <ol>

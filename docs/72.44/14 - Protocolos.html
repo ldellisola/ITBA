@@ -1428,8 +1428,8 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Si un atacante omite, altera, reordena o repite mensajes, el intercambio de claves no es seguro. Esto es conocido como un <strong>Man in the Middle</strong> Attack.</p>
 <h2 id="man-in-the-middle">Man in the Middle</h2>
 <p>El ataque de man in the middle actual de la siguiente forma:</p>
-<p><img src="Resources/14 - Protocolos/cbea4ec5-70b8-4485-af67-90ab45c6e959.jpg" class="img-fluid" alt="cbea4ec5-70b8-4485-af67-90ab45c6e959" style="zoom:50%;" /></p>
-<p><img src="Resources/14 - Protocolos/5fa57df5-b797-4190-b4d0-4bf691ec2da9.jpg" class="img-fluid" alt="5fa57df5-b797-4190-b4d0-4bf691ec2da9" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/15176c05-60fd-45e7-bec6-b855af31be85.jpg" class="img-fluid" alt="15176c05-60fd-45e7-bec6-b855af31be85" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/674a4b14-8de2-4121-b855-d794cc80df30.jpg" class="img-fluid" alt="674a4b14-8de2-4121-b855-d794cc80df30" style="zoom:50%;" /></p>
 <h2 id="infraestructura-de-claves">Infraestructura de Claves</h2>
 <p>El objetivo de este proceso es asociar la identidad a las claves. Se busca evitar problemas de suplantación de identidad (man-in-the-middle o spoofing). Este problema no es aplicable a los criptosistemas simétricos.</p>
 <p>El motivo es que la selección de las claves depende entre las partes involucradas en la comunicación. Usar la clave equivocada implica que no hay garantías de confidencialidad o integridad.</p>
@@ -1483,7 +1483,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Este proceso es el equivalente simétrico a Diffie-Hellman.</p>
 <h3 id="protocolo-needham-schroeder">Protocolo Needham-Schroeder</h3>
 <p>Es un protocolo de intercambio de claves simétrico y requiere de un servicio centralizado. La idea es generar claves de sesión entre pares, a partir de la clave que comparten con el KDC. En teoría, esto funciona de la siguiente forma:</p>
-<p><img src="Resources/14 - Protocolos/ebf82941-b15e-41b1-b8d2-7e49509aacb9.jpg" class="img-fluid" alt="ebf82941-b15e-41b1-b8d2-7e49509aacb9" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/a300b003-8a23-4b3d-9350-cd8507c83745.jpg" class="img-fluid" alt="a300b003-8a23-4b3d-9350-cd8507c83745" style="zoom:50%;" /></p>
 <p>Se usa la notación: <span class="math">\(\text{Cod}_{k}(m) = \{m\} k\)</span></p>
 <p>Esto trae los siguientes problemas:</p>
 <ul>
@@ -1491,11 +1491,11 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><strong>Reuso de claves</strong>: Un atacante graba el mensaje de <span class="math">\(B\)</span> hacia <span class="math">\(A\)</span>, y cuando <span class="math">\(A\)</span> quiere iniciar otra conversación se lo envia. En este caso <span class="math">\(A\)</span> y <span class="math">\(B\)</span> estarían usando la misma clave de sesión.</li>
 </ul>
 <p>Este protocolo fue mejorado en una segunda iteración:</p>
-<p><img src="Resources/14 - Protocolos/5ab8bfa9-a0c0-46ec-98ae-4b912206a26e.jpg" class="img-fluid" alt="5ab8bfa9-a0c0-46ec-98ae-4b912206a26e" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/ec48c245-85a4-44ff-99ce-e7cd16ac4cda.jpg" class="img-fluid" alt="ec48c245-85a4-44ff-99ce-e7cd16ac4cda" style="zoom:50%;" /></p>
 <p>Este protocolo todavía tiene un problema: si el atacante tiene una clave de sesión antigua <span class="math">\(k_s\)</span>, entonces puede evitar los primeros dos pasos y pasarse por <span class="math">\(A\)</span>:</p>
-<p><img src="Resources/14 - Protocolos/1e24b5ed-11f8-4906-959e-bb6c2b0ed18d.jpg" class="img-fluid" alt="1e24b5ed-11f8-4906-959e-bb6c2b0ed18d" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/1d269c82-43d7-4497-937c-8a82a7b85c3b.jpg" class="img-fluid" alt="1d269c82-43d7-4497-937c-8a82a7b85c3b" style="zoom:50%;" /></p>
 <p>Con la modificación de <strong>Demming-Sacco</strong>, se cree que esto se soluciona. La idea detrás de esta modificación es utilizar timestamps (<span class="math">\(T\)</span>):</p>
-<p><img src="Resources/14 - Protocolos/66b6970f-c778-4f97-9dda-f0103a47ce07.jpg" class="img-fluid" alt="66b6970f-c778-4f97-9dda-f0103a47ce07" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/f1766a2b-54c8-4a22-aeb8-3e060ee56512.jpg" class="img-fluid" alt="f1766a2b-54c8-4a22-aeb8-3e060ee56512" style="zoom:50%;" /></p>
 <h2 id="tls">TLS</h2>
 <p>Es la evolución de SSL y ofrece seguridad a nivel transporte y necesita de un canal confiable para poder ser utilizado (por ejemplo TCP). Ademas, el protocolo ofrece :</p>
 <ul>
@@ -1503,15 +1503,15 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Integrada</li>
 <li>Autenticación de los participantes</li>
 </ul>
-<p><img src="Resources/14 - Protocolos/7acec151-2fe2-4142-ad3c-c47d4c505355.jpg" class="img-fluid" alt="7acec151-2fe2-4142-ad3c-c47d4c505355" style="zoom:50%;" /></p>
-<p><img src="Resources/14 - Protocolos/0c109dde-2162-4848-990d-21a4006be468.jpg" class="img-fluid" alt="0c109dde-2162-4848-990d-21a4006be468" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/b7ab837f-5223-41ef-b11c-806713aa7ff6.jpg" class="img-fluid" alt="b7ab837f-5223-41ef-b11c-806713aa7ff6" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/6e5e3de8-33c1-46d9-9e80-75869e431ce0.jpg" class="img-fluid" alt="6e5e3de8-33c1-46d9-9e80-75869e431ce0" style="zoom:50%;" /></p>
 <p>Cuando TLS tiene que enviar un mensaje:</p>
 <ol>
 <li>Divide al mensaje en no mas de <span class="math">\(2^{16}\)</span> bloques</li>
 <li>A cada bloque se le calcula un hash y se los comprime juntos.</li>
 <li>Se envía este par de bloque y hash comprimidos y se los envia al servicio inferior (TCP).</li>
 </ol>
-<p><img src="Resources/14 - Protocolos/384d7ebe-7396-449d-866d-ce9e7c3710de.jpg" class="img-fluid" alt="384d7ebe-7396-449d-866d-ce9e7c3710de" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/42037e27-e1fd-490e-9358-1db51e520f04.jpg" class="img-fluid" alt="42037e27-e1fd-490e-9358-1db51e520f04" style="zoom:50%;" /></p>
 <h3 id="tipos-de-mensajes">Tipos de Mensajes</h3>
 <p>Se pueden mandar distintos tipos de mensajes:</p>
 <ul>
@@ -1574,47 +1574,47 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h3 id="handshake">Handshake</h3>
 <ol>
 <li><p>Client Hello:</p>
-<p><img src="Resources/14 - Protocolos/3cf1ca3c-c30f-4b73-ba7b-52a866144315.jpg" class="img-fluid" alt="3cf1ca3c-c30f-4b73-ba7b-52a866144315" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/b2e19d28-c2ed-416f-bd02-edb2548e6ed0.jpg" class="img-fluid" alt="b2e19d28-c2ed-416f-bd02-edb2548e6ed0" style="zoom:50%;" /></p>
 </li>
 <li><p>Server Hello:</p>
-<p><img src="Resources/14 - Protocolos/7bafc81b-4b33-4e31-86ca-3e0c4ca96727.jpg" class="img-fluid" alt="7bafc81b-4b33-4e31-86ca-3e0c4ca96727" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/fbe73855-f69d-42e3-8a45-72390d5da199.jpg" class="img-fluid" alt="fbe73855-f69d-42e3-8a45-72390d5da199" style="zoom:50%;" /></p>
 </li>
 <li><p>Certificate (Si el servidor es autenticado)</p>
-<p><img src="Resources/14 - Protocolos/02055b6f-7df9-4261-894a-12d960f0b219.jpg" class="img-fluid" alt="02055b6f-7df9-4261-894a-12d960f0b219" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/358ab862-e4f5-42a4-a3ea-dde6e066fa5d.jpg" class="img-fluid" alt="358ab862-e4f5-42a4-a3ea-dde6e066fa5d" style="zoom:50%;" /></p>
 </li>
 <li><p>Server Key Exchange</p>
-<p><img src="Resources/14 - Protocolos/d6e31b83-2ed4-4c34-ae2e-92d0904f88d3.jpg" class="img-fluid" alt="d6e31b83-2ed4-4c34-ae2e-92d0904f88d3" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/05673a65-0c18-406e-8aae-13f1a0fbc55c.jpg" class="img-fluid" alt="05673a65-0c18-406e-8aae-13f1a0fbc55c" style="zoom:50%;" /></p>
 </li>
 <li><p>Certificate Request (Si el cliente es autenticado)</p>
-<p><img src="Resources/14 - Protocolos/a5d4ba37-e810-4d41-9618-d2c8017f91b5.jpg" class="img-fluid" alt="a5d4ba37-e810-4d41-9618-d2c8017f91b5" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/c6fa9a60-a796-43a8-bd9a-c8fff57d2660.jpg" class="img-fluid" alt="c6fa9a60-a796-43a8-bd9a-c8fff57d2660" style="zoom:50%;" /></p>
 </li>
 <li><p>Server Hello Done</p>
-<p><img src="Resources/14 - Protocolos/5e05ae41-e3fa-4c01-b696-325c4dfe0bf6.jpg" class="img-fluid" alt="5e05ae41-e3fa-4c01-b696-325c4dfe0bf6" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/8d0693fa-afed-4853-beaf-40d2d67e4bc7.jpg" class="img-fluid" alt="8d0693fa-afed-4853-beaf-40d2d67e4bc7" style="zoom:50%;" /></p>
 </li>
 <li><p>Client Certificate (Si fue solicitado)</p>
-<p><img src="Resources/14 - Protocolos/9c9af268-674a-4b41-8a7a-11508d4d9d8a.jpg" class="img-fluid" alt="9c9af268-674a-4b41-8a7a-11508d4d9d8a" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/4df8ca8b-5c8b-4f45-ab82-ed5ac3e8e225.jpg" class="img-fluid" alt="4df8ca8b-5c8b-4f45-ab82-ed5ac3e8e225" style="zoom:50%;" /></p>
 </li>
 <li><p>Client Key Exchange</p>
 <ol>
 <li><p>Versión RSA:</p>
-<p><img src="Resources/14 - Protocolos/a6e0b033-9115-4e72-87b3-5a5a929be438.jpg" class="img-fluid" alt="a6e0b033-9115-4e72-87b3-5a5a929be438" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/b0b62490-f8c3-4574-9e84-10e76afc7474.jpg" class="img-fluid" alt="b0b62490-f8c3-4574-9e84-10e76afc7474" style="zoom:50%;" /></p>
 </li>
 <li><p>Versión DH:</p>
-<p><img src="Resources/14 - Protocolos/ed1c6295-db4c-4ca8-bd1d-17e2b08400f1.jpg" class="img-fluid" alt="ed1c6295-db4c-4ca8-bd1d-17e2b08400f1" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/5caca83f-ff05-4dd9-9813-f6c47cfe3649.jpg" class="img-fluid" alt="5caca83f-ff05-4dd9-9813-f6c47cfe3649" style="zoom:50%;" /></p>
 </li>
 </ol>
 </li>
 <li><p>Change Cipher Spec:</p>
-<p><img src="Resources/14 - Protocolos/df6b8887-8277-4247-87c4-a28c382285b5.jpg" class="img-fluid" alt="df6b8887-8277-4247-87c4-a28c382285b5" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/9f3cdc66-034a-4fa6-b8f0-a399874be26e.jpg" class="img-fluid" alt="9f3cdc66-034a-4fa6-b8f0-a399874be26e" style="zoom:50%;" /></p>
 </li>
 <li><p>Finish:</p>
-<p><img src="Resources/14 - Protocolos/1405a6a0-f115-46c8-86d2-3522027eb4a5.jpg" class="img-fluid" alt="1405a6a0-f115-46c8-86d2-3522027eb4a5" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/82937552-98a3-487e-a2bf-cfbc140da717.jpg" class="img-fluid" alt="82937552-98a3-487e-a2bf-cfbc140da717" style="zoom:50%;" /></p>
 </li>
 <li><p>Change Cipher Spec:</p>
-<p><img src="Resources/14 - Protocolos/d5b862c2-2b7d-4a38-8300-44d7677c2d19.jpg" class="img-fluid" alt="d5b862c2-2b7d-4a38-8300-44d7677c2d19" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/4a876362-32fa-4ee5-8057-2500ad1aa01a.jpg" class="img-fluid" alt="4a876362-32fa-4ee5-8057-2500ad1aa01a" style="zoom:50%;" /></p>
 </li>
 <li><p>Finish:</p>
-<p><img src="Resources/14 - Protocolos/089212d2-a1bf-4c4f-9e4c-51f1d9bc070e.jpg" class="img-fluid" alt="089212d2-a1bf-4c4f-9e4c-51f1d9bc070e" style="zoom:50%;" /></p>
+<p><img src="Resources/14 - Protocolos/b92d8607-b71b-4a31-9d3b-3d03f9540b78.jpg" class="img-fluid" alt="b92d8607-b71b-4a31-9d3b-3d03f9540b78" style="zoom:50%;" /></p>
 </li>
 </ol>
 <p>Donde las variables son:</p>
