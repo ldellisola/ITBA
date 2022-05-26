@@ -70,7 +70,93 @@ Es el protocolo mas utilizado en las LANs cableadas y tiene dos topologías prin
 
   <img src="Resources/11 - Capa de Enlace/Screen Shot 2022-05-17 at 19.20.32.jpg" alt="Screen Shot 2022-05-17 at 19.20.32" style="zoom:50%;" />
 
-- **Estrella**: Cada host se conecta a un switch, que luego reenvía los paquetes al destino que corresponde, evitando las colisiones. Para 
+- **Estrella**: Cada host se conecta a un switch, que luego reenvía los paquetes al destino que corresponde, evitando las colisiones. Para realizar esto se basa en la dirección MAC.
+
+  <img src="Resources/11 - Capa de Enlace/Screen Shot 2022-05-19 at 18.01.49.jpg" alt="Screen Shot 2022-05-19 at 18.01.49" style="zoom:50%;" />
+
+Las tramas de ethernet tienen la siguiente forma:
+
+<img src="Resources/11 - Capa de Enlace/Screen Shot 2022-05-19 at 18.06.31.jpg" alt="Screen Shot 2022-05-19 at 18.06.31" style="zoom:50%;" />
+
+Que contiene:
+
+- **Preambulo**: son 7 bytes con el patrón `10101010` y luego un byte con el patrón `10101011`. Este campo permite sincronizar a los hosts e indica que se esta enviando un nuevo paquete.
+- **Destino**: IP de destino. Si un paquete llega a una interfaz y esta no tiene la IP indicada acá, entonces descarta el paquete.
+- **Origen**: IP de origen.
+- **Tipo**: Usado por el receptor para verificar integridad.
+- **Datos**: Datos a enviar.
+
+### MAC Address
+
+Las direcciones MAC están compuestas por 48 bits divididos en 4 secciones:
+
+- El bit 1 indica si el receiver es unicast (0) o multicast (1)
+- El bit 2 indica si la dirección fue validada por el fabricante (0) o si fue creada localmente (1).
+- Los bits del 3 al 24 identifican al fabricante.
+- Los bits del 25 al 48 son un valor único asignado por el fabricante.
+
+### ARP
+
+Para poder enviar tramas de un host a otro debo conocer la dirección MAC del destino. Para conocer esto tenemos al comando ARP (Address Resolution Protocol). Este protocolo se puede iniciar de 4 formas:
+
+- **ARP**: un host con dirección IP necesita conocer la dirección MAC de otro host del cual conoce su IP.
+
+- **RARP**: un host sin almacenamiento conoce su dirección MAC pero se olvido de su dirección IP.
+
+- **InARP**: un host conoce la dirección MAC de otro host pero no su IP.
+
+- **Proxy ARP**: Un host responde a un request para otro host. Esto se usa en los routers, cuando se quiere acceder a hosts en otras redes:
+
+  <img src="Resources/11 - Capa de Enlace/Screen Shot 2022-05-19 at 18.19.28.jpg" alt="Screen Shot 2022-05-19 at 18.19.28" style="zoom:50%;" />
+
+#### ARP Spoofing
+
+ARP no contempla autenticación, cualquiera puede responder a un ARP request para relacionar un IP con una MAC. Si bien se usa mas que nada en ataques maliciosos, existen algunos usos legítimos:
+
+- Redireccionar a equipos no registrados a una pagina de registro.
+- Acceso a internet en hoteles a dispositivos móviles.
+- Implementar redundancia en servicios de red.
+
+Para defendernos de este tipo de ataques, podemos:
+
+- Añadir entradas estáticas a la tabla ARP.
+- Usar DHCP snooping.
+- Usar un programa llamado ARPwatch.
+- Enviar RARP requests. si hay mas de una respuesta entonces puede ser un ataque.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

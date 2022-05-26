@@ -16,14 +16,16 @@ En este modelo, las neuronas están conectadas entre si. Las conexiones de una n
 
 Este sistema produce que a lo largo del tiempo algunas unidades tengan un novel de activación mayor, mientras que otras tengan una activación nula. Dada la unidad de entrada $x$, la neurona que tenga el vector de pesos $w$ mas parecido a $x$ sera la ganadora.
 
-Formalmente, una **red de kohonen** es una red de una sola capa, en forma de grilla bidimensional ($k\times k$) y en la que cada neurona esta conectada a todas las componentes de un vector de entrada $n-$dimensional. Esto significa que pasa la información de un estado multidimensional a uno bidimensional:
+Formalmente, una **red de kohonen** es una red de una sola capa, en forma de grilla bidimensional ($k\times k$) y en la que cada neurona esta conectada a todas las componentes de un vector de entrada n-dimensional. Esto significa que pasa la información de un estado multidimensional a uno bidimensional:
 
 <img src="Resources/09 - Aprendizaje no Supervisado/Screen Shot 2022-05-18 at 18.30.08.jpg" alt="Screen Shot 2022-05-18 at 18.30.08" style="zoom:50%;" />
 
 Podemos definir una sere de unidades vecinas, y con esto el concepto de **vecindario**. Un vecindario se define con un radio $R$:
 $$
+\array{
 \text{4-vecinos} \rarr R=1\\
 \text{4-vecinos} \rarr R=\sqrt 2
+}
 $$
 Las neuronas vecinas tienen un grado de similitud entre sí.
 
@@ -95,8 +97,46 @@ $$
 \tilde X_i = \frac{X_i - \overline X_i }{s_i}
 $$
 
+## Redes de Hopfield
 
+==falta==
 
+## Regla de Oja
+
+Este metodo esta basado en el aprendizaje hebbiano simple, similar al perceptron simple:
+
+<img src="Resources/09 - Aprendizaje no Supervisado/Screen Shot 2022-05-24 at 09.10.36.jpg" alt="Screen Shot 2022-05-24 at 09.10.36" style="zoom:50%;" />
+
+Oja demostro que si la red converge, el vector de pesos resultante $w^{\text{final}}$ seria un punto sobre la dirección maxima de variación de los datos, es decir, la **primer componente principal**. El problema es que $||w^n||$ crece tan rápido que el algoritmo se hace inestable.
+
+Oja propuso lo siguiente:
+$$
+w_j^{n+1} = \frac{w_j^n + \eta\times y^n \times x^n_j}
+{\left(\sum_{j=1}^N (w_j^n+\eta\times y^n \times x^n_j)^2\right)^\frac{1}{2}}
+$$
+Transladando esto a nuestro $\Delta w$, se obtiene:
+$$
+\Delta w = \eta \times (y \times x_j^n - y^2\times w_j^n )
+$$
+Con esta regla $||w||$ se mantiene acotado y luego de varias iteraciones el método converge al autovector correspondiente al mayor autovalor de la matriz de correlaciones de los datos de entrada.
+
+<img src="Resources/09 - Aprendizaje no Supervisado/Screen Shot 2022-05-25 at 19.40.31.jpg" alt="Screen Shot 2022-05-25 at 19.40.31" style="zoom:50%;" />
+
+### Algoritmo
+
+El algoritmo toma como input $N$ datos con media $0, \eta, w_{inicial}$ 
+
+1. Por cada $\text{epoca}$ desde $1$ hasta $\text{epocas}$ se realiza lo siguiente
+   1. Por cada $i$ desde $1$ hasta $N$ se realiza lo siguiente
+      1. $s = \sum_j(\text{datos}[i,j]\times w_j)$
+      2. $w = w + \eta \times s \times (\text{datos[i,]}-s \times w)$
+
+## Regla de Sanger
+
+Es una extension de la regla de Oja que converge de la matriz de covarianzas de los datos a la matriz de autovectores y permite encontrar todas las componentes principales. Se definen las variables:
+
+- $y_i^{n+1} = \sum_{j=1}^N w_{ij}^n \times x_j^n$
+- $w_{il}^{n+1} = w_{il}^n + \eta \times y_i^n \times (x_l - \sum_{j=1}^iy_j^n \times w_{jl}^n)$
 
 
 

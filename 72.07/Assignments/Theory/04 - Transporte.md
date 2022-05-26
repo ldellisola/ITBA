@@ -122,6 +122,58 @@ No se sabe.
 >
 > Suponiendo que se le pide que desarrolle una aplicación cliente/servidor que intercambie recursos en forma similar a HTTP, explicar cómo haría –en la forma más simple posible- para evitar el “Head of line Blocking”.
 
+Lo que se podría hacer es crear un flujo TCP por cada recurso, en vez de realizar un solo flujo. Esto va a traer el overhead de hacer el handshake 3 veces, pero evita este problema.
+
+## 13
+
+> Una aplicación que utiliza UDP para transporte debe enviar una respuesta que supera sí o sí al máximo permitido por cada datagrama, ¿se puede enviar esa respuesta al cliente? En caso afirmativo explicar cómo se resuelve.
+
+Se deben partir a la información en la cantidad de paquetes que sean necesarios.
+
+## 14
+
+> ¿Cuál es la diferencia entre un socket pasivo y un socket activo?
+
+Los sockets pasivos son solo utilizados para comenzar la comunicación. Luego los paquetes se envían por un socket activo. El cierre de la conexión también se debe hacer con un socket activo.
+
+## 15
+
+> ¿Qué campo o campos del header tiene TCP para poder implementar control de flujo?
+
+Utiliza al campo *window*. Este campo esta compuesto por un numero de 16 bits que indica el tamaño máximo de paquete que puede aceptar el recipiente, medido en bytes.
+
+## 16
+
+> ¿Qué campo o campos del header tiene TCP para poder implementar control de congestión?
+
+No tiene campos especiales para esto. La implementación del control de congestión se basa en información local, como la cantidad de segmentos que se pierden.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
