@@ -16,11 +16,11 @@ En los arboles, cada circulo en tu tronco representa un año. Si un árbol esta 
 
 En el caso de las hojas de un árbol, suele haber mas hojas hacia el lado que hay mas sol, que en el hemisferio sur es en el lado norte del árbol:
 
-![Screen Shot 2022-06-01 at 17.59.00](Resources/09 - Biosfera/Screen Shot 2022-06-01 at 17.59.00.jpg)
+<img src="Resources/09 - Biosfera/Screen Shot 2022-06-01 at 17.59.00.jpg" alt="Screen Shot 2022-06-01 at 17.59.00"  />
 
 De forma opuesta, al musgo no le gusta el sol, sino la humedad. Por esto se encuentra en el lado sur del árbol en el hemisferio sur:
 
-![Screen Shot 2022-06-01 at 18.00.00](Resources/09 - Biosfera/Screen Shot 2022-06-01 at 18.00.00.jpg)
+<img src="Resources/09 - Biosfera/Screen Shot 2022-06-01 at 18.00.00.jpg" alt="Screen Shot 2022-06-01 at 18.00.00"  />
 
 ## Ecologia
 

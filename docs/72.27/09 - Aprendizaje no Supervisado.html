@@ -1433,15 +1433,17 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="redes-de-kohonen">Redes de Kohonen</h2>
 <p>Las redes de kohonen descubren por si mismas las regularidades de los datos de entrada. A este concepto también se lo conoce como <strong>Self-Organized Maps</strong>.</p>
 <p>En este modelo, las neuronas están conectadas entre si. Las conexiones de una neurona en si misma están conectadas con un valor positivo y con el resto de las neuronas con un valor negativo.</p>
-<p><img src="Resources/09 - Aprendizaje no Supervisado/2d228a0a-4e09-4fb0-934e-ca15d6f37132.jpg" class="img-fluid" alt="2d228a0a-4e09-4fb0-934e-ca15d6f37132" style="zoom:25%;" /></p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/64156f68-e087-4511-aeea-68ebdff9012a.jpg" class="img-fluid" alt="64156f68-e087-4511-aeea-68ebdff9012a" style="zoom:25%;" /></p>
 <p>Este sistema produce que a lo largo del tiempo algunas unidades tengan un novel de activación mayor, mientras que otras tengan una activación nula. Dada la unidad de entrada <span class="math">\(x\)</span>, la neurona que tenga el vector de pesos <span class="math">\(w\)</span> mas parecido a <span class="math">\(x\)</span> sera la ganadora.</p>
-<p>Formalmente, una <strong>red de kohonen</strong> es una red de una sola capa, en forma de grilla bidimensional (<span class="math">\(k\times k\)</span>) y en la que cada neurona esta conectada a todas las componentes de un vector de entrada $n-$dimensional. Esto significa que pasa la información de un estado multidimensional a uno bidimensional:</p>
-<p><img src="Resources/09 - Aprendizaje no Supervisado/462eb357-36de-4daa-9b6c-594d4181eea8.jpg" class="img-fluid" alt="462eb357-36de-4daa-9b6c-594d4181eea8" style="zoom:50%;" /></p>
+<p>Formalmente, una <strong>red de kohonen</strong> es una red de una sola capa, en forma de grilla bidimensional (<span class="math">\(k\times k\)</span>) y en la que cada neurona esta conectada a todas las componentes de un vector de entrada n-dimensional. Esto significa que pasa la información de un estado multidimensional a uno bidimensional:</p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/556b5669-e4b9-46da-a98a-eb6ed09a4162.jpg" class="img-fluid" alt="556b5669-e4b9-46da-a98a-eb6ed09a4162" style="zoom:50%;" /></p>
 <p>Podemos definir una sere de unidades vecinas, y con esto el concepto de <strong>vecindario</strong>. Un vecindario se define con un radio <span class="math">\(R\)</span>:</p>
 <div class="math">
 \[
+\array{
 \text{4-vecinos} \rightarrow R=1\\
 \text{4-vecinos} \rightarrow R=\sqrt 2
+}
 \]</div>
 <p>Las neuronas vecinas tienen un grado de similitud entre sí.</p>
 <p>Este tipo de redes puede ser más rápidas que el perceptron multicapa y ademas puede ser aplicado en casos donde el conjunto de entrada no esta etiquetado.</p>
@@ -1512,6 +1514,45 @@ w \not\in N_{\hat k}(t)&amp; \rightarrow  &amp; W_j^{t+1} = W^t_j
 \[
 \tilde X_i = \frac{X_i - \overline X_i }{s_i}
 \]</div>
+<h2 id="redes-de-hopfield">Redes de Hopfield</h2>
+<p><mark>falta</mark></p>
+<h2 id="regla-de-oja">Regla de Oja</h2>
+<p>Este metodo esta basado en el aprendizaje hebbiano simple, similar al perceptron simple:</p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/5dd022ae-b402-477a-acc7-af6df2a57ccb.jpg" class="img-fluid" alt="5dd022ae-b402-477a-acc7-af6df2a57ccb" style="zoom:50%;" /></p>
+<p>Oja demostro que si la red converge, el vector de pesos resultante <span class="math">\(w^{\text{final}}\)</span> seria un punto sobre la dirección maxima de variación de los datos, es decir, la <strong>primer componente principal</strong>. El problema es que <span class="math">\(||w^n||\)</span> crece tan rápido que el algoritmo se hace inestable.</p>
+<p>Oja propuso lo siguiente:</p>
+<div class="math">
+\[
+w_j^{n+1} = \frac{w_j^n + \eta\times y^n \times x^n_j}
+{\left(\sum_{j=1}^N (w_j^n+\eta\times y^n \times x^n_j)^2\right)^\frac{1}{2}}
+\]</div>
+<p>Transladando esto a nuestro <span class="math">\(\Delta w\)</span>, se obtiene:</p>
+<div class="math">
+\[
+\Delta w = \eta \times (y \times x_j^n - y^2\times w_j^n )
+\]</div>
+<p>Con esta regla <span class="math">\(||w||\)</span> se mantiene acotado y luego de varias iteraciones el método converge al autovector correspondiente al mayor autovalor de la matriz de correlaciones de los datos de entrada.</p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/3f4df498-f2cb-4978-96f7-d1d154c2600c.jpg" class="img-fluid" alt="3f4df498-f2cb-4978-96f7-d1d154c2600c" style="zoom:50%;" /></p>
+<h3 id="algoritmo-1">Algoritmo</h3>
+<p>El algoritmo toma como input <span class="math">\(N\)</span> datos con media <span class="math">\(0, \eta, w_{inicial}\)</span></p>
+<ol>
+<li>Por cada <span class="math">\(\text{epoca}\)</span> desde <span class="math">\(1\)</span> hasta <span class="math">\(\text{epocas}\)</span> se realiza lo siguiente
+<ol>
+<li>Por cada <span class="math">\(i\)</span> desde <span class="math">\(1\)</span> hasta <span class="math">\(N\)</span> se realiza lo siguiente
+<ol>
+<li><span class="math">\(s = \sum_j(\text{datos}[i,j]\times w_j)\)</span></li>
+<li><span class="math">\(w = w + \eta \times s \times (\text{datos[i,]}-s \times w)\)</span></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="regla-de-sanger">Regla de Sanger</h2>
+<p>Es una extension de la regla de Oja que converge de la matriz de covarianzas de los datos a la matriz de autovectores y permite encontrar todas las componentes principales. Se definen las variables:</p>
+<ul>
+<li><span class="math">\(y_i^{n+1} = \sum_{j=1}^N w_{ij}^n \times x_j^n\)</span></li>
+<li><span class="math">\(w_{il}^{n+1} = w_{il}^n + \eta \times y_i^n \times (x_l - \sum_{j=1}^iy_j^n \times w_{jl}^n)\)</span></li>
+</ul>
 
 </body>
 

@@ -1620,6 +1620,27 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>El protocolo HTTP 1 puede causar el problema “Head of line Blocking”, ya que al usar una conexión TCP para pedir 3 recursos a un mismo servidor, si se pierde un paquete TCP del primer recurso, el resto no estará disponible para la aplicación hasta que se retransmita el paquete pedido. HTTP 2 soluciona esto permitiendo que la aplicación obtenga los dos siguientes recursos aún si el primero está incompleto.</p>
 <p>Suponiendo que se le pide que desarrolle una aplicación cliente/servidor que intercambie recursos en forma similar a HTTP, explicar cómo haría –en la forma más simple posible- para evitar el “Head of line Blocking”.</p>
 </blockquote>
+<p>Lo que se podría hacer es crear un flujo TCP por cada recurso, en vez de realizar un solo flujo. Esto va a traer el overhead de hacer el handshake 3 veces, pero evita este problema.</p>
+<h2 id="section-12">13</h2>
+<blockquote class="blockquote">
+<p>Una aplicación que utiliza UDP para transporte debe enviar una respuesta que supera sí o sí al máximo permitido por cada datagrama, ¿se puede enviar esa respuesta al cliente? En caso afirmativo explicar cómo se resuelve.</p>
+</blockquote>
+<p>Se deben partir a la información en la cantidad de paquetes que sean necesarios.</p>
+<h2 id="section-13">14</h2>
+<blockquote class="blockquote">
+<p>¿Cuál es la diferencia entre un socket pasivo y un socket activo?</p>
+</blockquote>
+<p>Los sockets pasivos son solo utilizados para comenzar la comunicación. Luego los paquetes se envían por un socket activo. El cierre de la conexión también se debe hacer con un socket activo.</p>
+<h2 id="section-14">15</h2>
+<blockquote class="blockquote">
+<p>¿Qué campo o campos del header tiene TCP para poder implementar control de flujo?</p>
+</blockquote>
+<p>Utiliza al campo <em>window</em>. Este campo esta compuesto por un numero de 16 bits que indica el tamaño máximo de paquete que puede aceptar el recipiente, medido en bytes.</p>
+<h2 id="section-15">16</h2>
+<blockquote class="blockquote">
+<p>¿Qué campo o campos del header tiene TCP para poder implementar control de congestión?</p>
+</blockquote>
+<p>No tiene campos especiales para esto. La implementación del control de congestión se basa en información local, como la cantidad de segmentos que se pierden.</p>
 
 </body>
 

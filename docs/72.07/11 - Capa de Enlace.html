@@ -1433,7 +1433,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><strong>Half-duplex o Full-duplex</strong>: Ambos puntos pueden emitir y recibir. Half-duplex implica que si uno esta emitiendo, el otro no puede emitir. En full-duplex esta limitación no existe.</li>
 </ul>
 <p>Hay dos tipos de comunicaciones a nivel de enlace:</p>
-<p><img src="Resources/11 - Capa de Enlace/4f661697-dc5c-4522-add5-f1c95b46716b.jpg" class="img-fluid" alt="4f661697-dc5c-4522-add5-f1c95b46716b" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/5a61f2f1-1a53-4731-a96f-c959684b7a41.jpg" class="img-fluid" alt="5a61f2f1-1a53-4731-a96f-c959684b7a41" style="zoom:50%;" /></p>
 <h2 id="redes">Redes</h2>
 <h3 id="punto-a-punto">Punto a Punto</h3>
 <p>Estos protocolos son mas simples que los enlaces broadcast. Generalmente son usados para encapsular datagramas IP y no necesitan control de acceso al medio. Dentro de estos protocolos encontramos a:</p>
@@ -1451,14 +1451,14 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <h4 id="time-division-multiple-access-tdma">Time Division Multiple Access (TDMA)</h4>
 <p>Este protocolo es de partición del canal. Cada cliente tiene asignado un tamaño fijo de slot por turno donde puede utilizar el canal. Si el cliente no utiliza su slot, este es desperdiciado.</p>
-<p><img src="Resources/11 - Capa de Enlace/898cf605-6111-41ea-a191-868cdd5c313b.jpg" class="img-fluid" alt="898cf605-6111-41ea-a191-868cdd5c313b" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/00a19a13-d793-4742-ab20-2639cf89b1a3.jpg" class="img-fluid" alt="00a19a13-d793-4742-ab20-2639cf89b1a3" style="zoom:50%;" /></p>
 <h4 id="polling">Polling</h4>
 <p>Este protocolo se basa en turnos, donde hay un cliente master que controla la conexion del canal. Este nodo master le va preguntando a cada cliente si quiere utilizar el canal y se lo va asignando.</p>
-<p><img src="Resources/11 - Capa de Enlace/6d6c2879-3d42-49fa-ab3f-e186074f86b9.jpg" class="img-fluid" alt="6d6c2879-3d42-49fa-ab3f-e186074f86b9" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/37fbacb5-9151-4d42-a860-5cb52b996414.jpg" class="img-fluid" alt="37fbacb5-9151-4d42-a860-5cb52b996414" style="zoom:50%;" /></p>
 <p>Este protocolo no tiene colisiones, pero tiene overhead, alta latencia y un único punto de falla.</p>
 <h4 id="token-ring">Token Ring</h4>
 <p>Es otro protocolo de turnos. En este caso se debe conectar a los clientes en forma de anillo y los datos circulan en un solo sentido. Cada nodo recibe un token que lo habilita a transmitir. Se dice que el anillo es compartido pero solo transmite el que recibió el token durante cierto tiempo.</p>
-<p><img src="Resources/11 - Capa de Enlace/0bac84ae-7d9b-4e90-a425-0efb141a053e.jpg" class="img-fluid" alt="0bac84ae-7d9b-4e90-a425-0efb141a053e" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/c8269eed-fc0c-43ee-aaca-abba6fe61a75.jpg" class="img-fluid" alt="c8269eed-fc0c-43ee-aaca-abba6fe61a75" style="zoom:50%;" /></p>
 <h4 id="csma">CSMA</h4>
 <p>En este protocolo, cada cliente sigue los mismos casos a la hora de enviar in paquete:</p>
 <ol>
@@ -1466,15 +1466,61 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Transmite todos los paquetes.</li>
 <li>Lee el canal para ver si hubo colisiones.</li>
 </ol>
-<p>![img](Resources/11 - Capa de Enlace/3908c3d2-11af-4f25-b1e5-34e8f5e578a4.png)</p>
+<p>![img](Resources/11 - Capa de Enlace/e98a1c9f-d947-49f8-b4a4-12a6616829b5.png)</p>
 <h4 id="ethernet">Ethernet</h4>
 <p>Es el protocolo mas utilizado en las LANs cableadas y tiene dos topologías principales:</p>
 <ul>
 <li><p><strong>Bus</strong>: Todos los hosts están en la misma linea, conectados a un hub. Hay una gran posibilidad de colisiones. si la red crece se divide en segmentos.</p>
-<p><img src="Resources/11 - Capa de Enlace/b51857fc-7e22-4f18-bcbf-c6340d56039d.jpg" class="img-fluid" alt="b51857fc-7e22-4f18-bcbf-c6340d56039d" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/50e5bf66-03bf-4a82-b4c1-85dd1da7e8fc.jpg" class="img-fluid" alt="50e5bf66-03bf-4a82-b4c1-85dd1da7e8fc" style="zoom:50%;" /></p>
 </li>
-<li><p><strong>Estrella</strong>: Cada host se conecta a un switch, que luego reenvía los paquetes al destino que corresponde, evitando las colisiones. Para</p>
+<li><p><strong>Estrella</strong>: Cada host se conecta a un switch, que luego reenvía los paquetes al destino que corresponde, evitando las colisiones. Para realizar esto se basa en la dirección MAC.</p>
+<p><img src="Resources/11 - Capa de Enlace/67cab795-50e8-4853-a5ca-bea57b6bbc22.jpg" class="img-fluid" alt="67cab795-50e8-4853-a5ca-bea57b6bbc22" style="zoom:50%;" /></p>
 </li>
+</ul>
+<p>Las tramas de ethernet tienen la siguiente forma:</p>
+<p><img src="Resources/11 - Capa de Enlace/1faf6ebc-4342-4ba1-8217-dd51325cc14d.jpg" class="img-fluid" alt="1faf6ebc-4342-4ba1-8217-dd51325cc14d" style="zoom:50%;" /></p>
+<p>Que contiene:</p>
+<ul>
+<li><strong>Preambulo</strong>: son 7 bytes con el patrón <code>10101010</code> y luego un byte con el patrón <code>10101011</code>. Este campo permite sincronizar a los hosts e indica que se esta enviando un nuevo paquete.</li>
+<li><strong>Destino</strong>: IP de destino. Si un paquete llega a una interfaz y esta no tiene la IP indicada acá, entonces descarta el paquete.</li>
+<li><strong>Origen</strong>: IP de origen.</li>
+<li><strong>Tipo</strong>: Usado por el receptor para verificar integridad.</li>
+<li><strong>Datos</strong>: Datos a enviar.</li>
+</ul>
+<h3 id="mac-address">MAC Address</h3>
+<p>Las direcciones MAC están compuestas por 48 bits divididos en 4 secciones:</p>
+<ul>
+<li>El bit 1 indica si el receiver es unicast (0) o multicast (1)</li>
+<li>El bit 2 indica si la dirección fue validada por el fabricante (0) o si fue creada localmente (1).</li>
+<li>Los bits del 3 al 24 identifican al fabricante.</li>
+<li>Los bits del 25 al 48 son un valor único asignado por el fabricante.</li>
+</ul>
+<h3 id="arp">ARP</h3>
+<p>Para poder enviar tramas de un host a otro debo conocer la dirección MAC del destino. Para conocer esto tenemos al comando ARP (Address Resolution Protocol). Este protocolo se puede iniciar de 4 formas:</p>
+<ul>
+<li><p><strong>ARP</strong>: un host con dirección IP necesita conocer la dirección MAC de otro host del cual conoce su IP.</p>
+</li>
+<li><p><strong>RARP</strong>: un host sin almacenamiento conoce su dirección MAC pero se olvido de su dirección IP.</p>
+</li>
+<li><p><strong>InARP</strong>: un host conoce la dirección MAC de otro host pero no su IP.</p>
+</li>
+<li><p><strong>Proxy ARP</strong>: Un host responde a un request para otro host. Esto se usa en los routers, cuando se quiere acceder a hosts en otras redes:</p>
+<p><img src="Resources/11 - Capa de Enlace/5e1aaee4-e907-41a6-91ea-28a5958605f8.jpg" class="img-fluid" alt="5e1aaee4-e907-41a6-91ea-28a5958605f8" style="zoom:50%;" /></p>
+</li>
+</ul>
+<h4 id="arp-spoofing">ARP Spoofing</h4>
+<p>ARP no contempla autenticación, cualquiera puede responder a un ARP request para relacionar un IP con una MAC. Si bien se usa mas que nada en ataques maliciosos, existen algunos usos legítimos:</p>
+<ul>
+<li>Redireccionar a equipos no registrados a una pagina de registro.</li>
+<li>Acceso a internet en hoteles a dispositivos móviles.</li>
+<li>Implementar redundancia en servicios de red.</li>
+</ul>
+<p>Para defendernos de este tipo de ataques, podemos:</p>
+<ul>
+<li>Añadir entradas estáticas a la tabla ARP.</li>
+<li>Usar DHCP snooping.</li>
+<li>Usar un programa llamado ARPwatch.</li>
+<li>Enviar RARP requests. si hay mas de una respuesta entonces puede ser un ataque.</li>
 </ul>
 
 </body>

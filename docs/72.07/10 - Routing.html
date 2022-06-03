@@ -1441,7 +1441,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><strong>Routing interno (IGP)</strong>: Son diseñados para una red controlada por una sola organización. Los mas usados son RIP y OSPF.</li>
 <li><strong>Routing Externo (EGP)</strong>: Son diseñados para intercambiar información entre redes controladas por distintas organizaciones. Se usa BGP.</li>
 </ul>
-<p><img src="Resources/10 - Routing/290523c4-8975-4944-8f1e-4571d6fdbd9c.jpg" class="img-fluid" alt="290523c4-8975-4944-8f1e-4571d6fdbd9c" style="zoom:50%;" /></p>
+<p><img src="Resources/10 - Routing/0ed57e46-f4d7-44ef-b7fd-c482ac1952db.jpg" class="img-fluid" alt="0ed57e46-f4d7-44ef-b7fd-c482ac1952db" style="zoom:50%;" /></p>
 <p>Estos protocolos operan sobre distintas capas:</p>
 <ul>
 <li>BGP opera sobre TCP.</li>
@@ -1452,7 +1452,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Estos algoritmos suelen utilizar algoritmos adaptativos para encontrar el mejor camino entre el nodo inicial y de destino. Estos algoritmos pueden ser:</p>
 <ul>
 <li><p><strong>Distance Vector</strong>: Con este algoritmo, los routers comunican periódicamente enviando su tabla de enrutamiento, donde se indica a que cantidad de saltos se encuentran los otros routers la red. Luego de varios intercambios, cada router debería tener una tabla completa con la cantidad de saltos que requiere para llegar a cada nodo.</p>
-<p><img src="Resources/10 - Routing/d5db7d0b-b88a-41ae-b5a3-4ed95b2cef28.jpg" class="img-fluid" alt="d5db7d0b-b88a-41ae-b5a3-4ed95b2cef28" style="zoom:50%;" /></p>
+<p><img src="Resources/10 - Routing/0bac0572-e77c-4461-ac70-b9c21edf1f32.jpg" class="img-fluid" alt="0bac0572-e77c-4461-ac70-b9c21edf1f32" style="zoom:50%;" /></p>
 <p>Este método tiene varios problemas, uno de ellos es contar hasta infinito, esto se soluciona de tres formas distintas:</p>
 <ul>
 <li><strong>Split Horizon</strong> no le reenvío al vecino la tabla que me envío.</li>
@@ -1481,14 +1481,14 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>En Linux, esta implementado en el servicio <code>routed</code>. Cuando se inicia el servicio, el cliente envía un pedido de actualización de routeo. Luego, cada router envía de forma periódica paquetes con información basada en su tabla de routeo.</p>
 <h4 id="version-1">Versión 1</h4>
 <p>Esta versión del protocolo intercambia informacion con sus vecinos cada 30 segundos y esta limitado a un diámetro de red de 15 saltos. Los paquetes utilizados son del tipo broadcast y usan notación <em>classfull</em>. Ademas, los paquetes no tienen autenticación.</p>
-<p><img src="Resources/10 - Routing/83ca8e44-8de9-4c95-8352-9fb845d5a77c.jpg" class="img-fluid" alt="83ca8e44-8de9-4c95-8352-9fb845d5a77c" style="zoom:50%;" /></p>
+<p><img src="Resources/10 - Routing/66b9f8c9-ca55-4f53-9c36-48afb8ddb7a0.jpg" class="img-fluid" alt="66b9f8c9-ca55-4f53-9c36-48afb8ddb7a0" style="zoom:50%;" /></p>
 <h4 id="version-2">Versión 2</h4>
 <p>Esta nueva versión tiene soporte para direcciones CIDR. Ademas realiza los updates con multicast y agrega autenticación, mientras que mantiene compatibilidad con la versión 1.</p>
-<p><img src="Resources/10 - Routing/2920e9ee-a458-4e53-a6de-ba120a3080bb.jpg" class="img-fluid" alt="2920e9ee-a458-4e53-a6de-ba120a3080bb" style="zoom:50%;" /></p>
+<p><img src="Resources/10 - Routing/b974f255-389f-4665-871f-10d7271e1751.jpg" class="img-fluid" alt="b974f255-389f-4665-871f-10d7271e1751" style="zoom:50%;" /></p>
 <h3 id="ospf">OSPF</h3>
 <p>Este protocolo se llama Open Shortest Path First. Este también es un modelo jerárquico donde se intercambia información sobre sus vecinos con toda la red. Cuando se detecta un cambio en la topología, también se comparte información.</p>
 <p>Cada enlace puede tener un peso asignado y luego cada router construye un grafo de la red y utiliza Dijkstra para construir el camino más corto.</p>
-<p><img src="Resources/10 - Routing/6f931faf-0d7f-4b69-9678-4b45f3ed72c1.jpg" class="img-fluid" alt="6f931faf-0d7f-4b69-9678-4b45f3ed72c1" style="zoom:50%;" /></p>
+<p><img src="Resources/10 - Routing/07d06558-3746-4f29-9c3b-1750651867f6.jpg" class="img-fluid" alt="07d06558-3746-4f29-9c3b-1750651867f6" style="zoom:50%;" /></p>
 <p>Ademas, se pueden definir áreas, que son colecciones interconectadas de redes. Cada área intercambia información con otras áreas a través de un router de borde.</p>
 <p>Todas las áreas están conectadas con el área cero y los routers del borde resumen la información de las redes de un área. Esto reduce las entradas en las tablas de routeo y el impacto por los cambios de topología localizados.</p>
 <p>Todo esto esta implementado en el servicio <code>gated</code> de linux. Este servicio ademas soporta múltiples protocolos como RIP y BGP.</p>

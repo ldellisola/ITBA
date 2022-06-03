@@ -21,7 +21,7 @@ Hay distintas clases de peligrosidad:
 
 Los materiales están clasificados con dos numero, el numero de arriba indica los peligros y el de abajo es el código de la sustancia.
 
-<img src="Resources/13 - Gestion de Emergencias Ambientales/Screen Shot 2022-06-03 at 14.51.30.jpg" alt="Screen Shot 2022-06-03 at 14.51.30"  />
+<img src="Resources/13 - Gestion de Emergencias Ambientales/Screen Shot 2022-06-03 at 14.51.30.jpg" alt="Screen Shot 2022-06-03 at 14.51.30"/>
 
 En este ejemplo, podemos ver que los números son 268, que significa GAS TOXICO CORROSIVO.
 
