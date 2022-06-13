@@ -65,15 +65,15 @@ Al interpretar un contrato, hay que tener los siguientes principios en mente:
 
 ## Defensa del Consumidor
 
-Existen los denominados **contratos por adhesion**. Estos requieren una interpretación especial por escapar a la mecánica tradicional de creación. Este tipo de contrato suele ser de uso común y muy utilizado en los servicios de transporte, prestamos, términos y condiciones, etc.
+Existen los denominados **contratos por adhesión**. Estos requieren una interpretación especial por escapar a la mecánica tradicional de creación. Este tipo de contrato suele ser de uso común y muy utilizado en los servicios de transporte, prestamos, términos y condiciones, etc.
 
 La particularidad de estos contratos esta en que no se pueden discutir las cláusulas, debe ser aceptado o no aceptado. De cualquier manera, cuando una cláusula de estos contratos esta redactada en forma oculta o oscura y cuya interpretación sea dudosa, se hará nula a la misma. En general, los siguientes tipos de cláusulas no son validos:
 
 - Las cláusulas que quitan obligaciones al proveedores o limiten la responsabilidad de los mismo.
 - Las cláusulas que renuncien o restrinjan los derechos del consumidor.
-- Las cláusulas que contentan cualquier precepto que imponga la inversion de la carga de la prueba en el perjuicio del consumidor.
+- Las cláusulas que contentan cualquier precepto que imponga la inversión de la carga de la prueba en el perjuicio del consumidor.
 
-La interpretación del contrato siempre sera a favor del consumidor.
+La interpretación del contrato siempre será a favor del consumidor.
 
 ## Clasificación de los Contratos
 
@@ -149,7 +149,7 @@ A la hora de hacer una resolución, no puede haver un nuevo acuerdo de voluntade
 
 El efecto de esta acción es volver las cosas al estado anterior a la contratación. Los efectos son similares a los de la nulidad, sin embargo, surgen de un hecho posterior a la contratación y no contemporáneo.
 
-## Pacto Comisorios
+### Pacto Comisorios
 
 Un pacto comisorio es una cláusula que permite a los contratantes la resolución de un contrato cuando una de ellas no ha cumplido con las obligaciones a su cargo.
 
@@ -245,7 +245,7 @@ Este contrato es:
 - **Formal**
 - **Onerosos** o **Gratuitos**
 
-Este contrato s puede emitir sobre cualquier derecho con las siguientes excepciones:
+Este contrato se puede emitir sobre cualquier derecho con las siguientes excepciones:
 
 - Que las partes dispusieran la inaccesibilidad de los derechos
 - Que sean derechos inherentes a la persona (derecho al nombre, capacidad, domicilio, etc)

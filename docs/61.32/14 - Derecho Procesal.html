@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>07 - Persistent Stored Module.md</title>
+    <title>14 - Derecho Procesal.md</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -1423,32 +1423,108 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="persistent-stored-module-psm">Persistent Stored Module (PSM)</h1>
-<h3 id="diferencias-con-funciones-normales">Diferencias con funciones normales</h3>
-<p><img src="Resources/Untitled/c1f37d37-9ae5-4b6d-9adc-adf3c5697d9f.png" class="img-fluid" alt="c1f37d37-9ae5-4b6d-9adc-adf3c5697d9f" style="zoom:50%;" /></p>
-<h3 id="definicion">Definición</h3>
-<pre><code class="language-mssql">CREATE FUNCTION nombreFuncion ([Parametros])
-RETURNS tipoDevuelto
-[DETERMINISTIC | NOT DETERMINISTIC]
-[NO SQL | CONTAINS SQL | READS SQL | MODIFIED SQL DATA]
-[DYNAMIC RESULT SETS]
-BEGIN
-... SQL ...
-END
-</code></pre>
-<h5 id="no-sql-contains-sql-reads-sql-modified-sql-data"><code>[NO SQL | CONTAINS SQL | READS SQL | MODIFIED SQL DATA]</code></h5>
+<h1 id="derecho-procesal">Derecho Procesal</h1>
+<p>El derecho procesal es el conjunto de normas y principios jurídicos que regula el proceso jurisdiccional. También comprende la integración y competencia de los órganos del Estado que intervienen.</p>
+<p>La <strong>acción</strong> es un poder jurídico o facultad que las personas tienen para promover la actividad del órgano jurisdiccional. Tiene por finalidad resolver un pedido por parte de la jurisdicción.</p>
+<p>El <strong>proceso</strong> es el conjunto de actos que realizan las partes (el juzgador y demás sujetos que intervienen en la causa), que tienen como finalidad lograr la solución del litigio mediante el dictado de una sentencia.</p>
+<p>Estos procesos tienen las siguientes características o principios:</p>
 <ul>
-<li><code>[NO SQL]</code>: No contiene codigo SQL</li>
-<li><code>[CONTAINS SQL]</code>: Contiene instrucciones <code>INSERT</code>, <code>UPDATE</code>, <code>SELECT</code> o <code>DELETE</code>.</li>
-<li><code>[READS SQL]</code>: Solo utiliza la instruccion <code>SELECT</code>.</li>
-<li><code>[MODIFIED SQL DATA]</code>: ???</li>
+<li><strong>Principio de Contradicción</strong>: Es esencial que las partes estén en contradicción.</li>
 </ul>
-<h3 id="reglas-de-funciones-en-postgress">Reglas de Funciones en Postgress</h3>
+<h2 id="mediacion-y-conciliacion">Mediación y Conciliación</h2>
+<p>En Capital, para llegar al proceso judicial es necesario someter el reclamo al procedimiento previo de la mediación o al procedimiento de conciliación laboral obligatoria. Ambos procesos tienen carácter administrativo, dentro de los cuales la controversia puede solucionarse o no.</p>
+<p>Existe una forma de evitar este proceso, ambas partes deben participar de una mediación externa y presentar pruebas de eso.</p>
+<p>La mediación no es necesaria en los siguientes casos:</p>
 <ul>
-<li>Si hay un solo parametro <code>OUT</code> o <code>INOUT</code> genera un returns con eso.</li>
-<li>Si hay mas de un <code>OUT</code> o <code>INOUT</code>, genera un <code>RETURNS RECORD</code></li>
-<li>???</li>
+<li>Causas Penales</li>
+<li>Acciones de separación personal y divorcio.</li>
+<li>Process de declaración de incapacidad y rehabilitación</li>
+<li>Amparos, habeas corpus e interdictos</li>
+<li>Medidas cautelares hasta que se decidan las mismas</li>
+<li>Diligencias preliminares y prueba anticipada</li>
+<li>Juicios sucesorios y voluntarios</li>
+<li>Concursos preventivos y quiebras</li>
+<li>Causas que tramiten ante la Justicia Nacional del Trabajo</li>
 </ul>
+<p>Ademas, es opcional para los juicios de desalojo.</p>
+<h2 id="medios-de-prueba">Medios de Prueba</h2>
+<p>Cuando se lleva una controversia frente a un juez iniciando un proceso judicial, junto con la demanda es necesario demostrar que lo que se alega es cierto. Para que el juzgador apruebe lo que se peticiona, se deben acercar elementos probatorios que generen un convencimiento de que los hechos indicados son ciertos.</p>
+<h3 id="la-prueba-documental">La Prueba Documental</h3>
+<p>La prueba documental se acompaña en la demanda, la contestación y/o la reconvención. Debe acompañarse la totalidad de la documental que pretende hacerse valer en el proceso y ofrecer las restantes pruebas pro aplicación del principio procesal de la economía procesal y la directiva de concentración en un solo acto. Si la prueba no esta en manos de las partes, el oferente debe poder especificar su contenido y lugar de archivo.</p>
+<p>Los medios de prueba del Código Civil y Comercial son:</p>
+<ul>
+<li><p><strong>Instrumentos Públicos</strong>: Hace plena prueba de los hechos o actos que contiene, ya que la ley presume que la prueba y sus contenidos son auténticos. Para demostrar su falsedad hay que hacer un juicio por redargución de falsedad.</p>
+</li>
+<li><p><strong>Instrumentos Particulares Firmados o No Firmados</strong>: Los instrumentos privados no requieren formalidades en virtud del principio de formas.</p>
+<p>En el caso de los instrumentos firmados, se asume que son verdaderos si ninguna parte desconoce la firma del contrato, de desconocerla, entonces se hará una pericia caligráfica.</p>
+<p>Los instrumentos no firmados se utilizan como medio de prueba para la existencia de un contrato.</p>
+</li>
+</ul>
+<h3 id="confesion-de-partes">Confesión de Partes</h3>
+<p>Es otro medio probatorio que consiste en la declaración de la parte reconociendo la verdad de un hecho personal que produce efectos desfavorables para ella y favorables para la otra parte.</p>
+<p>La confesión puede ser:</p>
+<ul>
+<li><strong>Judicial</strong>: Cuando se presenta dentro del proceso.</li>
+<li><strong>Extrajudicial</strong>: Cuando se presenta fuera del proceso.</li>
+</ul>
+<h3 id="presunciones-legales-o-judiciales">Presunciones Legales o Judiciales</h3>
+<p>Las presunciones son las consecuencias que la ley o el juez deducen de un hecho que se conoce o da por cierto, para afirmar un hecho desconocido. Pueden ser de dos clases:</p>
+<ul>
+<li><strong>Legales</strong>: Son establecidas por ley y se dividen en dos:
+<ul>
+<li><strong>Iure et de Jure</strong>: no admiten prueba en contrario, hacen plena prueba del supuesto que se presume.</li>
+<li><strong>Iuris tantum</strong>: Admite prueba en contrario de quien pretenda destruirla.</li>
+</ul>
+</li>
+<li><strong>Judiciales</strong>: Son las que un juez establece en el caso concreto ante el examen de los indicios que surgen de la causa y según su criterio. Estas presunciones deben fundarse en antecedentes reales y probados.</li>
+</ul>
+<h3 id="testigos">Testigos</h3>
+<p>Un testigo es una persona fisica, tercero extraño al juicio, que declara acerca de los hechos directos, percibidos por sus sentidos.</p>
+<h3 id="prueba-pericial">Prueba Pericial</h3>
+<p>Un juez, por sus estudios jurídicos, se encuentra capacitado con mucho conocimiento del derecho, pero cuando para interpretar hechos sea necesario conocimiento técnico especial de otro campo, este puede recurrir a un especialista.</p>
+<p>Un <strong>perito</strong> es una persona especializada en un campo cuyos servicios son utilizados por el juez para entender ciertos hechos. La asignación de peritos a un caso se realiza por sorteo.</p>
+<p>Esta persona realizara un <strong>peritaje</strong> o examen y escribir sus conclusiones en un reporte. El juez puede luego permitir o no a dicha prueba. El objetivo de este documento es responder las preguntas que tiene tanto el juez como las partes. El informe tiene el nombre de <strong>dictamen pericial</strong>, y tiene las siguientes partes:</p>
+<ul>
+<li>La descripción de las circunstancias en que se realiza la pericia, partes presentes y el estado material en que se encuentra el sujeto de estudio.</li>
+<li>El relato de cada una de las acciones realizadas durante la pericia con descripción de los resultados.</li>
+<li>Los elementos técnicos empleados y métodos científicos utilizados para llegar a los resultados indicados en el punto anterior y que le dan validez al dictamen.</li>
+<li>Las conclusiones del dictamen pericial que se plasman como respuesta a los interrogantes individuales o como conclusión general.</li>
+</ul>
+<p>El dictamen pericial será informado a las partes, que podrán observarlo o impugnarlo por las razones que consideren de valor o por los métodos utilizados.</p>
+<p>Los peritos reciben un honorario que se estima como un porcentaje del monto de la condena, acuerdo o demanda.</p>
+<h3 id="prueba-de-informes">Prueba de Informes</h3>
+<p>Cuando el conocimiento de los hechos no sirga de la apreciación de un testigo, sino que se encuentre registrado de algún modo en documentos o archivos de personas jurídicas, se les remitirá un pedido de informes.</p>
+<p>Los informes pueden versar sobre hechos concretos, claramente individualizados, controvertidos en el proceso. Estos luego estarán disponibles en las oficinas publicas, junto a otros documentos públicos relacionados con el juicio.</p>
+<p>Estos informes no pueden suplantar o ampliar a otro medio de prueba previamente especificada. Cuando el requerimiento fuere procedente, el informe solo podrá ser negado si existiere una causa justa de reserva o de secreto, que deberá ponerse en conocimiento del juzgado dentro del 5<sup>to</sup> día de recibido el pedido.</p>
+<h2 id="admisibilidad-de-prueba">Admisibilidad de Prueba</h2>
+<p>No todo medio probatorio se admite, pese a haber sido autorizada su producción, para demostrar la existencia de ciertos contratos. Los contratos no formales pueden ser demostrados por cualquier método probatorio mientras que los formales tienen como principio general la exigencia de que solo se prueba presentando el instrumento indicado por la ley.</p>
+<p>Dentro de los contratos formales, se encuentran dos categorías:</p>
+<ul>
+<li><em><strong>ad solemnitatem</strong></em>: No pueden ser probados si no es por el medio indicado en el código pertinente.</li>
+<li><em><strong>cid probationern</strong></em>: Los métodos probatorios tienen validez como medio de prueba en un juicio.</li>
+</ul>
+<h2 id="arbitraje">Arbitraje</h2>
+<p>Existe la posibilidad de que las partes sometan sus diferencias, de forma voluntaria, a un juicio arbitral. En este tipo de proceso el encargado de resolver la causa es una persona o grupo de personas asignadas por las partes.</p>
+<p>El compromiso de ambas partes de someterse a un proceso de arbitraje debe ser formalizado por escritura publica o instrumento privado. Ademas, para ser valido, debe tener los siguientes elementos:</p>
+<ul>
+<li>Fecha, nombre y domicilio de los otorgantes</li>
+<li>Nombre y domicilio de los árbitros</li>
+<li>Las cuestiones que se sometan al juicio arbitral, con expresión de sus circunstancias</li>
+<li>La estipulación de una multa que deberá pagar la parte que dejare de cumplir los actos indispensables para la realización del compromiso.</li>
+</ul>
+<p>También suele ser útil la concentración de cláusulas facultativas. Así, se podrá convenir en el compromiso:</p>
+<ul>
+<li>El procedimiento aplicable y el lugar donde los árbitros hayan de conocer y fallar.</li>
+<li>El plazo en que los árbitros deben pronunciar su sentencia.</li>
+<li>La designación de un secretario</li>
+<li>Una multa que deberá pagar la parte que recurra la sentencia a la que la consienta, para poder ser oída, sino mediase la renuncia que se menciona en el próximo ítem.</li>
+<li>La renuncia del recurso de apelación y del recurso de nulidad.</li>
+</ul>
+<p>Para poder hacer efectiva la constitución del arbitro es necesario que la parte que requiera dicha constitución presente una demanda ante el juez natural de la causa, que puede ser negada únicamente mediante una fundamentación válida. Si las partes no se ponen de acuerdo sobre el alcance de la arbitraje, lo decidirá un juez.</p>
+<p>La designación de arbitro solo podrá recaer en personas mayores de edad y que estén en pleno ejercicio de los derechos civiles.</p>
+<p>Por ser una decisión voluntaria de las partes, los árbitros no pueden decretar medidas compulsorias, ni de ejecución, sino que deberán requerirlas a un juez.</p>
+<p>La resolución de la controversia la fijara el dictado de la sentencia arbitral. Contra este se podrán asumir los recursos en forma idéntica al supuesto de dictado de sentencia definitiva, salvo que las partes hayan pactado renunciar a este derecho.</p>
+<p>Este recurso es interesante para procedimientos complicados y altamente técnicos, donde las partes consideran necesario que se resuelva por expertos en la materia.</p>
 
 </body>
 

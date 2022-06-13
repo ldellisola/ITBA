@@ -1430,9 +1430,9 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \hat y = \text{sign}(w \times x + b )
 \]</div>
 <p>Another way we can define the perceptron algorithm is:</p>
-<p><img src="Resources/09 - Neural Networks/57c13e0b-0f9e-4496-b003-0d11a808502b.png" class="img-fluid" alt="57c13e0b-0f9e-4496-b003-0d11a808502b" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/fd45d3a4-171a-4e63-85f3-70fb38871cd5.png" class="img-fluid" alt="fd45d3a4-171a-4e63-85f3-70fb38871cd5" style="zoom:33%;" /></p>
 <p>From here we can combine different perceptron classifiers to make a complex classifier by letting them use the same input and have their own outputs into other perceptron:</p>
-<p><img src="Resources/09 - Neural Networks/0f856f43-62bd-4524-90c7-3b1e8c3b3ed8.png" class="img-fluid" alt="0f856f43-62bd-4524-90c7-3b1e8c3b3ed8" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/a8161c98-7040-4916-9a05-cc239f48f4de.png" class="img-fluid" alt="a8161c98-7040-4916-9a05-cc239f48f4de" style="zoom:33%;" /></p>
 <p>Another string motivation for  forming such combinations of simple classifiers is the <strong>Universal Approximation Theorem</strong>. This theorem states that if <span class="math">\(\sigma:\mathbb{R} \rightarrow \mathbb{R}\)</span> is a non-constant, bounded and continuous function, and if <span class="math">\(f\)</span> is a continuous function on unity hypercube <span class="math">\([0,1]^n\)</span>, then for any $\epsilon &gt; 0 $ there exists <span class="math">\(N \in \mathbb{N}, v_i,b_i \in \mathbb{R}, w_i \in \mathbb{R}^n\)</span> such that:</p>
 <div class="math">
 \[
@@ -1440,14 +1440,14 @@ F(x) = \sum_{i=1}^nv_i \sigma(w_i \times x + b_i)\\
 |F(x) - f(x)| &lt; \epsilon,~~ \forall x \in [0,1]^m
 \]</div>
 <p>We can see that the approximation is exactly captured by the following network:</p>
-<p><img src="Resources/09 - Neural Networks/e1405438-bb3e-484e-9998-f9bdde8d583a.png" class="img-fluid" alt="e1405438-bb3e-484e-9998-f9bdde8d583a" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/d3b33c3f-c2e9-48b1-b7dd-82e34051d037.png" class="img-fluid" alt="d3b33c3f-c2e9-48b1-b7dd-82e34051d037" style="zoom:33%;" /></p>
 <h2 id="representation">Representation</h2>
 <p>Neural networks can be represented in layers. Here we have an example:</p>
-<p><img src="Resources/09 - Neural Networks/28521d97-5045-4328-8b8e-b8317024efba.png" class="img-fluid" alt="28521d97-5045-4328-8b8e-b8317024efba" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/ceca6877-4720-49bb-a652-c411766bbd21.png" class="img-fluid" alt="ceca6877-4720-49bb-a652-c411766bbd21" style="zoom:33%;" /></p>
 <p>But this can be rewritten more concisely as:</p>
-<p><img src="Resources/09 - Neural Networks/9e652d46-92ce-4318-bc3d-2b442ca0e72f.png" class="img-fluid" alt="9e652d46-92ce-4318-bc3d-2b442ca0e72f" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/8926ced8-171e-4e7e-bf14-88065ebdd3a9.png" class="img-fluid" alt="8926ced8-171e-4e7e-bf14-88065ebdd3a9" style="zoom:33%;" /></p>
 <p>We can keep adding more hidden layers and the network can be described as:</p>
-<p><img src="Resources/09 - Neural Networks/47f4459a-34dd-43cf-a4aa-36beb9eb2670.png" class="img-fluid" alt="47f4459a-34dd-43cf-a4aa-36beb9eb2670" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/bd97cbe7-1b60-4d71-88a9-db05aeafaac0.png" class="img-fluid" alt="bd97cbe7-1b60-4d71-88a9-db05aeafaac0" style="zoom:33%;" /></p>
 <h3 id="hidden-layers">Hidden Layers</h3>
 <p>Each hidden layer is composed of an affine function, followed by non-linearity. There are several different functions we can use for this part:</p>
 <ul>
@@ -1459,7 +1459,7 @@ F(x) = \sum_{i=1}^nv_i \sigma(w_i \times x + b_i)\\
 </ul>
 <h3 id="output-layers">Output Layers</h3>
 <p>In a <strong><span class="math">\(K\)</span>-class classification</strong> we normally label the classes from <span class="math">\(1,\dots, k\)</span> but that doesn't mean that elements from class <span class="math">\(3\)</span> are more similar to those in class <span class="math">\(4\)</span> than any other class. This is way it makes no sense to have directly a one dimensionally output <span class="math">\(\hat y\)</span> trying to estimate the correct label. To solve this, the output layer will produce a <span class="math">\(K\)</span>-dimensional vector and then a SoftMax function will convert it to class probabilities:</p>
-<p><img src="Resources/09 - Neural Networks/d4915d8f-e8be-4d15-9792-5ba5c4cfe446.png" class="img-fluid" alt="d4915d8f-e8be-4d15-9792-5ba5c4cfe446" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/1eb7cdc9-0969-4c90-867e-6d2d66cfede5.png" class="img-fluid" alt="1eb7cdc9-0969-4c90-867e-6d2d66cfede5" style="zoom:33%;" /></p>
 <p>With:</p>
 <div class="math">
 \[
@@ -1525,7 +1525,7 @@ f' = \left[\frac{\partial f}{\partial y_1},\dots,\frac{\partial f}{\partial y_n}
 \]</div>
 <h4 id="example">Example</h4>
 <p>We can calculate the gradient of the following neural net using back propagation:</p>
-<p><img src="Resources/09 - Neural Networks/3ff22a8d-c58f-45b2-a61c-ae49d0bfba70.png" class="img-fluid" alt="3ff22a8d-c58f-45b2-a61c-ae49d0bfba70" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/9db98b81-731a-4677-aa53-935e25e76f83.png" class="img-fluid" alt="9db98b81-731a-4677-aa53-935e25e76f83" style="zoom:33%;" /></p>
 <p>The set of parameters <span class="math">\(\theta= \{W_1,W_2,W_3,b_1,b_2,b_3\}\)</span>. For the loss function we will sue squared difference.</p>
 <ol>
 <li><p>First we need to compute <span class="math">\(v_3 =\left. \frac {\partial J}{\partial \hat y}\right| _{\hat y}\)</span>, this is a row vector <span class="math">\(\bold v_3 = 2(\hat y -y)^T\in \mathbb{R}^K\)</span></p>
@@ -1584,10 +1584,10 @@ f' = \left[\frac{\partial f}{\partial y_1},\dots,\frac{\partial f}{\partial y_n}
 <p>Deep learning is a very successful branch of machine learning that has made a lot of progress in recent years. This field includes Convolutional Neural Nets (CNNs), where the inputs are translation-invariant and warpable, like in images. It also includes Recurrent Neural Networks (RNNs) which allow previous outputs to be  used as inputs and are very common in speech recognition. From now on we will only discus <strong>CNNs</strong></p>
 <p>The main advantage of CNNs is that they reduce the number of parameters needed. For example if we have a <span class="math">\(64\times 64\)</span> pixels image and we try to implement a NN with fully connected layers we end up with <span class="math">\((64^2)^2\)</span> connections. If we use CNNs with a <span class="math">\(5\times 5\)</span> neighborhood for each neuron in the second layer and we make the parameters for all <span class="math">\(5\times 5\)</span> connections shared, we only need <span class="math">\(25\)</span> connections.</p>
 <p>The typical structure for a CNN involves many convolutions, subsampling and finally some full connection layers to generate the labels:</p>
-<p><img src="Resources/09 - Neural Networks/7bccc750-1efc-400c-9acf-20893ab92c76.png" class="img-fluid" alt="7bccc750-1efc-400c-9acf-20893ab92c76" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/157234f1-8a40-446f-9c42-f4230b320dd4.png" class="img-fluid" alt="157234f1-8a40-446f-9c42-f4230b320dd4" style="zoom:33%;" /></p>
 <h3 id="pooling">Pooling</h3>
 <p>Pooling is a method to subsample our data and keep the important features. The idea is that we have to select a filter and then the stride. The filter will represent the area we want to output of and the stride will gives us the area of the input. A very used function for pooling is max pooling, which takes the higher number from each section of the input and returns in tin the output:</p>
-<p><img src="Resources/09 - Neural Networks/2870cf42-fad9-4c46-a4be-03ce64efb6f8.png" class="img-fluid" alt="2870cf42-fad9-4c46-a4be-03ce64efb6f8" style="zoom:33%;" /></p>
+<p><img src="Resources/09 - Neural Networks/578b5825-fd00-4dae-962d-cba4670060e2.png" class="img-fluid" alt="578b5825-fd00-4dae-962d-cba4670060e2" style="zoom:33%;" /></p>
 <h3 id="dropout">Dropout</h3>
 <p>Drop out increases significantly overfitting by removing neurons that are not useful for the classification.</p>
 

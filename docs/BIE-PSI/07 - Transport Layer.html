@@ -1430,10 +1430,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>The service must have an address, in this case it is known as <strong>Transport Service Access Point</strong> (TSAP). There are some predefined TSAPs like port 80 for HTTP services. There are also some dynamically allocated addresses that need special software, such as portmapper, that registers TSAP for other services like BitTorrent.</p>
 <h2 id="connection">Connection</h2>
 <p>There are different ways to stablish a connection, the most simple one is to just send a request and accept it:</p>
-<p><img src="Resources/07 - Transport Layer/6d5f5b5f-c0af-4ecb-86f8-6757756ad343.png" class="img-fluid" alt="6d5f5b5f-c0af-4ecb-86f8-6757756ad343" style="zoom:33%;" /></p>
+<p><img src="Resources/07 - Transport Layer/de04561d-6045-48cc-8a61-6bf90dd01670.png" class="img-fluid" alt="de04561d-6045-48cc-8a61-6bf90dd01670" style="zoom:33%;" /></p>
 <p>This can have problems such as duplicated connection request packets. There are also some improvements that can be made, such as adding an unique identifier for each session and establishing a limited lifetime for packets.</p>
 <p>A way to solve this issues is implementing a three-way handshake:</p>
-<p><img src="Resources/07 - Transport Layer/a15b4d73-083e-446e-9de8-ee62cc7227e4.png" class="img-fluid" alt="a15b4d73-083e-446e-9de8-ee62cc7227e4" style="zoom:33%;" /></p>
+<p><img src="Resources/07 - Transport Layer/153295d2-57ac-4da9-9d6f-fb1f2107ca63.png" class="img-fluid" alt="153295d2-57ac-4da9-9d6f-fb1f2107ca63" style="zoom:33%;" /></p>
 <p>To connect with this method, we need to send a connection request, the client will send an acknowledge for out request and send a connect request themselves. We are going to acknowledge their request and then start sending data.</p>
 <h3 id="connection-termination">Connection Termination</h3>
 <p>Connection termination can also be a problem, and we have two main ways to solve it:</p>
@@ -1443,7 +1443,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <h3 id="the-two-armies-problem">The Two Armies Problem</h3>
 <p>This problem looks simple, let's say there are two armies surrounding a third, enemy army in the middle.</p>
-<p><img src="Resources/07 - Transport Layer/a8bf9ea3-c004-492c-945b-bd4d761c2dac.png" class="img-fluid" alt="a8bf9ea3-c004-492c-945b-bd4d761c2dac" style="zoom:33%;" /></p>
+<p><img src="Resources/07 - Transport Layer/63a7bab7-f20b-4d08-82b9-b8119b4cbc74.png" class="img-fluid" alt="63a7bab7-f20b-4d08-82b9-b8119b4cbc74" style="zoom:33%;" /></p>
 <p>If either army attacks the enemy alone, they will loose, but if both attack at the same time, then they will win. The problem here is coordinating the attack across the enemy army without it noticing it.</p>
 <h3 id="flow-control">Flow Control</h3>
 <p>This layer follows the same principles as the link layer:</p>
@@ -1465,11 +1465,11 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Timeout</li>
 </ul>
 <h3 id="header">Header</h3>
-<p><img src="Resources/07 - Transport Layer/835a489c-e1d2-4511-9f25-ea6662ffbd73.png" class="img-fluid" alt="835a489c-e1d2-4511-9f25-ea6662ffbd73" style="zoom:33%;" /></p>
+<p><img src="Resources/07 - Transport Layer/5de38489-5f7e-4cae-bc84-142d15fc910f.png" class="img-fluid" alt="5de38489-5f7e-4cae-bc84-142d15fc910f" style="zoom:33%;" /></p>
 <h3 id="connection-establishment">Connection Establishment</h3>
-<p><img src="Resources/07 - Transport Layer/23e8009c-86e7-4b9e-8665-cb194f6ae7ff.png" class="img-fluid" alt="23e8009c-86e7-4b9e-8665-cb194f6ae7ff" style="zoom:33%;" /></p>
+<p><img src="Resources/07 - Transport Layer/0c709c3c-f204-4bf3-970f-e7eec48bd74a.png" class="img-fluid" alt="0c709c3c-f204-4bf3-970f-e7eec48bd74a" style="zoom:33%;" /></p>
 <h3 id="connection-termination-1">Connection Termination</h3>
-<p><img src="Resources/07 - Transport Layer/71be5db6-50cf-4bee-bf14-714c13f1f518.png" class="img-fluid" alt="71be5db6-50cf-4bee-bf14-714c13f1f518" style="zoom:33%;" /></p>
+<p><img src="Resources/07 - Transport Layer/5715d26b-d13b-41ca-8552-4946aeae2722.png" class="img-fluid" alt="5715d26b-d13b-41ca-8552-4946aeae2722" style="zoom:33%;" /></p>
 <h3 id="sliding-window">Sliding Window</h3>
 <p>The receiver reserves a buffer for receiving data and the sender will notify the window size in the packet. The sender must not send more data than the size of the window, then waits for acknowledgement. The window size is decreased if the receiver does not manage to process the data and the windows may be shrunk to improve flow control.</p>
 <h3 id="acknowledgment">Acknowledgment</h3>
@@ -1502,7 +1502,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="udp">UDP</h2>
 <p>The <strong>User Datagram Protocol</strong> is a connection-less service on layer 4. The datagram in this service may be lost, and it uses ports for multiplexing in the same way TCP does. The maximum size of the packet to be sent is 64 kB.</p>
 <h3 id="header-1">Header</h3>
-<p><img src="Resources/07 - Transport Layer/9faf6d7f-7eb3-4e99-a795-9026d01bc4f7.png" class="img-fluid" alt="9faf6d7f-7eb3-4e99-a795-9026d01bc4f7" style="zoom:33%;" /></p>
+<p><img src="Resources/07 - Transport Layer/f8522b66-330e-4b10-948c-92278e58676c.png" class="img-fluid" alt="f8522b66-330e-4b10-948c-92278e58676c" style="zoom:33%;" /></p>
 <h3 id="usage-1">Usage</h3>
 <p>UDP is used when we want to send small blocks of data and :</p>
 <ul>

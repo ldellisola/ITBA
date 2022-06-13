@@ -95,7 +95,7 @@ Los informes pueden versar sobre hechos concretos, claramente individualizados, 
 
 Estos informes no pueden suplantar o ampliar a otro medio de prueba previamente especificada. Cuando el requerimiento fuere procedente, el informe solo podrá ser negado si existiere una causa justa de reserva o de secreto, que deberá ponerse en conocimiento del juzgado dentro del 5^to^ día de recibido el pedido.
 
-### Admisibilidad de Prueba
+## Admisibilidad de Prueba
 
 No todo medio probatorio se admite, pese a haber sido autorizada su producción, para demostrar la existencia de ciertos contratos. Los contratos no formales pueden ser demostrados por cualquier método probatorio mientras que los formales tienen como principio general la exigencia de que solo se prueba presentando el instrumento indicado por la ley.
 

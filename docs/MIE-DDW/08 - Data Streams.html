@@ -1425,7 +1425,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <body>
 <h1 id="mining-data-streams">Mining Data Streams</h1>
 <p>Traditional approaches assume all the data is available in a database, but sometimes the dataset is too large to store it or is genearted constantly. This is where mining data streams comes into play.</p>
-<p><img src="Resources/Untitled/d2f4bbe1-8f59-4503-bfc2-4f6b61cef2dc.png" class="img-fluid" alt="d2f4bbe1-8f59-4503-bfc2-4f6b61cef2dc" style="zoom:33%;" /></p>
+<p><img src="Resources/Untitled/7e6380b7-aee8-43fe-a15e-360262e57ceb.png" class="img-fluid" alt="7e6380b7-aee8-43fe-a15e-360262e57ceb" style="zoom:33%;" /></p>
 <p>Data streams are used to process a high volume or continuous data that is arrivig at a rapid rate and the distribution changes on the fly. The data is evolving constantly, and we need to find and understand the changes, as well as  maintaining an updated model.</p>
 <p>The data can change in a few different ways:</p>
 <ul>
@@ -1440,7 +1440,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>There are different ways to sample the stream:</p>
 <ul>
 <li><p><strong>Reservoir Sampling</strong>: The goal here is to maintain a fixed-size uniform random sample. Put the first <span class="math">\(k\)</span> elements from the stream into the repository, and when the next element arrives add it to the reservoir with a given prbability <span class="math">\(p\)</span>. If it was added, randomly remove an element from the reservoir</p>
-<p><img src="Resources/Untitled/59245824-407f-47cb-8519-57636b4519c3.png" class="img-fluid" alt="59245824-407f-47cb-8519-57636b4519c3" style="zoom:33%;" /></p>
+<p><img src="Resources/Untitled/77ac709e-7f45-4e9d-acd9-d42a459ff1f8.png" class="img-fluid" alt="77ac709e-7f45-4e9d-acd9-d42a459ff1f8" style="zoom:33%;" /></p>
 </li>
 <li><p><strong>Moving Windows</strong>: This method is useful when timeliness is important. Here we restrict samples to a window of recent data, as new data arrives, the old data expires.</p>
 </li>
@@ -1453,18 +1453,18 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h3 id="item-frequencies">Item Frequencies</h3>
 <ul>
 <li><p><strong>Naive Approach</strong>: This is just counting the occurances of elements in an array.</p>
-<p><img src="Resources/Untitled/ac8faf85-ec73-4ec0-9e3e-13ecb574f3f9.png" class="img-fluid" alt="ac8faf85-ec73-4ec0-9e3e-13ecb574f3f9" style="zoom:33%;" /></p>
+<p><img src="Resources/Untitled/b77fa15b-7764-4cb0-b608-601ed6ef1d88.png" class="img-fluid" alt="b77fa15b-7764-4cb0-b608-601ed6ef1d88" style="zoom:33%;" /></p>
 </li>
 <li><p><strong>Sampling</strong>: We sample with probability <span class="math">\(p\)</span> and estimate <span class="math">\(f(i) = \frac1p A(i)\)</span></p>
-<p><img src="Resources/Untitled/45a73751-2de6-4515-add7-b5a038f3ab95.png" class="img-fluid" alt="45a73751-2de6-4515-add7-b5a038f3ab95" style="zoom:33%;" /></p>
+<p><img src="Resources/Untitled/f3d0b5fa-2d77-4042-9809-37aed47795b8.png" class="img-fluid" alt="f3d0b5fa-2d77-4042-9809-37aed47795b8" style="zoom:33%;" /></p>
 </li>
 <li><p><strong>Count-Min Sketch</strong>: The space in the counters is limited, so the items are counted in buckets according to a has function.</p>
-<p><img src="Resources/Untitled/9a488c7c-f59b-474a-b2d6-7f9df005267b.png" class="img-fluid" alt="9a488c7c-f59b-474a-b2d6-7f9df005267b" style="zoom:33%;" /></p>
+<p><img src="Resources/Untitled/420d869e-c8a0-430d-95e3-c30f433b6104.png" class="img-fluid" alt="420d869e-c8a0-430d-95e3-c30f433b6104" style="zoom:33%;" /></p>
 </li>
 </ul>
 <h3 id="identifying-frequent-items">Identifying Frequent Items</h3>
 <p><strong>Loosy Counting</strong> has applications in Frequent Pattern Mining, mainly with association rules. It will split the incoming stream in bukets of size <span class="math">\(w\)</span>, compute the frequencies according to the bucket and then at the bucket boundary decrease all counters by one.</p>
-<p><img src="Resources/Untitled/f56fef7e-8cce-4d2e-852f-f60f8268fa20.png" class="img-fluid" alt="f56fef7e-8cce-4d2e-852f-f60f8268fa20" style="zoom:33%;" /></p>
+<p><img src="Resources/Untitled/35fc05d3-70dd-45f9-b1b5-78acc1e525d9.png" class="img-fluid" alt="35fc05d3-70dd-45f9-b1b5-78acc1e525d9" style="zoom:33%;" /></p>
 <h3 id="finding-frequent-itemsets">Finding frequent Itemsets</h3>
 <p>The approach is to load as many buckets as possible to the main memory and delete an entry if the updated frequency is less than the bucket numer. Decrease the frequency by number of buckets.</p>
 <h3 id="count-distinct-items">Count Distinct Items</h3>
