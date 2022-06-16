@@ -1426,14 +1426,14 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h1 id="symbolic-program-execution">Symbolic Program Execution</h1>
 <p>We want to test programs as completely as possible, ideally covering all possible execution paths (sequence of program lines).</p>
 <p>To do this first we must formalize the lines of code into a basic path. Here we have an example where we want to extract the condition along the execution path <span class="math">\(1,2,3,4,1,2,3,6\)</span>:</p>
-<p><img src="Resources/08 - Symbolic Program Execution/9ef0925b-63a6-4773-99f7-b36f5544816b.png" class="img-fluid" alt="9ef0925b-63a6-4773-99f7-b36f5544816b" style="zoom:33%;" /></p>
+<p><img src="Resources/08 - Symbolic Program Execution/1be6ee13-7943-4a45-9e8f-be42d2033b33.png" class="img-fluid" alt="1be6ee13-7943-4a45-9e8f-be42d2033b33" style="zoom:33%;" /></p>
 <p>This will also be noted as:</p>
 <div class="math">
 \[
 \text{BP}_{1,2,3,4,1,2,3,6}(P)
 \]</div>
 <p>Later, we must apply SSA to be able to deal with this execution path:</p>
-<p><img src="Resources/08 - Symbolic Program Execution/c5ca5699-1923-459e-bacd-9900f2b1ff3c.png" class="img-fluid" alt="c5ca5699-1923-459e-bacd-9900f2b1ff3c" style="zoom:33%;" /></p>
+<p><img src="Resources/08 - Symbolic Program Execution/32feda64-6756-4f7a-8f15-6c15e231b225.png" class="img-fluid" alt="32feda64-6756-4f7a-8f15-6c15e231b225" style="zoom:33%;" /></p>
 <p>The lines <span class="math">\(l_1,\dots,l_n\)</span> of a program <span class="math">\(P\)</span> can be executed in this order if <span class="math">\(X_{l_1,\dots,l_n}\)</span>(P) is satisfiable:</p>
 <div class="math">
 \[

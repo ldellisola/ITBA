@@ -1425,7 +1425,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <body>
 <h1 id="redes-de-flujo">Redes de Flujo</h1>
 <p>Las redes de flujos son dígrafos con dos vértices especiales llamados fuente <span class="math">\((f)\)</span> y sumidero <span class="math">\((s)\)</span> tal que el grado de salida de la fuente es mayor a cero y el grado de entrada del sumidero es mayor a cero. Las aristas poseen una capacidad positiva <span class="math">\(cap(e)&gt;0\)</span></p>
-<p><img src="Resources/4e772cbd-8033-459f-a1d7-6d262b0a68ab.png" class="img-fluid" alt="4e772cbd-8033-459f-a1d7-6d262b0a68ab" style="zoom:33%;" /></p>
+<p><img src="Resources/d53379ab-02cf-46e4-a772-4a3272b5fd48.png" class="img-fluid" alt="d53379ab-02cf-46e4-a772-4a3272b5fd48" style="zoom:33%;" /></p>
 <p>El dígrafo debe ser conexo, ya que para que tenga sentido debe existir al menos un camino <span class="math">\(f-s\)</span>.</p>
 <p>El problema a resolver es: <em>Cual es el máximo de elementos que puedo transportar desde la fuente hasta el sumidero?</em></p>
 <p>Esto se resuelve mediante una función llamada <span class="math">\(flujo:E_N \rightarrow\mathbb{N}\)</span>, siendo <span class="math">\(N\)</span> el grafo al cual quiero analizar, y tiene las siguientes características:</p>
@@ -1435,23 +1435,23 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <p>Siendo <span class="math">\(Ent(v)\)</span> las aristas que entran a <span class="math">\(v\)</span> y <span class="math">\(Sal(v)\)</span> las aristas que salen de <span class="math">\(v\)</span>.</p>
 <p>Tengo la siguente red de fujo, donde con verde estan marcadas las capacidades de cada arista.</p>
-<p><img src="Resources/4c4a7534-3f28-469f-8c86-5d6b604321b9.png" class="img-fluid" alt="4c4a7534-3f28-469f-8c86-5d6b604321b9" style="zoom:50%;" /></p>
+<p><img src="Resources/933fcf1e-ec5a-402b-b223-867a47228f43.png" class="img-fluid" alt="933fcf1e-ec5a-402b-b223-867a47228f43" style="zoom:50%;" /></p>
 <p>Para aumentar el flujo de la red debo seguir los siguentes pasos:</p>
 <ol>
 <li><p><span class="math">\(f(e)=0 ~~\forall e \in E_N\)</span></p>
 </li>
 <li><p>Buscamos <span class="math">\(Q\)</span> haciendo un BFS segun el orden lexicografico (marcado en celeste). De esta forma obtenemos Q:</p>
-<p><img src="Resources/eb37ed98-6fe0-4fc4-b9d8-1412eb3d245e.png" class="img-fluid" alt="eb37ed98-6fe0-4fc4-b9d8-1412eb3d245e" style="zoom:33%;" /></p>
+<p><img src="Resources/aec99ed3-2489-40f0-a528-9c15a0015b31.png" class="img-fluid" alt="aec99ed3-2489-40f0-a528-9c15a0015b31" style="zoom:33%;" /></p>
 <p><span class="math">\(\Delta Q=1\)</span></p>
 </li>
 <li><p>Para cada arista de  <span class="math">\(Q\)</span>, asignamos un nuevo flujo igual a la suma del anterior y <span class="math">\(\Delta Q\)</span></p>
-<p><img src="Resources/8f5e6150-1817-4ff6-b25b-192b7ec94d1c.png" class="img-fluid" alt="8f5e6150-1817-4ff6-b25b-192b7ec94d1c" style="zoom:33%;" /></p>
+<p><img src="Resources/d46ebef1-361a-4a2c-a351-919775772e3f.png" class="img-fluid" alt="d46ebef1-361a-4a2c-a351-919775772e3f" style="zoom:33%;" /></p>
 </li>
 <li><p>Repetir el paso 2 hasta que no haya mas <span class="math">\(Q\)</span> de aumento.</p>
 </li>
 </ol>
 <p>Finalmente nos queda el siguente grafo:</p>
-<p><img src="Resources/e447ca3f-223c-4005-ae05-4b21572a3b91.png" class="img-fluid" alt="e447ca3f-223c-4005-ae05-4b21572a3b91" style="zoom:33%;" /></p>
+<p><img src="Resources/50131955-05b9-488f-907f-924abe9f3188.png" class="img-fluid" alt="50131955-05b9-488f-907f-924abe9f3188" style="zoom:33%;" /></p>
 <p>Donde en <span class="math">\(V_f\)</span> ponemos todos los vértices etiquetados y en <span class="math">\(V_s\)</span> quedan los que no.</p>
 <p>Tambien se obtiene que <span class="math">\(K^* = &lt;V_f,V_s&gt;\)</span> es el corte mínimo.</p>
 <p><span class="math">\(val(f^*) = \sum_{\forall i}Q_i = 11= cap(K^*)\)</span></p>
@@ -1470,7 +1470,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </li>
 <li><p><strong>Cuasicamino de Aumento</strong>: Un cuasi camino de aumento es un camino <span class="math">\(f-s\)</span> en el grafo subyacente de la red (no importa el sentido de las aristas), tal que si la arista es directa <span class="math">\(f(e)&lt;cap(e)\)</span> siendo <span class="math">\(\Delta e = cap(e)-f(e)\)</span>.</p>
 <p>Si la arista es inversa <span class="math">\(f(e)&gt;0\)</span> y <span class="math">\(\Delta e = f(e)\)</span>.</p>
-<p><img src="Resources/2993bfdd-9252-4fbc-8811-fb636095edce.png" class="img-fluid" alt="2993bfdd-9252-4fbc-8811-fb636095edce" style="zoom:33%;" /></p>
+<p><img src="Resources/cd3f156a-22cd-4cab-ac48-8b1decdd5f1b.png" class="img-fluid" alt="cd3f156a-22cd-4cab-ac48-8b1decdd5f1b" style="zoom:33%;" /></p>
 $$
 \Delta Q = min_{e \in Q} \{ \Delta e \} = 7
 $$
@@ -1479,7 +1479,7 @@ $$
 <h2 id="proposiciones">Proposiciones</h2>
 <ul>
 <li><p>Dado un corte <span class="math">\(&lt;V_f,V_s&gt;\)</span>, todo camino directo <span class="math">\(f-s\)</span> contiene una arista en el conjunto <span class="math">\(&lt;V_f,V_s&gt;\)</span></p>
-<p><img src="Resources/9264b73f-04ca-4b4d-af4a-32e9adbb8b08.png" class="img-fluid" alt="9264b73f-04ca-4b4d-af4a-32e9adbb8b08" style="zoom:33%;" /></p>
+<p><img src="Resources/d0b835b7-a29e-46a7-a851-00362ad1f618.png" class="img-fluid" alt="d0b835b7-a29e-46a7-a851-00362ad1f618" style="zoom:33%;" /></p>
 <p><span class="math">\(\Rightarrow \exists v_i, v_{i+1}\)</span> en el camino <span class="math">\(/v_i \in V_f \land v_{i+1}\in V_s, (v_i,v_{i+1}) \in &lt;V_f,V_s&gt;\)</span></p>
 </li>
 <li><p><span class="math">\(Val(f) = \sum_{e \in &lt;V_f,V_s&gt; }f(e) = \sum_{e \in &lt;V_s,V_f&gt;} f(e)\)</span> para todo corte <span class="math">\(&lt;V_f,V_s&gt;\)</span> y <span class="math">\(&lt;V_s,V_f&gt;\)</span> en la red.</p>
@@ -1495,13 +1495,13 @@ $$
 \[
 \bigcup_{v \in V_f} Sal(v) = &lt;V_f,V_f&gt; \cup &lt;V_f,V_s&gt; 
 \]</div>
-<p><img src="Resources/d364dd6f-507a-4759-ba28-3cb4026b4e55.png" class="img-fluid" alt="d364dd6f-507a-4759-ba28-3cb4026b4e55" style="zoom:50%;" /></p>
+<p><img src="Resources/e9e6acd9-cb53-4e26-af0d-e837a4f06641.png" class="img-fluid" alt="e9e6acd9-cb53-4e26-af0d-e837a4f06641" style="zoom:50%;" /></p>
 <p>Donde se puede ver que <span class="math">\(&lt;V_f,V_f&gt;=\{e_1,e_3\}\)</span> y que <span class="math">\(&lt;V_f,V_s&gt;=\{e_1,e_4,e_5,e_6,e_7\}\)</span></p>
 <div class="math">
 \[
 \bigcup_{v \in V_f} Ent(v)= &lt;V_f,V_f&gt; \cup &lt;V_s,V_f&gt;
 \]</div>
-<p><img src="Resources/b7e88399-c424-4d61-8b53-9d591da815ae.png" class="img-fluid" alt="b7e88399-c424-4d61-8b53-9d591da815ae" style="zoom:50%;" /></p>
+<p><img src="Resources/8d94a2ce-d389-476d-93b4-d95bb832c2a0.png" class="img-fluid" alt="8d94a2ce-d389-476d-93b4-d95bb832c2a0" style="zoom:50%;" /></p>
 <p>Donde <span class="math">\(&lt;V_f,V_f&gt; = \{e_1,e_3\}\)</span> y <span class="math">\(&lt;V_s,V_f&gt;=\{e_6\}\)</span></p>
 </li>
 </ul>

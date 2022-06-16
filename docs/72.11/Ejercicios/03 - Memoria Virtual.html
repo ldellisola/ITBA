@@ -1571,7 +1571,7 @@ Pagina 7: 0xD73000 -&gt; 0xD73FFF
 <p>Como la memoria actual es de 128 MB, eso implica que la direccion real es de 27 bits. Gracias a esto podemos decir que maximo de pagias asignadas a un proceso es de <code>2^20</code> paginas.</p>
 </li>
 <li><p>¿Qué páginas del proceso estarán en memoria principal en cada momento de su ejecución?</p>
-<p>![image-20200612183434257](Resources/03 - Memoria Virtual/326b4abf-c73c-401e-8fc3-f5289e40f1a5.png)</p>
+<p>![image-20200612183434257](Resources/03 - Memoria Virtual/7ed3e73d-efc3-4a41-9a90-1bba3a02d525.png)</p>
 <p>El algoritmo funciona de la siguiente forma:</p>
 <p>Si tengo que traer una pagina y tengo lugar, la traigo y pongo su bit de referencia en 1.</p>
 <p>Si no tengo lugar, entonces busco de izquierda a derecha y reemplazo la primer pagina que encuentre que tenga un 0 en su bit de referencia. Al resto de los bits de referencia los cambio a 0.</p>
@@ -1605,11 +1605,11 @@ Pagina 7: 0xD73000 -&gt; 0xD73FFF
 </ul>
 <h2 id="section-5">6</h2>
 <p>Un sistema realiza una gestión de memoria virtual mediante paginación por demanda. <u>El tamaño de página es 512 bytes</u>, <u>el espacio lógico de direcciones 8KB</u> y el <u>espacio físico de direcciones 4KB</u>. Suponga que en el sistema se encuentra en memoria un solo proceso y que el contenido de los marcos de página es el siguiente:</p>
-<p><img src="Resources/03 - Memoria Virtual/f0ad78e2-8b2f-4912-8c8c-f98baccbd54f.png" class="img-fluid" alt="f0ad78e2-8b2f-4912-8c8c-f98baccbd54f" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - Memoria Virtual/cdfa9777-e99c-4de9-b7ba-5f248b7955ec.png" class="img-fluid" alt="cdfa9777-e99c-4de9-b7ba-5f248b7955ec" style="zoom:50%;" /></p>
 <p>Asumiendo una política de reemplazo local de páginas mediante el algoritmo óptimo, y dada la siguiente secuencia de direcciones lógicas de acceso a memoria 0x0458, 0x066D, 0x0801, 0x026E, 0x0AD8:</p>
 <ol>
 <li><p>Represente el estado final de la memoria física y de la tabla de páginas del proceso tras la secuencia de accesos a memoria.</p>
-<p>![image-20200612191518392](Resources/03 - Memoria Virtual/8bcedb1e-5a11-4cb0-977c-9ca5e5751eac.png)</p>
+<p>![image-20200612191518392](Resources/03 - Memoria Virtual/cc27cf62-4d3c-47d1-b4eb-b9eef2f3a435.png)</p>
 <p>El algoritmo optimo asume que conoces todo el estado del proceso y todos los accesos a memoria que va a hacer el proceso en su ejecución. Con esta información, a ojo, podes ver que pagina te conviene cambiar en caso de fallo de pagina y que todos los marcos estén ocupados, para que haya la menor cantidad de fallos de paginas posibles.</p>
 </li>
 <li><p>Se tiene un sistema de memoria virtual con paginación a dos niveles que permite agrupar las páginas en “directorios de páginas”. Cada directorio de páginas puede contener hasta 256 páginas. Los espacios de direcciones lógicas de este sistema son de 4Gbytes y el tamaño de página es de 4Kbytes. El espacio de direcciones físicas es de 1Gb. Describa la estructura de las direcciones lógicas y de las direcciones físicas de este sistema de memoria virtual.</p>

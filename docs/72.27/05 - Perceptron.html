@@ -1425,14 +1425,14 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <body>
 <h1 id="perceptron">Perceptron</h1>
 <p>Perceptron trata de obtener, a partir de un dataset, un plano que separe de la mejor forma a todos los puntos de este dataset. Esta información puede ser tanto de una sola dimensión, como multidimensional.</p>
-<p><img src="Resources/Untitled/aec8ec38-b3da-422f-ba9b-1897a7cf3a53.jpg" class="img-fluid" alt="aec8ec38-b3da-422f-ba9b-1897a7cf3a53" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/5bec91b2-2861-4474-9ec3-16b70dfb9344.jpg" class="img-fluid" alt="5bec91b2-2861-4474-9ec3-16b70dfb9344" style="zoom:50%;" /></p>
 <p>Hay varias formas de obtener este plano, una posibilidad seria crear un convexo a partir de los puntos de cada clase y luego tratar la recta más directa entre ambos convexos. Ahora podemos calcular nuestro plano como el cual corta a esa recta de forma perpendicular:</p>
-<p><img src="Resources/Untitled/edd711c2-7bb9-4200-bca1-59f36d1cff81.jpg" class="img-fluid" alt="edd711c2-7bb9-4200-bca1-59f36d1cff81" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/3adf000a-6cbe-4ab9-971b-311115f6b1d2.jpg" class="img-fluid" alt="3adf000a-6cbe-4ab9-971b-311115f6b1d2" style="zoom:50%;" /></p>
 <h2 id="el-hiperplano">El hiperplano</h2>
 <p>Consideremos a nuestro hiperplano representado en su forma normal, con el nombre <span class="math">\(w\)</span>. En <span class="math">\(\mathbb{R}^2\)</span> se representaria como <span class="math">\((w_1,w_2)\)</span>. Sobre el ejemplo anterior, podemos ver como se representa:</p>
-<p><img src="Resources/Untitled/1fcfb840-e44c-44e3-acd3-9552aec54f41.jpg" class="img-fluid" alt="1fcfb840-e44c-44e3-acd3-9552aec54f41" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/a46cdf8f-61f6-4376-b87d-f51b7b1c1e4e.jpg" class="img-fluid" alt="a46cdf8f-61f6-4376-b87d-f51b7b1c1e4e" style="zoom:50%;" /></p>
 <p>A partir de esto, podemos tomar todos los puntos rojos y consideramos el vector que comparte el origen con <span class="math">\(w\)</span> y que llega al punto en cuestión. Luego repetimos lo mismo con los puntos negros:</p>
-<p><img src="Resources/Untitled/72ecdc55-2450-45a8-b174-6d2d65f7a9e4.jpg" class="img-fluid" alt="72ecdc55-2450-45a8-b174-6d2d65f7a9e4" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/e4d2f311-0edf-4139-aa7d-730e925a88b8.jpg" class="img-fluid" alt="e4d2f311-0edf-4139-aa7d-730e925a88b8" style="zoom:50%;" /></p>
 <p>Vemos que la proyección del vector sobre los puntos rojos es positiva, mientras que para los puntos negros es negativa.</p>
 <p>Sabemos que en <span class="math">\(a,b \in \mathbb{R}^n\)</span>, se puede definir al producto interno entre dos vectores es:</p>
 <div class="math">
@@ -1489,7 +1489,7 @@ w_i^{\text{nuevo}} = w_i^{\text{viejo}} + \Delta w_i
 \Delta w_i = \eta (\zeta^\mu-O^\mu) \xi_i^\mu
 \]</div>
 <p>Con esta formula podemos ver como, si <span class="math">\(\zeta^\mu &gt; O^\mu\)</span>, entonces lo que estamos haciendo es mover (al ritmo de <span class="math">\(\eta\)</span>) el vector <span class="math">\(w\)</span> hacia <span class="math">\(\xi^\mu\)</span> y esto provocara que la próxima vez que calculemos el producto interno <span class="math">\(w\xi^\mu\)</span> sera mayor y sera mas probable que <span class="math">\(O^\mu\)</span> sea igual a <span class="math">\(\zeta^\mu\)</span>.</p>
-<p>![Screen Shot 2022-04-17 at 15.38.09](Resources/05 - Perceptron/cc547938-f789-4ff9-99e7-f7b3a73ff973.jpg)</p>
+<p>![Screen Shot 2022-04-17 at 15.38.09](Resources/05 - Perceptron/25bec7fc-cc75-461a-9986-b6c290d5d56d.jpg)</p>
 <p>Por el contratio, si <span class="math">\(\zeta^\mu &lt; O^\mu\)</span>, entonces lo que estamos haciendo es alejar a <span class="math">\(w\)</span> de <span class="math">\(\xi^\mu\)</span>, causando la reacción opuesta.</p>
 <p><mark>DUDA</mark></p>
 <p>En ambos casso es mas probable que <span class="math">\(O^\mu\)</span> Sea igual a <span class="math">\(\zeta^\mu\)</span>??</p>
@@ -1568,9 +1568,9 @@ h^\mu = \sum_{i=0}^N w_i \xi_i^\mu
 \]</div>
 <h2 id="redes-neuronales-artificiales">Redes Neuronales Artificiales</h2>
 <p>El modelo de neurona propuesto inicialmente estaba muy relacionado al modelo natural:</p>
-<p><img src="Resources/Untitled/c04c2f4c-139e-44d1-a6d6-354f1b6d6f9e.jpg" class="img-fluid" alt="Screen Shot 2022-04-12 at 09.55.41" /></p>
+<p><img src="Resources/Untitled/5dba81e5-0c60-4a33-9f3e-41960ff2d51a.jpg" class="img-fluid" alt="Screen Shot 2022-04-12 at 09.55.41" /></p>
 <p>El modelo propuesto fue:</p>
-<p><img src="Resources/Untitled/f0aff88f-9554-48c6-9fc2-8f5e53638062.jpg" class="img-fluid" alt="f0aff88f-9554-48c6-9fc2-8f5e53638062" style="zoom:50%;" /></p>
+<p><img src="Resources/Untitled/4142118d-a647-409b-bf39-5777e4a05845.jpg" class="img-fluid" alt="4142118d-a647-409b-bf39-5777e4a05845" style="zoom:50%;" /></p>
 <p>Formalmente, el modelo de neurona de McCulloch y Pitts es:</p>
 <div class="math">
 \[
@@ -1600,7 +1600,7 @@ O = \theta\left(\sum_{i=1}^n w_i\xi_i - \text{umbral}\right)
 \]</div>
 <h3 id="la-conjetura-de-hebb">La Conjetura de Hebb</h3>
 <p>Las conexiones donde intervienen neuronas cuyo estado de actividad están correlacionados a lo largo del tiempo son reforzadas y este refuerzo depende de la intensidad y periodo de tiempo en que esto a ocurrido:</p>
-<p>![Screen Shot 2022-04-17 at 15.09.18](Resources/05 - Perceptron/35a6add2-1790-49c7-9edd-d07040db36e6.jpg)</p>
+<p>![Screen Shot 2022-04-17 at 15.09.18](Resources/05 - Perceptron/04e69f3b-ebf6-4876-83c9-a155e29461ee.jpg)</p>
 <p>Esta conjetura permitió dar explicaciones a diferentes fenómenos observados en la psicología actual</p>
 
 </body>
