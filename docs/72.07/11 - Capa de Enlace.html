@@ -1433,7 +1433,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><strong>Half-duplex o Full-duplex</strong>: Ambos puntos pueden emitir y recibir. Half-duplex implica que si uno esta emitiendo, el otro no puede emitir. En full-duplex esta limitación no existe.</li>
 </ul>
 <p>Hay dos tipos de comunicaciones a nivel de enlace:</p>
-<p><img src="Resources/11 - Capa de Enlace/67f27f62-9ca7-46c4-8ddc-c9003967a257.jpg" class="img-fluid" alt="67f27f62-9ca7-46c4-8ddc-c9003967a257" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/bf8d86cf-1131-44fa-bd97-6503baaba4a8.jpg" class="img-fluid" alt="bf8d86cf-1131-44fa-bd97-6503baaba4a8" style="zoom:50%;" /></p>
 <h2 id="redes">Redes</h2>
 <h3 id="punto-a-punto">Punto a Punto</h3>
 <p>Estos protocolos son mas simples que los enlaces broadcast. Generalmente son usados para encapsular datagramas IP y no necesitan control de acceso al medio. Dentro de estos protocolos encontramos a:</p>
@@ -1451,14 +1451,14 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <h4 id="time-division-multiple-access-tdma">Time Division Multiple Access (TDMA)</h4>
 <p>Este protocolo es de partición del canal. Cada cliente tiene asignado un tamaño fijo de slot por turno donde puede utilizar el canal. Si el cliente no utiliza su slot, este es desperdiciado.</p>
-<p><img src="Resources/11 - Capa de Enlace/8bae5e7c-5273-4172-83b4-95d51d85309f.jpg" class="img-fluid" alt="8bae5e7c-5273-4172-83b4-95d51d85309f" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/6ff730e9-e0ad-491a-a66f-608e7bc5c32c.jpg" class="img-fluid" alt="6ff730e9-e0ad-491a-a66f-608e7bc5c32c" style="zoom:50%;" /></p>
 <h4 id="polling">Polling</h4>
 <p>Este protocolo se basa en turnos, donde hay un cliente master que controla la conexion del canal. Este nodo master le va preguntando a cada cliente si quiere utilizar el canal y se lo va asignando.</p>
-<p><img src="Resources/11 - Capa de Enlace/bd06c1db-91af-4792-9e60-fc78ef92451e.jpg" class="img-fluid" alt="bd06c1db-91af-4792-9e60-fc78ef92451e" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/d52e4984-cc0b-4030-b906-70fe6ea4a6c1.jpg" class="img-fluid" alt="d52e4984-cc0b-4030-b906-70fe6ea4a6c1" style="zoom:50%;" /></p>
 <p>Este protocolo no tiene colisiones, pero tiene overhead, alta latencia y un único punto de falla.</p>
 <h4 id="token-ring">Token Ring</h4>
 <p>Es otro protocolo de turnos. En este caso se debe conectar a los clientes en forma de anillo y los datos circulan en un solo sentido. Cada nodo recibe un token que lo habilita a transmitir. Se dice que el anillo es compartido pero solo transmite el que recibió el token durante cierto tiempo.</p>
-<p><img src="Resources/11 - Capa de Enlace/8bdcc227-9d9a-427f-9ad2-f2588f7d1c9a.jpg" class="img-fluid" alt="8bdcc227-9d9a-427f-9ad2-f2588f7d1c9a" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/7c3ab8c5-745b-4466-af8d-9ab1680e42c6.jpg" class="img-fluid" alt="7c3ab8c5-745b-4466-af8d-9ab1680e42c6" style="zoom:50%;" /></p>
 <h4 id="csma">CSMA</h4>
 <p>En este protocolo, cada cliente sigue los mismos casos a la hora de enviar in paquete:</p>
 <ol>
@@ -1466,19 +1466,19 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Transmite todos los paquetes.</li>
 <li>Lee el canal para ver si hubo colisiones.</li>
 </ol>
-<p>![img](Resources/11 - Capa de Enlace/5adb6314-fc65-4239-bac4-773dbd6d22ce.png)</p>
+<p>![img](Resources/11 - Capa de Enlace/51bf78ea-6b5b-4ff6-bcd5-d2805a54b85a.png)</p>
 <h4 id="ethernet">Ethernet</h4>
 <p>Es el protocolo mas utilizado en las LANs cableadas y tiene dos topologías principales:</p>
 <ul>
 <li><p><strong>Bus</strong>: Todos los hosts están en la misma linea, conectados a un hub. Hay una gran posibilidad de colisiones. si la red crece se divide en segmentos.</p>
-<p><img src="Resources/11 - Capa de Enlace/505930d5-f3cc-4a83-9bf8-04ba7ba6caa6.jpg" class="img-fluid" alt="505930d5-f3cc-4a83-9bf8-04ba7ba6caa6" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/ee508e11-3495-4816-a3cd-d6e06bdc2a24.jpg" class="img-fluid" alt="ee508e11-3495-4816-a3cd-d6e06bdc2a24" style="zoom:50%;" /></p>
 </li>
 <li><p><strong>Estrella</strong>: Cada host se conecta a un switch, que luego reenvía los paquetes al destino que corresponde, evitando las colisiones. Para realizar esto se basa en la dirección MAC.</p>
-<p><img src="Resources/11 - Capa de Enlace/80b36e90-7d43-4cc7-8882-33373951f3ae.jpg" class="img-fluid" alt="80b36e90-7d43-4cc7-8882-33373951f3ae" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/1bb21db2-0a38-4f3e-bbe1-b51319c87b14.jpg" class="img-fluid" alt="1bb21db2-0a38-4f3e-bbe1-b51319c87b14" style="zoom:50%;" /></p>
 </li>
 </ul>
 <p>Las tramas de ethernet tienen la siguiente forma:</p>
-<p><img src="Resources/11 - Capa de Enlace/953af985-2177-4007-8da3-2efad1426e19.jpg" class="img-fluid" alt="953af985-2177-4007-8da3-2efad1426e19" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/6216d1b8-866b-49e2-bb71-54aab9765a87.jpg" class="img-fluid" alt="6216d1b8-866b-49e2-bb71-54aab9765a87" style="zoom:50%;" /></p>
 <p>Que contiene:</p>
 <ul>
 <li><strong>Preambulo</strong>: son 7 bytes con el patrón <code>10101010</code> y luego un byte con el patrón <code>10101011</code>. Este campo permite sincronizar a los hosts e indica que se esta enviando un nuevo paquete.</li>
@@ -1505,7 +1505,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><p><strong>InARP</strong>: un host conoce la dirección MAC de otro host pero no su IP.</p>
 </li>
 <li><p><strong>Proxy ARP</strong>: Un host responde a un request para otro host. Esto se usa en los routers, cuando se quiere acceder a hosts en otras redes:</p>
-<p><img src="Resources/11 - Capa de Enlace/e0122456-60ab-4d18-a317-65f31d4c6c62.jpg" class="img-fluid" alt="e0122456-60ab-4d18-a317-65f31d4c6c62" style="zoom:50%;" /></p>
+<p><img src="Resources/11 - Capa de Enlace/cb5c6a8b-41ce-4177-b838-31bb1ea55acd.jpg" class="img-fluid" alt="cb5c6a8b-41ce-4177-b838-31bb1ea55acd" style="zoom:50%;" /></p>
 </li>
 </ul>
 <h4 id="arp-spoofing">ARP Spoofing</h4>

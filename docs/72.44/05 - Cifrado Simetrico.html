@@ -1485,11 +1485,11 @@ c_1 \oplus c_2 = m_1 \oplus m_2
 <p>No son <strong>CCA-Secure</strong></p>
 <h2 id="data-encryption-system-des">Data Encryption System (DES)</h2>
 <p>DES funciona a base de un concepto llamado <strong>Cajas de Feistel</strong>. La idea de este metodo de encripcion es partir al mensaje en dos mitades. Se transforma a una mitad con una subclave generada y se intercambias las dos mitades de lugar. Este proceso se repite 16 veces.</p>
-<p><img src="Resources/05 - Cifrado Simetrico/efc63554-7e6c-44ff-9e47-4eb9a18170df.jpg" class="img-fluid" alt="efc63554-7e6c-44ff-9e47-4eb9a18170df" style="zoom:50%;" /></p>
+<p><img src="Resources/05 - Cifrado Simetrico/f49f4855-b700-41d7-a7b6-df351c81e777.jpg" class="img-fluid" alt="f49f4855-b700-41d7-a7b6-df351c81e777" style="zoom:50%;" /></p>
 <p>Para generar las subclaves, se parte a partir de una clave de 64 bits. A esta, por cada byte, se remueve el ultimo bit de paridad y se obtiene una clave de 56 bits. Esta clave de 56 bits es dividida en 2 claves de 28 bits, a partir de las cuales se generaran las subclaves.</p>
 <p>Para cada subclave generada, primero tengo que shiftear los bits de cada clave en un lugar y luego se realiza un proceso de union que genera una clave de 48 bits, utilizada dentro de la caja de Feistel.</p>
 <p>Las cajas de Feistel realizan el siguiente proceso:</p>
-<p><img src="Resources/05 - Cifrado Simetrico/5f1027ce-9a14-479f-858f-523b9c356cdd.jpg" class="img-fluid" alt="5f1027ce-9a14-479f-858f-523b9c356cdd" style="zoom:50%;" /></p>
+<p><img src="Resources/05 - Cifrado Simetrico/69daf316-354d-4519-bb30-5f27d2e60765.jpg" class="img-fluid" alt="69daf316-354d-4519-bb30-5f27d2e60765" style="zoom:50%;" /></p>
 <h3 id="seguridad-2">Seguridad</h3>
 <p>Mientras que DES no esta completamente rotos, la seguridad efectiva paso de ser de <span class="math">\(2^{56}\)</span>, a caer en un ataque que puede romper una clave en cuestion de horas con tan solo <span class="math">\(2^{43}\)</span> Intentos. Por eso se dice que es un criptosistema debilitado.</p>
 <p>Estos ataques son por medio de criptoanalisis lineal y diferencial.</p>
@@ -1505,7 +1505,7 @@ c = \text{Cod}_{k_1}(\text{Dec}_{k_2}(\text{Cod}_{k_3}(m)))
 <p>Es inmune a los ataques realizados sobre DES.</p>
 <h2 id="aes">AES</h2>
 <p>Es el reemplazo oficial de DES. Esta orientado a resolver bloques de 128 bits, con claves de 128, 192 o 256 bits.</p>
-<p><img src="Resources/05 - Cifrado Simetrico/8047478a-0a80-493d-b9df-0e492333b4bc.jpg" class="img-fluid" alt="8047478a-0a80-493d-b9df-0e492333b4bc" style="zoom:50%;" /></p>
+<p><img src="Resources/05 - Cifrado Simetrico/879d4e18-b64d-46fc-bbbc-3591242e7379.jpg" class="img-fluid" alt="879d4e18-b64d-46fc-bbbc-3591242e7379" style="zoom:50%;" /></p>
 <p>Funciona en 4 pasos:</p>
 <ul>
 <li><strong>Byte sub</strong>: realiza una sustitución de valores segun una tabla derivada de invertir una matriz en campo <span class="math">\(GF(2^8)\)</span></li>

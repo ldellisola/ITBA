@@ -1494,7 +1494,7 @@ p_i = V_i - (V^* - V^*_{-i})
 <p>This problem is equivalent to the set packing problem, which is NP-Complete and it cannot be approximated uniformly to a fixed constant. We can solve this issue one of two wats:</p>
 <ul>
 <li><p>Limit to instance where polynomial-time solutions exist. To do this we can relax our requirements and solve the program as a regular linear program, The solution is guaranteed to be integral when the constraints matrix is unimodular. Here are some good examples on when to implement this:</p>
-<p><img src="Resources/12 Combinatorial Auctions/fa415b00-d74d-4d8a-a96c-1853f4daa9a9.png" class="img-fluid" alt="fa415b00-d74d-4d8a-a96c-1853f4daa9a9" style="zoom:33%;" /></p>
+<p><img src="Resources/12 Combinatorial Auctions/cce63740-8e44-430a-ab9c-f42eb564113e.png" class="img-fluid" alt="cce63740-8e44-430a-ab9c-f42eb564113e" style="zoom:33%;" /></p>
 </li>
 <li><p>Use heuristic methods that drop the guarantee of polynomial runtime, optimality, or both. Incomplete methods do not guarantee to find the vest possible solution, but we can be sure that the solution is within <span class="math">\(1/\sqrt k\)</span> of the optimal solution, where <span class="math">\(k\)</span> is the number of goods.</p>
 <p>This methods work well in practice, making it possible to solve large auctions.</p>
@@ -1502,7 +1502,7 @@ p_i = V_i - (V^* - V^*_{-i})
 </ul>
 <h2 id="bid-representation">Bid Representation</h2>
 <p>We have another problem, how do we encode the bid in a succinct (polynomial-size) form? Here there is a debate between expressivity and conciseness.</p>
-<p><img src="Resources/12 Combinatorial Auctions/a2d1bea3-6f43-446e-a461-21d7d1e2e42d.png" class="img-fluid" alt="a2d1bea3-6f43-446e-a461-21d7d1e2e42d" style="zoom:33%;" /></p>
+<p><img src="Resources/12 Combinatorial Auctions/a455740e-2ec5-4a7e-8a52-1cd2fce8478a.png" class="img-fluid" alt="a455740e-2ec5-4a7e-8a52-1cd2fce8478a" style="zoom:33%;" /></p>
 <h3 id="atomic-bids">Atomic Bids</h3>
 <p>In this case the bidders only bid for one particular subset of goods. An atomic bid is a pair <span class="math">\((S,p)\)</span> indicating that the agent is willing to pay price <span class="math">\(p\)</span> for the subset of goods <span class="math">\(S\)</span>. This representation has very limited expressive power and is not even even a basic additive valuation can be represented.</p>
 <h3 id="or-bids">OR Bids</h3>

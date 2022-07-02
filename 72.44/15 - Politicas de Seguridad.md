@@ -198,7 +198,7 @@ Representa el camino que puede seguir la informacion para llegar desde un objeto
 
 <img src="Resources/15 - Politicas de Seguridad/Screen Shot 2022-05-05 at 17.53.13.jpg" alt="Screen Shot 2022-05-05 at 17.53.13" style="zoom:50%;" />
 
-## Modelo de la Pared China
+## Modelo de la Muralla China
 
 Es un modelo hibrido que toma en cuenta la confidencialidad como la integridad. Se concentra en el problema de conflictos de interes, utilizado mayormente en ámbitos financieros y judiciales. Algunos ejemplos de esto es:
 

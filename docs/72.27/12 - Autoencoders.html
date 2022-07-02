@@ -1438,10 +1438,10 @@ x' =g(z) = h(z \times v + p)
 \[
 L(x,x') = ||x-x'||^2
 \]</div>
-<p><img src="Resources/12 - Autoencoders/d73d7d13-fb45-482f-b4cf-423f9e302a14.jpg" class="img-fluid" alt="d73d7d13-fb45-482f-b4cf-423f9e302a14" style="zoom:50%;" /></p>
+<p><img src="Resources/12 - Autoencoders/74bfe0a5-25be-4a3f-ab0c-2715bdc9e46b.jpg" class="img-fluid" alt="74bfe0a5-25be-4a3f-ab0c-2715bdc9e46b" style="zoom:50%;" /></p>
 <p>La idea es que se puede agregar restricciones que fuercen al autoencoder a aprender algo útil de la distribución del set de datos. Naturalmente, estas redes presentan una arquitectura que fuerza a las capas centrales a tener menos neuronas. Esto fuerza a encontrar una codificación más eficiente.</p>
 <h2 id="autoencoder-lineal">Autoencoder Lineal</h2>
-<p><img src="Resources/12 - Autoencoders/e32ad7c5-4dad-41ac-a11c-f40b80c73f66.jpg" class="img-fluid" alt="e32ad7c5-4dad-41ac-a11c-f40b80c73f66" style="zoom:50%;" /></p>
+<p><img src="Resources/12 - Autoencoders/49695596-f642-4280-a1e6-32c71f40eb45.jpg" class="img-fluid" alt="49695596-f642-4280-a1e6-32c71f40eb45" style="zoom:50%;" /></p>
 <p>Una vez que el autoencoder aprende, minimiza:</p>
 <div class="math">
 \[
@@ -1513,7 +1513,7 @@ J = L + \lambda R = \min_\phi \frac 1 N ||Y - X\phi|| + \lambda ||f(\phi)||
 <p>Esto evita las soluciones complejas o extremas en un problema de optimización. El parámetro de regularización <span class="math">\(\lambda\)</span> se usa para ajustar la importancia que se le da al termino regulador ( $ \lambda ||f(\phi)||$ ).</p>
 <h2 id="contractive-autoencoder">Contractive Autoencoder</h2>
 <p>Los CAE agregan un termino regularizador a las funciones de costo, que le resta sensibilidad a la entrada, intentando de aprender representaciones más simples y crudas de los datos. Esto sirve, por ejemplo, para reducir la dimensionalidad de los datos.</p>
-<p><img src="Resources/12 - Autoencoders/b4811ee5-1f4b-4dad-ba73-861b68d2cc04.jpg" class="img-fluid" alt="b4811ee5-1f4b-4dad-ba73-861b68d2cc04" style="zoom:50%;" /></p>
+<p><img src="Resources/12 - Autoencoders/f9f3b679-d998-4c34-aac1-354a025d4f79.jpg" class="img-fluid" alt="f9f3b679-d998-4c34-aac1-354a025d4f79" style="zoom:50%;" /></p>
 <h2 id="sparse-autoencoder">Sparse Autoencoder</h2>
 <p>Los SAE utilizan una arquitectura donde <strong>el espacio latente tiene más dimensiones que la entrada</strong>. También imponen condiciones regularizadoras, pero para adquirir información sobre la estructura. Estos métodos suelen favorecer la presencia de esparcidad.</p>
 <p>Este tipo de autoencoder se puede utilizar para realizar Feature Learning, es decir, identificar características en los datos.</p>
@@ -1550,11 +1550,11 @@ J = L + \lambda R = \min_\phi \frac 1 N ||Y - X\phi|| + \lambda ||f(\phi)||
 <li>Una estimación variacional de un modelo generativo</li>
 <li>Una solución a esa estimación basada en dos redes neuronales feedforward acopladas.</li>
 </ul>
-<p><img src="Resources/12 - Autoencoders/193306a0-b70e-4b94-9450-05a058df34b3.jpg" class="img-fluid" alt="193306a0-b70e-4b94-9450-05a058df34b3" style="zoom:50%;" /></p>
+<p><img src="Resources/12 - Autoencoders/c1566ede-24e2-4c30-b172-061f43239ad9.jpg" class="img-fluid" alt="c1566ede-24e2-4c30-b172-061f43239ad9" style="zoom:50%;" /></p>
 <p>La idea es tomar un valor <span class="math">\(x\)</span>  y lo ponemos como entrada de la red. Con este valor obtenemos luego <span class="math">\(\Sigma, \mu\)</span> . Luego realizamos un sampleamos un <span class="math">\(z\)</span> de <span class="math">\(p(z)= N(0,I)\)</span> . Con este valor podemos decodificarlo y obtener <span class="math">\(\hat x\)</span> .</p>
 <p>Entrenamos al autoencoder para que minimice <span class="math">\(L\)</span> actualizando los primeros pesos del decoder, luego pasando por la función <span class="math">\(h(x)\)</span> y de ahí retropropagando el error obtenido en <span class="math">\(\mu,\Sigma\)</span> hacia los pesos del encoder.</p>
 <p>El <strong>parametrization trick</strong> de la capa estocástica de la red permite retropropagar el error manejando esa capa que tiene una entrada que es una variable aleatoria:</p>
-<p><img src="Resources/12 - Autoencoders/cdeeb0e0-19b2-4a67-9a04-8291c7b49cdc.jpg" class="img-fluid" alt="cdeeb0e0-19b2-4a67-9a04-8291c7b49cdc" style="zoom:50%;" /></p>
+<p><img src="Resources/12 - Autoencoders/7043f76d-4ea2-4f5f-99ed-3145af30f815.jpg" class="img-fluid" alt="7043f76d-4ea2-4f5f-99ed-3145af30f815" style="zoom:50%;" /></p>
 <h3 id="redes-bayesianas">Redes Bayesianas</h3>
 <p>El teorema de Bayes nos permite calcular una probabilidad condicional en base a su probabilidad conjugada. Con esto se puede construir un clasificador simple, basado en evaluar esa probabilidad condicional. Entonces cuando se realiza una observación, se puede clasificar.</p>
 <h3 id="inferencia">Inferencia</h3>

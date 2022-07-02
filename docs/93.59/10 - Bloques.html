@@ -1426,9 +1426,9 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h1 id="bloque-de-un-grafo">Bloque de un Grafo <span class="math">\(G\)</span></h1>
 <p>Un bloque de un grafo <span class="math">\(G\)</span> es un subgrafo de <span class="math">\(G\)</span> conexo máxima sin vértices de corte en el subgrafo.</p>
 <p>Por ejemplo, si <span class="math">\(G\)</span> es</p>
-<p><img src="Resources/356cc1cb-bff2-4260-90dc-c3fbb18d39c2.png" class="img-fluid" alt="356cc1cb-bff2-4260-90dc-c3fbb18d39c2" style="zoom:33%;" /></p>
+<p><img src="Resources/591d0f64-da26-425a-9a2b-4fb258d4fe9e.png" class="img-fluid" alt="591d0f64-da26-425a-9a2b-4fb258d4fe9e" style="zoom:33%;" /></p>
 <p>Los bloques de <span class="math">\(G\)</span> son</p>
-<p><img src="Resources/340a88be-dbfb-4aa9-b467-6337117fee9e.png" class="img-fluid" alt="340a88be-dbfb-4aa9-b467-6337117fee9e" style="zoom:33%;" /></p>
+<p><img src="Resources/fa9fc665-3502-488d-80cb-8634b121f5fb.png" class="img-fluid" alt="fa9fc665-3502-488d-80cb-8634b121f5fb" style="zoom:33%;" /></p>
 <h3 id="observaciones">Observaciones</h3>
 <ol>
 <li><p>Los bloques de un grafo <span class="math">\(G\)</span> son vértices aislados, dipolos o grafos <span class="math">\(2-conexos\)</span>.</p>
@@ -1438,7 +1438,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><p>Si <span class="math">\(v \in B_i \land u \in B_j ~~(i\neq j)\)</span> y ni <span class="math">\(v\)</span> ni <span class="math">\(u\)</span> son vértices de corte <span class="math">\(\Rightarrow v\)</span> no es adyacente a <span class="math">\(u\)</span> en <span class="math">\(G\)</span>.</p>
 </li>
 <li><p>Dos vértices distintos <span class="math">\(u,v\)</span> no pueden pertenecer ambos a dos bloques distintos, sino <span class="math">\(B_i \cup B_j\)</span> seria un bloque solo.</p>
-<p><img src="Resources/ddf01311-2cef-41af-b744-0753d86cd218.png" class="img-fluid" alt="ddf01311-2cef-41af-b744-0753d86cd218" style="zoom:33%;" /></p>
+<p><img src="Resources/745cc4b3-7b51-459c-ad24-50b9df687ae5.png" class="img-fluid" alt="745cc4b3-7b51-459c-ad24-50b9df687ae5" style="zoom:33%;" /></p>
 </li>
 <li><p>Para analizar la planaridad de un grafo <span class="math">\(G\)</span>, analizamos a cada uno de sus bloques <span class="math">\(2-conexos\)</span>. Si todos sus bloques <span class="math">\(2-conexos\)</span> son planos, entonces <span class="math">\(G\)</span> es plano.</p>
 </li>
@@ -1446,11 +1446,11 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="grafo-bloque-de">Grafo Bloque de <span class="math">\(G\)</span></h2>
 <p>El grafo bloque de <span class="math">\(G\)</span> tiene un vértice para cada bloque de <span class="math">\(G\)</span> y las aristas entre bloques indican que dichos bloques tienen un vértice en común. Indican como se conectan los bloques de un mismo grafo.</p>
 <p>Siguiendo con el ejemplo anterior:</p>
-<p><img src="Resources/de4a2ab1-b853-40ff-b0d6-acf266dd0fe0.png" class="img-fluid" alt="de4a2ab1-b853-40ff-b0d6-acf266dd0fe0" style="zoom:50%;" /></p>
+<p><img src="Resources/e182ab06-5d90-4491-88b2-254bdda44570.png" class="img-fluid" alt="e182ab06-5d90-4491-88b2-254bdda44570" style="zoom:50%;" /></p>
 <h2 id="bloque-hoja">Bloque Hoja</h2>
 <p>Se llama bloque hoja en un grafo bloque al bloque que es un vértice colgante, o solo tienen en común con otro bloque un vértice de corte.</p>
 <p>Por ejemplo, en este caso los bloques <span class="math">\(B_1\)</span> y <span class="math">\(B_3\)</span> son hoja:</p>
-<p><img src="Resources/b2ff56bc-76ef-4a04-8704-a4c0e26a69af.png" class="img-fluid" alt="b2ff56bc-76ef-4a04-8704-a4c0e26a69af" style="zoom:33%;" /></p>
+<p><img src="Resources/c940394d-405e-4b2f-a1a9-dd190eb994e3.png" class="img-fluid" alt="c940394d-405e-4b2f-a1a9-dd190eb994e3" style="zoom:33%;" /></p>
 <h1 id="aristas-inseparables">Aristas Inseparables</h1>
 <p>Sea un grafo <span class="math">\(G\)</span> y <span class="math">\(H\subset G\)</span> un subgrafo de <span class="math">\(G\)</span>.</p>
 <p>Definimos la siguiente relación entre las aristas de <span class="math">\(G\)</span> y las que no están en <span class="math">\(H\)</span>:</p>
@@ -1458,16 +1458,16 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Decimos en ese caso que <span class="math">\(e_i\)</span> es inseparable de <span class="math">\(e_j\)</span>.</p>
 <p>Podemos probar que <span class="math">\(R\)</span> es una relación de equivalencia y llamar a cada clase <em><u>apéndice</u></em>.</p>
 <p>Si tomamos como ejemplo al siguiente grafo:</p>
-<p><img src="Resources/bdbc0e24-ae8f-474b-850e-60b21f5d68af.png" class="img-fluid" alt="bdbc0e24-ae8f-474b-850e-60b21f5d68af" style="zoom:50%;" /></p>
+<p><img src="Resources/a5dfcf84-1abc-414c-91ec-f3492e5620dd.png" class="img-fluid" alt="a5dfcf84-1abc-414c-91ec-f3492e5620dd" style="zoom:50%;" /></p>
 <p>Los vértices pintados en color rojo y las aristas de color negro forman al subgrafo <span class="math">\(H\)</span>. Podemos ver que tenemos distintos apéndices, marcados cada uno con un color distinto, exceptuando a las aristas con color negro.</p>
 <h2 id="punto-de-contacto">Punto de Contacto</h2>
 <p>Un vértice <span class="math">\(v\)</span> es un punto de contacto de un apéndice si <span class="math">\(v \in\)</span> al apéndice y <span class="math">\(in V_H\)</span>.</p>
 <h2 id="superposicion">Superposición</h2>
 <p>Dos puntos de contacto están superpuestos si tienen 3 vértices de contacto en común o dos vértices de contacto de uno de los apéndices alterna con dos puntos de contacto del otro.</p>
 <p>Superposición por <span class="math">\(3\)</span> vértices de contacto:</p>
-<p><img src="Resources/64d9618f-0bcf-473d-a62a-e754288d69b6.png" class="img-fluid" alt="64d9618f-0bcf-473d-a62a-e754288d69b6" style="zoom:33%;" /></p>
+<p><img src="Resources/ae198890-f3ea-4da4-872a-44a093b3b0f0.png" class="img-fluid" alt="ae198890-f3ea-4da4-872a-44a093b3b0f0" style="zoom:33%;" /></p>
 <p>Superposición por 2 vértices alternados:</p>
-<p><img src="Resources/4287098e-4a4f-4295-931b-5e15381c7836.png" class="img-fluid" alt="4287098e-4a4f-4295-931b-5e15381c7836" style="zoom:33%;" /></p>
+<p><img src="Resources/f2e8274a-1bf1-45b6-b722-e3d0cdd6d6b3.png" class="img-fluid" alt="f2e8274a-1bf1-45b6-b722-e3d0cdd6d6b3" style="zoom:33%;" /></p>
 <h3 id="observacion">Observación</h3>
 <ol>
 <li>Sea <span class="math">\(G\)</span> un grafo y <span class="math">\(H \subset G\)</span>, <span class="math">\(H\)</span> ciclo, entonces <span class="math">\(2\)</span> apéndices superpuestos no pueden dibujarse ambos en la misma región (interior a <span class="math">\(H\)</span> o región infinita).</li>
@@ -1508,13 +1508,13 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ol>
 <h3 id="ejemplo">Ejemplo</h3>
 <p>Sea <span class="math">\(G_1\)</span></p>
-<p><img src="Resources/dd31d870-6cb1-4c3e-89fd-54f0419c4d26.png" class="img-fluid" alt="dd31d870-6cb1-4c3e-89fd-54f0419c4d26" style="zoom:33%;" /></p>
+<p><img src="Resources/cb9d2a6d-c15e-4b86-ad1a-d7b41ab231e8.png" class="img-fluid" alt="cb9d2a6d-c15e-4b86-ad1a-d7b41ab231e8" style="zoom:33%;" /></p>
 <p>Elijo <span class="math">\(H_1\)</span> y lo pinto de azul:</p>
-<p><img src="Resources/93c5f167-62ab-4fd7-86b6-13d464dc83b8.png" class="img-fluid" alt="93c5f167-62ab-4fd7-86b6-13d464dc83b8" style="zoom:33%;" /></p>
+<p><img src="Resources/4af88281-7d98-433a-a46d-2227594015d4.png" class="img-fluid" alt="4af88281-7d98-433a-a46d-2227594015d4" style="zoom:33%;" /></p>
 <p>Veo que tengo los siguientes apéndices:</p>
-<p><img src="Resources/3e5099e1-b495-4d58-82be-cf0df93c774f.png" class="img-fluid" alt="3e5099e1-b495-4d58-82be-cf0df93c774f" style="zoom:33%;" /></p>
+<p><img src="Resources/0e027c2e-188b-4213-993e-5ebbb3e52767.png" class="img-fluid" alt="0e027c2e-188b-4213-993e-5ebbb3e52767" style="zoom:33%;" /></p>
 <p>Agrego el camino <span class="math">\(&lt;v_1,e_9,v_7,e_6,v_8,e_{11},v_3&gt;\)</span> a <span class="math">\(H_1\)</span></p>
-<p><img src="Resources/6c0f6e4c-32a2-4cfe-8267-85c61a34931a.png" class="img-fluid" alt="6c0f6e4c-32a2-4cfe-8267-85c61a34931a" style="zoom:33%;" /></p>
+<p><img src="Resources/e08ddec5-5cd5-4d84-ad97-cd40c5eca745.png" class="img-fluid" alt="e08ddec5-5cd5-4d84-ad97-cd40c5eca745" style="zoom:33%;" /></p>
 
 </body>
 
