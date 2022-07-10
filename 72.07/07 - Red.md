@@ -20,8 +20,8 @@ Los protocolos de red mas conocidos son:
 
 Ademas, los protocolos de red pueden ofrecer:
 
-- **Conmutación de paquetes**: Garantiza el delivery ademas de asegurar un delay mínimo.
-- **Flujo de datagramas (circuito virtual)**: Entrega los datagramas en orden y provee un ancho de banda mínimo.
+- **Conmutación de paquetes (datagrama)**: Garantiza el delivery.
+- **Circuito virtual**: Entrega los datagramas en orden y provee un ancho de banda mínimo.
 - **Ambos**: Integridad de datos, encriptación, etc.
 
 <img src="Resources/07 - Red/Screen Shot 2022-05-13 at 17.15.13.jpg" alt="Screen Shot 2022-05-13 at 17.15.13" style="zoom:50%;" />
