@@ -9,7 +9,7 @@ La responsabilidad de una obligación responde a la pregunta:
 La responsabilidad tiene 3 funciones:
 
 - **Preventiva**: Evita o redice el daño. Si alguien se entera de un daño a pasar y tiene una relación causal, entonces un juez puede intervenir. Puede ser imputable, pero no es necesario. Para poder iniciar esta función se debe cumplir con los siguientes presupuestos:
-  - **Autoría**: Puede consistir en un echo o una omisión de quien tiene a su cargo un deber de prevención del daño.
+  - **Autoría**: Puede consistir en un hecho o una omisión de quien tiene a su cargo un deber de prevención del daño.
   - **Antijuridicidad**: Violación al deber de prevención.
   - **Causalidad**: La amenaza de que se provoque un daño debe poder ser previsible.
 

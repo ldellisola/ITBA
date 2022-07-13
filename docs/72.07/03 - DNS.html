@@ -1425,11 +1425,11 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <body>
 <h1 id="domain-name-system">Domain Name System</h1>
 <p>DNS es un sistema jerárquico distribuido para traducir nombres de hosts a direcciones IP. La información en DNS puede ser vista como un árbol invertido donde la raid hace referencia a los servidores de nombre de raíz.</p>
-<p><img src="Resources/03 - DNS/0a377f3e-f493-4f97-b1ae-1deb402d741e.jpg" class="img-fluid" alt="0a377f3e-f493-4f97-b1ae-1deb402d741e" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/5ae9c636-f2c6-47cf-955c-9c8f76542dce.jpg" class="img-fluid" alt="5ae9c636-f2c6-47cf-955c-9c8f76542dce" style="zoom:50%;" /></p>
 <h2 id="dominios">Dominios</h2>
 <p>Un <strong>dominio</strong> es una colección de computadoras que pueden ser acedadas usando un nombre en común, llamado <strong>nombre de dominio</strong>. Los dominios tiene distintos niveles, siendo <strong>.com</strong> el dominio <em>top-level</em> más conocido.</p>
 <p>Dentro de un dominio <em>top-level</em>, una organización tiene su propio dominio o dominios. A si vez, dentro de estos pueden existir sub-dominios y cada host tiene su propio nombre (<strong>hostname</strong>). Uniendo este hostname con el dominio, se puede crear al <strong>fully qualified domain name (FQDN)</strong>.</p>
-<p><img src="Resources/03 - DNS/da452c2e-f1d0-46cc-a479-e8019ab1c30b.jpg" class="img-fluid" alt="da452c2e-f1d0-46cc-a479-e8019ab1c30b" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/43a0fb5e-c2a6-4a27-b55b-c1ad59a52350.jpg" class="img-fluid" alt="43a0fb5e-c2a6-4a27-b55b-c1ad59a52350" style="zoom:50%;" /></p>
 <h2 id="resolucion-de-nombres">Resolución de Nombres</h2>
 <p>El objetivo para las computadoras es, a partir de un FQDN, obtener una ip a la cual conectarse. Para realizar esta conversion tiene que pasar por varias etapas:</p>
 <ol>
@@ -1466,7 +1466,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="consultas">Consultas</h2>
 <p>Las consultas a los servidores DNS se realizan de manera recursiva. Si el servidor al cual le solicito el servicio no conoce la IP asignada a este FQDN, este suele redirigirlo al cliente a otro servicio que pueda tener esta información.</p>
 <p>También existe el caso de que estos servidores tengan en cache la entrada de este FQDN, aunque este registro no les pertenezca. En estos casos, el servidor devuelve la IP solicitada.</p>
-<p><img src="Resources/03 - DNS/6bc0559a-2710-48b2-ba3d-cfba27795e4f.jpg" class="img-fluid" alt="6bc0559a-2710-48b2-ba3d-cfba27795e4f" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/4ce4f089-1cc3-421d-a483-e2133190fa98.jpg" class="img-fluid" alt="4ce4f089-1cc3-421d-a483-e2133190fa98" style="zoom:50%;" /></p>
 <h3 id="cache">Cache</h3>
 <p>Una vez que el servidor de nombres aprende el mapeo de un FQDN y una IP, lo guarda en la cache, que va a expirar en un tiempo determinado (TTL). Este proceso se usa generalmente desde los servidores de nombre, que cachean las direcciones de los servidores <em>top-level domain</em>, por lo que los root servers no suele visitarse.</p>
 <h2 id="tipos-de-servidores-dns">Tipos de Servidores DNS</h2>
@@ -1665,28 +1665,28 @@ created:	2021-10-07 12:15:57.842063
 </ul>
 <h2 id="dns-dinamico">DNS Dinamico</h2>
 <p>Existe un protocolo llamado DDNS que permite registrar FQDN a dispositivos con IPs dinámicas, es decir, que cambian con el tiempo. Este protocolo permite que una computadora cliente conectada a la red con IP dinámica le vaya avisando al servidor DNS de su IP de forma regular:</p>
-<p><img src="Resources/03 - DNS/b4630771-9908-482c-9a68-251a1aaa3134.jpg" class="img-fluid" alt="b4630771-9908-482c-9a68-251a1aaa3134" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/da33c88f-caa8-4104-a578-5ec303aba870.jpg" class="img-fluid" alt="da33c88f-caa8-4104-a578-5ec303aba870" style="zoom:50%;" /></p>
 <p>En estos casos, el TTL de los registros DNS sera muy bajo, con valores de 1 minuto para poder tener siempre al día al IP de nuestra maquina.</p>
 <h2 id="dns-spoofing">DNS Spoofing</h2>
 <p>DNS Spoofing es un proceso para hacer que un registro DNS apunte a una dirección IP que no debería.</p>
-<p><img src="Resources/03 - DNS/17d4ce7c-3890-4746-83b6-7257f57fd026.jpg" class="img-fluid" alt="17d4ce7c-3890-4746-83b6-7257f57fd026" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/5673189d-9486-469d-bcd2-b3109ee37e8c.jpg" class="img-fluid" alt="5673189d-9486-469d-bcd2-b3109ee37e8c" style="zoom:50%;" /></p>
 <p>Hay varias formas de hacer esto:</p>
 <ul>
 <li><p>Un servidor malicioso puede enviarle al servidor DNS una IP con su FQDN sin que el servidor DNS haya preguntado por ella</p>
-<p><img src="Resources/03 - DNS/d1195bb1-3a5b-4809-bd5c-e8c1a5c460b7.jpg" class="img-fluid" alt="d1195bb1-3a5b-4809-bd5c-e8c1a5c460b7" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/47a19ba3-e5be-4cac-8e4c-d66939420427.jpg" class="img-fluid" alt="47a19ba3-e5be-4cac-8e4c-d66939420427" style="zoom:50%;" /></p>
 <p>Para evitar esto se debe verificar que la respuesta corresponda con alguna query, así como también verificar su ID y que el origen sea confiable.</p>
 </li>
 <li><p><strong>DNS Spoofing</strong>: Se puede realizar un ataque Man-In-The-Middle, donde una computadora maliciosa obtiene el trafico de la computadora víctima. Cuando esta computadora realiza una query DNS, el atacante envia una respuesta falsa con el mismo ID que la query.</p>
-<p><img src="Resources/03 - DNS/fc03a1c0-ac5b-42c8-bbd0-95c2caed3886.jpg" class="img-fluid" alt="fc03a1c0-ac5b-42c8-bbd0-95c2caed3886" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/4bde096e-4376-4081-b0e0-bc7ca6f9d99b.jpg" class="img-fluid" alt="4bde096e-4376-4081-b0e0-bc7ca6f9d99b" style="zoom:50%;" /></p>
 </li>
 <li><p><strong>DNS Cache Poisoning</strong>: Este ataque consiste en insertar un registro invalido en el cache de un servidor DNS, para que luego se lo sirva a todos los clientes.</p>
 <p>La idea es simple, se arma un servidor DNS con un dominio especifico, luego con una query se le pregunta al servidor víctima sobre la IP de este FQDN. El servidor víctima le va a preguntar al Servidor DNS malicioso y este le va a responder con varios registros, empezando con el que pidió el servidor víctima y luego inyectando los registros inválidos.</p>
-<p><img src="Resources/03 - DNS/ebdbfbc5-7544-4ac3-966b-ade2a81602ce.jpg" class="img-fluid" alt="ebdbfbc5-7544-4ac3-966b-ade2a81602ce" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/823f30f1-a41e-4a85-9758-95cdc781369b.jpg" class="img-fluid" alt="823f30f1-a41e-4a85-9758-95cdc781369b" style="zoom:50%;" /></p>
 </li>
 </ul>
 <h2 id="formato-de-los-mensajes">Formato de los Mensajes</h2>
 <p>Los mensajes DNS se envían a través de UDP y tiene el siguiente header</p>
-<p><img src="Resources/03 - DNS/f3531626-0bdc-4f91-a431-98595660086a.jpg" class="img-fluid" alt="f3531626-0bdc-4f91-a431-98595660086a" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/55911cd5-7d97-4a62-8e0e-01d176874d91.jpg" class="img-fluid" alt="55911cd5-7d97-4a62-8e0e-01d176874d91" style="zoom:50%;" /></p>
 <p>Donde el opcode significa:</p>
 <ul>
 <li><code>0</code>: Consulta estándar.</li>
@@ -1711,7 +1711,7 @@ created:	2021-10-07 12:15:57.842063
 <li><code>R</code>: Indica si hay recursión disponible.</li>
 </ul>
 <p>Luego tenemos el mensaje de pregunta, que ademas de estos headers tiene:</p>
-<p><img src="Resources/03 - DNS/c4af7f9c-b18a-4872-b10f-99e310834eb4.jpg" class="img-fluid" alt="c4af7f9c-b18a-4872-b10f-99e310834eb4" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/ceee0799-02ba-45f1-aea2-fc908dbc9415.jpg" class="img-fluid" alt="ceee0799-02ba-45f1-aea2-fc908dbc9415" style="zoom:50%;" /></p>
 <p>Con el tipo de pregunta:</p>
 <ul>
 <li><code>1</code>: host.</li>
@@ -1722,7 +1722,7 @@ created:	2021-10-07 12:15:57.842063
 <li>…</li>
 </ul>
 <p>Luego, la respuesta tiene la siguiente estructura:</p>
-<p><img src="Resources/03 - DNS/432fecb2-e4d0-4bda-8633-d161b401173c.jpg" class="img-fluid" alt="432fecb2-e4d0-4bda-8633-d161b401173c" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - DNS/da008e2f-2018-440e-b44a-0e1836a66c01.jpg" class="img-fluid" alt="da008e2f-2018-440e-b44a-0e1836a66c01" style="zoom:50%;" /></p>
 
 </body>
 

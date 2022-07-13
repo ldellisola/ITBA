@@ -1449,13 +1449,13 @@ S(i,j) =\sum_m\sum_n l(i-m,j-n) \times K(m,n)
 <p>La operación de filtrado básica  en visión por computadora es mediante la aplicación de una operación de convolución con diferentes kernels ( <span class="math">\(K()\)</span> ) de convolución.</p>
 <h2 id="cnn">CNN</h2>
 <p>En el análisis de imágenes, es necesario aplicar filtros a las imágenes para resaltar ciertas características, como detectar bordes horizontales y verticales. Estos filtros son las distintas funciones de kernel.</p>
-<p><img src="Resources/13 - Redes Neuronales Convolucionales/af69f6cf-a5ba-461f-8ac9-63252045a4cc.jpg" class="img-fluid" alt="af69f6cf-a5ba-461f-8ac9-63252045a4cc" style="zoom:50%;" /></p>
+<p><img src="Resources/13 - Redes Neuronales Convolucionales/32cac88d-e63f-4c56-abff-d7a86418bafd.jpg" class="img-fluid" alt="32cac88d-e63f-4c56-abff-d7a86418bafd" style="zoom:50%;" /></p>
 <p>La idea es modificar un perceptron multicapa de forma que realice una operación de convolución, de una capa a la otra.</p>
-<p><img src="Resources/13 - Redes Neuronales Convolucionales/195ba0d0-4356-4d13-9fd9-7088e6d28d0e.jpg" class="img-fluid" alt="195ba0d0-4356-4d13-9fd9-7088e6d28d0e" style="zoom:50%;" /></p>
+<p><img src="Resources/13 - Redes Neuronales Convolucionales/b230aee2-81be-416f-b6e9-41ad606f11d7.jpg" class="img-fluid" alt="b230aee2-81be-416f-b6e9-41ad606f11d7" style="zoom:50%;" /></p>
 <h3 id="capas">Capas</h3>
 <ul>
 <li><p><strong>Pooling</strong>: Es similar a un downsampling. La version más usada es <strong>MaxPooling</strong>, que reduce una region de <span class="math">\(2\times 2\)</span> a su valor máximo.</p>
-<p><img src="Resources/13 - Redes Neuronales Convolucionales/b84a20f4-0d0d-44df-8291-9f8ed5558e7a.jpg" class="img-fluid" alt="b84a20f4-0d0d-44df-8291-9f8ed5558e7a" style="zoom:50%;" /></p>
+<p><img src="Resources/13 - Redes Neuronales Convolucionales/dbe4a797-8e5e-4967-90af-6e5fa83b42da.jpg" class="img-fluid" alt="dbe4a797-8e5e-4967-90af-6e5fa83b42da" style="zoom:50%;" /></p>
 </li>
 <li><p><strong>Fully Connected Layer</strong>: Al final de la red hay una o más capas que se encargan de hacer la clasificación final. Para hacer esto se suele utilizar softmax:</p>
 <div class="math">
@@ -1479,7 +1479,7 @@ S(i,j) =\sum_m\sum_n l(i-m,j-n) \times K(m,n)
 <p>Las diferentes combinaciones de capas de convolución, reLU, pooling y fully connected nos permiten armar arquitecturas profundas y complejas que intentan de solucionar diferentes problemas.</p>
 <h2 id="aplicaciones">Aplicaciones</h2>
 <p>Dependiendo de la dimension de una CNN y si es de un solo canal o de varios canales, podemos definir aplicaciones especificas:</p>
-<p><img src="Resources/13 - Redes Neuronales Convolucionales/c99d5124-a8bf-471b-ae4b-bf1d7b8dec14.jpg" class="img-fluid" alt="c99d5124-a8bf-471b-ae4b-bf1d7b8dec14" style="zoom:50%;" /></p>
+<p><img src="Resources/13 - Redes Neuronales Convolucionales/ad6d4e68-5cd3-47f1-b0d7-ca56305145a3.jpg" class="img-fluid" alt="ad6d4e68-5cd3-47f1-b0d7-ca56305145a3" style="zoom:50%;" /></p>
 
 </body>
 

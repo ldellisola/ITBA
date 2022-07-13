@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>19 - Vunerabilidades.md</title>
+    <title>18 - Aseguramiento y Seguridad.md</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -1423,13 +1423,100 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="vulnerabilidades">Vulnerabilidades</h1>
-<p><mark>FALTA</mark></p>
-<p>El riesgo se define como:</p>
-<div class="math">
-\[
-\text{Riesgo} = \text{Amenazas} \times \text{Vulnerabilidades} \times \text{Bienes}
-\]</div>
+<h1 id="aseguramiento-y-seguridad">Aseguramiento y Seguridad</h1>
+<p>Para decir que tenemos un sistema <strong>confiable</strong>, tenemos que tener suficiente evidencia creíble para que no crea que el sistema va a cumplir con un conjunto de requerimientos. Esta confianza es obtenida a través de técnicas especificas.</p>
+<p>Para establecer confianza, hay que implementar procesos de aseguramiento, que lleva a la adhesion de estándares y documentación. Ademas, es importante que el sistema sea revisado por expertos, y esta revision es más efectiva si se siguieron los pasos anteriores y existe documentación.</p>
+<p>El <strong>aseguramiento</strong> es la justificación de que el mecanismo sigue la política, a traves de la evidencia. El <strong>mecanismo</strong> son los ejecutables diseñados para hacer cumplir las <strong>políticas</strong>, y estas son los requerimientos que definen explícitamente las expectativas de seguridad.</p>
+<p>La evidencia se puede clasificar en 3 clases:</p>
+<ul>
+<li><strong>Formal</strong>: Con métodos matemáticos y lenguajes formales de demostración de teoremas.</li>
+<li><strong>Semiformal</strong>: Con pseudocodigo y analisando caso por caso.</li>
+<li><strong>Informal</strong>: Con enunciados y analogias.</li>
+</ul>
+<h2 id="fuentes-de-problemas">Fuentes de Problemas</h2>
+<ol>
+<li>Requerimientos incompletos, incorrectos o faltantes.</li>
+<li>Fallos en el diseño.</li>
+<li>Fallos en la Implementación del hardware.</li>
+<li>Fallos en la implementación del software</li>
+<li>Errores de uso por errores de operación</li>
+<li>Uso indebido del sistema</li>
+<li>Fallos de los equipos o medio de comunicación</li>
+<li>Casos de fuerza mayor.</li>
+<li>Errores al actualizar, mantener o decomisar</li>
+</ol>
+<h2 id="aseguramiento-en-el-ciclo-de-vida">Aseguramiento en el Ciclo de Vida</h2>
+<p>El aseguramiento se puede implementar en todas las etapas del proyecto:</p>
+<ul>
+<li><strong>Requerimientos</strong>: Se puede realizar un análisis de amenazas y definir las politicas.</li>
+<li><strong>Diseño</strong>: Se plantea el modelo de seguridad.</li>
+<li><strong>Implementación</strong>: Consistencia y trazabilidad.</li>
+<li><strong>Mantenimiento</strong>: Control y configuración.</li>
+</ul>
+<p>Ademas, se puede adaptar a cualquier ciclo de vida.</p>
+<h2 id="analisis-de-requerimientos">Análisis de Requerimientos</h2>
+<p>Una <strong>amenaza</strong> es un evento potencial que tiene como consecuencia un efecto no deseado en el sistema. Son distintos de las vulnerabilidades, ya que estas permiten que ocurra una amenaza.</p>
+<p>Se pueden clasificar por consecuencia:</p>
+<ul>
+<li><strong>Perdida de Confidencialidad</strong></li>
+<li><strong>Perdida de Integridad</strong></li>
+<li><strong>Denegación de Servicio</strong></li>
+</ul>
+<h2 id="modelado-de-amenazas">Modelado de Amenazas</h2>
+<p>Este proceso documenta aspectos de seguridad que interesan en el sistema. Las políticas del sistema deben eliminar a todas las amenazas documentadas. Se puede centrar en 3 perspectivas:</p>
+<ul>
+<li><strong>Centrado en el Atacante</strong>: Explota objetivos de un atacante.</li>
+<li><strong>Centrado en el Software</strong>: Explota tipos de ataques a componentes.</li>
+<li><strong>Centrado en Productos</strong>: Explota ataques a productos o servicios.</li>
+</ul>
+<p><img src="Resources/18 - Aseguramiento y Seguridad/05c2ab2d-fb37-4bdc-9359-bb9e85bfc919.gif" class="img-fluid" alt="05c2ab2d-fb37-4bdc-9359-bb9e85bfc919" style="zoom:75%;" /></p>
+<ol>
+<li><p><strong>Identificar Objetivos de Seguridad</strong>: Los objetivos apuntan a garantizar confidencialidad, integridad y disponibilidad. A partir de estos se considera que casos no queremos que sucedan.</p>
+</li>
+<li><p><strong>Conceptualizar Aplicación</strong>: Se esquematiza el escenario del deployment, con sus capas, componentes críticos y tecnologías. También se identifican los mecanismos de seguridad.</p>
+</li>
+<li><p><strong>Descomponer Aplicación</strong>: Identifica zonas donde cambia el nivel de confianza requerido:</p>
+<ul>
+<li>Zonas externas: Acceso al sistema de archivos, base de datos y web services.</li>
+<li>Zonas privilegiadas: Partes accesibles solo para un rol particular.</li>
+</ul>
+<p>En esta etapa se identifican los flujos de datos entre ambas zonas. Este análisis comienza a alto nivel y luego refina sus resultados.</p>
+</li>
+<li><p><strong>Identificar Amenazas</strong>: Se puede plantea de dos formas:</p>
+<ul>
+<li>Comenzar con una lista de amenazas recurrentes.</li>
+<li>Derivar amenazas mediante preguntas.</li>
+</ul>
+<p>Las preguntas se pueden clasificar según STRIDE:</p>
+<ul>
+<li><strong>S</strong>poofing</li>
+<li><strong>T</strong>ampering</li>
+<li><strong>R</strong>epudiation</li>
+<li><strong>I</strong>nformation Discusure</li>
+<li><strong>D</strong>enial of Service</li>
+<li><strong>E</strong>levation of Privilege</li>
+</ul>
+</li>
+<li><p><strong>Identificar Vulnerabilidades</strong>: Desde el análisis anterior, hay que revisar las zonas que se derivan del análisis anterior. El objetivo es encontrar las vulnerabilidades que permitan que ocurran las amenazas.</p>
+<p>Hay 7 lugares clave para buscar vulnerabilidades:</p>
+<ul>
+<li><strong>Input Validation and Representation</strong></li>
+<li><strong>API Abuse</strong></li>
+<li><strong>Security Features</strong></li>
+<li><strong>Time and State</strong></li>
+<li><strong>Error Handling</strong></li>
+<li><strong>Code Quality</strong></li>
+<li><strong>Encapsulation</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="owasp">OWASP</h2>
+<p>Existen distintos tipos de ataques definidos según OWASP:</p>
+<ul>
+<li><strong>Injection</strong>: Tiene que ver con datos de control mezclados con los datos de nuestra aplicación. Un ejemplo de esto es una SQL injection.</li>
+<li><strong>XSS</strong>: Es un script que ejecuta un navegador que se cruza de un sitio a otro. Esto sucede cuando no se sanitiza la entrada de un campo y pueden ejecutar código en el navegador de otro usuario.</li>
+<li><strong>CSRF</strong>: Se utilizan las cookies de un usuario logeado en un sitio web para hacer requests en su nombre. Se soluciona con la generación de un antiforgery token.</li>
+</ul>
 
 </body>
 

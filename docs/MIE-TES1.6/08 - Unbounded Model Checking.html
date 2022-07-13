@@ -1537,11 +1537,11 @@ R^- = \{(x',x) | (x,x')\in R\}
 <h2 id="how-to-check-conditions-1">How to Check <span class="math">\(F\)</span> Conditions</h2>
 <p>In order to obtain a Safety Certificate we need to convert our model with a topological sort into a strict linear order on all states. After the topological sort, we cannot have transitions that &quot;go back&quot; to a state that is before.</p>
 <p>To avoid this we can usually remove transitions that go back and rearrange the topological sort. For example, if we have the following model:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/8a91daf4-ee5b-4ccb-815d-3244d2a8eda1.png" class="img-fluid" alt="8a91daf4-ee5b-4ccb-815d-3244d2a8eda1" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Unbounded Model Checking/cdd2d4f5-59cf-45ae-8a48-979b91273369.png" class="img-fluid" alt="cdd2d4f5-59cf-45ae-8a48-979b91273369" style="zoom:67%;" /></p>
 <p>We can see that if we were to create a topological sort, it would have some transitions that go back, for example <span class="math">\(C\rightarrow D\)</span>:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/dfff225c-964e-47ea-86f3-584d129c0dd9.png" class="img-fluid" alt="dfff225c-964e-47ea-86f3-584d129c0dd9" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Unbounded Model Checking/4c717418-b623-4ec5-9d3a-aaa6bf425bd5.png" class="img-fluid" alt="4c717418-b623-4ec5-9d3a-aaa6bf425bd5" style="zoom:67%;" /></p>
 <p>If we remove that transition, we can rearrange the topological sort into a better solution:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/3248b784-8758-4231-bd94-dffaf27ede2b.png" class="img-fluid" alt="3248b784-8758-4231-bd94-dffaf27ede2b" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Unbounded Model Checking/b0f7da85-1c93-4ecf-817d-6d3e5bd1b13e.png" class="img-fluid" alt="b0f7da85-1c93-4ecf-817d-6d3e5bd1b13e" style="zoom:67%;" /></p>
 <p>In this case, the certificate is defined as a pair <span class="math">\((V,\succ)\)</span> where <span class="math">\(\succ\)</span> is a struct linear order on <span class="math">\(V\)</span> such that:</p>
 <ul>
 <li><span class="math">\(S_0 \subseteq V \subseteq S\)</span></li>

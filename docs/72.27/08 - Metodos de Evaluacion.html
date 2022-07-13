@@ -1455,7 +1455,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h3 id="matriz-de-confusion">Matriz de Confusión</h3>
 <p>Es una tabla que permite evaluar el desempeño de un algoritmo de clasificación. Cada columna representa la cantidad de instancias en la clase dada por el metodo y cada fila representa la cantidad de instancias en la clase verdadera.</p>
 <p>Esta matriz nos muestra si el sistema se esta confundiendo las clases. Dentro de esta matriz se muestran los verdaderos positivos y negativos, junto a los falsos negativos y positivos:</p>
-<p><img src="Resources/08 - Metodos de Evaluacion/e89bb7e5-d38f-4936-a11f-5250f4745fd2.jpg" class="img-fluid" alt="e89bb7e5-d38f-4936-a11f-5250f4745fd2" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Metodos de Evaluacion/d5afb6d9-2b27-4322-bc04-8cd7cec97cfc.jpg" class="img-fluid" alt="d5afb6d9-2b27-4322-bc04-8cd7cec97cfc" style="zoom:50%;" /></p>
 <h3 id="evaluacion-del-rendimiento">Evaluacion del Rendimiento</h3>
 <ul>
 <li><p><strong>Accuracy</strong>: Los que están bien clasificados sobre todos</p>
@@ -1502,12 +1502,12 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Calcular las métricas para los ejemplos del conjunto de entrenamiento y del conjunto de prueba.</li>
 </ol>
 <p>Luego, para poder ajustar a estos valores podemos cambiar parámetros como el learning rate y los epochs.</p>
-<p><img src="Resources/08 - Metodos de Evaluacion/5b50f46c-555e-4523-8c43-404521f88751.jpg" class="img-fluid" alt="5b50f46c-555e-4523-8c43-404521f88751" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Metodos de Evaluacion/a27b5193-a0b1-452c-b315-5e80ecd65d86.jpg" class="img-fluid" alt="a27b5193-a0b1-452c-b315-5e80ecd65d86" style="zoom:67%;" /></p>
 <p>Al modificar estos parámetros, nos podemos encontrar en la situación de que estamos <strong>sobre ajustando</strong> a nuestra red neuronal. Esto significa que la red esta <strong>sobre entrenada</strong> sobre un dataset especifico y los resultados de este dataset no se ven reflejados en otros. De estar en este caso, se vería en un grafico similar a este:</p>
-<p><img src="Resources/08 - Metodos de Evaluacion/f9cbe735-84de-4b32-ab72-90c8ed9fb708.jpg" class="img-fluid" alt="f9cbe735-84de-4b32-ab72-90c8ed9fb708" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Metodos de Evaluacion/79ca9c42-a522-46da-82d4-f0c1ade93c65.jpg" class="img-fluid" alt="79ca9c42-a522-46da-82d4-f0c1ade93c65" style="zoom:67%;" /></p>
 <h3 id="validacion-cruzada">Validación Cruzada</h3>
 <p>Este proceso divide aleatoriamente al conjunto de entrenamiento en <span class="math">\(k\)</span> partes de igual tamaño. A partir de esto se realizan <span class="math">\(k\)</span> Entrenamientos con sus correspondientes evaluaciones, en cada paso, se usa como test a una de las partes y cómo entrenamiento al resto.</p>
-<p><img src="Resources/08 - Metodos de Evaluacion/ec6f5f72-61b8-4ee6-ae56-24617bd56ad6.jpg" class="img-fluid" alt="ec6f5f72-61b8-4ee6-ae56-24617bd56ad6" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Metodos de Evaluacion/65910b79-2b99-4f43-bcbf-ef3cf5dd56e9.jpg" class="img-fluid" alt="65910b79-2b99-4f43-bcbf-ef3cf5dd56e9" style="zoom:50%;" /></p>
 <p>Luego puede continuar con el algoritmo:</p>
 <p>Para <span class="math">\(j = 1,\dots,k:\)</span></p>
 <ol>

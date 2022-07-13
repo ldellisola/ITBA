@@ -1432,7 +1432,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><code>-a</code> indica un archivo a adjuntar.</li>
 </ul>
 <p>Ademas permite leer los mensaje disponibles si solo se invoca al programa sin ningún parámetro.</p>
-<p><img src="Resources/04 - Email/8f54f9aa-3c8b-4490-9238-0f8596122c7b.jpg" class="img-fluid" alt="8f54f9aa-3c8b-4490-9238-0f8596122c7b" style="zoom:50%;" /></p>
+<p><img src="Resources/04 - Email/60feff2f-e024-4a8d-820c-8bc9e71f570a.jpg" class="img-fluid" alt="60feff2f-e024-4a8d-820c-8bc9e71f570a" style="zoom:50%;" /></p>
 <ul>
 <li><strong>Mail Transfer Agent (MTA)</strong>: Envía mensajes entre hosts, pero es viejo, solo permite mandar texto.</li>
 <li><strong>Mail User Agent (MUA)</strong>: Permite al usuario enviar y leer mensajes. Un ejemplo seria Gmail o dovecot (en la terminal).</li>
@@ -1441,7 +1441,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="protocolos">Protocolos</h2>
 <h3 id="smtp">SMTP</h3>
 <p>Es el protocolo por el cual se transmiten los mails por internet:</p>
-<p><img src="Resources/04 - Email/aa5c7d6b-7638-4700-9bb3-a2ec95f4cab5.jpg" class="img-fluid" alt="aa5c7d6b-7638-4700-9bb3-a2ec95f4cab5" style="zoom:50%;" /></p>
+<p><img src="Resources/04 - Email/7146ba2a-24e2-4d84-94f4-1a9179af3cd7.jpg" class="img-fluid" alt="7146ba2a-24e2-4d84-94f4-1a9179af3cd7" style="zoom:50%;" /></p>
 <p>Este protocolo esta construido sobre TCP para transferir mensajes desde el cliente al servidor, mediante el puerto 25. Los mensajes solo pueden contener 7bit ASCII.</p>
 <p>Las transferencias son de forma directa, desde un servidor que envia a otro que recibe. Estas tienen 3 fases:</p>
 <ul>
@@ -1490,7 +1490,7 @@ R: 250 OK
 </code></pre>
 <h3 id="pop">POP</h3>
 <p>El protocolo POP2/POP3 permite obtener los mensajes de un servidor y almacenarlos en el host local, aunque hay versiones que permiten dejar una copia en el servidor. También se basa en el protocolo TCP y esta en el puerto 109/110.</p>
-<p><img src="Resources/04 - Email/862e8bc6-5726-41ad-a5ca-a7e14ce1e60c.jpg" class="img-fluid" alt="862e8bc6-5726-41ad-a5ca-a7e14ce1e60c" style="zoom:50%;" /></p>
+<p><img src="Resources/04 - Email/47ae5ad2-29b5-4f7d-957d-0adcf6440e7d.jpg" class="img-fluid" alt="47ae5ad2-29b5-4f7d-957d-0adcf6440e7d" style="zoom:50%;" /></p>
 <p>Este protocolo tiene dos fases, con varios comandos específicos:</p>
 <ul>
 <li>Autorizacion:
@@ -1572,10 +1572,10 @@ s: +OK
 <p>Hay dos técnicas para autenticar mails:</p>
 <ul>
 <li><p><strong>Sender Policy Framework (SPF)</strong>: Se agregan registros TXT en los DNS donde pones todos los IPs de los servidores autorizados a enviar desde un dominio determinado.</p>
-<p><img src="Resources/04 - Email/61a7507c-3da4-45c5-9a3a-2ce126c66bf2.png" class="img-fluid" alt="61a7507c-3da4-45c5-9a3a-2ce126c66bf2" style="zoom:50%;" /></p>
+<p><img src="Resources/04 - Email/2d535e9e-84b9-40f5-972d-800ed5991571.png" class="img-fluid" alt="2d535e9e-84b9-40f5-972d-800ed5991571" style="zoom:50%;" /></p>
 </li>
 <li><p><strong>Domain Keys Identified Mail (DKIM)</strong>: Permite a una organización responsabilizarse del envio de un mensaje, de manera que este pueda ser validado por un destinatario. Esta validación se realiza con una clave publica y ademas provee una verificación de integridad.</p>
-<p><img src="Resources/04 - Email/e1ac201b-b660-4a82-b7c3-0cc418d2bbfa.jpg" class="img-fluid" alt="e1ac201b-b660-4a82-b7c3-0cc418d2bbfa" style="zoom:50%;" /></p>
+<p><img src="Resources/04 - Email/df48b171-d1cf-4373-915d-bb6473330be7.jpg" class="img-fluid" alt="df48b171-d1cf-4373-915d-bb6473330be7" style="zoom:50%;" /></p>
 </li>
 </ul>
 

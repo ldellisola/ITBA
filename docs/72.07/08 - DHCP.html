@@ -1436,12 +1436,12 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <p>El protocolo DHCP es el sucesor de BOOTP. En este nuevo protocolo el cliente no tiene que conocer la dirección del servidor DHCP y ademas de asignar de forma dinámica, se pueden asignar IPs estáticas.</p>
 <p>El protocolo funciona de la siguiente manera:</p>
-<p><img src="Resources/08 - DHCP/7cf853d8-4338-4f28-a7f0-dc78d944e9eb.jpg" class="img-fluid" alt="7cf853d8-4338-4f28-a7f0-dc78d944e9eb" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - DHCP/ae18c742-ecd7-473f-a4ee-31576eb3cf73.jpg" class="img-fluid" alt="ae18c742-ecd7-473f-a4ee-31576eb3cf73" style="zoom:50%;" /></p>
 <h2 id="ddns">DDNS</h2>
-<p><img src="Resources/08 - DHCP/a30ed633-0ff4-4fef-b844-b8b7084b9ad0.jpg" class="img-fluid" alt="a30ed633-0ff4-4fef-b844-b8b7084b9ad0" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - DHCP/d0f76be1-c948-439c-88dc-7a5318b00009.jpg" class="img-fluid" alt="d0f76be1-c948-439c-88dc-7a5318b00009" style="zoom:50%;" /></p>
 <p>Es para conectar a un dominio a una ip dinámica. Cada vez que esta cambia le comunico al servidor DNS del cambio. Los registros DNS deben tener un TTL muy bajo.</p>
 <h2 id="nat">NAT</h2>
-<p><img src="Resources/08 - DHCP/18abf725-f7c3-4415-af38-4314f3de403f.jpg" class="img-fluid" alt="18abf725-f7c3-4415-af38-4314f3de403f" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - DHCP/528fe900-f000-4ba3-b38d-e3d27f2a8443.jpg" class="img-fluid" alt="528fe900-f000-4ba3-b38d-e3d27f2a8443" style="zoom:50%;" /></p>
 <p>Mediante la NAT se permite otorgar solo una ip publica. Ademas esto permite otorgar cierta seguridad al limitar que puertos se abren en esa ip publica a cada computadora.</p>
 <p>Esto es obligatorio para ipv4, pero no lo es para ipv6 aunque es recomendable activarla también.</p>
 <p>Hay dos tipos de NAT, <strong>DNAT</strong> (destination NAT) y <strong>SNAT</strong> (source NAT).</p>
@@ -1449,19 +1449,19 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h3 id="port-forwarding">Port Forwarding</h3>
 <p>DNAT permite redireccionar las conexiones que llegan a una ip publica en un puerto (o varios) especifico a una ip privada (o mas).</p>
 <p>Un ejemplo de esto seria load balancing, donde mas de una computadora puede recibir paquetes para cumplir con el mismo servicio.</p>
-<p><img src="Resources/08 - DHCP/04455d0b-70f0-4e21-ba29-699559abeb4b.jpg" class="img-fluid" alt="04455d0b-70f0-4e21-ba29-699559abeb4b" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - DHCP/61f35d3c-65f4-4d24-9a7d-02855482de71.jpg" class="img-fluid" alt="61f35d3c-65f4-4d24-9a7d-02855482de71" style="zoom:50%;" /></p>
 <p>Se puede filtrar el trafico ademas por el protocolo, eligiendo entre TCP, UDP y ambos.</p>
 <p>Otra forma de solucionar este problema seria con <strong>UPnP</strong> Internet Gateway Device (IGD), que le permite al host dentro de la NAT aprender su propia IP y agregar o remover los puertos abiertos. También se lo conoce como <strong>port triggering</strong></p>
-<p><img src="Resources/08 - DHCP/f4b12f3e-009d-4fc9-bda7-dca5d31a5cce.jpg" class="img-fluid" alt="f4b12f3e-009d-4fc9-bda7-dca5d31a5cce" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - DHCP/1973d0c7-d2b1-449d-a16d-aa63b2eba7b5.jpg" class="img-fluid" alt="1973d0c7-d2b1-449d-a16d-aa63b2eba7b5" style="zoom:50%;" /></p>
 <h2 id="relay">Relay</h2>
 <p>En los casos donde no se pueden abrir puertos, hay servidores que se pueden configurar como “relay”. Esto significa que el servicio no tiene que conocer tu ip directamente, ya que no puede acceder. En cambio, tanto el cliente como el servicio pueden conectarse a este servidor y conectarse por ahi.</p>
-<p><img src="Resources/08 - DHCP/a89166eb-a222-4aeb-9765-098840b34333.jpg" class="img-fluid" alt="a89166eb-a222-4aeb-9765-098840b34333" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - DHCP/d3de1c8e-6d3a-4444-ab62-42a749bf1b53.jpg" class="img-fluid" alt="d3de1c8e-6d3a-4444-ab62-42a749bf1b53" style="zoom:50%;" /></p>
 <p>Esta solución simula ser punto a punto y es mucho más lento que abrir puertos.</p>
 <h2 id="icmp">ICMP</h2>
 <p>IP no maneja errores ni transmisiones, para esto esta el protocolo ICMP. Este protocolo es genérico y tiene muchos usos. Cada paquete tiene la forma de:</p>
-<p><img src="Resources/08 - DHCP/12a4783e-5ac1-4855-97f8-10e2bfaed204.jpg" class="img-fluid" alt="12a4783e-5ac1-4855-97f8-10e2bfaed204" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - DHCP/fb499417-1054-4a15-8e16-56e498104318.jpg" class="img-fluid" alt="fb499417-1054-4a15-8e16-56e498104318" style="zoom:50%;" /></p>
 <p>Luego, los valores pueden ser:</p>
-<p><img src="Resources/08 - DHCP/b1d766f5-83dd-420e-91ba-982659a9e0a5.jpg" class="img-fluid" alt="b1d766f5-83dd-420e-91ba-982659a9e0a5" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - DHCP/251c3d66-6f64-4ab1-a8a8-453a194841c3.jpg" class="img-fluid" alt="251c3d66-6f64-4ab1-a8a8-453a194841c3" style="zoom:50%;" /></p>
 <p>En los casos donde sucede algún error, se guarda toda esta información directamente en el campo de data, en vez de usar los headers. Es el trabajo del sistema operativo entregar este error a la aplicación que lo haya causado.</p>
 <h2 id="utilidades-de-networking">Utilidades de networking</h2>
 <h3 id="ping">Ping</h3>

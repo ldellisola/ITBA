@@ -27,7 +27,7 @@ $$
 \text{Si } A \text{ entonces debe ser } B
 $$
 
-Una gran diferencia de las normas del derecho, es que estas pueden cumplirse o no. Estas regulan a un sistema  idean para que el hombre se comporte, pero en la practica no son respetadas todo el tiempo. De ser violadas, estas existe una consecuencia prescrita por la norma.
+Una gran diferencia de las normas del derecho, es que estas pueden cumplirse o no. Estas regulan a un sistema  idean para que el hombre se comporte, pero en la practica no son respetadas todo el tiempo. De ser violadas, existen consecuencias prescritas por la misma.
 
 Esta brecha se esta ampliando en la actualidad por dos causas:
 

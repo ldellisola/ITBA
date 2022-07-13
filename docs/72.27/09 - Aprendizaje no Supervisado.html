@@ -1433,10 +1433,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="redes-de-kohonen">Redes de Kohonen</h2>
 <p>Las redes de kohonen descubren por si mismas las regularidades de los datos de entrada. A este concepto también se lo conoce como <strong>Self-Organized Maps</strong>.</p>
 <p>En este modelo, las neuronas están conectadas entre si. Las conexiones de una neurona en si misma están conectadas con un valor positivo y con el resto de las neuronas con un valor negativo.</p>
-<p><img src="Resources/09 - Aprendizaje no Supervisado/738dfb68-28c7-4ae6-b240-4034a903a0ac.jpg" class="img-fluid" alt="738dfb68-28c7-4ae6-b240-4034a903a0ac" style="zoom:25%;" /></p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/08f64369-dedb-45fc-b83b-479b6af3e4de.jpg" class="img-fluid" alt="08f64369-dedb-45fc-b83b-479b6af3e4de" style="zoom:25%;" /></p>
 <p>Este sistema produce que a lo largo del tiempo algunas unidades tengan un novel de activación mayor, mientras que otras tengan una activación nula. Dada la unidad de entrada <span class="math">\(x\)</span>, la neurona que tenga el vector de pesos <span class="math">\(w\)</span> mas parecido a <span class="math">\(x\)</span> sera la ganadora.</p>
 <p>Formalmente, una <strong>red de kohonen</strong> es una red de una sola capa, en forma de grilla bidimensional (<span class="math">\(k\times k\)</span>) y en la que cada neurona esta conectada a todas las componentes de un vector de entrada n-dimensional. Esto significa que pasa la información de un estado multidimensional a uno bidimensional:</p>
-<p><img src="Resources/09 - Aprendizaje no Supervisado/30fa3da7-c0af-42d5-b813-ddd9dd5f736a.jpg" class="img-fluid" alt="30fa3da7-c0af-42d5-b813-ddd9dd5f736a" style="zoom:50%;" /></p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/0c44a3f6-1725-4120-993a-08101e1a5808.jpg" class="img-fluid" alt="0c44a3f6-1725-4120-993a-08101e1a5808" style="zoom:50%;" /></p>
 <p>Podemos definir una sere de unidades vecinas, y con esto el concepto de <strong>vecindario</strong>. Un vecindario se define con un radio <span class="math">\(R\)</span>:</p>
 <div class="math">
 \[
@@ -1518,7 +1518,7 @@ w \not\in N_{\hat k}(t)&amp; \rightarrow  &amp; W_j^{t+1} = W^t_j
 <p><mark>falta</mark></p>
 <h2 id="regla-de-oja">Regla de Oja</h2>
 <p>Este metodo esta basado en el aprendizaje hebbiano simple, similar al perceptron simple:</p>
-<p><img src="Resources/09 - Aprendizaje no Supervisado/1d7c75c9-f0a4-47d4-8297-55f17b07e79b.jpg" class="img-fluid" alt="1d7c75c9-f0a4-47d4-8297-55f17b07e79b" style="zoom:50%;" /></p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/eb72bf19-71ce-4bdb-8d73-6d7804dcc579.jpg" class="img-fluid" alt="eb72bf19-71ce-4bdb-8d73-6d7804dcc579" style="zoom:50%;" /></p>
 <p>Oja demostro que si la red converge, el vector de pesos resultante <span class="math">\(w^{\text{final}}\)</span> seria un punto sobre la dirección maxima de variación de los datos, es decir, la <strong>primer componente principal</strong>. El problema es que <span class="math">\(||w^n||\)</span> crece tan rápido que el algoritmo se hace inestable.</p>
 <p>Oja propuso lo siguiente:</p>
 <div class="math">
@@ -1532,7 +1532,7 @@ w_j^{n+1} = \frac{w_j^n + \eta\times y^n \times x^n_j}
 \Delta w = \eta \times (y \times x_j^n - y^2\times w_j^n )
 \]</div>
 <p>Con esta regla <span class="math">\(||w||\)</span> se mantiene acotado y luego de varias iteraciones el método converge al autovector correspondiente al mayor autovalor de la matriz de correlaciones de los datos de entrada.</p>
-<p><img src="Resources/09 - Aprendizaje no Supervisado/c9b43abd-63a1-4732-af44-4f25f9e95fdf.jpg" class="img-fluid" alt="c9b43abd-63a1-4732-af44-4f25f9e95fdf" style="zoom:50%;" /></p>
+<p><img src="Resources/09 - Aprendizaje no Supervisado/1f216626-0c34-42be-a593-7a956bdf7228.jpg" class="img-fluid" alt="1f216626-0c34-42be-a593-7a956bdf7228" style="zoom:50%;" /></p>
 <h3 id="algoritmo-1">Algoritmo</h3>
 <p>El algoritmo toma como input <span class="math">\(N\)</span> datos con media <span class="math">\(0, \eta, w_{inicial}\)</span></p>
 <ol>
