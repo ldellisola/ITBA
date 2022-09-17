@@ -1,6 +1,6 @@
 # Recursión Primitiva
 
-Una función $f:\N^k\rightarrow\N$ es RP (Recursivamente primitiva) si es una <u>función inicial</u> o se obtiene aplicando finitas veces operaciones permitidas como la <u><composición/u>, <u>ERI</u> y <u>ERII</u> con funciones iniciales.
+Una función $f:\N^k\rightarrow\N$ es RP (Recursivamente primitiva) si es una <u>función inicial</u> o se obtiene aplicando finitas veces operaciones permitidas como la <u>composición ERI</u> y <u>ERII</u> con funciones iniciales.
 
 ## Definiciones
 
