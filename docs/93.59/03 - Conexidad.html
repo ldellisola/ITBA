@@ -1434,7 +1434,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="componentes">Componentes</h2>
 <p>Se llama componente de un grafo a un subgrafo conexo maximal del grafo <span class="math">\(G\)</span>. Es decir, un subgrafo es maximal si no es un subgrafo propio de otro subgrafo de <span class="math">\(G\)</span>.</p>
 <p>Por ejemplo, tanto el subgrafo formado por los vertices <span class="math">\(C_1=\{A,B,C\}\)</span>, o por <span class="math">\(C_2=\{D,E\}\)</span>, o por <span class="math">\(C_3=\{F\}\)</span> son todos componentes.</p>
-<p><img src="Resources/79712ba5-9d0a-41d1-932c-ae70f5e4cd8c.png" class="img-fluid" alt="1567422862367" /></p>
+<p><img src="Resources/91c1f57a-97b7-41fc-bc1b-4c7c00f54ed9.png" class="img-fluid" alt="1567422862367" /></p>
 <p>En el grafo <span class="math">\(G\)</span>, la componente 1 (<span class="math">\(C_1\)</span>) tambien se puede llamar como <span class="math">\(C(A)=C(B)=C(C)\)</span>.</p>
 <p>Si definimos la relacion <span class="math">\(v_iRv_j\)</span> <mark><strong>PEDIR</strong></mark></p>
 <p><span class="math">\(R\)</span> es de equivalencia. Cada clase de equivalencia contiene a todos los vertices de una componente de <span class="math">\(G\)</span>.</p>
@@ -1443,7 +1443,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="vertice-de-corte">Vertice de Corte</h2>
 <p>Tambien llamado punto de articulacion, es un vertice que al removerlo, se generan mas componentes. Si <span class="math">\(v\)</span> es es vertice de corte y <span class="math">\(G\)</span> es un grafo, entonces la cantidad de componentes conexas de <span class="math">\(G\)</span> es menor a <span class="math">\(G-\{v\}\)</span>.</p>
 <p>Se denomina <span class="math">\(\scr{K}\)</span> <span class="math">\((G)\)</span> a la cantidad de componentes de <span class="math">\(G\)</span>.</p>
-<p><img src="Resources/660f52cc-8494-4b8b-af7c-8fc0f181715a.png" class="img-fluid" alt="1567423331727" /></p>
+<p><img src="Resources/7aa160ad-497a-44bd-a39c-4b056871dbad.png" class="img-fluid" alt="1567423331727" /></p>
 <p>En este caso, se puede ver que el vértice <span class="math">\(F\)</span> y <span class="math">\(E\)</span> son vértices de corte ya que si los remuevo genero nuevos subgrafos</p>
 <h3 id="proposiciones">Proposiciones</h3>
 <div class="math">
@@ -1453,7 +1453,7 @@ v\in V_G \text{ es vertice de corte de }G \\ \Leftrightarrow \\\exists \mu,v,w \
 <p>[Demostración](Demostraciones\03 - Conexidad\Proposicion - 01.html) <mark>FINAL</mark></p>
 <h2 id="aristas-de-corte-o-puente">Aristas de corte o Puente</h2>
 <p><span class="math">\(e\)</span> es una arista de corte si: <span class="math">\(\scr{K}\)</span> <span class="math">\((G-\{e\}) \gt\)</span> <span class="math">\(\scr{K}\)</span> <span class="math">\((G)\)</span></p>
-<p><img src="Resources/11815f2b-1ac8-40f2-ae16-13ad4f5a57aa.png" class="img-fluid" alt="1567424425647" /></p>
+<p><img src="Resources/f40d3ded-6bba-4f43-a98b-8d173a4eb4fc.png" class="img-fluid" alt="1567424425647" /></p>
 <p>La arista marcada con un <span class="math">\(1\)</span> es una arista de corte, ya que al eliminarla obtengo 2 componentes.</p>
 <h3 id="observaciones-1">Observaciones</h3>
 <p>Si <span class="math">\(v\)</span> es de corte  <span class="math">\(\scr{K}\)</span> <span class="math">\((G-\{v\}) \gt\)</span> <span class="math">\(\scr{K}\)</span> <span class="math">\((G)\)</span> no sabemos por cuanto difieren.</p>
@@ -1470,7 +1470,7 @@ e\in E_G \text{ es arista de corte } \Leftrightarrow e \text{ no pertenece a un 
 <p>Es la minima cantidad de vertices que hay que remover del grafo para que deje de ser conexo <u>o se transforme en el grafo trivial</u>.</p>
 <p>Notacion <span class="math">\(K_v(G)\)</span></p>
 <h3 id="ejemplos">Ejemplos</h3>
-<p><img src="Resources/a6d310dc-45ce-4b88-a4bb-8fb39bc5e5c6.png" class="img-fluid" alt="1567426095801" /></p>
+<p><img src="Resources/7c853616-3ac3-4a9c-97a3-31753c6bce09.png" class="img-fluid" alt="1567426095801" /></p>
 <p><span class="math">\(K_v(G)=2\)</span>, siendo los vertices de corte <span class="math">\(C,D,E,F\)</span>. Eliminando 2 de esos vertices se obtienen 2 componentes.</p>
 <p>Para Grafos <span class="math">\(K_n\)</span>: <span class="math">\(K_v(K_n)=n-1\)</span></p>
 <h3 id="observaciones-2">Observaciones</h3>
@@ -1519,9 +1519,9 @@ k \le K_v(G)\le K_e(G) \le \delta
 <h2 id="coleccion-de-caminos-internamente-disjuntos-ccid">Coleccion de Caminos Internamente Disjuntos (CCID)</h2>
 <p>Una CCID <span class="math">\(u-v\)</span> es una coleccion de caminos <span class="math">\(u-v\)</span> tales que ningun camino contiene vertices internos de otros caminos en la coleccion.</p>
 <h3 id="ejemplo">Ejemplo</h3>
-<p><img src="Resources/b3ac18d2-34a4-4c8b-8090-ab2dc32cfc9b.png" class="img-fluid" alt="b3ac18d2-34a4-4c8b-8090-ab2dc32cfc9b" style="zoom:50%;" /></p>
+<p><img src="Resources/c8be4b26-edd4-4b8d-a8e8-a792c27e97f0.png" class="img-fluid" alt="c8be4b26-edd4-4b8d-a8e8-a792c27e97f0" style="zoom:50%;" /></p>
 <p>La CCID <span class="math">\(A-D\)</span> contiene 3 caminos disjuntos.</p>
-<p><img src="Resources/729d0de6-6198-4c0a-9bbb-40c1ea21b1b9.png" class="img-fluid" alt="729d0de6-6198-4c0a-9bbb-40c1ea21b1b9" style="zoom:50%;" /></p>
+<p><img src="Resources/23c6acee-b04e-4354-861b-8c61c741e573.png" class="img-fluid" alt="23c6acee-b04e-4354-861b-8c61c741e573" style="zoom:50%;" /></p>
 <p>En este caso los 3 caminos no son internamente disjuntos pero sin <u>disjuntos por aristas</u>.</p>
 <h2 id="particion-por-corte-de-aristas">Particion por Corte de Aristas</h2>
 <p>Sean <span class="math">\(V_1 \subset V_G \land V_2 \subset V_G/V_1\cap V_2 = \emptyset \land V_1 \cup V_2 = V_G\)</span></p>

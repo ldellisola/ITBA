@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+    bd2net:
+
+services:
+    # ruby:
+        # image: ruby:latest
+        # container_name: ruby
+        # networks:
+            # - bd2net
+    couchdb:
+        image: couchdb:latest
+        container_name: CouchDB
+        networks:
+            - bd2net
+        ports:
+            - 5984:5984
+        environment:
+            COUCHDB_USER: "bd2"
+            COUCHDB_PASSWORD: "bd2"

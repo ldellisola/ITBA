@@ -1473,7 +1473,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ol>
 <p>The result is a non-deterministic, Homogeneous finite automaton without epsilon transitions.</p>
 <p>We can see now a more formal definition of the algorithm.</p>
-<p><img src="Resources/05 - Convertsions/3b8d0d83-1af4-41db-9d0e-9dbe7881ad73.png" class="img-fluid" alt="3b8d0d83-1af4-41db-9d0e-9dbe7881ad73" style="zoom:50%;" /></p>
+<p><img src="Resources/05 - Convertsions/76acaf37-e86f-45b5-ae59-4778995df950.png" class="img-fluid" alt="76acaf37-e86f-45b5-ae59-4778995df950" style="zoom:50%;" /></p>
 <h3 id="method-of-derivatives">Method of Derivatives</h3>
 <p>This algorithm works using the theorem of <em>Bound of Dissimilarities</em>:</p>
 <blockquote class="blockquote">
@@ -1518,27 +1518,27 @@ U = \{V\}
 </ol>
 <p>The result is a total deterministic finite automaton.</p>
 <p>A more formal version of the algorithm can be found here.</p>
-<p><img src="Resources/05 - Conversions/157f09e4-c26e-40eb-914c-c1f02a76de5d.png" class="img-fluid" alt="157f09e4-c26e-40eb-914c-c1f02a76de5d" style="zoom:67%;" /></p>
+<p><img src="Resources/05 - Conversions/47b72e3a-9f2d-45cf-a173-3e5db1a6eb13.png" class="img-fluid" alt="47b72e3a-9f2d-45cf-a173-3e5db1a6eb13" style="zoom:67%;" /></p>
 <h3 id="thompsons-method">Thompson's Method</h3>
 <p>Thompson's method works constructing and merging different automaton. The most basic parts of the automaton are:</p>
 <ul>
 <li><p><span class="math">\(U = \epsilon\)</span>:</p>
-<p>![image-20201113152402800](Resources/05 - Conversions/65db26e1-151b-4479-a635-cc5e84e58654.png)</p>
+<p>![image-20201113152402800](Resources/05 - Conversions/5153fabb-76b0-4ce4-83fe-d81e99b09b5d.png)</p>
 </li>
 <li><p><span class="math">\(U = \emptyset\)</span>:</p>
-<p>![image-20201113152412026](Resources/05 - Conversions/3da317a6-5a81-4658-99e1-d38c47f9efdd.png)</p>
+<p>![image-20201113152412026](Resources/05 - Conversions/c10d0ce6-ef96-46af-ad27-fd734ea80a52.png)</p>
 </li>
 <li><p><span class="math">\(U = a, \forall a \in \Sigma\)</span>:</p>
-<p>![image-20201113152440407](Resources/05 - Conversions/89c4555e-d144-4932-968d-5f854450a7f8.png)</p>
+<p>![image-20201113152440407](Resources/05 - Conversions/f26c5ed8-409d-4ea8-9622-668beaf6f3c7.png)</p>
 </li>
 <li><p><span class="math">\(U = R + S\)</span></p>
-<p>![image-20201113152534078](Resources/05 - Conversions/59de3d44-7c07-4505-8ece-c593c8d590f9.png)</p>
+<p>![image-20201113152534078](Resources/05 - Conversions/efffa3a2-bfa2-4949-bc64-2692e0c65d84.png)</p>
 </li>
 <li><p><span class="math">\(U = R.S\)</span>:</p>
-<p>![image-20201113152553198](Resources/05 - Conversions/7745fef4-d90c-416e-bb59-0ce6f33a91d6.png)</p>
+<p>![image-20201113152553198](Resources/05 - Conversions/18cb5610-3b12-4265-960d-a0c5896939f4.png)</p>
 </li>
 <li><p><span class="math">\(U = R^*\)</span></p>
-<p>![image-20201113153742229](Resources/05 - Conversions/a31d9c75-98f9-41c3-b0bd-586f750eacc2.png)</p>
+<p>![image-20201113153742229](Resources/05 - Conversions/0126594c-ec09-4033-bf57-456cf9195d04.png)</p>
 </li>
 </ul>
 <p>After combining all the parts we will obtain a NFA with epsilon transitions.</p>
@@ -1597,7 +1597,7 @@ q' \overset V \rightarrow f'
 </ol>
 <p>We can also remove all useless or unnecessary states.</p>
 <p>A more formal version of the algorithm can be found here:</p>
-<p><img src="Resources/05 - Conversions/16b070bc-afc5-4b24-8623-1186521595b4.png" class="img-fluid" alt="16b070bc-afc5-4b24-8623-1186521595b4" style="zoom:67%;" /></p>
+<p><img src="Resources/05 - Conversions/3707d37c-c859-4184-b371-cc4c60172dfe.png" class="img-fluid" alt="3707d37c-c859-4184-b371-cc4c60172dfe" style="zoom:67%;" /></p>
 <h3 id="solution-of-regular-equations">Solution of Regular Equations</h3>
 <p>The idea on this algorithm is to create regular equations from the automaton and them solve them, creating the Regular Expression. For this we have to take into considerations all transitions from a state. For example, if the state A has a transition to state B with the action 1 and to itself with the action 2, we get the following regular expression:</p>
 <div class="math">
@@ -1611,7 +1611,7 @@ X_A = X_A2 + X_B2
 V \leftarrow X_{p_1} + X_{p_2}+ \dots + X_{p_i}~~~\forall p_i \in F
 \]</div>
 <p>Here is the formal algorithm:</p>
-<p><img src="Resources/05 - Conversions/2402c6e7-1e35-402c-8076-ae08d40cc713.png" class="img-fluid" alt="2402c6e7-1e35-402c-8076-ae08d40cc713" style="zoom:67%;" /></p>
+<p><img src="Resources/05 - Conversions/acbaea1f-d373-412b-87db-ccd37ac0d25a.png" class="img-fluid" alt="acbaea1f-d373-412b-87db-ccd37ac0d25a" style="zoom:67%;" /></p>
 <h2 id="between-rg-and-re">Between RG and RE</h2>
 <h3 id="regular-equation">Regular Equation</h3>
 <p>We can convert the production rules of the grammar into regular equations and then solve the system. This conversion works in the following way:</p>

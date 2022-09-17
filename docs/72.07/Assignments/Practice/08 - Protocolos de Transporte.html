@@ -1499,7 +1499,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds
 <pre><code class="language-bash">$ nc localhost 13
 </code></pre>
 <p>En Wireshark veo:</p>
-<p>![Screen Shot 2022-04-26 at 14.43.10](Resources/08 - Protocolos de Transporte/d2a831bd-17fe-46f8-8fb2-ef64e65e045b.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 14.43.10](Resources/08 - Protocolos de Transporte/32b31680-b807-490a-9d11-63cbc4383e73.jpg)</p>
 <p>Donde el servidor no completo my comando <code>SYN</code> y reseteo la conexión.</p>
 <h2 id="section-2">73</h2>
 <blockquote class="blockquote">
@@ -1514,7 +1514,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds
 <pre><code class="language-bash">$ cat file.txt | nc localhost 8080
 </code></pre>
 <p>Vemos que wireshark no usa UDP en este caso</p>
-<p>![Screen Shot 2022-04-26 at 15.00.13](Resources/08 - Protocolos de Transporte/502f7cb8-6ab7-4fa6-b605-286ee07c9908.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.00.13](Resources/08 - Protocolos de Transporte/4d4a92f7-8f0b-4e51-ae62-f3c142a5f8a5.jpg)</p>
 <p>Para enviar con UDP:</p>
 <p>En el servidor uso el siguiente comando:</p>
 <pre><code class="language-bash">$ nc -l -u 8080 -q 1  &gt; ~/file.txt &lt; /dev/null
@@ -1523,7 +1523,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds
 <p>En el cliente tengo que correr el siguiente comando:</p>
 <pre><code class="language-bash">$ cat file.txt | nc -u localhost 8080
 </code></pre>
-<p>![Screen Shot 2022-04-26 at 15.07.48](Resources/08 - Protocolos de Transporte/84a81825-2755-426f-bda4-e53eb5c8cc42.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.07.48](Resources/08 - Protocolos de Transporte/7f5a0eac-4551-47e4-bada-0ab781a5c233.jpg)</p>
 <h2 id="section-3">74</h2>
 <blockquote class="blockquote">
 <p>Exponer un servidor <code>echo TCP</code> utilizando <code>xinetd</code>. Debe asegurarse que el servidor <code>echo UDP</code> no se encuentra habilitado. De ser posible ejecutar el cliente (<code>netcat</code>) desde un host diferente (pero con conectividad). Analizar los paquetes en la interfaz del red donde el cliente deja los datagramas cuando:</p>
@@ -1534,20 +1534,20 @@ Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds
 <li>Se realiza una conexión al servicio echo.</li>
 </ol>
 </blockquote>
-<p>![Screen Shot 2022-04-26 at 15.26.16](Resources/08 - Protocolos de Transporte/0e1c3a15-473c-4faa-b59b-795f84801dca.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.26.16](Resources/08 - Protocolos de Transporte/5b61f11a-9586-4df0-b269-e1fcf8a6a407.jpg)</p>
 <blockquote class="blockquote">
 <ol start="2">
 <li>Se envía un único caracter.</li>
 </ol>
 </blockquote>
-<p>![Screen Shot 2022-04-26 at 15.27.52](Resources/08 - Protocolos de Transporte/bb348f74-3972-4985-a18b-e66eacce7552.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.27.52](Resources/08 - Protocolos de Transporte/bdaacc4e-c771-4dbf-ba4b-31d33b8f1978.jpg)</p>
 <blockquote class="blockquote">
 <ol start="3">
 <li>Se envían varios caracteres dejando un pequeño intervalo entre cada uno (por ejemplo
 1 segundo).</li>
 </ol>
 </blockquote>
-<p>![Screen Shot 2022-04-26 at 15.29.59](Resources/08 - Protocolos de Transporte/acd43166-dae1-41b4-9a58-656c34877916.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.29.59](Resources/08 - Protocolos de Transporte/25ef6d4e-5c73-455d-8fe3-ebbf4f60db36.jpg)</p>
 <blockquote class="blockquote">
 <ol start="4">
 <li>
@@ -1557,13 +1557,13 @@ Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds
 </li>
 </ol>
 </blockquote>
-<p>![Screen Shot 2022-04-26 at 15.38.01](Resources/08 - Protocolos de Transporte/ab202808-7436-4452-aa60-f20fe6dacbeb.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.38.01](Resources/08 - Protocolos de Transporte/6bce8093-c02e-4eff-9ba9-46b1ec96da9b.jpg)</p>
 <blockquote class="blockquote">
 <ol start="5">
 <li>Se desconecta el servicio (se mata el proceso servidor) También analice los cambios de estados que publica la salida de netstat en las diferentes etapas. Puede servirse de la Figura 1, “Maquina de estados de TCP” para el seguimiento.</li>
 </ol>
 </blockquote>
-<p>![Screen Shot 2022-04-26 at 15.38.56](Resources/08 - Protocolos de Transporte/1887e31c-ce1b-4470-b80a-8a725d94d401.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.38.56](Resources/08 - Protocolos de Transporte/de9249ea-37cd-440f-bcfa-fc36d5f8b836.jpg)</p>
 <h2 id="section-4">75</h2>
 <blockquote class="blockquote">
 <p>Exponer un servicio <code>echo UDP</code> utilizando <code>xinetd</code>. Debe asegurarse que el servidor <code>echo TCP</code> no se encuentra habilitado. De ser posible ejecutar el cliente (netcat) desde un host diferente (pero con conectividad). Analizar los paquetes en la interfaz del red donde el cliente deja los datagramas cuando:</p>
@@ -1580,14 +1580,14 @@ Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds
 <li>Se envía un único caracter.</li>
 </ol>
 </blockquote>
-<p>![Screen Shot 2022-04-26 at 15.45.31](Resources/08 - Protocolos de Transporte/25b1ae48-f7c3-4c1b-aa25-a43e4d587392.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.45.31](Resources/08 - Protocolos de Transporte/b28d03b8-c8df-420c-b79f-48bceb3a47f3.jpg)</p>
 <blockquote class="blockquote">
 <ol start="3">
 <li>Se envían varios caracteres dejando un pequeño intervalo entre cada uno (por ejemplo
 1 segundo).</li>
 </ol>
 </blockquote>
-<p>![Screen Shot 2022-04-26 at 15.46.13](Resources/08 - Protocolos de Transporte/d22811da-ba70-407f-a0ba-2fd7b074cd47.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.46.13](Resources/08 - Protocolos de Transporte/bc0b6d76-f9c4-46e4-8f6a-3ef88565a960.jpg)</p>
 <blockquote class="blockquote">
 <ol start="4">
 <li>
@@ -1597,7 +1597,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds
 </li>
 </ol>
 </blockquote>
-<p>![Screen Shot 2022-04-26 at 15.46.41](Resources/08 - Protocolos de Transporte/f21cb9c3-66e6-496e-aec7-5228c0f362d0.jpg)</p>
+<p>![Screen Shot 2022-04-26 at 15.46.41](Resources/08 - Protocolos de Transporte/02b767b7-6686-4849-81aa-138694dee82d.jpg)</p>
 <blockquote class="blockquote">
 <ol start="5">
 <li>Se desconecta el servicio (se mata el proceso servidor) También analice los cambios de estados que publica la salida de netstat en las diferentes etapas. Puede servirse de la Figura 1, “Maquina de estados de TCP” para el seguimiento.</li>

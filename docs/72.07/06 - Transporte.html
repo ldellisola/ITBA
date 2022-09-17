@@ -1440,18 +1440,18 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </li>
 <li><strong>SCTP</strong></li>
 </ul>
-<p><img src="Resources/06 - Transporte/92bedcef-46fc-483d-86d5-2c22f45b783c.jpg" class="img-fluid" alt="92bedcef-46fc-483d-86d5-2c22f45b783c" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/40298c49-b157-4304-b419-f13ce50e0902.jpg" class="img-fluid" alt="40298c49-b157-4304-b419-f13ce50e0902" style="zoom:50%;" /></p>
 <p>Esta capa provee la comunicación lógica entre 2 procesos que corren en distintos hosts. Ejecutan en las <em>puntas finales</em>, el que envía los datos tienen que separar al mensaje en segmentos y los envía a nivel de red, luego el que los recibe los tiene que reensamblar y enviarlo a la capa de aplicación.</p>
 <h2 id="multiplexacion">Multiplexación</h2>
 <p>Cuando un host recibe los datagramas IP, tiene que procesarlos para saber a que proceso los tiene que entregar. De cada catagrama obtiene un IP de destino y de origen, ademas del protocolo de transporte y el puerto de origen y destino. Cada host utiliza estos valores para asignarlos al socket adecuado.</p>
-<p><img src="Resources/06 - Transporte/7e38dd1b-0edb-4194-a1cb-56e530494fe6.jpg" class="img-fluid" alt="7e38dd1b-0edb-4194-a1cb-56e530494fe6" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/70023e9d-424e-446b-af12-0405840c67c7.jpg" class="img-fluid" alt="70023e9d-424e-446b-af12-0405840c67c7" style="zoom:50%;" /></p>
 <p>Los siguientes puertos están reservados:</p>
-<p><img src="Resources/06 - Transporte/735fca84-1650-4592-8581-22dd13488d3f.jpg" class="img-fluid" alt="735fca84-1650-4592-8581-22dd13488d3f" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/232ef7f3-1874-4ead-b435-cdbec311d7f1.jpg" class="img-fluid" alt="232ef7f3-1874-4ead-b435-cdbec311d7f1" style="zoom:50%;" /></p>
 <p>Cuando usamos UDP es mucho mas simple este proceso. Al llegar un datagrama, no hace falta establecer una conexión, por lo que puede simplemente pasarle el catagrama al socket. Ademas, aunque los datagramas que lleguen tengan distinto IP de origen, serán atendidos por el mismo socket.</p>
-<p><img src="Resources/06 - Transporte/9a46d29f-ee91-4e1d-a05e-9cfcf337cf1e.jpg" class="img-fluid" alt="9a46d29f-ee91-4e1d-a05e-9cfcf337cf1e" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/1194b1cf-7b8b-4a31-b8dd-3daaacf61248.jpg" class="img-fluid" alt="1194b1cf-7b8b-4a31-b8dd-3daaacf61248" style="zoom:50%;" /></p>
 <h3 id="datagrams-udp">Datagrams UDP</h3>
 <p>Formato de un datagrama UPD:</p>
-<p><img src="Resources/06 - Transporte/9fa79f14-15ba-42d7-8929-3dbfd0c98b50.jpg" class="img-fluid" alt="9fa79f14-15ba-42d7-8929-3dbfd0c98b50" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/0a30a8e0-1bef-489e-9dba-28dfd7a14f38.jpg" class="img-fluid" alt="0a30a8e0-1bef-489e-9dba-28dfd7a14f38" style="zoom:50%;" /></p>
 <p>Este servicio transporta datos de manera no confiable entre hosts. Entre sus propiedades están:</p>
 <ul>
 <li>No es orientado a conexión.</li>
@@ -1469,7 +1469,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>IP de destino</li>
 <li>Puerto de destino</li>
 </ul>
-<p><img src="Resources/06 - Transporte/2184c484-72db-46a6-87f1-4eb6cdc8ad8a.jpg" class="img-fluid" alt="2184c484-72db-46a6-87f1-4eb6cdc8ad8a" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/a85f4756-f77f-412c-b62a-13c9f617b4cf.jpg" class="img-fluid" alt="a85f4756-f77f-412c-b62a-13c9f617b4cf" style="zoom:50%;" /></p>
 <p>TCP ofrece un circuito virtual entre aplicaciones de usuarios finales con las siguientes características:</p>
 <ul>
 <li>Es orientado a conexión.</li>
@@ -1491,10 +1491,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h3 id="transferencia-con-posibles-errores">Transferencia con Posibles Errores</h3>
 <p>Los protocolos de red pueden alterar algunos bits. Para detectar esto podemos agregar un hash del mensaje llamado CRC, y en caso de que sucedan, podemos usar los mensajes de ACK y NAK ante la falta o error del mensaje.</p>
 <p>Otro metodo utilizado para solucionar esto es <strong>stop and wait</strong>:</p>
-<p><img src="Resources/06 - Transporte/1640d2de-4cf8-4b5d-a2be-d0a8a35af57c.jpg" class="img-fluid" alt="1640d2de-4cf8-4b5d-a2be-d0a8a35af57c" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/4b6f0ad6-b235-4b25-91c4-ef92beac163a.jpg" class="img-fluid" alt="4b6f0ad6-b235-4b25-91c4-ef92beac163a" style="zoom:50%;" /></p>
 <p>Este metodo es mas seguro, pero muy lento.</p>
 <p>También puedo usar <strong>pipelining</strong>:</p>
-<p><img src="Resources/06 - Transporte/199c9020-f0ce-4fdb-84a1-5202195c066e.jpg" class="img-fluid" alt="199c9020-f0ce-4fdb-84a1-5202195c066e" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/f96f7226-0c71-4b6c-9663-6178d5f3c3d5.jpg" class="img-fluid" alt="f96f7226-0c71-4b6c-9663-6178d5f3c3d5" style="zoom:50%;" /></p>
 <p>La complejidad de esta implementación es bastante mayor, pero es mas optimo.</p>
 <h2 id="control-de-congestion">Control de Congestión</h2>
 <p>Cuando hay muchas fuentes enviando muchos datos a alta velocidad, la capa de red no lo puede manejar. Este concepto es distinto del control de flujo y la capa de IP no se hace cargo. Los problemas de congestión de manifiestan con:</p>
@@ -1503,23 +1503,23 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Demoras.</li>
 </ul>
 <p>TCP soluciona esto implementado <strong>AIMD (Additive Increase Multiplicative Decrease)</strong>. Esto se basa en incrementar el tamaño de ventana en relación al MSS (Maximum segmentos size) indicado por cada RTT (Round Trip Time) hasta que detecte perdidas. Una vez que detecta perdidas, redice el tamaño de ventana a la mitad.</p>
-<p><img src="Resources/06 - Transporte/3b95e4e0-592c-48cb-8172-1d1669496f7b.jpg" class="img-fluid" alt="3b95e4e0-592c-48cb-8172-1d1669496f7b" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/5cf64e1e-0c18-4b1f-8f5f-fad3d52f244b.jpg" class="img-fluid" alt="5cf64e1e-0c18-4b1f-8f5f-fad3d52f244b" style="zoom:50%;" /></p>
 <h2 id="nat">NAT</h2>
 <p>NAT o Network Address Translation es un protocolo que permite que haya solo una IP publica por red, pero que todas las computadoras conectadas a esa red puedan acceder y ser accedidas a través del internet.</p>
 <p>La <strong>table NAT</strong> es una lista que mantiene el firewall para la red. En esta tabla se indica que conexiones exteriores pueden entrar a la red:</p>
-<p><img src="Resources/06 - Transporte/ca6c7ecd-a5f7-4b34-b3ff-a67090390a32.jpg" class="img-fluid" alt="ca6c7ecd-a5f7-4b34-b3ff-a67090390a32" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/e6c15576-1f72-4c0a-8d48-52d5b35716b0.jpg" class="img-fluid" alt="e6c15576-1f72-4c0a-8d48-52d5b35716b0" style="zoom:50%;" /></p>
 <p>Hay dos tipos de NAT:</p>
 <ul>
 <li><p><strong>DNAT</strong>: Conocida como Destination NAT, se utiliza para permitir que conexiones exteriores entren por un puerto especifico a la red y sean redirigiros a una o mas computadoras en la red. Ademas, a la hora de redireccionar un paquete a la una maquina en la red, también modifica el header de destino en los paquetes.</p>
-<p><img src="Resources/06 - Transporte/88ebc25c-0e63-4475-a92c-5d39b8c5f943.jpg" class="img-fluid" alt="88ebc25c-0e63-4475-a92c-5d39b8c5f943" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/756a5fee-3b86-452a-a45c-dc88cdc60e3e.jpg" class="img-fluid" alt="756a5fee-3b86-452a-a45c-dc88cdc60e3e" style="zoom:50%;" /></p>
 </li>
 <li><p><strong>SNAT</strong>: Es el mismo concepto anterior, pero en vez de permitir a una conexión entrante, se permite a una conexión saliente. En este caso no se modifica ningún header.</p>
-<p><img src="Resources/06 - Transporte/8b4a8454-7571-4705-bf83-1bc293a9fbc5.jpg" class="img-fluid" alt="8b4a8454-7571-4705-bf83-1bc293a9fbc5" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/88677d5d-65c6-42e1-9837-338be417357d.jpg" class="img-fluid" alt="88677d5d-65c6-42e1-9837-338be417357d" style="zoom:50%;" /></p>
 </li>
 </ul>
 <h2 id="firewalls">Firewalls</h2>
 <p>Un firewall opera en el nivel más bajo de red, evita accesos no autorizados a la intranet y permite definir qué trafico entra y sale de la red.</p>
-<p><img src="Resources/06 - Transporte/5ed130a2-4b7f-4ead-b9ba-0908855f8b74.jpg" class="img-fluid" alt="5ed130a2-4b7f-4ead-b9ba-0908855f8b74" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/7adca168-793e-418f-8351-8cc18f611139.jpg" class="img-fluid" alt="7adca168-793e-418f-8351-8cc18f611139" style="zoom:50%;" /></p>
 <h3 id="packet-filter">Packet Filter</h3>
 <p>Este metodo analiza el trafico de la red a nivel de transporte, donde cada paquete es evaluado para ver si satisface una serie de reglas. Estas reglas pueden ser basadas en:</p>
 <ul>
@@ -1528,10 +1528,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>El protocolo.</li>
 <li>El puerto de origen o destino.</li>
 </ul>
-<p><img src="Resources/06 - Transporte/3103dbc6-450a-4065-934e-9816714ccae7.jpg" class="img-fluid" alt="3103dbc6-450a-4065-934e-9816714ccae7" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/ccbcc151-9478-4a1c-b369-06b753f46066.jpg" class="img-fluid" alt="ccbcc151-9478-4a1c-b369-06b753f46066" style="zoom:50%;" /></p>
 <h3 id="circuit-level">Circuit Level</h3>
 <p>Este método sirve para validar si un paquete pertenece a una sesión valida.</p>
-<p><img src="Resources/06 - Transporte/53618fe2-bfd4-4da3-97f3-41d47f187991.jpg" class="img-fluid" alt="53618fe2-bfd4-4da3-97f3-41d47f187991" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/55178ee3-1d2a-4ed9-a437-f7027ceac60d.jpg" class="img-fluid" alt="55178ee3-1d2a-4ed9-a437-f7027ceac60d" style="zoom:50%;" /></p>
 <p>Una vez establecida una sesión, se suele almacenar:</p>
 <ul>
 <li>El identificador de la conexión.</li>
@@ -1542,10 +1542,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Interfaz de red por la que salen los paquetes.</li>
 </ul>
 <h3 id="application-layer">Application Layer</h3>
-<p><img src="Resources/06 - Transporte/2e385661-af43-48c2-bb6a-311b3d41d1d3.jpg" class="img-fluid" alt="2e385661-af43-48c2-bb6a-311b3d41d1d3" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/36baa1c5-6fde-46b2-bbec-5bc8c4ea9b6a.jpg" class="img-fluid" alt="36baa1c5-6fde-46b2-bbec-5bc8c4ea9b6a" style="zoom:50%;" /></p>
 <h3 id="dynamic-packet-filter">Dynamic Packet Filter</h3>
 <p>Es similar al filtrado de paquetes anterior pero pero permite modificar las reglas dinámicamente.</p>
-<p><img src="Resources/06 - Transporte/07d14368-0c19-40a7-990c-2787ac7e1d58.jpg" class="img-fluid" alt="07d14368-0c19-40a7-990c-2787ac7e1d58" style="zoom:50%;" /></p>
+<p><img src="Resources/06 - Transporte/1feff3a7-267e-4d71-80a2-e4dac39e9527.jpg" class="img-fluid" alt="1feff3a7-267e-4d71-80a2-e4dac39e9527" style="zoom:50%;" /></p>
 
 </body>
 

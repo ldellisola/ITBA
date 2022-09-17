@@ -1438,10 +1438,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>There are a variety of different measures to calculate the importance, popularity, or social capita of a node in a social network</p>
 <h3 id="degree-centrality">Degree Centrality</h3>
 <p>It measures the number of connections that lead into or out of the node. It determines the nodes that can quickly spread information to a localized area.</p>
-<p><img src="Resources/04 - Social Network Analysis/695fea36-b9f2-4af1-a38e-e2051434f9a8.png" class="img-fluid" alt="695fea36-b9f2-4af1-a38e-e2051434f9a8" style="zoom:33%;" /></p>
+<p><img src="Resources/04 - Social Network Analysis/1fb3f3c1-6019-4420-98b9-bb6d02e2d6c9.png" class="img-fluid" alt="1fb3f3c1-6019-4420-98b9-bb6d02e2d6c9" style="zoom:33%;" /></p>
 <h3 id="closeness-centrality">Closeness Centrality</h3>
 <p>It is calculated using the mean length of all shortest paths from a node to all other nodes. It is a measure of reach, distance to each other.</p>
-<p><img src="Resources/04 - Social Network Analysis/81528f2e-c4a8-4479-8a04-6a6509b70a50.png" class="img-fluid" alt="81528f2e-c4a8-4479-8a04-6a6509b70a50" style="zoom:33%;" /></p>
+<p><img src="Resources/04 - Social Network Analysis/b4772e10-e6d1-46f0-a777-52c217920b76.png" class="img-fluid" alt="b4772e10-e6d1-46f0-a777-52c217920b76" style="zoom:33%;" /></p>
 <p>Another way to define this is as the inverse of fairness:</p>
 <div class="math">
 \[
@@ -1449,10 +1449,10 @@ Cc_x =\frac{1}{\sum_y \text{distance}(y,x)}
 \]</div>
 <h3 id="betweenness-centrality">Betweenness Centrality</h3>
 <p>It is obtained form the number of shortest paths that pass through a node divided by all shortest paths. The main use of this measurement is to identify communication bottlenecks or community bridges.</p>
-<p><img src="Resources/04 - Social Network Analysis/32872cce-cb7f-4d73-abd6-dc6e8dfb444e.png" class="img-fluid" alt="32872cce-cb7f-4d73-abd6-dc6e8dfb444e" style="zoom:33%;" /></p>
+<p><img src="Resources/04 - Social Network Analysis/f2149cd7-82e0-4b89-a524-b639479a7d3c.png" class="img-fluid" alt="f2149cd7-82e0-4b89-a524-b639479a7d3c" style="zoom:33%;" /></p>
 <h3 id="eigenvector-centrality">Eigenvector Centrality</h3>
 <p>The nodes with higher eigenvector centrality is connected to other nodes with high eigenvector centrality.</p>
-<p><img src="Resources/04 - Social Network Analysis/72b98cab-d50e-4b4d-b717-b65d9fb221dd.png" class="img-fluid" alt="72b98cab-d50e-4b4d-b717-b65d9fb221dd" style="zoom:33%;" /></p>
+<p><img src="Resources/04 - Social Network Analysis/8be4ca6e-ee38-4ed6-b8e7-f0302434ee06.png" class="img-fluid" alt="8be4ca6e-ee38-4ed6-b8e7-f0302434ee06" style="zoom:33%;" /></p>
 <p>This algorithm is as follows:</p>
 <ol>
 <li>Start by assigning a centrality score of 1 to all nodes.</li>
@@ -1504,7 +1504,7 @@ d_{\text{inter}} = \frac{\text{# of inter edges of $C$}}{|C| \times (|V| - |C|)}
 <p>There are several ways to partition a graph:</p>
 <ul>
 <li><p><strong>Min-Cut</strong>: This algorithm simply involves minimizing the number of edges cut by the partition. The number of edges between clusters is called <strong>cut size</strong>. For this method we must say how many clusters we want to obtain.</p>
-<p><img src="Resources/04 - Social Network Analysis/0a0f50b2-39a1-4881-81d5-7d76a8381335.png" class="img-fluid" alt="0a0f50b2-39a1-4881-81d5-7d76a8381335" style="zoom:33%;" /></p>
+<p><img src="Resources/04 - Social Network Analysis/84447763-3a7e-4653-b0c7-18cdf139216e.png" class="img-fluid" alt="84447763-3a7e-4653-b0c7-18cdf139216e" style="zoom:33%;" /></p>
 </li>
 <li><p><strong>Kernighan-Lin Algorithm</strong>: This is a heuristic procedure for the problem of partitioning networks. The approach is as follows:</p>
 <ol>
@@ -1534,7 +1534,7 @@ Im = Dn + Dm - 2 \times(\exists \text{ edge between }n,m ? 1:0)
 </ol>
 </li>
 <li><p><strong>Hierarchical Clustering</strong>: We construct a tree of clusters to identify groups of nodes with high similarity according to some similarity measure.</p>
-<p><img src="Resources/04 - Social Network Analysis/41261595-baa8-4120-8f20-affa4e97cb1c.png" class="img-fluid" alt="41261595-baa8-4120-8f20-affa4e97cb1c" style="zoom:33%;" /></p>
+<p><img src="Resources/04 - Social Network Analysis/a5665569-1b8e-412d-9b29-f100fe6c18f3.png" class="img-fluid" alt="a5665569-1b8e-412d-9b29-f100fe6c18f3" style="zoom:33%;" /></p>
 <p>This still has some problems, mostly when there are more than one bridge. The solution here is to use the shortest path.</p>
 </li>
 <li><p><strong>Girvan-Newman Method</strong>: ???</p>
@@ -1550,7 +1550,7 @@ Im = Dn + Dm - 2 \times(\exists \text{ edge between }n,m ? 1:0)
 <li>Construct a clique graph where each node represents a clique.</li>
 <li>The community is detected as a component of the clique graph.</li>
 </ol>
-<p><img src="Resources/04 - Social Network Analysis/df2b466b-5b99-4e37-abae-c6a382d459f0.png" class="img-fluid" alt="df2b466b-5b99-4e37-abae-c6a382d459f0" style="zoom:33%;" /></p>
+<p><img src="Resources/04 - Social Network Analysis/24b77c90-4e85-44c4-ae4e-9b10c3cf7d49.png" class="img-fluid" alt="24b77c90-4e85-44c4-ae4e-9b10c3cf7d49" style="zoom:33%;" /></p>
 <h3 id="modularity">Modularity</h3>
 <p>This is the most popular quality function designed to measure the strength of division of a network into modules.</p>
 <div class="math">

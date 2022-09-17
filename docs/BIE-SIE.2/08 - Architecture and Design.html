@@ -1473,93 +1473,93 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="design-patterns">Design Patterns</h2>
 <h3 id="mvc">MVC</h3>
 <p>MVC or Model View Controller is an architectural pattern that decouples interactive applications into 3 components.</p>
-<p><img src="Resources/08 - Architecture and Design/ab319657-f2e6-4590-8e8a-50e3c8bee32c.png" class="img-fluid" alt="ab319657-f2e6-4590-8e8a-50e3c8bee32c" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/682b1e81-73c7-4658-8591-10b646aefa75.png" class="img-fluid" alt="682b1e81-73c7-4658-8591-10b646aefa75" style="zoom:50%;" /></p>
 <p>This pattern has the benefit that you can have multiple views for the same model and change freely the &quot;look and feel&quot; of the application, but it can also lead to increased complexity and a close connection between the view and the controller.</p>
 <h3 id="mvp">MVP</h3>
 <p>This pattern is similar to MVC, with the difference that now there is no controller and all inputs and outputs are managed by the view. This queries and changes go through the presenter, which will affect the model and send the changes back to the view.</p>
-<p><img src="Resources/08 - Architecture and Design/a7cb3a29-ca3b-48f4-8d7a-a116b6dd2f79.png" class="img-fluid" alt="a7cb3a29-ca3b-48f4-8d7a-a116b6dd2f79" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/0b6af5e2-a3f9-4788-9f36-52dccc580250.png" class="img-fluid" alt="0b6af5e2-a3f9-4788-9f36-52dccc580250" style="zoom:50%;" /></p>
 <h3 id="mvvm">MVVM</h3>
 <p>Model View View-Model is an attempt to solve the GUI testing problem of MVP. Here the view is stateless and the state container is the View-Model.</p>
 <h3 id="observer">Observer</h3>
 <p>The Observer pattern tries to abstract coupling between Subject and Observers. The main idea is that observers can be added to a given subject without making any changes and the subject can broadcast messages to them.</p>
-<p><img src="Resources/08 - Architecture and Design/83546810-c0ae-4c5d-aa6a-8ed2a8e71633.png" class="img-fluid" alt="83546810-c0ae-4c5d-aa6a-8ed2a8e71633" style="zoom:35%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/fe2a1854-1fb4-404b-8854-b7ed904e64a2.png" class="img-fluid" alt="fe2a1854-1fb4-404b-8854-b7ed904e64a2" style="zoom:35%;" /></p>
 <p>When implementing this patter, the programmer has to be aware of possible deadlocks and unexpected updates.</p>
 <h3 id="factory-method">Factory Method</h3>
 <p>The creation of concrete instances violates the Dependency inversion principle and this pattern tries to tackle that problem.</p>
-<p><img src="Resources/08 - Architecture and Design/7bf1f73e-afc2-4a2f-883c-84a18a25a12b.png" class="img-fluid" alt="7bf1f73e-afc2-4a2f-883c-84a18a25a12b" style="zoom:43%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/9ed20952-fa56-421f-8793-590aea19a2cd.png" class="img-fluid" alt="9ed20952-fa56-421f-8793-590aea19a2cd" style="zoom:43%;" /></p>
 <h3 id="factory">Factory</h3>
 <p>It is very similar to the previous pattern but now every class has its own factory class that only creates it.</p>
-<p><img src="Resources/08 - Architecture and Design/97c4ee9e-6455-4ec6-ad3a-7c61123f4bb4.png" class="img-fluid" alt="97c4ee9e-6455-4ec6-ad3a-7c61123f4bb4" style="zoom:100%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/9652413b-11a5-42fe-82b1-4259270505c9.png" class="img-fluid" alt="9652413b-11a5-42fe-82b1-4259270505c9" style="zoom:100%;" /></p>
 <h3 id="abstract-factory">Abstract Factory</h3>
 <p>Abstract factories are used to create a set of objects that extend a main object. There is a main abstract factory and then, according to the differences in the objects we can create different factories to create them.</p>
-<p><img src="Resources/08 - Architecture and Design/5d155ec4-2809-43a3-8766-6dd1bc343a25.png" class="img-fluid" alt="5d155ec4-2809-43a3-8766-6dd1bc343a25" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/fd192858-20a4-4569-93b7-b1fd72490ea9.png" class="img-fluid" alt="fd192858-20a4-4569-93b7-b1fd72490ea9" style="zoom:67%;" /></p>
 <p>The benefits of this approach is that the clients is isolated from the concrete implementation of classes and it makes exchanging product families very easy. On the other side, supporting new kinds of products requires changing the abstract factory interface.</p>
 <h3 id="strategy">Strategy</h3>
 <p>The Strategy pattern tries to define a family of algorithms and encapsulate them in a base class, making them interchangeable.</p>
-<p>![image-20201211111339040](Resources/08 - Architecture and Design/cfe82df2-d6b0-4c9e-8205-be1aebb59e6f.png)</p>
+<p>![image-20201211111339040](Resources/08 - Architecture and Design/1851cc9d-9310-4076-90e6-b7d1391c360f.png)</p>
 <h3 id="state">State</h3>
 <p>The State pattern allows an object to alter its behavior when its internal state changes.</p>
-<p><img src="Resources/08 - Architecture and Design/079b3410-a0ff-4755-9f7c-0428f34b084a.png" class="img-fluid" alt="079b3410-a0ff-4755-9f7c-0428f34b084a" style="zoom:80%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/53356fb0-8e04-4a65-ad7e-258954298659.png" class="img-fluid" alt="53356fb0-8e04-4a65-ad7e-258954298659" style="zoom:80%;" /></p>
 <h3 id="visitor">Visitor</h3>
 <p>It allows to add new operations to a class hierarchy without changing its classes.</p>
-<p><img src="Resources/08 - Architecture and Design/f1ed15e3-df6d-483b-a748-af127960bf9d.png" class="img-fluid" alt="f1ed15e3-df6d-483b-a748-af127960bf9d" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/5d8ddc60-92af-490b-92f4-f5e328fd4b15.png" class="img-fluid" alt="5d8ddc60-92af-490b-92f4-f5e328fd4b15" style="zoom:67%;" /></p>
 <p>It is applicable when you want many distinct and unrelated operations without messing with the structural classes.</p>
 <h3 id="proxy">Proxy</h3>
 <p>The Proxy provides a surrogate or a placeholder for another object to control access to it.</p>
-<p><img src="Resources/08 - Architecture and Design/167bf7d4-bbfb-41f7-b51b-afc646bc0716.png" class="img-fluid" alt="167bf7d4-bbfb-41f7-b51b-afc646bc0716" style="zoom:80%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/7357c9a1-db1a-465d-8b52-22e98e1b2020.png" class="img-fluid" alt="7357c9a1-db1a-465d-8b52-22e98e1b2020" style="zoom:80%;" /></p>
 <h3 id="command">Command</h3>
 <p>The Command pattern encapsulates a message request as an object that will later be invoked.</p>
-<p><img src="Resources/08 - Architecture and Design/0e68cd7a-951e-4940-b765-b8ce56e61120.png" class="img-fluid" alt="0e68cd7a-951e-4940-b765-b8ce56e61120" style="zoom:80%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/88abd7e8-cae4-4bb0-9205-476246630ba9.png" class="img-fluid" alt="88abd7e8-cae4-4bb0-9205-476246630ba9" style="zoom:80%;" /></p>
 <p>This pattern is useful when you need to queue different actions and the commands may have different life times than the original object.</p>
 <h3 id="memento">Memento</h3>
 <p>It creates an snapshot of an object's internal state which can be later restored.</p>
-<p><img src="Resources/08 - Architecture and Design/6d26a006-ec28-44a5-a4d3-e13ae33dc857.png" class="img-fluid" alt="6d26a006-ec28-44a5-a4d3-e13ae33dc857" style="zoom:80%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/d175b6e4-6e9f-4ac4-b982-561f1ef0e006.png" class="img-fluid" alt="d175b6e4-6e9f-4ac4-b982-561f1ef0e006" style="zoom:80%;" /></p>
 <p>It provides a way of recording the internal state of an object in a separate object without violating the encapsulation principle and it eliminates the need for multiple creation of the same object for the sole purpose of saving its state.</p>
 <p>The issue with it is that it must provide 2 types of interfaces, a narrow interface for the care taker and a wider interface for the originator.</p>
 <h3 id="bridge">Bridge</h3>
 <p>The Bridge pattern aims to provide portability and &quot;bridge&quot; the differences between non-compatible standards or operating systems.</p>
-<p><img src="Resources/08 - Architecture and Design/9f617891-85e7-4b23-b1f5-acfd4dcc1680.png" class="img-fluid" alt="9f617891-85e7-4b23-b1f5-acfd4dcc1680" style="zoom:80%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/a461d7c5-6915-4c2f-b57c-4ec2d9dbeccd.png" class="img-fluid" alt="a461d7c5-6915-4c2f-b57c-4ec2d9dbeccd" style="zoom:80%;" /></p>
 <h3 id="builder">Builder</h3>
 <p>The Builder separates the construction process from the concrete representation.</p>
-<p><img src="Resources/08 - Architecture and Design/6238e424-a232-4f4f-8659-ba11f2104921.png" class="img-fluid" alt="6238e424-a232-4f4f-8659-ba11f2104921" style="zoom:80%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/a587c9b8-9f79-4aed-a080-4db67805826c.png" class="img-fluid" alt="a587c9b8-9f79-4aed-a080-4db67805826c" style="zoom:80%;" /></p>
 <h3 id="prototype">Prototype</h3>
 <p>Prototype specifies the kind of objects to create using a prototype and creating new objects by copying it</p>
-<p>![image-20201211115214487](Resources/08 - Architecture and Design/4d72bc66-3800-4ab1-ad02-c1152b55c396.png)</p>
+<p>![image-20201211115214487](Resources/08 - Architecture and Design/84a97482-e036-487a-87c9-0328bc0293df.png)</p>
 <h3 id="singleton">Singleton</h3>
 <p>It ensures a class has only one instance and provides a global access point to it. While it's easy to use, it is a bad practice because it introduces a global state and makes your code not portable</p>
 <h3 id="facade">Facade</h3>
 <p>It provides a simple interface to a group of objects that have complex and general interfaces. The pattern enforces low coupling with external subsystems and libraries.</p>
 <h3 id="adapter">Adapter</h3>
 <p>The Adapter convers the interface of a class into another interface, which the client expects.</p>
-<p>![image-20201211115856369](Resources/08 - Architecture and Design/41ab6cb8-751d-48bf-8cd5-824445dcfabb.png)</p>
+<p>![image-20201211115856369](Resources/08 - Architecture and Design/cf5ffb31-216a-4fbf-8de5-bc21aad1940f.png)</p>
 <h3 id="flyweight">Flyweight</h3>
 <p>It uses sharing to support a large number of fine-grained objects efficiently.</p>
-<p>![image-20201211115956710](Resources/08 - Architecture and Design/b93b9c38-64ad-4e55-a342-12cec5459947.png)</p>
+<p>![image-20201211115956710](Resources/08 - Architecture and Design/c123487b-c633-43e9-9b8e-934cd4d6f062.png)</p>
 <p>It is used when the application uses a large number of objects and the storage costs are high.</p>
 <h3 id="composite">Composite</h3>
 <p>It is a tree structure that represents part-whole relationships.</p>
-<p><img src="Resources/08 - Architecture and Design/f96027fe-b49d-45c2-b0fe-ab3924c28205.png" class="img-fluid" alt="f96027fe-b49d-45c2-b0fe-ab3924c28205" style="zoom:40%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/f4f0ae18-b697-403e-83c3-58fe15a8e77d.png" class="img-fluid" alt="f4f0ae18-b697-403e-83c3-58fe15a8e77d" style="zoom:40%;" /></p>
 <h3 id="decorator">Decorator</h3>
 <p>The decorator attaches additional responsibilities to an object dynamically.</p>
-<p><img src="Resources/08 - Architecture and Design/34130831-6574-4d18-9ada-e7851ce836dd.png" class="img-fluid" alt="34130831-6574-4d18-9ada-e7851ce836dd" style="zoom:43%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/38121a7f-0150-42de-bda2-0ae3442c5276.png" class="img-fluid" alt="38121a7f-0150-42de-bda2-0ae3442c5276" style="zoom:43%;" /></p>
 <p>This provides more flexibility than static inheritance but it also has a lot of little objects.</p>
 <h3 id="chain-of-responsibility">Chain of Responsibility</h3>
 <p>The Chain of responsibility is a method of passing a request among a chain of objects.</p>
-<p><img src="Resources/08 - Architecture and Design/bf76d1fc-38bd-4671-a83b-b054a7772487.png" class="img-fluid" alt="bf76d1fc-38bd-4671-a83b-b054a7772487" style="zoom:33%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/92d03257-fdaf-4964-ae2c-3a7ab750e30f.png" class="img-fluid" alt="92d03257-fdaf-4964-ae2c-3a7ab750e30f" style="zoom:33%;" /></p>
 <p>It reduces coupling between sender and receiver and it has a lot of flexibility in assigning responsibilities to objects, but it has performance issues.</p>
 <h3 id="template-method">Template Method</h3>
 <p>It defines a skeleton for an algorithm in a base class and lets the subclasses redefine the steps.</p>
-<p><img src="Resources/08 - Architecture and Design/31d7a87c-6054-4603-b9f9-38685d20613f.png" class="img-fluid" alt="31d7a87c-6054-4603-b9f9-38685d20613f" style="zoom:33%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/c0f29ce1-a76c-4c87-850d-73755fc17bfb.png" class="img-fluid" alt="c0f29ce1-a76c-4c87-850d-73755fc17bfb" style="zoom:33%;" /></p>
 <h3 id="mediator">Mediator</h3>
 <p>It encapsulates the interaction of a set of objects.</p>
-<p><img src="Resources/08 - Architecture and Design/13783b31-f044-4c63-818c-dad12c699725.png" class="img-fluid" alt="13783b31-f044-4c63-818c-dad12c699725" style="zoom:33%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/de91ac04-bc0d-46f8-bdb9-a295aa4e5d67.png" class="img-fluid" alt="de91ac04-bc0d-46f8-bdb9-a295aa4e5d67" style="zoom:33%;" /></p>
 <p>This pattern centralizes controls, abstracts object cooperation and limits subclassing of colleague classes.</p>
 <h3 id="iterator">Iterator</h3>
 <p>It represents sequential access to container elements without exposing its underlying representation.</p>
-<p><img src="Resources/08 - Architecture and Design/80d600c9-625a-4292-bd80-f4aa10b8fb1b.png" class="img-fluid" alt="80d600c9-625a-4292-bd80-f4aa10b8fb1b" style="zoom:33%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/ba08afc2-384a-4aee-bde7-1b156122e1ed.png" class="img-fluid" alt="ba08afc2-384a-4aee-bde7-1b156122e1ed" style="zoom:33%;" /></p>
 <h3 id="interpreter">Interpreter</h3>
 <p>It defines a grammatical representation for a language and an interpreter to interpret the grammar.</p>
-<p><img src="Resources/08 - Architecture and Design/b11dde5e-8313-48fe-b219-e9a625817e00.png" class="img-fluid" alt="b11dde5e-8313-48fe-b219-e9a625817e00" style="zoom:40%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/32a667ef-f3c0-48b2-9040-575a0f87c108.png" class="img-fluid" alt="32a667ef-f3c0-48b2-9040-575a0f87c108" style="zoom:40%;" /></p>
 <h3 id="marker-interface">Marker Interface</h3>
 <p>It provides a means to associate metadata with a class where the language does not  have explicit support for such metadata. Sort of expanding the concept of reflection to and adding new data to a class.</p>
 <h3 id="mock-object">Mock Object</h3>
@@ -1568,7 +1568,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>It implements the concept of software modules in a programming language with incomplete direct support for the concept. It organizes code in certain ways to accomplish a particular function. It can be implemented using a specialization of the singleton pattern.</p>
 <h3 id="twin">Twin</h3>
 <p>It allows developers to model multiple inheritance in programming languages that do not support it.</p>
-<p><img src="Resources/08 - Architecture and Design/cb0cb617-90a5-4a99-85c3-f3f49b66f78f.png" class="img-fluid" alt="cb0cb617-90a5-4a99-85c3-f3f49b66f78f" style="zoom:33%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/c6353e7d-0433-441c-a93d-062cfe54f2d6.png" class="img-fluid" alt="c6353e7d-0433-441c-a93d-062cfe54f2d6" style="zoom:33%;" /></p>
 <p>It's applicable to model multiple inheritance and to avoid some of its problems. It requires message forwarding, may be less efficient than inheritance.</p>
 <h3 id="servant">Servant</h3>
 <p>An object used to offer some functionality to a group of classes without defining that functionality in each of them. It promotes separation of concerns.</p>
@@ -1607,7 +1607,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>It is an architecture promoting the production, detection, consumption and reaction of events. It can be implemented with a mediator or broker topology.</p>
 <h3 id="publish-subscribe-architecture">Publish-Subscribe Architecture</h3>
 <p>Publishers categorize published messages and subscribers express their interest in messages from a certain category and only receive messages of those categories, without knowing the publishers.</p>
-<p><img src="Resources/08 - Architecture and Design/4b782983-af6c-4624-9aeb-ee3e20990fa5.png" class="img-fluid" alt="4b782983-af6c-4624-9aeb-ee3e20990fa5" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Architecture and Design/1b7ed76e-9ef0-44f0-8186-270268b6e766.png" class="img-fluid" alt="1b7ed76e-9ef0-44f0-8186-270268b6e766" style="zoom:50%;" /></p>
 <h3 id="dsls">DSLs</h3>
 <p>DSL is a computer language specialized to a particular application domain. It contrasts to a general-purpose language and it is used to model an specific domain.</p>
 <h3 id="reflection">Reflection</h3>

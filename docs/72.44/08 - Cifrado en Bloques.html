@@ -1438,23 +1438,23 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <h2 id="modos-de-encadenamiento">Modos de Encadenamiento</h2>
 <h3 id="electronic-cook-book-ecb">Electronic Cook Book (ECB)</h3>
-<p><img src="Resources/08 - Cifrado en Bloques/23cb516e-a666-424b-a36e-7d69a29f3a3f.jpg" class="img-fluid" alt="23cb516e-a666-424b-a36e-7d69a29f3a3f" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Cifrado en Bloques/32fc9260-ff7c-4e26-bb82-fa9bf2931fc1.jpg" class="img-fluid" alt="32fc9260-ff7c-4e26-bb82-fa9bf2931fc1" style="zoom:50%;" /></p>
 <p>Este metodo trata al mensaje original como un conjunto de bloques independientes y aplica el cifrado a cada uno. <strong>No es CPA-Secure</strong>.</p>
 <h3 id="cipher-block-chain-cbc">Cipher Block Chain (CBC)</h3>
 <p>Este metodo es serial y utiliza la salida de un bloque como entrada para el proximo. Para el valor inicial requiere de un IV, ademas de la clave:</p>
-<p><img src="Resources/08 - Cifrado en Bloques/1914a171-5697-4713-bd6c-1c8d14acb9f2.jpg" class="img-fluid" alt="1914a171-5697-4713-bd6c-1c8d14acb9f2" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Cifrado en Bloques/a49a3947-6072-49ba-ad2a-d5764c3d58bd.jpg" class="img-fluid" alt="a49a3947-6072-49ba-ad2a-d5764c3d58bd" style="zoom:50%;" /></p>
 <p>Es <strong>CPA-Secure</strong> con IVs aleatorios.</p>
 <h3 id="cipher-feedback-cfb">Cipher Feedback (CFB)</h3>
 <p>El mecanismo CFB se utiliza cuando hay poca disponibilidad de memoria. La idea es tratar a estos criptosistemas de bloque como si fueran sistemas de flujo. Para el primer bloque se encripta el IV con la clave y luego se realiza un xor con el texto plano. Para los próximos bloques, se cifran el bloque anterior y luego se realiza un xor con el mensaje actual.</p>
-<p><img src="Resources/08 - Cifrado en Bloques/93b4663f-50f9-4dbc-b0ba-7e80b26b46ef.jpg" class="img-fluid" alt="93b4663f-50f9-4dbc-b0ba-7e80b26b46ef" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Cifrado en Bloques/60605cc9-b99d-4b14-aad7-f0a916d42cb7.jpg" class="img-fluid" alt="60605cc9-b99d-4b14-aad7-f0a916d42cb7" style="zoom:50%;" /></p>
 <p>Es <strong>CPA-Secure</strong> con IVs aleatorios.</p>
 <h3 id="output-feedback-ofb">Output Feedback (OFB)</h3>
 <p>Construye una transformación de flujo a partir de una de bloque, y permite calcular los bits de la transformación por adelantado. Es similar a CFB, pero con la diferencia que el se utiliza el cifrado del bloque anterior, sin hacer un xor con el mensaje de texto plano:</p>
-<p><img src="Resources/08 - Cifrado en Bloques/9e34d804-d6b8-40ed-848a-2e72d51e6d30.jpg" class="img-fluid" alt="9e34d804-d6b8-40ed-848a-2e72d51e6d30" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Cifrado en Bloques/b1333633-8eef-420c-9797-5c2a23f70edf.jpg" class="img-fluid" alt="b1333633-8eef-420c-9797-5c2a23f70edf" style="zoom:50%;" /></p>
 <p>Es <strong>CPA-Secure</strong> con IVs aleatorios.</p>
 <h3 id="counter">Counter</h3>
 <p>Utiliza un contador para generar secuencias de bits de clave. Se concatena la clave con el valor de un contador llamado nonce y se utiliza eso para poder cifrar al texto plano. Permite el acceso aleatorio y es muy util en ambientes con capacidad de procesamiento paralelo.</p>
-<p><img src="Resources/08 - Cifrado en Bloques/6b093ce9-34b3-4f32-9b44-24081b6c001f.jpg" class="img-fluid" alt="6b093ce9-34b3-4f32-9b44-24081b6c001f" style="zoom:50%;" /></p>
+<p><img src="Resources/08 - Cifrado en Bloques/dd224c69-f61f-4fa8-a744-3956a38611c2.jpg" class="img-fluid" alt="dd224c69-f61f-4fa8-a744-3956a38611c2" style="zoom:50%;" /></p>
 <p>Es <strong>CPA-Secure</strong> si no se repiten los pares (k, nonce).</p>
 <h2 id="criptosistemas-de-bloque">Criptosistemas de Bloque</h2>
 <p>Utilizan primitivas de cifrado en bloque como lo son DES, AES y 3-DES, y las unen junto a un modo de encadenamiento.</p>
