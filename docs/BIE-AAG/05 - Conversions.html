@@ -1473,7 +1473,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ol>
 <p>The result is a non-deterministic, Homogeneous finite automaton without epsilon transitions.</p>
 <p>We can see now a more formal definition of the algorithm.</p>
-<p><img src="Resources/05 - Convertsions/76acaf37-e86f-45b5-ae59-4778995df950.png" class="img-fluid" alt="76acaf37-e86f-45b5-ae59-4778995df950" style="zoom:50%;" /></p>
+<p><img src="Resources/05 - Convertsions/34143531F3C31109.png" class="img-fluid" alt="34143531F3C31109" style="zoom:50%;" /></p>
 <h3 id="method-of-derivatives">Method of Derivatives</h3>
 <p>This algorithm works using the theorem of <em>Bound of Dissimilarities</em>:</p>
 <blockquote class="blockquote">
@@ -1518,27 +1518,27 @@ U = \{V\}
 </ol>
 <p>The result is a total deterministic finite automaton.</p>
 <p>A more formal version of the algorithm can be found here.</p>
-<p><img src="Resources/05 - Conversions/47b72e3a-9f2d-45cf-a173-3e5db1a6eb13.png" class="img-fluid" alt="47b72e3a-9f2d-45cf-a173-3e5db1a6eb13" style="zoom:67%;" /></p>
+<p><img src="Resources/05 - Conversions/C3EE434DB68B4FE7.png" class="img-fluid" alt="C3EE434DB68B4FE7" style="zoom:67%;" /></p>
 <h3 id="thompsons-method">Thompson's Method</h3>
 <p>Thompson's method works constructing and merging different automaton. The most basic parts of the automaton are:</p>
 <ul>
 <li><p><span class="math">\(U = \epsilon\)</span>:</p>
-<p>![image-20201113152402800](Resources/05 - Conversions/5153fabb-76b0-4ce4-83fe-d81e99b09b5d.png)</p>
+<p>![image-20201113152402800](Resources/05 - Conversions/AF8425B9CDECCDBA.png)</p>
 </li>
 <li><p><span class="math">\(U = \emptyset\)</span>:</p>
-<p>![image-20201113152412026](Resources/05 - Conversions/c10d0ce6-ef96-46af-ad27-fd734ea80a52.png)</p>
+<p>![image-20201113152412026](Resources/05 - Conversions/FA07D2E717EC3F44.png)</p>
 </li>
 <li><p><span class="math">\(U = a, \forall a \in \Sigma\)</span>:</p>
-<p>![image-20201113152440407](Resources/05 - Conversions/f26c5ed8-409d-4ea8-9622-668beaf6f3c7.png)</p>
+<p>![image-20201113152440407](Resources/05 - Conversions/F88C3AB06FA2D538.png)</p>
 </li>
 <li><p><span class="math">\(U = R + S\)</span></p>
-<p>![image-20201113152534078](Resources/05 - Conversions/efffa3a2-bfa2-4949-bc64-2692e0c65d84.png)</p>
+<p>![image-20201113152534078](Resources/05 - Conversions/F69936184A0E15BC.png)</p>
 </li>
 <li><p><span class="math">\(U = R.S\)</span>:</p>
-<p>![image-20201113152553198](Resources/05 - Conversions/18cb5610-3b12-4265-960d-a0c5896939f4.png)</p>
+<p>![image-20201113152553198](Resources/05 - Conversions/7D8FAC5C40F22A40.png)</p>
 </li>
 <li><p><span class="math">\(U = R^*\)</span></p>
-<p>![image-20201113153742229](Resources/05 - Conversions/0126594c-ec09-4033-bf57-456cf9195d04.png)</p>
+<p>![image-20201113153742229](Resources/05 - Conversions/2439BD71A61F9E81.png)</p>
 </li>
 </ul>
 <p>After combining all the parts we will obtain a NFA with epsilon transitions.</p>
@@ -1597,7 +1597,7 @@ q' \overset V \rightarrow f'
 </ol>
 <p>We can also remove all useless or unnecessary states.</p>
 <p>A more formal version of the algorithm can be found here:</p>
-<p><img src="Resources/05 - Conversions/3707d37c-c859-4184-b371-cc4c60172dfe.png" class="img-fluid" alt="3707d37c-c859-4184-b371-cc4c60172dfe" style="zoom:67%;" /></p>
+<p><img src="Resources/05 - Conversions/8DCE358A38B65CDB.png" class="img-fluid" alt="8DCE358A38B65CDB" style="zoom:67%;" /></p>
 <h3 id="solution-of-regular-equations">Solution of Regular Equations</h3>
 <p>The idea on this algorithm is to create regular equations from the automaton and them solve them, creating the Regular Expression. For this we have to take into considerations all transitions from a state. For example, if the state A has a transition to state B with the action 1 and to itself with the action 2, we get the following regular expression:</p>
 <div class="math">
@@ -1611,7 +1611,7 @@ X_A = X_A2 + X_B2
 V \leftarrow X_{p_1} + X_{p_2}+ \dots + X_{p_i}~~~\forall p_i \in F
 \]</div>
 <p>Here is the formal algorithm:</p>
-<p><img src="Resources/05 - Conversions/acbaea1f-d373-412b-87db-ccd37ac0d25a.png" class="img-fluid" alt="acbaea1f-d373-412b-87db-ccd37ac0d25a" style="zoom:67%;" /></p>
+<p><img src="Resources/05 - Conversions/598B271789ED299A.png" class="img-fluid" alt="598B271789ED299A" style="zoom:67%;" /></p>
 <h2 id="between-rg-and-re">Between RG and RE</h2>
 <h3 id="regular-equation">Regular Equation</h3>
 <p>We can convert the production rules of the grammar into regular equations and then solve the system. This conversion works in the following way:</p>

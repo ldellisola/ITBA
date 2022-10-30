@@ -1442,7 +1442,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Pueden converger prematuramente.</li>
 </ul>
 <h2 id="algoritmo">Algoritmo</h2>
-<p><img src="Resources/03 - Algoritmos Geneticos/d0303546-55c0-4eb4-84b9-b12010cf07bf.png" class="img-fluid" alt="d0303546-55c0-4eb4-84b9-b12010cf07bf" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - Algoritmos Geneticos/11358E74FC540612.png" class="img-fluid" alt="11358E74FC540612" style="zoom:50%;" /></p>
 <h3 id="genotipo">Genotipo</h3>
 <p>El genotipo es la estructura que se utiliza para codificar el cromosoma de un individuo. Se pueden representar de distintas formas, entre otras:</p>
 <ul>
@@ -1488,7 +1488,7 @@ Y_1 = \{s_1,\dots,s_p,t_{p+1},\dots,t_n\}, Y=\{t_1,\dots,t_p,s_{p+1},\dots,s_n\}
 \]</div>
 </li>
 <li><p><strong>Cruza multiple</strong>: Es similar al anterior, pero en vez de utilizar un solo punto, se utiliza una cantidad aribitraria de puntos. El intercambio se realiza de la siguiente forma: uno se deja igual, otro se cambia, se deja igual, se cambia, etc.</p>
-<p><img src="Resources/03 - Algoritmos Geneticos/b12ab00f-86a2-459f-9d14-34721de84043.png" class="img-fluid" alt="b12ab00f-86a2-459f-9d14-34721de84043" style="zoom:30%;" /></p>
+<p><img src="Resources/03 - Algoritmos Geneticos/7DF0CC785B01BA12.png" class="img-fluid" alt="7DF0CC785B01BA12" style="zoom:30%;" /></p>
 </li>
 <li><p><strong>Cruza Uniforme</strong>: En cada elemento del cromosoma, se intercambian los alelos con una probabilidad de <span class="math">\(0.5\)</span>.</p>
 </li>
@@ -1521,7 +1521,7 @@ P(\text{seleccion}-i) = p_i = \frac{P-\text{rank}(f(i))}{P}
 <p>Siendo <span class="math">\(\text{rank}\)</span> la función que ordena de mayor a menor, mientras que la selección se realiza de la misma forma que antes.</p>
 </li>
 <li><p><strong>Selección Competitiva</strong>:</p>
-<p><img src="Resources/03 - Algoritmos Geneticos/6e65a492-2616-4ca9-b44e-aefea21c746b.png" class="img-fluid" alt="6e65a492-2616-4ca9-b44e-aefea21c746b" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - Algoritmos Geneticos/089687F714AE95BA.png" class="img-fluid" alt="089687F714AE95BA" style="zoom:50%;" /></p>
 </li>
 <li><p><strong>Selección de Boltzmann</strong>: Usa una función de variación de temperatura que controla que la selección de individuos no sea entre los mejores todo el tiempo. Se pretende mantener que la selección sea uniforme al comienzo, y elitista al final.</p>
 <p>Al principio se utiliza un valor alto de temperatura <span class="math">\(T\)</span>, y con el transcurso de las generaciones, se va reduciendo:</p>
@@ -1530,7 +1530,7 @@ P(\text{seleccion}-i) = p_i = \frac{P-\text{rank}(f(i))}{P}
 \text{VE}(i,t) = \frac{e^{f(i,t)/T}}{\sum_{i=1}^P e^{f(i,t)/T}}
 \]</div>
 <p>Donde <span class="math">\(f(i,t)\)</span> Es la función de aptitud para la generación <span class="math">\(t\)</span>, luego se utiliza esta función de pseudo-aptitud <span class="math">\(\text{VE}\)</span> Como aptitud para seleccionar con el método de selección de ruleta.</p>
-<p><img src="Resources/03 - Algoritmos Geneticos/1b1d998c-a035-4c98-914d-e6b1d0a5bf20.png" class="img-fluid" alt="1b1d998c-a035-4c98-914d-e6b1d0a5bf20" style="zoom:50%;" /></p>
+<p><img src="Resources/03 - Algoritmos Geneticos/C13CD23E1A18B368.png" class="img-fluid" alt="C13CD23E1A18B368" style="zoom:50%;" /></p>
 </li>
 <li><p><strong>Selección Truncada</strong>: Elijo un <span class="math">\(k\)</span> arbitrario y elimino los primeros <span class="math">\(k\)</span> individuos con menor fitness de la población.</p>
 </li>

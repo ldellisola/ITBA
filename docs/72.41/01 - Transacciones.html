@@ -1449,7 +1449,22 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><strong>Availability</strong>: Garantizar que cada petición a un nodo reciba una confirmación de si ha sido o no resulta satisfactoriamente.</li>
 <li><strong>Partition Tolerance</strong>: El sistema sigue funcionando incluso si algunos nodos fallan.</li>
 </ul>
-<p><img src="Resources/01 - Transacciones/8433e62d-126d-4079-bf36-67be26d922dc.jpg" class="img-fluid" alt="8433e62d-126d-4079-bf36-67be26d922dc" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Transacciones/A9916E8DDE4B44C8.jpg" class="img-fluid" alt="A9916E8DDE4B44C8" style="zoom:33%;" /></p>
+<p>Podemos clasificar a las siguientes bases de datos:</p>
+<ul>
+<li><strong>CA</strong>: Redis, Postgresql, Neo4J.</li>
+<li><strong>CP</strong>: MongoDB, HBase</li>
+<li><strong>AP</strong>: CouchDb, DynamoDb</li>
+</ul>
+<p>Ademas, según la configuración elegida, MongoDB puede ser <strong>CA</strong> y CouchDb puede ser <strong>CP</strong>.</p>
+<h2 id="base">BASE</h2>
+<p>Es una alternativa a ACID utilizada para servicios eventualmente consistentes:</p>
+<ul>
+<li><strong>B</strong>asically <strong>A</strong>valiable: Las operaciones de lectura y escritura básicas están disponibles en todos los nodos, pero sin garantizar consistencia.</li>
+<li><strong>S</strong>oft State: Sin garantizar consistencia, después de un periodo de tiempo tenemos alguna chance de saber el estado de la información.</li>
+<li><strong>E</strong>ventual Consistency: Si el sistema esta funcionando y no hay ninguna escritura en un tiempo determinado, la lectura sera consistente.</li>
+</ul>
+<p>La consistencia eventual es un modelo de consistencia utilizado en sistemas distribuidos para lograr alta disponibilidad. Garantiza que, si no hay ninguna actualización de la información, eventualmente todos los accesos al la información devolverán la información más al dia.</p>
 
 </body>
 

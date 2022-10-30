@@ -1432,12 +1432,12 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \frac{\text{bits enviados }L}{\text{Tasa de transmision del link R}}
 \]</div>
 <p>Esta demora de transmisión solo se calcula hasta que llegue al ISP, no hasta que llegue al destino final.</p>
-<p><img src="Resources/01 - Introduccion/095a3c47-a319-40d0-b9a8-9c43f159615e.png" class="img-fluid" alt="095a3c47-a319-40d0-b9a8-9c43f159615e" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Introduccion/898B59E2E5C9112B.png" class="img-fluid" alt="898B59E2E5C9112B" style="zoom:50%;" /></p>
 <p>Si la tasa del link de entrada es superior a la tasa de transición del link de salir, se deben encolar los paquetes, esperando a ser enviados, o deben ser descartados. En este ultimo caso la computadora debe reenviar el paquete.</p>
-<p><img src="Resources/01 - Introduccion/37000f89-eedc-4b58-bd25-fd8e2223489d.png" class="img-fluid" alt="37000f89-eedc-4b58-bd25-fd8e2223489d" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Introduccion/CB3F0055A54CA970.png" class="img-fluid" alt="CB3F0055A54CA970" style="zoom:50%;" /></p>
 <h2 id="red-en-capas">Red en Capas</h2>
 <p>A principios de los 80, el mismo fabricante se encargaba de crear todos los elementos de conexion y sus protocolos. La consecuencia de esto es que los sistemas no eran compatibles entre si. Con el nacimiento de la internet, hubo una necesidad de estandarizar estos sistemas y se lo definió con un sistema de capas. Según el modelo OSI, estas son las capas actuales:</p>
-<p><img src="Resources/01 - Introduccion/03852ed7-31f3-4624-ac8e-51bc664d508a.png" class="img-fluid" alt="03852ed7-31f3-4624-ac8e-51bc664d508a" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Introduccion/F9C33F30D23811A2.png" class="img-fluid" alt="F9C33F30D23811A2" style="zoom:50%;" /></p>
 <h2 id="protocolos">Protocolos</h2>
 <p>Los protocolos son un sistema formal de reglas de comunicación. Se pueden clasificar según el servicio que ofrecen a su nivel superior:</p>
 <ul>
@@ -1451,21 +1451,21 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </ul>
 <h2 id="modelo-tcpip">Modelo TCP/IP</h2>
 <p>Es el modelo de red que utiliza la internet:</p>
-<p><img src="Resources/01 - Introduccion/7df5b940-fc34-44e8-8b67-b66e60795bab.png" class="img-fluid" alt="7df5b940-fc34-44e8-8b67-b66e60795bab" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Introduccion/795DDA1A1AB18B90.png" class="img-fluid" alt="795DDA1A1AB18B90" style="zoom:50%;" /></p>
 <h3 id="encapsulamiento-de-paquetes">Encapsulamiento de paquetes</h3>
 <p>Cada capa de la red agrega elementos a los paquetes para poder enviarlos por internet, ya que no hay una capa de sesiónelos</p>
-<p><img src="Resources/01 - Introduccion/3d291d94-8884-4263-923e-e9f57f510892.png" class="img-fluid" alt="3d291d94-8884-4263-923e-e9f57f510892" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Introduccion/92988EDA0C2E324F.png" class="img-fluid" alt="92988EDA0C2E324F" style="zoom:50%;" /></p>
 <h2 id="topologia-de-red">Topologia de Red</h2>
 <h3 id="topologia-de-bus">Topologia de Bus</h3>
-<p><img src="Resources/01 - Introduccion/fdbc0ef3-765e-43a3-8bca-a5befdfad05c.png" class="img-fluid" alt="fdbc0ef3-765e-43a3-8bca-a5befdfad05c" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Introduccion/08CD321A6DDEC79D.png" class="img-fluid" alt="08CD321A6DDEC79D" style="zoom:50%;" /></p>
 <p>En las redes con esta topología, todos los hosts en la misma liana se conectan a un hub. Cada host puede ver los que se esta transmitiendo y tiene una gran probabilidad de colisiones. Si la red crece, se divide en segmentos.</p>
 <p>Los paquetes se envían a todas las computadoras con una direccion indicando a que computadora se debería enviar. Cada host debe leer esta dirección y decidir si lo acepta o no.C</p>
 <h3 id="topologia-de-estrella">Topologia de Estrella</h3>
-<p><img src="Resources/01 - Introduccion/29b59483-8893-4406-a0af-ba6360b563d0.png" class="img-fluid" alt="29b59483-8893-4406-a0af-ba6360b563d0" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Introduccion/CC5B1DE5E4259540.png" class="img-fluid" alt="CC5B1DE5E4259540" style="zoom:50%;" /></p>
 <p>En esta topología, cada host se conecta entre sí con un <strong>switch</strong>. El switch puede leer host de origen y de destino de los paquetes, entonces sabe a que host debe enviar cada paquete y el resto de los hosts no tienen acceso.</p>
 <p>Los switches permiten también enviar varios paquetes en simultaneo.</p>
 <h2 id="interconexion-de-redes">Interconexión de redes</h2>
-<p><img src="Resources/01 - Introduccion/72eddb59-c823-4749-9449-9bbc2c560996.png" class="img-fluid" alt="72eddb59-c823-4749-9449-9bbc2c560996" style="zoom:50%;" /></p>
+<p><img src="Resources/01 - Introduccion/D9A2406A51C8DC41.png" class="img-fluid" alt="D9A2406A51C8DC41" style="zoom:50%;" /></p>
 <p>Los <strong>routers</strong> se usan para conectar distintas redes. Estos toman decisiones en base a la dirección de red, y no a las direcciones MAC de las computadoras. Es el backbone de la internet, estableciendo rutas entre hosts y regulando el trafico.</p>
 
 </body>

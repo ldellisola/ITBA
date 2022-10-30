@@ -1425,11 +1425,11 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <body>
 <h1 id="control-de-acceso">Control de Acceso</h1>
 <p>La  <strong>matriz de control de acceso</strong> es el modelo más simple. Este consiste en una fila por usuario y una columna por objeto, con las acciones permitidas en la intersección.</p>
-<p>![Screen Shot 2022-07-09 at 12.14.44](Resources/16 - Control de Acceso/3b16948e-4edc-475f-9a4d-0a176440d569.jpg)</p>
+<p>![Screen Shot 2022-07-09 at 12.14.44](Resources/16 - Control de Acceso/BF9BA0C471D81152.jpg)</p>
 <p>Este modelo permite implementar cualquier política, pero la tabla crece de forma muy rápida y ocupa mucho espacio. Es fácil determinar accesos, pero muy complicado de agregar o eliminar usuarios u objetos.</p>
 <h3 id="listas-de-control-de-acceso-acl">Listas de Control de Acceso (ACL)</h3>
 <p>Las listas de control de acceso representan columnas de una matriz de acceso</p>
-<p><img src="Resources/16 - Control de Acceso/95b480f1-b88b-4620-b407-9a3370e6ae02.jpg" class="img-fluid" alt="95b480f1-b88b-4620-b407-9a3370e6ae02" style="zoom:100%;" /></p>
+<p><img src="Resources/16 - Control de Acceso/3B4FF5C9599886A7.jpg" class="img-fluid" alt="3B4FF5C9599886A7" style="zoom:100%;" /></p>
 <p>Estas se aprovechan del hecho que una matriz tienen pocos valores, ya que la mayoría de los usuarios y objetos no interactuando, y nos dan los derechos de cada usuario para un único objeto.</p>
 <p>Formalmente se definen como:</p>
 <div class="math">
@@ -1471,7 +1471,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Luego hay que verificar la delegación de permisos, ya que se deben borrar en cascada los permisos delegados.</p>
 <h2 id="lista-de-capacidades-cap">Lista de Capacidades (CAP)</h2>
 <p>Las listas de capacidades representan a las filas de una matriz de acceso:</p>
-<p><img src="Resources/16 - Control de Acceso/a8d4a5d3-9ba7-4e47-a589-381ac02baf77.jpg" class="img-fluid" alt="a8d4a5d3-9ba7-4e47-a589-381ac02baf77" style="zoom:100%;" /></p>
+<p><img src="Resources/16 - Control de Acceso/638355A3841CA9F5.jpg" class="img-fluid" alt="638355A3841CA9F5" style="zoom:100%;" /></p>
 <p>Este tipo de control de acceso aparece mucho en sistemas distribuidos masivos, donde queremos un esquema descentralizado. Un buen ejemplo de esto son los JWT.</p>
 <p>Formalmente se definen como:</p>
 <div class="math">
@@ -1506,7 +1506,7 @@ P(x) = \sum_{a=1}^{t}\left(s_{i_a} \times \prod_{b=1,b\neq s_{i_a}} \frac{x-i_b}
 \]</div>
 <h2 id="oauth-2.0">OAuth 2.0</h2>
 <p>Es el standard de los servicios de autorización. Este protocolo perite al dueño de un recurso delegar a una aplicación el acceso del mismo.</p>
-<p>![Screen Shot 2022-07-09 at 19.40.46](Resources/16 - Control de Acceso/cf5985a1-3609-4977-b9a3-54abe2343c5b.jpg)</p>
+<p>![Screen Shot 2022-07-09 at 19.40.46](Resources/16 - Control de Acceso/366B7EE41301460F.jpg)</p>
 <p>Hay dos tipos de clientes:</p>
 <ul>
 <li><strong>Confidencial</strong>: Típicamente una aplicación en un servidor, que puede mantener un secreto compartido con el servidor (client-secret). Ejemplos de esto seria una aplicación web como Razor Pages o JPA, donde la lógica de esta en el servidor y no en el navegador.</li>

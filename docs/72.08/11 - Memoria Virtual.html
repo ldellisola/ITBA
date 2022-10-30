@@ -1428,7 +1428,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <h2 id="paginacion">Paginación</h2>
 <p>Para acceder a las páginas en los procesadores Intel de 32 bits, se hace de forma indexada. Para acceder a una pagina se debe acceder por una posición de memoria, donde los 12 bits mas significativos son la dirección de la memoria, seguidos por 10 bits que indican a que pagina se quiere acceder y por ultimo 10 bits donde se indica el offset para indicar a que posición de memoria se quiere acceder, dentro de cada pagina.</p>
 <p>Las tablas de páginas están compuestas por la siguiente estructura, llamada <code>Page Table Entry</code>:</p>
-<p><img src="Resources/ce64f6a9-bce2-490e-83cf-d84e4b52bdd8.png" class="img-fluid" alt="ce64f6a9-bce2-490e-83cf-d84e4b52bdd8" style="zoom:67%;" /></p>
+<p><img src="Resources/7A87B6A4D75FF59F.png" class="img-fluid" alt="7A87B6A4D75FF59F" style="zoom:67%;" /></p>
 <p>El bit de presencia <code>P</code> indica que esa tabla se puede utilizar para obtener una dirección de memoria. Si esta en 0 significa que no se puede utilizar. Cuando el procesador se encuentra con esta situación suele tirar una excepción, y si el sistema operativo soporta memoria virtual, se ejecutara la rutina que va a buscar la memoria al disco duro.</p>
 <p>El bit <code>U/S</code> indica los permisos de esa tabla. Puede ser 3 si se trata de un usuario mientras que si la memoria es propiedad del kernel va a tener almacenado un 0, 1 o 2 en esos 2 bits.</p>
 <h3 id="proteccion-combinada">Protección Combinada</h3>

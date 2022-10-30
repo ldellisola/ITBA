@@ -1537,11 +1537,11 @@ R^- = \{(x',x) | (x,x')\in R\}
 <h2 id="how-to-check-conditions-1">How to Check <span class="math">\(F\)</span> Conditions</h2>
 <p>In order to obtain a Safety Certificate we need to convert our model with a topological sort into a strict linear order on all states. After the topological sort, we cannot have transitions that &quot;go back&quot; to a state that is before.</p>
 <p>To avoid this we can usually remove transitions that go back and rearrange the topological sort. For example, if we have the following model:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/6875e758-2207-4aa9-8a7f-fc84411eb33f.png" class="img-fluid" alt="6875e758-2207-4aa9-8a7f-fc84411eb33f" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Unbounded Model Checking/6641BC1C1A353E9B.png" class="img-fluid" alt="6641BC1C1A353E9B" style="zoom:67%;" /></p>
 <p>We can see that if we were to create a topological sort, it would have some transitions that go back, for example <span class="math">\(C\rightarrow D\)</span>:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/e8bad87c-3479-42d5-887a-91aceefa7ef6.png" class="img-fluid" alt="e8bad87c-3479-42d5-887a-91aceefa7ef6" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Unbounded Model Checking/88775897922E29E5.png" class="img-fluid" alt="88775897922E29E5" style="zoom:67%;" /></p>
 <p>If we remove that transition, we can rearrange the topological sort into a better solution:</p>
-<p><img src="Resources/08 - Unbounded Model Checking/a04dd841-6ee2-47b5-bd95-c77d3eba87d3.png" class="img-fluid" alt="a04dd841-6ee2-47b5-bd95-c77d3eba87d3" style="zoom:67%;" /></p>
+<p><img src="Resources/08 - Unbounded Model Checking/3347A0CF25FB0573.png" class="img-fluid" alt="3347A0CF25FB0573" style="zoom:67%;" /></p>
 <p>In this case, the certificate is defined as a pair <span class="math">\((V,\succ)\)</span> where <span class="math">\(\succ\)</span> is a struct linear order on <span class="math">\(V\)</span> such that:</p>
 <ul>
 <li><span class="math">\(S_0 \subseteq V \subseteq S\)</span></li>

@@ -1453,9 +1453,9 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>La combinación entre Axis y NodeTest indican cual será el nuevo nodo contexto, a partir del cual se seleccionaran el nodo contexto actual.</p>
 <h3 id="axis">Axis</h3>
 <p>En esta tabla se pueden ver las diferentes combinaciones para el Axis:</p>
-<p><img src="Resources/5a3f3588-a991-4814-8217-522f65e5a45a.png" class="img-fluid" alt="1563137557676" /></p>
+<p><img src="Resources/D099339C5369102E.png" class="img-fluid" alt="1563137557676" /></p>
 <p>Tambien se puede ver en este árbol como son las relaciones:</p>
-<p><img src="Resources/2f58e383-5f6f-4375-b6a1-731fa367cdd8.png" class="img-fluid" alt="1563137716925" /></p>
+<p><img src="Resources/9729B3BD4BCE69D7.png" class="img-fluid" alt="1563137716925" /></p>
 <h4 id="nodos-hijo">Nodos hijo</h4>
 <p>Con el axis <code>child::</code> se seleccionan a todos los elementos hijos de un elemento. Cuando se esta moviendo por el documento, si no se le especifica un axis, va a tomar a <code>child::</code> por defecto.</p>
 <h4 id="nodos-atributo">Nodos Atributo</h4>
@@ -1466,7 +1466,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Con el axis <code>ancestor::</code> se obtienen todos los nodos predecesores del contexto actual que cumplan con un nombre especifico. Una característica de este axis es que elimina duplicados. Esto se debe a que en realidad se maneja con punteros a memoria, entonces si dos elementos tiene la misma posición de memoria, solo se queda con uno.</p>
 <h3 id="nodetest">NodeTest</h3>
 <p>En esta tabla se puede ver la lista de NodeTest:</p>
-<p><img src="Resources/7dd995cb-a6c4-4190-aa1a-fd815a300ca4.png" class="img-fluid" alt="1563137815357" /></p>
+<p><img src="Resources/B513314B2403DA25.png" class="img-fluid" alt="1563137815357" /></p>
 <h3 id="predicado">Predicado</h3>
 <p>Se le puede agregar un predicado mediante el cual se filtraran los nodos que no cumplan con el.</p>
 <p>Cuando se usa una condición dentro de un predicado hay que tener cuidado por que:</p>
@@ -1477,7 +1477,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Si se coloca <code>/</code> o <code>//</code> como inicio de expresión, se pierde el nodo contexto y se evalúa independiente de este caso (path absoluto).</li>
 </ul>
 <p>Estas expresiones van entre brackets <code>[ ]</code> y pueden utilizar operadores lógicos y matemáticos como <code>&gt;</code>, <code>&lt;</code>, <code>and</code> y <code>or</code>, entre otros. Por ejemplo:</p>
-<p><img src="Resources/12874e3f-6a9e-4ccc-aabe-478d6cde4483.png" class="img-fluid" alt="1563138889733" /></p>
+<p><img src="Resources/5ABC814F7C8AEED3.png" class="img-fluid" alt="1563138889733" /></p>
 <p>Tambien se pueden utilizar funciones.</p>
 <h4 id="combinacion-de-conjuntos">Combinación de conjuntos</h4>
 <p>Tambien se pueden aplicar combinaciones entre conjuntos, con el operador <code>|</code>. Este operador toma dos funciones que devuelven NodeSets y las combina en uno solo.</p>
@@ -1490,19 +1490,19 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Nodos</li>
 </ul>
 <h3 id="funciones-numericas">Funciones Numéricas</h3>
-<p><img src="Resources/b53901fa-7fd6-4cf5-82fb-e848c70b129b.png" class="img-fluid" alt="1563139066529" /></p>
+<p><img src="Resources/71169D45E6FC292E.png" class="img-fluid" alt="1563139066529" /></p>
 <p>Para aplicar una función sobre un elemento se toma su contenido y si se puede (y es necesario) se lo transforma en un numero.</p>
 <h3 id="funciones-sobre-strings">Funciones sobre Strings</h3>
-<p><img src="Resources/8b45de30-ae5e-4253-964c-5234ad90fd79.png" class="img-fluid" alt="1563139166884" /></p>
+<p><img src="Resources/2FDE284035661B7F.png" class="img-fluid" alt="1563139166884" /></p>
 <h3 id="funciones-sobre-nodeset">Funciones sobre NodeSet</h3>
-<p><img src="Resources/d31ac715-4b09-4e70-a006-4c5203ee4160.png" class="img-fluid" alt="1563139204287" /></p>
+<p><img src="Resources/EDB1124118D6B737.png" class="img-fluid" alt="1563139204287" /></p>
 <h3 id="funciones-logicas">Funciones Lógicas</h3>
-<p><img src="Resources/323bf316-cd34-4f09-a250-025e309f0532.png" class="img-fluid" alt="1563139257324" /></p>
+<p><img src="Resources/20CCD3CE336D152E.png" class="img-fluid" alt="1563139257324" /></p>
 <h2 id="evaluador">Evaluador</h2>
 <p>El motor evaluador de XPath toma al documento XML y la expresión XPath. La evaluación utiliza el concepto de <strong>nodo contexto actual</strong>. A medida que evalúa una subexpresion cambia la lista de nodos contexto actuales por una nueva lista.</p>
 <p>Antes de comenzar a evaluar, XPath selecciona como primer nodo a la raíz XPath, que no es el primer elemento del documento, sino que esta afuera de ese.</p>
 <p>Ejemplo:</p>
-<p><img src="Resources/fed7bb6f-cbd3-4a16-91c0-9aa57a7af9f1.png" class="img-fluid" alt="1563137299029" /></p>
+<p><img src="Resources/F1E263922567C3F7.png" class="img-fluid" alt="1563137299029" /></p>
 <h2 id="observaciones">Observaciones</h2>
 <ul>
 <li>No es lo mismo seleccionar al nodo hijo elemento que a un nodo hijo atributo.</li>
