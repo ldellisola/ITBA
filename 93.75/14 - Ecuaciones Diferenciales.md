@@ -1,8 +1,10 @@
-# Diferencias Finitas
+# Ecuaciones Diferenciales
+
+## Diferencias Finitas
 
 El método de diferencias finitas se utiliza para obtener soluciones de ecuaciones diferenciales ordinarias o en derivadas parciales.
 
-## El Grillado del Dominio
+### El Grillado del Dominio
 
 La idea consiste en discretizar el espacio de las variables independientes y aceptar que se conocerá la solución en los mencionados puntos.
 
@@ -15,7 +17,7 @@ x_j = x_0 + j\times h_x\\
 t_k = t_0 + k \times h_y
 }
 $$
-<img src="Resources/14 - Diferencias Finitas/Screenshot 2022-10-29 at 15.51.25.jpg" alt="Screenshot 2022-10-29 at 15.51.25" style="zoom:75%;" />
+<img src="Resources/14 - Ecuaciones Diferenciales/Screenshot 2022-10-29 at 15.51.25.jpg" alt="Screenshot 2022-10-29 at 15.51.25" style="zoom:75%;" />
 
 Dada una función $u(x,t)$ el valor que toma el nodo $n_j^k$ lo notamos como:
 $$
@@ -23,7 +25,7 @@ u(x_j,t_k) \equiv u_j^k
 $$
 A las cantidades $x_j,t_k$ se las denomina coordenadas físicas del nodo, mientras que al par $j,k$ coordenadas lógicas. Este proceso se lo conoce como discretización. El próximo paso es aproximar a las derivadas mediante la evaluación de la función en los nodos de la grilla.
 
-## El Método de las Diferencias Finitas
+### El Método de las Diferencias Finitas
 
 La approximation buscada se logra mediante la utilización del desarrollo en serie de Taylor de una función. A partir de ahora vamos a asumir que la función a estudiar $u$ tiene una sola variable independiente llamada $x.$
 
@@ -51,7 +53,6 @@ Donde $e$ es el error que se obtiene al aproximar la derivada por combinación l
    \right.
    $$
    
-
 2. Armamos la combinación lineal.
    $$
    \alpha\times u_{j-1} + \beta u_{j+1} = (\alpha + \beta) u_j + h(\alpha -\beta) u'_j + \frac{h^2}2(\alpha + \beta) u''_j + \frac{h^3}{6} (\alpha + \beta)u^{IV}_j
@@ -67,7 +68,6 @@ Donde $e$ es el error que se obtiene al aproximar la derivada por combinación l
    \right.
    $$
    
-
 4. Evaluamos el orden del esquema.
    $$
    \alpha = -\beta = \frac 1 {2h}
@@ -139,7 +139,7 @@ $$
 \text{Err}'(h)= \left. \frac 2 M - \frac {2\varepsilon}{h^2} \right|_{h=h^*}
 $$
 
- ### Esquemas de Mayor Orden
+#### Esquemas de Mayor Orden
 
 Si en la aproximación de la derivada intervienen una mayor cantidad de nodos, se alcanzan aproximaciones de mayor orden. Por ejemplo, siguen el procedimiento anterior llegamos a que con los nodos $n_{j+1}, n_{j+2},n_j,n_{j-1}, n_{j-2}$ se puede armar un esquema:
 $$
@@ -153,7 +153,7 @@ e = -\frac 2 3 u^{IV}(c) h^3 & x-2h\le c \le x+2h
 $$
 Por lo que el esquema es de orden 3.
 
-### Derivadas de Orden Superior
+#### Derivadas de Orden Superior
 
 Para encontrar una aproximación a una derivada con orden mayor a uno se debe seguir el procedimiento descripto anteriormente.
 
@@ -175,3 +175,75 @@ Donde:
 $$
 e = \frac h 2 u^{IV}
 $$
+
+## Resolución  de EDOs
+
+Para explicar esta sección vamos a tener una diferencial:
+$$
+y' = t + y
+$$
+Podemos redefinir a la ecuación diferencial como la siguiente función de dos parámetros:
+$$
+y' = f(t,y) = t + y
+$$
+Existen 3 métodos para discretizar ecuaciones diferenciales:
+
+- **Método Explicito**: Este método es inestable y no provee los mejores resultados. Para aplicarlo hay que realizar el siguiente reemplazo:
+  $$
+  y' = f(t_n,y_n)
+  $$
+  Este método es de orden 1, por lo que al reducir el paso a la mitad, el error global se reduce a la mitad (es linear).
+
+- **Método Implícito**: Este método es preferible para la resolución de BVP. Para aplicarlo hay que realizar el siguiente reemplazo:
+  $$
+  y' = f(t_{n+1},y_{n+1})
+  $$
+  Este método es de orden 1, por lo que al reducir el paso a la mitad, el error global se reduce a la mitad (es linear).
+
+- **Método de Crank-Nicolson**: Este método es preferible para la resolución  de IVP. Para aplicarlo hay que realizar el siguiente reemplazo:
+  $$
+  y' = \frac{f(t_{n+1},y_{n+1}) + f(t_n,y_n)}{2}
+  $$
+  Este método es de orden 2 ==??==, por lo que al reducir el paso a la mitad, el error global se reduce al cuarto (es cuadrático).
+
+En todos los casos, $y_i$ representa la función $y$ discretizada y evaluada en el elemento $i.$ $t_i$ también representa la variable $t$ discretizada y evaluada en el elemento $i.$
+
+### Initial Value Problem (IVP)
+
+El Initial Value Problem o IVP es una situación al resolver una ecuación diferencial donde se conoce el valor inicial de la función y se debe, mediante pasos de tamaño fijo, llegar al valor en el que se quiere evaluar la función.
+
+Este método discretiza a la ecuación diferencial para poder resolverla.
+
+Antes de resolver este problema, debemos conocer un valor cercano al valor que queremos. Por ejemplo:
+
+Sabemos que $y(x_j) = a$ donde $x_j$ es un valor del dominio y $a$ un valor de la imagen de la función. Ademas tenemos la ecuación a resolver:
+$$
+y' = f(t,y)
+$$
+Donde $f$ es la función definida al inicio de la sección anterior. La ecuación puede no estar ordenada, en ese caso debemos hacerlo.
+
+Primero tenemos que obtener una aproximación de $y’,$ para esto vamos a usar el método de diferencias finitas. Utilizando el método preferido, podemos discretizar a la ecuación:
+
+- **Método Explicito**
+
+$$
+\frac{y_{n+1}-y_n}{h} = y' = f(t_n,y_n)
+$$
+
+- **Método Implicito**
+  $$
+  \frac{y_{n+1}-y_n}{h} = y' = f(t_{n+1},y_{n+1})
+  $$
+
+- **Método de Crank-Nicolson**
+  $$
+  \frac{y_{n+1}-y_n}{h} = y' = \frac{f(t_{n+1},y_{n+1}) + f(t_n,y_n)}{2}
+  $$
+
+Donde $h$ es el paso elegido.
+
+Para resolver la EDO simplemente hay que despejar y dejar a la ecuación definida en termino de $t_i$ y $y_i.$ Partiendo del valor inicial que conocemos, tenemos que iterar de por los valores de $y_i$ hasta llegar a aquel que evalúa al valor del dominio del cual queremos saber.
+
+### Border Value Problem (BVP)
+
+TODO™

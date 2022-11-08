@@ -39,7 +39,7 @@ El profesor no tiene idea de que es la función $\delta$ y no lo explica en ning
 
 Los valores de la transformada discreta de Fourier se obtienen de la siguiente forma:
 $$
-F[k] = \sum_{n=0}^{N-1} f[n] e^{\frac{i2n\pi}Nk}
+F[k] = \sum_{n=0}^{N-1} f[n] e^{-\frac{i2n\pi}Nk}
 $$
 Y la transformada de Fourier de la señal original es:
 $$
@@ -69,7 +69,7 @@ Donde $f$ es la frecuencia armónica, $f_{\text{sampleo}}$ es nuestra frecuencia
 
 Luego de obtener la transformada discreta de Fourier, es fácil obtener la señal a partir de la cual esta fue creada:
 $$
-f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]e^{-i\frac{2\pi n}N k}
+f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]e^{i\frac{2\pi n}N k}
 $$
 
 ### Computo de la Transformada Discreta de Fourier
@@ -79,8 +79,8 @@ $$
 2. Obtenemos:
    $$
    \array{
-   F[k] = \sum_{n=0}^{N-1}f[n] W_N^{kn} \\
-   f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]W_N^{-nk}
+   F[k] = \sum_{n=0}^{N-1}f[n] W_N^{-kn} \\
+   f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]W_N^{nk}
    }
    $$
 
@@ -89,8 +89,6 @@ $$
    <img src="Resources/Untitled/Screen Shot 2022-10-06 at 16.29.50.jpg" alt="Screen Shot 2022-10-06 at 16.29.50" style="zoom:50%;" />
 
 Si $f$ es real, entonces no todos los coeficientes de la serie de Fourier son relevantes ya que $c_n = c_{-n}^*$
-
-
 
 ### Espectro en Amplitud
 
