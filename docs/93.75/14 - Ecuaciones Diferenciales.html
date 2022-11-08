@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>14 - Diferencias Finitas.md</title>
+    <title>14 - Ecuaciones Diferenciales.md</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -1423,9 +1423,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="diferencias-finitas">Diferencias Finitas</h1>
+<h1 id="ecuaciones-diferenciales">Ecuaciones Diferenciales</h1>
+<h2 id="diferencias-finitas">Diferencias Finitas</h2>
 <p>El método de diferencias finitas se utiliza para obtener soluciones de ecuaciones diferenciales ordinarias o en derivadas parciales.</p>
-<h2 id="el-grillado-del-dominio">El Grillado del Dominio</h2>
+<h3 id="el-grillado-del-dominio">El Grillado del Dominio</h3>
 <p>La idea consiste en discretizar el espacio de las variables independientes y aceptar que se conocerá la solución en los mencionados puntos.</p>
 <p>Los puntos en los que se conocerá la función se denominan <strong>nodos</strong> y la distancia en una de la direcciones cartesianas establecidas se denomina <strong>paso</strong>. Aunque el paso puede ser variable, siempre vamos a suponer que el paso es constante.</p>
 <p>Cada nodo representa una posición espacio-temporal <span class="math">\(n_j^k=(x_j,t_k).\)</span> Asumiendo que el paso es constante, se puede obtener el nodo de la siguiente forma:</p>
@@ -1436,14 +1437,14 @@ x_j = x_0 + j\times h_x\\
 t_k = t_0 + k \times h_y
 }
 \]</div>
-<p><img src="Resources/14 - Diferencias Finitas/CA849AD2800C64B4.jpg" class="img-fluid" alt="CA849AD2800C64B4" style="zoom:75%;" /></p>
+<p><img src="Resources/14 - Ecuaciones Diferenciales/5BEEFFE8C1D5658E.jpg" class="img-fluid" alt="5BEEFFE8C1D5658E" style="zoom:75%;" /></p>
 <p>Dada una función <span class="math">\(u(x,t)\)</span> el valor que toma el nodo <span class="math">\(n_j^k\)</span> lo notamos como:</p>
 <div class="math">
 \[
 u(x_j,t_k) \equiv u_j^k
 \]</div>
 <p>A las cantidades <span class="math">\(x_j,t_k\)</span> se las denomina coordenadas físicas del nodo, mientras que al par <span class="math">\(j,k\)</span> coordenadas lógicas. Este proceso se lo conoce como discretización. El próximo paso es aproximar a las derivadas mediante la evaluación de la función en los nodos de la grilla.</p>
-<h2 id="el-metodo-de-las-diferencias-finitas">El Método de las Diferencias Finitas</h2>
+<h3 id="el-metodo-de-las-diferencias-finitas">El Método de las Diferencias Finitas</h3>
 <p>La approximation buscada se logra mediante la utilización del desarrollo en serie de Taylor de una función. A partir de ahora vamos a asumir que la función a estudiar <span class="math">\(u\)</span> tiene una sola variable independiente llamada <span class="math">\(x.\)</span></p>
 <p>Data una función <span class="math">\(C^\infty\)</span> y un punto cualquiera <span class="math">\(x_0\)</span> de su dominio, entonces:</p>
 <div class="math">
@@ -1565,7 +1566,7 @@ u'(x_0) - \frac{u(x_0+h) - u(x_0)}{h}\right] \sim \frac{Mh}2
 \[
 \text{Err}'(h)= \left. \frac 2 M - \frac {2\varepsilon}{h^2} \right|_{h=h^*}
 \]</div>
-<h3 id="esquemas-de-mayor-orden">Esquemas de Mayor Orden</h3>
+<h4 id="esquemas-de-mayor-orden">Esquemas de Mayor Orden</h4>
 <p>Si en la aproximación de la derivada intervienen una mayor cantidad de nodos, se alcanzan aproximaciones de mayor orden. Por ejemplo, siguen el procedimiento anterior llegamos a que con los nodos <span class="math">\(n_{j+1}, n_{j+2},n_j,n_{j-1}, n_{j-2}\)</span> se puede armar un esquema:</p>
 <div class="math">
 \[
@@ -1579,7 +1580,7 @@ e = -\frac 2 3 u^{IV}(c) h^3 &amp; x-2h\le c \le x+2h
 }
 \]</div>
 <p>Por lo que el esquema es de orden 3.</p>
-<h3 id="derivadas-de-orden-superior">Derivadas de Orden Superior</h3>
+<h4 id="derivadas-de-orden-superior">Derivadas de Orden Superior</h4>
 <p>Para encontrar una aproximación a una derivada con orden mayor a uno se debe seguir el procedimiento descripto anteriormente.</p>
 <p>Por ejemplo, tratemos de encontrar una expresión para la derivada tercera de una función con los puntos <span class="math">\(u_{j-1},u_{j},u_{j+1},u_{j+2}\)</span> de manera tal que:</p>
 <div class="math">
@@ -1603,6 +1604,78 @@ u''' \approx \frac{-u_{j-1} + 3 u_{j} - 3 u_{j+1} + u_{j+2}}{h^3} + e
 \[
 e = \frac h 2 u^{IV}
 \]</div>
+<h2 id="resolucion-de-edos">Resolución  de EDOs</h2>
+<p>Para explicar esta sección vamos a tener una diferencial:</p>
+<div class="math">
+\[
+y' = t + y
+\]</div>
+<p>Podemos redefinir a la ecuación diferencial como la siguiente función de dos parámetros:</p>
+<div class="math">
+\[
+y' = f(t,y) = t + y
+\]</div>
+<p>Existen 3 métodos para discretizar ecuaciones diferenciales:</p>
+<ul>
+<li><p><strong>Método Explicito</strong>: Este método es inestable y no provee los mejores resultados. Para aplicarlo hay que realizar el siguiente reemplazo:</p>
+<div class="math">
+\[
+y' = f(t_n,y_n)
+\]</div>
+<p>Este método es de orden 1, por lo que al reducir el paso a la mitad, el error global se reduce a la mitad (es linear).</p>
+</li>
+<li><p><strong>Método Implícito</strong>: Este método es preferible para la resolución de BVP. Para aplicarlo hay que realizar el siguiente reemplazo:</p>
+<div class="math">
+\[
+y' = f(t_{n+1},y_{n+1})
+\]</div>
+<p>Este método es de orden 1, por lo que al reducir el paso a la mitad, el error global se reduce a la mitad (es linear).</p>
+</li>
+<li><p><strong>Método de Crank-Nicolson</strong>: Este método es preferible para la resolución  de IVP. Para aplicarlo hay que realizar el siguiente reemplazo:</p>
+<div class="math">
+\[
+y' = \frac{f(t_{n+1},y_{n+1}) + f(t_n,y_n)}{2}
+\]</div>
+<p>Este método es de orden 2 <mark>??</mark>, por lo que al reducir el paso a la mitad, el error global se reduce al cuarto (es cuadrático).</p>
+</li>
+</ul>
+<p>En todos los casos, <span class="math">\(y_i\)</span> representa la función <span class="math">\(y\)</span> discretizada y evaluada en el elemento <span class="math">\(i.\)</span> <span class="math">\(t_i\)</span> también representa la variable <span class="math">\(t\)</span> discretizada y evaluada en el elemento <span class="math">\(i.\)</span></p>
+<h3 id="initial-value-problem-ivp">Initial Value Problem (IVP)</h3>
+<p>El Initial Value Problem o IVP es una situación al resolver una ecuación diferencial donde se conoce el valor inicial de la función y se debe, mediante pasos de tamaño fijo, llegar al valor en el que se quiere evaluar la función.</p>
+<p>Este método discretiza a la ecuación diferencial para poder resolverla.</p>
+<p>Antes de resolver este problema, debemos conocer un valor cercano al valor que queremos. Por ejemplo:</p>
+<p>Sabemos que <span class="math">\(y(x_j) = a\)</span> donde <span class="math">\(x_j\)</span> es un valor del dominio y <span class="math">\(a\)</span> un valor de la imagen de la función. Ademas tenemos la ecuación a resolver:</p>
+<div class="math">
+\[
+y' = f(t,y)
+\]</div>
+<p>Donde <span class="math">\(f\)</span> es la función definida al inicio de la sección anterior. La ecuación puede no estar ordenada, en ese caso debemos hacerlo.</p>
+<p>Primero tenemos que obtener una aproximación de <span class="math">\(y’,\)</span> para esto vamos a usar el método de diferencias finitas. Utilizando el método preferido, podemos discretizar a la ecuación:</p>
+<ul>
+<li><strong>Método Explicito</strong></li>
+</ul>
+<div class="math">
+\[
+\frac{y_{n+1}-y_n}{h} = y' = f(t_n,y_n)
+\]</div>
+<ul>
+<li><p><strong>Método Implicito</strong></p>
+<div class="math">
+\[
+\frac{y_{n+1}-y_n}{h} = y' = f(t_{n+1},y_{n+1})
+\]</div>
+</li>
+<li><p><strong>Método de Crank-Nicolson</strong></p>
+<div class="math">
+\[
+\frac{y_{n+1}-y_n}{h} = y' = \frac{f(t_{n+1},y_{n+1}) + f(t_n,y_n)}{2}
+\]</div>
+</li>
+</ul>
+<p>Donde <span class="math">\(h\)</span> es el paso elegido.</p>
+<p>Para resolver la EDO simplemente hay que despejar y dejar a la ecuación definida en termino de <span class="math">\(t_i\)</span> y <span class="math">\(y_i.\)</span> Partiendo del valor inicial que conocemos, tenemos que iterar de por los valores de <span class="math">\(y_i\)</span> hasta llegar a aquel que evalúa al valor del dominio del cual queremos saber.</p>
+<h3 id="border-value-problem-bvp">Border Value Problem (BVP)</h3>
+<p>TODO™</p>
 
 </body>
 

@@ -1459,7 +1459,7 @@ f[n] = \sum_{n=0}^{N-1} f(t) \delta(t-n\times T_s)
 <p>Los valores de la transformada discreta de Fourier se obtienen de la siguiente forma:</p>
 <div class="math">
 \[
-F[k] = \sum_{n=0}^{N-1} f[n] e^{\frac{i2n\pi}Nk}
+F[k] = \sum_{n=0}^{N-1} f[n] e^{-\frac{i2n\pi}Nk}
 \]</div>
 <p>Y la transformada de Fourier de la señal original es:</p>
 <div class="math">
@@ -1485,7 +1485,7 @@ f_{\text{percibida}} = \left|f - f_{\text{sampleo}}\times \text{round}\left(\fra
 <p>Luego de obtener la transformada discreta de Fourier, es fácil obtener la señal a partir de la cual esta fue creada:</p>
 <div class="math">
 \[
-f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]e^{-i\frac{2\pi n}N k}
+f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]e^{i\frac{2\pi n}N k}
 \]</div>
 <h3 id="computo-de-la-transformada-discreta-de-fourier">Computo de la Transformada Discreta de Fourier</h3>
 <ol>
@@ -1495,8 +1495,8 @@ f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]e^{-i\frac{2\pi n}N k}
 <div class="math">
 \[
 \array{
-F[k] = \sum_{n=0}^{N-1}f[n] W_N^{kn} \\
-f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]W_N^{-nk}
+F[k] = \sum_{n=0}^{N-1}f[n] W_N^{-kn} \\
+f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]W_N^{nk}
 }
 \]</div>
 </li>
