@@ -1424,8 +1424,27 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </head>
 <body>
 <h1 id="transformadas-de-fourier">Transformadas de Fourier</h1>
+<h2 id="transformada-continua-de-fourier">Transformada Continua de Fourier</h2>
+<p>La transformada continua de Fourier se usa cuando se esta trabajando con señales finitas o infinitas, pero que decaen a 0 cuando <span class="math">\(t\rightarrow \infty.\)</span></p>
+<p>Dada una función <span class="math">\(f\)</span> con un desarrollo de Fourier <span class="math">\(\hat f,\)</span>  se puede obtener la transformada continua de Fourier de la siguiente manera:</p>
+<div class="math">
+\[
+F(w) = \int_{-\infty}^{\infty} f(t) e^{-iwt} dt
+\]</div>
+<p>De tener solo la frecuencia <span class="math">\(f\)</span>, también podemos decir que la transformada de Fourier se calcula de la siguiente forma:</p>
+<div class="math">
+\[
+F(f) = \int_{-\infty}^{\infty} f(t) e^{-2\pi ift} dt
+\]</div>
+<h2 id="transformada-inversa-de-fourier">Transformada Inversa de Fourier</h2>
+<p>Se puede revertir la operación anterior para obtener una función a partir de su transformada continua:</p>
+<div class="math">
+\[
+f(t) = \frac 1 {2\pi} \int_{-\infty}^{\infty} F(w) e^{iwt}dw
+\]</div>
 <h2 id="transformada-discreta-de-fourier">Transformada Discreta de Fourier</h2>
 <p>Cuando convertimos a una señal del mundo real a una computadora, obtenemos una secuencia ordenada de números que se denomina <strong>muestra</strong>. A <span class="math">\(T_s\)</span> se lo denomina <strong>periodo de muestreo</strong> y a su inversa <strong>frecuencia de muestreo</strong> <span class="math">\(f_S = \frac 1 {T_s}.\)</span></p>
+<p><img src="Resources/15 - Transformadas de Fourier/71A7F0C25AE226AE.jpg" class="img-fluid" alt="71A7F0C25AE226AE" style="zoom:50%;" /></p>
 <p>Si tenemos <span class="math">\(N\)</span> muestras de una función <span class="math">\(f(t)\)</span> supondremos que se la extiende periódicamente con el periodo <span class="math">\(N\times T_s:\)</span></p>
 <div class="math">
 \[
@@ -1436,12 +1455,39 @@ f[n+N] = f[n]
 \[
 f[n] = \sum_{n=0}^{N-1} f(t) \delta(t-n\times T_s)
 \]</div>
+<p>El profesor no tiene idea de que es la función <span class="math">\(\delta\)</span> y no lo explica en ningun lado. Según los ejemplos <span class="math">\(f[n]\)</span> es básicamente <span class="math">\(f(x)\)</span> evaluada en puntos específicos.</p>
+<p>Los valores de la transformada discreta de Fourier se obtienen de la siguiente forma:</p>
+<div class="math">
+\[
+F[k] = \sum_{n=0}^{N-1} f[n] e^{\frac{i2n\pi}Nk}
+\]</div>
 <p>Y la transformada de Fourier de la señal original es:</p>
 <div class="math">
 \[
 F(w) = \int_{-\infty}^{\infty} f(t) e^{-inwt}dt = \sum_{n=0}^{N-1} f[n] e^{-inwt}
 \]</div>
-<h4 id="calculo-de-dtf">Calculo de DTF</h4>
+<h3 id="frecuencias-presentes-en-la-senal">Frecuencias Presentes en la Señal</h3>
+<p>A partir de las muestras obtenidas de una señal podemos descubrir las frecuencias presentes en la misma.</p>
+<p>La frecuencia de muestreo necesaria para conocer el espectro de una función con es:</p>
+<div class="math">
+\[
+f = 2\times f_\max
+\]</div>
+<h3 id="aliasing">Aliasing</h3>
+<p>Se produce aliasing cuando no se respeta el teorema de Nyquist y se utiliza una frecuencia de sampleo menor al doble de la maxima frecuencia de la función. En estos casos puede suceder que algunas de las frecuencias armónicas sean representadas por otra frecuencia percibida.</p>
+<p>Para poder predecir por que frecuencia percibida van a ser representadas estas frecuencias armónicas se puede utilizar la siguiente formula:</p>
+<div class="math">
+\[
+f_{\text{percibida}} = \left|f - f_{\text{sampleo}}\times \text{round}\left(\frac f {f_{sampleo}}\right)\right|
+\]</div>
+<p>Donde <span class="math">\(f\)</span> es la frecuencia armónica, <span class="math">\(f_{\text{sampleo}}\)</span> es nuestra frecuencia de sampleo que no cumple con el teorema de Nyquist y <span class="math">\(\text{rondeo}()\)</span> es una función que redondea un numero real al entero más cercano.</p>
+<h3 id="transformada-discreta-inversa-de-fourier">Transformada Discreta Inversa de Fourier</h3>
+<p>Luego de obtener la transformada discreta de Fourier, es fácil obtener la señal a partir de la cual esta fue creada:</p>
+<div class="math">
+\[
+f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]e^{-i\frac{2\pi n}N k}
+\]</div>
+<h3 id="computo-de-la-transformada-discreta-de-fourier">Computo de la Transformada Discreta de Fourier</h3>
 <ol>
 <li><p>Definimos <span class="math">\(W=e^{i\frac 2N\pi}\)</span></p>
 </li>
@@ -1459,6 +1505,18 @@ f[n] = \frac 1 N \sum_{k=0}^{N-1} F[k]W_N^{-nk}
 </li>
 </ol>
 <p>Si <span class="math">\(f\)</span> es real, entonces no todos los coeficientes de la serie de Fourier son relevantes ya que <span class="math">\(c_n = c_{-n}^*\)</span></p>
+<h3 id="espectro-en-amplitud">Espectro en Amplitud</h3>
+<p>El espectro en amplitud de una señal real se construye como:</p>
+<div class="math">
+\[
+A(k) = \left\{
+\array{
+\frac{|F[k]|}{N}&amp;k = 0,k=\frac N 2\\
+\frac{2|F[k]|}N &amp; \text{else}
+}
+
+\right.
+\]</div>
 
 </body>
 
