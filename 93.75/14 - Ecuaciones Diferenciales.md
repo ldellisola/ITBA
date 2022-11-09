@@ -246,4 +246,42 @@ Para resolver la EDO simplemente hay que despejar y dejar a la ecuación definid
 
 ### Border Value Problem (BVP)
 
-TODO™
+El método BVP sirve para obtener una aproximación de la función en varios puntos, dentro de el dominio especificado.
+
+Dependiendo del tipo de problema, se puede encarar de 3 formas:
+
+- **Condiciones de Dirichlet**: En este caso, se conoce el valor de la función al inicio y al final del dominio especificado:
+
+  <img src="Resources/14 - Ecuaciones Diferenciales/Screenshot 2022-11-09 at 12.39.47.jpg" alt="Screenshot 2022-11-09 at 12.39.47" style="zoom:50%;" />
+
+- **Condiciones de Neumann**: En este caso no se conoce ningún valor de la función, aunque se pueden conocer valores de la derivada de la función.
+
+  <img src="Resources/14 - Ecuaciones Diferenciales/Screenshot 2022-11-09 at 12.41.21.jpg" alt="Screenshot 2022-11-09 at 12.41.21" style="zoom:50%;" />
+
+- **Mixto**: Es una combinación de ambos métodos, donde se pueden conocer los valores de inicio o fin de la función, o información sobre su derivada:
+
+  <img src="Resources/14 - Ecuaciones Diferenciales/Screenshot 2022-11-09 at 12.42.43.jpg" alt="Screenshot 2022-11-09 at 12.42.43" style="zoom:50%;" />
+
+Para resolver este tipo de problemas podemos seguir los siguientes pasos:
+
+1. **Discretizar el dominio de interés**: Tomemos nuestro dominio $L = (b-a)$ y la cantidad de nodos internos que nos interesan tener $N_I.$ A partir de estos datos podemos tener la cantidad total de nodos que necesitamos:
+   $$
+   N = N_I + 2
+   $$
+    Ademas de poder saber el tamaño de nuestro paso:
+   $$
+   h = \frac{L}{N-1}
+   $$
+
+2. **Elegir el esquema para representar a las derivadas**: Debemos elegir si vamos a usar el esquema explicito, implícito o de Crank-Nicolson, y aplicarlo.
+
+3. **Escribir la ecuación en diferencias para los nodos interiores**: Una vez que esta discretizada la ecuación, podemos plantar la ecuación para cada valor de $n$ de los nodos internos.
+
+   Si uno de los datos es una primer o segunda derivada, podemos utilizar su aproximación mediante diferencias finitas y reemplazar a la ecuación encontrada por la aproximación en ese punto.
+
+4. **Formar la matriz del problema algebraico**: Convertir el sistema de ecuaciones a una matriz para ser resuelto en una computadora.
+
+5. **Resolver de manera eficiente**: `linsolve` de octave.
+
+6. **Calcular el error de la solución encontrada si se conoce la solución exacta**.
+
