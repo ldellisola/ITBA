@@ -1675,7 +1675,44 @@ y' = f(t,y)
 <p>Donde <span class="math">\(h\)</span> es el paso elegido.</p>
 <p>Para resolver la EDO simplemente hay que despejar y dejar a la ecuación definida en termino de <span class="math">\(t_i\)</span> y <span class="math">\(y_i.\)</span> Partiendo del valor inicial que conocemos, tenemos que iterar de por los valores de <span class="math">\(y_i\)</span> hasta llegar a aquel que evalúa al valor del dominio del cual queremos saber.</p>
 <h3 id="border-value-problem-bvp">Border Value Problem (BVP)</h3>
-<p>TODO™</p>
+<p>El método BVP sirve para obtener una aproximación de la función en varios puntos, dentro de el dominio especificado.</p>
+<p>Dependiendo del tipo de problema, se puede encarar de 3 formas:</p>
+<ul>
+<li><p><strong>Condiciones de Dirichlet</strong>: En este caso, se conoce el valor de la función al inicio y al final del dominio especificado:</p>
+<p><img src="Resources/14 - Ecuaciones Diferenciales/D072AC5927208789.jpg" class="img-fluid" alt="D072AC5927208789" style="zoom:50%;" /></p>
+</li>
+<li><p><strong>Condiciones de Neumann</strong>: En este caso no se conoce ningún valor de la función, aunque se pueden conocer valores de la derivada de la función.</p>
+<p><img src="Resources/14 - Ecuaciones Diferenciales/EEA7DB48A05AC139.jpg" class="img-fluid" alt="EEA7DB48A05AC139" style="zoom:50%;" /></p>
+</li>
+<li><p><strong>Mixto</strong>: Es una combinación de ambos métodos, donde se pueden conocer los valores de inicio o fin de la función, o información sobre su derivada:</p>
+<p><img src="Resources/14 - Ecuaciones Diferenciales/18CA2309F0026204.jpg" class="img-fluid" alt="18CA2309F0026204" style="zoom:50%;" /></p>
+</li>
+</ul>
+<p>Para resolver este tipo de problemas podemos seguir los siguientes pasos:</p>
+<ol>
+<li><p><strong>Discretizar el dominio de interés</strong>: Tomemos nuestro dominio <span class="math">\(L = (b-a)\)</span> y la cantidad de nodos internos que nos interesan tener <span class="math">\(N_I.\)</span> A partir de estos datos podemos tener la cantidad total de nodos que necesitamos:</p>
+<div class="math">
+\[
+N = N_I + 2
+\]</div>
+<p>Ademas de poder saber el tamaño de nuestro paso:</p>
+<div class="math">
+\[
+h = \frac{L}{N-1}
+\]</div>
+</li>
+<li><p><strong>Elegir el esquema para representar a las derivadas</strong>: Debemos elegir si vamos a usar el esquema explicito, implícito o de Crank-Nicolson, y aplicarlo.</p>
+</li>
+<li><p><strong>Escribir la ecuación en diferencias para los nodos interiores</strong>: Una vez que esta discretizada la ecuación, podemos plantar la ecuación para cada valor de <span class="math">\(n\)</span> de los nodos internos.</p>
+<p>Si uno de los datos es una primer o segunda derivada, podemos utilizar su aproximación mediante diferencias finitas y reemplazar a la ecuación encontrada por la aproximación en ese punto.</p>
+</li>
+<li><p><strong>Formar la matriz del problema algebraico</strong>: Convertir el sistema de ecuaciones a una matriz para ser resuelto en una computadora.</p>
+</li>
+<li><p><strong>Resolver de manera eficiente</strong>: <code>linsolve</code> de octave.</p>
+</li>
+<li><p><strong>Calcular el error de la solución encontrada si se conoce la solución exacta</strong>.</p>
+</li>
+</ol>
 
 </body>
 
