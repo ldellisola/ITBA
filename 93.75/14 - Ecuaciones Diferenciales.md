@@ -39,7 +39,7 @@ f_{j+1} = f_j  + h_x \frac{f'_j}{1!} + h_x^2\frac{f_j''}{2!} + h_x^3 \frac{f'''_
 $$
 La idea es aproximar a las derivadas de la función en un punto, como combinación lineal de los valores que toma la función en puntos “vecinos”. Por ejemplo, a la primera derivada de la función $u(x)$ la escribimos como:
 $$
-u_x = \alpha \times u_{j+1} + \beta \times u_{j-1} + e
+u_x' = \alpha \times u_{j+1} + \beta \times u_{j-1} + e
 $$
 Donde $e$ es el error que se obtiene al aproximar la derivada por combinación lineal. Para obtener $\alpha,\beta:$
 
