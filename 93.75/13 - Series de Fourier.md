@@ -149,7 +149,7 @@ $$
 
 Como la función es par, los coeficientes $\forall n \in \N: b_n = 0.$ Entonces el desarrollo de Fourier es:
 $$
-f(t) = a_0 + \sum_{n=1}^\infty a_n \cos(\frac{2n\pi}{T}t)
+f(t) = a_0 + \sum_{n=1}^\infty a_n \cos\left(\frac{2n\pi}{T}t\right)
 $$
 
 ### Desarrollo en Amplitud y Fase
@@ -214,7 +214,7 @@ Sea $f$ una función continua en el dominio de las frecuencias:
 
 - **Igualdad de Parserval**: Si la función $f$ esta representada por $\{c_n,w_n\}$ se verifica que:
   $$
-  \frac 1 T \int_o^T |f(t)|^2 dt = \sum_{n=-\infty}^\infty |c_n|^2 = \frac{a_0^2}2 + \frac 1 2 \sum_{n=1}^\infty (a_n^2 + b_n^2)
+  \frac 1 T \int_o^T |f(t)|^2 dt = \sum_{n=-\infty}^\infty |c_n|^2 = \left(\frac{a_0}{2}\right)^2 + \frac 1 2 \sum_{n=1}^\infty (a_n^2 + b_n^2)
   $$
 
 - **Desigualdad de Bessel**: Si en la igualdad de Parserval nos quedamos con un numero finito de términos $N$ en la suma de Fourier, la igualdad se transforma en:
@@ -279,5 +279,4 @@ Donde el coeficiente se obtiene:
 $$
 C_{nm} = \frac 1{T_xT_y} \int_0^{T_x}\int_o^{T_y}  f(x,y) e^{-\frac{2m\pi n}{T_x}xi - \frac{wn\pi m}{T_y}yi}dydx
 $$
-
 

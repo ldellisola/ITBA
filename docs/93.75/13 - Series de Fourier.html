@@ -1570,7 +1570,7 @@ f(-t) &amp; -L &lt; t &lt; 0
 <p>Como la función es par, los coeficientes <span class="math">\(\forall n \in \mathbb{N}: b_n = 0.\)</span> Entonces el desarrollo de Fourier es:</p>
 <div class="math">
 \[
-f(t) = a_0 + \sum_{n=1}^\infty a_n \cos(\frac{2n\pi}{T}t)
+f(t) = a_0 + \sum_{n=1}^\infty a_n \cos\left(\frac{2n\pi}{T}t\right)
 \]</div>
 <h3 id="desarrollo-en-amplitud-y-fase">Desarrollo en Amplitud y Fase</h3>
 <p>Dado el desarrollo de Fourier con la siguiente forma:</p>
@@ -1634,7 +1634,7 @@ w_n = n \times w_0
 <li><p><strong>Igualdad de Parserval</strong>: Si la función <span class="math">\(f\)</span> esta representada por <span class="math">\(\{c_n,w_n\}\)</span> se verifica que:</p>
 <div class="math">
 \[
-\frac 1 T \int_o^T |f(t)|^2 dt = \sum_{n=-\infty}^\infty |c_n|^2 = \frac{a_0^2}2 + \frac 1 2 \sum_{n=1}^\infty (a_n^2 + b_n^2)
+\frac 1 T \int_o^T |f(t)|^2 dt = \sum_{n=-\infty}^\infty |c_n|^2 = \left(\frac{a_0}{2}\right)^2 + \frac 1 2 \sum_{n=1}^\infty (a_n^2 + b_n^2)
 \]</div>
 </li>
 <li><p><strong>Desigualdad de Bessel</strong>: Si en la igualdad de Parserval nos quedamos con un numero finito de términos <span class="math">\(N\)</span> en la suma de Fourier, la igualdad se transforma en:</p>

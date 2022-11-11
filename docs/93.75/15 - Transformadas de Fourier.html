@@ -1481,6 +1481,7 @@ f = 2\times f_\max
 f_{\text{percibida}} = \left|f - f_{\text{sampleo}}\times \text{round}\left(\frac f {f_{sampleo}}\right)\right|
 \]</div>
 <p>Donde <span class="math">\(f\)</span> es la frecuencia armónica, <span class="math">\(f_{\text{sampleo}}\)</span> es nuestra frecuencia de sampleo que no cumple con el teorema de Nyquist y <span class="math">\(\text{rondeo}()\)</span> es una función que redondea un numero real al entero más cercano.</p>
+<p>Una forma no analítica más fácil de obtener la frecuencia percibida es pararse en la frecuencia de sampleo y ver si hay alguna frecuencia de la función que sea mayor a esa. De existir, podemos predecir como sera percibida si</p>
 <h3 id="transformada-discreta-inversa-de-fourier">Transformada Discreta Inversa de Fourier</h3>
 <p>Luego de obtener la transformada discreta de Fourier, es fácil obtener la señal a partir de la cual esta fue creada:</p>
 <div class="math">
