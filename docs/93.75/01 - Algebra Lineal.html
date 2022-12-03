@@ -1424,7 +1424,8 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 </head>
 <body>
 <h1 id="algebra-lineal">Algebra Lineal</h1>
-<h2 id="cuerpos-escalares">Cuerpos Escalares</h2>
+<blockquote class="blockquote">
+<p><strong>Definición 1.1</strong></p>
 <p>Un <strong>cuerpo</strong> <span class="math">\(\mathbb{K}\)</span> es un conjunto de elementos, denominados escalares que tiene dos operaciones <span class="math">\(+,*\)</span> que cumplen con:</p>
 <ul>
 <li><p><span class="math">\(\mathbb{K}\)</span> es <strong>cerrado</strong> para <span class="math">\(+,*\)</span> si:</p>
@@ -1482,10 +1483,106 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \]</div>
 </li>
 </ul>
+</blockquote>
+<p>Estas propiedades son cumplidas por los numeros racionales, reales y complejos, pero no por los anturales o los enteros.</p>
+<h2 id="aritmetica-de-vectores-y-matrices">Aritmética de Vectores y Matrices</h2>
+<blockquote class="blockquote">
+<p><strong>Definición 1.2</strong></p>
+<p>Dos vectores o matrices son iguales cuando todos y cada uno de sus elementos son iguales:</p>
+<div class="math">
+\[
+\array{ 
+\vec u = \vec v \iff \forall i\  u_i = v_i  \\
+M = N \iff \forall i,j\  M_{ij} = N_{ij}
+
+}
+\]</div>
+</blockquote>
+<p>También podemos <strong>sumar</strong> vectores y matrices cuando los tamaños sean iguales y esta operacion se realiza aplica de elemento a elemento.</p>
+<p>Sean <span class="math">\(\vec v,\vec u\)</span> vectores de igual tamaño:</p>
+<div class="math">
+\[
+(\vec u + \vec v)_i = u_i + v_i
+\]</div>
+<p>Sean <span class="math">\(M,N\)</span> matrices de igual dimensión:</p>
+<div class="math">
+\[
+(M + N)_{ij} = M_{ij} + N_{ij}
+\]</div>
+<p>El <strong>producto por un escalar</strong> funciona de la misma manera:</p>
+<div class="math">
+\[
+\array{
+(\alpha \vec u)_i = \alpha u_i\\
+(\alpha M)_{ij}  = \alpha M_{ij}
+}
+\]</div>
+<p>El <strong>producto matricial</strong> funciona de forma distinta ya que no es conmutativo. Sean <span class="math">\(M,N\)</span> matrices de dimensión <span class="math">\(m\times n,n \times r\)</span> respectivamente, podemos realizar el producto <span class="math">\(MN\)</span> y obtener una matriz con dimensión <span class="math">\(m \times r,\)</span> donde cada elemento tiene la siguiente forma:</p>
+<div class="math">
+\[
+(MN)_{ij} = \sum_{k=1}^n M_{ik}N_{kj}
+\]</div>
+<blockquote class="blockquote">
+<p><strong>Definición 1.3</strong></p>
+<p>Una matriz <span class="math">\(L^{n\times m}\)</span> se llama <strong>preinversa</strong> de la matriz <span class="math">\(A^{m\times n}\)</span> si y solo si <span class="math">\(LA = \mathbb{I}_n.\)</span> Por otra parte, la matriz <span class="math">\(R^{n\times m}\)</span> se denomina <strong>postinversa</strong> de <span class="math">\(A\)</span> si y solo si <span class="math">\(AR = \mathbb{I}_m.\)</span></p>
+</blockquote>
+<p>A partir de las matrices cuadradas se puede obtener su <strong>determinante</strong>. Se conocen las siguientes propiedades de los determinantes:</p>
+<ol>
+<li><p>Si intercambiamos dos filas o dos columnas de una matriz cuadrada, su determinante cambia de signo, aunque son iguales en valor absoluto.</p>
+</li>
+<li><p>El determinate de una matriz cuadrada concede con el determinante de su transpuesta:</p>
+</li>
+<li><p>Si <span class="math">\(A,B \in \mathbb{K}^{n \times n}\)</span>, entonces:</p>
+</li>
+</ol>
+<div class="math">
+\[
+\det(AB) = \det(A)\det(B)
+\]</div>
+<ol start="4">
+<li>Si <span class="math">\(A\)</span> es inversible:</li>
+</ol>
+<div class="math">
+\[
+\det(A^{-1}) = \det(A)^{-1}
+\]</div>
+<ol start="5">
+<li>Si multiplicamos todos los elemento de una fila o columna de una matriz cuadrada por un numero <span class="math">\(k\)</span>, su determinante queda multiplicado por dicho numero:</li>
+</ol>
+<div class="math">
+\[
+A \in \mathbb {K}^{n \times n}, k \in \mathbb {K}/ \det(k*A) = k *\det(A)
+\]</div>
+<ol start="6">
+<li><p>Si una matriz cuadrada tiene todos los elementos de una fila o columna en 0, su determinante es el elemento nulo.</p>
+</li>
+<li><p>Si una matriz cuadrada tiene dos filas o dos columnas iguales, si determinante es 0.</p>
+</li>
+<li><p>Si una matriz cuadrada tiene dos filas o columnas proporcionales, su determinante es 0.</p>
+</li>
+<li><p>Todos los elementos de una fila o columna de una matriz cuadrada se descomponen en dos sumandos, entonces su determinante es igual a la suma de los dos determinantes que tienen en dicha fila o columna el primero y el segundo sumando respectivamente, siendo los restantes elementos iguales a los elementos del determinate inicial.</p>
+</li>
+<li><p>Si una fila o columna de una matriz cuadrada es combinación lineal de dos o más de las restantes filas o columnas, su determinante es cero.</p>
+</li>
+<li><p>Si a una fila o columna de una matriz cuadrada se le suma otra paralela a ella, su determinate no varia.</p>
+</li>
+<li><p>Si a una fila o columna de una matriz cuadrada se le suma otra paralela a ella multiplicada por un numero, su determinante no varia.</p>
+</li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Definición 1.4</strong></p>
+<p>Si el determinante de una matriz cuadrada es distinto de cero, exite la <strong>inversa</strong> de ella y a la matriz se la denomina <strong>inversible</strong>. Si por el contrario es nulo, se la denomina <strong>singular</strong>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Definición 1.5</strong></p>
+<p>Se define como <strong>traza</strong> de una matriz cuadrada a la suma de los elementos de la diagonal.</p>
+<div class="math">
+\[
+\text{tr}(A) = \sum_{i=1}^n a_{ii}
+\]</div>
+</blockquote>
+<p><mark>END</mark></p>
 <h2 id="vectores-y-matrices">Vectores y Matrices</h2>
-<p>Los <strong>vectores</strong> son propiedades del espacio que están más allá del arreglo de números que los representan.</p>
-<p>Las <strong>matrices</strong> son vectores presentados de otra manera.</p>
-<p>El conjunto de las matrices no es un cuerpo.</p>
 <p>Una <strong>matriz diagonal</strong> es una matriz cuadrada donde todos los elementos son nulos excepto por los valores en la diagonal:</p>
 <div class="math">
 \[
@@ -1500,7 +1597,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 \[
 M'M = I_{n\times n}
 \]</div>
-<p>Ademas, si <span class="math">\(n=m,\)</span> decimos que <span class="math">\(M' = M^{-1}.\)</span></p>
+<p>Ademas, si <span class="math">\(n=m,\)</span>  decimos que <span class="math">\(M' = M^{-1}.\)</span></p>
 <p>Una matriz es <strong>escalonada</strong> si:</p>
 <ul>
 <li>Todas las filas cero están en la parte inferior de la matriz.</li>
@@ -1575,46 +1672,6 @@ A \in \mathbb {K}^{n \times n}: \det(A) \neq 0 \implies \exists B \in \mathbb{K}
 \]</div>
 <p>Otra forma de ver esto, seria con la representación de la matriz en el espacio. Si el paralelepípedo formado por los vectores columna tienen volumen, es inversible. El volumen es medido por el determinante de la matriz. Si el determinante es 0, entonces esta sobre el mismo eje.</p>
 <p>Si una matriz es cuadrada y tiene rango máximo entonces es invertible</p>
-<h3 id="determinantes">Determinantes</h3>
-<p>Propiedaes:</p>
-<ul>
-<li><p>Si intercambiamos dos filas o dos columnas de una matriz cuadrada, su determinante cambia de signo, aunque son iguales en valor absoluto.</p>
-</li>
-<li><p>El determinate de una matriz cuadrada concede con el determinante de su transpuesta:</p>
-</li>
-<li><p>Si <span class="math">\(A,B \in \mathbb{K}^{n \times n}\)</span>, entonces:</p>
-<div class="math">
-\[
-\det(AB) = \det(A)\det(B)
-\]</div>
-</li>
-<li><p>Si <span class="math">\(A\)</span> es inversible:</p>
-<div class="math">
-\[
-\det(A^{-1}) = \det(A)^{-1}
-\]</div>
-</li>
-<li><p>Si multiplicamos todos los elemento de una fila o columna de una matriz cuadrada por un numero <span class="math">\(k\)</span>, su determinante queda multiplicado por dicho numero:</p>
-<div class="math">
-\[
-A \in \mathbb {K}^{n \times n}, k \in \mathbb {K}/ \det(k*A) = k *\det(A)
-\]</div>
-</li>
-<li><p>Si una matriz cuadrada tiene todos los elementos de una fila o columna en 0, su determinante es el elemento nulo.</p>
-</li>
-<li><p>Si una matriz cuadrada tiene dos filas o dos columnas iguales, si determinante es 0.</p>
-</li>
-<li><p>Si una matriz cuadrada tiene dos filas o columnas proporcionales, su determinante es 0.</p>
-</li>
-<li><p>Todos los elementos de una fila o columna de una matriz cuadrada se descomponen en dos sumandos, entonces su determinante es igual a la suma de los dos determinantes que tienen en dicha fila o columna el primero y el segundo sumando respectivamente, siendo los restantes elementos iguales a los elementos del determinate inicial.</p>
-</li>
-<li><p>Si una fila o columna de una matriz cuadrada es combinación lineal de dos o más de las restantes filas o columnas, su determinante es cero.</p>
-</li>
-<li><p>Si a una fila o columna de una matriz cuadrada se le suma otra paralela a ella, su determinate no varia.</p>
-</li>
-<li><p>Si a una fila o columna de una matriz cuadrada se le suma otra paralela a ella multiplicada por un numero, su determinante no varia.</p>
-</li>
-</ul>
 <h2 id="sistema-de-ecuaciones-lineales">Sistema de Ecuaciones Lineales</h2>
 <p>En una ecuación lineal, las incógnitas no aparecen multiplicándoselo ni elevadas a una potencia distinta de 1. Una ecuación lineal con <span class="math">\(n\)</span> incognitos se escribe como:</p>
 <div class="math">

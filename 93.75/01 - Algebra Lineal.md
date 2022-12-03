@@ -1,62 +1,155 @@
 # Algebra Lineal
 
-## Cuerpos Escalares
 
-Un **cuerpo** $\mathbb{K}$ es un conjunto de elementos, denominados escalares que tiene dos operaciones $+,*$ que cumplen con:
 
-- $\mathbb{K}$ es **cerrado** para $+,*$ si:
-  $$
-  \alpha,\beta \in \mathbb{K} \implies \alpha +\beta, \alpha * \beta \in \mathbb K
-  $$
+> **Definición 1.1**
+>
+> Un **cuerpo** $\mathbb{K}$ es un conjunto de elementos, denominados escalares que tiene dos operaciones $+,*$ que cumplen con:
+>
+> - $\mathbb{K}$ es **cerrado** para $+,*$ si:
+>   $$
+>   \alpha,\beta \in \mathbb{K} \implies \alpha +\beta, \alpha * \beta \in \mathbb K
+>   $$
+>
+> - $+,*$ son **asociativos** en $\mathbb K$ si:
+>   $$
+>   \alpha,\beta,\gamma \in \mathbb K \implies \array{
+>   \alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma \\
+>   \alpha * (\beta * \gamma) = (\alpha * \beta) * \gamma
+>   }
+>   $$
+>
+> - $+,*$ son **conmutativos** en $\mathbb K$ si:
+>   $$
+>   \alpha,\beta \in \mathbb K \implies \array{
+>   \alpha + \beta = \beta + \alpha\\
+>   \alpha * \beta = \beta * \alpha
+>   }
+>   $$
+>
+> - $+,*$ son **distributivos** en $\mathbb K$ si:
+>   $$
+>   \alpha,\beta,\gamma \in \mathbb K \implies \alpha * (\beta + \gamma) = (\alpha * \beta) + (\alpha * \gamma)
+>   $$
+>
+> - Existe un **elemento neutro** para $+$ si:
+>   $$
+>   \forall \alpha \in \mathbb K,\exists 0 \in \mathbb K / \alpha  + 0 = \alpha 
+>   $$
+>
+> - Existe un **elemento neutro** para $*$ si :
+>   $$
+>   \forall \alpha \in \mathbb K , \exists 1 \in \mathbb K/\alpha * 1 = \alpha
+>   $$
+>
+> - Existe un **inverso aditivo**:
+>   $$
+>   \alpha \in \mathbb K \implies \exists -\alpha \in \mathbb K / \alpha + (-\alpha) = 0
+>   $$
+>
+> - Existe un **inverso multiplicativo**:
+>   $$
+>   \exists \alpha  \neq 0\in \mathbb K \implies  \exists \alpha^{-1}\in \mathbb K/\alpha * \alpha^{-1}=1
+>   $$
+>
 
-- $+,*$ son **asociativos** en $\mathbb K$ si:
-  $$
-  \alpha,\beta,\gamma \in \mathbb K \implies \array{
-  \alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma \\
-  \alpha * (\beta * \gamma) = (\alpha * \beta) * \gamma
-  }
-  $$
+Estas propiedades son cumplidas por los numeros racionales, reales y complejos, pero no por los anturales o los enteros.
 
-- $+,*$ son **conmutativos** en $\mathbb K$ si:
-  $$
-  \alpha,\beta \in \mathbb K \implies \array{
-  \alpha + \beta = \beta + \alpha\\
-  \alpha * \beta = \beta * \alpha
-  }
-  $$
+## Aritmética de Vectores y Matrices
 
-- $+,*$ son **distributivos** en $\mathbb K$ si:
-  $$
-  \alpha,\beta,\gamma \in \mathbb K \implies \alpha * (\beta + \gamma) = (\alpha * \beta) + (\alpha * \gamma)
-  $$
+> **Definición 1.2**
+>
+> Dos vectores o matrices son iguales cuando todos y cada uno de sus elementos son iguales:
+> $$
+> \array{ 
+> \vec u = \vec v \iff \forall i\  u_i = v_i  \\
+> M = N \iff \forall i,j\  M_{ij} = N_{ij}
+> 
+> }
+> $$
 
-- Existe un **elemento neutro** para $+$ si:
-  $$
-  \forall \alpha \in \mathbb K,\exists 0 \in \mathbb K / \alpha  + 0 = \alpha 
-  $$
+También podemos **sumar** vectores y matrices cuando los tamaños sean iguales y esta operacion se realiza aplica de elemento a elemento. 
 
-- Existe un **elemento neutro** para $*$ si :
-  $$
-  \forall \alpha \in \mathbb K , \exists 1 \in \mathbb K/\alpha * 1 = \alpha
-  $$
+Sean $\vec v,\vec u$ vectores de igual tamaño:
+$$
+(\vec u + \vec v)_i = u_i + v_i
+$$
+Sean $M,N$ matrices de igual dimensión:
+$$
+(M + N)_{ij} = M_{ij} + N_{ij}
+$$
+El **producto por un escalar** funciona de la misma manera:
+$$
+\array{
+(\alpha \vec u)_i = \alpha u_i\\
+(\alpha M)_{ij}  = \alpha M_{ij}
+}
+$$
+El **producto matricial** funciona de forma distinta ya que no es conmutativo. Sean $M,N$ matrices de dimensión $m\times n,n \times r$ respectivamente, podemos realizar el producto $MN$ y obtener una matriz con dimensión $m \times r,$ donde cada elemento tiene la siguiente forma:
+$$
+(MN)_{ij} = \sum_{k=1}^n M_{ik}N_{kj}
+$$
 
-- Existe un **inverso aditivo**:
-  $$
-  \alpha \in \mathbb K \implies \exists -\alpha \in \mathbb K / \alpha + (-\alpha) = 0
-  $$
+> **Definición 1.3**
+>
+> Una matriz $L^{n\times m}$ se llama **preinversa** de la matriz $A^{m\times n}$ si y solo si $LA = \mathbb{I}_n.$ Por otra parte, la matriz $R^{n\times m}$ se denomina **postinversa** de $A$ si y solo si $AR = \mathbb{I}_m.$
 
-- Existe un **inverso multiplicativo**:
-  $$
-  \exists \alpha  \neq 0\in \mathbb K \implies  \exists \alpha^{-1}\in \mathbb K/\alpha * \alpha^{-1}=1
-  $$
+A partir de las matrices cuadradas se puede obtener su **determinante**. Se conocen las siguientes propiedades de los determinantes:
+
+1. Si intercambiamos dos filas o dos columnas de una matriz cuadrada, su determinante cambia de signo, aunque son iguales en valor absoluto.
+
+2. El determinate de una matriz cuadrada concede con el determinante de su transpuesta:
+
+3. Si $A,B \in \mathbb{K}^{n \times n}$, entonces:
+
+$$
+\det(AB) = \det(A)\det(B)
+$$
+
+4. Si $A$ es inversible:
+
+$$
+\det(A^{-1}) = \det(A)^{-1}
+$$
+
+5. Si multiplicamos todos los elemento de una fila o columna de una matriz cuadrada por un numero $k$, su determinante queda multiplicado por dicho numero:
+
+$$
+A \in \mathbb {K}^{n \times n}, k \in \mathbb {K}/ \det(k*A) = k *\det(A)
+$$
+
+6. Si una matriz cuadrada tiene todos los elementos de una fila o columna en 0, su determinante es el elemento nulo.
+
+7. Si una matriz cuadrada tiene dos filas o dos columnas iguales, si determinante es 0.
+
+8. Si una matriz cuadrada tiene dos filas o columnas proporcionales, su determinante es 0.
+
+9. Todos los elementos de una fila o columna de una matriz cuadrada se descomponen en dos sumandos, entonces su determinante es igual a la suma de los dos determinantes que tienen en dicha fila o columna el primero y el segundo sumando respectivamente, siendo los restantes elementos iguales a los elementos del determinate inicial.
+
+10. Si una fila o columna de una matriz cuadrada es combinación lineal de dos o más de las restantes filas o columnas, su determinante es cero.
+
+11. Si a una fila o columna de una matriz cuadrada se le suma otra paralela a ella, su determinate no varia.
+
+12. Si a una fila o columna de una matriz cuadrada se le suma otra paralela a ella multiplicada por un numero, su determinante no varia.
+
+> **Definición 1.4**
+>
+> Si el determinante de una matriz cuadrada es distinto de cero, exite la **inversa** de ella y a la matriz se la denomina **inversible**. Si por el contrario es nulo, se la denomina **singular**.
+
+> **Definición 1.5**
+>
+> Se define como **traza** de una matriz cuadrada a la suma de los elementos de la diagonal.
+> $$
+> \text{tr}(A) = \sum_{i=1}^n a_{ii}
+> $$
+
+==END==
+
+
 
 ## Vectores y Matrices
 
-Los **vectores** son propiedades del espacio que están más allá del arreglo de números que los representan.
 
-Las **matrices** son vectores presentados de otra manera.
-
-El conjunto de las matrices no es un cuerpo.
 
 Una **matriz diagonal** es una matriz cuadrada donde todos los elementos son nulos excepto por los valores en la diagonal:
 $$
@@ -74,7 +167,7 @@ Una matriz $M \in \mathbb{K}^{m \times n}$ se dice que es **ortogonal** si:
 $$
 M'M = I_{n\times n}
 $$
-Ademas, si $n=m,$ decimos que $M' = M^{-1}.$
+Ademas, si $n=m,$  decimos que $M' = M^{-1}.$
 
 Una matriz es **escalonada** si:
 
@@ -147,43 +240,6 @@ $$
 Otra forma de ver esto, seria con la representación de la matriz en el espacio. Si el paralelepípedo formado por los vectores columna tienen volumen, es inversible. El volumen es medido por el determinante de la matriz. Si el determinante es 0, entonces esta sobre el mismo eje.
 
 Si una matriz es cuadrada y tiene rango máximo entonces es invertible
-
-### Determinantes
-
-Propiedaes:
-
-- Si intercambiamos dos filas o dos columnas de una matriz cuadrada, su determinante cambia de signo, aunque son iguales en valor absoluto.
-
-- El determinate de una matriz cuadrada concede con el determinante de su transpuesta:
-
-- Si $A,B \in \mathbb{K}^{n \times n}$, entonces:
-  $$
-  \det(AB) = \det(A)\det(B)
-  $$
-
-- Si $A$ es inversible:
-  $$
-  \det(A^{-1}) = \det(A)^{-1}
-  $$
-
-- Si multiplicamos todos los elemento de una fila o columna de una matriz cuadrada por un numero $k$, su determinante queda multiplicado por dicho numero:
-  $$
-  A \in \mathbb {K}^{n \times n}, k \in \mathbb {K}/ \det(k*A) = k *\det(A)
-  $$
-
-- Si una matriz cuadrada tiene todos los elementos de una fila o columna en 0, su determinante es el elemento nulo.
-
-- Si una matriz cuadrada tiene dos filas o dos columnas iguales, si determinante es 0.
-
-- Si una matriz cuadrada tiene dos filas o columnas proporcionales, su determinante es 0.
-
-- Todos los elementos de una fila o columna de una matriz cuadrada se descomponen en dos sumandos, entonces su determinante es igual a la suma de los dos determinantes que tienen en dicha fila o columna el primero y el segundo sumando respectivamente, siendo los restantes elementos iguales a los elementos del determinate inicial.
-
-- Si una fila o columna de una matriz cuadrada es combinación lineal de dos o más de las restantes filas o columnas, su determinante es cero.
-
-- Si a una fila o columna de una matriz cuadrada se le suma otra paralela a ella, su determinate no varia.
-
-- Si a una fila o columna de una matriz cuadrada se le suma otra paralela a ella multiplicada por un numero, su determinante no varia.
 
 ## Sistema de Ecuaciones Lineales
 

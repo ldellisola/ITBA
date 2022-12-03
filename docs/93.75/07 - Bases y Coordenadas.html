@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>03 - Espacios Metricos.md</title>
+    <title>07 - Bases y Coordenadas.md</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -1423,137 +1423,39 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="espacios">Espacios</h1>
-<p>El producto interno o escalar definido sobre <span class="math">\(\mathbb V\)</span> es una aplicación entre el conjunto de todos los pares de vectores <span class="math">\((\vec u, \vec v)\)</span> y <span class="math">\(\mathbb K,\)</span> cuyo resultado es un escalar, denotado por <span class="math">\(&lt;u,v&gt;.\)</span> Este satisface las siguientes propiedades para todo <span class="math">\(\vec u,\vec v, \vec w \in \mathbb {V}\)</span> y todo escalar <span class="math">\(\alpha \in \mathbb K:\)</span></p>
+<h1 id="bases-y-coordenadas">Bases y Coordenadas</h1>
+<p>Todo espacio de dimensión finita <span class="math">\(\mathbb V\)</span> tiene una base. La base más utilizada es la denominada <strong>canónica</strong> <span class="math">\(E\)</span> en la cual los vectores que la componen <span class="math">\(\hat e_j\)</span> tienen una la siguiente estructura: todas sus componentes son nulas excepto por la componente en la posición <span class="math">\(j\)</span> que es 1.</p>
+<p>Todos los vectores pueden ser representados mediante distintas bases. Por ejemplo, cualquier vector en <span class="math">\(\mathbb{R}^3\)</span> se puede escribir como:</p>
 <div class="math">
 \[
-&lt;\cdot; \cdot&gt; : \mathbb {V} \times \mathbb {V} \rightarrow \mathbb {K}
+\vec u = \alpha_1 \hat e_1 + \alpha_2\hat e_2 +\alpha_3 \hat e_3
 \]</div>
-<ul>
-<li><span class="math">\(&lt;\vec u+ \vec v; \vec w&gt; = &lt;\vec u ;\vec w&gt; + &lt;\vec v; \vec w&gt;\)</span></li>
-<li><span class="math">\(&lt;\alpha \vec u; \vec v&gt; = \alpha &lt;\vec u;\vec v&gt;\)</span></li>
-<li><span class="math">\(&lt;\vec u,\vec v&gt; = &lt;\vec v;\vec u&gt;^*\)</span> donde <span class="math">\(*\)</span> denota el conjugado del numero complejo.</li>
-<li>$&lt;\vec u;\vec u&gt; \in \mathbb , &lt;\vec u;\vec u&gt; = 0 \iff \vec u = 0 $</li>
-</ul>
-<p>Sean <span class="math">\(\vec u, \vec v \in \mathbb {R}^n,\)</span> se define al <strong>producto interno canónico</strong> como:</p>
+<p>También se puede representar de la siguiente forma:</p>
 <div class="math">
 \[
-&lt;\vec u; \vec v&gt; = \sum_{i=1}^n u_i v_i
+\vec u = (\alpha_1,\alpha_2,\alpha_3)'_E
 \]</div>
-<p>Se usa en todos los espacios vectoriales. (No en los funcionales)</p>
-<h2 id="espacios-normados-con-una-norma-inducida">Espacios Normados con una Norma Inducida</h2>
-<p>Sea <span class="math">\(\mathbb V\)</span> un espacio vectorial sobre un cuerpo <span class="math">\(\mathbb K,\)</span> se define una <strong>norma</strong> sobre <span class="math">\(\mathbb {V}\)</span> a una función <span class="math">\(||\ ||:\mathbb {V} \rightarrow \mathbb {R}_0^+\)</span> que cumple con:</p>
-<ul>
-<li><span class="math">\(\vec u \in \mathbb {V}; ||\vec u|| \ge 0 \iff \vec u = 0_{\mathbb {V}}\)</span></li>
-<li><span class="math">\(\alpha \in \mathbb {K} \land \vec u \in \mathbb {V} \implies ||\alpha \vec u|| = |\alpha| ||\vec u||\)</span></li>
-<li><span class="math">\(\vec u,\vec v \in \mathbb {V} \implies ||\vec u + \vec v|| \le ||\vec u|| + ||\vec v||\)</span> (Desigualdad triangular)</li>
-</ul>
-<p>Dado el espacio vectorial <span class="math">\(\mathbb {V}\)</span> con el producto interno <span class="math">\(&lt;\cdot ; \cdot&gt;\)</span> este induce la norma en <span class="math">\(\mathbb {V}\)</span> según:</p>
+<p>Donde el subindice indica en que base se representa la base en la que se va a representar. Es importante tener en cuenta que las coordenadas <span class="math">\((\alpha_i)\)</span> dependen de la base que las exprese.</p>
+<blockquote class="blockquote">
+<p><strong>Definición 2.8</strong></p>
+<p>Llamamos <strong>coordenadas</strong> de un vector , respecto de una base <span class="math">\(B\)</span> a los escalares que son coeficientes de la combinación lineal que lo representa. El vector <span class="math">\(\vec u\)</span> se escribe como una combinación lineal de los elementos de la base y se los representa mediatne sus coordenadas en la base <span class="math">\(B:\)</span></p>
 <div class="math">
 \[
-||\vec u||_2 = \sqrt{&lt;\vec u;\vec u&gt;}
+\vec u \equiv (\alpha_1;\alpha_2;\dots;\alpha_n)'_B
 \]</div>
-<p>A partir de ahora se asume que toda norma que usamos es <strong>norma 2</strong> y no se lo va a indicar en el resto del curso.</p>
-<p>Dado un espacio vectorial <span class="math">\(\mathbb {V}\)</span> normado, se define la <strong>distancia</strong> entre dos vectores como:</p>
+</blockquote>
+<p>Para saber si un vector <span class="math">\(\vec u\)</span> pertenece o no a un subespacio <span class="math">\(\mathbb V\)</span> podemos partir desde una base de <span class="math">\(\mathbb V\)</span> llamada <span class="math">\(B = \{\vec v_1,\dots,\vec v_n\}:\)</span></p>
 <div class="math">
 \[
-d(\vec u;\vec v) = ||\vec u - \vec v||
+\vec u \in \mathbb V \iff \exists\alpha_j: \vec u = \sum_{j=1}^n \alpha_j \vec v_j
 \]</div>
-<p>Esta distancia calculada con norma 2 se la conoce como <strong>distancia euclidiana</strong>. Tiene las siguientes propiedades:</p>
-<ol>
-<li><span class="math">\(d(\vec u;\vec v) \ge 0\)</span></li>
-<li><span class="math">\(d(\vec v; \vec u) = 0 \iff \vec v = \vec u\)</span></li>
-<li><span class="math">\(d(\vec u;\vec v) = d(\vec v ;\vec u)\)</span></li>
-<li><span class="math">\(\forall v \in \mathbb {V}: d(\vec u ; \vec w) \le d(\vec u;\vec v) + d(v ; \vec w)\)</span></li>
-<li><span class="math">\(|&lt;\vec u;\vec v&gt;| \le ||\vec u|| ||\vec v ||\)</span></li>
-</ol>
-<p>Sea <span class="math">\(\mathbb {V}\)</span> un espacio vectorial real con producto interno <span class="math">\(&lt;\cdot&gt;\)</span> y la norma que el induce <span class="math">\(||\cdot||.\)</span> Se define el angulo entre los vectores <span class="math">\(\vec u,\vec v \in \mathbb {V}\)</span> como:</p>
+<h2 id="base-canonica">Base Canónica</h2>
+<p>Dado un espacio de dimensión finita <span class="math">\(\mathbb V\)</span> hay una base de uso generalizado llamada canónica que se simboliza con la letra <span class="math">\(E:\)</span></p>
 <div class="math">
 \[
-\cos \theta_{\vec u\vec v} = \frac{&lt;\vec u&gt;}{ ||\vec u|| ||\vec v||}
+E = \{\hat e_1,\dots,\hat e_n\}
 \]</div>
-<p>La desigualdad de Cauchy-Schwarz establece que:</p>
-<div class="math">
-\[
--1 \le \cos \theta _{\vec u\vec v} \le 1
-\]</div>
-<p>Al tener definido el ángulo entre dos vectores, se puede definir dos conceptos importantes:</p>
-<ul>
-<li><strong>Ortogonalidad</strong>: <span class="math">\(\vec v,\vec u \in \mathbb {V}, &lt;\vec u;\vec v&gt; = 0\)</span> y se lo nota como <span class="math">\(\vec u \bot \vec v\)</span></li>
-<li><strong>Colinealidad</strong>: <span class="math">\(\vec v,\vec u \in \mathbb {V}, \alpha \in \mathbb {K}: \vec u = \alpha \vec v \iff\vec u || \vec v\)</span></li>
-</ul>
-<h2 id="bases-ortonormales">Bases Ortonormales</h2>
-<p>Un conjunto de vectores <span class="math">\(B=\{\vec b_1, \dots,\vec b_n\}\)</span> se llama <strong>ortogonal</strong> si:</p>
-<div class="math">
-\[
-\forall i \neq j:&lt;\vec b_i; \vec b_j&gt; =0
-\]</div>
-<p>Si el conjunto es linealmente independiente, entonces forman una <strong>base ortogonal</strong>. Si ademas, <span class="math">\(&lt;\vec b_i;\vec b_j&gt;=1\)</span> el conjunto es una <strong>base ortonormal</strong>.</p>
-<p>Si la base es ortonormal, se pueden obtener sus coordenadas de forma inmediata. Sea <span class="math">\(B = \{\vec v_1,\dots,\vec v_n\}\)</span> una base ortonormal de <span class="math">\(\mathbb {V}\)</span> y sean <span class="math">\(\vec u \in \mathbb {V},\)</span> entonces:</p>
-<div class="math">
-\[
-\vec u = \sum_{i=1}^n \alpha_i \vec v_i
-\]</div>
-<p>Tomando el producto interno con cada uno de los elementos de la base</p>
-<div class="math">
-\[
-&lt;\vec v_j,\vec u&gt; = \sum_{i=1}^n \alpha_i &lt;\vec v_j; \vec v_i&gt; = \alpha_j
-\]</div>
-<h2 id="subespacios-ortogonales">Subespacios Ortogonales</h2>
-<p>Sean <span class="math">\(\mathbb {S}_1, \mathbb {S}_2\)</span> subespacios de <span class="math">\(\mathbb {V}, B_1\)</span> una base ortogonal de <span class="math">\(\mathbb {S}_1\)</span> y <span class="math">\(B_2\)</span> una base ortogonal de <span class="math">\(\mathbb {S}_2.\)</span> Podemos decir:</p>
-<div class="math">
-\[
-B_1 \cup B_2 \text{ es un conjunto ortogonal}\\ \implies \mathbb {S}_1 \bot \mathbb {S}_2 
-\]</div>
-<p S="">Si la union de las bases generan <span class="math">\(\mathbb {V}\)</span> entonces $ \mathbb _1$ se denomina <strong>completamente ortogonal</strong> de <span class="math">\(\mathbb {V}.\)</span></p>
-<p>Es util dividir a un vector <span class="math">\(\vec u\)</span> en dos subespacios ortogonales:</p>
-<div class="math">
-\[
-\vec u = \vec v + \vec w / \vec v \in \mathbb {S}_1 \land \vec w \in \mathbb {S}_2
-\]</div>
-<h2 id="proyectores-ortogonales">Proyectores Ortogonales</h2>
-<p>Los proyectores ortogonales nos permiten descomponer a un vector en un conjunto de subespacios ortogonales. Estos se definen como:</p>
-<div class="math">
-\[
-\mathbb {B}_{\vec u}(\vec v) = \frac{&lt;\vec u;\vec v&gt;}{||\vec u||^2} \vec u
-\]</div>
-<p>Esta expresión nos da la parte <span class="math">\(L\)</span> del vector. La parte <span class="math">\(\Pi\)</span> se obtiene por diferencia:</p>
-<div class="math">
-\[
-\vec v_\bot = \vec v - \mathbb {P}_{\vec u}(\vec v)
-\]</div>
-<p><img src="Resources/Untitled/EC529B45AED3A241.jpg" class="img-fluid" alt="EC529B45AED3A241" style="zoom:50%;" /></p>
-<p>El <strong>método de Gramd-Schmidt clasico</strong> nos permite lograr el objetivo. Estos son los pasos:</p>
-<ol>
-<li><p>Elegir un vector de <span class="math">\(B \in \mathbb {R}^n\)</span> y asignamos a <span class="math">\(\hat q_1\)</span> el verso correspondiente:</p>
-<div class="math">
-\[
-\hat q_1 \leftarrow \frac{\vec u_1}{||\vec u_1||}
-\]</div>
-</li>
-<li><p>Elegimos <span class="math">\(\hat q_2\)</span> como el vector complementario:</p>
-<div class="math">
-\[
-\vec q_2 = \vec u_2 - \mathbb {P}_{\hat q_1}(\vec u_2) = \vec u_2 - &lt;\hat q_1;\vec u_2&gt; \hat q_1
-\]</div>
-</li>
-<li><p>Y lo normalizamos:</p>
-<div class="math">
-\[
-\hat q_2 \leftarrow \frac{\vec q_2}{\vec q_2}
-\]</div>
-</li>
-<li><p>Elegimos <span class="math">\(q_3:\)</span></p>
-<div class="math">
-\[
-\vec q_2
-\]</div>
-<p><mark>FALTA</mark></p>
-</li>
-</ol>
-<p>Este método tiene los siguientes problemas:</p>
-<p><mark>FALTA</mark></p>
-<p><strong>Método de Gramd-Schmidt Modificado</strong> <mark>FALTA</mark></p>
+<p>Los vectores <span class="math">\(\hat e_j\)</span> tienen sus componentes nulas salvo por la componente en la posición <span class="math">\(j\)</span> que es 1.</p>
 
 </body>
 
