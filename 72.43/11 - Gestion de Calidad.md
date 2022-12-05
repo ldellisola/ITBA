@@ -52,7 +52,7 @@ Se suelen elegir los 3 o 4 criterios más adecuados.
 
 Son atributos de calidad internos desde el punto de vista del equipo de desarrollo. Son subcategorias de los factores de calidad y son utilizados para elegir que factor de validad se va a usar.
 
-<img src="Resources/11 - Calidad/Screen Shot 2022-12-04 at 20.19.14.png" alt="Screen Shot 2022-12-04 at 20.19.14" style="zoom:50%;" />
+<img src="Resources/11 - Gestion de Calidad/Screen Shot 2022-12-04 at 20.19.14.png" alt="Screen Shot 2022-12-04 at 20.19.14" style="zoom:50%;" />
 
 ### Métricas del Producto
 

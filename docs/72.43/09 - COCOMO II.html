@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>index.md</title>
+    <title>09 - COCOMO II.md</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -1423,50 +1423,54 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="gestion-de-proyectos-informaticos">Gestión de Proyectos Informáticos</h1>
+<h1 id="cocomo-ii">COCOMO II</h1>
+<p>COCOMO II es un modelo de estimación que utiliza tecnicas para estimar el esfuerzo y duración de un proyecto de desarrollo. Esta pensado para modelos de ciclo de vida incrementales o evolutivos. Las entradas para este modelo son los puntos de función y las lineas de código.</p>
+<p>A su vez, este modelo tiene 3 submodelos de estimación:</p>
 <ul>
-<li><a href="./01%20-%20Modelos%20de%20Proceso.html#modelos-de-proceso">Modelos de Proceso</a>
-<ul>
-<li><a href="./01%20-%20Modelos%20de%20Proceso.html#ieee-1074">IEEE 1074</a></li>
-<li><a href="./01%20-%20Modelos%20de%20Proceso.html#iso-12207">ISO 12207</a></li>
+<li><strong>Composición de Aplicaciones</strong>: Sirve para proyectos construidos a partir de prototipos y se aplica para las primeras fases del MCVS incremental. Toma como entrada los puntos de función.</li>
+<li><strong>Diseño Anticipado</strong>: Obtiene el costo del proyecto sin tener la arquitectura completa y se puede aplicar en las primeras fases del MCVS incremental o evolutivo. Toma como entrada las lineas de código obtenidas a partir de los requerimientos y puntos de función, y sirve para explorar distintas alternativas.</li>
+<li><strong>Post-Arquitectura</strong>: Obtiene el costo del proyecto luego de tener la arquitectura definida a partir de las lineas de código obtenidas de los puntos de función modificados para la reutilización de objetos. Se aplica en las etapas de desarrollo y mantenimiento del software e incorpora variables de producción de para que la estimación sea más precisa.</li>
 </ul>
-</li>
-<li><a href="./02%20-%20Ciclos%20de%20Vida.html#ciclos-de-vida">Ciclos de Vida</a></li>
-<li><a href="./03%20-%20Modelo%20de%20Negocio.html#modelo-de-negocio">Modelo de Negocio</a>
+<p>A partir de estos métodos se puede tener el <strong>esfuerzo nominal en meses hombre</strong>. El objetivo es poder resolver la siguiente formula y el esfuerzo nominal en meses hombre:</p>
+<div class="math">
+\[
+\text{MM Nominal} = A \times {\left(\frac{\text{PF} \times \text{KLoC}}{1000}\right)}^b
+\]</div>
+<p>Donde:</p>
 <ul>
-<li><a href="./03%20-%20Modelo%20de%20Negocio.html#niveles-de-organizacion">Niveles de Organización</a></li>
-<li><a href="./03%20-%20Modelo%20de%20Negocio.html#tipos-de-contrato">Tipos de Contrato</a></li>
-</ul>
-</li>
-<li><a href="./04%20-%20Analisis%20de%20Riesgo.html#analisis-de-riesgo">Analisis de Riesgo</a>
+<li><span class="math">\(\text{PF}\)</span> es el factor de ajuste de lineas de código en miles que depende del lenguaje de implementación.</li>
+<li><span class="math">\(\text{KLoC}\)</span> es una estimación de la cantidad de lineas de código que tienen los prouectos en el lenguaje elegido.</li>
+<li><span class="math">\(A = 2.94\)</span> es una constante que captura los efectos multiplicativos del esfuerzo.</li>
+<li><span class="math">\(b = 0.91 + 0.01 \times \sum F_e\)</span> representa el ahorro o gasto por factores de escala, donde <span class="math">\(F_e\)</span> es un conjunto de factores de escala que dependen del proceso de desarrollo. Dependiendo del valor de <span class="math">\(b,\)</span> podemos decir:
 <ul>
-<li><a href="./04%20-%20Analisis%20de%20Riesgo.html#actividades">Actividades</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Metricas.html#metricas">Metricas</a></li>
-<li><a href="./06%20-%20Estimacion.html#estimacion">Estimación</a></li>
-<li><a href="./07%20-%20Prototipos.html#prototipos">Prototipos</a></li>
-<li><a href="./08%20-%20Generacion%20de%20un%20Proyecto.html#generacion-de-un-proyecto">Generación de un Proyecto</a></li>
-<li><a href="./09%20-%20COCOMO%20II.html#cocomo-ii">COCOMO II</a></li>
-<li><a href="./10%20-%20Gestion%20de%20Proyectos.html#gestion-de-proyectos">Gestión de Proyectos</a>
-<ul>
-<li><a href="./10%20-%20Gestion%20de%20Proyectos.html#planificacion-de-un-proyecto">Planificación de un Proyecto</a></li>
-<li><a href="./10%20-%20Gestion%20de%20Proyectos.html#planificacion-temporal">Planificación Temporal</a></li>
-<li><a href="./10%20-%20Gestion%20de%20Proyectos.html#seguimiento-y-control">Seguimiento y Control</a></li>
-</ul>
-</li>
-<li><a href="./11%20-%20Gestion%20de%20Calidad.html#calidad">Calidad</a>
-<ul>
-<li><a href="./11%20-%20Gestion%20de%20Calidad.html#sistemas-de-calidad">Sistemas de Calidad</a></li>
-<li><a href="./11%20-%20Gestion%20de%20Calidad.html#modelos-de-calidad">Modelos de Calidad</a>
-<ul>
-<li><a href="./11%20-%20Gestion%20de%20Calidad.html#factores-de-calidad">Factores de Calidad</a></li>
-<li><a href="./11%20-%20Gestion%20de%20Calidad.html#criterios-de-calidad">Criterios de Calidad</a></li>
-<li><a href="./11%20-%20Gestion%20de%20Calidad.html#metricas-del-producto">Métricas del Producto</a></li>
+<li><span class="math">\(b &lt; 1:\)</span> El proyecto tiene ahorros de escala. La productividad escala con el tamaño del proyecto y requiere menos esfuerzo.</li>
+<li><span class="math">\(b=1:\)</span> Los ahorros y los gastos están equilibrados.</li>
+<li><span class="math">\(b&gt;1:\)</span> Los gastos aumentan considerablemente con el tamaño del proyecto. Requiere más esfuerzo.</li>
 </ul>
 </li>
 </ul>
-</li>
+<p>Los factores de escala son:</p>
+<ul>
+<li><strong>Precedencia</strong>: Experiencia previa del equipo.</li>
+<li><strong>Flexibilidad de Desarrollo</strong>: Cumplimiento de requisitos previos, especificaciones de interfaz y tiempos de finalización anticipada.</li>
+<li><strong>Resolución de Riesgos</strong>: Diseño tecnologico y gestión de riesgos.</li>
+<li><strong>Cohesión</strong>: Relación del equipo y comunicación entre sus integrantes.</li>
+<li><strong>Madurez del Proceso</strong>: Que tan maduro es el equipo en la ejecución de procesos.</li>
+</ul>
+<p>Luego, debemos ajustar el MM nominal según los drivers de costo:</p>
+<div class="math">
+\[
+\text{Esfuerzo} = \text{MM Nominal} \times \prod{M_e}
+\]</div>
+<p>Donde <span class="math">\(M_e\)</span> es el conjunto de multiplicadores de esfuerzo:</p>
+<ul>
+<li><strong>RCPX</strong>: Fiabilidad del producto y complejidad.</li>
+<li><strong>RUSE</strong>: Reutilización requerida.</li>
+<li><strong>PDIF</strong>: Dificultades de la plataforma.</li>
+<li><strong>PERS</strong>: Habilidades del personal.</li>
+<li><strong>PREX</strong>: Experiencia del personal.</li>
+<li><strong>FCIL</strong>: Herramientas disponibles para trabajar en el proyecto.</li>
+<li><strong>SCED</strong>: Restricciones en tiempo de ejecución.</li>
 </ul>
 
 </body>
