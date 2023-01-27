@@ -67,15 +67,53 @@ La matriz de cambio de base es equivalente a realizar una transformación lineal
 $$
 C: \mathbb {V\rarr V}
 $$
- Sean $B,B'$ bases de $\mathbb V$ la matriz asociada a esta transformación es $C_{BB'}$ y convierte a un vector en base $B$ a uno en base $B'.$
+Sean $B,B'$ bases de $\mathbb V$ la matriz asociada a esta transformación es $C_{BB'}$ y convierte a un vector en base $B$ a uno en base $B'.$
 
 > **Definición 3.3**
 >
 > La matriz de cambio de base tendrá como columnas las coordenadas de los vectores de $B'$ expresadas en la base $B.$ Como la matriz $C_{BB'}$ tiene rango máximo, es invertible y la matriz de cambio de base inversa es implemente la inversa de esta matriz:
 > $$
-> C_{B'B} = C_{BB'}^{-1}
-> $$
+	 C_{B'B} = C_{BB'}^{-1}
+ $$
 
+Por ejemplo, teniendo las bases:
+$$
+\array{
+B_1 = \left\{ 
+	\left(
+		\array {1 \\ 2}
+	\right),
+	
+	\left(
+		\array {0 \\ 1}
+	\right)
+\right\} &
+
+B_2 = \left\{ 
+	\left(
+		\array {1 \\ 0}
+	\right),
+	
+	\left(
+		\array {1 \\ 1}
+	\right)
+\right\}
+}
+$$
+La matriz de cambio de base se obtiene de la siguiente forma:
+$$
+P_{B_1B_2} = \left(\array{
+a &b \\ c & d
+}\right)
+$$
+Tal que:
+$$
+\array{
+\left(\array{ 1 \\ 2}\right) = a \left(\array{ 1 \\ 0}\right) + c \left(\array{ 1 \\ 1}\right) \\
+
+\left(\array{ 0 \\ 1}\right) = b \left(\array{ 1 \\ 0}\right) + d \left(\array{ 1 \\ 1}\right)
+}
+$$
 ## Imagen y Nucleo de una Transformación Lineal
 
 Existen tres subespacios fundamentales asociados a una matriz $A\in \mathbb K^{m\times n}:$
@@ -99,10 +137,10 @@ Si $\dim(row(A))=n$ entonces el espacio nulo solo va a contener al vector $\vec 
 >
 > Sean $\mathbb{V,W}$ dos espacios vectoriales de $\mathbb K,$ sea $\mathbb{V}$ de dimensión finita y $T:\mathbb {V\rarr W}$ una transformación lineal cuya matrizx asociada es $A\in \R^{m\times n}$ entonces:
 > $$
-> \array{
-> \dim(\mathbb{V}) = \dim(\text{nul}(A)) + \dim(\text{col}(A)) & \dim(\text{col}(A)) \le \dim(\mathbb{W})
-> }
-> $$
+ \array{
+ \dim(\mathbb{V}) = \dim(\text{nul}(A)) + \dim(\text{col}(A)) & \dim(\text{col}(A)) \le \dim(\mathbb{W})
+ }
+ $$
 
 El **nucleo** de una transformación lineal se obtiene a partir del espacio nulo:
 $$
