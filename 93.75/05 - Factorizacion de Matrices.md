@@ -308,28 +308,28 @@ Para obtener esta factorización hay que seguir 3 pasos:
 	2. Sean los autovalores $\lambda_1,\dots,\lambda_k$ los asociados a los vectores $\vec v_1,\dots,\vec v_k$ tengo que transformar a los vectores en vectores ortonormales. Si la matriz $M$ es simétrica, entonces solo hace falta normalizarlos y obtenemos:
 	  $$
 		\hat v_1,\dots ,\hat v_k
-	$$
-	3. Ordeno a los autovectores según su modulo, de forma que $\lambda_a \ge \lambda_b \ge \dots \lambda_z$ y creo la matriz $V$ de la siguiente forma:
+	  $$
+	1. Ordeno a los autovectores según su modulo, de forma que $\lambda_a \ge \lambda_b \ge \dots \lambda_z$ y creo la matriz $V$ de la siguiente forma:
 	  $$
 	  V = \left[
 	  \array{\hat {v_a}, \dots, \hat v_z}
 	  \right]
-	$$
-2. **Busco** los valores singulares y la matriz $S:$
+	  $$
+1. **Busco** los valores singulares y la matriz $S:$
 	1. Usando los autovalores obtenidos anteriormente y ordenados según su modulo, puedo crear la siguiente matriz:
-		$$
+	  $$
 		S_{ii} = \sqrt\lambda_i
-	$$
+	  $$
 	2. De ser necesario, completo el resto de los campos con $0.$ Si algunos de los autovalores son $0$ entonces puede que no entren en la matriz $S$ y esta bien.
 3. **Busco** $U$ :
 	1.  Defino a la matriz $B=A\times A'$ y busco sus autovalores y autovectores.
 	2. Sean los autovalores $\lambda_1,\dots,\lambda_k$ los asociados a los vectores $\vec u_1,\dots,\vec u_k$ tengo que transformar a los vectores en vectores ortonormales. Si la matriz $B$ es simétrica, entonces solo hace falta normalizarlos y obtenemos:
 	  $$
 		\hat u_1,\dots ,\hat u_k
-	$$
+	  $$
 	3. Ordeno a los autovectores según su modulo, de forma que $\lambda_a \ge \lambda_b \ge \dots \lambda_z$ y creo la matriz $V$ de la siguiente forma:
 	  $$
 	  U = \left[
 	  \array{\hat {u_a}, \dots, \hat u_z}
 	  \right]
-	$$
+	  $$

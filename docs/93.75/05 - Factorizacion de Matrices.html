@@ -1460,7 +1460,8 @@ E^{ij}(b) \implies F_i = F_i - b \times F_j
 <p>Una característica de esta matriz es que su inversa es exactamente la misma matriz, con la excepción de que el valor <span class="math">\(E^{-1}_{ij} = -E_{ij}.\)</span></p>
 </li>
 </ul>
-<p>La matriz <span class="math">\(P\)</span> se calcula como:</p>
+<p><strong>IMPORTANTE:</strong> <mark>Nunca hacer permutaciones antes de realizar una ejecución. Por algun motivo se rompe todo el método, mejor tener que hacer cuentas con números raros.</mark>
+La matriz <span class="math">\(P\)</span> se calcula como:</p>
 <div class="math">
 \[
 P = \prod P^{ij}
@@ -1702,6 +1703,66 @@ R\vec x = Q' \vec b
 <p><strong>Proposición 5.3.2</strong></p>
 <p>Si <span class="math">\(A \in\mathbb {K}^{m\times n}\)</span> es una matriz de rango completo con <span class="math">\(m \ge n\)</span> y <span class="math">\(A = QR\)</span> es una factorización reducida de <span class="math">\(A\)</span> con <span class="math">\(r_{ii}\neq 0\)</span> entonces las columnas de <span class="math">\(Q\)</span> son una base ortonormal del espacio de columnas de <span class="math">\(A.\)</span></p>
 </blockquote>
+<h2 id="factorizacion-svd-de-una-matriz">Factorización SVD de una Matriz</h2>
+<p>Sea <span class="math">\(A \in \mathbb{K}^{n\times m}\)</span> podes descomponerla de la siguiente forma:</p>
+<div class="math">
+\[
+A = USV'
+\]</div>
+<p>Tal que <span class="math">\(U \in \mathbb{K}^{n\times n} \text{ ortonormal},V \in \mathbb{K}^{m\times m} \text{ ortonormal}, S \in \mathbb{K}^{n\times m} \text{ diagonal}.\)</span>
+Para obtener esta factorización hay que seguir 3 pasos:</p>
+<ol>
+<li><strong>Busco</strong> <span class="math">\(V\)</span> :
+<ol>
+<li>Defino a la matriz <span class="math">\(M=A'\times A\)</span> y busco sus autovalores y autovectores.</li>
+<li>Sean los autovalores <span class="math">\(\lambda_1,\dots,\lambda_k\)</span> los asociados a los vectores <span class="math">\(\vec v_1,\dots,\vec v_k\)</span> tengo que transformar a los vectores en vectores ortonormales. Si la matriz <span class="math">\(M\)</span> es simétrica, entonces solo hace falta normalizarlos y obtenemos:</li>
+</ol>
+<div class="math">
+\[
+ 	\hat v_1,\dots ,\hat v_k
+\]</div>
+<ol>
+<li>Ordeno a los autovectores según su modulo, de forma que <span class="math">\(\lambda_a \ge \lambda_b \ge \dots \lambda_z\)</span> y creo la matriz <span class="math">\(V\)</span> de la siguiente forma:</li>
+</ol>
+<div class="math">
+\[
+   V = \left[
+   \array{\hat {v_a}, \dots, \hat v_z}
+   \right]
+\]</div>
+</li>
+<li><strong>Busco</strong> los valores singulares y la matriz <span class="math">\(S:\)</span>
+<ol>
+<li>Usando los autovalores obtenidos anteriormente y ordenados según su modulo, puedo crear la siguiente matriz:</li>
+</ol>
+<div class="math">
+\[
+ 	S_{ii} = \sqrt\lambda_i
+\]</div>
+<ol start="2">
+<li>De ser necesario, completo el resto de los campos con <span class="math">\(0.\)</span> Si algunos de los autovalores son <span class="math">\(0\)</span> entonces puede que no entren en la matriz <span class="math">\(S\)</span> y esta bien.</li>
+</ol>
+</li>
+<li><strong>Busco</strong> <span class="math">\(U\)</span> :
+<ol>
+<li>Defino a la matriz <span class="math">\(B=A\times A'\)</span> y busco sus autovalores y autovectores.</li>
+<li>Sean los autovalores <span class="math">\(\lambda_1,\dots,\lambda_k\)</span> los asociados a los vectores <span class="math">\(\vec u_1,\dots,\vec u_k\)</span> tengo que transformar a los vectores en vectores ortonormales. Si la matriz <span class="math">\(B\)</span> es simétrica, entonces solo hace falta normalizarlos y obtenemos:</li>
+</ol>
+<div class="math">
+\[
+ 	\hat u_1,\dots ,\hat u_k
+\]</div>
+<ol start="3">
+<li>Ordeno a los autovectores según su modulo, de forma que <span class="math">\(\lambda_a \ge \lambda_b \ge \dots \lambda_z\)</span> y creo la matriz <span class="math">\(V\)</span> de la siguiente forma:</li>
+</ol>
+<div class="math">
+\[
+   U = \left[
+   \array{\hat {u_a}, \dots, \hat u_z}
+   \right]
+\]</div>
+</li>
+</ol>
 
 </body>
 

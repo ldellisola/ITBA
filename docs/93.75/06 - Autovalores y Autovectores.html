@@ -1466,7 +1466,7 @@ m_g(\lambda) = \dim(Nul(A) - \lambda \mathbb I) = n - \text{rango}(A-\lambda \ma
 <p>Decimos que una matriz es diagonalizable si existe una matriz <span class="math">\(S \in \mathbb K^{n\times n}\)</span> invertible tal que:</p>
 <div class="math">
 \[
-S^{-1}AS = A
+S^{-1}DS = A
 \]</div>
 </blockquote>
 <blockquote class="blockquote">
@@ -1500,7 +1500,7 @@ S^{-1}AS = A
 <li>Si <span class="math">\(A\)</span> es una matriz cuadrada <span class="math">\(\tr(A) = \sum_{i=1}^n\lambda_i\)</span> y <span class="math">\(\det(A) = \prod_{i=1}^n\lambda_i.\)</span></li>
 <li>Si <span class="math">\(\lambda\)</span> es autovalor de <span class="math">\(A,\)</span> también lo es de su transpuesta.</li>
 <li>Si <span class="math">\(\lambda\)</span> es un autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda^-1\)</span> es el autovalor de su inversa.</li>
-<li>Si <span class="math">\(\lambda\)</span> es el autovalor de <span class="math">\(A,\)</span> <span class="math">\(-\lambda\)</span> lo es de <span class="math">\(A - \alpha \mathbb I.\)</span></li>
+<li>Si <span class="math">\(\lambda\)</span> es el autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda-\alpha\)</span> lo es de <span class="math">\(A - \alpha \mathbb I.\)</span></li>
 <li>Si <span class="math">\(\lambda\)</span> es el autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda^k\)</span> lo es de <span class="math">\(A^k.\)</span></li>
 <li>Si <span class="math">\(A\)</span> es una matriz real, es diagonalizable si tiene <span class="math">\(n\)</span> autovalores distintos.</li>
 <li>Si <span class="math">\(A\)</span> tiene todos sus autovalores con multiplicidad algebraica 1 es diagonalizable.</li>
@@ -1618,6 +1618,30 @@ A(S\vec x) = \lambda (S \vec x)
 }
 \]</div>
 </blockquote>
+<p>El método es el siguiente, Sea <span class="math">\(A \in \mathbb{K}^{n\times n}\)</span> podes obtener si factorización QR:</p>
+<div class="math">
+\[
+A = Q_0R_0
+\]</div>
+<p>Luego, podemos obtener la siguiente iteración de la siguiente forma:</p>
+<div class="math">
+\[
+A_1 = R_0Q_0
+\]</div>
+<p>Con este nuevo valor de <span class="math">\(A,\)</span> podemos volver a calcular QR:</p>
+<div class="math">
+\[
+A_1 = Q_1R_1
+\]</div>
+<p>seguir con las próximas iteraciones:</p>
+<div class="math">
+\[
+\array{
+A_{n} = Q_nR_n \implies A_{n+1} = R_nQ_n
+}
+\]</div>
+<p>Cuando la matriz <span class="math">\(A_n\)</span> tiene todos los elementos debajo de su diagonal en <span class="math">\(0\)</span> o cercanos a <span class="math">\(0\)</span> podemos decir que se completo el proceso, y los autovalores son los números en la diagonal de la matriz <span class="math">\(A_n.\)</span>
+Si los números debajo de la diagonal no se acercan a 0, significa que el proceso no converge.</p>
 
 </body>
 

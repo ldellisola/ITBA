@@ -74,7 +74,7 @@ Sean $B,B'$ bases de $\mathbb V$ la matriz asociada a esta transformación es $C
 > La matriz de cambio de base tendrá como columnas las coordenadas de los vectores de $B'$ expresadas en la base $B.$ Como la matriz $C_{BB'}$ tiene rango máximo, es invertible y la matriz de cambio de base inversa es implemente la inversa de esta matriz:
 > $$
 	 C_{B'B} = C_{BB'}^{-1}
- $$
+  $$
 
 Por ejemplo, teniendo las bases:
 $$
@@ -140,7 +140,7 @@ Si $\dim(row(A))=n$ entonces el espacio nulo solo va a contener al vector $\vec 
  \array{
  \dim(\mathbb{V}) = \dim(\text{nul}(A)) + \dim(\text{col}(A)) & \dim(\text{col}(A)) \le \dim(\mathbb{W})
  }
- $$
+  $$
 
 El **nucleo de una transformación lineal** se obtiene a partir del espacio nulo:
 $$

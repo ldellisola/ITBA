@@ -1501,45 +1501,94 @@ C: \mathbb {V\rightarrow V}
 <p>La matriz de cambio de base tendrá como columnas las coordenadas de los vectores de <span class="math">\(B'\)</span> expresadas en la base <span class="math">\(B.\)</span> Como la matriz <span class="math">\(C_{BB'}\)</span> tiene rango máximo, es invertible y la matriz de cambio de base inversa es implemente la inversa de esta matriz:</p>
 <div class="math">
 \[
-C_{B'B} = C_{BB'}^{-1}
 \]</div>
 </blockquote>
-<h2 id="imagen-y-nucleo-de-una-transformacion-lineal">Imagen y Nucleo de una Transformación Lineal</h2>
-<p>Existen tres subespacios fundamentales asociados a una matriz <span class="math">\(A\in \mathbb K^{m\times n}:\)</span></p>
-<ul>
-<li><p>El espacio columna <span class="math">\(\text{col(A)} \in \mathbb {K}^m.\)</span> Es el espacio generado por las columnas de la matriz, es decir la imagen de la transformación lineal asociada con <span class="math">\(A.\)</span></p>
-</li>
-<li><p>El espacio fila <span class="math">\(\text{row}(A) \in \mathbb K^n.\)</span> Es el espacio generado por las filas de la matriz, es decir la imagen de la transformación lineal asociada con <span class="math">\(A'.\)</span></p>
-</li>
-<li><p>El espacio nulo <span class="math">\(\text{nul}(A) \in \mathbb K^n.\)</span> Es el subespacio representado por:</p>
+<pre><code> C_{B'B} = C_{BB'}^{-1}
+</code></pre>
 <div class="math">
 \[
-\text{nul}(A) = \{\vec x \in \mathbb K^n:A\vec x = \vec 0\}
+
+Por ejemplo, teniendo las bases:
 \]</div>
-</li>
-</ul>
-<p>La dimensión del subespacio <span class="math">\(\text{col}(A)\)</span> nos dice la cantidad de columnas linealmente independientes, es decir <span class="math">\(\text{rango}(A).\)</span> Como el número de columnas linealmente independientes es el mismo que el de las filas:</p>
+<p>\array{
+B_1 = \left{
+\left(
+\array {1 \ 2}
+\right),</p>
+<pre><code>\left(
+	\array {0 \\ 1}
+\right)
+</code></pre>
+<p>\right} &amp;</p>
+<p>B_2 = \left{
+\left(
+\array {1 \ 0}
+\right),</p>
+<pre><code>\left(
+	\array {1 \\ 1}
+\right)
+</code></pre>
+<p>\right}
+}</p>
 <div class="math">
 \[
-\text{rango}(A)  = \dim(\text{col}(A)) = \dim(\text{row(A)})
+La matriz de cambio de base se obtiene de la siguiente forma:
 \]</div>
-<p>Si <span class="math">\(\dim(row(A))=n\)</span> entonces el espacio nulo solo va a contener al vector <span class="math">\(\vec 0.\)</span></p>
-<blockquote class="blockquote">
-<p><strong>Proposición 3.1.2</strong></p>
-<p>Sean <span class="math">\(\mathbb{V,W}\)</span> dos espacios vectoriales de <span class="math">\(\mathbb K,\)</span> sea <span class="math">\(\mathbb{V}\)</span> de dimensión finita y <span class="math">\(T:\mathbb {V\rightarrow W}\)</span> una transformación lineal cuya matrizx asociada es <span class="math">\(A\in \mathbb{R}^{m\times n}\)</span> entonces:</p>
+<p>P_ = \left(\array{
+a &amp;b \ c &amp; d
+}\right)</p>
 <div class="math">
 \[
-\array{
-\dim(\mathbb{V}) = \dim(\text{nul}(A)) + \dim(\text{col}(A)) &amp; \dim(\text{col}(A)) \le \dim(\mathbb{W})
-}
+Tal que:
 \]</div>
-</blockquote>
-<p>El <strong>nucleo</strong> de una transformación lineal se obtiene a partir del espacio nulo:</p>
+<p>\array{
+\left(\array{ 1 \ 2}\right) = a \left(\array{ 1 \ 0}\right) + c \left(\array{ 1 \ 1}\right) \</p>
+<p>\left(\array{ 0 \ 1}\right) = b \left(\array{ 1 \ 0}\right) + d \left(\array{ 1 \ 1}\right)
+}</p>
+<div class="math">
+\[
+## Imagen y Nucleo de una Transformación Lineal
+
+Existen tres subespacios fundamentales asociados a una matriz $A\in \mathbb K^{m\times n}:$
+
+- El espacio columna $\text{col(A)} \in \mathbb {K}^m.$ Es el espacio generado por las columnas de la matriz, es decir la imagen de la transformación lineal asociada con $A.$
+
+- El espacio fila $\text{row}(A) \in \mathbb K^n.$ Es el espacio generado por las filas de la matriz, es decir la imagen de la transformación lineal asociada con $A'.$
+
+- El espacio nulo $\text{nul}(A) \in \mathbb K^n.$ Es el subespacio representado por:
+\]</div>
+<p nul="">\text(A) = {\vec x \in \mathbb K^n:A\vec x = \vec 0}</p>
+<div class="math">
+\[
+
+La dimensión del subespacio $\text{col}(A)$ nos dice la cantidad de columnas linealmente independientes, es decir $\text{rango}(A).$ Como el número de columnas linealmente independientes es el mismo que el de las filas:
+\]</div>
+<p rango="" col="">\text(A)  = \dim(\text(A)) = \dim(\text{row(A)})</p>
+<div class="math">
+\[
+Si $\dim(row(A))=n$ entonces el espacio nulo solo va a contener al vector $\vec 0.$
+
+&gt; **Proposición 3.1.2**
+&gt;
+&gt; Sean $\mathbb{V,W}$ dos espacios vectoriales de $\mathbb K,$ sea $\mathbb{V}$ de dimensión finita y $T:\mathbb {V\rightarrow W}$ una transformación lineal cuya matrizx asociada es $A\in \mathbb{R}^{m\times n}$ entonces:
+&gt; $$
+ \array{
+ \dim(\mathbb{V}) = \dim(\text{nul}(A)) + \dim(\text{col}(A)) &amp; \dim(\text{col}(A)) \le \dim(\mathbb{W})
+ }
+\]</div>
+<p>El <strong>nucleo de una transformación lineal</strong> se obtiene a partir del espacio nulo:</p>
 <div class="math">
 \[
 \text{nucleo(T)} = \text{gen}(\text{nul}(A))
 \]</div>
-<p>La imagen de una transformación lineal se obtiene a partir del espacio columna. Sea <span class="math">\(B\)</span> la base del espacio columna:</p>
+<p>Por ejemplo, si <span class="math">\(A\)</span> es la matrix asociada a la transformación, podemos obtener el nucleo de la siguiente forma:</p>
+<div class="math">
+\[
+\array{
+\text{nucleo}(T) = \{ \forall X /  A \times X = \mathbb{0}\}
+}
+\]</div>
+<p>La <strong>imagen de una transformación lineal</strong> se obtiene a partir del espacio columna. Sea <span class="math">\(B\)</span> la base del espacio columna:</p>
 <div class="math">
 \[
 \text{imagen}(T) = \text{gen}(\vec u_1,\dots,\vec u_n)/ \vec u_i \in B

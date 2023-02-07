@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>index.md</title>
+    <title>16 - PageRank.md</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -1423,195 +1423,75 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="metodos-numericos-avanzados">Métodos Numéricos Avanzados</h1>
+<p>PageRank es un algoritmo que intenta de dar un puntaje a todos los nodos. Este puntaje se obtiene midiendo la cantidad de nodos que hacen referencia a cada uno de ellos.
+Se puede visualizar al algoritmo de la siguiente forma:</p>
+<blockquote class="blockquote">
+<p>Tenemos un crawler que esta recorriendo una red de forma probabilistica, a cada nodo que llega, obtiene todas las conexiones del nodo y las guarda en su modelo para seguir investigando la red.
+El objetivo es entender todas las relaciones de la red y ver que nodos son más populares. El puntaje no solo se define por la cantidad de conexiones entrantes, sino por la calidad de las mismas. Una conexión de un nodo con un puntaje alto es mejor que una conexión de un nodo con un mal puntaje.</p>
+</blockquote>
+<p>A partir de nuestra red, podemos obtener la matriz de hipervinculos <span class="math">\(H \in \mathbb{R}^{N\times N}\)</span> donde <span class="math">\(N\)</span> es la cantidad de nodos. La fila <span class="math">\(i\)</span> de la matriz representa las conexiones entrantes de todos los nodos al nodo <span class="math">\(i\)</span> mientras que la columna <span class="math">\(j\)</span> representa las conexiones salientes del nodo <span class="math">\(j\)</span> hacia todos los nodos de la red.
+Por ejemplo, si tenemos la siguiente red:</p>
+<div class="math">
+\[
+1 \leftrightarrow 2 \leftrightarrow3 \rightarrow 1
+\]</div>
+<p>Vamos a generar los siguientes vectores:</p>
+<div class="math">
+\[
+\array{
+H_1 =&amp; [\array{0 &amp; 1 &amp; 0 }]' \\
+H_2 =&amp; [\array{0 &amp; 1/2 &amp; 1/2}]' \\
+H_3 =&amp; [\array{1/2 &amp; 0 &amp; 1/2}]' \\
+}
+\]</div>
+<p>Y podemos generar a la matriz de hiper links de la siguiente forma:</p>
+<div class="math">
+\[
+H = \{H_1,H_2,H_3\} = \left[\array{
+0 &amp; 0 &amp; 1/2 \\
+1 &amp; 1/2 &amp; 0 \\
+0 &amp; 1/2 &amp; 1/2
+}\right]
+\]</div>
+<p>El algoritmo de PageRank es un algoritmo iterativo:</p>
+<div class="math">
+\[
+r^{i+i} = Hr^{i}
+\]</div>
+<p>Donde <span class="math">\(r^i\)</span> es el vector que guarda los rankings de los nodos. Este vector se puede inicializar de varias maneras, aunque las más comunes son inicializarlo con valores aleatorios o con el valor <span class="math">\(\frac 1 N.\)</span>
+Eventualmente, cuando <span class="math">\(i\rightarrow \infty\)</span> vamos a ver que <span class="math">\(r^i\)</span> converge a un valor especifico. Esta es la probabilidad de que el crawler visite a cada uno de estos nodos. Los nodos con mayor probabilidad de ser visitados son los que tienen mayor ranking.</p>
+<p>El problema de este método es que es iterativo, y al tener miles de millones de nodos, se hace poco practico multiplicar las matrices. Por esto podemos utilizar el teorema de Perrone-Frobenius y simplificar los calculos.
+El teorema nos garantiza que <span class="math">\(\lambda = 1\)</span> es un autovalor. Ademas sabemos que eventualmente el vector de rankings converge, por lo que nos encontramos con la siguiente formula:</p>
+<div class="math">
+\[
+Hr = r
+\]</div>
+<p>Esta formula es igual a la siguiente. Sea <span class="math">\(v\)</span> un autovector y <span class="math">\(\lambda\)</span> su autovalor asociado, se cumple que:</p>
+<div class="math">
+\[
+Hv = \lambda v
+\]</div>
+<p><strong>Entonces, si conseguimos el autovector asociado con el autovalor <span class="math">\(\lambda = 1\)</span> podemos obtener el vector de los rankings de forma mucho más rápida</strong>.</p>
+<h2 id="problemas-del-algoritmo">Problemas del algoritmo</h2>
+<p>El algoritmo basico se puede aplicar siempre que se cumplan dos condiciones:</p>
 <ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#algebra-lineal">Algebra Lineal</a>
-<ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#aritmetica-de-vectores-y-matrices">Aritmética de Vectores y Matrices</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#vectores-y-matrices">Vectores y Matrices</a>
-<ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#operaciones">Operaciones</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#matriz-inversible">Matriz Inversible</a></li>
+<li>No puede haber <strong>dead ends</strong>. Esto implica que no puede haber un nodo con entradas y sin salidas. Este caso es facil de ver ya que en la matriz de hiperlinks vamos a ver una columna cuyos elementos no suman 1. Si existen dead ends, entonces no se puede aplicar el teorema de Perrone-Frobenius y no se puede garantizar que <span class="math">\(1\)</span> sea un autovalor.</li>
+<li>No puede haber <strong>spider traps</strong>. Esto implica que hay al menos un nodo que tiene entradas y una  sola salida, que apunta al mismo nodo. Este caso es similar al anterior, pero se cumple el teorema de Perrone-Frobenius. El problema es que el crawler siempre se va a quedar atrapado en ese nodo y no va a poder seguir escaneando la red.</li>
 </ul>
-</li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#sistema-de-ecuaciones-lineales">Sistema de Ecuaciones Lineales</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#espacios-vectoriales">Espacios Vectoriales</a>
-<ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#subespacios-vectoriales">Subespacios Vectoriales</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#combinacion-lineal-de-vectores">Combinación Lineal de Vectores</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#generadores-y-bases">Generadores y Bases</a>
-<ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#espacios-asociados-con-una-matriz">Espacios Asociados con una Matriz</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#espacios-de-dimension-infinita-numerable">Espacios de Dimension Infinita Numerable</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="./02%20-%20Matrices%20Especiales.html#matrices-especiales">Matrices Especiales</a>
-<ul>
-<li><a href="./02%20-%20Matrices%20Especiales.html#matrices-nilpotentes-involutivas-e-idempotentes">Matrices Nilpotentes, Involutivas e Idempotentes</a></li>
-<li><a href="./02%20-%20Matrices%20Especiales.html#matrices-con-estructura-particular">Matrices con Estructura Particular</a></li>
-</ul>
-</li>
-<li><a href="./03%20-%20Operaciones%20Elementales%20de%20Filas%20de%20una%20Matriz.html#operaciones-elementales-de-filas-de-una-matriz">Operaciones Elementales de Filas de una Matriz</a></li>
-<li><a href="./034%20-%20Espacios%20Metricos.html#espacios">Espacios</a>
-<ul>
-<li><a href="./034%20-%20Espacios%20Metricos.html#espacios-normados-con-una-norma-inducida">Espacios Normados con una Norma Inducida</a></li>
-<li><a href="./034%20-%20Espacios%20Metricos.html#bases-ortonormales">Bases Ortonormales</a></li>
-<li><a href="./034%20-%20Espacios%20Metricos.html#subespacios-ortogonales">Subespacios Ortogonales</a></li>
-<li><a href="./034%20-%20Espacios%20Metricos.html#proyectores-ortogonales">Proyectores Ortogonales</a></li>
-</ul>
-</li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#sistemas-de-ecuaciones-lineales">Sistemas de Ecuaciones Lineales</a>
-<ul>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#soluciones-de-sistemas-homogeneos">Soluciones de Sistemas Homogeneos</a></li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#solucion-numerica-de-un-sistema-lineal-de-ecuaciones">Solución Numérica de un Sistema Lineal de Ecuaciones</a></li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#sistemas-cuya-matriz-es-triangular">Sistemas Cuya Matriz es Triangular</a></li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#matrices-tridiagonales">Matrices Tridiagonales</a></li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#costo-computacional">Costo Computacional</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Espacios%20Vectoriales.html#espacios-vectoriales">Espacios Vectoriales</a>
-<ul>
-<li><a href="./05%20-%20Espacios%20Vectoriales.html#espacios-funcionales">Espacios Funcionales</a></li>
-<li><a href="./05%20-%20Espacios%20Vectoriales.html#subespacios-vectoriales">Subespacios Vectoriales</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-de-matrices">Factorización de Matrices</a>
-<ul>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-plu-de-una-matriz">Factorización <span class="math">\(PLU\)</span> de una Matriz</a>
-<ul>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-lu-para-resolver-sistemas-de-ecuaciones-lineales">Factorización <span class="math">\(LU\)</span> para Resolver Sistemas de Ecuaciones Lineales</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#calculo-de-determinantes">Calculo de Determinantes</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#resolution-de-multiples-sistemas-simultaneamente-matriz-inversa">Resolution de Multiples Sistemas Simultaneamente: Matriz Inversa</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-qr-por-el-metodo-de-gram-schmidt">Factorización <span class="math">\(QR\)</span> por el Método de Gram-Schmidt</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-qr-por-el-metodo-de-las-reflexiones-de-householder">Factorización <span class="math">\(QR\)</span> por el Método de las Reflexiones de Householder</a>
-<ul>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#reflexiones-de-householder">Reflexiones de Householder</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#reduction-a-cero-de-elementos-de-una-columna-de-vector-mediante-reflexiones-de-householder">Reduction a Cero de Elementos de una Columna de Vector Mediante Reflexiones de HouseHolder</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#reduction-a-cero-de-elementos-de-una-columna-de-una-matriz-mediante-reflexiones-de-householder">Reduction a Cero de Elementos de una Columna de una Matriz Mediante Reflexiones de HouseHolder</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#aplicaciones-de-la-factorizacion-qr">Aplicaciones de la Factorización QR</a>
-<ul>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#sistemas-de-ecuaciones">Sistemas de Ecuaciones</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#calculo-de-modulo-del-determinante-de-una-matriz">Calculo de Modulo del determinante de una matriz</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#base-ortonormal-del-espacio-columnas-de-una-matriz">Base Ortonormal del Espacio Columnas de una Matriz</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-svd-de-una-matriz">Factorización SVD de una Matriz</a></li>
-</ul>
-</li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#autovalores-y-autovectores">Autovalores y Autovectores</a>
-<ul>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#multiplicidad-algebraica-y-geometrica">Multiplicidad Algebraica y Geometrica</a>
-<ul>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#propiedades-asociadas-a-los-autovalores-y-autovectores-de-una-matriz">Propiedades Asociadas a los Autovalores y Autovectores de una Matriz</a></li>
-</ul>
-</li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#calculo-de-autovalores">Calculo de Autovalores</a>
-<ul>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#metodo-de-las-potencias-para-el-calculo-de-los-autovalores">Método de las Potencias para el Calculo de los Autovalores</a></li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#metodo-de-las-potencias-desplazado">Método de las Potencias Desplazado</a></li>
-</ul>
-</li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#computo-del-autovalor-con-menor-modulo-metodo-de-las-potencias-inverso">Computo del Autovalor con Menor Modulo: Método de las Potencias Inverso</a></li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#calculo-de-autovalores-por-el-proceso-qr">Calculo de Autovalores por el Proceso QR</a></li>
-</ul>
-</li>
-<li><a href="./06%20-%20Conjunto%20de%20Generadores%20y%20Bases.html#conjunto-de-generadores-y-bases">Conjunto de Generadores y Bases</a>
-<ul>
-<li><a href="./06%20-%20Conjunto%20de%20Generadores%20y%20Bases.html#combinacion-lineal-de-vectores">Combinación Lineal de Vectores</a></li>
-<li><a href="./06%20-%20Conjunto%20de%20Generadores%20y%20Bases.html#conjunto-generador">Conjunto Generador</a></li>
-<li><a href="./06%20-%20Conjunto%20de%20Generadores%20y%20Bases.html#dimension-de-un-espacio-vectorial">Dimensión de un Espacio Vectorial</a></li>
-</ul>
-</li>
-<li><a href="./07%20-%20Bases%20y%20Coordenadas.html#bases-y-coordenadas">Bases y Coordenadas</a></li>
-<li><a href="./08%20-%20Transformaciones%20lineales.html#transformaciones-lineales">Transformaciones Lineales</a>
-<ul>
-<li><a href="./08%20-%20Transformaciones%20lineales.html#matriz-asociada-a-una-transformacion-lineal">Matriz Asociada a una Transformación Lineal</a></li>
-<li><a href="./08%20-%20Transformaciones%20lineales.html#matriz-de-cambio-de-base">Matriz de Cambio de Base</a></li>
-<li><a href="./08%20-%20Transformaciones%20lineales.html#imagen-y-nucleo-de-una-transformacion-lineal">Imagen y Nucleo de una Transformación Lineal</a></li>
-</ul>
-</li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#espacios-vectoriales-con-producto-interno">Espacios Vectoriales con Producto Interno</a>
-<ul>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#espacios-normados">Espacios Normados</a></li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#normas-en-espacios-matriciales">Normas en Espacios Matriciales</a></li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#distancia-y-angulo-en-un-espacio-vectorial-normado">Distancia y Angulo en un Espacio Vectorial Normado</a></li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#matriz-asociada-a-un-producto-interno">Matriz Asociada a un Producto Interno</a></li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#espacios-de-funciones">Espacios de Funciones</a></li>
-</ul>
-</li>
-<li><a href="./12%20-%20Funciones%20Periodicas.html#funciones-periodicas">Funciones Periódicas</a>
-<ul>
-<li><a href="./12%20-%20Funciones%20Periodicas.html#propiedades">Propiedades</a></li>
-<li><a href="./12%20-%20Funciones%20Periodicas.html#espacio-vectorial-de-funciones-de-periodo-t">Espacio Vectorial de Funciones de Periodo <span class="math">\(T\)</span></a></li>
-</ul>
-</li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#series-de-fourier">Series de Fourier</a>
-<ul>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#calculo-de-los-coeficientes-de-fourier">Calculo de los Coeficientes de Fourier</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#propiedades">Propiedades</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#suma-finita-de-fourier">Suma Finita de Fourier</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#fenomeno-de-gibbs">Fenómeno de Gibbs</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#variantes-de-la-serie-de-fourier">Variantes de la Serie de Fourier</a>
-<ul>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#funcion-extendida-de-manera-impar">Función Extendida de Manera Impar</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#funcion-extendida-de-manera-par">Función Extendida de Manera Par</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#desarrollo-en-amplitud-y-fase">Desarrollo en Amplitud y Fase</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#desarrollo-en-exponenciales-complejas">Desarrollo en Exponenciales Complejas</a></li>
-</ul>
-</li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#dominio-tiempo-y-dominio-de-las-frecuencias">Dominio Tiempo y Dominio de las Frecuencias</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#propiedades-de-las-series-de-fourier">Propiedades de las Series de Fourier</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#resolucion-de-ecuaciones-diferenciales-ordinarias">Resolución de Ecuaciones Diferenciales Ordinarias</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#series-de-fourier-en-varias-variables">Series de Fourier en Varias Variables</a></li>
-</ul>
-</li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#ecuaciones-diferenciales">Ecuaciones Diferenciales</a>
-<ul>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#diferencias-finitas">Diferencias Finitas</a>
-<ul>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#el-grillado-del-dominio">El Grillado del Dominio</a></li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#el-metodo-de-las-diferencias-finitas">El Método de las Diferencias Finitas</a>
-<ul>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#esquemas-de-mayor-orden">Esquemas de Mayor Orden</a></li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#derivadas-de-orden-superior">Derivadas de Orden Superior</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#resolucion-de-edos">Resolución  de EDOs</a>
-<ul>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#initial-value-problem-ivp">Initial Value Problem (IVP)</a></li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#border-value-problem-bvp">Border Value Problem (BVP)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformadas-de-fourier">Transformadas de Fourier</a>
-<ul>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformada-continua-de-fourier">Transformada Continua de Fourier</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformada-inversa-de-fourier">Transformada Inversa de Fourier</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformada-discreta-de-fourier">Transformada Discreta de Fourier</a>
-<ul>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#frecuencias-presentes-en-la-senal">Frecuencias Presentes en la Señal</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#aliasing">Aliasing</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformada-discreta-inversa-de-fourier">Transformada Discreta Inversa de Fourier</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#computo-de-la-transformada-discreta-de-fourier">Computo de la Transformada Discreta de Fourier</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#espectro-en-amplitud">Espectro en Amplitud</a></li>
-</ul>
-</li>
-<li><a href="./16%20-%20PageRank.html#problemas-del-algoritmo">Problemas del algoritmo</a></li>
-<li><a href="./16%20-%20PageRank.html#optimizaciones">Optimizaciones</a></li>
-</ul>
-</li>
-</ul>
+<h2 id="optimizaciones">Optimizaciones</h2>
+<p>En el caso de encontrarse en una situación donde hay spider traps, podemos ajustar el algoritmo para que el crawler pueda teletransportarse a otro nodo con cierta probabilidad.</p>
+<p>El <strong>método de teletransportación</strong> nos dice que podemos modificar a la matriz de hiper vinculos de la siguiente manera:</p>
+<div class="math">
+\[
+\mathbb{H} = \beta H + \text{ones(N,N)}\times\frac{1-\beta}{N} 
+\]</div>
+<p>Donde <span class="math">\(\beta \in (0,1)\)</span> es un factor de amortiguamiento, <span class="math">\(\text{ones(a,b)}\)</span> es una función que genera una matriz que contiene $1$s de dimensión <span class="math">\(a\times b\)</span> y <span class="math">\(N\)</span> es la cantidad total de nodos de la red.</p>
+<p>Si nos encontramos con dead ends en nuestra red, podemos mitigar sus efectos reemplazando los valores de la columna del nodo que genera el dead end por <span class="math">\(\frac 1 N\)</span> y luego aplicar el metodo de teletransportación. El calculo termina de la siguiente forma:</p>
+<div class="math">
+\[
+\mathbb{H} = \beta H + \frac \beta N \text{ones(N,N)} \times e_l'+ \text{ones(N,N)}\times\frac{1-\beta}{N} 
+\]</div>
+<p>Donde <span class="math">\(e_k\)</span> es un vector cuyos valores son 0 excepto por el elemento en la posición <span class="math">\(k,\)</span> que es <span class="math">\(1\)</span> y <span class="math">\(l\)</span> es el nodo que genera el dead end.</p>
 
 </body>
 

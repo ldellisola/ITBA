@@ -1429,16 +1429,21 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Un producto interno o escalar definido sobre <span class="math">\(\mathbb V\)</span> es una aplicación entre el conjunto de todos los pares de vectores <span class="math">\((\vec u,\vec v)\)</span> y <span class="math">\(\mathbb {K},\)</span> cuyo resultado es un escalar.</p>
 <div class="math">
 \[
-\lang \cdot, \cdot\rang : \mathbb{V\times V} \rightarrow \mathbb K
+\langle \cdot, \cdot\rangle : \mathbb{V\times V} \rightarrow \mathbb K
 \]</div>
-<p>Esta operación, denotada por <span class="math">\(\lang u,v\rang\)</span> satisface las siguietnes propiedaes para todo <span class="math">\(\vec u,\vec v,\vec w \in \mathbb {V}\)</span> y todo escalar <span class="math">\(\alpha\in \mathbb K:\)</span></p>
+<p>Esta operación, denotada por <span class="math">\(\langle u,v\rangle\)</span> satisface las siguietnes propiedaes para todo <span class="math">\(\vec u,\vec v,\vec w \in \mathbb {V}\)</span> y todo escalar <span class="math">\(\alpha\in \mathbb K:\)</span></p>
 <ol>
-<li><span class="math">\(\lang \vec u + \vec v,\vec w\rang = \lang \vec u,\vec w\rang + \lang \vec v,\vec w\rang\)</span></li>
-<li><span class="math">\(\lang \alpha\vec u,\vec v\rang = \alpha \lang \vec v,\vec v\rang\)</span></li>
-<li><span class="math">\(\lang \vec u,\vec v\rang = \lang \vec v,\vec u\rang^*\)</span> donde <span class="math">\(*\)</span> denota el conjugado de un número complejo.</li>
-<li><span class="math">\(\lang \vec u,\vec u\rang \in \mathbb{R}\)</span> y <span class="math">\(\lang \vec u,\vec u\rang \ge 0\)</span></li>
+<li><span class="math">\(\langle \vec u + \vec v,\vec w\rangle = \langle \vec u,\vec w\rangle + \langle \vec v,\vec w\rangle\)</span></li>
+<li><span class="math">\(\langle \alpha\vec u,\vec v\rangle = \alpha \langle \vec v,\vec v\rangle\)</span></li>
+<li><span class="math">\(\langle \vec u,\vec v\rangle = \langle \vec v,\vec u\rangle^*\)</span> donde <span class="math">\(*\)</span> denota el conjugado de un número complejo.</li>
+<li><span class="math">\(\langle \vec u,\vec u\rangle \in \mathbb{R}\)</span> y <span class="math">\(\langle \vec u,\vec u\rangle \ge 0\)</span></li>
 </ol>
 </blockquote>
+<p>El producto vectorial entre dos vectores <span class="math">\(v,u \in \mathbb{K}^n\)</span> se define como:</p>
+<div class="math">
+\[
+\langle u,v \rangle = \sum_{i=0}^n u_iv_i
+\]</div>
 <h2 id="espacios-normados">Espacios Normados</h2>
 <blockquote class="blockquote">
 <p><strong>Definición 4.2</strong></p>
@@ -1476,10 +1481,10 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <p>Por lo general se va a asumir que todos los espacios son normados, si no se indica lo contrario.</p>
 <blockquote class="blockquote">
 <p><strong>Definición 4.4</strong></p>
-<p>Dado un espacio vectorial <span class="math">\(\mathbb V\)</span> con el producto interno <span class="math">\(\lang\cdot;\cdot\rang,\)</span> este induce la norma en <span class="math">\(\mathbb V\)</span> según:</p>
+<p>Dado un espacio vectorial <span class="math">\(\mathbb V\)</span> con el producto interno <span class="math">\(\langle\cdot;\cdot\rangle,\)</span> este induce la norma en <span class="math">\(\mathbb V\)</span> según:</p>
 <div class="math">
 \[
-||\vec u||_2 = \sqrt{\lang\vec u;\vec u\rang}
+||\vec u||_2 = \sqrt{\langle\vec u;\vec u\rangle}
 \]</div>
 </blockquote>
 <p>No todas las normas se inducen del producto interno. Se puede definir la <strong>p-norma</strong> de la siguiente manera:</p>
@@ -1576,15 +1581,15 @@ C_1 ||\vec u||_\alpha \le  ||\vec u||_\beta \le C_2 ||\vec u||_\alpha
 <p>Dado dos vectores <span class="math">\(\vec u,\vec v\)</span> de un espacio vectorial normado se verifica que:</p>
 <div class="math">
 \[
-|\lang\vec u;\vec v\rang| \le ||\vec u||||\vec v||
+|\langle\vec u;\vec v\rangle| \le ||\vec u||||\vec v||
 \]</div>
 </blockquote>
 <blockquote class="blockquote">
 <p><strong>Definición 4.12</strong></p>
-<p>Sea <span class="math">\(\mathbb V\)</span> un espacio vectorial real con producto interno <span class="math">\(\lang\cdot;\cdot\rang\)</span> y la norma que el indice <span class="math">\(||\cdot||\)</span> se define el angulo entre los vectores <span class="math">\(\vec u,\vec v\)</span> como:</p>
+<p>Sea <span class="math">\(\mathbb V\)</span> un espacio vectorial real con producto interno <span class="math">\(\langle\cdot;\cdot\rangle\)</span> y la norma que el indice <span class="math">\(||\cdot||\)</span> se define el angulo entre los vectores <span class="math">\(\vec u,\vec v\)</span> como:</p>
 <div class="math">
 \[
-\cos\theta_{\vec u\vec v}=\frac{\lang\vec u;\vec v\rang}{||\vec u||||\vec v||}
+\cos\theta_{\vec u\vec v}=\frac{\langle\vec u;\vec v\rangle}{||\vec u||||\vec v||}
 \]</div>
 </blockquote>
 <blockquote class="blockquote">
@@ -1592,7 +1597,7 @@ C_1 ||\vec u||_\alpha \le  ||\vec u||_\beta \le C_2 ||\vec u||_\alpha
 <p>Se dice que dos vectores <span class="math">\(\vec u,\vec v\)</span> de un espacio vectorial real son <strong>ortogonales</strong> si se cumple con:</p>
 <div class="math">
 \[
-\lang \vec u;\vec v \rang = 0
+\langle \vec u;\vec v \rangle = 0
 \]</div>
 <p>Y se conta como:</p>
 <div class="math">
@@ -1620,19 +1625,42 @@ C_1 ||\vec u||_\alpha \le  ||\vec u||_\beta \le C_2 ||\vec u||_\alpha
 <p>Dado un espacio vectorial de dimensión finita, normado y dada una base <span class="math">\(B = \{\vec u_1,\dots,\vec u_n\}\)</span> se puede construir una matriz del producto interno en dicha base <span class="math">\(A_B\)</span> tal que:</p>
 <div class="math">
 \[
-(A_B)_{ij} = \lang\vec u_i;\vec u_j\rang
+(A_B)_{ij} = \langle\vec u_i;\vec u_j\rangle
 \]</div>
 </blockquote>
 <p>Dada la matriz asociada con el producto interno y los vectores <span class="math">\(\vec u,\vec v,\)</span> este se evalua como:</p>
 <div class="math">
 \[
-\lang\vec u;\vec v\rang = \vec u' A \vec v
+\langle\vec u;\vec v\rangle = \vec u' A \vec v
 \]</div>
 <p>Y tenemos dos observaciones:</p>
 <ol>
 <li>Si <span class="math">\(A_B\)</span> entonces <span class="math">\((A_B)^\dagger = A,\)</span> con lo cual se tiene que la matriz debe ser cuadrada y se las denomina <strong>autoadjuntas</strong>.</li>
 <li>Esta condición no alcanza para que sea una matriz de producto interno.</li>
 </ol>
+<h2 id="espacios-de-funciones">Espacios de Funciones</h2>
+<p>Se definen los espacios <span class="math">\(L^n(\mathbb{K})\)</span> de la siguiente forma:</p>
+<div class="math">
+\[
+L^n(\mathbb{K}) = \left\{f : \mathbb{R}\rightarrow \mathbb{R}/ 
+
+\int_{-\infty}^\infty |f(x)|^n dx &lt; \infty
+
+\right\}
+\]</div>
+<p>Los espacios <span class="math">\(L^1,L^2\)</span> son espacios de funciones completos y normados:</p>
+<ul>
+<li><strong>Completitud</strong> significa que cualquier secuencia de funciones en el espacio que cumpla ciertas condiciones divergentes, converge a otra función que también esta dentro del espacio.</li>
+<li><strong>Normado</strong> significa que se han definido una norma para comparad funciones entre si y establecer conceptos como la convergencia y la continuidad.
+Para estos campos se define la siguiente norma:</li>
+</ul>
+<div class="math">
+\[
+\array{
+L^1: &amp; ||f|| = \int_{-\infty}^\infty |f(x)| dx \\
+L^2: &amp; ||f|| =  (\int_{-\infty}^\infty |f(x)|^2 dx)^\frac 1 2
+}
+\]</div>
 
 </body>
 

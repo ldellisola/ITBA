@@ -1433,7 +1433,7 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li><span class="math">\(&lt;\vec u+ \vec v; \vec w&gt; = &lt;\vec u ;\vec w&gt; + &lt;\vec v; \vec w&gt;\)</span></li>
 <li><span class="math">\(&lt;\alpha \vec u; \vec v&gt; = \alpha &lt;\vec u;\vec v&gt;\)</span></li>
 <li><span class="math">\(&lt;\vec u,\vec v&gt; = &lt;\vec v;\vec u&gt;^*\)</span> donde <span class="math">\(*\)</span> denota el conjugado del numero complejo.</li>
-<li>$&lt;\vec u;\vec u&gt; \in \mathbb , &lt;\vec u;\vec u&gt; = 0 \iff \vec u = 0 $</li>
+<li><span class="math">\(&lt;\vec u;\vec u&gt; \in \mathbb {R}, &lt;\vec u;\vec u&gt; = 0 \iff \vec u = 0\)</span></li>
 </ul>
 <p>Sean <span class="math">\(\vec u, \vec v \in \mathbb {R}^n,\)</span> se define al <strong>producto interno canónico</strong> como:</p>
 <div class="math">
@@ -1523,34 +1523,36 @@ B_1 \cup B_2 \text{ es un conjunto ortogonal}\\ \implies \mathbb {S}_1 \bot \mat
 \vec v_\bot = \vec v - \mathbb {P}_{\vec u}(\vec v)
 \]</div>
 <p><img src="Resources/Untitled/EC529B45AED3A241.jpg" class="img-fluid" alt="EC529B45AED3A241" style="zoom:50%;" /></p>
-<p>El <strong>método de Gramd-Schmidt clasico</strong> nos permite lograr el objetivo. Estos son los pasos:</p>
+<p>El <strong>método de Gramd-Schmidt clasico</strong> nos permite lograr el objetivo. Estos son los pasos:
+Sea <span class="math">\(B\)</span> una base de un subespacio de <span class="math">\(\mathbb{K}^n\)</span> con <span class="math">\(k\)</span> elementos tal que:</p>
+<div class="math">
+\[
+B = \left\{ b_1,b_2,\dots,b_k \right\}
+\]</div>
 <ol>
-<li><p>Elegir un vector de <span class="math">\(B \in \mathbb {R}^n\)</span> y asignamos a <span class="math">\(\hat q_1\)</span> el verso correspondiente:</p>
-<div class="math">
-\[
-\hat q_1 \leftarrow \frac{\vec u_1}{||\vec u_1||}
-\]</div>
-</li>
-<li><p>Elegimos <span class="math">\(\hat q_2\)</span> como el vector complementario:</p>
-<div class="math">
-\[
-\vec q_2 = \vec u_2 - \mathbb {P}_{\hat q_1}(\vec u_2) = \vec u_2 - &lt;\hat q_1;\vec u_2&gt; \hat q_1
-\]</div>
-</li>
-<li><p>Y lo normalizamos:</p>
-<div class="math">
-\[
-\hat q_2 \leftarrow \frac{\vec q_2}{\vec q_2}
-\]</div>
-</li>
-<li><p>Elegimos <span class="math">\(q_3:\)</span></p>
-<div class="math">
-\[
-\vec q_2
-\]</div>
-<p><mark>FALTA</mark></p>
-</li>
+<li>Primero obtenemos el vector <span class="math">\(\vec u_1\)</span> a partir de <span class="math">\(\vec b_1\)</span> de la sigueinte forma:</li>
 </ol>
+<div class="math">
+\[
+\vec u_1 = \vec b_1
+\]</div>
+<ol start="2">
+<li>Obtenemos el versor <span class="math">\(\hat u_1\)</span> :</li>
+</ol>
+<div class="math">
+\[
+\hat u_1 = \frac {\vec u_1}{||\vec u_1||}
+\]</div>
+<ol start="3">
+<li>Vamos a generar el vector <span class="math">\(\vec u_i\)</span> y el versor <span class="math">\(\hat u_i\)</span> para todo <span class="math">\(i \in \{2,...,k\}.\)</span> Este proceso implica restarle al vector actual las proyeccciones del mismo sobre los otros vectores que ya fueron transformados en versores:</li>
+</ol>
+<div class="math">
+\[
+\array{
+\vec u_i = \vec b_i - \sum_{j=0}^{i-1} \langle \vec b_i,\hat u_j\rangle \hat u_j \\
+\hat u_i = \frac{\vec u_i}{||\vec u_i||}
+}
+\]</div>
 <p>Este método tiene los siguientes problemas:</p>
 <p><mark>FALTA</mark></p>
 <p><strong>Método de Gramd-Schmidt Modificado</strong> <mark>FALTA</mark></p>
