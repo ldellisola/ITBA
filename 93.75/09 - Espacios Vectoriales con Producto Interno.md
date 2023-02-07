@@ -4,15 +4,19 @@
 >
 > Un producto interno o escalar definido sobre $\mathbb V$ es una aplicación entre el conjunto de todos los pares de vectores $(\vec u,\vec v)$ y $\mathbb {K},$ cuyo resultado es un escalar.
 > $$
-> \lang \cdot, \cdot\rang : \mathbb{V\times V} \rarr \mathbb K
+> \langle \cdot, \cdot\rangle : \mathbb{V\times V} \rarr \mathbb K
 > $$
-> Esta operación, denotada por $\lang u,v\rang$ satisface las siguietnes propiedaes para todo $\vec u,\vec v,\vec w \in \mathbb {V}$ y todo escalar $\alpha\in \mathbb K:$
+> Esta operación, denotada por $\langle u,v\rangle$ satisface las siguietnes propiedaes para todo $\vec u,\vec v,\vec w \in \mathbb {V}$ y todo escalar $\alpha\in \mathbb K:$
 >
-> 1. $\lang \vec u + \vec v,\vec w\rang = \lang \vec u,\vec w\rang + \lang \vec v,\vec w\rang$
-> 2. $\lang \alpha\vec u,\vec v\rang = \alpha \lang \vec v,\vec v\rang$
-> 3. $\lang \vec u,\vec v\rang = \lang \vec v,\vec u\rang^*$ donde $*$ denota el conjugado de un número complejo.
-> 4. $\lang \vec u,\vec u\rang \in \R$ y $\lang \vec u,\vec u\rang \ge 0$
+> 1. $\langle \vec u + \vec v,\vec w\rangle = \langle \vec u,\vec w\rangle + \langle \vec v,\vec w\rangle$
+> 2. $\langle \alpha\vec u,\vec v\rangle = \alpha \langle \vec v,\vec v\rangle$
+> 3. $\langle \vec u,\vec v\rangle = \langle \vec v,\vec u\rangle^*$ donde $*$ denota el conjugado de un número complejo.
+> 4. $\langle \vec u,\vec u\rangle \in \R$ y $\langle \vec u,\vec u\rangle \ge 0$
 
+El producto vectorial entre dos vectores $v,u \in \mathbb{K}^n$ se define como:
+$$
+\langle u,v \rangle = \sum_{i=0}^n u_iv_i
+$$
 ## Espacios Normados
 
 > **Definición 4.2**
@@ -43,10 +47,11 @@ Por lo general se va a asumir que todos los espacios son normados, si no se indi
 
 > **Definición 4.4**
 >
-> Dado un espacio vectorial $\mathbb V$ con el producto interno $\lang\cdot;\cdot\rang,$ este induce la norma en $\mathbb V$ según:
+> Dado un espacio vectorial $\mathbb V$ con el producto interno $\langle\cdot;\cdot\rangle,$ este induce la norma en $\mathbb V$ según:
 > $$
-> ||\vec u||_2 = \sqrt{\lang\vec u;\vec u\rang}
+> ||\vec u||_2 = \sqrt{\langle\vec u;\vec u\rangle}
 > $$
+
 
 No todas las normas se inducen del producto interno. Se puede definir la **p-norma** de la siguiente manera:
 $$
@@ -137,21 +142,21 @@ La norma infinito es simplemente la suma absoluta de los valores de las filas de
 >
 > Dado dos vectores $\vec u,\vec v$ de un espacio vectorial normado se verifica que:
 > $$
-> |\lang\vec u;\vec v\rang| \le ||\vec u||||\vec v||
+> |\langle\vec u;\vec v\rangle| \le ||\vec u||||\vec v||
 > $$
 
 > **Definición 4.12**
 >
-> Sea $\mathbb V$ un espacio vectorial real con producto interno $\lang\cdot;\cdot\rang$ y la norma que el indice $||\cdot||$ se define el angulo entre los vectores $\vec u,\vec v$ como:
+> Sea $\mathbb V$ un espacio vectorial real con producto interno $\langle\cdot;\cdot\rangle$ y la norma que el indice $||\cdot||$ se define el angulo entre los vectores $\vec u,\vec v$ como:
 > $$
-> \cos\theta_{\vec u\vec v}=\frac{\lang\vec u;\vec v\rang}{||\vec u||||\vec v||}
+> \cos\theta_{\vec u\vec v}=\frac{\langle\vec u;\vec v\rangle}{||\vec u||||\vec v||}
 > $$
 
 > **Definición 4.13**
 >
 > Se dice que dos vectores $\vec u,\vec v$ de un espacio vectorial real son **ortogonales** si se cumple con:
 > $$
-> \lang \vec u;\vec v \rang = 0
+> \langle \vec u;\vec v \rangle = 0
 > $$
 > Y se conta como:
 > $$
@@ -177,15 +182,34 @@ El producto interno en un espacio vectorial de dimensión finita esta asociado a
 >
 > Dado un espacio vectorial de dimensión finita, normado y dada una base $B = \{\vec u_1,\dots,\vec u_n\}$ se puede construir una matriz del producto interno en dicha base $A_B$ tal que:
 > $$
-> (A_B)_{ij} = \lang\vec u_i;\vec u_j\rang
+> (A_B)_{ij} = \langle\vec u_i;\vec u_j\rangle
 > $$
 
 Dada la matriz asociada con el producto interno y los vectores $\vec u,\vec v,$ este se evalua como:
 $$
-\lang\vec u;\vec v\rang = \vec u' A \vec v
+\langle\vec u;\vec v\rangle = \vec u' A \vec v
 $$
 Y tenemos dos observaciones:
 
 1. Si $A_B$ entonces $(A_B)^\dagger = A,$ con lo cual se tiene que la matriz debe ser cuadrada y se las denomina **autoadjuntas**.
 2. Esta condición no alcanza para que sea una matriz de producto interno.
 
+## Espacios de Funciones
+Se definen los espacios $L^n(\mathbb{K})$ de la siguiente forma:
+$$
+L^n(\mathbb{K}) = \left\{f : \mathbb{R}\rightarrow \mathbb{R}/ 
+
+\int_{-\infty}^\infty |f(x)|^n dx < \infty
+
+\right\}
+$$
+Los espacios $L^1,L^2$ son espacios de funciones completos y normados:
+- **Completitud** significa que cualquier secuencia de funciones en el espacio que cumpla ciertas condiciones divergentes, converge a otra función que también esta dentro del espacio.
+- **Normado** significa que se han definido una norma para comparad funciones entre si y establecer conceptos como la convergencia y la continuidad.
+Para estos campos se define la siguiente norma:
+$$
+\array{
+L^1: & ||f|| = \int_{-\infty}^\infty |f(x)| dx \\
+L^2: & ||f|| =  (\int_{-\infty}^\infty |f(x)|^2 dx)^\frac 1 2
+}
+$$

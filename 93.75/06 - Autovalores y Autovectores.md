@@ -39,7 +39,7 @@ $$
 >
 > Decimos que una matriz es diagonalizable si existe una matriz $S \in \mathbb K^{n\times n}$ invertible tal que:
 > $$
-> S^{-1}AS = A
+> S^{-1}DS = A
 > $$
 
 > **Definición 6.6**
@@ -72,7 +72,7 @@ La generación de la matriz $S$ es simple, hay que tomar los autovectores de la 
 2. Si $A$ es una matriz cuadrada $\tr(A) = \sum_{i=1}^n\lambda_i$ y $\det(A) = \prod_{i=1}^n\lambda_i.$
 3. Si $\lambda$ es autovalor de $A,$ también lo es de su transpuesta.
 4. Si $\lambda$ es un autovalor de $A,$ $\lambda^-1$ es el autovalor de su inversa.
-5. Si $\lambda$ es el autovalor de $A,$ $-\lambda$ lo es de $A - \alpha \mathbb I.$
+5. Si $\lambda$ es el autovalor de $A,$ $\lambda-\alpha$ lo es de $A - \alpha \mathbb I.$
 6. Si $\lambda$ es el autovalor de $A,$ $\lambda^k$ lo es de $A^k.$
 7. Si $A$ es una matriz real, es diagonalizable si tiene $n$ autovalores distintos.
 8. Si $A$ tiene todos sus autovalores con multiplicidad algebraica 1 es diagonalizable.
@@ -192,3 +192,23 @@ El método QR también nos permite obtener los autovalores.
 > }
 > $$
 
+El método es el siguiente, Sea $A \in \mathbb{K}^{n\times n}$ podes obtener si factorización QR:
+$$
+A = Q_0R_0
+$$
+Luego, podemos obtener la siguiente iteración de la siguiente forma:
+$$
+A_1 = R_0Q_0
+$$
+Con este nuevo valor de $A,$ podemos volver a calcular QR:
+$$
+A_1 = Q_1R_1
+$$
+seguir con las próximas iteraciones:
+$$
+\array{
+A_{n} = Q_nR_n \implies A_{n+1} = R_nQ_n
+}
+$$
+Cuando la matriz $A_n$ tiene todos los elementos debajo de su diagonal en $0$ o cercanos a $0$ podemos decir que se completo el proceso, y los autovalores son los números en la diagonal de la matriz $A_n.$ 
+Si los números debajo de la diagonal no se acercan a 0, significa que el proceso no converge.

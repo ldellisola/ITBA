@@ -110,7 +110,7 @@ $$
 $$
 Para el caso de un esquema progresivo, tenderemos:
 $$
-\text{Err} = u'(x_0) -\frac{\hat u(x_0+h) + \hat u(x_0) }h
+\text{Err} = u'(x_0) -\frac{\hat u(x_0+h) - \hat u(x_0) }h
 $$
 Sabemos que en la computadora, el valor representado difiere del real en una cantidad $\varepsilon  \le \varepsilon_M,$ por lo tanto:
 $$

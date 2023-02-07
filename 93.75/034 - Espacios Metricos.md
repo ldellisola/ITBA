@@ -8,7 +8,7 @@ $$
 - $<\vec u+ \vec v; \vec w> = <\vec u ;\vec w> + <\vec v; \vec w>$
 - $<\alpha \vec u; \vec v> = \alpha <\vec u;\vec v>$
 - $<\vec u,\vec v> = <\vec v;\vec u>^*$ donde $*$ denota el conjugado del numero complejo.
-- $<\vec u;\vec u> \in \mathbb {R}, <\vec u;\vec u> = 0 \iff \vec u = 0 $
+- $<\vec u;\vec u> \in \mathbb {R}, <\vec u;\vec u> = 0 \iff \vec u = 0$
 
 Sean $\vec u, \vec v \in \mathbb {R}^n,$ se define al **producto interno canónico** como:
 $$
@@ -98,28 +98,25 @@ $$
 <img src="Resources/Untitled/Screen Shot 2022-08-18 at 17.53.13.jpg" alt="Screen Shot 2022-08-18 at 17.53.13" style="zoom:50%;" />
 
 El **método de Gramd-Schmidt clasico** nos permite lograr el objetivo. Estos son los pasos:
-
-1. Elegir un vector de $B \in \mathbb {R}^n$ y asignamos a $\hat q_1$ el verso correspondiente:
-   $$
-   \hat q_1 \larr \frac{\vec u_1}{||\vec u_1||}
-   $$
-
-2. Elegimos $\hat q_2$ como el vector complementario:
-   $$
-   \vec q_2 = \vec u_2 - \mathbb {P}_{\hat q_1}(\vec u_2) = \vec u_2 - <\hat q_1;\vec u_2> \hat q_1
-   $$
-
-3. Y lo normalizamos:
-   $$
-   \hat q_2 \larr \frac{\vec q_2}{\vec q_2}
-   $$
-
-4. Elegimos $q_3:$
-   $$
-   \vec q_2
-   $$
-   ==FALTA==
-
+Sea $B$ una base de un subespacio de $\mathbb{K}^n$ con $k$ elementos tal que:
+$$
+B = \left\{ b_1,b_2,\dots,b_k \right\}
+$$
+1. Primero obtenemos el vector $\vec u_1$ a partir de $\vec b_1$ de la sigueinte forma:
+$$
+\vec u_1 = \vec b_1
+$$
+2. Obtenemos el versor $\hat u_1$ :
+$$
+\hat u_1 = \frac {\vec u_1}{||\vec u_1||}
+$$
+3. Vamos a generar el vector $\vec u_i$ y el versor $\hat u_i$ para todo $i \in \{2,...,k\}.$ Este proceso implica restarle al vector actual las proyeccciones del mismo sobre los otros vectores que ya fueron transformados en versores:
+$$
+\array{
+\vec u_i = \vec b_i - \sum_{j=0}^{i-1} \langle \vec b_i,\hat u_j\rangle \hat u_j \\
+\hat u_i = \frac{\vec u_i}{||\vec u_i||}
+}
+$$
 Este método tiene los siguientes problemas:
 
 ==FALTA==

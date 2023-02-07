@@ -142,11 +142,17 @@ Si $\dim(row(A))=n$ entonces el espacio nulo solo va a contener al vector $\vec 
  }
  $$
 
-El **nucleo** de una transformación lineal se obtiene a partir del espacio nulo:
+El **nucleo de una transformación lineal** se obtiene a partir del espacio nulo:
 $$
 \text{nucleo(T)} = \text{gen}(\text{nul}(A))
 $$
-La imagen de una transformación lineal se obtiene a partir del espacio columna. Sea $B$ la base del espacio columna:
+Por ejemplo, si $A$ es la matrix asociada a la transformación, podemos obtener el nucleo de la siguiente forma:
+$$
+\array{
+\text{nucleo}(T) = \{ \forall X /  A \times X = \mathbb{0}\}
+}
+$$
+La **imagen de una transformación lineal** se obtiene a partir del espacio columna. Sea $B$ la base del espacio columna:
 $$
 \text{imagen}(T) = \text{gen}(\vec u_1,\dots,\vec u_n)/ \vec u_i \in B
 $$

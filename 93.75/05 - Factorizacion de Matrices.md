@@ -37,6 +37,7 @@ Para obtener la matriz $U$ tenemos que usar eliminación gaussiana hasta tener u
   $$
   Una característica de esta matriz es que su inversa es exactamente la misma matriz, con la excepción de que el valor $E^{-1}_{ij} = -E_{ij}.$
 
+**IMPORTANTE:** ==Nunca hacer permutaciones antes de realizar una ejecución. Por algun motivo se rompe todo el método, mejor tener que hacer cuentas con números raros.==
 La matriz $P$ se calcula como:
 $$
 P = \prod P^{ij}
@@ -295,3 +296,40 @@ Donde $k$ por lo general es $n-1.$
 >
 > Si $A \in\mathbb {K}^{m\times n}$ es una matriz de rango completo con $m \ge n$ y $A = QR$ es una factorización reducida de $A$ con $r_{ii}\neq 0$ entonces las columnas de $Q$ son una base ortonormal del espacio de columnas de $A.$
 
+## Factorización SVD de una Matriz
+Sea $A \in \mathbb{K}^{n\times m}$ podes descomponerla de la siguiente forma:
+$$
+A = USV'
+$$
+Tal que $U \in \mathbb{K}^{n\times n} \text{ ortonormal},V \in \mathbb{K}^{m\times m} \text{ ortonormal}, S \in \mathbb{K}^{n\times m} \text{ diagonal}.$ 
+Para obtener esta factorización hay que seguir 3 pasos:
+1. **Busco** $V$ :
+	1. Defino a la matriz $M=A'\times A$ y busco sus autovalores y autovectores.
+	2. Sean los autovalores $\lambda_1,\dots,\lambda_k$ los asociados a los vectores $\vec v_1,\dots,\vec v_k$ tengo que transformar a los vectores en vectores ortonormales. Si la matriz $M$ es simétrica, entonces solo hace falta normalizarlos y obtenemos:
+	  $$
+		\hat v_1,\dots ,\hat v_k
+	$$
+	3. Ordeno a los autovectores según su modulo, de forma que $\lambda_a \ge \lambda_b \ge \dots \lambda_z$ y creo la matriz $V$ de la siguiente forma:
+	  $$
+	  V = \left[
+	  \array{\hat {v_a}, \dots, \hat v_z}
+	  \right]
+	$$
+2. **Busco** los valores singulares y la matriz $S:$
+	1. Usando los autovalores obtenidos anteriormente y ordenados según su modulo, puedo crear la siguiente matriz:
+		$$
+		S_{ii} = \sqrt\lambda_i
+	$$
+	2. De ser necesario, completo el resto de los campos con $0.$ Si algunos de los autovalores son $0$ entonces puede que no entren en la matriz $S$ y esta bien.
+3. **Busco** $U$ :
+	1.  Defino a la matriz $B=A\times A'$ y busco sus autovalores y autovectores.
+	2. Sean los autovalores $\lambda_1,\dots,\lambda_k$ los asociados a los vectores $\vec u_1,\dots,\vec u_k$ tengo que transformar a los vectores en vectores ortonormales. Si la matriz $B$ es simétrica, entonces solo hace falta normalizarlos y obtenemos:
+	  $$
+		\hat u_1,\dots ,\hat u_k
+	$$
+	3. Ordeno a los autovectores según su modulo, de forma que $\lambda_a \ge \lambda_b \ge \dots \lambda_z$ y creo la matriz $V$ de la siguiente forma:
+	  $$
+	  U = \left[
+	  \array{\hat {u_a}, \dots, \hat u_z}
+	  \right]
+	$$
