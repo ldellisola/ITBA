@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>index.md</title>
+    <title>00 - Cheat Sheet.md</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -1423,303 +1423,973 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 
 </head>
 <body>
-<h1 id="metodos-numericos-avanzados">Métodos Numéricos Avanzados</h1>
+<p>Apuntes de otras materias <a href="https://ldellisola.github.io/ITBA">acá</a></p>
+<h1 id="matrices">Matrices</h1>
+<p>Existen distintos tipos de matrices:</p>
 <ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#matrices">Matrices</a>
+<li>Matriz <strong>singular</strong>: <span class="math">\(A \in \mathbb{R}^{n\times n} : \not \exists A^{-1}\)</span></li>
+<li>Matriz <strong>Diagonal</strong>: <span class="math">\(A \in \mathbb{K}^{m\times n}: A[i,i] \neq 0\land A[i,j] = 0\)</span></li>
+<li>Matriz <strong>Tridiagonal</strong>: <span class="math">\(A \in \mathbb{K}^{m\times n}: A[i,i] \neq 0 \land A[i+1,i] \neq 0 \land A[i-1,i] \neq 0\land A[i,j] = 0\)</span></li>
+<li>Matriz <strong>Triangular Superior</strong>: <span class="math">\(A \in \mathbb{R}^{n\times n}: A[i,j] = 0, i&lt;j\)</span></li>
+<li>Matriz <strong>Triangular Inferior</strong>: <span class="math">\(A \in \mathbb{R}^{n\times n}: A[i,j] = 0, i&gt; j\)</span></li>
+<li>Matriz <strong>Simétrica</strong>: <span class="math">\(A \in \mathbb{R}^{n\times n}: A[i,j] = A[j,i]\)</span></li>
+<li>Matriz <strong>Antisimetrica</strong>: <span class="math">\(A \in \mathbb{R}^{n\times n}: A[i,j] = -A[j,i]\)</span></li>
+<li>Matriz <strong>Ortogonal</strong>: <span class="math">\(B \in \mathbb{R}^{m\times n}: B'B= I_{n\times n}\)</span></li>
+<li>Matriz <strong>Nilpotente</strong> de orden <span class="math">\(k: B \in \mathbb{K}^{m\times n} : A\neq 0 \land \forall n \ge k\ A^n = 0\)</span></li>
+<li>Matriz <strong>Involutiva</strong>: <span class="math">\(A \in \mathbb{K}^{n\times n} : A^2 = I_n\)</span></li>
+<li>Matriz <strong>Idempotente</strong>: <span class="math">\(A \in \mathbb{K}^{n\times n} : A^2 = A\)</span></li>
+</ul>
+<h2 id="matriz-invertible">Matriz Invertible</h2>
+<p>Si se tiene <span class="math">\(A \in \mathbb{R}^{m\times n},\)</span> se puede asegurar que <span class="math">\(\exists A^{-1}\)</span> si se cumple con alguna de estos items:</p>
 <ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#matriz-invertible">Matriz Invertible</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#operaciones">Operaciones</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#factorizacion">Factorización</a>
+<li><span class="math">\(m = n \land \det(A) \gt 0\)</span></li>
+<li><span class="math">\(m = n \land \text{ tiene rango máximo}\)</span></li>
+</ul>
+<h2 id="operaciones">Operaciones</h2>
+<p>Sea <span class="math">\(A \in \mathbb{K}^{m\times n}:\)</span></p>
 <ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#factorizacion-plu">Factorización PLU</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#factorizacion-qr">Factorización QR</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#factorizacion-svd">Factorización SVD</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#diagonalizacion">Diagonalización</a></li>
+<li><strong>traza</strong>: <span class="math">\(tr(A) = \sum_i^n A[i,i]\)</span></li>
+<li><strong>transpuesta</strong>: <span class="math">\(\text{transpose}(A) = A^T  \in \mathbb{K}^{n\times m}/A^T[i,j] = A[j,i]\)</span></li>
+<li><strong>rango</strong>: <span class="math">\(\text{rank}(A)=\)</span> la cantidad de filas no nulas luego de escalonar a la matriz. <span class="math">\(A\)</span> es de <strong>rango máximo</strong> si <span class="math">\(\text{rank}(A) = \min(m,n)\)</span></li>
+<li><strong>transpuesta conjugada</strong>: <span class="math">\(A' \in \mathbb{k}^{n\times m}/ A'[i,j] = \overline{A[j,i]}\)</span></li>
+<li><strong>espectro</strong>: <span class="math">\(\text{spectre}(A) = \{\lambda_1,\dots\}\)</span> es el conjunto de autovalores.</li>
+<li><strong>radio espectral</strong>: <span class="math">\(\text{spectralRatio}(A) = \max(|\lambda_1|,\dots)\)</span></li>
+<li><strong>pseudoinversa</strong>: <span class="math">\(A^+ = (A'A)^{-1}A'\)</span></li>
+</ul>
+<h2 id="factorizacion">Factorización</h2>
+<h3 id="factorizacion-plu">Factorización PLU</h3>
+<p>La factorización PLU intenta de factorizar a una matriz de la siguiente forma:</p>
+<div class="math">
+\[
+PA = LU 
+\]</div>
+<p>Donde <span class="math">\(U\)</span> es una matriz escalonada y <span class="math">\(L\)</span> es una matriz triangular inferior. Si <span class="math">\(\exists A^{-1}\)</span> entonces la factorización es única.
+Para obtener esta factorización hay dos tipos de operaciones:</p>
+<ul>
+<li><strong>permutaciones</strong>: cambiar filas de lugar.</li>
+<li><strong>ejecuciones</strong>: realizar una operación lineal entre dos filas:</li>
+</ul>
+<div class="math">
+\[
+F_i = F_i - (b \times F_j)
+\]</div>
+<p>Para obtener la matriz <span class="math">\(U\)</span> simplemente hay que usar eliminación Gaussiana con estos dos métodos para obtener una matriz triangular superior.
+Para obtener la matriz <span class="math">\(P\)</span> simplemente hay que aplicar las permutaciones que hicimos sobre la matriz identidad en el mismo orden.
+Para obtener la matriz <span class="math">\(L\)</span> se parte de la matriz identidad y se la completa de la siguiente forma. Por cada ejecución <span class="math">\(F_i = F_i - (b \times F_j)\)</span>:</p>
+<div class="math">
+\[
+L[i,j] = b
+\]</div>
+<p><mark>Es muy <strong>importante</strong> nunca hacer permutaciones antes de realizar una ejecución. Se rompe todo y es mejor tener números raros.</mark></p>
+<h3 id="factorizacion-qr">Factorización QR</h3>
+<p>La factorización QR consiste en escribir a la matriz <span class="math">\(A \in \mathbb{K}^{m\times n}\)</span> como el producto de una matriz ortonormal <span class="math">\(Q\)</span> junto a una matriz <span class="math">\(R\)</span> escalonada:</p>
+<div class="math">
+\[
+A = QR
+\]</div>
+<p>Sea <span class="math">\(A = [a_1,\dots,a_n\)</span>] podemos obtener la matriz <span class="math">\(Q\)</span> de la siguiente forma:</p>
+<ol>
+<li><span class="math">\(\hat q_1 = \frac{a_1}{||a_1||}\)</span></li>
+<li><span class="math">\(\vec q_i = a_i - \sum_{k=1}^{i-1} \langle a_i,\hat q_k\rangle \hat q_k\)</span></li>
+<li><span class="math">\(\hat q_i = \frac{q_i}{||q_i||}\)</span>
+Y obtenemos <span class="math">\(Q = [\hat q_1,\dots,\hat q_n]\)</span>
+Para obtener <span class="math">\(R\)</span> podemos:</li>
+</ol>
+<div class="math">
+\[
+R = Q'A
+\]</div>
+<h3 id="factorizacion-svd">Factorización SVD</h3>
+<p>Sea <span class="math">\(A \in \mathbb{K}^{n\times m}\)</span> podes descomponerla de la siguiente forma:</p>
+<div class="math">
+\[
+A = USV'
+\]</div>
+<p>Tal que <span class="math">\(U \in \mathbb{K}^{n\times n} \text{ ortonormal},V \in \mathbb{K}^{m\times m} \text{ ortonormal}, S \in \mathbb{K}^{n\times m} \text{ diagonal}.\)</span>
+Para obtener esta factorización hay que seguir 3 pasos:</p>
+<ol>
+<li><strong>Busco</strong> <span class="math">\(V\)</span> :
+<ol>
+<li>Defino a la matriz <span class="math">\(M=A'\times A\)</span> y busco sus autovalores y autovectores.</li>
+<li>Sean los autovalores <span class="math">\(\lambda_1,\dots,\lambda_k\)</span> los asociados a los vectores <span class="math">\(\vec v_1,\dots,\vec v_k\)</span> tengo que transformar a los vectores en vectores ortonormales. Si la matriz <span class="math">\(M\)</span> es simétrica, entonces solo hace falta normalizarlos y obtenemos:</li>
+</ol>
+<div class="math">
+\[
+ 	\hat v_1,\dots ,\hat v_k
+\]</div>
+<ol>
+<li>Ordeno a los autovectores según su modulo, de forma que <span class="math">\(\lambda_a \ge \lambda_b \ge \dots \lambda_z\)</span> y creo la matriz <span class="math">\(V\)</span> de la siguiente forma:</li>
+</ol>
+<div class="math">
+\[
+   V = \left[
+   \array{\hat {v_a}, \dots, \hat v_z}
+   \right]
+\]</div>
+</li>
+<li><strong>Busco</strong> los valores singulares y la matriz <span class="math">\(S:\)</span>
+<ol>
+<li>Usando los autovalores obtenidos anteriormente y ordenados según su modulo, puedo crear la siguiente matriz:</li>
+</ol>
+<div class="math">
+\[
+ 	S_{ii} = \sqrt\lambda_i
+\]</div>
+<ol start="2">
+<li>De ser necesario, completo el resto de los campos con <span class="math">\(0.\)</span> Si algunos de los autovalores son <span class="math">\(0\)</span> entonces puede que no entren en la matriz <span class="math">\(S\)</span> y esta bien.</li>
+</ol>
+</li>
+<li><strong>Busco</strong> <span class="math">\(U\)</span> :
+<ol>
+<li>Defino a la matriz <span class="math">\(B=A\times A'\)</span> y busco sus autovalores y autovectores.</li>
+<li>Sean los autovalores <span class="math">\(\lambda_1,\dots,\lambda_k\)</span> los asociados a los vectores <span class="math">\(\vec u_1,\dots,\vec u_k\)</span> tengo que transformar a los vectores en vectores ortonormales. Si la matriz <span class="math">\(B\)</span> es simétrica, entonces solo hace falta normalizarlos y obtenemos:</li>
+</ol>
+<div class="math">
+\[
+ 	\hat u_1,\dots ,\hat u_k
+\]</div>
+<ol start="3">
+<li>Ordeno a los autovectores según su modulo, de forma que <span class="math">\(\lambda_a \ge \lambda_b \ge \dots \lambda_z\)</span> y creo la matriz <span class="math">\(V\)</span> de la siguiente forma:</li>
+</ol>
+<div class="math">
+\[
+   U = \left[
+   \array{\hat {u_a}, \dots, \hat u_z}
+   \right]
+\]</div>
+</li>
+</ol>
+<h3 id="diagonalizacion">Diagonalización</h3>
+<p>Se puede descomponer a una matriz <span class="math">\(A\in \mathbb{R}^{n\times n}\)</span> si tiene <span class="math">\(n\)</span> autovalores distintos:</p>
+<div class="math">
+\[
+A = S^{-1}DS
+\]</div>
+<p>Tengo que seguir los siguientes pasos:</p>
+<ol>
+<li>Calcular los autovalores y sus autovectores correspondientes.</li>
+<li>Ordenar los autovalores <span class="math">\(\lambda_1,\dots,\lambda_n\)</span> de forma tal que <span class="math">\(|\lambda_1| \ge \dots \ge |\lambda_n|\)</span></li>
+<li>Creo la matriz <span class="math">\(D \in \mathbb{K}^{n\times n}\)</span> tal que <span class="math">\(D[i,i] = \lambda_i\)</span></li>
+<li>Creo la matriz <span class="math">\(S \in \mathbb{K}^{n\times n} = [\vec v_1,\dots, \vec v_n]\)</span></li>
+</ol>
+<p>Esta diagonalización es util para calcular potencias de nuestra matiz original:</p>
+<div class="math">
+\[
+A^n = S D^n S^{-1}
+\]</div>
+<p>La matriz <span class="math">\(D\)</span> es llamada <strong>matriz de paso</strong>.</p>
+<h1 id="vectores">Vectores</h1>
+<p>Se dice que los vectores son:</p>
+<ul>
+<li><strong>normales</strong> si <span class="math">\(\langle v,v\rangle = 1\)</span></li>
+<li><strong>ortogonales</strong> si <span class="math">\(\langle v,w\rangle = 0\)</span></li>
+<li><strong>ortonormales</strong> si cumplen con ambas propiedades.</li>
+</ul>
+<h2 id="dependencia-lineal">Dependencia Lineal</h2>
+<p>Decimos que un conjunto de vectores <span class="math">\(v_i\)</span> es <strong>linealmente dependiente</strong> si:</p>
+<div class="math">
+\[
+\exists a_i \neq 0 \in \mathbb{K} / \vec 0= \sum_{j} \alpha_j v_j
+\]</div>
+<p>Si la única forma de obtener el vector <span class="math">\(\vec 0\)</span> es con todos los coeficientes nulos, entonces se dice que es <strong>linealmente independiente</strong>.</p>
+<h2 id="proyectores">Proyectores</h2>
+<p>Se define a la función proyector de un vector <span class="math">\(\vec u\)</span> de la siguiente forma:</p>
+<div class="math">
+\[
+P_{\vec u}(\vec x) = \frac{\langle \vec x, \vec u\rangle}{\langle \vec u,\vec u \rangle} \vec u = \langle \vec x,\hat u\rangle \hat u
+\]</div>
+<h2 id="metodo-gram-schmidt">Método Gram-Schmidt</h2>
+<p>El método Gram-Schmidt sirve para convertir a un conjunto de vectores en un conjunto ortonormal.
+Si tengo a un conjunto de vectores <span class="math">\(\{\vec v_1,\dots,\vec v_n\}\)</span> puedo convertirlos en ortonormales aplicando los siguientes pasos a cada vector <span class="math">\(\vec v_i:\)</span></p>
+<div class="math">
+\[
+\array{
+1. &amp; \vec q_i = \vec v_i - \sum_{k=1}^{i-1} P_{\vec v_k}(\vec v_i) \\
+2. &amp; \hat q_i = \frac{\vec q_i}{||\vec q_i}
+}
+\]</div>
+<p>El método de <strong>Gram-Schmidt modificado</strong> es ...</p>
+<h1 id="espacios-vectoriales">Espacios Vectoriales</h1>
+<p><span class="math">\(\mathbb V\)</span> es un espacio vectorial si cumple con:</p>
+<ol>
+<li><span class="math">\(a,b\in \mathbb{V} \implies a+b \in \mathbb{B}\)</span></li>
+<li><span class="math">\(a,b\in \mathbb{V}: a+b = b+a\)</span></li>
+<li><span class="math">\(a,b,c\in \mathbb{V}: (a + b) + c = a + (b+c)\)</span></li>
+<li><span class="math">\(a\in \mathbb{V}, \exists \vec 0\in \mathbb{V}: a + \vec 0 = a\)</span></li>
+<li><span class="math">\(a,b\in \mathbb{V}: a + b = \vec 0\)</span></li>
+<li><span class="math">\(a,b\in \mathbb{V}, \alpha \in \mathbb{K}: \alpha(a+b) = \alpha a + \alpha b\)</span></li>
+</ol>
+<h2 id="subespacios-vectoriales">Subespacios Vectoriales</h2>
+<p><span class="math">\(\mathbb {W}\)</span> es un subespacio de <span class="math">\(V\)</span> si cumple con:</p>
+<ol>
+<li><span class="math">\(\#\mathbb{W} \ge 1\)</span></li>
+<li><span class="math">\(a,b\in \mathbb{W} \implies a+b \in \mathbb{W}\)</span></li>
+<li><span class="math">\(a\in \mathbb{W}, \alpha \in \mathbb{K} \implies \alpha a \in \mathbb{W}\)</span></li>
+</ol>
+<h2 id="producto-interno">Producto Interno</h2>
+<p>El producto interno es una operación definida sobre un espacio vectorial <span class="math">\(\mathbb{V}\)</span> como:</p>
+<div class="math">
+\[
+\langle \cdot,\cdot \rangle: \mathbb{V} \times \mathbb{V} \rightarrow\mathbb{K}
+\]</div>
+<p>Que satisface las siguientes condiciones para todos los <span class="math">\(\vec u,\vec v,\vec w \in \mathbb{V}, \alpha \in \mathbb{K}:\)</span></p>
+<ol>
+<li><span class="math">\(\langle \vec u + \vec v,\vec w\rangle = \langle \vec u,\vec w\rangle + \langle \vec v,\vec w\rangle\)</span></li>
+<li><span class="math">\(\langle \alpha\vec u,\vec v\rangle = \alpha \langle \vec v,\vec v\rangle\)</span></li>
+<li><span class="math">\(\langle \vec u,\vec v\rangle = \langle \vec v,\vec u\rangle^*\)</span> donde <span class="math">\(*\)</span> denota el conjugado de un número complejo.</li>
+<li><span class="math">\(\langle \vec u,\vec u\rangle \in \mathbb{R}\)</span> y <span class="math">\(\langle \vec u,\vec u\rangle \ge 0\)</span></li>
+</ol>
+<p>El producto interno se define de distintas formas según el cuerpo que se este usando. El producto interno más utilizado con los espacios <span class="math">\(\mathbb{K}^n\)</span> es:</p>
+<div class="math">
+\[
+\langle \vec u,\vec v\rangle = \sum_{i=0}^n u_i v_i
+\]</div>
+<p>Para espacios funcionales se suele definir de la siguiente forma:</p>
+<div class="math">
+\[
+\langle f,g\rangle = \int_{-\infty}^\infty f(x)g(x)dx
+\]</div>
+<h2 id="norma">Norma</h2>
+<p>La norma es una función que se define de la siguiente forma:</p>
+<div class="math">
+\[
+||\vec v|| = \sqrt{\langle \vec v,\vec v \rangle}
+\]</div>
+<p>Aunque también se pueden definir otras normas:</p>
+<ul>
+<li><span class="math">\(||\vec v||_i = \sqrt[i]{\sum_{k=1}^n |u_k|^k}\)</span></li>
+<li><span class="math">\(||\vec v||_\infty =\max(v_i)\)</span></li>
+<li>Sea <span class="math">\(A\in \mathbb{K}^{n\times m}: ||A||_k = \sqrt[k]{\sum_{j=1}^m\sum_{i=1}^n |A[i,j]|^k}\)</span></li>
+<li>Sea <span class="math">\(A \in \mathbb{K}^{m\times n}: ||A||_F = ||A||_2\)</span></li>
+</ul>
+<h2 id="espacios-normados">Espacios Normados</h2>
+<p>Son espacios vectoriales donde esta definida la norma. Tienen que cumplir con 4 condiciones:</p>
+<ol>
+<li><span class="math">\(||\alpha\vec v|| = \alpha ||\vec v ||\)</span></li>
+<li><span class="math">\(||\vec v|| = 0 \iff \vec v = \vec 0\)</span></li>
+<li><span class="math">\(||\vec v || \ge 0\)</span></li>
+<li><span class="math">\(||\vec v + \vec u || \le ||\vec v || + || \vec u||\)</span></li>
+</ol>
+<h2 id="espacios-de-funciones">Espacios de Funciones</h2>
+<p>Los espacios funcionales están definidos de la siguiente forma</p>
+<div class="math">
+\[
+L^n(\mathbb{K}) = \left\{ f: \mathbb{R} \rightarrow \mathbb{R}/ \int_{-\infty}^\infty |f(x)^n dx \lt \infty \right\}
+\]</div>
+<p>Especialmente los espacios <span class="math">\(L^1,L^2\)</span> son espacios de funciones completos y normados. Para estos campos se define la siguiente norma:</p>
+<div class="math">
+\[
+\array{
+L^1 :&amp; ||f|| = \int_{-\infty}^\infty |f(x)| dx\\
+L^2 :&amp; ||f|| = \sqrt{\int_{-\infty}^\infty |f(x)|^2 dx}\\
+
+}
+\]</div>
+<h2 id="generadores">Generadores</h2>
+<p>Dado un conjunto de vectores <span class="math">\(B = \{\vec b_j\}^n_1\)</span> definimos al espacio generado por <span class="math">\(B:\)</span></p>
+<div class="math">
+\[
+\text{gen}(B) = \left\{\array{
+
+\vec u \in \mathbb{V}/\vec u = \sum_j^n \alpha_i\vec b_i
+
+}\right\}
+\]</div>
+<p>El <strong>rango</strong> de un conjunto es la cantidad de vectores linealmente independientes:</p>
+<div class="math">
+\[
+\text{rank}(B)= \dim(B) =\# \text{vectores LI de }B
+\]</div>
+<h2 id="bases">Bases</h2>
+<p>Un conjunto <span class="math">\(B\)</span> es una <strong>base</strong> de un espacio <span class="math">\(\mathbb{V}\)</span> si tiene la cantidad maxima de vectores linealmente independientes:</p>
+<div class="math">
+\[
+B \text{ es base de }\mathbb{V} \iff \text{rank}(B) = \text{rank}(\mathbb{V}) 
+\]</div>
+<p>Todo vector puede ser representado en distintas bases. Sea <span class="math">\(B = \{b_1,\dots,b_n\}\)</span>  una base, el vector <span class="math">\(\vec v\)</span> se representa de la siguiente forma:</p>
+<div class="math">
+\[
+\vec v = \alpha_1 b_1 + \dots +\alpha_n b_n
+\]</div>
+<p>Y también puede ser representado según sus coordenadas en la base <span class="math">\(B:\)</span></p>
+<div class="math">
+\[
+[\vec v]_B = (\alpha_1,\dots,\alpha_n)
+\]</div>
+<h2 id="espacios-asociados-a-una-matriz">Espacios Asociados a una Matriz</h2>
+<p>Sea <span class="math">\(B\in \mathbb{R}^{m\times n} = [b_1,\dots,b_n]\)</span> definimos a:</p>
+<ul>
+<li>El <strong>espacio columna</strong> de <span class="math">\(B:\text{col}(B) = \text{gen}(\{b_1,\dots,b_n\})\)</span></li>
+<li>El <strong>espacio fila</strong> de <span class="math">\(B: \text{row}(B)\)</span> como el subespacio generado por las filas de la misma.</li>
+<li>El <strong>espacio nulo</strong> de <span class="math">\(B: \text{nul}(B) = \text{gen}(\{\vec x \in \mathbb{K}^m/B\vec x = \vec 0\})\)</span></li>
+</ul>
+<h1 id="sistemas-de-ecuaciones-lineales">Sistemas de Ecuaciones Lineales</h1>
+<p>Un sistema de ecuaciones lineales es:</p>
+<ul>
+<li><strong>compatible determinado</strong> cuando admite una solución única.</li>
+<li><strong>compatible indeterminado</strong> cuando admite infinitas soluciones.</li>
+<li><strong>incompatible</strong> cuando no admite soluciones.</li>
+</ul>
+<p>Se puede definir el tipo de sistema de ecuaciones lineales según el rango de la matriz <span class="math">\(A\)</span> y su matriz ampliada (<span class="math">\(A^+\)</span>):</p>
+<ul>
+<li>El sistema es <strong>incompatible</strong> si <span class="math">\(\text{rank}(A) &gt; \text{rank}(A^+)\)</span></li>
+<li>El sistema es <strong>compatible determinado</strong> si <span class="math">\(\text{rank}(A) = \text{rank}(A^+)\)</span></li>
+<li>El sistema es <strong>compatible indeterminado</strong> si <span class="math">\(\text{rank}(A) &lt; \text{rank}(A^+)\)</span></li>
+</ul>
+<h2 id="resolucion-mediante-factorizacion-plu">Resolución Mediante Factorización PLU</h2>
+<p>Como las matrices <span class="math">\(L,U\)</span> son escalonadas, la resolución  de un sistema de ecuaciones con esta factorización es rápida. Si queremos resolver el siguiente sistema:</p>
+<div class="math">
+\[
+A\vec x = \vec b
+\]</div>
+<p>Podemos aplicar la factorización:</p>
+<div class="math">
+\[
+\array{
+(I)&amp;PA\vec x = P\vec b\\
+(II) &amp; LU\vec x = P \vec b
+}
+\]</div>
+<p>Y se divide en dos sistemas lineales:</p>
+<div class="math">
+\[
+\left\{\array
+{
+L\vec v = P \vec b\\
+U \vec x = \vec v
+}\right.
+\]</div>
+<h2 id="resolucion-mediante-factorizacion-qr">Resolución  Mediante Factorización QR</h2>
+<p>Sea el sistema de ecuaciones:</p>
+<div class="math">
+\[
+A \vec x = \vec b
+\]</div>
+<p>Podemos resolverlo de la siguiente forma:</p>
+<div class="math">
+\[
+\array{
+(I)&amp; QR \vec x = \vec b\\
+(II) &amp; R \vec x = Q' \vec b
+}
+\]</div>
+<h2 id="sistemas-dinamicos-lineales">Sistemas Dinámicos Lineales</h2>
+<p>Son sistemas de ecuaciones definidos de forma recursiva. Por ejemplo:</p>
+<div class="math">
+\[
+\array{
+x_{n+1} = x_n + y_n\\
+y_{n+1} = x_n - y_n
+}
+\]</div>
+<p>Estos sistemas se pueden representar como:</p>
+<div class="math">
+\[
+U_n = A^nU_0
+\]</div>
+<p>Para resolver este problema problema podemos obtener los autovectores y autovalores de <span class="math">\(A\)</span> y plantear la solución como:</p>
+<div class="math">
+\[
+[x_1,\dots,x_k] = \alpha_1 \lambda_1^n\vec v_1 + \dots +\alpha_m\lambda_m^n\vec v_m
+\]</div>
+<p>Ademas, si nos interesa saber que pasa cuando <span class="math">\(n\rightarrow \infty\)</span> podemos diagonalizar a la matriz <span class="math">\(A:\)</span></p>
+<div class="math">
+\[
+A^\infty = S D^\infty S^{-1}
+\]</div>
+<p>Y los valores en la diagonal nos van a dar las distribuciones estabilizadas.</p>
+<h1 id="autovalores-y-autovectores">Autovalores y Autovectores</h1>
+<p>Sea <span class="math">\(A \in \mathbb{K}^{n\times n}, \vec x \neq \vec 0 \in \mathbb{K}^n,\lambda \in \mathbb{K}\)</span> tal que se cumple:</p>
+<div class="math">
+\[
+A\vec x = \lambda \vec x
+\]</div>
+<p>Entonces <span class="math">\(\lambda\)</span> es un autovalor y <span class="math">\(\vec x\)</span> es su autovector asociado.
+Los autovalores son todos los <span class="math">\(\lambda\)</span> tal que:</p>
+<div class="math">
+\[
+\det(A-\lambda I_{n\times n}) = 0
+\]</div>
+<p>Luego, con cada valor <span class="math">\(\lambda_i\)</span> encontrado podemos tener sus autovectores asociados:</p>
+<div class="math">
+\[
+(A-\lambda_iI_{n\times n})\vec x = 0
+\]</div>
+<p>La <strong>multiplicidad algebraica</strong> es la cantidad de veces que se repite un autovalor, mientras que la <strong>multiplicidad geométrica</strong> es la cantidad de autovectores asociados que tiene cada autovalor. Se cumple:</p>
+<div class="math">
+\[
+1 \le m_g(\lambda) \le m_a(\lambda) \le n
+\]</div>
+<p>Se llama <strong>autovalor dominante</strong> si cumple con:</p>
+<ul>
+<li><span class="math">\(m_a(\lambda_i) = 1\)</span></li>
+<li><span class="math">\(|\lambda_i| \gt \max(\{|\lambda_1|,\dots\} - \{\lambda_i\})\)</span></li>
+</ul>
+<h2 id="propiedades">Propiedades</h2>
+<ol>
+<li>Si <span class="math">\((\lambda,\vec v)\)</span> son un autopar de una matriz <span class="math">\(A,\)</span> entonces <span class="math">\((\lambda,\alpha\vec v), \alpha \neq 0\)</span> también lo es.</li>
+<li>Si <span class="math">\(\lambda\)</span> es autovalor de <span class="math">\(A,\)</span> también lo es de su transpuesta.</li>
+<li>Si <span class="math">\(\lambda\)</span> es un autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda^-1\)</span> es el autovalor de su inversa.</li>
+<li>Si <span class="math">\(\lambda\)</span> es el autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda-\alpha\)</span> lo es de <span class="math">\(A - \alpha \mathbb I.\)</span></li>
+<li>Si <span class="math">\(\lambda\)</span> es el autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda^k\)</span> lo es de <span class="math">\(A^k.\)</span></li>
+<li>Si <span class="math">\(A\)</span> es una matriz real, es diagonalizable si tiene <span class="math">\(n\)</span> autovalores distintos.</li>
+<li>Si una matriz es triangular superior (o inferior) su determinante es el producto de los elementos de su diagonal y sus autovalores son los elementos de esta diagonal.</li>
+</ol>
+<h2 id="metodo-de-las-potencias">Método de las Potencias</h2>
+<p>Este método nos permite calcular de manera iterativa el autovector y autovalor dominante de una matriz.
+Sea <span class="math">\(\vec v_0\)</span> una seed:</p>
+<div class="math">
+\[
+\array{
+ \hat v_i = \frac{ \vec v_i }{ ||\vec v_i|| } \\
+ \vec v_{i+1} = A \hat v_i\\
+ \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle
+ 
+}
+\]</div>
+<p>Este proceso se repite hasta que <span class="math">\(|A\hat v_k - \lambda_k \hat v_k| &lt; \text{tol}\)</span></p>
+<h2 id="metodo-de-las-potencias-inverso">Método de las Potencias Inverso</h2>
+<p>Este método nos permite calcular de manera iterativa el autovalor de menor modulo y su autovector.
+Sea <span class="math">\(A \in \mathbb{K}^{n\times n}\)</span> una matriz inversible y <span class="math">\(v_0\)</span> una seed:</p>
+<div class="math">
+\[
+\array{
+ \hat v_i = \frac{ \vec v_i }{ ||\vec v_i|| } \\
+ \vec v_{i+1} = A^{-1} \hat v_i\\
+ \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle
+}
+\]</div>
+<p>Este proceso se repite hasta que <span class="math">\(|A^{-1}\hat v_k - \lambda_k \hat v_k| &lt; \text{tol}\)</span>
+Este método funciona asumiendo que el autovalor de menor modulo de <span class="math">\(A\)</span> es a su vez el autovalor de mayor modulo de <span class="math">\(A^{-1}.\)</span></p>
+<h2 id="metodo-qr">Método QR</h2>
+<p>Sea <span class="math">\(A \in \mathbb{K}^{n\times n}\)</span> definimos a <span class="math">\(A_0 = A.\)</span> Cada iteración tiene la siguiente forma:</p>
+<div class="math">
+\[
+A_i = Q_iR_i \implies A_{i+1} = R_iQ_i
+\]</div>
+<p>Cuando la matriz <span class="math">\(A_n\)</span> tiene todos los elementos debajo de su diagonal cercanos a <span class="math">\(0\)</span> podemos frenar el proceso y los autovalores serán los números en la diagonal de la matriz <span class="math">\(A_n.\)</span></p>
+<h1 id="transformaciones-lineales">Transformaciones Lineales</h1>
+<p>Una transformación lineal es una función <span class="math">\(T:\mathbb{V} \rightarrow \mathbb{W}\)</span> que cumple con:</p>
+<div class="math">
+\[
+\forall \vec u,\vec v \in \mathbb{V}:
+T(\vec u + \alpha \vec v) = T(\vec u) + \alpha T(\vec v)
+\]</div>
+<p>Las transformaciones lineales también se pueden definir en base a su matriz asociada:</p>
+<div class="math">
+\[
+T:\mathbb{V} \rightarrow \mathbb{W} / T(\vec x) = M\vec x
+\]</div>
+<p>La matriz <span class="math">\(M\)</span> va a ser formada teniendo en cuenta las dimensiones del dominio y la imagen, así como también las bases de los espacios vectoriales.</p>
+<h2 id="matriz-de-cambio-de-base">Matriz de Cambio de Base</h2>
+<p>La matriz de cambio de base es una transformación lineal donde el dominio y la imagen son el mismo espacio vectorial:</p>
+<div class="math">
+\[
+T: \mathbb{V}_B \rightarrow \mathbb{V}_{B'}/T(\vec x) = C\vec x
+\]</div>
+<p>La matriz asociada <span class="math">\(C\)</span> tiene como columnas las coordenadas de los vectores de <span class="math">\(B'\)</span> expresadas en <span class="math">\(B.\)</span> Como la matriz <span class="math">\(C_{BB'}\)</span> es de rango máximo, su inversa es la matriz asociada a la transformación:</p>
+<div class="math">
+\[
+T: \mathbb{V}_{B'} \rightarrow \mathbb{V}_{B}/T(\vec x) = C^{-1}\vec x
+\]</div>
+<h2 id="espacios-fundamentales-de-una-transformacion-lineal">Espacios Fundamentales de una Transformación Lineal</h2>
+<p>Existen 3 subespacios fundamentales asociados a una transformación lineal:</p>
+<div class="math">
+\[
+T : \mathbb{V} \rightarrow \mathbb{W} /T(\vec x) = M\vec x
+\]</div>
+<ul>
+<li>El espacio <strong>columna</strong>: <span class="math">\(\text{col}(T) = \text{col}(M)\)</span> es el espacio generado por las columnas de la matriz.</li>
+<li>El espacio <strong>fila</strong>: <span class="math">\(\text{row}(T) = \text{row}(M)\)</span> es el espacio generado por las filas de la matriz.</li>
+<li>El espacio <strong>nulo</strong>: <span class="math">\(\text{nul}(T) = \left\{\vec x:T(\vec x)= \vec 0\right\}\)</span></li>
+</ul>
+<div class="math">
+\[
+\dim(\mathbb{V}) = \dim(\text{nul}(M)) + \dim(\text{col}(M))
+\]</div>
+<p>El <strong>núcleo</strong> de una transformación lineal se obtiene a partir del espacio nulo:</p>
+<div class="math">
+\[
+\text{nucleo}(T) = \text{gen}(\text{nul}(T))
+\]</div>
+<p>La <strong>imagen</strong> de una transformación lineal se obtiene a partir del espacio columna:</p>
+<div class="math">
+\[
+\text{Im}(T) = \text{gen}(\text{col(M)})
+\]</div>
+<h1 id="pagerank">PageRank</h1>
+<p>A partir de nuestra red, podemos obtener la matriz de hipervinculos <span class="math">\(H \in \mathbb{R}^{N\times N}\)</span> donde <span class="math">\(N\)</span> es la cantidad de nodos. La fila <span class="math">\(i\)</span> de la matriz representa las conexiones entrantes de todos los nodos al nodo <span class="math">\(i\)</span> mientras que la columna <span class="math">\(j\)</span> representa las conexiones salientes del nodo <span class="math">\(j\)</span> hacia todos los nodos de la red.
+Por ejemplo, si tenemos la siguiente red:</p>
+<div class="math">
+\[
+1 \leftrightarrow 2 \leftrightarrow3 \rightarrow 1
+\]</div>
+<p>Vamos a generar los siguientes vectores:</p>
+<div class="math">
+\[
+\array{
+H_1 =&amp; [\array{0 &amp; 1 &amp; 0 }]' \\
+H_2 =&amp; [\array{0 &amp; 1/2 &amp; 1/2}]' \\
+H_3 =&amp; [\array{1/2 &amp; 0 &amp; 1/2}]' \\
+}
+\]</div>
+<p>Y podemos generar a la matriz de hiperlinks de la siguiente forma:</p>
+<div class="math">
+\[
+H = \{H_1,H_2,H_3\} = \left[\array{
+0 &amp; 0 &amp; 1/2 \\
+1 &amp; 1/2 &amp; 0 \\
+0 &amp; 1/2 &amp; 1/2
+}\right]
+\]</div>
+<p>El algoritmo de PageRank es un algoritmo iterativo:</p>
+<div class="math">
+\[
+r^{i+i} = Hr^{i}
+\]</div>
+<p>Donde <span class="math">\(r^i\)</span> es el vector que guarda los rankings de los nodos. Este vector se puede inicializar de varias maneras, aunque las más comunes son inicializarlo con valores aleatorios o con el valor <span class="math">\(\frac 1 N.\)</span>
+Eventualmente, cuando <span class="math">\(i\rightarrow \infty\)</span> vamos a ver que <span class="math">\(r^i\)</span> converge a un valor especifico. Esta es la probabilidad de que el crawler visite a cada uno de estos nodos. Los nodos con mayor probabilidad de ser visitados son los que tienen mayor ranking.</p>
+<p>El problema de este método es que es iterativo, y al tener miles de millones de nodos, se hace poco practico multiplicar las matrices. Por esto podemos utilizar el teorema de Perrone-Frobenius y simplificar los calculos.
+El teorema nos garantiza que <span class="math">\(\lambda = 1\)</span> es un autovalor. Ademas sabemos que eventualmente el vector de rankings converge, por lo que nos encontramos con la siguiente formula:</p>
+<div class="math">
+\[
+Hr = r
+\]</div>
+<p>Esta formula es igual a la siguiente. Sea <span class="math">\(v\)</span> un autovector y <span class="math">\(\lambda\)</span> su autovalor asociado, se cumple que:</p>
+<div class="math">
+\[
+Hv = \lambda v
+\]</div>
+<p><strong>Entonces, si conseguimos el autovector asociado con el autovalor <span class="math">\(\lambda = 1\)</span> podemos obtener el vector de los rankings de forma mucho más rápida</strong>.</p>
+<h2 id="problemas-del-algoritmo">Problemas del algoritmo</h2>
+<p>El algoritmo basico se puede aplicar siempre que se cumplan dos condiciones:</p>
+<ul>
+<li>No puede haber <strong>dead ends</strong>. Esto implica que no puede haber un nodo con entradas y sin salidas. Este caso es facil de ver ya que en la matriz de hiperlinks vamos a ver una columna cuyos elementos no suman 1. Si existen dead ends, entonces no se puede aplicar el teorema de Perrone-Frobenius y no se puede garantizar que <span class="math">\(1\)</span> sea un autovalor.</li>
+<li>No puede haber <strong>spider traps</strong>. Esto implica que hay al menos un nodo que tiene entradas y una  sola salida, que apunta al mismo nodo. Este caso es similar al anterior, pero se cumple el teorema de Perrone-Frobenius. El problema es que el crawler siempre se va a quedar atrapado en ese nodo y no va a poder seguir escaneando la red.</li>
+</ul>
+<h2 id="optimizaciones">Optimizaciones</h2>
+<p>En el caso de encontrarse en una situación donde hay spider traps, podemos ajustar el algoritmo para que el crawler pueda teletransportarse a otro nodo con cierta probabilidad.</p>
+<p>El <strong>método de teletransportación</strong> nos dice que podemos modificar a la matriz de hiper vinculos de la siguiente manera:</p>
+<div class="math">
+\[
+\mathbb{H} = \beta H + \text{ones(N,N)}\times\frac{1-\beta}{N} 
+\]</div>
+<p>Donde <span class="math">\(\beta \in (0,1)\)</span> es un factor de amortiguamiento, <span class="math">\(\text{ones(a,b)}\)</span> es una función que genera una matriz que contiene $1$s de dimensión <span class="math">\(a\times b\)</span> y <span class="math">\(N\)</span> es la cantidad total de nodos de la red.</p>
+<p>Si nos encontramos con dead ends en nuestra red, podemos mitigar sus efectos reemplazando los valores de la columna del nodo que genera el dead end por <span class="math">\(\frac 1 N\)</span> y luego aplicar el metodo de teletransportación. El calculo termina de la siguiente forma:</p>
+<div class="math">
+\[
+\mathbb{H} = \beta H + \frac \beta N \text{ones(N,N)} \times e_l'+ \text{ones(N,N)}\times\frac{1-\beta}{N} 
+\]</div>
+<p>Donde <span class="math">\(e_k\)</span> es un vector cuyos valores son 0 excepto por el elemento en la posición <span class="math">\(k,\)</span> que es <span class="math">\(1\)</span> y <span class="math">\(l\)</span> es el nodo que genera el dead end.</p>
+<h1 id="cuadrados-minimos">Cuadrados Mínimos</h1>
+<p>Es un método para aproximar a una función en base a valores conocidos de la misma. En este ejercicio te dan una lista de puntos con el valor de la función y a la vez te dan la función a la cual hay que calcular los coeficientes.
+Para los proximos métodos vamos a asumir que tenemos que aproximar la función a una función lineal:</p>
+<div class="math">
+\[
+Y = a x + b
+\]</div>
+<p>Donde no conocemos los valores de <span class="math">\(a,b.\)</span></p>
+<h2 id="metodo-algebraico">Método Algebraico</h2>
+<p>Primero hay que encontrar el error cuadrado:</p>
+<div class="math">
+\[
+|Err|^2 = \frac 1 n \sum_{i=1}^n |y_i-(ax_i+b)|^2
+\]</div>
+<p>Luego, debemos derivar al error cuadrado por cada incognita que queremos encontrar:</p>
+<div class="math">
+\[
+\array{
+\frac {\partial |Err|^2}{\partial a}=0=|Err|^2 = \frac 2 n \sum_{i=1}^n (y_i-(ax_i+b))(-x_i) \\
+\frac {\partial |Err|^2}{\partial b}=0=|Err|^2 = \frac 2 n \sum_{i=1}^n (y_i-(ax_i+b))(-1)
+}
+\]</div>
+<p>Puedo separar a estas funciones en los términos que multiplican a las incognitas y formar un sistema de ecuaciones:</p>
+<div class="math">
+\[
+\left[\array{
+\sum x_i^2 &amp; \sum x_i\\
+\sum x_i  &amp; n
+}\right] 
+\left[
+\array{
+a \\ b
+}
+\right] = 
+\left [
+\array{
+\sum y_ix_i\\
+\sum y_i
+}
+\right]
+\]</div>
+<p>Podemos resolver este sistema lineal y obtener los valores de nuestros coeficientes.</p>
+<h2 id="metodo-numerico">Método Numérico</h2>
+<p>Esta solución es más simple. Tenemos que plantear la función en cada punto conocido. Por ejemplo, si nuestra función es conocida en <span class="math">\([x_1,x_2,x_3]:\)</span></p>
+<div class="math">
+\[
+\array{
+y(x_1) = a x_1 +b\\
+y(x_2) = a x_2 +b\\
+y(x_3) = a x_3 +b\\
+}
+\]</div>
+<p>En base a esto podemos plantear el siguiente sistema de ecuaciones:</p>
+<div class="math">
+\[
+\left[\array{
+x_1 &amp; 1\\
+x_2 &amp; 1\\
+x_3 &amp; 1\\
+}\right] \left[\array{
+a \\ b
+}\right] = \left[\array{
+y(x_1)\\
+y(x_2)\\
+y(x_3)
+}\right]
+\]</div>
+<p>Al solucionar al sistema este encontramos los coeficientes de nuestra aproximación.</p>
+<h1 id="funciones-periodicas">Funciones Periódicas</h1>
+<p>Las funciones periódicas son aquellas para las cuales se cumple:</p>
+<div class="math">
+\[
+\exists T \gt 0/\forall t:f(t+T) = f(T)
+\]</div>
+<p>Se denomina <strong>periodo fundamental</strong> al menor <span class="math">\(T_0\)</span> que cumple con la condición de función periódica.
+Sean <span class="math">\(f,g\)</span> funciones periódicas, se dice que</p>
+<div class="math">
+\[
+f+g \text{ es periódica} \iff \frac{T_f}{T_g} \in \mathbb{Q}
+\]</div>
+<p>Sea <span class="math">\(T_f = \frac{p_f}{q_f}, T_g = \frac{p_g}{q_g}\)</span> los periodos de las funciones <span class="math">\(f,g,\)</span> el periodo de la suma de ambas es:</p>
+<div class="math">
+\[
+T_{f+g} = \frac{\text{mcm}(p_f,p_g)}{\text{mcd}(q_f,q_g)} \pi
+\]</div>
+<h2 id="extension-de-funciones">Extensión de Funciones</h2>
+<p>Si una función no es periódica, se la puede extender de manera par o impar para que lo sea.
+Para poder realizar este proceso debemos acotar a nuestra función en un rango <span class="math">\([a,b]\)</span> y extenderla periodicamente con el periodo <span class="math">\(|b-a|\)</span>
+Si quiero hace una <strong>extensión par</strong> de la función <span class="math">\(f:\mathbb{R} \rightarrow \mathbb{R}\)</span> debo definir a la nueva función:</p>
+<div class="math">
+\[
+g:\mathbb{R} \rightarrow \mathbb{R}/ g(x) = \left\{
+\array{
+f(x) &amp; x \in [0,b]\\
+f(-x) &amp; x \in [-b,0]
+}
+\right.
+\]</div>
+<p>Si quiero
+hace una <strong>extensión impar</strong> de la función <span class="math">\(f:\mathbb{R} \rightarrow \mathbb{R}\)</span> debo definir a la nueva función:</p>
+<div class="math">
+\[
+g:\mathbb{R} \rightarrow \mathbb{R}/ g(x) = \left\{
+\array{
+f(x) &amp; x \in [0,b]\\
+-f(-x) &amp; x \in [-b,0]
+}
+\right.
+\]</div>
+<h1 id="series-de-fourier">Series de Fourier</h1>
+<p>Sea <span class="math">\(f\)</span> una función con periodo <span class="math">\(T\)</span> que cumpla con las <strong>condiciones de Dirichlet</strong>:</p>
+<ol>
+<li><span class="math">\(f\)</span> tiene un número finito de discontinuidades en <span class="math">\([0,T]\)</span></li>
+<li><span class="math">\(f\)</span> tiene un número finito de extremos en el intervalo <span class="math">\([0,T]\)</span></li>
+<li><span class="math">\(f \in L^2\)</span>
+Se puede reescribir como una serie de Fourier.
+En los puntos de discontinuidad <span class="math">\(t_i\)</span> la serie converge al promedio de los puntos que lo rodean:</li>
+</ol>
+<div class="math">
+\[
+S_f(t_i) = \frac{S_f(t_i^+) + S_f(t_i^-)}{2}
+\]</div>
+<h2 id="serie-trigonometrica">Serie Trigonométrica</h2>
+<p><span class="math">\(f\)</span> se puede reescribir usando la formula trigonométrica:</p>
+<div class="math">
+\[
+S_f(x) = \frac {a_0} 2 + \sum_{n=1}^\infty a_n cos\left(\frac{2\pi n}{T} x\right) + \sum_{n=1}^\infty b_n \sin\left(\frac{2\pi n}{T} x\right)
+\]</div>
+<div class="math">
+\[
+a_0 = \frac 2 T \langle 1,f(x)\rangle = \frac 2 T \int_{-\infty}^\infty f(x) dx
+\]</div>
+<div class="math">
+\[
+a_n = \frac 2 T \left\langle \cos\left(\frac{2\pi n}{T}x\right) f(x) \right\rangle
+ = \frac 2 T \int_{-\infty}^\infty f(x) \cos\left(\frac{2\pi n}{T}x\right) dx
+\]</div>
+<div class="math">
+\[
+b_n = \frac 2 T \left\langle \sin\left(\frac{2\pi n}{T}x\right) f(x) \right\rangle
+ = \frac 2 T \int_{-\infty}^\infty f(x) \sin\left(\frac{2\pi n}{T}x\right) dx
+\]</div>
+<p>Si la función <span class="math">\(f\)</span> es par, entonces <span class="math">\(\forall n: b_n = 0\)</span>
+Si la función <span class="math">\(f\)</span> es impar, entonces <span class="math">\(\forall n: a_n = 0\)</span></p>
+<h2 id="serie-exponencial">Serie Exponencial</h2>
+<p><span class="math">\(f\)</span> se puede reescribir usando la formula exponencial:</p>
+<div class="math">
+\[
+S_f(x) = \sum_{n=-\infty}^\infty c_n e^{\frac{2\pi n i }{T}x}
+\]</div>
+<div class="math">
+\[
+c_n = \frac 2 T \left\langle e^{\frac{-2\pi n}{T}xi},f(x) \right\rangle = \frac 2 T \int_{-\infty}^\infty f(x)e^{\frac{-2\pi n}{T}xi} dx
+\]</div>
+<h2 id="serie-en-amplitud-y-fase">Serie en Amplitud y Fase</h2>
+<p><span class="math">\(f\)</span> se puede reescribir usando el desarrollo en amplitud y fase:</p>
+<div class="math">
+\[
+S_f(x)= \frac {a_0}{2} + \sum_{k=1}^\infty A_k\cos\left( \frac{2\pi k}{T} x + \phi_k \right)
+\]</div>
+<h2 id="conversiones">Conversiones</h2>
+<p>Sea <span class="math">\(S_f\)</span> una serie trigonométrica con coeficientes <span class="math">\(a_0,a_n,b_n\)</span> se puede transformar en una serie exponencial con coeficiente <span class="math">\(c_n:\)</span></p>
+<div class="math">
+\[
+c_n = \left\{
+\array{
+\frac{a_n+ib_n}2&amp;n \in (-\infty,0)\\
+\frac {a_0} 2 &amp; n = 0 \\
+\frac{a_n - i b_n}{2} &amp; n \in (0,\infty)
+}
+\right.
+\]</div>
+<p>Sea <span class="math">\(Sg\)</span> una serie exponencial con coeficientes <span class="math">\(c_n\)</span> se puede transformar en una serie trigonométrica con coeficientes <span class="math">\(a_0,a_n,b_n:\)</span></p>
+<div class="math">
+\[
+a_0 = 2c_0
+\]</div>
+<div class="math">
+\[
+a_n = c_n + c_{-n}
+\]</div>
+<div class="math">
+\[
+b_n = i(c_n - c_{-n})
+\]</div>
+<p>Sea <span class="math">\(S_f\)</span> una serie trigonométrica con coeficientes <span class="math">\(a_0,a_n,b_n\)</span> se puede transformar en un desarrollo en amplitud y fase con coeficiente <span class="math">\(A_k,\phi_k:\)</span></p>
+<div class="math">
+\[
+A_k = \sqrt{a_n^2 + b_n^2}
+\]</div>
+<div class="math">
+\[
+\cos(\phi_k) = \frac{a_k}{A_k}
+\]</div>
+<div class="math">
+\[
+\sin(\phi_k) = \frac{b_k}{A_k}
+\]</div>
+<h2 id="fenomeno-de-gibbs">Fenómeno de Gibbs</h2>
+<p>El fenómeno de Gibbs consiste en que la aproximación tiende a aproximar por encima o por debajo del valor correcto cerca de las discontinuidades de la función al agregar más términos a la serie de Fourier.</p>
+<h2 id="propiedades-1">Propiedades</h2>
+<ul>
+<li><strong>Linealidad</strong>: Sean <span class="math">\(f,g\)</span> funciones con el mismo periodo representadas por <span class="math">\(c_n,c_n'\)</span> respectivamente, podemos decir que la serie de Fourier de la función <span class="math">\(\alpha f(x) + \beta g(x)\)</span> esta representada por <span class="math">\(\alpha c_n + \beta c_n'\)</span></li>
+<li><strong>Igualdad de Parseval</strong>: Sea <span class="math">\(f\)</span> una función representada por <span class="math">\(a_0,a_n,b_n\)</span> o por <span class="math">\(c_n\)</span> se verifica que:</li>
+</ul>
+<div class="math">
+\[
+\frac 1 T \int_0^T |f(x)|^2 dx = \sum_{n=-\infty}^\infty |c_n|^2 = \left(\frac{a_0}2\right)^2 + \frac 1 2 \sum_{n=1}^\infty a_n^2 + b_n^2
+\]</div>
+<ul>
+<li><strong>Derivación</strong>: Sea <span class="math">\(f\)</span> una función representada por una serie de Fourier <span class="math">\(S_f\)</span> podemos decir que <span class="math">\(g(x) = \frac{\partial f(x)}{\partial x}\)</span> es representada por la serie de Fourier <span class="math">\(S_g = \frac{\partial S_f(x)}{\partial x}\)</span></li>
+<li><strong>Integración</strong>: Sea <span class="math">\(f\)</span> una función representada por una serie de Fourier <span class="math">\(S_f\)</span> podemos decir que <span class="math">\(g(x) = \int f(x)dx\)</span> es representada por la serie de Fourier <span class="math">\(S_g(x) = \int S_f(x)dx\)</span></li>
+</ul>
+<h1 id="transformada-de-fourier">Transformada de Fourier</h1>
+<p>La transformada de Fourier nos permite descomponer a una señal en sus frecuencias fundamentales.</p>
+<h2 id="transformada-continua-de-fourier">Transformada Continua de Fourier</h2>
+<p>La transformada continua se usa solo cuando se trabaja con señales finitas o infinitas, pero estas decaen a 0.
+La transformada se puede obtener en base a la <strong>frecuencia angular</strong> <span class="math">\((w):\)</span></p>
+<div class="math">
+\[
+G(w) = \int_{-\infty}^\infty g(x)e^{-iwx} dx
+\]</div>
+<p>También se puede obtener en base a la <strong>frecuencia</strong> <span class="math">\((f):\)</span></p>
+<div class="math">
+\[
+G(f) = \int_{-\infty}^\infty g(x)e^{-2\pi fix} dx
+\]</div>
+<p>Ya que <span class="math">\(w = 2\pi f.\)</span></p>
+<h2 id="transformada-inversa-de-fourier">Transformada Inversa de Fourier</h2>
+<p>Sea <span class="math">\(G\)</span> la transformada de Fourier continua en base a la <strong>frecuencia angular</strong> <span class="math">\((w)\)</span> de la función <span class="math">\(g:\)</span></p>
+<div class="math">
+\[
+g(x) = \frac 1 {2\pi} \int_{-\infty}^\infty G(w)e^{wti}dw
+\]</div>
+<p>Sea <span class="math">\(G\)</span> la transformada de Fourier continua en base a la <strong>frecuencia</strong> <span class="math">\((f)\)</span> de la función <span class="math">\(g\)</span>:</p>
+<div class="math">
+\[
+g(x) = \frac 1 {2\pi} \int_{-\infty}^\infty G(f) e^{2\pi f i x}df
+\]</div>
+<h2 id="transformada-discreta-de-fourier">Transformada Discreta de Fourier</h2>
+<p>Sea <span class="math">\(x[n] = \{x_1,\dots,x_N\}\)</span> una serie de N puntos y <span class="math">\(g[n] = \{g(x_1),\dots,g(x_N)\}\)</span> una función evaluada en los puntos mencionados.
+La transformada de Fourier discreta de <span class="math">\(g\)</span> en base a la <strong>frecuencia angular</strong> <span class="math">\((w)\)</span> es:</p>
+<div class="math">
+\[
+G[k] = \sum_{n=0}^{N-1} g[n] e^{-iwnk}
+\]</div>
+<p>La transformada de Fourier discreta de <span class="math">\(g\)</span> en base a la <strong>frecuencia</strong> <span class="math">\((f)\)</span> es:</p>
+<div class="math">
+\[
+G[k] = \sum_{n=0}^{N-1} g[n] e^{-i\frac{2\pi n}{N}k}
+\]</div>
+<h2 id="transformada-discreta-inversa-de-fourier">Transformada Discreta Inversa de Fourier</h2>
+<p>Sea <span class="math">\(G\)</span> la transformada discreta en base de la <strong>frecuencia</strong> <span class="math">\((f)\)</span> de la función <span class="math">\(g\)</span> puedo obtener:</p>
+<div class="math">
+\[
+g[n] = \frac 1 N \sum_{k=0}^{N-1} G[k]e^{i\frac{2\pi n}{N} k}
+\]</div>
+<p>Sea <span class="math">\(G\)</span> la transformada discreta en base a la <strong>frecuencia angular</strong> <span class="math">\((w)\)</span> de la función <span class="math">\(g\)</span> puedo obtener:</p>
+<div class="math">
+\[
+g[n] = \frac 1 N \sum_{k=0}^{N-1}G[k] e^{i wnk}
+\]</div>
+<h2 id="analisis-de-frecuencias">Análisis de Frecuencias</h2>
+<p>A partir de las muestras podemos descubrir las frecuencias presentes en la misma. Para hacerlo tenemos que definir una frecuencia de muestreo. Si queremos que no haya frecuencias fantasma, tenemos que elegir una <strong>frecuencia de muestreo</strong> <span class="math">\((f_M)\)</span> tal que:</p>
+<div class="math">
+\[
+f_M \gt 2 \times f_{max}
+\]</div>
+<p>A esto se lo conoce como el <strong>teorema de Nyquist</strong> y el fenómeno se conoce como frecuencias fantasma o aliasing.
+Si conocemos las frecuencias de la señal, podemos analizar donde se presentaria el aliasing:</p>
+<div class="math">
+\[
+f_\text{aliasing} = \left| 
+f - f_M\times \text{round}\left(
+\frac {f}{f_M}
+\right)
+\right|
+\]</div>
+<h1 id="diferencias-finitas">Diferencias Finitas</h1>
+<p>Este método busca aproximar el valor de una derivada en un punto usando puntos cercanos de la función.
+Por ejemplo, queremos aproximar a la <span class="math">\(f'(x_i)\)</span> con los puntos <span class="math">\(x_{i-1},x_i,x_{i+1}\)</span></p>
+<div class="math">
+\[
+f'(x_i) = \alpha f(x_{i-1}) + \beta f(x_i) + \gamma f(x_{i+1}) + \text{Err}
+\]</div>
+<p>Planteamos el polinomio de Taylor para la función en cada punto a analizar:</p>
+<div class="math">
+\[
+\array{
+f(x_{i-1}) = f(x_i) - hf'(x_i) + \frac {h^2} {2} f''(x_i)  - \dots \\
+f(x_{i}) = f(x_i) \\
+f(x_{i+1}) = f(x_i) + hf'(x_i) + \frac {h^2} {2} f''(x_i)  + \dots \\
+}
+\]</div>
+<p>Reemplazamos estos valores en nuestra primer ecuación y tenemos:</p>
+<div class="math">
+\[
+\array{
+f'(x_i) &amp;=&amp;
+f(x_i) (\alpha + \beta +\gamma) \\
+&amp;+ &amp; hf'(x_i) (-\alpha + \gamma ) \\
+&amp;+&amp; \frac{h^2}{2} f''(x_i) (\alpha + \gamma) \\
+&amp;+&amp; \dots
+}
+\]</div>
+<p>Resolvemos este sistema de ecuaciones y obtenemos los valores de los coeficientes. La cantidad de términos del polinomio de Taylor depende de la cantidad de puntos. Por lo general, si se tiene 3 puntos se utiliza un polinomio de 4 términos donde el ultimo termino representa al error.</p>
+<h2 id="error">Error</h2>
+<p>El <strong>error de truncamiento</strong> se puede acotar de la siguiente forma:</p>
+<div class="math">
+\[
+\text{Err}_T \lesssim Mh^{a-b}
+\]</div>
+<p>Donde <span class="math">\(a\)</span> representa a la cantidad de puntos a utilizar <span class="math">\(+1\)</span> mientras que <span class="math">\(b\)</span> representa a que derivada se quiso aproximar.
+El <strong>error de representación</strong> se obtiene puede acotar de la siguiente forma:</p>
+<div class="math">
+\[
+\text{Err}_R = \frac{\epsilon_1 - \epsilon_2}{h} \le 2 \frac{\epsilon_M}{h}
+\]</div>
+<p>El <strong>error total</strong> se calcula de la siguiente forma:</p>
+<div class="math">
+\[
+\array{
+\text{Err} =&amp; f'(x_0) - \tilde f'(x_0) \\
+&amp; f'(x_0) - \frac{f(x_0 + h)+ e_1 - f(x_0)-e_2}{h} \\
+&amp; \left[f'(x_0) - \frac{f(x_0+h)-f(x_0)}{h}\right] + \frac{e_1-e_2}{h}\\
+\text{Err} \le &amp;\text{Err}_t + \text{Err}_R 
+}
+\]</div>
+<h2 id="derivadas-precalculadas">Derivadas Precalculadas</h2>
+<ul>
+<li><span class="math">\(y'= \frac{y_{n+1}-y_n}{h}\)</span></li>
+<li><span class="math">\(y' = \frac{y_n - y_{n-1}}{h}\)</span></li>
+<li><span class="math">\(y' = \frac{y_{n+1}-y_{n-1}}{2h}\)</span></li>
+<li><span class="math">\(y''=\frac{y_{n+1}-2y_n+y_{n+1}}{h^2}\)</span></li>
+</ul>
+<h1 id="ecuaciones-diferenciales">Ecuaciones Diferenciales</h1>
+<h2 id="metodos-de-discretizacion">Metodos de Discretización</h2>
+<p>Existen 3 métodos de discretización:</p>
+<ul>
+<li><strong>Método Explicito</strong>:</li>
+</ul>
+<div class="math">
+\[
+y' = f(t_n,y_n)
+\]</div>
+<ul>
+<li><strong>Método Implícito</strong></li>
+</ul>
+<div class="math">
+\[
+y' = f(t_{n+1},y_{n+1})
+\]</div>
+<ul>
+<li><strong>Método de Crank-Nicolson</strong></li>
+</ul>
+<div class="math">
+\[
+y' = \frac{f(t_{n+1},y_{n+1}) + f(t_n,y_n)}{2}
+\]</div>
+<p>El método implícito y explicito son de primer orden, mientras que el método de Crank-Nicolson es de segundo orden.</p>
+<h2 id="initial-value-problem">Initial Value Problem</h2>
+<p>Es un método para resolver una ecuación diferencial en un punto especifico.
+Sea <span class="math">\(y' = f(t,y)\)</span> una EDO y <span class="math">\(y(x_i)=a\)</span> puedo resolver la ecuación de la siguiente forma:</p>
+<ol>
+<li>Discretizo la EDO utilizando uno de los siguientes métodos:
+<ul>
+<li>Método Explicito</li>
+<li>Método Implícito</li>
+<li>Método de Crank-Nicolson</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#vectores">Vectores</a>
+<li>Despejo la ecuación para que <span class="math">\(y_{n+1}\)</span> quede en función de <span class="math">\(y_n, t_n\)</span></li>
+<li>A partir de <span class="math">\(x_i\)</span> itero aumentando el valor por <span class="math">\(h\)</span> en cada iteración hasta llegar la valor deseado.</li>
+</ol>
+<h2 id="border-value-problem">Border Value Problem</h2>
+<p>Es un método para resolver EDOs en una serie de puntos. Dependiendo del tipo de problema se puede encarar de 3 formas:</p>
 <ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#dependencia-lineal">Dependencia Lineal</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#proyectores">Proyectores</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#metodo-gram-schmidt">Método Gram-Schmidt</a></li>
+<li><strong>Condiciones de Dirichlet</strong>: Se conoce el valor de la función al inicio y al final del dominio.</li>
+<li><strong>Condiciones de Neumann</strong>: Se conoce solo el valor de la derivada en dos puntos.</li>
+<li><strong>Condiciones Mixtas</strong>: Es una mezcla de ambos métodos.
+Para resolver estos problemas hay que seguir los siguientes pasos:</li>
 </ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#espacios-vectoriales">Espacios Vectoriales</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#subespacios-vectoriales">Subespacios Vectoriales</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#producto-interno">Producto Interno</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#norma">Norma</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#espacios-normados">Espacios Normados</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#espacios-de-funciones">Espacios de Funciones</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#generadores">Generadores</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#bases">Bases</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#espacios-asociados-a-una-matriz">Espacios Asociados a una Matriz</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#sistemas-de-ecuaciones-lineales">Sistemas de Ecuaciones Lineales</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#resolucion-mediante-factorizacion-plu">Resolución Mediante Factorización PLU</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#resolucion-mediante-factorizacion-qr">Resolución  Mediante Factorización QR</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#sistemas-dinamicos-lineales">Sistemas Dinámicos Lineales</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#autovalores-y-autovectores">Autovalores y Autovectores</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#propiedades">Propiedades</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#metodo-de-las-potencias">Método de las Potencias</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#metodo-de-las-potencias-inverso">Método de las Potencias Inverso</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#metodo-qr">Método QR</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#transformaciones-lineales">Transformaciones Lineales</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#matriz-de-cambio-de-base">Matriz de Cambio de Base</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#espacios-fundamentales-de-una-transformacion-lineal">Espacios Fundamentales de una Transformación Lineal</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#pagerank">PageRank</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#problemas-del-algoritmo">Problemas del algoritmo</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#optimizaciones">Optimizaciones</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#cuadrados-minimos">Cuadrados Mínimos</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#metodo-algebraico">Método Algebraico</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#metodo-numerico">Método Numérico</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#funciones-periodicas">Funciones Periódicas</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#extension-de-funciones">Extensión de Funciones</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#series-de-fourier">Series de Fourier</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#serie-trigonometrica">Serie Trigonométrica</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#serie-exponencial">Serie Exponencial</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#serie-en-amplitud-y-fase">Serie en Amplitud y Fase</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#conversiones">Conversiones</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#fenomeno-de-gibbs">Fenómeno de Gibbs</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#propiedades">Propiedades</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#transformada-de-fourier">Transformada de Fourier</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#transformada-continua-de-fourier">Transformada Continua de Fourier</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#transformada-inversa-de-fourier">Transformada Inversa de Fourier</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#transformada-discreta-de-fourier">Transformada Discreta de Fourier</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#transformada-discreta-inversa-de-fourier">Transformada Discreta Inversa de Fourier</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#analisis-de-frecuencias">Análisis de Frecuencias</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#diferencias-finitas">Diferencias Finitas</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#error">Error</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#derivadas-precalculadas">Derivadas Precalculadas</a></li>
-</ul>
-</li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#ecuaciones-diferenciales">Ecuaciones Diferenciales</a>
-<ul>
-<li><a href="./00%20-%20Cheat%20Sheet.html#metodos-de-discretizacion">Metodos de Discretización</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#initial-value-problem">Initial Value Problem</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#border-value-problem">Border Value Problem</a></li>
-<li><a href="./00%20-%20Cheat%20Sheet.html#ecuaciones-de-segundo-orden">Ecuaciones de Segundo Orden</a></li>
-</ul>
-</li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#algebra-lineal">Algebra Lineal</a>
-<ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#aritmetica-de-vectores-y-matrices">Aritmética de Vectores y Matrices</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#vectores-y-matrices">Vectores y Matrices</a>
-<ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#operaciones">Operaciones</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#matriz-inversible">Matriz Inversible</a></li>
-</ul>
-</li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#sistema-de-ecuaciones-lineales">Sistema de Ecuaciones Lineales</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#espacios-vectoriales">Espacios Vectoriales</a>
-<ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#subespacios-vectoriales">Subespacios Vectoriales</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#combinacion-lineal-de-vectores">Combinación Lineal de Vectores</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#generadores-y-bases">Generadores y Bases</a>
-<ul>
-<li><a href="./01%20-%20Algebra%20Lineal.html#espacios-asociados-con-una-matriz">Espacios Asociados con una Matriz</a></li>
-<li><a href="./01%20-%20Algebra%20Lineal.html#espacios-de-dimension-infinita-numerable">Espacios de Dimension Infinita Numerable</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="./02%20-%20Matrices%20Especiales.html#matrices-especiales">Matrices Especiales</a>
-<ul>
-<li><a href="./02%20-%20Matrices%20Especiales.html#matrices-nilpotentes-involutivas-e-idempotentes">Matrices Nilpotentes, Involutivas e Idempotentes</a></li>
-<li><a href="./02%20-%20Matrices%20Especiales.html#matrices-con-estructura-particular">Matrices con Estructura Particular</a></li>
-</ul>
-</li>
-<li><a href="./03%20-%20Operaciones%20Elementales%20de%20Filas%20de%20una%20Matriz.html#operaciones-elementales-de-filas-de-una-matriz">Operaciones Elementales de Filas de una Matriz</a></li>
-<li><a href="./034%20-%20Espacios%20Metricos.html#espacios">Espacios</a>
-<ul>
-<li><a href="./034%20-%20Espacios%20Metricos.html#espacios-normados-con-una-norma-inducida">Espacios Normados con una Norma Inducida</a></li>
-<li><a href="./034%20-%20Espacios%20Metricos.html#bases-ortonormales">Bases Ortonormales</a></li>
-<li><a href="./034%20-%20Espacios%20Metricos.html#subespacios-ortogonales">Subespacios Ortogonales</a></li>
-<li><a href="./034%20-%20Espacios%20Metricos.html#proyectores-ortogonales">Proyectores Ortogonales</a></li>
-</ul>
-</li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#sistemas-de-ecuaciones-lineales">Sistemas de Ecuaciones Lineales</a>
-<ul>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#soluciones-de-sistemas-homogeneos">Soluciones de Sistemas Homogeneos</a></li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#solucion-numerica-de-un-sistema-lineal-de-ecuaciones">Solución Numérica de un Sistema Lineal de Ecuaciones</a></li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#sistemas-cuya-matriz-es-triangular">Sistemas Cuya Matriz es Triangular</a></li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#matrices-tridiagonales">Matrices Tridiagonales</a></li>
-<li><a href="./04%20-%20Sistemas%20de%20Ecuaciones%20Lineales.html#costo-computacional">Costo Computacional</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Espacios%20Vectoriales.html#espacios-vectoriales">Espacios Vectoriales</a>
-<ul>
-<li><a href="./05%20-%20Espacios%20Vectoriales.html#espacios-funcionales">Espacios Funcionales</a></li>
-<li><a href="./05%20-%20Espacios%20Vectoriales.html#subespacios-vectoriales">Subespacios Vectoriales</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-de-matrices">Factorización de Matrices</a>
-<ul>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-plu-de-una-matriz">Factorización <span class="math">\(PLU\)</span> de una Matriz</a>
-<ul>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-lu-para-resolver-sistemas-de-ecuaciones-lineales">Factorización <span class="math">\(LU\)</span> para Resolver Sistemas de Ecuaciones Lineales</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#calculo-de-determinantes">Calculo de Determinantes</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#resolution-de-multiples-sistemas-simultaneamente-matriz-inversa">Resolution de Multiples Sistemas Simultaneamente: Matriz Inversa</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-qr-por-el-metodo-de-gram-schmidt">Factorización <span class="math">\(QR\)</span> por el Método de Gram-Schmidt</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-qr-por-el-metodo-de-las-reflexiones-de-householder">Factorización <span class="math">\(QR\)</span> por el Método de las Reflexiones de Householder</a>
-<ul>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#reflexiones-de-householder">Reflexiones de Householder</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#reduction-a-cero-de-elementos-de-una-columna-de-vector-mediante-reflexiones-de-householder">Reduction a Cero de Elementos de una Columna de Vector Mediante Reflexiones de HouseHolder</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#reduction-a-cero-de-elementos-de-una-columna-de-una-matriz-mediante-reflexiones-de-householder">Reduction a Cero de Elementos de una Columna de una Matriz Mediante Reflexiones de HouseHolder</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#aplicaciones-de-la-factorizacion-qr">Aplicaciones de la Factorización QR</a>
-<ul>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#sistemas-de-ecuaciones">Sistemas de Ecuaciones</a></li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#calculo-de-modulo-del-determinante-de-una-matriz">Calculo de Modulo del determinante de una matriz</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#base-ortonormal-del-espacio-columnas-de-una-matriz">Base Ortonormal del Espacio Columnas de una Matriz</a></li>
-</ul>
-</li>
-<li><a href="./05%20-%20Factorizacion%20de%20Matrices.html#factorizacion-svd-de-una-matriz">Factorización SVD de una Matriz</a></li>
-</ul>
-</li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#autovalores-y-autovectores">Autovalores y Autovectores</a>
-<ul>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#multiplicidad-algebraica-y-geometrica">Multiplicidad Algebraica y Geometrica</a>
-<ul>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#propiedades-asociadas-a-los-autovalores-y-autovectores-de-una-matriz">Propiedades Asociadas a los Autovalores y Autovectores de una Matriz</a></li>
-</ul>
-</li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#calculo-de-autovalores">Calculo de Autovalores</a>
-<ul>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#metodo-de-las-potencias-para-el-calculo-de-los-autovalores">Método de las Potencias para el Calculo de los Autovalores</a></li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#metodo-de-las-potencias-desplazado">Método de las Potencias Desplazado</a></li>
-</ul>
-</li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#computo-del-autovalor-con-menor-modulo-metodo-de-las-potencias-inverso">Computo del Autovalor con Menor Modulo: Método de las Potencias Inverso</a></li>
-<li><a href="./06%20-%20Autovalores%20y%20Autovectores.html#calculo-de-autovalores-por-el-proceso-qr">Calculo de Autovalores por el Proceso QR</a></li>
-</ul>
-</li>
-<li><a href="./06%20-%20Conjunto%20de%20Generadores%20y%20Bases.html#conjunto-de-generadores-y-bases">Conjunto de Generadores y Bases</a>
-<ul>
-<li><a href="./06%20-%20Conjunto%20de%20Generadores%20y%20Bases.html#combinacion-lineal-de-vectores">Combinación Lineal de Vectores</a></li>
-<li><a href="./06%20-%20Conjunto%20de%20Generadores%20y%20Bases.html#conjunto-generador">Conjunto Generador</a></li>
-<li><a href="./06%20-%20Conjunto%20de%20Generadores%20y%20Bases.html#dimension-de-un-espacio-vectorial">Dimensión de un Espacio Vectorial</a></li>
-</ul>
-</li>
-<li><a href="./07%20-%20Bases%20y%20Coordenadas.html#bases-y-coordenadas">Bases y Coordenadas</a>
-<ul>
-<li><a href="./07%20-%20Bases%20y%20Coordenadas.html#base-canonica">Base Canónica</a></li>
-</ul>
-</li>
-<li><a href="./08%20-%20Transformaciones%20lineales.html#transformaciones-lineales">Transformaciones Lineales</a>
-<ul>
-<li><a href="./08%20-%20Transformaciones%20lineales.html#matriz-asociada-a-una-transformacion-lineal">Matriz Asociada a una Transformación Lineal</a></li>
-<li><a href="./08%20-%20Transformaciones%20lineales.html#matriz-de-cambio-de-base">Matriz de Cambio de Base</a></li>
-<li><a href="./08%20-%20Transformaciones%20lineales.html#imagen-y-nucleo-de-una-transformacion-lineal">Imagen y Núcleo de una Transformación Lineal</a></li>
-</ul>
-</li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#espacios-vectoriales-con-producto-interno">Espacios Vectoriales con Producto Interno</a>
-<ul>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#espacios-normados">Espacios Normados</a></li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#normas-en-espacios-matriciales">Normas en Espacios Matriciales</a></li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#distancia-y-angulo-en-un-espacio-vectorial-normado">Distancia y Angulo en un Espacio Vectorial Normado</a></li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#matriz-asociada-a-un-producto-interno">Matriz Asociada a un Producto Interno</a></li>
-<li><a href="./09%20-%20Espacios%20Vectoriales%20con%20Producto%20Interno.html#espacios-de-funciones">Espacios de Funciones</a></li>
-</ul>
-</li>
-<li><a href="./12%20-%20Funciones%20Periodicas.html#funciones-periodicas">Funciones Periódicas</a>
-<ul>
-<li><a href="./12%20-%20Funciones%20Periodicas.html#propiedades">Propiedades</a></li>
-<li><a href="./12%20-%20Funciones%20Periodicas.html#espacio-vectorial-de-funciones-de-periodo-t">Espacio Vectorial de Funciones de Periodo <span class="math">\(T\)</span></a></li>
-</ul>
-</li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#series-de-fourier">Series de Fourier</a>
-<ul>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#calculo-de-los-coeficientes-de-fourier">Calculo de los Coeficientes de Fourier</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#propiedades">Propiedades</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#suma-finita-de-fourier">Suma Finita de Fourier</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#fenomeno-de-gibbs">Fenómeno de Gibbs</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#variantes-de-la-serie-de-fourier">Variantes de la Serie de Fourier</a>
-<ul>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#funcion-extendida-de-manera-impar">Función Extendida de Manera Impar</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#funcion-extendida-de-manera-par">Función Extendida de Manera Par</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#desarrollo-en-amplitud-y-fase">Desarrollo en Amplitud y Fase</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#desarrollo-en-exponenciales-complejas">Desarrollo en Exponenciales Complejas</a></li>
-</ul>
-</li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#dominio-tiempo-y-dominio-de-las-frecuencias">Dominio Tiempo y Dominio de las Frecuencias</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#propiedades-de-las-series-de-fourier">Propiedades de las Series de Fourier</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#resolucion-de-ecuaciones-diferenciales-ordinarias">Resolución de Ecuaciones Diferenciales Ordinarias</a></li>
-<li><a href="./13%20-%20Series%20de%20Fourier.html#series-de-fourier-en-varias-variables">Series de Fourier en Varias Variables</a></li>
-</ul>
-</li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#ecuaciones-diferenciales">Ecuaciones Diferenciales</a>
-<ul>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#diferencias-finitas">Diferencias Finitas</a>
-<ul>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#el-grillado-del-dominio">El Grillado del Dominio</a></li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#el-metodo-de-las-diferencias-finitas">El Método de las Diferencias Finitas</a>
-<ul>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#esquemas-de-mayor-orden">Esquemas de Mayor Orden</a></li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#derivadas-de-orden-superior">Derivadas de Orden Superior</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#resolucion-de-edos">Resolución  de EDOs</a>
-<ul>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#initial-value-problem-ivp">Initial Value Problem (IVP)</a></li>
-<li><a href="./14%20-%20Ecuaciones%20Diferenciales.html#border-value-problem-bvp">Border Value Problem (BVP)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformadas-de-fourier">Transformadas de Fourier</a>
-<ul>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformada-continua-de-fourier">Transformada Continua de Fourier</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformada-inversa-de-fourier">Transformada Inversa de Fourier</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformada-discreta-de-fourier">Transformada Discreta de Fourier</a>
-<ul>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#frecuencias-presentes-en-la-senal">Frecuencias Presentes en la Señal</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#aliasing">Aliasing</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#transformada-discreta-inversa-de-fourier">Transformada Discreta Inversa de Fourier</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#computo-de-la-transformada-discreta-de-fourier">Computo de la Transformada Discreta de Fourier</a></li>
-<li><a href="./15%20-%20Transformadas%20de%20Fourier.html#espectro-en-amplitud">Espectro en Amplitud</a></li>
-</ul>
-</li>
-<li><a href="./16%20-%20PageRank.html#problemas-del-algoritmo">Problemas del algoritmo</a></li>
-<li><a href="./16%20-%20PageRank.html#optimizaciones">Optimizaciones</a></li>
-</ul>
-</li>
-</ul>
+<ol>
+<li><strong>Discretizar el dominio de interés</strong>: Tener nuestro dominio <span class="math">\(L = (b-a)\)</span> y la cantidad de puntos internos <span class="math">\(N_I\)</span> para calcular la cantidad de nodos totales <span class="math">\(N = 2+ N_I\)</span> y el tamaño del paso <span class="math">\(h=\frac{L}{N-1}\)</span></li>
+<li><strong>Elegir el esquema para representar a las derivadas</strong>: Ya sea explicito, implícito o de Crank-Nicolson.</li>
+<li><strong>Escribir la ecuación en diferencias para los nodos internos</strong></li>
+<li><strong>Escribir las ecuaciones correspondientes a las condiciones iniciales o derivadas</strong></li>
+<li><strong>Formar la matriz del problema algebraico</strong></li>
+<li><strong>Resolver con</strong> <code>linsolve</code></li>
+<li><strong>Calcular el error de la solución</strong></li>
+</ol>
+<h2 id="ecuaciones-de-segundo-orden">Ecuaciones de Segundo Orden</h2>
+<p><mark>Ni idea de esto, suerte</mark>
+Las ecuaciones de segundo orden lineales se escriben de la siguiente forma:</p>
+<div class="math">
+\[
+A u_{x_1x_1} + Bu_{x_1x_2} + Cu_{x_2x_2} +Du_{x_1} + E u_{x_2} + Fu +D = 0
+\]</div>
+<p>Dependiendo de los parámetros <span class="math">\(A,B,C,D\)</span> se puede determinar el comportamiento de la ecuación. Por ejemplo, se puede saber si la ecuación es <strong>parabólica</strong>, <strong>hiperbólica</strong> o <strong>Elíptica</strong>:</p>
+<div class="math">
+\[
+B^2-4AC = \left\{
+\array{
+&gt;0 &amp; \text{Hiperbólica} \\
+=0 &amp; \text{Parabólica}\\
+&lt; 0 &amp; \text{Elíptica}
+}\right.
+\]</div>
+<p>Si hay una variable temporal se debe especificar el estado inicial del sistema (problema IVP). Para las variables espaciales se deben especificar las condiciones de Dirichlet, Neumann o Mixtas.</p>
 
 </body>
 
