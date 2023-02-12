@@ -134,7 +134,7 @@ $$
 
 > **Definición 1.4**
 >
-> Si el determinante de una matriz cuadrada es distinto de cero, exite la **inversa** de ella y a la matriz se la denomina **inversible**. Si por el contrario es nulo, se la denomina **singular**.
+> Si el determinante de una matriz cuadrada es distinto de cero, existe la **inversa** de ella y a la matriz se la denomina **inversible**. Si por el contrario es nulo, se la denomina **singular**.
 
 > **Definición 1.5**
 >
@@ -142,10 +142,6 @@ $$
 > $$
 > \text{tr}(A) = \sum_{i=1}^n a_{ii}
 > $$
-
-==END==
-
-
 
 ## Vectores y Matrices
 
@@ -270,7 +266,7 @@ Donde el espacio vectorial $\mathbb V$ esta definido sobre el cuerpo $\mathbb K$
 
 ### Subespacios Vectoriales
 
-Se dice que un conjunto de vectores $\mathbb{W} \subseteq \mathbb {V}$ es un subespecie vectorial si:
+Se dice que un conjunto de vectores $\mathbb{W} \subseteq \mathbb {V}$ es un subespacio vectorial si:
 
 - Es un conjunto no vacío.
 - Es cerrado bajo la suma.
@@ -294,13 +290,13 @@ Donde algún $\alpha_j$ es distinto de cero. Y definiremos al conjunto como line
 
 ### Generadores y Bases
 
-Dado un conjunto de vectores $B = \{\vec u_j\}^n_1 \subset \mathbb {V}$ definimos al subespecie generado por $B: \text{Gen}(B)$ como el conjunto de todas las combinaciones lineales de los vectores de $B:$
+Dado un conjunto de vectores $B = \{\vec u_j\}^n_1 \subset \mathbb {V}$ definimos al subespacio generado por $B: \text{Gen}(B)$ como el conjunto de todas las combinaciones lineales de los vectores de $B:$
 $$
 \text{Gen}(B) = \left\{\vec v \in \mathbb {V}: \vec v = \sum_{j=1}^n \alpha_j \vec v_j; \alpha_j \in \mathbb {K}\right\}
 $$
 Se define como **rango** de un conjunto $B\subseteq \mathbb{V}$ al numero de vectores linealmente independientes que contiene $B.$ Este numero se denomina dimension del subespacio $\text{Gen}(B).$
 
-Decios que un conjunto $B$ es una base de un espacio $\mathbb V$ cuando tiene el numero máximo posible de vectores linealmente independiente.
+Decimos que un conjunto $B$ es una base de un espacio $\mathbb V$ cuando tiene el numero máximo posible de vectores linealmente independiente.
 
 Ademas, la dimension de un subespacio es la cantidad de vectores linealmente independiente que tiene un conjunto que lo genera. 
 

@@ -6,14 +6,14 @@
 > $$
 > \langle \cdot, \cdot\rangle : \mathbb{V\times V} \rarr \mathbb K
 > $$
-> Esta operación, denotada por $\langle u,v\rangle$ satisface las siguietnes propiedaes para todo $\vec u,\vec v,\vec w \in \mathbb {V}$ y todo escalar $\alpha\in \mathbb K:$
+> Esta operación, denotada por $\langle u,v\rangle$ satisface las siguientes propiedades para todo $\vec u,\vec v,\vec w \in \mathbb {V}$ y todo escalar $\alpha\in \mathbb K:$
 >
 > 1. $\langle \vec u + \vec v,\vec w\rangle = \langle \vec u,\vec w\rangle + \langle \vec v,\vec w\rangle$
 > 2. $\langle \alpha\vec u,\vec v\rangle = \alpha \langle \vec v,\vec v\rangle$
 > 3. $\langle \vec u,\vec v\rangle = \langle \vec v,\vec u\rangle^*$ donde $*$ denota el conjugado de un número complejo.
 > 4. $\langle \vec u,\vec u\rangle \in \R$ y $\langle \vec u,\vec u\rangle \ge 0$
 
-El producto vectorial entre dos vectores $v,u \in \mathbb{K}^n$ se define como:
+El producto interno entre dos vectores $v,u \in \mathbb{K}^n$ se define como:
 $$
 \langle u,v \rangle = \sum_{i=0}^n u_iv_i
 $$

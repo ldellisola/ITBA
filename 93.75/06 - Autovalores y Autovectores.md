@@ -69,7 +69,7 @@ La generación de la matriz $S$ es simple, hay que tomar los autovectores de la 
 ### Propiedades Asociadas a los Autovalores y Autovectores de una Matriz
 
 1. Si $(\lambda,\vec v)$ son un autopar de una matriz $A,$ entonces $(\lambda,\alpha\vec v), \alpha \neq 0$ también lo es.
-2. Si $A$ es una matriz cuadrada $\tr(A) = \sum_{i=1}^n\lambda_i$ y $\det(A) = \prod_{i=1}^n\lambda_i.$
+2. Si $A$ es una matriz cuadrada $\text{tr}(A) = \sum_{i=1}^n\lambda_i$ y $\det(A) = \prod_{i=1}^n\lambda_i.$
 3. Si $\lambda$ es autovalor de $A,$ también lo es de su transpuesta.
 4. Si $\lambda$ es un autovalor de $A,$ $\lambda^-1$ es el autovalor de su inversa.
 5. Si $\lambda$ es el autovalor de $A,$ $\lambda-\alpha$ lo es de $A - \alpha \mathbb I.$

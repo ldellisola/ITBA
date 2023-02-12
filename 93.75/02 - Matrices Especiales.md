@@ -1,6 +1,6 @@
 # Matrices Especiales
 
-A continuación se detallan algunas matrices con propiedaes especiales que las hacen diferentes a los numeros y se explicaran algunas estructuras utiles para el resto de la materia.
+A continuación se detallan algunas matrices con propiedades especiales que las hacen diferentes a los números y se explicaran algunas estructuras utiles para el resto de la materia.
 
 ## Matrices Nilpotentes, Involutivas e Idempotentes
 
@@ -17,7 +17,7 @@ $$
 
 > **Definición 1.7**
 >
-> Una matriz cuadrada, de orden $n,$ se denomina **involutiva** si es igal a su inversa.
+> Una matriz cuadrada, de orden $n,$ se denomina **involutiva** si es igual a su inversa.
 > $$
 > A^2 = \mathbb{I}_n
 > $$

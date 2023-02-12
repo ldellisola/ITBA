@@ -127,7 +127,7 @@ En un caso general debemos comenzar por determinar que tipo de sistema tenemos. 
 
 1. Calculamos el rango de la matriz, y el de la ampliada. Si estos coinciden, entonces el sistema es compatible determinado.
 2. Si la matriz es cuadrada, la solución sera única y puede obtenerse por eliminación gaussiana.
-3. Si no es cuadrada, tendremos que vuscar una solución particular y una del sistema homogéneo. La suma sera la solución del sistema.
+3. Si no es cuadrada, tendremos que Buscar una solución particular y una del sistema homogéneo. La suma sera la solución del sistema.
 
 ## Sistemas Cuya Matriz es Triangular
 
@@ -137,7 +137,7 @@ Definamos el sistema a resolver:
 $$
 M \vec x = \vec b
 $$
-donde $M$ es una matriz triangular inferior de tamaño $n\times n$. En ests caso vamos a aplicar el método de **sustitución progresiva**. 
+donde $M$ es una matriz triangular inferior de tamaño $n\times n$. En estos caso vamos a aplicar el método de **sustitución progresiva**. 
 
 Si el sistema es determinado, ninguno de los elementos de la diagonal principal de $M$ es 0, por lo que podemos utilizar el siguiente procedimiento:
 $$

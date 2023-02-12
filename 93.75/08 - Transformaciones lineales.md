@@ -1,6 +1,6 @@
 # Transformaciones Lineales
 
-En el marco del algebra lineal, las funciones se llaman **transformaciones**  y vamos a estudair un subconjunto llamado transformaciones lineales. Una transformacion lineal es una función cuyo dominio es $\mathbb V$ y su imagen es $\mathbb W:$
+En el marco del algebra lineal, las funciones se llaman **transformaciones**  y vamos a estudiar un subconjunto llamado transformaciones lineales. Una transformación lineal es una función cuyo dominio es $\mathbb V$ y su imagen es $\mathbb W:$
 $$
 T: \mathbb V \rarr \mathbb W
 $$
@@ -55,7 +55,7 @@ Veremos que existe una matriz $T_{BB'}$ tal que:
 $$
 T_{BB'}\vec v_B = \vec w_{B'}
 $$
-Para obtener esta matrix vamos a utilizar a la base del dominio $B.$ Sean $\vec u_i \in B$ entonces la matriz se define como:
+Para obtener esta matriz vamos a utilizar a la base del dominio $B.$ Sean $\vec u_i \in B$ entonces la matriz se define como:
 $$
 T_{BB'} = (T(\vec u_1);T(\vec u_2),\dots,T(\vec u_n))
 $$
@@ -114,7 +114,7 @@ $$
 \left(\array{ 0 \\ 1}\right) = b \left(\array{ 1 \\ 0}\right) + d \left(\array{ 1 \\ 1}\right)
 }
 $$
-## Imagen y Nucleo de una Transformación Lineal
+## Imagen y Núcleo de una Transformación Lineal
 
 Existen tres subespacios fundamentales asociados a una matriz $A\in \mathbb K^{m\times n}:$
 
@@ -135,18 +135,18 @@ Si $\dim(row(A))=n$ entonces el espacio nulo solo va a contener al vector $\vec 
 
 > **Proposición 3.1.2**
 >
-> Sean $\mathbb{V,W}$ dos espacios vectoriales de $\mathbb K,$ sea $\mathbb{V}$ de dimensión finita y $T:\mathbb {V\rarr W}$ una transformación lineal cuya matrizx asociada es $A\in \R^{m\times n}$ entonces:
+> Sean $\mathbb{V,W}$ dos espacios vectoriales de $\mathbb K,$ sea $\mathbb{V}$ de dimensión finita y $T:\mathbb {V\rarr W}$ una transformación lineal cuya matriz asociada es $A\in \R^{m\times n}$ entonces:
 > $$
  \array{
  \dim(\mathbb{V}) = \dim(\text{nul}(A)) + \dim(\text{col}(A)) & \dim(\text{col}(A)) \le \dim(\mathbb{W})
  }
   $$
 
-El **nucleo de una transformación lineal** se obtiene a partir del espacio nulo:
+El **núcleo de una transformación lineal** se obtiene a partir del espacio nulo:
 $$
 \text{nucleo(T)} = \text{gen}(\text{nul}(A))
 $$
-Por ejemplo, si $A$ es la matrix asociada a la transformación, podemos obtener el nucleo de la siguiente forma:
+Por ejemplo, si $A$ es la matriz asociada a la transformación, podemos obtener el núcleo de la siguiente forma:
 $$
 \array{
 \text{nucleo}(T) = \{ \forall X /  A \times X = \mathbb{0}\}

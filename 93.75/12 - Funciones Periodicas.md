@@ -14,9 +14,7 @@ $$
 > \exists T \gt 0 /\forall t: f(t+T) = f(t)
 > $$
 
-
-
-Donde $T$ se denomina el **periodo** de la función, donde ademas se define el **periodo fundamental** como el menor $T_0$ que comple con:
+Donde $T$ se denomina el **periodo** de la función, donde ademas se define el **periodo fundamental** como el menor $T_0$ que cumple con:
 $$
 f(t+T_0) = f(t)
 $$
@@ -78,4 +76,4 @@ Y vamos a utilizar el producto interno:
 $$
 <f,g>= \int_0^T f(t) \times g(t)^* dt
 $$
-Donde $ ^*$ indica la operación conjugado.
+Donde $^*$ indica la operación conjugado.

@@ -27,7 +27,7 @@ A las cantidades $x_j,t_k$ se las denomina coordenadas físicas del nodo, mientr
 
 ### El Método de las Diferencias Finitas
 
-La approximation buscada se logra mediante la utilización del desarrollo en serie de Taylor de una función. A partir de ahora vamos a asumir que la función a estudiar $u$ tiene una sola variable independiente llamada $x.$
+La aproximación buscada se logra mediante la utilización del desarrollo en serie de Taylor de una función. A partir de ahora vamos a asumir que la función a estudiar $u$ tiene una sola variable independiente llamada $x.$
 
 Data una función $C^\infty$ y un punto cualquiera $x_0$ de su dominio, entonces:
 $$

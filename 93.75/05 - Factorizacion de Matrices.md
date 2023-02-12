@@ -144,7 +144,7 @@ endfunction
 
 ## Factorización $QR$ por el Método de Gram-Schmidt
 
-La factorización $QR$ consiste en escribir a $A$ como el producto de una matriz ortogonal $Q$ junto a una matriz $R$ escalonada:
+La factorización $QR$ consiste en escribir a $A$ como el producto de una matriz ortonormal $Q$ junto a una matriz $R$ escalonada:
 $$
 A = QR
 $$

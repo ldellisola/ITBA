@@ -1473,20 +1473,20 @@ Hv = \lambda v
 \]</div>
 <p><strong>Entonces, si conseguimos el autovector asociado con el autovalor <span class="math">\(\lambda = 1\)</span> podemos obtener el vector de los rankings de forma mucho más rápida</strong>.</p>
 <h2 id="problemas-del-algoritmo">Problemas del algoritmo</h2>
-<p>El algoritmo basico se puede aplicar siempre que se cumplan dos condiciones:</p>
+<p>El algoritmo básico se puede aplicar siempre que se cumplan dos condiciones:</p>
 <ul>
-<li>No puede haber <strong>dead ends</strong>. Esto implica que no puede haber un nodo con entradas y sin salidas. Este caso es facil de ver ya que en la matriz de hiperlinks vamos a ver una columna cuyos elementos no suman 1. Si existen dead ends, entonces no se puede aplicar el teorema de Perrone-Frobenius y no se puede garantizar que <span class="math">\(1\)</span> sea un autovalor.</li>
+<li>No puede haber <strong>dead ends</strong>. Esto implica que no puede haber un nodo con entradas y sin salidas. Este caso es fácil de ver ya que en la matriz de hiperlinks vamos a ver una columna cuyos elementos no suman 1. Si existen dead ends, entonces no se puede aplicar el teorema de Perrone-Frobenius y no se puede garantizar que <span class="math">\(1\)</span> sea un autovalor.</li>
 <li>No puede haber <strong>spider traps</strong>. Esto implica que hay al menos un nodo que tiene entradas y una  sola salida, que apunta al mismo nodo. Este caso es similar al anterior, pero se cumple el teorema de Perrone-Frobenius. El problema es que el crawler siempre se va a quedar atrapado en ese nodo y no va a poder seguir escaneando la red.</li>
 </ul>
 <h2 id="optimizaciones">Optimizaciones</h2>
 <p>En el caso de encontrarse en una situación donde hay spider traps, podemos ajustar el algoritmo para que el crawler pueda teletransportarse a otro nodo con cierta probabilidad.</p>
-<p>El <strong>método de teletransportación</strong> nos dice que podemos modificar a la matriz de hiper vinculos de la siguiente manera:</p>
+<p>El <strong>método de teletransportación</strong> nos dice que podemos modificar a la matriz de hiper vínculos de la siguiente manera:</p>
 <div class="math">
 \[
 \mathbb{H} = \beta H + \text{ones(N,N)}\times\frac{1-\beta}{N} 
 \]</div>
 <p>Donde <span class="math">\(\beta \in (0,1)\)</span> es un factor de amortiguamiento, <span class="math">\(\text{ones(a,b)}\)</span> es una función que genera una matriz que contiene $1$s de dimensión <span class="math">\(a\times b\)</span> y <span class="math">\(N\)</span> es la cantidad total de nodos de la red.</p>
-<p>Si nos encontramos con dead ends en nuestra red, podemos mitigar sus efectos reemplazando los valores de la columna del nodo que genera el dead end por <span class="math">\(\frac 1 N\)</span> y luego aplicar el metodo de teletransportación. El calculo termina de la siguiente forma:</p>
+<p>Si nos encontramos con dead ends en nuestra red, podemos mitigar sus efectos reemplazando los valores de la columna del nodo que genera el dead end por <span class="math">\(\frac 1 N\)</span> y luego aplicar el método de teletransportación. El calculo termina de la siguiente forma:</p>
 <div class="math">
 \[
 \mathbb{H} = \beta H + \frac \beta N \text{ones(N,N)} \times e_l'+ \text{ones(N,N)}\times\frac{1-\beta}{N} 

@@ -44,20 +44,20 @@ $$
 **Entonces, si conseguimos el autovector asociado con el autovalor $\lambda = 1$ podemos obtener el vector de los rankings de forma mucho más rápida**.
 
 ## Problemas del algoritmo
-El algoritmo basico se puede aplicar siempre que se cumplan dos condiciones:
-- No puede haber **dead ends**. Esto implica que no puede haber un nodo con entradas y sin salidas. Este caso es facil de ver ya que en la matriz de hiperlinks vamos a ver una columna cuyos elementos no suman 1. Si existen dead ends, entonces no se puede aplicar el teorema de Perrone-Frobenius y no se puede garantizar que $1$ sea un autovalor.
+El algoritmo básico se puede aplicar siempre que se cumplan dos condiciones:
+- No puede haber **dead ends**. Esto implica que no puede haber un nodo con entradas y sin salidas. Este caso es fácil de ver ya que en la matriz de hiperlinks vamos a ver una columna cuyos elementos no suman 1. Si existen dead ends, entonces no se puede aplicar el teorema de Perrone-Frobenius y no se puede garantizar que $1$ sea un autovalor.
 - No puede haber **spider traps**. Esto implica que hay al menos un nodo que tiene entradas y una  sola salida, que apunta al mismo nodo. Este caso es similar al anterior, pero se cumple el teorema de Perrone-Frobenius. El problema es que el crawler siempre se va a quedar atrapado en ese nodo y no va a poder seguir escaneando la red.
 
 ## Optimizaciones
 En el caso de encontrarse en una situación donde hay spider traps, podemos ajustar el algoritmo para que el crawler pueda teletransportarse a otro nodo con cierta probabilidad.
 
-El **método de teletransportación** nos dice que podemos modificar a la matriz de hiper vinculos de la siguiente manera:
+El **método de teletransportación** nos dice que podemos modificar a la matriz de hiper vínculos de la siguiente manera:
 $$
 \mathbb{H} = \beta H + \text{ones(N,N)}\times\frac{1-\beta}{N} 
 $$
 Donde $\beta \in (0,1)$ es un factor de amortiguamiento, $\text{ones(a,b)}$ es una función que genera una matriz que contiene $1$s de dimensión $a\times b$ y $N$ es la cantidad total de nodos de la red.
 
-Si nos encontramos con dead ends en nuestra red, podemos mitigar sus efectos reemplazando los valores de la columna del nodo que genera el dead end por $\frac 1 N$ y luego aplicar el metodo de teletransportación. El calculo termina de la siguiente forma:
+Si nos encontramos con dead ends en nuestra red, podemos mitigar sus efectos reemplazando los valores de la columna del nodo que genera el dead end por $\frac 1 N$ y luego aplicar el método de teletransportación. El calculo termina de la siguiente forma:
 $$
 \mathbb{H} = \beta H + \frac \beta N \text{ones(N,N)} \times e_l'+ \text{ones(N,N)}\times\frac{1-\beta}{N} 
 $$

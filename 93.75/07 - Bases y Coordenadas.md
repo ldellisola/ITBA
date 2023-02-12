@@ -14,7 +14,7 @@ Donde el subindice indica en que base se representa la base en la que se va a re
 
 > **Definición 2.8**
 >
-> Llamamos **coordenadas** de un vector , respecto de una base $B$ a los escalares que son coeficientes de la combinación lineal que lo representa. El vector $\vec u$ se escribe como una combinación lineal de los elementos de la base y se los representa mediatne sus coordenadas en la base $B:$
+> Llamamos **coordenadas** de un vector , respecto de una base $B$ a los escalares que son coeficientes de la combinación lineal que lo representa. El vector $\vec u$ se escribe como una combinación lineal de los elementos de la base y se los representa mediante sus coordenadas en la base $B:$
 > $$
 > \vec u \equiv (\alpha_1;\alpha_2;\dots;\alpha_n)'_B
 > $$
@@ -23,8 +23,7 @@ Para saber si un vector $\vec u$ pertenece o no a un subespacio $\mathbb V$ pode
 $$
 \vec u \in \mathbb V \iff \exists\alpha_j: \vec u = \sum_{j=1}^n \alpha_j \vec v_j
 $$
-
- ## Base Canónica
+## Base Canónica
 
 Dado un espacio de dimensión finita $\mathbb V$ hay una base de uso generalizado llamada canónica que se simboliza con la letra $E:$
 $$

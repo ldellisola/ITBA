@@ -1,6 +1,6 @@
 # Conjunto de Generadores y Bases
 
-Los espacios vectoriales se pueden definir como una combinación lineal de cierto número de vectores. El conjunto de vectores que se utiliza se denominara **conjunto generador** del espacio y aquel que tenga el número minimo de vectores para generarlo se llama **base**.
+Los espacios vectoriales se pueden definir como una combinación lineal de cierto número de vectores. El conjunto de vectores que se utiliza se denominara **conjunto generador** del espacio y aquel que tenga el número mínimo de vectores para generarlo se llama **base**.
 
 ## Combinación Lineal de Vectores
 
