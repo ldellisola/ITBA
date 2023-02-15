@@ -1439,6 +1439,58 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0,greedy:!0}
 <li>Matriz <strong>Involutiva</strong>: <span class="math">\(A \in \mathbb{K}^{n\times n} : A^2 = I_n\)</span></li>
 <li>Matriz <strong>Idempotente</strong>: <span class="math">\(A \in \mathbb{K}^{n\times n} : A^2 = A\)</span></li>
 </ul>
+<h2 id="determinante">Determinante</h2>
+<ol>
+<li>Si <span class="math">\((\lambda,\vec v)\)</span> son un autopar de una matriz <span class="math">\(A,\)</span> entonces <span class="math">\((\lambda,\alpha\vec v), \alpha \neq 0\)</span> también lo es.</li>
+<li>Si <span class="math">\(A\)</span> es una matriz cuadrada <span class="math">\(\text{tr}(A) = \sum_{i=1}^n\lambda_i\)</span> y <span class="math">\(\det(A) = \prod_{i=1}^n\lambda_i.\)</span></li>
+<li>Si <span class="math">\(\lambda\)</span> es autovalor de <span class="math">\(A,\)</span> también lo es de su transpuesta.</li>
+<li>Si <span class="math">\(\lambda\)</span> es un autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda^-1\)</span> es el autovalor de su inversa.</li>
+<li>Si <span class="math">\(\lambda\)</span> es el autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda-\alpha\)</span> lo es de <span class="math">\(A - \alpha \mathbb I.\)</span></li>
+<li>Si <span class="math">\(\lambda\)</span> es el autovalor de <span class="math">\(A,\)</span> <span class="math">\(\lambda^k\)</span> lo es de <span class="math">\(A^k.\)</span></li>
+<li>Si <span class="math">\(A\)</span> es una matriz real, es diagonalizable si tiene <span class="math">\(n\)</span> autovalores distintos.</li>
+<li>Si <span class="math">\(A\)</span> tiene todos sus autovalores con multiplicidad algebraica 1 es diagonalizable.</li>
+<li>Si una matriz es triangular superior (o inferior) su determinante es el producto de los elementos de su diagonal y sus autovalores son los elementos de esta diagonal.</li>
+</ol>
+<h3 id="calculo-de-determinantes">Calculo de Determinantes</h3>
+<h4 id="mediante-plu">Mediante PLU</h4>
+<p>Sea <span class="math">\(A\)</span> una matriz que se puede factorizar mediante PLU:</p>
+<div class="math">
+\[
+\array{
+PA = LU \\
+A = P'LU
+}
+\]</div>
+<p>Podemos obtener su determinante de la siguiente forma:</p>
+<div class="math">
+\[
+\array{
+\det(A) &amp;=&amp; \det(P')\det(L)\det(U)\\
+&amp; = &amp; \det(P)\det(L)\det(U)\\
+&amp;=&amp; \det(P)\det(U) \\
+&amp;=&amp; \det(P) * \prod_i^n U[i,i]
+}
+\]</div>
+<p>Por que <span class="math">\(\det(L) = \prod_i^n L[i,i] = \prod_i^n 1 = 1\)</span></p>
+<h4 id="mediante-qr">Mediante QR</h4>
+<p>Sea <span class="math">\(A = QR\)</span> podemos obtener su determinante de la siguiente forma:</p>
+<div class="math">
+\[
+\array{
+\det(A) &amp; = &amp; \det(Q)\det(R)\\
+&amp;=&amp; (-1)^{n-1} \prod_{i=1}^n R[i,i]
+}
+\]</div>
+<h4 id="mediante-svd">Mediante SVD</h4>
+<p>Sea <span class="math">\(A = USV'\)</span> podemos obtener su determinante de la siguiente forma:</p>
+<div class="math">
+\[
+\array{
+\det(A) &amp; = &amp; \det(U)\det(S)\det(V)\\
+&amp;=&amp;(\pm1) \prod_i^nS[i,i](\pm1)\\
+&amp;=&amp; \pm \prod_i^nS[i,i]
+}
+\]</div>
 <h2 id="matriz-invertible">Matriz Invertible</h2>
 <p>Si se tiene <span class="math">\(A \in \mathbb{R}^{m\times n},\)</span> se puede asegurar que <span class="math">\(\exists A^{-1}\)</span> si se cumple con alguna de estos items:</p>
 <ul>
@@ -1797,7 +1849,8 @@ U_n = A^nU_0
 \[
 A^\infty = S D^\infty S^{-1}
 \]</div>
-<p>Y los valores en la diagonal nos van a dar las distribuciones estabilizadas.</p>
+<p>Y los valores en la diagonal nos van a dar las distribuciones estabilizadas.
+Otra forma de hacer esto es verificando que la matriz <span class="math">\(A\)</span> cumple con el teorema de Perrone-Frobenius, es decir, que la suma de cada columna sea 1, entonces sabemos que <span class="math">\(\lambda = 1\)</span> tenemos un autovalor asociado. Las distribuciones estabilizadas están representadas en este autovector normalizado en norma 1.</p>
 <h1 id="autovalores-y-autovectores">Autovalores y Autovectores</h1>
 <p>Sea <span class="math">\(A \in \mathbb{K}^{n\times n}, \vec x \neq \vec 0 \in \mathbb{K}^n,\lambda \in \mathbb{K}\)</span> tal que se cumple:</p>
 <div class="math">
@@ -1837,29 +1890,31 @@ Los autovalores son todos los <span class="math">\(\lambda\)</span> tal que:</p>
 </ol>
 <h2 id="metodo-de-las-potencias">Método de las Potencias</h2>
 <p>Este método nos permite calcular de manera iterativa el autovector y autovalor dominante de una matriz.
-Sea <span class="math">\(\vec v_0\)</span> una seed:</p>
+Sea <span class="math">\(\vec v_0\)</span> una seed <strong>normalizada</strong>:</p>
 <div class="math">
 \[
 \array{
- \hat v_i = \frac{ \vec v_i }{ ||\vec v_i|| } \\
+
  \vec v_{i+1} = A \hat v_i\\
- \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle
+ \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle\\
+ \hat v_{i+1} = \frac{ \vec v_{i+1} }{ ||\vec v_{i+1}|| } \\
  
 }
 \]</div>
-<p>Este proceso se repite hasta que <span class="math">\(|A\hat v_k - \lambda_k \hat v_k| &lt; \text{tol}\)</span></p>
+<p>Este proceso se repite hasta que <span class="math">\(|A\hat v_k - \lambda_k \hat v_k| &lt; \text{tol}.\)</span> <span class="math">\(\lambda_{i+1}\)</span> es el autovalor y <span class="math">\(\hat v_{i+1}\)</span> es su autovector asociado.</p>
 <h2 id="metodo-de-las-potencias-inverso">Método de las Potencias Inverso</h2>
 <p>Este método nos permite calcular de manera iterativa el autovalor de menor modulo y su autovector.
-Sea <span class="math">\(A \in \mathbb{K}^{n\times n}\)</span> una matriz inversible y <span class="math">\(v_0\)</span> una seed:</p>
+Sea <span class="math">\(A \in \mathbb{K}^{n\times n}\)</span> una matriz inversible y <span class="math">\(v_0\)</span> una seed <strong>normalizada</strong>:</p>
 <div class="math">
 \[
 \array{
- \hat v_i = \frac{ \vec v_i }{ ||\vec v_i|| } \\
+
  \vec v_{i+1} = A^{-1} \hat v_i\\
- \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle
+ \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle\\
+ \hat v_{i+1} = \frac{ \vec v_{i+1} }{ ||\vec v_{i+1}|| } \\
 }
 \]</div>
-<p>Este proceso se repite hasta que <span class="math">\(|A^{-1}\hat v_k - \lambda_k \hat v_k| &lt; \text{tol}\)</span>
+<p>Este proceso se repite hasta que <span class="math">\(|A^{-1}\hat v_k - \lambda_k \hat v_k| &lt; \text{tol}.\)</span>  <span class="math">\(\lambda_{i+1}^{-1}\)</span> es el autovalor y <span class="math">\(\hat v_{i+1}\)</span> es su autovector asociado.
 Este método funciona asumiendo que el autovalor de menor modulo de <span class="math">\(A\)</span> es a su vez el autovalor de mayor modulo de <span class="math">\(A^{-1}.\)</span></p>
 <h2 id="metodo-qr">Método QR</h2>
 <p>Sea <span class="math">\(A \in \mathbb{K}^{n\times n}\)</span> definimos a <span class="math">\(A_0 = A.\)</span> Cada iteración tiene la siguiente forma:</p>

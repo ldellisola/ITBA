@@ -13,6 +13,53 @@ Existen distintos tipos de matrices:
 - Matriz **Involutiva**: $A \in \mathbb{K}^{n\times n} : A^2 = I_n$
 - Matriz **Idempotente**: $A \in \mathbb{K}^{n\times n} : A^2 = A$
 
+## Determinante
+1. Si $(\lambda,\vec v)$ son un autopar de una matriz $A,$ entonces $(\lambda,\alpha\vec v), \alpha \neq 0$ también lo es.
+2. Si $A$ es una matriz cuadrada $\text{tr}(A) = \sum_{i=1}^n\lambda_i$ y $\det(A) = \prod_{i=1}^n\lambda_i.$
+3. Si $\lambda$ es autovalor de $A,$ también lo es de su transpuesta.
+4. Si $\lambda$ es un autovalor de $A,$ $\lambda^-1$ es el autovalor de su inversa.
+5. Si $\lambda$ es el autovalor de $A,$ $\lambda-\alpha$ lo es de $A - \alpha \mathbb I.$
+6. Si $\lambda$ es el autovalor de $A,$ $\lambda^k$ lo es de $A^k.$
+7. Si $A$ es una matriz real, es diagonalizable si tiene $n$ autovalores distintos.
+8. Si $A$ tiene todos sus autovalores con multiplicidad algebraica 1 es diagonalizable.
+9. Si una matriz es triangular superior (o inferior) su determinante es el producto de los elementos de su diagonal y sus autovalores son los elementos de esta diagonal.
+### Calculo de Determinantes
+#### Mediante PLU
+Sea $A$ una matriz que se puede factorizar mediante PLU:
+$$
+\array{
+PA = LU \\
+A = P'LU
+}
+$$
+Podemos obtener su determinante de la siguiente forma:
+$$
+\array{
+\det(A) &=& \det(P')\det(L)\det(U)\\
+& = & \det(P)\det(L)\det(U)\\
+&=& \det(P)\det(U) \\
+&=& \det(P) * \prod_i^n U[i,i]
+}
+$$
+Por que $\det(L) = \prod_i^n L[i,i] = \prod_i^n 1 = 1$  
+
+#### Mediante QR
+Sea $A = QR$ podemos obtener su determinante de la siguiente forma:
+$$
+\array{
+\det(A) & = & \det(Q)\det(R)\\
+&=& (-1)^{n-1} \prod_{i=1}^n R[i,i]
+}
+$$
+#### Mediante SVD
+Sea $A = USV'$ podemos obtener su determinante de la siguiente forma:
+$$
+\array{
+\det(A) & = & \det(U)\det(S)\det(V)\\
+&=&(\pm1) \prod_i^nS[i,i](\pm1)\\
+&=& \pm \prod_i^nS[i,i]
+}
+$$
 ## Matriz Invertible
 Si se tiene $A \in \mathbb{R}^{m\times n},$ se puede asegurar que $\exists A^{-1}$ si se cumple con alguna de estos items:
 - $m = n \land \det(A) \gt 0$
@@ -307,6 +354,7 @@ $$
 A^\infty = S D^\infty S^{-1}
 $$
 Y los valores en la diagonal nos van a dar las distribuciones estabilizadas.
+Otra forma de hacer esto es verificando que la matriz $A$ cumple con el teorema de Perrone-Frobenius, es decir, que la suma de cada columna sea 1, entonces sabemos que $\lambda = 1$ tenemos un autovalor asociado. Las distribuciones estabilizadas están representadas en este autovector normalizado en norma 1.
 
 # Autovalores y Autovectores
 Sea $A \in \mathbb{K}^{n\times n}, \vec x \neq \vec 0 \in \mathbb{K}^n,\lambda \in \mathbb{K}$ tal que se cumple:
@@ -340,28 +388,30 @@ Se llama **autovalor dominante** si cumple con:
 
 ## Método de las Potencias
 Este método nos permite calcular de manera iterativa el autovector y autovalor dominante de una matriz.
-Sea $\vec v_0$ una seed:
+Sea $\vec v_0$ una seed **normalizada**:
 $$
 \array{
- \hat v_i = \frac{ \vec v_i }{ ||\vec v_i|| } \\
+
  \vec v_{i+1} = A \hat v_i\\
- \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle
+ \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle\\
+ \hat v_{i+1} = \frac{ \vec v_{i+1} }{ ||\vec v_{i+1}|| } \\
  
 }
 $$
-Este proceso se repite hasta que $|A\hat v_k - \lambda_k \hat v_k| < \text{tol}$ 
+Este proceso se repite hasta que $|A\hat v_k - \lambda_k \hat v_k| < \text{tol}.$ $\lambda_{i+1}$ es el autovalor y $\hat v_{i+1}$ es su autovector asociado.
 
 ## Método de las Potencias Inverso
 Este método nos permite calcular de manera iterativa el autovalor de menor modulo y su autovector.
-Sea $A \in \mathbb{K}^{n\times n}$ una matriz inversible y $v_0$ una seed:
+Sea $A \in \mathbb{K}^{n\times n}$ una matriz inversible y $v_0$ una seed **normalizada**:
 $$
 \array{
- \hat v_i = \frac{ \vec v_i }{ ||\vec v_i|| } \\
+
  \vec v_{i+1} = A^{-1} \hat v_i\\
- \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle
+ \lambda_{i+1} = \langle \vec v_{i+1},\hat v_{i}\rangle\\
+ \hat v_{i+1} = \frac{ \vec v_{i+1} }{ ||\vec v_{i+1}|| } \\
 }
 $$
-Este proceso se repite hasta que $|A^{-1}\hat v_k - \lambda_k \hat v_k| < \text{tol}$ 
+Este proceso se repite hasta que $|A^{-1}\hat v_k - \lambda_k \hat v_k| < \text{tol}.$  $\lambda_{i+1}^{-1}$ es el autovalor y $\hat v_{i+1}$ es su autovector asociado.
 Este método funciona asumiendo que el autovalor de menor modulo de $A$ es a su vez el autovalor de mayor modulo de $A^{-1}.$
 
 ## Método QR
